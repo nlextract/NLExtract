@@ -1,0 +1,18 @@
+Nederlandse overheidsinstellingen zoals Het Kadaster en Rijkswaterstaat stellen
+hun (geo) data meer en meer beschikbaar als Open Data. De gegevens en bestands formaten waarin deze datasets 
+worden aangeleverd zijn meestal niet direct bruikbaar in toepassingen. Denk aan GML, 
+CSV en zelfs MS Access database formaten. Ook is het vaakt handig om data te combineren
+en/of af te leiden uit verschillende sets. Een voorbeeld is het verrijken van BAG
+data met gemeente en provincie grenzen.
+
+NLExtract levert tools en recepten om Nederlandse geodata sets te converteren en te ontsluiten.
+Het gehele traject van brondata conversie tot visualisatie wordt afgedekt. Er wordt zoveel
+mogelijk gebruik gemaakt van bestaande Open Source Geo tools zoals GDAL/OGR (www.gdal.org).
+Bij voorkeur wordt vector data geconverteerd naar PostGIS en rasterdata naar GeoTIFF.
+
+De eerste 3 datasets die gedaan zullen worden zijn BAG, Top10NL en NWB.
+
+Meer volgt...
+
+
+
