@@ -1,0 +1,570 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Created by GO Publisher Agent 1.4-beta-3-SNAPSHOT Build 14925 from 2008-12-19 13:21--><!--Snowflake Software Ltd. (http://www.snowflakesoftware.co.uk)-->
+<xb:BAG-Extract-Deelbestand-LVC xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                xmlns:bag_LVC="http://www.kadaster.nl/schemas/imbag/lvc/v20090901"
+                                xmlns:xb="http://www.kadaster.nl/schemas/bag-verstrekkingen/extract-deelbestand-lvc/v20090901"
+                                xmlns:bagtype="http://www.kadaster.nl/schemas/imbag/imbag-types/v20090901"
+                                xmlns:nen5825="http://www.kadaster.nl/schemas/imbag/nen5825/v20090901"
+                                xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                                xmlns:selecties-extract="http://www.kadaster.nl/schemas/bag-verstrekkingen/extract-selecties/v20090901"
+                                xmlns:gml="http://www.opengis.net/gml"
+                                xmlns:product_LVC="http://www.kadaster.nl/schemas/bag-verstrekkingen/extract-producten-lvc/v20090901"
+                                xsi:schemaLocation="http://www.kadaster.nl/schemas/bag-verstrekkingen/extract-deelbestand-lvc/v20090901 http://www.kadaster.nl/schemas/bag-verstrekkingen/extract-deelbestand-lvc/v20090901/BagvsExtractDeelbestandExtractLvc-1.4.xsd">
+    <xb:antwoord>
+        <xb:vraag>
+            <selecties-extract:Gebied-Registratief>
+                <selecties-extract:Gebied-NLD>
+                    <selecties-extract:GebiedIdentificatie>9999</selecties-extract:GebiedIdentificatie>
+                    <selecties-extract:GebiedNaam>Nederland</selecties-extract:GebiedNaam>
+                    <selecties-extract:gebiedTypeNederland>1</selecties-extract:gebiedTypeNederland>
+                </selecties-extract:Gebied-NLD>
+            </selecties-extract:Gebied-Registratief>
+            <selecties-extract:StandTechnischeDatum>20111001</selecties-extract:StandTechnischeDatum>
+            <selecties-extract:StandPeildatum>20111001</selecties-extract:StandPeildatum>
+        </xb:vraag>
+        <xb:producten>
+            <product_LVC:LVC-product>
+                <product_LVC:productcode>DNLDPXEE02</product_LVC:productcode>
+                <bag_LVC:Standplaats>
+                    <bag_LVC:gerelateerdeAdressen>
+                        <bag_LVC:hoofdadres>
+                            <bag_LVC:identificatie>0010200000109848</bag_LVC:identificatie>
+                        </bag_LVC:hoofdadres>
+                    </bag_LVC:gerelateerdeAdressen>
+                    <bag_LVC:identificatie>0010030000100100</bag_LVC:identificatie>
+                    <bag_LVC:aanduidingRecordInactief>N</bag_LVC:aanduidingRecordInactief>
+                    <bag_LVC:aanduidingRecordCorrectie>0</bag_LVC:aanduidingRecordCorrectie>
+                    <bag_LVC:officieel>N</bag_LVC:officieel>
+                    <bag_LVC:standplaatsStatus>Plaats aangewezen</bag_LVC:standplaatsStatus>
+                    <bag_LVC:standplaatsGeometrie>
+                        <gml:Polygon srsName="urn:ogc:def:crs:EPSG::28992">
+                            <gml:exterior>
+                                <gml:LinearRing>
+                                    <gml:posList srsDimension="3" count="7">257935.423 593810.276 0.0 257938.869
+                                        593811.374 0.0 257947.539 593817.759 0.0 257943.975 593830.634 0.0 257939.397
+                                        593830.314 0.0 257932.112 593829.8 0.0 257935.423 593810.276 0.0
+                                    </gml:posList>
+                                </gml:LinearRing>
+                            </gml:exterior>
+                        </gml:Polygon>
+                    </bag_LVC:standplaatsGeometrie>
+                    <bag_LVC:tijdvakgeldigheid>
+                        <bagtype:begindatumTijdvakGeldigheid>2010071300000000</bagtype:begindatumTijdvakGeldigheid>
+                    </bag_LVC:tijdvakgeldigheid>
+                    <bag_LVC:inOnderzoek>N</bag_LVC:inOnderzoek>
+                    <bag_LVC:bron>
+                        <bagtype:documentdatum>20100713</bagtype:documentdatum>
+                        <bagtype:documentnummer>2010/STP001</bagtype:documentnummer>
+                    </bag_LVC:bron>
+                </bag_LVC:Standplaats>
+
+                <bag_LVC:Standplaats>
+                    <bag_LVC:gerelateerdeAdressen>
+                        <bag_LVC:hoofdadres>
+                            <bag_LVC:identificatie>1916200000040493</bag_LVC:identificatie>
+                        </bag_LVC:hoofdadres>
+                    </bag_LVC:gerelateerdeAdressen>
+                    <bag_LVC:identificatie>1916030000041810</bag_LVC:identificatie>
+                    <bag_LVC:aanduidingRecordInactief>N</bag_LVC:aanduidingRecordInactief>
+                    <bag_LVC:aanduidingRecordCorrectie>0</bag_LVC:aanduidingRecordCorrectie>
+                    <bag_LVC:officieel>N</bag_LVC:officieel>
+                    <bag_LVC:standplaatsStatus>Plaats aangewezen</bag_LVC:standplaatsStatus>
+                    <bag_LVC:standplaatsGeometrie>
+                        <gml:Polygon srsName="urn:ogc:def:crs:EPSG::28992">
+                            <gml:exterior>
+                                <gml:LinearRing>
+                                    <gml:posList srsDimension="3" count="5">92065.1 456718.651 0.0 92067.591 456695.479
+                                        0.0 92076.754 456696.202 0.0 92073.971 456719.417 0.0 92065.1 456718.651 0.0
+                                    </gml:posList>
+                                </gml:LinearRing>
+                            </gml:exterior>
+                        </gml:Polygon>
+                    </bag_LVC:standplaatsGeometrie>
+                    <bag_LVC:tijdvakgeldigheid>
+                        <bagtype:begindatumTijdvakGeldigheid>2009101500000000</bagtype:begindatumTijdvakGeldigheid>
+                    </bag_LVC:tijdvakgeldigheid>
+                    <bag_LVC:inOnderzoek>N</bag_LVC:inOnderzoek>
+                    <bag_LVC:bron>
+                        <bagtype:documentdatum>20091015</bagtype:documentdatum>
+                        <bagtype:documentnummer>2009/23666_65285</bagtype:documentnummer>
+                    </bag_LVC:bron>
+                </bag_LVC:Standplaats>
+                <bag_LVC:Standplaats>
+                    <bag_LVC:gerelateerdeAdressen>
+                        <bag_LVC:hoofdadres>
+                            <bag_LVC:identificatie>1916200000024582</bag_LVC:identificatie>
+                        </bag_LVC:hoofdadres>
+                    </bag_LVC:gerelateerdeAdressen>
+                    <bag_LVC:identificatie>1916030000041811</bag_LVC:identificatie>
+                    <bag_LVC:aanduidingRecordInactief>N</bag_LVC:aanduidingRecordInactief>
+                    <bag_LVC:aanduidingRecordCorrectie>0</bag_LVC:aanduidingRecordCorrectie>
+                    <bag_LVC:officieel>N</bag_LVC:officieel>
+                    <bag_LVC:standplaatsStatus>Plaats aangewezen</bag_LVC:standplaatsStatus>
+                    <bag_LVC:standplaatsGeometrie>
+                        <gml:Polygon srsName="urn:ogc:def:crs:EPSG::28992">
+                            <gml:exterior>
+                                <gml:LinearRing>
+                                    <gml:posList srsDimension="3" count="6">88319.42 456802.935 0.0 88301.543 456784.983
+                                        0.0 88321.647 456775.817 0.0 88335.389 456789.821 0.0 88320.674 456804.261 0.0
+                                        88319.42 456802.935 0.0
+                                    </gml:posList>
+                                </gml:LinearRing>
+                            </gml:exterior>
+                        </gml:Polygon>
+                    </bag_LVC:standplaatsGeometrie>
+                    <bag_LVC:tijdvakgeldigheid>
+                        <bagtype:begindatumTijdvakGeldigheid>2009101500000000</bagtype:begindatumTijdvakGeldigheid>
+                    </bag_LVC:tijdvakgeldigheid>
+                    <bag_LVC:inOnderzoek>N</bag_LVC:inOnderzoek>
+                    <bag_LVC:bron>
+                        <bagtype:documentdatum>20091015</bagtype:documentdatum>
+                        <bagtype:documentnummer>2009/23666_65285</bagtype:documentnummer>
+                    </bag_LVC:bron>
+                </bag_LVC:Standplaats>
+                <bag_LVC:Standplaats>
+                    <bag_LVC:gerelateerdeAdressen>
+                        <bag_LVC:hoofdadres>
+                            <bag_LVC:identificatie>1926200000547773</bag_LVC:identificatie>
+                        </bag_LVC:hoofdadres>
+                    </bag_LVC:gerelateerdeAdressen>
+                    <bag_LVC:identificatie>1926030000547774</bag_LVC:identificatie>
+                    <bag_LVC:aanduidingRecordInactief>N</bag_LVC:aanduidingRecordInactief>
+                    <bag_LVC:aanduidingRecordCorrectie>0</bag_LVC:aanduidingRecordCorrectie>
+                    <bag_LVC:officieel>N</bag_LVC:officieel>
+                    <bag_LVC:standplaatsStatus>Plaats aangewezen</bag_LVC:standplaatsStatus>
+                    <bag_LVC:standplaatsGeometrie>
+                        <gml:Polygon srsName="urn:ogc:def:crs:EPSG::28992">
+                            <gml:exterior>
+                                <gml:LinearRing>
+                                    <gml:posList srsDimension="3" count="5">87092.225 450687.909 0.0 87094.862
+                                        450684.263 0.0 87107.017 450693.052 0.0 87104.38 450696.699 0.0 87092.225
+                                        450687.909 0.0
+                                    </gml:posList>
+                                </gml:LinearRing>
+                            </gml:exterior>
+                        </gml:Polygon>
+                    </bag_LVC:standplaatsGeometrie>
+                    <bag_LVC:tijdvakgeldigheid>
+                        <bagtype:begindatumTijdvakGeldigheid>2010100600000200</bagtype:begindatumTijdvakGeldigheid>
+                    </bag_LVC:tijdvakgeldigheid>
+                    <bag_LVC:inOnderzoek>N</bag_LVC:inOnderzoek>
+                    <bag_LVC:bron>
+                        <bagtype:documentdatum>20101005</bagtype:documentdatum>
+                        <bagtype:documentnummer>2010.13452</bagtype:documentnummer>
+                    </bag_LVC:bron>
+                </bag_LVC:Standplaats>
+                <bag_LVC:Standplaats>
+                    <bag_LVC:gerelateerdeAdressen>
+                        <bag_LVC:hoofdadres>
+                            <bag_LVC:identificatie>1926200000547776</bag_LVC:identificatie>
+                        </bag_LVC:hoofdadres>
+                    </bag_LVC:gerelateerdeAdressen>
+                    <bag_LVC:identificatie>1926030000547777</bag_LVC:identificatie>
+                    <bag_LVC:aanduidingRecordInactief>N</bag_LVC:aanduidingRecordInactief>
+                    <bag_LVC:aanduidingRecordCorrectie>0</bag_LVC:aanduidingRecordCorrectie>
+                    <bag_LVC:officieel>N</bag_LVC:officieel>
+                    <bag_LVC:standplaatsStatus>Plaats aangewezen</bag_LVC:standplaatsStatus>
+                    <bag_LVC:standplaatsGeometrie>
+                        <gml:Polygon srsName="urn:ogc:def:crs:EPSG::28992">
+                            <gml:exterior>
+                                <gml:LinearRing>
+                                    <gml:posList srsDimension="3" count="5">87096.619 450681.833 0.0 87099.255
+                                        450678.187 0.0 87111.41 450686.976 0.0 87108.774 450690.623 0.0 87096.619
+                                        450681.833 0.0
+                                    </gml:posList>
+                                </gml:LinearRing>
+                            </gml:exterior>
+                        </gml:Polygon>
+                    </bag_LVC:standplaatsGeometrie>
+                    <bag_LVC:tijdvakgeldigheid>
+                        <bagtype:begindatumTijdvakGeldigheid>2010100600000200</bagtype:begindatumTijdvakGeldigheid>
+                    </bag_LVC:tijdvakgeldigheid>
+                    <bag_LVC:inOnderzoek>N</bag_LVC:inOnderzoek>
+                    <bag_LVC:bron>
+                        <bagtype:documentdatum>20101005</bagtype:documentdatum>
+                        <bagtype:documentnummer>2010.13452</bagtype:documentnummer>
+                    </bag_LVC:bron>
+                </bag_LVC:Standplaats>
+                <bag_LVC:Standplaats>
+                    <bag_LVC:gerelateerdeAdressen>
+                        <bag_LVC:hoofdadres>
+                            <bag_LVC:identificatie>1926200000547779</bag_LVC:identificatie>
+                        </bag_LVC:hoofdadres>
+                    </bag_LVC:gerelateerdeAdressen>
+                    <bag_LVC:identificatie>1926030000547780</bag_LVC:identificatie>
+                    <bag_LVC:aanduidingRecordInactief>N</bag_LVC:aanduidingRecordInactief>
+                    <bag_LVC:aanduidingRecordCorrectie>0</bag_LVC:aanduidingRecordCorrectie>
+                    <bag_LVC:officieel>N</bag_LVC:officieel>
+                    <bag_LVC:standplaatsStatus>Plaats aangewezen</bag_LVC:standplaatsStatus>
+                    <bag_LVC:standplaatsGeometrie>
+                        <gml:Polygon srsName="urn:ogc:def:crs:EPSG::28992">
+                            <gml:exterior>
+                                <gml:LinearRing>
+                                    <gml:posList srsDimension="3" count="5">87101.024 450675.74 0.0 87103.661 450672.094
+                                        0.0 87115.816 450680.883 0.0 87113.179 450684.53 0.0 87101.024 450675.74 0.0
+                                    </gml:posList>
+                                </gml:LinearRing>
+                            </gml:exterior>
+                        </gml:Polygon>
+                    </bag_LVC:standplaatsGeometrie>
+                    <bag_LVC:tijdvakgeldigheid>
+                        <bagtype:begindatumTijdvakGeldigheid>2010100600000200</bagtype:begindatumTijdvakGeldigheid>
+                    </bag_LVC:tijdvakgeldigheid>
+                    <bag_LVC:inOnderzoek>N</bag_LVC:inOnderzoek>
+                    <bag_LVC:bron>
+                        <bagtype:documentdatum>20101005</bagtype:documentdatum>
+                        <bagtype:documentnummer>2010.13452</bagtype:documentnummer>
+                    </bag_LVC:bron>
+                </bag_LVC:Standplaats>
+                <bag_LVC:Standplaats>
+                    <bag_LVC:gerelateerdeAdressen>
+                        <bag_LVC:hoofdadres>
+                            <bag_LVC:identificatie>1926200000547782</bag_LVC:identificatie>
+                        </bag_LVC:hoofdadres>
+                    </bag_LVC:gerelateerdeAdressen>
+                    <bag_LVC:identificatie>1926030000547783</bag_LVC:identificatie>
+                    <bag_LVC:aanduidingRecordInactief>N</bag_LVC:aanduidingRecordInactief>
+                    <bag_LVC:aanduidingRecordCorrectie>0</bag_LVC:aanduidingRecordCorrectie>
+                    <bag_LVC:officieel>N</bag_LVC:officieel>
+                    <bag_LVC:standplaatsStatus>Plaats aangewezen</bag_LVC:standplaatsStatus>
+                    <bag_LVC:standplaatsGeometrie>
+                        <gml:Polygon srsName="urn:ogc:def:crs:EPSG::28992">
+                            <gml:exterior>
+                                <gml:LinearRing>
+                                    <gml:posList srsDimension="3" count="5">87105.357 450669.749 0.0 87107.994
+                                        450666.102 0.0 87120.149 450674.891 0.0 87117.512 450678.538 0.0 87105.357
+                                        450669.749 0.0
+                                    </gml:posList>
+                                </gml:LinearRing>
+                            </gml:exterior>
+                        </gml:Polygon>
+                    </bag_LVC:standplaatsGeometrie>
+                    <bag_LVC:tijdvakgeldigheid>
+                        <bagtype:begindatumTijdvakGeldigheid>2010100600000200</bagtype:begindatumTijdvakGeldigheid>
+                    </bag_LVC:tijdvakgeldigheid>
+                    <bag_LVC:inOnderzoek>N</bag_LVC:inOnderzoek>
+                    <bag_LVC:bron>
+                        <bagtype:documentdatum>20101005</bagtype:documentdatum>
+                        <bagtype:documentnummer>2010.13452</bagtype:documentnummer>
+                    </bag_LVC:bron>
+                </bag_LVC:Standplaats>
+                <bag_LVC:Standplaats>
+                    <bag_LVC:gerelateerdeAdressen>
+                        <bag_LVC:hoofdadres>
+                            <bag_LVC:identificatie>1926200000547785</bag_LVC:identificatie>
+                        </bag_LVC:hoofdadres>
+                    </bag_LVC:gerelateerdeAdressen>
+                    <bag_LVC:identificatie>1926030000547786</bag_LVC:identificatie>
+                    <bag_LVC:aanduidingRecordInactief>N</bag_LVC:aanduidingRecordInactief>
+                    <bag_LVC:aanduidingRecordCorrectie>0</bag_LVC:aanduidingRecordCorrectie>
+                    <bag_LVC:officieel>N</bag_LVC:officieel>
+                    <bag_LVC:standplaatsStatus>Plaats aangewezen</bag_LVC:standplaatsStatus>
+                    <bag_LVC:standplaatsGeometrie>
+                        <gml:Polygon srsName="urn:ogc:def:crs:EPSG::28992">
+                            <gml:exterior>
+                                <gml:LinearRing>
+                                    <gml:posList srsDimension="3" count="5">87109.747 450663.677 0.0 87112.384 450660.03
+                                        0.0 87124.539 450668.82 0.0 87121.902 450672.466 0.0 87109.747 450663.677 0.0
+                                    </gml:posList>
+                                </gml:LinearRing>
+                            </gml:exterior>
+                        </gml:Polygon>
+                    </bag_LVC:standplaatsGeometrie>
+                    <bag_LVC:tijdvakgeldigheid>
+                        <bagtype:begindatumTijdvakGeldigheid>2010100600000200</bagtype:begindatumTijdvakGeldigheid>
+                    </bag_LVC:tijdvakgeldigheid>
+                    <bag_LVC:inOnderzoek>N</bag_LVC:inOnderzoek>
+                    <bag_LVC:bron>
+                        <bagtype:documentdatum>20101005</bagtype:documentdatum>
+                        <bagtype:documentnummer>2010.13452</bagtype:documentnummer>
+                    </bag_LVC:bron>
+                </bag_LVC:Standplaats>
+                <bag_LVC:Standplaats>
+                    <bag_LVC:gerelateerdeAdressen>
+                        <bag_LVC:hoofdadres>
+                            <bag_LVC:identificatie>1926200000547787</bag_LVC:identificatie>
+                        </bag_LVC:hoofdadres>
+                    </bag_LVC:gerelateerdeAdressen>
+                    <bag_LVC:identificatie>1926030000547788</bag_LVC:identificatie>
+                    <bag_LVC:aanduidingRecordInactief>N</bag_LVC:aanduidingRecordInactief>
+                    <bag_LVC:aanduidingRecordCorrectie>0</bag_LVC:aanduidingRecordCorrectie>
+                    <bag_LVC:officieel>N</bag_LVC:officieel>
+                    <bag_LVC:standplaatsStatus>Plaats aangewezen</bag_LVC:standplaatsStatus>
+                    <bag_LVC:standplaatsGeometrie>
+                        <gml:Polygon srsName="urn:ogc:def:crs:EPSG::28992">
+                            <gml:exterior>
+                                <gml:LinearRing>
+                                    <gml:posList srsDimension="3" count="5">90116.857 447752.518 0.0 90118.625 447748.38
+                                        0.0 90132.419 447754.274 0.0 90130.651 447758.412 0.0 90116.857 447752.518 0.0
+                                    </gml:posList>
+                                </gml:LinearRing>
+                            </gml:exterior>
+                        </gml:Polygon>
+                    </bag_LVC:standplaatsGeometrie>
+                    <bag_LVC:tijdvakgeldigheid>
+                        <bagtype:begindatumTijdvakGeldigheid>2010100600000200</bagtype:begindatumTijdvakGeldigheid>
+                    </bag_LVC:tijdvakgeldigheid>
+                    <bag_LVC:inOnderzoek>N</bag_LVC:inOnderzoek>
+                    <bag_LVC:bron>
+                        <bagtype:documentdatum>20101005</bagtype:documentdatum>
+                        <bagtype:documentnummer>2010.13452</bagtype:documentnummer>
+                    </bag_LVC:bron>
+                </bag_LVC:Standplaats>
+                <bag_LVC:Standplaats>
+                    <bag_LVC:gerelateerdeAdressen>
+                        <bag_LVC:hoofdadres>
+                            <bag_LVC:identificatie>1926200000547789</bag_LVC:identificatie>
+                        </bag_LVC:hoofdadres>
+                    </bag_LVC:gerelateerdeAdressen>
+                    <bag_LVC:identificatie>1926030000547790</bag_LVC:identificatie>
+                    <bag_LVC:aanduidingRecordInactief>N</bag_LVC:aanduidingRecordInactief>
+                    <bag_LVC:aanduidingRecordCorrectie>0</bag_LVC:aanduidingRecordCorrectie>
+                    <bag_LVC:officieel>N</bag_LVC:officieel>
+                    <bag_LVC:standplaatsStatus>Plaats aangewezen</bag_LVC:standplaatsStatus>
+                    <bag_LVC:standplaatsGeometrie>
+                        <gml:Polygon srsName="urn:ogc:def:crs:EPSG::28992">
+                            <gml:exterior>
+                                <gml:LinearRing>
+                                    <gml:posList srsDimension="3" count="5">90141.29 447722.125 0.0 90145.396 447723.965
+                                        0.0 90139.263 447737.654 0.0 90135.156 447735.814 0.0 90141.29 447722.125 0.0
+                                    </gml:posList>
+                                </gml:LinearRing>
+                            </gml:exterior>
+                        </gml:Polygon>
+                    </bag_LVC:standplaatsGeometrie>
+                    <bag_LVC:tijdvakgeldigheid>
+                        <bagtype:begindatumTijdvakGeldigheid>2010100600000200</bagtype:begindatumTijdvakGeldigheid>
+                    </bag_LVC:tijdvakgeldigheid>
+                    <bag_LVC:inOnderzoek>N</bag_LVC:inOnderzoek>
+                    <bag_LVC:bron>
+                        <bagtype:documentdatum>20101005</bagtype:documentdatum>
+                        <bagtype:documentnummer>2010.13452</bagtype:documentnummer>
+                    </bag_LVC:bron>
+                </bag_LVC:Standplaats>
+                <bag_LVC:Standplaats>
+                    <bag_LVC:gerelateerdeAdressen>
+                        <bag_LVC:hoofdadres>
+                            <bag_LVC:identificatie>1926200000547791</bag_LVC:identificatie>
+                        </bag_LVC:hoofdadres>
+                    </bag_LVC:gerelateerdeAdressen>
+                    <bag_LVC:identificatie>1926030000547792</bag_LVC:identificatie>
+                    <bag_LVC:aanduidingRecordInactief>N</bag_LVC:aanduidingRecordInactief>
+                    <bag_LVC:aanduidingRecordCorrectie>0</bag_LVC:aanduidingRecordCorrectie>
+                    <bag_LVC:officieel>N</bag_LVC:officieel>
+                    <bag_LVC:standplaatsStatus>Plaats aangewezen</bag_LVC:standplaatsStatus>
+                    <bag_LVC:standplaatsGeometrie>
+                        <gml:Polygon srsName="urn:ogc:def:crs:EPSG::28992">
+                            <gml:exterior>
+                                <gml:LinearRing>
+                                    <gml:posList srsDimension="3" count="5">90132.502 447718.433 0.0 90136.609
+                                        447720.273 0.0 90130.475 447733.961 0.0 90126.368 447732.121 0.0 90132.502
+                                        447718.433 0.0
+                                    </gml:posList>
+                                </gml:LinearRing>
+                            </gml:exterior>
+                        </gml:Polygon>
+                    </bag_LVC:standplaatsGeometrie>
+                    <bag_LVC:tijdvakgeldigheid>
+                        <bagtype:begindatumTijdvakGeldigheid>2010100600000200</bagtype:begindatumTijdvakGeldigheid>
+                    </bag_LVC:tijdvakgeldigheid>
+                    <bag_LVC:inOnderzoek>N</bag_LVC:inOnderzoek>
+                    <bag_LVC:bron>
+                        <bagtype:documentdatum>20101005</bagtype:documentdatum>
+                        <bagtype:documentnummer>2010.13452</bagtype:documentnummer>
+                    </bag_LVC:bron>
+                </bag_LVC:Standplaats>
+                <bag_LVC:Standplaats>
+                    <bag_LVC:gerelateerdeAdressen>
+                        <bag_LVC:hoofdadres>
+                            <bag_LVC:identificatie>1926200000547793</bag_LVC:identificatie>
+                        </bag_LVC:hoofdadres>
+                    </bag_LVC:gerelateerdeAdressen>
+                    <bag_LVC:identificatie>1926030000547794</bag_LVC:identificatie>
+                    <bag_LVC:aanduidingRecordInactief>N</bag_LVC:aanduidingRecordInactief>
+                    <bag_LVC:aanduidingRecordCorrectie>0</bag_LVC:aanduidingRecordCorrectie>
+                    <bag_LVC:officieel>N</bag_LVC:officieel>
+                    <bag_LVC:standplaatsStatus>Plaats aangewezen</bag_LVC:standplaatsStatus>
+                    <bag_LVC:standplaatsGeometrie>
+                        <gml:Polygon srsName="urn:ogc:def:crs:EPSG::28992">
+                            <gml:exterior>
+                                <gml:LinearRing>
+                                    <gml:posList srsDimension="3" count="5">88151.818 448800.17 0.0 88154.561 448796.602
+                                        0.0 88166.453 448805.745 0.0 88163.71 448809.312 0.0 88151.818 448800.17 0.0
+                                    </gml:posList>
+                                </gml:LinearRing>
+                            </gml:exterior>
+                        </gml:Polygon>
+                    </bag_LVC:standplaatsGeometrie>
+                    <bag_LVC:tijdvakgeldigheid>
+                        <bagtype:begindatumTijdvakGeldigheid>2010062900000100</bagtype:begindatumTijdvakGeldigheid>
+                    </bag_LVC:tijdvakgeldigheid>
+                    <bag_LVC:inOnderzoek>N</bag_LVC:inOnderzoek>
+                    <bag_LVC:bron>
+                        <bagtype:documentdatum>20100629</bagtype:documentdatum>
+                        <bagtype:documentnummer>2010.05994</bagtype:documentnummer>
+                    </bag_LVC:bron>
+                </bag_LVC:Standplaats>
+                <bag_LVC:Standplaats>
+                    <bag_LVC:gerelateerdeAdressen>
+                        <bag_LVC:hoofdadres>
+                            <bag_LVC:identificatie>1955200000049694</bag_LVC:identificatie>
+                        </bag_LVC:hoofdadres>
+                    </bag_LVC:gerelateerdeAdressen>
+                    <bag_LVC:identificatie>1955030000041000</bag_LVC:identificatie>
+                    <bag_LVC:aanduidingRecordInactief>N</bag_LVC:aanduidingRecordInactief>
+                    <bag_LVC:aanduidingRecordCorrectie>0</bag_LVC:aanduidingRecordCorrectie>
+                    <bag_LVC:officieel>N</bag_LVC:officieel>
+                    <bag_LVC:standplaatsStatus>Plaats aangewezen</bag_LVC:standplaatsStatus>
+                    <bag_LVC:standplaatsGeometrie>
+                        <gml:Polygon srsName="urn:ogc:def:crs:EPSG::28992">
+                            <gml:exterior>
+                                <gml:LinearRing>
+                                    <gml:posList srsDimension="3" count="6">205612.728 438304.181 0.0 205612.727
+                                        438304.184 0.0 205603.867 438323.555 0.0 205594.254 438319.226 0.0 205603.06
+                                        438299.77 0.0 205612.728 438304.181 0.0
+                                    </gml:posList>
+                                </gml:LinearRing>
+                            </gml:exterior>
+                        </gml:Polygon>
+                    </bag_LVC:standplaatsGeometrie>
+                    <bag_LVC:tijdvakgeldigheid>
+                        <bagtype:begindatumTijdvakGeldigheid>2009091500000000</bagtype:begindatumTijdvakGeldigheid>
+                    </bag_LVC:tijdvakgeldigheid>
+                    <bag_LVC:inOnderzoek>N</bag_LVC:inOnderzoek>
+                    <bag_LVC:bron>
+                        <bagtype:documentdatum>20090915</bagtype:documentdatum>
+                        <bagtype:documentnummer>BAGH000539</bagtype:documentnummer>
+                    </bag_LVC:bron>
+                </bag_LVC:Standplaats>
+                <bag_LVC:Standplaats>
+                    <bag_LVC:gerelateerdeAdressen>
+                        <bag_LVC:hoofdadres>
+                            <bag_LVC:identificatie>1955200000049693</bag_LVC:identificatie>
+                        </bag_LVC:hoofdadres>
+                    </bag_LVC:gerelateerdeAdressen>
+                    <bag_LVC:identificatie>1955030000041001</bag_LVC:identificatie>
+                    <bag_LVC:aanduidingRecordInactief>N</bag_LVC:aanduidingRecordInactief>
+                    <bag_LVC:aanduidingRecordCorrectie>0</bag_LVC:aanduidingRecordCorrectie>
+                    <bag_LVC:officieel>N</bag_LVC:officieel>
+                    <bag_LVC:standplaatsStatus>Plaats aangewezen</bag_LVC:standplaatsStatus>
+                    <bag_LVC:standplaatsGeometrie>
+                        <gml:Polygon srsName="urn:ogc:def:crs:EPSG::28992">
+                            <gml:exterior>
+                                <gml:LinearRing>
+                                    <gml:posList srsDimension="3" count="6">205621.243 438308.073 0.0 205612.635
+                                        438327.504 0.0 205603.867 438323.555 0.0 205612.727 438304.184 0.0 205612.728
+                                        438304.181 0.0 205621.243 438308.073 0.0
+                                    </gml:posList>
+                                </gml:LinearRing>
+                            </gml:exterior>
+                        </gml:Polygon>
+                    </bag_LVC:standplaatsGeometrie>
+                    <bag_LVC:tijdvakgeldigheid>
+                        <bagtype:begindatumTijdvakGeldigheid>2009091500000000</bagtype:begindatumTijdvakGeldigheid>
+                    </bag_LVC:tijdvakgeldigheid>
+                    <bag_LVC:inOnderzoek>N</bag_LVC:inOnderzoek>
+                    <bag_LVC:bron>
+                        <bagtype:documentdatum>20090915</bagtype:documentdatum>
+                        <bagtype:documentnummer>BAGH000539</bagtype:documentnummer>
+                    </bag_LVC:bron>
+                </bag_LVC:Standplaats>
+                <bag_LVC:Standplaats>
+                    <bag_LVC:gerelateerdeAdressen>
+                        <bag_LVC:hoofdadres>
+                            <bag_LVC:identificatie>1955200000049692</bag_LVC:identificatie>
+                        </bag_LVC:hoofdadres>
+                    </bag_LVC:gerelateerdeAdressen>
+                    <bag_LVC:identificatie>1955030000041002</bag_LVC:identificatie>
+                    <bag_LVC:aanduidingRecordInactief>N</bag_LVC:aanduidingRecordInactief>
+                    <bag_LVC:aanduidingRecordCorrectie>0</bag_LVC:aanduidingRecordCorrectie>
+                    <bag_LVC:officieel>N</bag_LVC:officieel>
+                    <bag_LVC:standplaatsStatus>Plaats aangewezen</bag_LVC:standplaatsStatus>
+                    <bag_LVC:standplaatsGeometrie>
+                        <gml:Polygon srsName="urn:ogc:def:crs:EPSG::28992">
+                            <gml:exterior>
+                                <gml:LinearRing>
+                                    <gml:posList srsDimension="3" count="6">205629.84 438311.989 0.0 205629.837
+                                        438311.997 0.0 205621.029 438331.285 0.0 205612.635 438327.504 0.0 205621.243
+                                        438308.073 0.0 205629.84 438311.989 0.0
+                                    </gml:posList>
+                                </gml:LinearRing>
+                            </gml:exterior>
+                        </gml:Polygon>
+                    </bag_LVC:standplaatsGeometrie>
+                    <bag_LVC:tijdvakgeldigheid>
+                        <bagtype:begindatumTijdvakGeldigheid>2009091500000000</bagtype:begindatumTijdvakGeldigheid>
+                    </bag_LVC:tijdvakgeldigheid>
+                    <bag_LVC:inOnderzoek>N</bag_LVC:inOnderzoek>
+                    <bag_LVC:bron>
+                        <bagtype:documentdatum>20090915</bagtype:documentdatum>
+                        <bagtype:documentnummer>BAGH000539</bagtype:documentnummer>
+                    </bag_LVC:bron>
+                </bag_LVC:Standplaats>
+                <bag_LVC:Standplaats>
+                    <bag_LVC:gerelateerdeAdressen>
+                        <bag_LVC:hoofdadres>
+                            <bag_LVC:identificatie>1955200000049690</bag_LVC:identificatie>
+                        </bag_LVC:hoofdadres>
+                    </bag_LVC:gerelateerdeAdressen>
+                    <bag_LVC:identificatie>1955030000041003</bag_LVC:identificatie>
+                    <bag_LVC:aanduidingRecordInactief>N</bag_LVC:aanduidingRecordInactief>
+                    <bag_LVC:aanduidingRecordCorrectie>0</bag_LVC:aanduidingRecordCorrectie>
+                    <bag_LVC:officieel>N</bag_LVC:officieel>
+                    <bag_LVC:standplaatsStatus>Plaats aangewezen</bag_LVC:standplaatsStatus>
+                    <bag_LVC:standplaatsGeometrie>
+                        <gml:Polygon srsName="urn:ogc:def:crs:EPSG::28992">
+                            <gml:exterior>
+                                <gml:LinearRing>
+                                    <gml:posList srsDimension="3" count="6">205638.113 438315.764 0.0 205629.2
+                                        438334.965 0.0 205621.029 438331.285 0.0 205629.837 438311.997 0.0 205629.84
+                                        438311.989 0.0 205638.113 438315.764 0.0
+                                    </gml:posList>
+                                </gml:LinearRing>
+                            </gml:exterior>
+                        </gml:Polygon>
+                    </bag_LVC:standplaatsGeometrie>
+                    <bag_LVC:tijdvakgeldigheid>
+                        <bagtype:begindatumTijdvakGeldigheid>2009091500000000</bagtype:begindatumTijdvakGeldigheid>
+                    </bag_LVC:tijdvakgeldigheid>
+                    <bag_LVC:inOnderzoek>N</bag_LVC:inOnderzoek>
+                    <bag_LVC:bron>
+                        <bagtype:documentdatum>20090915</bagtype:documentdatum>
+                        <bagtype:documentnummer>BAGH000539</bagtype:documentnummer>
+                    </bag_LVC:bron>
+                </bag_LVC:Standplaats>
+                <bag_LVC:Standplaats>
+                    <bag_LVC:gerelateerdeAdressen>
+                        <bag_LVC:hoofdadres>
+                            <bag_LVC:identificatie>1955200000049691</bag_LVC:identificatie>
+                        </bag_LVC:hoofdadres>
+                    </bag_LVC:gerelateerdeAdressen>
+                    <bag_LVC:identificatie>1955030000041004</bag_LVC:identificatie>
+                    <bag_LVC:aanduidingRecordInactief>N</bag_LVC:aanduidingRecordInactief>
+                    <bag_LVC:aanduidingRecordCorrectie>0</bag_LVC:aanduidingRecordCorrectie>
+                    <bag_LVC:officieel>N</bag_LVC:officieel>
+                    <bag_LVC:standplaatsStatus>Plaats aangewezen</bag_LVC:standplaatsStatus>
+                    <bag_LVC:standplaatsGeometrie>
+                        <gml:Polygon srsName="urn:ogc:def:crs:EPSG::28992">
+                            <gml:exterior>
+                                <gml:LinearRing>
+                                    <gml:posList srsDimension="3" count="5">205640.138 438339.892 0.0 205629.2
+                                        438334.965 0.0 205638.113 438315.764 0.0 205649.026 438320.743 0.0 205640.138
+                                        438339.892 0.0
+                                    </gml:posList>
+                                </gml:LinearRing>
+                            </gml:exterior>
+                        </gml:Polygon>
+                    </bag_LVC:standplaatsGeometrie>
+                    <bag_LVC:tijdvakgeldigheid>
+                        <bagtype:begindatumTijdvakGeldigheid>2009091500000000</bagtype:begindatumTijdvakGeldigheid>
+                    </bag_LVC:tijdvakgeldigheid>
+                    <bag_LVC:inOnderzoek>N</bag_LVC:inOnderzoek>
+                    <bag_LVC:bron>
+                        <bagtype:documentdatum>20090915</bagtype:documentdatum>
+                        <bagtype:documentnummer>BAGH000539</bagtype:documentnummer>
+                    </bag_LVC:bron>
+                </bag_LVC:Standplaats>
+            </product_LVC:LVC-product>
+        </xb:producten>
+    </xb:antwoord>
+</xb:BAG-Extract-Deelbestand-LVC>

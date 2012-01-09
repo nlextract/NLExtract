@@ -1,0 +1,140 @@
+__author__ = "Milo van der Linden"
+__date__ = "$Jun 11, 2011 3:46:27 PM$"
+
+"""
+ Naam:         BAGFileReader.py
+ Omschrijving: Inlezen van BAG-gerelateerde files of directories
+
+ Auteur:       Milo van der Linden Just van den Broecke
+
+ Versie:       1.0
+               - basis versie
+ Datum:        22 december 2011
+
+
+ OpenGeoGroep.nl
+"""
+
+import zipfile
+from processor import Processor
+import os
+from xml.dom.minidom import parse
+import csv
+from logging import Log
+
+#from lxml import etree
+try:
+  from cStringIO import StringIO
+except:
+  from StringIO import StringIO
+
+class BAGFileReader:
+    def __init__(self, file, args):
+        self.args = args
+        self.file = file
+        self.init = True
+        self.processor = Processor(args)
+        self.fileCount = 0
+        self.recordCount = 0
+
+    def process(self):
+        Log.log.info("process file=" + self.file)
+        # TODO: Verwerk een directory
+        if os.path.isdir(self.file) == True:
+            self.readDir()
+        elif zipfile.is_zipfile(self.file):
+            self.zip = zipfile.ZipFile(self.file, "r")
+            self.readzipfile()
+        else:
+            zipfilename = os.path.basename(self.file).split('.')
+            ext = zipfilename[1]
+            if ext == 'xml':
+                xml = self.parseXML(self.file)
+                self.processXML(zipfilename[0],xml)
+            if ext == 'csv':
+                fileobject = open(self.file, "rb")
+                self.processCSV(zipfilename[0], fileobject)
+
+    def readDir(self):
+        for each in os.listdir(self.file):
+            _file = os.path.join(self.file, each)
+            if zipfile.is_zipfile(_file):
+                self.zip = zipfile.ZipFile(_file, "r")
+                self.readzipfile()
+            else:
+                if os.path.isdir(_file) <> True:
+                    zipfilename = each.split('.')
+                    if len(zipfilename) == 2:
+                        ext = zipfilename[1]
+                        if ext == 'xml':
+                            print each
+                            xml = self.parseXML(_file)
+                            self.processXML(zipfilename[0],xml)
+                        if ext == 'csv':
+                            fileobject = open(_file, "rb")
+                            self.processCSV(zipfilename[0],fileobject)
+
+    def readzipfile(self):
+        tzip = self.zip
+        Log.log.info("readzipfile content=" + str(tzip.namelist()))
+        for naam in tzip.namelist():
+            ext = naam.split('.')
+            Log.log.info("readzipfile: " + naam)
+            if ext[1] == 'xml':
+                xml = self.parseXML(StringIO(tzip.read(naam)))
+                #xml = etree.parse (StringIO(tzip.read(naam)))
+                self.processXML(naam, xml)
+            elif ext[1] == 'zip':
+                self.readzipstring(StringIO(tzip.read(naam)))
+            elif ext[1] == 'csv':
+                Log.log.info(naam)
+                fileobject = StringIO(tzip.read(naam))
+                self.processCSV(naam, fileobject)
+            else:
+                Log.log.info(naam)
+
+    def readzipstring(self,naam):
+        # Log.log.info("readzipstring naam=" + naam)
+        tzip = zipfile.ZipFile(naam, "r")
+        # Log.log.info("readzipstring naam=" + tzip.getinfo().filename)
+
+        for nested in tzip.namelist():
+            Log.log.info("readzipstring: " + nested)
+            ext = nested.split('.')
+            if ext[1] == 'xml':
+                xml = self.parseXML(StringIO(tzip.read(nested)))
+                #xml = etree.parse(StringIO(tzip.read(nested)))
+                self.processXML(nested, xml)
+            elif ext[1] == 'csv':
+                Log.log.info(nested)
+                fileobject = StringIO(tzip.read(nested))
+                self.processCSV(nested, fileobject)
+            elif ext[1] == 'zip':
+                Log.log.info(nested)
+                self.readzipstring(StringIO(tzip.read(nested)))
+            else:
+                Log.log.info(nested)
+
+    def parseXML(self,naam):
+        Log.log.startTimer("parseXML")
+        xml = parse(naam)
+        Log.log.endTimer("parseXML")
+        return xml
+    
+    def processXML(self,naam, xml):
+        Log.log.info("processXML: " + naam)
+        xmldoc = xml.documentElement
+        #xmldoc = xml.getroot()
+        #de orm bepaalt of het een extract of een mutatie is
+        self.processor.processDOM(xmldoc)
+        #Log.log.info(document)
+        xml.unlink()
+
+    def processCSV(self,naam, fileobject):
+        Log.log.info(naam)
+        # TODO: zorg voor de verwerking van het geparste csv bestand
+        # Maak er gemeente_woonplaats objecten van overeenkomstig de nieuwe
+        # tabel woonplaats_gemeente
+        myReader = csv.reader(fileobject, delimiter=';', quoting=csv.QUOTE_NONE)
+        self.processor.processCSV(myReader)
+        

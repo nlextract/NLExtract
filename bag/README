@@ -1,0 +1,81 @@
+bagextract is onderdeel van de NLExtract tools om het inlezen en verrijken van een BAG-extract
+in een Postgres/Postgis database.
+
+bagextract biedt de volgende functionaliteiten:
+ - Laden van een BAG Extract
+ - Verrijken met gemeenten en provincies en volledige adressen
+
+Installeren:
+ - download via git: git clone http://github.com/opengeogroep/NLExtract.git
+ - installeer de PostgreSQL python bibliotheek psycopg2:
+   sudo easy_install psycopg2
+ - indien je niet Python 3.0 of hoger hebt installeer Python package "argparse", bijv
+   sudo easy_install argparse
+
+Instellingen:
+ - bag.conf
+	Configuratiebestand dat nodig is bij het uitvoeren van de programma's. 
+	Dit bestand bevat de volgende instellingen:
+	- database naam van de Postgres database
+	- schema   [optioneel] schemanaam  waar de tabellen worden aangemaakt (default "public")
+	- host     host waar de Postgres database draait
+	- user     user voor toegang tot de Postgres database
+	- password password van de user voor toegang tot de Postgres database
+
+    DB settings kunnen ook via commandline overuled worden, bijv.
+      bagextract.py -H localhost -d bag -U postgres -W postgres -c
+
+Uitleg:
+
+        1. Initialiseer een database (-c):
+
+            python bagextract.py -c
+
+        2. Importeer een extract in de database (-e):
+
+            python bagextract.py -e 9999STA01052011-000002.xml
+
+            of
+
+            python bagextract.py -e 9999STA01052011.zip
+
+            -e werkt op directory, file of .zip
+
+        3.  Importeer gemeente_woonplaats informatie van het kadaster 
+            http://www.kadaster.nl/bag/docs/BAG_Overzicht_aangesloten_gemeenten.zip
+
+              python bagextract.py -e BAG_Overzicht_aangesloten_gemeenten.zip
+
+            of gemeenten (van Kadaster) + provincies (van CBS) uit locale data in distro :
+
+              python bagextract.py -e ../db/data
+
+        4. Verrijken: aanmaken gemeente en provincie tabellen met geometrie (afgeleid uit  woonplaats geometrie)
+
+             python bagextract.py -q ../db/script/gemeente-tabel.sql
+             python bagextract.py -q ../db/script/provincie-tabel.sql
+
+        5. Verrijken: aanmaken volledig adres tabel uit BAG + gemeente + provincie tabellen
+
+             psql -d bag < ../db/script/adres-tabel.sql
+
+Issues:
+
+        Theoretisch is het mogelijk de hele bag in te lezen vanuit de "hoofd" zip, maar dit kan
+        geheugen-problemen opleveren. De voorlopige oplossing is om de hoofdzip uit te pakken in een enkele
+        directory en dan de (7) individuele BAG .zip files te extraheren.
+
+        Het (geometrisch) aggregeren van woonplaatsen naar gemeenten en vervolgens naar provincies
+        kent een probleem waarbij uit PostGIS de volgende melding komt:
+        "NOTICE:  TopologyException: found non-noded intersection between LINESTRING (...) at ...
+		ERROR:  GEOS union() threw an error!". Dit is mogelijk een bug in "libgeos" (GEOS) een library gebruikt
+		door PostGIS. Dit probleem trad op in GEOS v3.2.2 maar niet in versie 3.3.1.
+
+		Het script db/script/adres-tabel.sql vergt enkele uren. Beste is om deze met standaard PSQL uit te voeren.
+
+		Het resultaat van het genereren van gemeenten en provincies uit woonplaats geometrieen is nog "rommelig":
+		veel kleine polygonen.
+
+Voorbeeld:
+        Zie http://docs.kademo.nl/project/bagextract.html voor een installatie voorbeeld, gevold door extract
+        verrijking en WMS visualisatie.
