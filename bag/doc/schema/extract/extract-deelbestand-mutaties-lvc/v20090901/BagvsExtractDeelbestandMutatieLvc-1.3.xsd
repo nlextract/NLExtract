@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2006 sp2 U (http://www.altova.com) by Kadaster (Kadaster) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:product_LVC="http://www.kadaster.nl/schemas/bag-verstrekkingen/extract-producten-lvc/v20090901" xmlns:selecties-extract="http://www.kadaster.nl/schemas/bag-verstrekkingen/extract-selecties/v20090901" xmlns:mb="http://www.kadaster.nl/schemas/bag-verstrekkingen/extract-deelbestand-mutaties-lvc/v20090901" targetNamespace="http://www.kadaster.nl/schemas/bag-verstrekkingen/extract-deelbestand-mutaties-lvc/v20090901" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.3">
+	<xs:import namespace="http://www.kadaster.nl/schemas/bag-verstrekkingen/extract-selecties/v20090901" schemaLocation="../../extract-selecties/v20090901/BagvsExtractSelecties-0.7.xsd"/>
+	<xs:import namespace="http://www.kadaster.nl/schemas/bag-verstrekkingen/extract-producten-lvc/v20090901" schemaLocation="../../extract-producten-lvc/v20090901/BagvsExtractProductenLvc-0.7.xsd"/>
+	<xs:element name="BAG-Mutaties-Deelbestand-LVC">
+		<xs:annotation>
+			<xs:documentation>Bestand met mutaties op voorkomens van BAG objecten. </xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation> BAG-Verstrekking met produkt-data</xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element name="antwoord">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="vraag">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:annotation>
+											<xs:documentation>Deelbestand specifieke terugkoppeling, indien relevant</xs:documentation>
+										</xs:annotation>
+										<xs:element ref="selecties-extract:Gebied-Registratief" minOccurs="0"/>
+										<xs:element ref="selecties-extract:Mutatieperiode"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="producten">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element ref="product_LVC:Mutatie-product" maxOccurs="unbounded"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

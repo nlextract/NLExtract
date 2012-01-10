@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2006 sp2 U (http://www.altova.com) by Kadaster (Kadaster) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:bagtype="http://www.kadaster.nl/schemas/imbag/imbag-types/v20090901" xmlns:selecties-extract="http://www.kadaster.nl/schemas/bag-verstrekkingen/extract-selecties/v20090901" targetNamespace="http://www.kadaster.nl/schemas/bag-verstrekkingen/extract-selecties/v20090901" elementFormDefault="qualified" attributeFormDefault="unqualified" version="0.7">
+	<xs:import namespace="http://www.kadaster.nl/schemas/imbag/imbag-types/v20090901" schemaLocation="../../../imbag/imbag-types/v20090901/BagvsImbagOnderdelen-0.7.xsd"/>
+	<xs:complexType name="APD-Extract">
+		<xs:sequence>
+			<xs:choice>
+				<xs:sequence>
+					<xs:element name="gegVarActueel" type="xs:boolean" default="0">
+						<xs:annotation>
+							<xs:documentation>De bijbehorende peildatum is een peildatum en wordt kort voor het aanmaakproces van het product bepaald.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+				<xs:sequence>
+					<xs:element name="gegVarPeildatum" type="xs:boolean" default="0"/>
+					<xs:element name="peildatum" type="bagtype:Datum"/>
+				</xs:sequence>
+			</xs:choice>
+			<xs:element name="productcode" type="xs:string" minOccurs="0"/>
+			<xs:element ref="selecties-extract:StandTechnischeDatum" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="APD-Extract" type="selecties-extract:APD-Extract">
+		<xs:annotation>
+			<xs:documentation>Algemene kenmerken bij de aanvraag van producten van de dienst BAG-Extract voor de gegevensvarianten Actueel en Peildatum</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="LVC-Extract">
+		<xs:sequence>
+			<xs:choice>
+				<xs:sequence>
+					<xs:element name="gegVarLevenscyclus" type="xs:boolean" default="0"/>
+				</xs:sequence>
+				<xs:sequence>
+					<xs:element name="gegVarLevenscyclusVanaf" type="xs:boolean" default="0"/>
+					<xs:element name="peildatumVanaf" type="bagtype:Datum" minOccurs="0"/>
+				</xs:sequence>
+			</xs:choice>
+			<xs:element name="productcode" type="xs:string" minOccurs="0"/>
+			<xs:element ref="selecties-extract:StandTechnischeDatum" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="LVC-Extract" type="selecties-extract:LVC-Extract">
+		<xs:annotation>
+			<xs:documentation>Algemene kenmerken bij de aanvraag van producten van de dienst BAG-Extract voor de gegevensvarianten Levenscyclus en LevenscyclusVanaf</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="MUT-Extract">
+		<xs:sequence>
+			<xs:element name="mutaties" type="xs:boolean" default="0"/>
+			<xs:element ref="selecties-extract:Mutatievorm"/>
+			<xs:element ref="selecties-extract:Mutatieperiode" minOccurs="0"/>
+			<xs:element name="productcode" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="MUT-Extract" type="selecties-extract:MUT-Extract">
+		<xs:annotation>
+			<xs:documentation>Indien naast het extract ook mutaties geleverd moeten worden. </xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="Gebied-Registratief">
+		<xs:choice>
+			<xs:annotation>
+				<xs:documentation>Gekozen registratief gebied.</xs:documentation>
+			</xs:annotation>
+			<xs:element ref="selecties-extract:Gebied-NLD">
+				<xs:annotation>
+					<xs:documentation>Gebied: Heel Nederland. </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="selecties-extract:Gebied-WPL">
+				<xs:annotation>
+					<xs:documentation>Gebied: Woonplaats(en)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="selecties-extract:Gebied-GEO">
+				<xs:annotation>
+					<xs:documentation>Gebied: polygoon (geometrisch)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:choice>
+	</xs:complexType>
+	<xs:element name="Gebied-Registratief" type="selecties-extract:Gebied-Registratief">
+		<xs:annotation>
+			<xs:documentation>Registratieve gebieden zoals bekend in het systeem. Deze gegevens worden gebruikt voor terugkoppeling behorende bij de vraag.  </xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="Gebied">
+		<xs:sequence>
+			<xs:element ref="selecties-extract:GebiedIdentificatie"/>
+			<xs:element ref="selecties-extract:GebiedNaam" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="Gebied" type="selecties-extract:Gebied"/>
+	<xs:element name="GebiedIdentificatie" type="xs:string">
+		<xs:annotation>
+			<xs:documentation>Unieke identificatie waaronder het gebied bekend is in het systeem.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="GebiedNaam" type="xs:string">
+		<xs:annotation>
+			<xs:documentation>Voorgedefinieerde naam waaronder het gebied bekend is in het systeem (niet uniek). </xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="Gebied-WPL">
+		<xs:complexContent>
+			<xs:extension base="selecties-extract:Gebied">
+				<xs:sequence>
+					<xs:element name="gebiedTypeWoonplaats" type="xs:boolean" default="0">
+						<xs:annotation>
+							<xs:documentation>Indien gekozen staat deze boolean op 1</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="selecties-extract:WoonplaatsCollectie">
+						<xs:annotation>
+							<xs:documentation>Het gevraagde gebied is een woonplaatscollectie. </xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="Gebied-WPL" type="selecties-extract:Gebied-WPL"/>
+	<xs:complexType name="Gebied-NLD">
+		<xs:complexContent>
+			<xs:extension base="selecties-extract:Gebied">
+				<xs:sequence>
+					<xs:element name="gebiedTypeNederland" type="xs:boolean" default="0">
+						<xs:annotation>
+							<xs:documentation>Indien gekozen staat deze boolean op 1</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="selecties-extract:WoonplaatsCollectie" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Aanvullende gegevens. Het gevraagde gebied is vertaald naar een woonplaatscollectie. </xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="Gebied-NLD" type="selecties-extract:Gebied-NLD"/>
+	<xs:complexType name="Gebied-GEO">
+		<xs:complexContent>
+			<xs:extension base="selecties-extract:Gebied">
+				<xs:sequence>
+					<xs:element name="gebiedTypeGeometrie" type="xs:boolean" default="0">
+						<xs:annotation>
+							<xs:documentation>Indien gekozen staat deze boolean op 1</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element ref="selecties-extract:Polygoon"/>
+					<xs:element ref="selecties-extract:WoonplaatsCollectie" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Aanvullende gegevens. Het gevraagde gebied is vertaald naar een woonplaatscollectie. </xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="Gebied-GEO" type="selecties-extract:Gebied-GEO"/>
+	<xs:complexType name="WoonplaatsCollectie">
+		<xs:sequence>
+			<xs:element ref="selecties-extract:Woonplaats" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="WoonplaatsCollectie" type="selecties-extract:WoonplaatsCollectie"/>
+	<xs:complexType name="Woonplaats">
+		<xs:sequence>
+			<xs:element ref="selecties-extract:WoonplaatsIdentificatie"/>
+			<xs:element ref="selecties-extract:WoonplaatsNaam" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="Woonplaats" type="selecties-extract:Woonplaats"/>
+	<xs:element name="WoonplaatsIdentificatie" type="bagtype:Woonplaatscode"/>
+	<xs:element name="WoonplaatsNaam" type="bagtype:Objectnaam"/>
+	<xs:element name="Polygoon" type="bagtype:VlakOfMultiVlak">
+		<xs:annotation>
+			<xs:documentation>Elke Polygon of MultiSurface (met daarbinnen 2 of Polygon's) is toegestaan. </xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="StandPeildatum" type="bagtype:Datum">
+		<xs:annotation>
+			<xs:documentation>Zie Peildatum in Glossary. Opmerking: het informatieproduct wordt gemaakt op basis van gegevens, zoals deze bekend zijn in de Landelijke Voorziening op het moment dat het product wordt samengesteld (zie standTechnischeDatum).</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="StandTechnischeDatum" type="bagtype:Datum">
+		<xs:annotation>
+			<xs:documentation>Producten worden samengesteld op basis van gegevens zoals deze in de Landelijke Voorziening bekend zijn (of waren) op deze datum. De LV kiest zelf een geschikte datum, maar optioneel kan deze datum expliciet aangegeven worden. </xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="StandDatumVanaf" type="bagtype:Datum">
+		<xs:annotation>
+			<xs:documentation>Producten worden samengesteld op basis van gegevens zoals deze in de Landelijke Voorziening bekend zijn (of waren) vanaf deze datum. De LV kiest zelf een geschikte datum, maar optioneel kan deze datum expliciet aangegeven worden. </xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="Leverfrequentie">
+		<xs:choice>
+			<xs:element name="eenmalig" type="xs:boolean" default="0"/>
+			<xs:element name="periode">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="aantal" type="xs:integer" default="0" minOccurs="0"/>
+						<xs:element name="looptijdTot" type="xs:date" minOccurs="0"/>
+						<xs:choice>
+							<xs:element name="dag" type="xs:boolean" default="0"/>
+							<xs:element name="week" type="xs:boolean" default="0"/>
+							<xs:element name="maand" type="xs:boolean" default="0"/>
+						</xs:choice>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:choice>
+	</xs:complexType>
+	<xs:element name="Leverfrequentie" type="selecties-extract:Leverfrequentie"/>
+	<xs:complexType name="SchemaInfo">
+		<xs:annotation>
+			<xs:documentation> </xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="selecties-extract:Schemanaam" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>T.b.v. het specifiek aanvragen van een (oudere) versie van het koppelvlak.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="selecties-extract:Schemaversie" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>T.b.v. het specifiek aanvragen van een (oudere) versie van het koppelvlak.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:choice>
+				<xs:element name="XML" type="xs:boolean" default="0"/>
+				<xs:element name="GML" type="xs:boolean" default="0"/>
+			</xs:choice>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="SchemaInfo" type="selecties-extract:SchemaInfo">
+		<xs:annotation>
+			<xs:documentation>De term schema verwijst naar een XSD. Dit element bevat informatie om aan te geven in welke structuur het gevraagde informatieproduct geleverd moet worden. Het schema is terug te vinden in de koppelvlakdocumentatie.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="Schemanaam" type="xs:string"/>
+	<xs:element name="Schemaversie" type="xs:string"/>
+	<xs:complexType name="Mutatievorm">
+		<xs:sequence>
+			<xs:choice>
+				<xs:element name="mutatiebestand" type="xs:boolean" default="0"/>
+				<xs:element name="mutatieberichten" type="xs:boolean" default="0"/>
+			</xs:choice>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="Mutatievorm" type="selecties-extract:Mutatievorm"/>
+	<xs:complexType name="Mutatieperiode">
+		<xs:sequence>
+			<xs:element ref="selecties-extract:MutatiedatumVanaf"/>
+			<xs:element ref="selecties-extract:MutatiedatumTot"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="Mutatieperiode" type="selecties-extract:Mutatieperiode"/>
+	<xs:element name="MutatiedatumVanaf" type="xs:date">
+		<xs:annotation>
+			<xs:documentation>Mutaties welke na deze datum in de Landelijke Voorziening bekend zijn geworden. Sluit naadloos aan bij de MutatiedatumTot van de voorgaande levering:.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="MutatiedatumTot" type="xs:date">
+		<xs:annotation>
+			<xs:documentation>Mutaties welke voor (of precies op) deze datum in de Landelijke Voorziening bekend zijn geworden.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+</xs:schema>
