@@ -266,80 +266,91 @@ class Pand(BAGObject):
     def heeftGeometrie(self):
         return True
 
-#--------------------------------------------------------------------------------------------------------
-# Geef een BAGObject van het juiste type bij het gegeven type.
-#--------------------------------------------------------------------------------------------------------
-def getBAGObjectBijType(objectType):
-    if objectType.upper() == "WPL":
-        return Woonplaats()
-    if objectType.upper() == "OPR":
-        return OpenbareRuimte()
-    if objectType.upper() == "NUM":
-        return Nummeraanduiding()
-    if objectType.upper() == "LIG":
-        return Ligplaats()
-    if objectType.upper() == "STA":
-        return Standplaats()
-    if objectType.upper() == "VBO":
-        return Verblijfsobject()
-    if objectType.upper() == "PND":
-        return Pand()
-    return None
 
-#--------------------------------------------------------------------------------------------------------
-# Geef een BAGObject van het juiste type bij de gegeven identificatie.
-# Het type wordt afgeleid uit de identificatie.
-#--------------------------------------------------------------------------------------------------------
-def getBAGObjectBijIdentificatie(identificatie):
-    obj = None
-    if len(identificatie) == 4:
-        obj = Woonplaats()
-    elif identificatie[4:6] == "30":
-        obj = OpenbareRuimte()
-    elif identificatie[4:6] == "20":
-        obj = Nummeraanduiding()
-    elif identificatie[4:6] == "02":
-        obj = Ligplaats()
-    elif identificatie[4:6] == "03":
-        obj = Standplaats()
-    elif identificatie[4:6] == "01":
-        obj = Verblijfsobject()
-    elif identificatie[4:6] == "10":
-        obj = Pand()
-    if obj:
-        obj.identificatie.setWaarde(identificatie)
-    return obj
+# An extremely simple Singleton Factory for BAGObjects
+class BAGObjectFabriek:
+    # Singleton: sole static instance of BAGObjectFabriek to have a single BAGObjectFabriek object
+    bof = None
+
+    def __init__(self):
+        # Singleton: sole instance of Log o have a single Log object
+        BAGObjectFabriek.bof = self
+
+    #--------------------------------------------------------------------------------------------------------
+    # Geef een BAGObject van het juiste type bij het gegeven type.
+    #--------------------------------------------------------------------------------------------------------
+    def getBAGObjectBijType(self, objectType):
+        if objectType.upper() == "WPL":
+            return Woonplaats()
+        if objectType.upper() == "OPR":
+            return OpenbareRuimte()
+        if objectType.upper() == "NUM":
+            return Nummeraanduiding()
+        if objectType.upper() == "LIG":
+            return Ligplaats()
+        if objectType.upper() == "STA":
+            return Standplaats()
+        if objectType.upper() == "VBO":
+            return Verblijfsobject()
+        if objectType.upper() == "PND":
+            return Pand()
+        return None
+
+    #--------------------------------------------------------------------------------------------------------
+    # Geef een BAGObject van het juiste type bij de gegeven identificatie.
+    # Het type wordt afgeleid uit de identificatie.
+    #--------------------------------------------------------------------------------------------------------
+    def getBAGObjectBijIdentificatie(self, identificatie):
+        obj = None
+        if len(identificatie) == 4:
+            obj = Woonplaats()
+        elif identificatie[4:6] == "30":
+            obj = OpenbareRuimte()
+        elif identificatie[4:6] == "20":
+            obj = Nummeraanduiding()
+        elif identificatie[4:6] == "02":
+            obj = Ligplaats()
+        elif identificatie[4:6] == "03":
+            obj = Standplaats()
+        elif identificatie[4:6] == "01":
+            obj = Verblijfsobject()
+        elif identificatie[4:6] == "10":
+            obj = Pand()
+        if obj:
+            obj.identificatie.setWaarde(identificatie)
+        return obj
 
 
-# Creeer een BAGObject uit een DOM node
-def BAGObjectBijXML(node):
-    if node.localName == 'Ligplaats':
-        bagObject = Ligplaats()
-    elif node.localName == 'Woonplaats':
-        bagObject = Woonplaats()
-    elif node.localName == 'Verblijfsobject':
-        bagObject = Verblijfsobject()
-    elif node.localName == 'OpenbareRuimte':
-        bagObject = OpenbareRuimte()
-    elif node.localName == 'Nummeraanduiding':
-        bagObject = Nummeraanduiding()
-    elif node.localName == 'Standplaats':
-        bagObject = Standplaats()
-    elif node.localName == 'Pand':
-        bagObject = Pand()
-    else:
-        return
+    # Creeer een BAGObject uit een DOM node
+    def BAGObjectBijXML(self, node):
+        if node.localName == 'Ligplaats':
+            bagObject = Ligplaats()
+        elif node.localName == 'Woonplaats':
+            bagObject = Woonplaats()
+        elif node.localName == 'Verblijfsobject':
+            bagObject = Verblijfsobject()
+        elif node.localName == 'OpenbareRuimte':
+            bagObject = OpenbareRuimte()
+        elif node.localName == 'Nummeraanduiding':
+            bagObject = Nummeraanduiding()
+        elif node.localName == 'Standplaats':
+            bagObject = Standplaats()
+        elif node.localName == 'Pand':
+            bagObject = Pand()
+        else:
+            return
 
-    bagObject.leesUitXML(node)
-    return bagObject
+        bagObject.leesUitXML(node)
+        return bagObject
 
-# Creeer een array van BAGObjecten uit DOM nodeList
-def BAGObjectArrayBijXML(nodeList):
-    bagObjecten = []
-    for node in nodeList:
-        bagObject = BAGObjectBijXML(node)
-        if bagObject:
-            bagObjecten.append(bagObject)
+    # Creeer een array van BAGObjecten uit DOM nodeList
+    def BAGObjectArrayBijXML(self, nodeList):
+        bagObjecten = []
+        for node in nodeList:
+            bagObject = self.BAGObjectBijXML(node)
+            if bagObject:
+                bagObjecten.append(bagObject)
 
-    return bagObjecten
+        return bagObjecten
 
+BAGObjectFabriek()

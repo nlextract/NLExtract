@@ -15,9 +15,9 @@ __date__ = "$Jun 14, 2011 11:11:01 AM$"
  OpenGeoGroep.nl
 """
 
-from bagobject import BAGObjectArrayBijXML
+from bagobject import BAGObjectFabriek
 from bestuurlijkobject import BestuurlijkObjectFabriek
-import postgresdb
+from postgresdb import Database
 from logging import Log
 
 class Processor:
@@ -33,7 +33,7 @@ class Processor:
 
     def __init__(self, args):
         self.args = args
-        self.database = postgresdb.Database()
+        self.database = Database()
 
     def processCSV(self, csvreader):
         objecten = []
@@ -74,7 +74,7 @@ class Processor:
                             Log.log.startTimer("objCreate")
                             for productnode in producten.childNodes:
                                 if productnode.localName == 'LVC-product' and productnode.childNodes:
-                                    self.bagObjecten = BAGObjectArrayBijXML(productnode.childNodes)
+                                    self.bagObjecten = BAGObjectFabriek.bof.BAGObjectArrayBijXML(productnode.childNodes)
                             Log.log.endTimer("objCreate - objs=" + str(len(self.bagObjecten)))
 
                     Log.log.startTimer("dbInsert")
@@ -94,9 +94,40 @@ class Processor:
                     Log.log.endTimer("dbInsert - objs=" + str(len(self.bagObjecten)) + " rels=" + str(rels))
                     Log.log.info("------")
 
-        # Leveringsinformatie
-        if node.localName == 'BAG-Extract-Levering':
-            return 'levering'
-            # Mutatie
-        if node.localName == '':
-            return 'mutatie'
+        elif node.localName == 'BAG-Mutaties-Deelbestand-LVC':
+            #firstchild moet zijn 'antwoord'
+            for childNode in node.childNodes:
+                if childNode.localName == 'antwoord':
+                    # Antwoord bevat twee childs: vraag en producten
+                    antwoord = childNode
+                    for child in antwoord.childNodes:
+                        if child.localName == "producten":
+                            producten = child
+                            Log.log.startTimer("objCreate")
+                            for productnode in producten.childNodes:
+                                if productnode.localName == 'Mutatie-product' and productnode.childNodes:
+                                    for mutatienode in productnode.childNodes:
+                                        if mutatienode.localName == 'Nieuw':
+                                            # Log.log.info("Nieuw Object")
+                                            self.bagObjecten.extend(BAGObjectFabriek.bof.BAGObjectArrayBijXML(mutatienode.childNodes))
+
+                            Log.log.endTimer("objCreate - objs=" + str(len(self.bagObjecten)))
+
+                    Log.log.startTimer("dbInsert (mutaties)")
+                    self.database.verbind()
+                    rels = 0
+                    for bagObject in self.bagObjecten:
+                        bagObject.maakInsertSQL()
+                        self.database.uitvoeren(bagObject.sql, bagObject.inhoud)
+                        for relatie in bagObject.relaties:
+                            i = 0
+                            for sql in relatie.sql:
+                                self.database.uitvoeren(sql, relatie.inhoud[i])
+                                i += 1
+                                rels += 1
+
+                    self.database.connection.commit()
+                    Log.log.endTimer("dbInsert (mutaties) - objs=" + str(len(self.bagObjecten)) + " rels=" + str(rels))
+                    Log.log.info("------")
+
+
