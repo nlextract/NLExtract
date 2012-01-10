@@ -1,0 +1,628 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2010 (http://www.altova.com) by Kadaster (Kadaster) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:bag="http://www.kadaster.nl/schemas/imbag/lvc-gml/v20090901" xmlns:gml="http://www.opengis.net/gml" xmlns:bagtype="http://www.kadaster.nl/schemas/imbag/imbag-types/v20090901" xmlns:nen5825="http://www.kadaster.nl/schemas/imbag/nen5825/v20090901" targetNamespace="http://www.kadaster.nl/schemas/imbag/lvc-gml/v20090901" elementFormDefault="qualified" attributeFormDefault="unqualified" version="0.70">
+	<xs:import namespace="http://www.kadaster.nl/schemas/imbag/nen5825/v20090901" schemaLocation="../../nen5825/v20090901/BagvsNEN5825-0.7.xsd"/>
+	<xs:annotation>
+		<xs:appinfo>
+			<gml4nl:ComplianceLevel xmlns:gml4nl="http://www.geonovum.nl/gml4nl/1.0">2</gml4nl:ComplianceLevel>
+			<gml4nl:GMLProfileSchema xmlns:gml4nl="http://www.geonovum.nl/gml4nl/1.0">http://www.geonovum.nl/gml4nl/gml4nl.xsd</gml4nl:GMLProfileSchema>
+		</xs:appinfo>
+		<xs:documentation>There are property values that use the pattern facet.</xs:documentation>
+	</xs:annotation>
+	<xs:annotation>
+		<xs:documentation>IMBAG is het informatiemodel van de basisregistratie adressen en gebouwen (BAG). Het modelleert de gegevens die door de basisregistratie worden verstrekt. </xs:documentation>
+	</xs:annotation>
+	<xs:import namespace="http://www.kadaster.nl/schemas/imbag/imbag-types/v20090901" schemaLocation="../../imbag-types/v20090901/BagvsImbagOnderdelen-0.7.xsd"/>
+	<xs:import namespace="http://www.opengis.net/gml" schemaLocation="../../gml/bag-gml.xsd"/>
+	<xs:element name="Ligplaats" type="bag:Ligplaats" substitutionGroup="bag:_AdresseerbaarObject"/>
+	<xs:complexType name="Ligplaats">
+		<xs:annotation>
+			<xs:documentation>Een LIGPLAATS is een formeel door de gemeenteraad als
+zodanig aangewezen plaats in het water, al dan niet aangevuld
+met een op de oever aanwezig terrein of een gedeelte daarvan,
+dat bestemd is voor het permanent afmeren van een voor woon-,
+bedrijfsmatige- of recreatieve doeleinden geschikt vaartuig.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="bag:_AdresseerbaarObject">
+				<xs:sequence>
+					<xs:element name="identificatie" type="bagtype:Objectnummer">
+						<xs:annotation>
+							<xs:documentation>De unieke aanduiding van een LIGPLAATS.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="aanduidingRecordInactief" type="bagtype:Indicatie">
+						<xs:annotation>
+							<xs:documentation>De oorspronkelijke toekomstige mutatie wordt gecorrigeerd en op “inactief” gezet. Het attribuut "aanduiding record inactief" krijgt de waarde "J". Wanneer een voorkomen op inactief wordt gezet, betekent dit dat het voorkomen raadpleegbaar blijft, maar dat het bij het opvragen van de levenscyclus van het object niet voorkomt  in de geldige tijdslijn (opeenvolging van in de tijd  aaneengesloten voorkomens) .</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="aanduidingRecordCorrectie" type="bagtype:indicatieCorrectie">
+						<xs:annotation>
+							<xs:documentation>Een numeriek gegeven waarin aangegeven wordt hoe vaak een voorkomen van een object n.a.v. een toekomstige mutatie is gecorrigeerd. Het gecorrigeerde gegeven zal derhalve nooit meer geldig worden. Uit deze waarde wordt aanduidingRecordInactief afgeleid. Indien dit veld een 0 bevat is het gegeven actief. In alle andere gevallen is het record inactief en wordt het attribuut </xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="officieel" type="bagtype:Indicatie">
+						<xs:annotation>
+							<xs:documentation>Een aanduiding waarmee kan worden aangegeven dat
+een object in de registratie is opgenomen als gevolg van
+een feitelijke constatering, zonder dat er op het moment
+van opname sprake is van een formele grondslag voor
+deze opname.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="ligplaatsStatus" type="bagtype:StatusPlaats">
+						<xs:annotation>
+							<xs:documentation>De fase van de levenscyclus van een LIGPLAATS, waarin
+de betreffende LIGPLAATS zich bevindt.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="ligplaatsGeometrie" type="gml:SurfacePropertyType">
+						<xs:annotation>
+							<xs:documentation>De tweedimensionale geometrische representatie van de
+omtrekken van een LIGPLAATS.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="tijdvakgeldigheid" type="bagtype:Tijdvakgeldigheid">
+						<xs:annotation>
+							<xs:documentation>Een periode waarin de gegevens die worden bijgehouden over een LIGPLAATS geldig zijn.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="inOnderzoek" type="bagtype:Indicatie">
+						<xs:annotation>
+							<xs:documentation>Een aanduiding waarmee wordt aangegeven dat een
+onderzoek wordt uitgevoerd naar de juistheid van een of
+meerdere gegevens van het betreffende object.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="bron" type="bagtype:Bron">
+						<xs:annotation>
+							<xs:documentation>Het vastgestelde document op basis waarvan een opname, mutatie of een in de historie plaatsen van gegevens ten aanzien van de LIGPLAATS heeft plaatsgevonden.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="_AdresseerbaarObject" type="bag:_AdresseerbaarObject" abstract="true" substitutionGroup="gml:_Feature"/>
+	<xs:complexType name="_AdresseerbaarObject" abstract="true">
+		<xs:annotation>
+			<xs:documentation>Een ligplaats, verblijfsobject of standplaats.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="gml:AbstractFeatureType">
+				<xs:sequence>
+					<xs:element name="gerelateerdeAdressen" type="bag:GerelateerdeAdressen"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="Verblijfsobject" type="bag:Verblijfsobject" substitutionGroup="bag:_AdresseerbaarObject"/>
+	<xs:complexType name="Verblijfsobject">
+		<xs:annotation>
+			<xs:documentation>Een VERBLIJFSOBJECT is de kleinste binnen één of meerdere
+panden gelegen en voor woon -, bedrijfsmatige - of recreatieve
+doeleinden geschikte eenheid van gebruik, die ontsloten wordt
+via een eigen toegang vanaf de openbare weg, een erf of een
+gedeelde verkeersruimte en die onderwerp kan zijn van
+rechtshandelingen.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="bag:_AdresseerbaarObject">
+				<xs:sequence>
+					<xs:element name="identificatie" type="bagtype:Objectnummer">
+						<xs:annotation>
+							<xs:documentation>De unieke aanduiding van een VERBLIJFSOBJECT.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="aanduidingRecordInactief" type="bagtype:Indicatie">
+						<xs:annotation>
+							<xs:documentation>De oorspronkelijke toekomstige mutatie wordt gecorrigeerd en op “inactief” gezet. Het attribuut "aanduiding record inactief" krijgt de waarde "J". Wanneer een voorkomen op inactief wordt gezet, betekent dit dat het voorkomen raadpleegbaar blijft, maar dat het bij het opvragen van de levenscyclus van het object niet voorkomt  in de geldige tijdslijn (opeenvolging van in de tijd  aaneengesloten voorkomens) .</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="aanduidingRecordCorrectie" type="bagtype:indicatieCorrectie">
+						<xs:annotation>
+							<xs:documentation>Een numeriek gegeven waarin aangegeven wordt hoe vaak een voorkomen van een object n.a.v. een toekomstige mutatie is gecorrigeerd. Het gecorrigeerde gegeven zal derhalve nooit meer geldig worden. Uit deze waarde wordt aanduidingRecordInactief afgeleid. Indien dit veld een 0 bevat is het gegeven actief. In alle andere gevallen is het record inactief en wordt het attribuut </xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="officieel" type="bagtype:Indicatie">
+						<xs:annotation>
+							<xs:documentation>Een aanduiding waarmee kan worden aangegeven dat
+een object in de registratie is opgenomen als gevolg van
+een feitelijke constatering, zonder dat er op het moment
+van opname sprake is van een formele grondslag voor
+deze opname.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="verblijfsobjectGeometrie" type="bagtype:PuntOfVlak">
+						<xs:annotation>
+							<xs:documentation>De geometrische representatie van een VERBLIJFSOBJECT.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="gebruiksdoelVerblijfsobject" type="bagtype:Gebruiksdoel" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Een categorisering van de gebruiksdoelen van het
+betreffende VERBLIJFSOBJECT, zoals dit formeel door
+de overheid als zodanig is toegestaan.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="oppervlakteVerblijfsobject" type="bagtype:Oppervlaktemaat">
+						<xs:annotation>
+							<xs:documentation>De gebruiksoppervlakte van een VERBLIJFSOBJECT in
+gehele vierkante meters.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="verblijfsobjectStatus" type="bagtype:StatusVerblijfsobject">
+						<xs:annotation>
+							<xs:documentation>De fase van de levenscyclus van een
+VERBLIJFSOBJECT, waarin het betreffende
+VERBLIJFSOBJECT zich bevindt.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="tijdvakgeldigheid" type="bagtype:Tijdvakgeldigheid">
+						<xs:annotation>
+							<xs:documentation>Een periode waarin de gegevens die worden bijgehouden over een VERBLIJFSOBJECT geldig zijn.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="inOnderzoek" type="bagtype:Indicatie">
+						<xs:annotation>
+							<xs:documentation>Een aanduiding waarmee wordt aangegeven dat een
+onderzoek wordt uitgevoerd naar de juistheid van een of
+meerdere gegevens van het betreffende object.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="bron" type="bagtype:Bron">
+						<xs:annotation>
+							<xs:documentation>Het vastgestelde document op basis waarvan een opname, mutatie of een in de historie plaatsen van gegevens ten aanzien van het VERBLIJFSOBJECT heeft plaatsgevonden.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="gerelateerdPand" maxOccurs="unbounded">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element name="identificatie" type="bagtype:Objectnummer"/>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="GerelateerdeAdressen" type="bag:GerelateerdeAdressen"/>
+	<xs:complexType name="GerelateerdeAdressen">
+		<xs:sequence>
+			<xs:element name="hoofdadres">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="identificatie" type="bagtype:Objectnummer"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="nevenadres" minOccurs="0" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="identificatie" type="bagtype:Objectnummer"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="Bouwjaar">
+		<xs:restriction base="xs:integer">
+			<xs:totalDigits value="3"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:element name="Standplaats" type="bag:Standplaats" substitutionGroup="bag:_AdresseerbaarObject"/>
+	<xs:complexType name="Standplaats">
+		<xs:annotation>
+			<xs:documentation>Een STANDPLAATS is een formeel door de gemeenteraad als
+zodanig aangewezen terrein of een gedeelte daarvan, dat
+bestemd is voor het permanent plaatsen van een niet direct en
+duurzaam met de aarde verbonden en voor woon -,
+bedrijfsmatige - of recreatieve doeleinden geschikte ruimte.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="bag:_AdresseerbaarObject">
+				<xs:sequence>
+					<xs:element name="identificatie" type="bagtype:Objectnummer">
+						<xs:annotation>
+							<xs:documentation>De unieke aanduiding van een STANDPLAATS.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="aanduidingRecordInactief" type="bagtype:Indicatie">
+						<xs:annotation>
+							<xs:documentation>De oorspronkelijke toekomstige mutatie wordt gecorrigeerd en op “inactief” gezet. Het attribuut "aanduiding record inactief" krijgt de waarde "J". Wanneer een voorkomen op inactief wordt gezet, betekent dit dat het voorkomen raadpleegbaar blijft, maar dat het bij het opvragen van de levenscyclus van het object niet voorkomt  in de geldige tijdslijn (opeenvolging van in de tijd  aaneengesloten voorkomens) .</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="aanduidingRecordCorrectie" type="bagtype:indicatieCorrectie">
+						<xs:annotation>
+							<xs:documentation>Een numeriek gegeven waarin aangegeven wordt hoe vaak een voorkomen van een object n.a.v. een toekomstige mutatie is gecorrigeerd. Het gecorrigeerde gegeven zal derhalve nooit meer geldig worden. Uit deze waarde wordt aanduidingRecordInactief afgeleid. Indien dit veld een 0 bevat is het gegeven actief. In alle andere gevallen is het record inactief en wordt het attribuut </xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="officieel" type="bagtype:Indicatie">
+						<xs:annotation>
+							<xs:documentation>Een aanduiding waarmee kan worden aangegeven dat
+een object in de registratie is opgenomen als gevolg van
+een feitelijke constatering, zonder dat er op het moment
+van opname sprake is van een formele grondslag voor
+deze opname.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="standplaatsStatus" type="bagtype:StatusPlaats">
+						<xs:annotation>
+							<xs:documentation>De fase van de levenscyclus van een STANDPLAATS,
+waarin de betreffende STANDPLAATS zich bevindt.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="standplaatsGeometrie" type="gml:SurfacePropertyType">
+						<xs:annotation>
+							<xs:documentation>De tweedimensionale geometrische representatie van de
+omtrekken van een STANDPLAATS.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="tijdvakgeldigheid" type="bagtype:Tijdvakgeldigheid">
+						<xs:annotation>
+							<xs:documentation>Een periode waarin de gegevens die worden bijgehouden over een STANDPLAATS geldig zijn.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="inOnderzoek" type="bagtype:Indicatie">
+						<xs:annotation>
+							<xs:documentation>Een aanduiding waarmee wordt aangegeven dat een
+onderzoek wordt uitgevoerd naar de juistheid van een of
+meerdere gegevens van het betreffende object.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="bron" type="bagtype:Bron">
+						<xs:annotation>
+							<xs:documentation>Het vastgestelde document op basis waarvan een opname, mutatie of een in de historie plaatsen van gegevens ten aanzien van de STANDPLAATS heeft plaatsgevonden.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="Pand" type="bag:Pand" substitutionGroup="gml:_Feature"/>
+	<xs:complexType name="Pand">
+		<xs:annotation>
+			<xs:documentation>Een PAND is de kleinste, bij de totstandkoming functioneel en
+bouwkundig constructief zelfstandige eenheid, die direct en
+duurzaam met de aarde is verbonden.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="gml:AbstractFeatureType">
+				<xs:sequence>
+					<xs:element name="identificatie" type="bagtype:Objectnummer">
+						<xs:annotation>
+							<xs:documentation>Elk pand waarvan gegevens zijn opgenomen in de Basis
+Gebouwen Registratie, wordt uniek aangeduid door middel
+van een identificatiecode. Deze identificatiecode bestaat
+uit de viercijferige gemeentecode volgens GBA tabel 33,
+gevolgd door een codering voor de objecttypering en een
+voor de registrerende gemeente uniek volgnummer.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="aanduidingRecordInactief" type="bagtype:Indicatie">
+						<xs:annotation>
+							<xs:documentation>De oorspronkelijke toekomstige mutatie wordt gecorrigeerd en op “inactief” gezet. Het attribuut "aanduiding record inactief" krijgt de waarde "J". Wanneer een voorkomen op inactief wordt gezet, betekent dit dat het voorkomen raadpleegbaar blijft, maar dat het bij het opvragen van de levenscyclus van het object niet voorkomt  in de geldige tijdslijn (opeenvolging van in de tijd  aaneengesloten voorkomens) .</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="aanduidingRecordCorrectie" type="bagtype:indicatieCorrectie">
+						<xs:annotation>
+							<xs:documentation>Een numeriek gegeven waarin aangegeven wordt hoe vaak een voorkomen van een object n.a.v. een toekomstige mutatie is gecorrigeerd. Het gecorrigeerde gegeven zal derhalve nooit meer geldig worden. Uit deze waarde wordt aanduidingRecordInactief afgeleid. Indien dit veld een 0 bevat is het gegeven actief. In alle andere gevallen is het record inactief en wordt het attribuut aanduidingRecordInactief op J gezet. 
+</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="officieel" type="bagtype:Indicatie">
+						<xs:annotation>
+							<xs:documentation>Een aanduiding waarmee kan worden aangegeven dat
+een object in de registratie is opgenomen als gevolg van
+een feitelijke constatering, zonder dat er op het moment
+van opname sprake is van een formele grondslag voor
+deze opname.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="pandGeometrie" type="gml:SurfacePropertyType">
+						<xs:annotation>
+							<xs:documentation>De minimaal tweedimensionale geometrische
+representatie van de omtrekken van een PAND.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="bouwjaar" type="bag:Bouwjaar">
+						<xs:annotation>
+							<xs:documentation>De aanduiding van het jaar waarin een PAND
+oorspronkelijk als bouwkundig gereed is opgeleverd.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="pandstatus" type="bagtype:StatusPand">
+						<xs:annotation>
+							<xs:documentation>De fase van de levenscyclus van een PAND, waarin het
+betreffende PAND zich bevindt.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="tijdvakgeldigheid" type="bagtype:Tijdvakgeldigheid">
+						<xs:annotation>
+							<xs:documentation>Een periode waarin de gegevens die worden bijgehouden over een PAND geldig zijn.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="inOnderzoek" type="bagtype:Indicatie">
+						<xs:annotation>
+							<xs:documentation>Een aanduiding waarmee wordt aangegeven dat een
+onderzoek wordt uitgevoerd naar de juistheid van een of
+meerdere gegevens van het betreffende object.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="bron" type="bagtype:Bron">
+						<xs:annotation>
+							<xs:documentation>Het vastgestelde document op basis waarvan een opname, mutatie of een in de historie plaatsen van gegevens ten aanzien van het PAND heeft plaatsgevonden.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="Nummeraanduiding" type="bag:Nummeraanduiding" substitutionGroup="gml:_Feature"/>
+	<xs:complexType name="Nummeraanduiding">
+		<xs:annotation>
+			<xs:documentation>Een NUMMERAANDUIDING is een door de gemeenteraad als
+zodanig toegekende aanduiding van een adresseerbaar object.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="gml:AbstractFeatureType">
+				<xs:sequence>
+					<xs:element name="identificatie" type="bagtype:Objectnummer">
+						<xs:annotation>
+							<xs:documentation>De unieke aanduiding van een NUMMERAANDUIDING.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="aanduidingRecordInactief" type="bagtype:Indicatie">
+						<xs:annotation>
+							<xs:documentation>De oorspronkelijke toekomstige mutatie wordt gecorrigeerd en op “inactief” gezet. Het attribuut "aanduiding record inactief" krijgt de waarde "J". Wanneer een voorkomen op inactief wordt gezet, betekent dit dat het voorkomen raadpleegbaar blijft, maar dat het bij het opvragen van de levenscyclus van het object niet voorkomt  in de geldige tijdslijn (opeenvolging van in de tijd  aaneengesloten voorkomens) .</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="aanduidingRecordCorrectie" type="bagtype:indicatieCorrectie">
+						<xs:annotation>
+							<xs:documentation>Een numeriek gegeven waarin aangegeven wordt hoe vaak een voorkomen van een object n.a.v. een toekomstige mutatie is gecorrigeerd. Het gecorrigeerde gegeven zal derhalve nooit meer geldig worden. Uit deze waarde wordt aanduidingRecordInactief afgeleid. Indien dit veld een 0 bevat is het gegeven actief. In alle andere gevallen is het record inactief en wordt het attribuut </xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="huisnummer" type="bagtype:Huisnummer">
+						<xs:annotation>
+							<xs:documentation>Een door of namens het gemeentebestuur ten aanzien
+van een adresseerbaar object toegekende nummering.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="officieel" type="bagtype:Indicatie">
+						<xs:annotation>
+							<xs:documentation>Een aanduiding waarmee kan worden aangegeven dat
+een object in de registratie is opgenomen als gevolg van
+een feitelijke constatering, zonder dat er op het moment
+van opname sprake is van een formele grondslag voor
+deze opname.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="huisletter" type="bagtype:Huisletter" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Een door of namens het gemeentebestuur ten aanzien
+van een adresseerbaar object toegekende toevoeging
+aan een huisnummer in de vorm van een alfanumeriek
+teken.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="huisnummertoevoeging" type="bagtype:Huisnummertoevoeging" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Een door of namens het gemeentebestuur ten aanzien
+van een adresseerbaar object toegekende nadere
+toevoeging aan een huisnummer of een combinatie van
+huisnummer en huisletter.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="postcode" type="bagtype:Postcode" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>De door TNT Post vastgestelde code behorende bij een
+bepaalde combinatie van een straatnaam en een
+huisnummer.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="tijdvakgeldigheid" type="bagtype:Tijdvakgeldigheid">
+						<xs:annotation>
+							<xs:documentation>Een periode waarin de gegevens die worden bijgehouden over een NUMMERAANDUIDING geldig zijn.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="inOnderzoek" type="bagtype:Indicatie">
+						<xs:annotation>
+							<xs:documentation>Een aanduiding waarmee wordt aangegeven dat een
+onderzoek wordt uitgevoerd naar de juistheid van een of
+meerdere gegevens van het betreffende object.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="typeAdresseerbaarObject" type="bagtype:TypeAdresseerbaarObject">
+						<xs:annotation>
+							<xs:documentation>De aard van een als zodanig benoemde
+NUMMERAANDUIDING.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="bron" type="bagtype:Bron">
+						<xs:annotation>
+							<xs:documentation>Het vastgestelde document op basis waarvan een opname, mutatie of een in de historie plaatsen van gegevens ten aanzien van de NUMMERAANDUIDING heeft plaatsgevonden.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="nummeraanduidingStatus" type="bagtype:StatusNaamgeving">
+						<xs:annotation>
+							<xs:documentation>De fase van de levenscyclus van een
+NUMMERAANDUIDING, waarin de betreffende
+NUMMERAANDUIDING zich bevindt.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="gerelateerdeOpenbareRuimte">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element name="identificatie" type="bagtype:Objectnummer"/>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="gerelateerdeWoonplaats" minOccurs="0">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element name="identificatie" type="bagtype:Woonplaatscode"/>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="OpenbareRuimte" type="bag:OpenbareRuimte" substitutionGroup="gml:_Feature"/>
+	<xs:complexType name="OpenbareRuimte">
+		<xs:annotation>
+			<xs:documentation>Een OPENBARE RUIMTE is een door de gemeenteraad als
+zodanig aangewezen benaming van een binnen 1 woonplaats
+gelegen buitenruimte.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="gml:AbstractFeatureType">
+				<xs:sequence>
+					<xs:element name="identificatie" type="bagtype:Objectnummer">
+						<xs:annotation>
+							<xs:documentation>De unieke aanduiding van een OPENBARE RUIMTE.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="aanduidingRecordInactief" type="bagtype:Indicatie">
+						<xs:annotation>
+							<xs:documentation>De oorspronkelijke toekomstige mutatie wordt gecorrigeerd en op “inactief” gezet. Het attribuut "aanduiding record inactief" krijgt de waarde "J". Wanneer een voorkomen op inactief wordt gezet, betekent dit dat het voorkomen raadpleegbaar blijft, maar dat het bij het opvragen van de levenscyclus van het object niet voorkomt  in de geldige tijdslijn (opeenvolging van in de tijd  aaneengesloten voorkomens) .</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="aanduidingRecordCorrectie" type="bagtype:indicatieCorrectie">
+						<xs:annotation>
+							<xs:documentation>Een numeriek gegeven waarin aangegeven wordt hoe vaak een voorkomen van een object n.a.v. een toekomstige mutatie is gecorrigeerd. Het gecorrigeerde gegeven zal derhalve nooit meer geldig worden. Uit deze waarde wordt aanduidingRecordInactief afgeleid. Indien dit veld een 0 bevat is het gegeven actief. In alle andere gevallen is het record inactief en wordt het attribuut </xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="openbareRuimteNaam" type="bagtype:Objectnaam">
+						<xs:annotation>
+							<xs:documentation>Een naam die aan een OPENBARE RUIMTE is toegekend in een daartoe strekkend formeel gemeentelijk besluit.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="officieel" type="bagtype:Indicatie">
+						<xs:annotation>
+							<xs:documentation>Een aanduiding waarmee kan worden aangegeven dat
+een object in de registratie is opgenomen als gevolg van
+een feitelijke constatering, zonder dat er op het moment
+van opname sprake is van een formele grondslag voor
+deze opname.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="tijdvakgeldigheid" type="bagtype:Tijdvakgeldigheid">
+						<xs:annotation>
+							<xs:documentation>Een periode waarin de gegevens die worden bijgehouden over een OPENBARE RUIMTE geldig zijn.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="inOnderzoek" type="bagtype:Indicatie">
+						<xs:annotation>
+							<xs:documentation>Een aanduiding waarmee wordt aangegeven dat een
+onderzoek wordt uitgevoerd naar de juistheid van een of
+meerdere gegevens van het betreffende object.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="openbareRuimteType" type="bagtype:TypeOpenbareRuimte">
+						<xs:annotation>
+							<xs:documentation>De aard van de als zodanig benoemde OPENBARE
+RUIMTE.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="bron" type="bagtype:Bron">
+						<xs:annotation>
+							<xs:documentation>Het vastgestelde document op basis waarvan een opname, mutatie of een in de historie plaatsen van gegevens ten aanzien van de OPENBARE RUIMTE heeft plaatsgevonden.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="openbareruimteStatus" type="bagtype:StatusNaamgeving">
+						<xs:annotation>
+							<xs:documentation>De fase van de levenscyclus van een OPENBARE
+RUIMTE, waarin de betreffende OPENBARE RUIMTE
+zich bevindt.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="gerelateerdeWoonplaats">
+						<xs:complexType>
+							<xs:sequence>
+								<xs:element name="identificatie" type="bagtype:Woonplaatscode"/>
+							</xs:sequence>
+						</xs:complexType>
+					</xs:element>
+					<xs:element ref="nen5825:VerkorteOpenbareruimteNaam" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="Woonplaats" type="bag:Woonplaats" substitutionGroup="gml:_Feature"/>
+	<xs:complexType name="Woonplaats">
+		<xs:annotation>
+			<xs:documentation>Een WOONPLAATS is een door de gemeenteraad als
+zodanig aangewezen gedeelte van het gemeentelijk
+grondgebied.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="gml:AbstractFeatureType">
+				<xs:sequence>
+					<xs:element name="identificatie" type="bagtype:Woonplaatscode">
+						<xs:annotation>
+							<xs:documentation>De landelijk unieke aanduiding van een WOONPLAATS,
+zoals vastgesteld door de beheerder van de landelijke
+tabel voor woonplaatsen.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="aanduidingRecordInactief" type="bagtype:Indicatie">
+						<xs:annotation>
+							<xs:documentation>De oorspronkelijke toekomstige mutatie wordt gecorrigeerd en op “inactief” gezet. Het attribuut "aanduiding record inactief" krijgt de waarde "J". Wanneer een voorkomen op inactief wordt gezet, betekent dit dat het voorkomen raadpleegbaar blijft, maar dat het bij het opvragen van de levenscyclus van het object niet voorkomt  in de geldige tijdslijn (opeenvolging van in de tijd  aaneengesloten voorkomens) .</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="aanduidingRecordCorrectie" type="bagtype:indicatieCorrectie">
+						<xs:annotation>
+							<xs:documentation>Een numeriek gegeven waarin aangegeven wordt hoe vaak een voorkomen van een object n.a.v. een toekomstige mutatie is gecorrigeerd. Het gecorrigeerde gegeven zal derhalve nooit meer geldig worden. Uit deze waarde wordt aanduidingRecordInactief afgeleid. Indien dit veld een 0 bevat is het gegeven actief. In alle andere gevallen is het record inactief en wordt het attribuut </xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="woonplaatsNaam" type="bagtype:Objectnaam">
+						<xs:annotation>
+							<xs:documentation>De benaming van een door het gemeentebestuur
+aangewezen WOONPLAATS.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="woonplaatsGeometrie" type="bagtype:VlakOfMultiVlak">
+						<xs:annotation>
+							<xs:documentation>De tweedimensionale geometrische representatie van het
+vlak dat wordt gevormd door de omtrekken van een
+woonplaats.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="officieel" type="bagtype:Indicatie">
+						<xs:annotation>
+							<xs:documentation>Een aanduiding waarmee kan worden aangegeven dat
+een object in de registratie is opgenomen als gevolg van
+een feitelijke constatering, zonder dat er op het moment
+van opname sprake is van een formele grondslag voor
+deze opname.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="tijdvakgeldigheid" type="bagtype:Tijdvakgeldigheid">
+						<xs:annotation>
+							<xs:documentation>Een periode waarin de gegevens die worden bijgehouden over een WOONPLAATS geldig zijn.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="inOnderzoek" type="bagtype:Indicatie">
+						<xs:annotation>
+							<xs:documentation>Een aanduiding waarmee wordt aangegeven dat een
+onderzoek wordt uitgevoerd naar de juistheid van een of
+meerdere gegevens van het betreffende object.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="bron" type="bagtype:Bron">
+						<xs:annotation>
+							<xs:documentation>Het vastgestelde document op basis waarvan een opname, mutatie of een in de historie plaatsen van gegevens ten aanzien van de WOONPLAATS heeft plaatsgevonden.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="woonplaatsStatus" type="bagtype:StatusWoonplaats">
+						<xs:annotation>
+							<xs:documentation>De fase van de levenscyclus van een WOONPLAATS,
+waarin de betreffende WOONPLAATS zich bevindt.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+</xs:schema>

@@ -1,0 +1,807 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2006 sp2 U (http://www.altova.com) by Kadaster (Kadaster) -->
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:sch="http://www.ascc.net/xml/schematron" xmlns:gml="http://www.opengis.net/gml" xmlns:xlink="http://www.w3.org/1999/xlink" targetNamespace="http://www.opengis.net/gml" elementFormDefault="qualified" version="3.1.1">
+	<annotation>
+		<documentation>GML Subset schema for: gml:_Feature,gml:AbstractFeatureType,gml:SurfacePropertyType,gml:PointPropertyType,gml:PolygonType,gml:Polygon,gml:MultiSurfaceType,gml:MultiSurface,gml:MultiSurfacePropertyType,gml:LinearRing, including used  types: gml:_Feature,gml:AbstractFeatureType,gml:AbstractGMLType,gml:StandardObjectProperties,gml:metaDataProperty,gml:MetaDataPropertyType,gml:AssociationAttributeGroup,xlink:simpleLink,xlink:href,xlink:role,xlink:arcrole,xlink:title,xlink:show,xlink:actuate,gml:remoteSchema,gml:description,gml:StringOrRefType,string,gml:name,gml:CodeType,gml:id,gml:boundedBy,gml:BoundingShapeType,gml:Envelope,gml:EnvelopeType,gml:DirectPositionType,gml:doubleList,double,gml:SRSReferenceGroup,gml:SRSInformationGroup,gml:NCNameList,NCName,gml:coord,gml:CoordType,gml:pos,gml:coordinates,gml:CoordinatesType,gml:Null,gml:NullType,gml:NullEnumeration,anyURI,gml:location,gml:LocationPropertyType,gml:_Geometry,gml:AbstractGeometryType,gml:_GML,gml:_Object,gml:LocationKeyWord,gml:LocationString,gml:SurfacePropertyType,gml:_Surface,gml:AbstractSurfaceType,gml:AbstractGeometricPrimitiveType,gml:_GeometricPrimitive,gml:PointPropertyType,gml:Point,gml:PointType,gml:PolygonType,gml:exterior,gml:AbstractRingPropertyType,gml:_Ring,gml:AbstractRingType,gml:interior,gml:Polygon,gml:MultiSurfaceType,gml:AbstractGeometricAggregateType,gml:surfaceMember,gml:surfaceMembers,gml:SurfaceArrayPropertyType,gml:MultiSurface,gml:_GeometricAggregate,gml:MultiSurfacePropertyType,gml:LinearRing,gml:LinearRingType,gml:pointProperty,gml:pointRep,gml:posList,gml:DirectPositionListType,  written by gmlSubset.xslt. </documentation>
+	</annotation>
+	<import namespace="http://www.w3.org/1999/xlink" schemaLocation="../xlink/xlinks.xsd"/>
+	<!-- ================================================= -->
+	<element name="_Feature" type="gml:AbstractFeatureType" abstract="true" substitutionGroup="gml:_GML"/>
+	<!-- ================================================= -->
+	<complexType name="AbstractFeatureType" abstract="true">
+		<annotation>
+			<documentation>An abstract feature provides a set of common properties, including id, metaDataProperty, name and description inherited from AbstractGMLType, plus boundedBy.    A concrete feature type must derive from this type and specify additional  properties in an application schema. A feature must possess an identifying attribute ('id' - 'fid' has been deprecated).</documentation>
+		</annotation>
+		<complexContent>
+			<extension base="gml:AbstractGMLType">
+				<sequence>
+					<element ref="gml:boundedBy" minOccurs="0"/>
+					<element ref="gml:location" minOccurs="0">
+						<annotation>
+							<appinfo>deprecated</appinfo>
+							<documentation>deprecated in GML version 3.1</documentation>
+						</annotation>
+					</element>
+					<!-- additional properties must be specified in an application schema -->
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<!-- ================================================= -->
+	<complexType name="AbstractGMLType" abstract="true">
+		<annotation>
+			<documentation>All complexContent GML elements are directly or indirectly derived from this abstract supertype 
+	to establish a hierarchy of GML types that may be distinguished from other XML types by their ancestry. 
+	Elements in this hierarchy may have an ID and are thus referenceable.</documentation>
+		</annotation>
+		<sequence>
+			<group ref="gml:StandardObjectProperties"/>
+		</sequence>
+		<attribute ref="gml:id" use="optional"/>
+	</complexType>
+	<!-- ================================================= -->
+	<group name="StandardObjectProperties">
+		<annotation>
+			<documentation>This content model group makes it easier to construct types that 
+      derive from AbstractGMLType and its descendents "by restriction".  
+      A reference to the group saves having to enumerate the standard object properties.</documentation>
+		</annotation>
+		<sequence>
+			<element ref="gml:metaDataProperty" minOccurs="0" maxOccurs="unbounded"/>
+			<element ref="gml:description" minOccurs="0"/>
+			<element ref="gml:name" minOccurs="0" maxOccurs="unbounded">
+				<annotation>
+					<documentation>Multiple names may be provided.  These will often be distinguished by being assigned by different authorities, as indicated by the value of the codeSpace attribute.  In an instance document there will usually only be one name per authority.</documentation>
+				</annotation>
+			</element>
+		</sequence>
+	</group>
+	<!-- ================================================= -->
+	<element name="metaDataProperty" type="gml:MetaDataPropertyType">
+		<annotation>
+			<documentation>Contains or refers to a metadata package that contains metadata properties.</documentation>
+		</annotation>
+	</element>
+	<!-- ================================================= -->
+	<complexType name="MetaDataPropertyType">
+		<annotation>
+			<documentation>Base type for complex metadata property types.</documentation>
+		</annotation>
+		<sequence minOccurs="0">
+			<any processContents="lax"/>
+			<!-- <element ref="gml:_MetaData"/> -->
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<attribute name="about" type="anyURI" use="optional"/>
+	</complexType>
+	<!-- ================================================= -->
+	<attributeGroup name="AssociationAttributeGroup">
+		<annotation>
+			<documentation>Attribute group used to enable property elements to refer to their value remotely. It contains the simple link components from xlinks.xsd, with all members optional, and the remoteSchema attribute, which is also optional.  These attributes can be attached to any element, thus allowing it to act as a pointer. The 'remoteSchema' attribute allows an element  that carries link attributes to indicate that the element is declared  in a remote schema rather than by the schema that constrains the current document instance.</documentation>
+		</annotation>
+		<attributeGroup ref="xlink:simpleLink"/>
+		<attribute ref="gml:remoteSchema" use="optional"/>
+	</attributeGroup>
+	<!-- ================================================= -->
+	<attribute name="remoteSchema" type="anyURI">
+		<annotation>
+			<documentation>Reference to an XML Schema fragment that specifies the content model of the propertys value. This is in conformance with the XML Schema Section 4.14 Referencing Schemas from Elsewhere.</documentation>
+		</annotation>
+	</attribute>
+	<!-- ================================================= -->
+	<element name="description" type="gml:StringOrRefType">
+		<annotation>
+			<documentation>Contains a simple text description of the object, or refers to an external description.</documentation>
+		</annotation>
+	</element>
+	<!-- ================================================= -->
+	<complexType name="StringOrRefType">
+		<annotation>
+			<documentation>This type is available wherever there is a need for a "text" type property. It is of string type, so the text can be included inline, but the value can also be referenced remotely via xlinks from the AssociationAttributeGroup. If the remote reference is present, then the value obtained by traversing the link should be used, and the string content of the element can be used for an annotation.</documentation>
+		</annotation>
+		<simpleContent>
+			<extension base="string">
+				<attributeGroup ref="gml:AssociationAttributeGroup"/>
+			</extension>
+		</simpleContent>
+	</complexType>
+	<!-- ================================================= -->
+	<!-- ================================================= -->
+	<element name="name" type="gml:CodeType">
+		<annotation>
+			<documentation>Label for the object, normally a descriptive name. An object may have several names, typically assigned by different authorities.  The authority for a name is indicated by the value of its (optional) codeSpace attribute.  The name may or may not be unique, as determined by the rules of the organization responsible for the codeSpace.</documentation>
+		</annotation>
+	</element>
+	<!-- ================================================= -->
+	<complexType name="CodeType">
+		<annotation>
+			<documentation>Name or code with an (optional) authority.  Text token.  
+      If the codeSpace attribute is present, then its value should identify a dictionary, thesaurus 
+      or authority for the term, such as the organisation who assigned the value, 
+      or the dictionary from which it is taken.  
+      A text string with an optional codeSpace attribute. </documentation>
+		</annotation>
+		<simpleContent>
+			<extension base="string">
+				<attribute name="codeSpace" type="anyURI" use="optional"/>
+			</extension>
+		</simpleContent>
+	</complexType>
+	<!-- ================================================= -->
+	<attribute name="id" type="ID">
+		<annotation>
+			<documentation>Database handle for the object.  It is of XML type ID, so is constrained to be unique in the XML document within which it occurs.  An external identifier for the object in the form of a URI may be constructed using standard XML and XPointer methods.  This is done by concatenating the URI for the document, a fragment separator, and the value of the id attribute.</documentation>
+		</annotation>
+	</attribute>
+	<!-- ================================================= -->
+	<element name="boundedBy" type="gml:BoundingShapeType"/>
+	<!-- ================================================= -->
+	<complexType name="BoundingShapeType">
+		<annotation>
+			<documentation>Bounding shape.</documentation>
+		</annotation>
+		<sequence>
+			<choice>
+				<element ref="gml:Envelope"/>
+				<element ref="gml:Null"/>
+			</choice>
+		</sequence>
+	</complexType>
+	<!-- ================================================= -->
+	<element name="Envelope" type="gml:EnvelopeType"/>
+	<!-- ================================================= -->
+	<complexType name="EnvelopeType">
+		<annotation>
+			<documentation>Envelope defines an extent using a pair of positions defining opposite corners in arbitrary dimensions. The first direct 
+			position is the "lower corner" (a coordinate position consisting of all the minimal ordinates for each dimension for all points within the envelope), 
+			the second one the "upper corner" (a coordinate position consisting of all the maximal ordinates for each dimension for all points within the 
+			envelope).</documentation>
+		</annotation>
+		<choice>
+			<sequence>
+				<element name="lowerCorner" type="gml:DirectPositionType"/>
+				<element name="upperCorner" type="gml:DirectPositionType"/>
+			</sequence>
+			<element ref="gml:coord" minOccurs="2" maxOccurs="2">
+				<annotation>
+					<appinfo>deprecated</appinfo>
+					<documentation>deprecated with GML version 3.0</documentation>
+				</annotation>
+			</element>
+			<element ref="gml:pos" minOccurs="2" maxOccurs="2">
+				<annotation>
+					<appinfo>deprecated</appinfo>
+					<documentation>Deprecated with GML version 3.1. Use the explicit properties "lowerCorner" and "upperCorner" instead.</documentation>
+				</annotation>
+			</element>
+			<element ref="gml:coordinates">
+				<annotation>
+					<documentation>Deprecated with GML version 3.1.0. Use the explicit properties "lowerCorner" and "upperCorner" instead.</documentation>
+				</annotation>
+			</element>
+		</choice>
+		<attributeGroup ref="gml:SRSReferenceGroup"/>
+	</complexType>
+	<!-- ================================================= -->
+	<complexType name="DirectPositionType">
+		<annotation>
+			<documentation>DirectPosition instances hold the coordinates for a position within some coordinate reference system (CRS). Since 
+			DirectPositions, as data types, will often be included in larger objects (such as geometry elements) that have references to CRS, the 
+			"srsName" attribute will in general be missing, if this particular DirectPosition is included in a larger element with such a reference to a 
+			CRS. In this case, the CRS is implicitly assumed to take on the value of the containing object's CRS.</documentation>
+		</annotation>
+		<simpleContent>
+			<extension base="gml:doubleList">
+				<attributeGroup ref="gml:SRSReferenceGroup"/>
+			</extension>
+		</simpleContent>
+	</complexType>
+	<!-- ================================================= -->
+	<simpleType name="doubleList">
+		<annotation>
+			<documentation>XML List based on XML Schema double type.  An element of this type contains a space-separated list of double values</documentation>
+		</annotation>
+		<list itemType="double"/>
+	</simpleType>
+	<!-- ================================================= -->
+	<!-- ================================================= -->
+	<attributeGroup name="SRSReferenceGroup">
+		<annotation>
+			<documentation>Optional reference to the CRS used by this geometry, with optional additional information to simplify use when 
+			a more complete definition of the CRS is not needed.</documentation>
+		</annotation>
+		<attribute name="srsName" type="anyURI" use="optional">
+			<annotation>
+				<documentation>In general this reference points to a CRS instance of gml:CoordinateReferenceSystemType 
+				(see coordinateReferenceSystems.xsd). For well known references it is not required that the CRS description exists at the 
+				location the URI points to. If no srsName attribute is given, the CRS must be specified as part of the larger context this 
+				geometry element is part of, e.g. a geometric element like point, curve, etc. It is expected that this attribute will be specified 
+				at the direct position level only in rare cases.</documentation>
+			</annotation>
+		</attribute>
+		<attribute name="srsDimension" type="positiveInteger" use="optional">
+			<annotation>
+				<documentation>The "srsDimension" is the length of coordinate sequence (the number of entries in the list). This dimension is 
+				specified by the coordinate reference system. When the srsName attribute is omitted, this attribute shall be omitted.</documentation>
+			</annotation>
+		</attribute>
+		<attributeGroup ref="gml:SRSInformationGroup"/>
+	</attributeGroup>
+	<!-- ================================================= -->
+	<attributeGroup name="SRSInformationGroup">
+		<annotation>
+			<documentation>Optional additional and redundant information for a CRS to simplify use when a more complete definition of the 
+			CRS is not needed. This information shall be the same as included in the more complete definition of the CRS, referenced by the 
+			srsName attribute. When the srsName attribute is included, either both or neither of the axisLabels and uomLabels attributes 
+			shall be included. When the srsName attribute is omitted, both of these attributes shall be omitted.</documentation>
+		</annotation>
+		<attribute name="axisLabels" type="gml:NCNameList" use="optional">
+			<annotation>
+				<documentation>Ordered list of labels for all the axes of this CRS. The gml:axisAbbrev value should be used for these axis 
+				labels, after spaces and forbiddden characters are removed. When the srsName attribute is included, this attribute is optional. 
+				When the srsName attribute is omitted, this attribute shall also be omitted.</documentation>
+			</annotation>
+		</attribute>
+		<attribute name="uomLabels" type="gml:NCNameList" use="optional">
+			<annotation>
+				<documentation>Ordered list of unit of measure (uom) labels for all the axes of this CRS. The value of the string in the 
+				gml:catalogSymbol should be used for this uom labels, after spaces and forbiddden characters are removed. When the 
+				axisLabels attribute is included, this attribute shall also be included. When the axisLabels attribute is omitted, this attribute 
+				shall also be omitted.</documentation>
+			</annotation>
+		</attribute>
+	</attributeGroup>
+	<!-- ================================================= -->
+	<simpleType name="NCNameList">
+		<annotation>
+			<documentation>A set of values, representing a list of token with the lexical value space of NCName. The tokens are seperated by whitespace.</documentation>
+		</annotation>
+		<list itemType="NCName"/>
+	</simpleType>
+	<!-- ================================================= -->
+	<!-- ================================================= -->
+	<element name="coord" type="gml:CoordType">
+		<annotation>
+			<documentation>Deprecated with GML 3.0 and included for backwards compatibility with GML 2. Use the "pos" element instead.</documentation>
+		</annotation>
+	</element>
+	<!-- ================================================= -->
+	<complexType name="CoordType">
+		<annotation>
+			<documentation>Represents a coordinate tuple in one, two, or three dimensions. Deprecated with GML 3.0 and replaced by 
+			DirectPositionType.</documentation>
+		</annotation>
+		<sequence>
+			<element name="X" type="decimal"/>
+			<element name="Y" type="decimal" minOccurs="0"/>
+			<element name="Z" type="decimal" minOccurs="0"/>
+		</sequence>
+	</complexType>
+	<!-- ================================================= -->
+	<element name="pos" type="gml:DirectPositionType">
+		<annotation>
+			<appinfo>
+				<sch:pattern name="Check SRS tags">
+					<sch:rule context="gml:pos">
+						<sch:extends rule="CRSLabels"/>
+					</sch:rule>
+				</sch:pattern>
+			</appinfo>
+		</annotation>
+	</element>
+	<!-- ================================================= -->
+	<element name="coordinates" type="gml:CoordinatesType">
+		<annotation>
+			<documentation>Deprecated with GML version 3.1.0.</documentation>
+		</annotation>
+	</element>
+	<!-- ================================================= -->
+	<complexType name="CoordinatesType">
+		<annotation>
+			<documentation>Tables or arrays of tuples.  
+        May be used for text-encoding of values from a table.  
+        Actually just a string, but allows the user to indicate which characters are used as separators.  
+        The value of the 'cs' attribute is the separator for coordinate values, 
+        and the value of the 'ts' attribute gives the tuple separator (a single space by default); 
+        the default values may be changed to reflect local usage.
+        Defaults to CSV within a tuple, space between tuples.  
+        However, any string content will be schema-valid.  </documentation>
+		</annotation>
+		<simpleContent>
+			<extension base="string">
+				<attribute name="decimal" type="string" default="."/>
+				<attribute name="cs" type="string" default=","/>
+				<attribute name="ts" type="string" default=" "/>
+			</extension>
+		</simpleContent>
+	</complexType>
+	<!-- ================================================= -->
+	<element name="Null" type="gml:NullType"/>
+	<!-- ================================================= -->
+	<simpleType name="NullType">
+		<annotation>
+			<documentation>Utility type for null elements.  The value may be selected from one of the enumerated tokens, or may be a URI in which case this should identify a resource which describes the reason for the null. </documentation>
+		</annotation>
+		<union memberTypes="gml:NullEnumeration anyURI"/>
+	</simpleType>
+	<!-- ================================================= -->
+	<simpleType name="NullEnumeration">
+		<annotation>
+			<documentation> Some common reasons for a null value:   
+			
+        innapplicable - the object does not have a value
+        missing - The correct value is not readily available to the sender of this data.  
+                           Furthermore, a correct value may not exist.
+        template - the value will be available later
+        unknown - The correct value is not known to, and not computable by, the sender of this data. 
+                           However, a correct value probably exists.
+        withheld - the value is not divulged 
+        
+        other:reason - as indicated by "reason" string
+        
+        Specific communities may agree to assign more strict semantics when these terms are used in a particular context.  
+      </documentation>
+		</annotation>
+		<union>
+			<simpleType>
+				<restriction base="string">
+					<enumeration value="inapplicable"/>
+					<enumeration value="missing"/>
+					<enumeration value="template"/>
+					<enumeration value="unknown"/>
+					<enumeration value="withheld"/>
+				</restriction>
+			</simpleType>
+			<simpleType>
+				<restriction base="string">
+					<pattern value="other:\w{2,}"/>
+				</restriction>
+			</simpleType>
+		</union>
+	</simpleType>
+	<!-- ================================================= -->
+	<!-- ================================================= -->
+	<element name="location" type="gml:LocationPropertyType">
+		<annotation>
+			<documentation>Deprecated in GML 3.1.0</documentation>
+		</annotation>
+	</element>
+	<!-- ================================================= -->
+	<complexType name="LocationPropertyType">
+		<annotation>
+			<documentation>Convenience property for generalised location.  
+      A representative location for plotting or analysis.  
+      Often augmented by one or more additional geometry properties with more specific semantics.</documentation>
+			<documentation>Deprecated in GML 3.1.0</documentation>
+		</annotation>
+		<sequence minOccurs="0">
+			<choice>
+				<element ref="gml:_Geometry"/>
+				<element ref="gml:LocationKeyWord"/>
+				<element ref="gml:LocationString"/>
+				<element ref="gml:Null"/>
+			</choice>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup"/>
+	</complexType>
+	<!-- ================================================= -->
+	<element name="_Geometry" type="gml:AbstractGeometryType" abstract="true" substitutionGroup="gml:_GML">
+		<annotation>
+			<documentation>The "_Geometry" element is the abstract head of the substituition group for all geometry elements of GML 3. This 
+			includes pre-defined and user-defined geometry elements. Any geometry element must be a direct or indirect extension/restriction 
+			of AbstractGeometryType and must be directly or indirectly in the substitution group of "_Geometry".</documentation>
+			<appinfo>
+				<sch:pattern name="Check SRS tags">
+					<sch:rule context="gml:_Geometry">
+						<sch:extends rule="CRSLabels"/>
+					</sch:rule>
+				</sch:pattern>
+			</appinfo>
+		</annotation>
+	</element>
+	<!-- ================================================= -->
+	<complexType name="AbstractGeometryType" abstract="true">
+		<annotation>
+			<documentation>All geometry elements are derived directly or indirectly from this abstract supertype. A geometry element may 
+			have an identifying attribute ("gml:id"), a name (attribute "name") and a description (attribute "description"). It may be associated 
+			with a spatial reference system (attribute "srsName"). The following rules shall be adhered: - Every geometry type shall derive 
+			from this abstract type. - Every geometry element (i.e. an element of a geometry type) shall be directly or indirectly in the 
+			substitution group of _Geometry.</documentation>
+		</annotation>
+		<complexContent>
+			<extension base="gml:AbstractGMLType">
+				<attribute name="gid" type="string" use="optional">
+					<annotation>
+						<documentation>This attribute is included for backward compatibility with GML 2 and is deprecated with GML 3. 
+						This identifer is superceded by "gml:id" inherited from AbstractGMLType. The attribute "gid" should not be used 
+						anymore and may be deleted in future versions of GML without further notice.</documentation>
+					</annotation>
+				</attribute>
+				<attributeGroup ref="gml:SRSReferenceGroup"/>
+			</extension>
+		</complexContent>
+	</complexType>
+	<!-- ================================================= -->
+	<element name="_GML" type="gml:AbstractGMLType" abstract="true" substitutionGroup="gml:_Object">
+		<annotation>
+			<documentation>Global element which acts as the head of a substitution group that may include any element which is a GML feature, object, geometry or complex value</documentation>
+		</annotation>
+	</element>
+	<!-- ================================================= -->
+	<element name="_Object" abstract="true">
+		<annotation>
+			<documentation>This abstract element is the head of a substitutionGroup hierararchy which may contain either simpleContent or complexContent elements.  It is used to assert the model position of "class" elements declared in other GML schemas.</documentation>
+		</annotation>
+	</element>
+	<!-- ================================================= -->
+	<element name="LocationKeyWord" type="gml:CodeType"/>
+	<!-- ================================================= -->
+	<element name="LocationString" type="gml:StringOrRefType"/>
+	<!-- ================================================= -->
+	<complexType name="SurfacePropertyType">
+		<annotation>
+			<documentation>A property that has a surface as its value domain can either be an appropriate geometry element encapsulated in an element of this type or an XLink reference to a remote geometry element (where remote includes geometry elements located elsewhere in the same document). Either the reference or the contained element must be given, but neither both nor none.</documentation>
+		</annotation>
+		<sequence minOccurs="0">
+			<element ref="gml:_Surface"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup">
+			<annotation>
+				<documentation>This attribute group includes the XLink attributes (see xlinks.xsd). XLink is used in GML to reference remote resources (including those elsewhere in the same document). A simple link element can be constructed by including a specific set of XLink attributes. The XML Linking Language (XLink) is currently a Proposed Recommendation of the World Wide Web Consortium. XLink allows elements to be inserted into XML documents so as to create sophisticated links between resources; such links can be used to reference remote properties.
+A simple link element can be used to implement pointer functionality, and this functionality has been built into various GML 3 elements by including the gml:AssociationAttributeGroup.</documentation>
+			</annotation>
+		</attributeGroup>
+	</complexType>
+	<!-- ================================================= -->
+	<element name="_Surface" type="gml:AbstractSurfaceType" abstract="true" substitutionGroup="gml:_GeometricPrimitive">
+		<annotation>
+			<documentation>The "_Surface" element is the abstract head of the substituition group for all (continuous) surface elements.</documentation>
+		</annotation>
+	</element>
+	<!-- ================================================= -->
+	<complexType name="AbstractSurfaceType">
+		<annotation>
+			<documentation>An abstraction of a surface to support the different levels of complexity. A surface is always a continuous region of a plane.</documentation>
+		</annotation>
+		<complexContent>
+			<extension base="gml:AbstractGeometricPrimitiveType"/>
+		</complexContent>
+	</complexType>
+	<!-- ================================================= -->
+	<complexType name="AbstractGeometricPrimitiveType" abstract="true">
+		<annotation>
+			<documentation>This is the abstract root type of the geometric primitives. A geometric primitive is a geometric object that is not 
+			decomposed further into other primitives in the system. All primitives are oriented in the direction implied by the sequence of their 
+			coordinate tuples.</documentation>
+		</annotation>
+		<complexContent>
+			<extension base="gml:AbstractGeometryType"/>
+		</complexContent>
+	</complexType>
+	<!-- ================================================= -->
+	<element name="_GeometricPrimitive" type="gml:AbstractGeometricPrimitiveType" abstract="true" substitutionGroup="gml:_Geometry">
+		<annotation>
+			<documentation>The "_GeometricPrimitive" element is the abstract head of the substituition group for all (pre- and user-defined) 
+			geometric primitives.</documentation>
+		</annotation>
+	</element>
+	<!-- ================================================= -->
+	<complexType name="PointPropertyType">
+		<annotation>
+			<documentation>A property that has a point as its value domain can either be an appropriate geometry element encapsulated in an 
+			element of this type or an XLink reference to a remote geometry element (where remote includes geometry elements located 
+			elsewhere in the same document). Either the reference or the contained element must be given, but neither both nor none.</documentation>
+		</annotation>
+		<sequence minOccurs="0">
+			<element ref="gml:Point"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup">
+			<annotation>
+				<documentation>This attribute group includes the XLink attributes (see xlinks.xsd). XLink is used in GML to reference remote 
+				resources (including those elsewhere in the same document). A simple link element can be constructed by including a specific 
+				set of XLink attributes. The XML Linking Language (XLink) is currently a Proposed Recommendation of the World Wide Web Consortium. 
+				XLink allows elements to be inserted into XML documents so as to create sophisticated links between resources; such links can be 
+				used to reference remote properties. A simple link element can be used to implement pointer functionality, and this functionality has 
+				been built into various GML 3 elements by including the gml:AssociationAttributeGroup.</documentation>
+			</annotation>
+		</attributeGroup>
+	</complexType>
+	<!-- ================================================= -->
+	<element name="Point" type="gml:PointType" substitutionGroup="gml:_GeometricPrimitive"/>
+	<!-- ================================================= -->
+	<complexType name="PointType">
+		<annotation>
+			<documentation>A Point is defined by a single coordinate tuple.</documentation>
+		</annotation>
+		<complexContent>
+			<extension base="gml:AbstractGeometricPrimitiveType">
+				<sequence>
+					<choice>
+						<annotation>
+							<documentation>GML supports two different ways to specify the direct poisiton of a point. 1. The "pos" element is of type 
+							DirectPositionType.</documentation>
+						</annotation>
+						<element ref="gml:pos"/>
+						<element ref="gml:coordinates">
+							<annotation>
+								<documentation>Deprecated with GML version 3.1.0 for coordinates with ordinate values that are numbers. Use "pos" 
+								instead. The "coordinates" element shall only be used for coordinates with ordinates that require a string 
+								representation, e.g. DMS representations.</documentation>
+							</annotation>
+						</element>
+						<element ref="gml:coord">
+							<annotation>
+								<documentation>Deprecated with GML version 3.0. Use "pos" instead. The "coord" element is included for 
+								backwards compatibility with GML 2.</documentation>
+							</annotation>
+						</element>
+					</choice>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<!-- ================================================= -->
+	<complexType name="PolygonType">
+		<annotation>
+			<documentation>A Polygon is a special surface that is defined by a single surface patch. The boundary of this patch is coplanar and the polygon uses planar interpolation in its interior. It is backwards compatible with the Polygon of GML 2, GM_Polygon of ISO 19107 is implemented by PolygonPatch.</documentation>
+		</annotation>
+		<complexContent>
+			<extension base="gml:AbstractSurfaceType">
+				<sequence>
+					<element ref="gml:exterior" minOccurs="0"/>
+					<element ref="gml:interior" minOccurs="0" maxOccurs="unbounded"/>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<!-- ================================================= -->
+	<element name="exterior" type="gml:AbstractRingPropertyType">
+		<annotation>
+			<documentation>A boundary of a surface consists of a number of rings. In the normal 2D case, one of these rings is distinguished as being the exterior boundary. In a general manifold this is not always possible, in which case all boundaries shall be listed as interior boundaries, and the exterior will be empty.</documentation>
+		</annotation>
+	</element>
+	<!-- ================================================= -->
+	<complexType name="AbstractRingPropertyType">
+		<annotation>
+			<documentation>Encapsulates a ring to represent the surface boundary property of a surface.</documentation>
+		</annotation>
+		<sequence>
+			<element ref="gml:_Ring"/>
+		</sequence>
+	</complexType>
+	<!-- ================================================= -->
+	<element name="_Ring" type="gml:AbstractRingType" abstract="true" substitutionGroup="gml:_Geometry">
+		<annotation>
+			<documentation>The "_Ring" element is the abstract head of the substituition group for all closed boundaries of a surface patch.</documentation>
+		</annotation>
+	</element>
+	<!-- ================================================= -->
+	<complexType name="AbstractRingType" abstract="true">
+		<annotation>
+			<documentation>An abstraction of a ring to support surface boundaries of different complexity.</documentation>
+		</annotation>
+		<complexContent>
+			<extension base="gml:AbstractGeometryType"/>
+		</complexContent>
+	</complexType>
+	<!-- ================================================= -->
+	<element name="interior" type="gml:AbstractRingPropertyType">
+		<annotation>
+			<documentation>A boundary of a surface consists of a number of rings. The "interior" rings seperate the surface / surface patch from the area enclosed by the rings.</documentation>
+		</annotation>
+	</element>
+	<!-- ================================================= -->
+	<element name="Polygon" type="gml:PolygonType" substitutionGroup="gml:_Surface"/>
+	<!-- ================================================= -->
+	<complexType name="MultiSurfaceType">
+		<annotation>
+			<documentation>A MultiSurface is defined by one or more Surfaces, referenced through surfaceMember elements.</documentation>
+		</annotation>
+		<complexContent>
+			<extension base="gml:AbstractGeometricAggregateType">
+				<sequence>
+					<annotation>
+						<documentation>The members of the geometric aggregate can be specified either using the "standard" property or the array property style. It is also valid to use both the "standard" and the array property style in the same collection.
+NOTE: Array properties cannot reference remote geometry elements.</documentation>
+					</annotation>
+					<element ref="gml:surfaceMember" minOccurs="0" maxOccurs="unbounded"/>
+					<element ref="gml:surfaceMembers" minOccurs="0"/>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<!-- ================================================= -->
+	<complexType name="AbstractGeometricAggregateType" abstract="true">
+		<annotation>
+			<documentation>This is the abstract root type of the geometric aggregates.</documentation>
+		</annotation>
+		<complexContent>
+			<extension base="gml:AbstractGeometryType"/>
+		</complexContent>
+	</complexType>
+	<!-- ================================================= -->
+	<element name="surfaceMember" type="gml:SurfacePropertyType">
+		<annotation>
+			<documentation>This property element either references a surface via the XLink-attributes or contains the surface element. A surface element is any element which is substitutable for "_Surface".</documentation>
+		</annotation>
+	</element>
+	<!-- ================================================= -->
+	<element name="surfaceMembers" type="gml:SurfaceArrayPropertyType">
+		<annotation>
+			<documentation>This property element contains a list of surfaces. The order of the elements is significant and shall be preserved when processing the array.</documentation>
+		</annotation>
+	</element>
+	<!-- ================================================= -->
+	<complexType name="SurfaceArrayPropertyType">
+		<annotation>
+			<documentation>A container for an array of surfaces. The elements are always contained in the array property, referencing geometry elements or arrays of geometry elements is not supported.</documentation>
+		</annotation>
+		<sequence>
+			<element ref="gml:_Surface" minOccurs="0" maxOccurs="unbounded"/>
+		</sequence>
+	</complexType>
+	<!-- ================================================= -->
+	<element name="MultiSurface" type="gml:MultiSurfaceType" substitutionGroup="gml:_GeometricAggregate"/>
+	<!-- ================================================= -->
+	<element name="_GeometricAggregate" type="gml:AbstractGeometricAggregateType" abstract="true" substitutionGroup="gml:_Geometry">
+		<annotation>
+			<documentation>The "_GeometricAggregate" element is the abstract head of the substituition group for all geometric aggremates.</documentation>
+		</annotation>
+	</element>
+	<!-- ================================================= -->
+	<complexType name="MultiSurfacePropertyType">
+		<annotation>
+			<documentation>A property that has a collection of surfaces as its value domain can either be an appropriate geometry element encapsulated in an element of this type or an XLink reference to a remote geometry element (where remote includes geometry elements located elsewhere in the same document). Either the reference or the contained element must be given, but neither both nor none.</documentation>
+		</annotation>
+		<sequence minOccurs="0">
+			<element ref="gml:MultiSurface"/>
+		</sequence>
+		<attributeGroup ref="gml:AssociationAttributeGroup">
+			<annotation>
+				<documentation>This attribute group includes the XLink attributes (see xlinks.xsd). XLink is used in GML to reference remote resources (including those elsewhere in the same document). A simple link element can be constructed by including a specific set of XLink attributes. The XML Linking Language (XLink) is currently a Proposed Recommendation of the World Wide Web Consortium. XLink allows elements to be inserted into XML documents so as to create sophisticated links between resources; such links can be used to reference remote properties.
+A simple link element can be used to implement pointer functionality, and this functionality has been built into various GML 3 elements by including the gml:AssociationAttributeGroup.</documentation>
+			</annotation>
+		</attributeGroup>
+	</complexType>
+	<!-- ================================================= -->
+	<element name="LinearRing" type="gml:LinearRingType" substitutionGroup="gml:_Ring"/>
+	<!-- ================================================= -->
+	<complexType name="LinearRingType">
+		<annotation>
+			<documentation>A LinearRing is defined by four or more coordinate tuples, with linear interpolation between them; the first and last coordinates must be coincident.</documentation>
+		</annotation>
+		<complexContent>
+			<extension base="gml:AbstractRingType">
+				<sequence>
+					<choice>
+						<annotation>
+							<documentation>GML supports two different ways to specify the control points of a linear ring.
+1. A sequence of "pos" (DirectPositionType) or "pointProperty" (PointPropertyType) elements. "pos" elements are control points that are only part of this ring, "pointProperty" elements contain a point that may be referenced from other geometry elements or reference another point defined outside of this ring (reuse of existing points).
+2. The "posList" element allows for a compact way to specifiy the coordinates of the control points, if all control points are in the same coordinate reference systems and belong to this ring only. The number of direct positions in the list must be at least four.</documentation>
+						</annotation>
+						<choice minOccurs="4" maxOccurs="unbounded">
+							<element ref="gml:pos"/>
+							<element ref="gml:pointProperty"/>
+							<element ref="gml:pointRep">
+								<annotation>
+									<documentation>Deprecated with GML version 3.1.0. Use "pointProperty" instead. Included for backwards compatibility with GML 3.0.0.</documentation>
+								</annotation>
+							</element>
+						</choice>
+						<element ref="gml:posList"/>
+						<element ref="gml:coordinates">
+							<annotation>
+								<documentation>Deprecated with GML version 3.1.0. Use "posList" instead.</documentation>
+							</annotation>
+						</element>
+						<element ref="gml:coord" minOccurs="4" maxOccurs="unbounded">
+							<annotation>
+								<documentation>Deprecated with GML version 3.0 and included for backwards compatibility with GML 2. Use "pos" elements instead.</documentation>
+							</annotation>
+						</element>
+					</choice>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<!-- ================================================= -->
+	<element name="pointProperty" type="gml:PointPropertyType">
+		<annotation>
+			<appinfo>
+				<sch:pattern name="Check either href or content not both">
+					<sch:rule context="gml:pointProperty">
+						<sch:extends rule="hrefOrContent"/>
+					</sch:rule>
+				</sch:pattern>
+			</appinfo>
+			<documentation>This property element either references a point via the XLink-attributes or contains the point element. pointProperty 
+			is the predefined property which can be used by GML Application Schemas whenever a GML Feature has a property with a value that 
+			is substitutable for Point.</documentation>
+		</annotation>
+	</element>
+	<!-- ================================================= -->
+	<element name="pointRep" type="gml:PointPropertyType">
+		<annotation>
+			<documentation>Deprecated with GML version 3.1.0. Use "pointProperty" instead. Included for backwards compatibility with GML 3.0.0.</documentation>
+		</annotation>
+	</element>
+	<!-- ================================================= -->
+	<element name="posList" type="gml:DirectPositionListType">
+		<annotation>
+			<appinfo>
+				<sch:pattern name="Check SRS tags">
+					<sch:rule context="gml:posList">
+						<sch:extends rule="CRSLabels"/>
+					</sch:rule>
+				</sch:pattern>
+			</appinfo>
+			<appinfo>
+				<sch:pattern name="Check Dimension">
+					<sch:rule context="gml:posList">
+						<sch:extends rule="Count"/>
+					</sch:rule>
+				</sch:pattern>
+			</appinfo>
+		</annotation>
+	</element>
+	<!-- ================================================= -->
+	<complexType name="DirectPositionListType">
+		<annotation>
+			<documentation>DirectPositionList instances hold the coordinates for a sequence of direct positions within the same coordinate 
+			reference system (CRS).</documentation>
+		</annotation>
+		<simpleContent>
+			<extension base="gml:doubleList">
+				<attributeGroup ref="gml:SRSReferenceGroup"/>
+				<attribute name="count" type="positiveInteger" use="optional">
+					<annotation>
+						<documentation>"count" allows to specify the number of direct positions in the list. If the attribute count is present then 
+						the attribute srsDimension shall be present, too.</documentation>
+					</annotation>
+				</attribute>
+			</extension>
+		</simpleContent>
+	</complexType>
+	<!-- =========================================================== -->
+	<element name="MultiPoint" type="gml:MultiPointType" substitutionGroup="gml:_GeometricAggregate"/>
+	<!-- ======================================================= -->
+	<complexType name="MultiPointType">
+		<annotation>
+			<documentation>A MultiPoint is defined by one or more Points, referenced through pointMember elements.</documentation>
+		</annotation>
+		<complexContent>
+			<extension base="gml:AbstractGeometricAggregateType">
+				<sequence>
+					<annotation>
+						<documentation>The members of the geometric aggregate can be specified either using the "standard" property or the array property style. It is also valid to use both the "standard" and the array property style in the same collection.
+NOTE: Array properties cannot reference remote geometry elements.</documentation>
+					</annotation>
+					<element ref="gml:pointMember" minOccurs="0" maxOccurs="unbounded"/>
+					<element ref="gml:pointMembers" minOccurs="0"/>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+	<element name="pointMember" type="gml:PointPropertyType">
+		<annotation>
+			<documentation>This property element either references a Point via the XLink-attributes or contains the Point element.</documentation>
+		</annotation>
+	</element>
+	<element name="pointMembers" type="gml:PointArrayPropertyType">
+		<annotation>
+			<documentation>This property element contains a list of points. The order of the elements is significant and shall be preserved when processing the array.</documentation>
+		</annotation>
+	</element>
+	<!-- ============================================================== -->
+	<element name="pointArrayProperty" type="gml:PointArrayPropertyType"/>
+	<!-- =========================================================== -->
+	<complexType name="PointArrayPropertyType">
+		<annotation>
+			<documentation>A container for an array of points. The elements are always contained in the array property, referencing geometry 
+			elements or arrays of geometry elements is not supported.</documentation>
+		</annotation>
+		<sequence>
+			<element ref="gml:Point" minOccurs="0" maxOccurs="unbounded"/>
+		</sequence>
+	</complexType>
+</schema>
