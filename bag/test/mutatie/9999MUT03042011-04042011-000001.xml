@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?><!--Created by GO Publisher Agent 1.4-beta-3-SNAPSHOT Build 14925 from 2008-12-19 13:21--><!--Snowflake Software Ltd. (http://www.snowflakesoftware.co.uk)-->
+<mb:BAG-Mutaties-Deelbestand-LVC xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                 xmlns:bag_LVC="http://www.kadaster.nl/schemas/imbag/lvc/v20090901"
+                                 xmlns:bagtype="http://www.kadaster.nl/schemas/imbag/imbag-types/v20090901"
+                                 xmlns:nen5825="http://www.kadaster.nl/schemas/imbag/nen5825/v20090901"
+                                 xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                                 xmlns:selecties-extract="http://www.kadaster.nl/schemas/bag-verstrekkingen/extract-selecties/v20090901"
+                                 xmlns:gml="http://www.opengis.net/gml"
+                                 xmlns:mb="http://www.kadaster.nl/schemas/bag-verstrekkingen/extract-deelbestand-mutaties-lvc/v20090901"
+                                 xmlns:product_LVC="http://www.kadaster.nl/schemas/bag-verstrekkingen/extract-producten-lvc/v20090901"
+                                 xsi:schemaLocation="http://www.kadaster.nl/schemas/bag-verstrekkingen/extract-deelbestand-mutaties-lvc/v20090901 http://www.kadaster.nl/schemas/bag-verstrekkingen/extract-deelbestand-mutaties-lvc/v20090901/BagvsExtractDeelbestandMutatieLvc-1.4.xsd">
+    <mb:antwoord>
+        <mb:vraag>
+            <selecties-extract:Gebied-Registratief>
+                <selecties-extract:Gebied-NLD>
+                    <selecties-extract:GebiedIdentificatie>999</selecties-extract:GebiedIdentificatie>
+                    <selecties-extract:GebiedNaam>Nederland</selecties-extract:GebiedNaam>
+                    <selecties-extract:gebiedTypeNederland>1</selecties-extract:gebiedTypeNederland>
+                </selecties-extract:Gebied-NLD>
+            </selecties-extract:Gebied-Registratief>
+            <selecties-extract:Mutatieperiode>
+                <selecties-extract:MutatiedatumVanaf>2011-04-03</selecties-extract:MutatiedatumVanaf>
+                <selecties-extract:MutatiedatumTot>2011-04-04</selecties-extract:MutatiedatumTot>
+            </selecties-extract:Mutatieperiode>
+        </mb:vraag>
+        <mb:producten/>
+    </mb:antwoord>
+</mb:BAG-Mutaties-Deelbestand-LVC>
