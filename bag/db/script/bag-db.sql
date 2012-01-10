@@ -84,8 +84,8 @@ CREATE TABLE nummeraanduiding (
     inonderzoek boolean,
     documentnummer character varying(20),
     documentdatum date,
-    huisnummer character varying(5),
-    huisletter character varying(5),
+    huisnummer numeric(5,0),
+    huisletter character varying(1),
     huisnummertoevoeging character varying(4),
     postcode character varying(6),
     nummeraanduidingstatus character varying(80),
@@ -146,7 +146,7 @@ CREATE TABLE pand (
     documentnummer character varying(20),
     documentdatum date,
     pandstatus character varying(80),
-    bouwjaar character varying(6),
+    bouwjaar numeric(4,0),
     begindatum timestamp without time zone,
     einddatum timestamp without time zone,
     geovlak geometry,
@@ -210,7 +210,7 @@ CREATE TABLE verblijfsobject (
 --    gerelateerdpand numeric(16,0),   IS RELATIE (multivalued)
 --    gebruiksdoel character varying(50),      IS RELATIE (multivalued)
     verblijfsobjectstatus character varying(80),
-    oppervlakteverblijfsobject character varying(6),
+    oppervlakteverblijfsobject numeric(6,0),
     begindatum timestamp without time zone,
     einddatum timestamp without time zone,
     geopunt geometry,
