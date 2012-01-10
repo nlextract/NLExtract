@@ -42,6 +42,17 @@ def getDate(node):
         else:
             return None
 
+
+def getNumber(node):
+    """
+    Maak een nummer of None uit node
+    """
+    if type(node) == str:
+        # Momenteel alleen voor de gemeente_woonplaats csv
+        if len(node) != 0:
+            return node
+    return None
+
 class BestuurlijkObject:
     def __init__(self):
         self.id = None
@@ -68,15 +79,15 @@ class GemeenteWoonplaats(BestuurlijkObject):
             self.naam = "gemeente_woonplaats"
             self.type = 'G_W'
             self.woonplaatsnaam = record[0]
-            self.woonplaatscode = record[1]
+            self.woonplaatscode = getNumber(record[1])
             self.begindatum_woonplaats = getDate(record[2])
             self.einddatum_woonplaats = getDate(record[3])
             self.gemeentenaam = record[4]
-            self.gemeentecode = record[5]
+            self.gemeentecode = getNumber(record[5])
             self.begindatum_gemeente = getDate(record[6])
             self.aansluitdatum_gemeente = getDate(record[7])
             self.bijzonderheden = record[8]
-            self.gemeentecode_nieuw = record[9]
+            self.gemeentecode_nieuw = getNumber(record[9])
             self.einddatum_gemeente = getDate(record[10])
             self.behandeld = record[11]
 
@@ -123,9 +134,9 @@ class GemeenteProvincie(BestuurlijkObject):
 	    # provincienaam character varying(80),
         #
         self.naam = 'gemeente_provincie'
-        self.gemeentecode = record[0]
+        self.gemeentecode = getNumber(record[0])
         self.gemeentenaam = record[1]
-        self.provinciecode = record[2]
+        self.provinciecode = getNumber(record[2])
         self.provincienaam = record[3]
 
     def __repr__(self):

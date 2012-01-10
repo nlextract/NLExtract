@@ -37,15 +37,15 @@ class BAGObject:
     # Constructor
     def __init__(self, tag="", naam="", objectType=""):
         self.attributen = {}
-        self.voegToe(BAGattribuut(16, "identificatie", "bag_LVC:identificatie"))
-        self.voegToe(BAGattribuut(1, "aanduidingRecordInactief", "bag_LVC:aanduidingRecordInactief"))
-        self.voegToe(BAGattribuut(5, "aanduidingRecordCorrectie","bag_LVC:aanduidingRecordCorrectie"))
-        self.voegToe(BAGattribuut(1, "officieel", "bag_LVC:officieel"))
-        self.voegToe(BAGattribuut(1, "inOnderzoek", "bag_LVC:inOnderzoek"))
-        self.voegToe(BAGdatumAttribuut(16, "begindatum","bag_LVC:tijdvakgeldigheid/bagtype:begindatumTijdvakGeldigheid"))
-        self.voegToe(BAGdatumAttribuut(16, "einddatum","bag_LVC:tijdvakgeldigheid/bagtype:einddatumTijdvakGeldigheid"))
+        self.voegToe(BAGnumeriekAttribuut(16, "identificatie", "bag_LVC:identificatie"))
+        self.voegToe(BAGbooleanAttribuut("aanduidingRecordInactief", "bag_LVC:aanduidingRecordInactief"))
+        self.voegToe(BAGintegerAttribuut("aanduidingRecordCorrectie","bag_LVC:aanduidingRecordCorrectie"))
+        self.voegToe(BAGbooleanAttribuut("officieel", "bag_LVC:officieel"))
+        self.voegToe(BAGbooleanAttribuut("inOnderzoek", "bag_LVC:inOnderzoek"))
+        self.voegToe(BAGdatetimeAttribuut("begindatum","bag_LVC:tijdvakgeldigheid/bagtype:begindatumTijdvakGeldigheid"))
+        self.voegToe(BAGdatetimeAttribuut("einddatum","bag_LVC:tijdvakgeldigheid/bagtype:einddatumTijdvakGeldigheid"))
         self.voegToe(BAGattribuut(20, "documentnummer", "bag_LVC:bron/bagtype:documentnummer"))
-        self.voegToe(BAGattribuut(8, "documentdatum", "bag_LVC:bron/bagtype:documentdatum"))
+        self.voegToe(BAGdateAttribuut("documentdatum", "bag_LVC:bron/bagtype:documentdatum"))
 
         self.relaties = []
 
@@ -142,7 +142,7 @@ class OpenbareRuimte(BAGObject):
         self.voegToe(BAGattribuut(80, "openbareRuimteNaam", "bag_LVC:openbareRuimteNaam"))
         self.voegToe(BAGattribuut(80, "openbareRuimteStatus", "bag_LVC:openbareruimteStatus"))
         self.voegToe(BAGenumAttribuut(OpenbareRuimte.openbareRuimteTypes, "openbareRuimteType","bag_LVC:openbareRuimteType"))
-        self.voegToe(BAGattribuut(16, "gerelateerdeWoonplaats",
+        self.voegToe(BAGnumeriekAttribuut(16, "gerelateerdeWoonplaats",
                                                    "bag_LVC:gerelateerdeWoonplaats/bag_LVC:identificatie"))
         self.voegToe(BAGattribuut(80, "verkorteOpenbareRuimteNaam",
                                                        "nen5825:VerkorteOpenbareruimteNaam"))
@@ -164,9 +164,9 @@ class Nummeraanduiding(BAGObject):
                                                          'Standplaats',
                                                          'Ligplaats'], "typeAdresseerbaarObject",
                                                                      "bag_LVC:typeAdresseerbaarObject"))
-        self.voegToe(BAGattribuut(16, "gerelateerdeOpenbareRuimte",
+        self.voegToe(BAGnumeriekAttribuut(16, "gerelateerdeOpenbareRuimte",
                                                        "bag_LVC:gerelateerdeOpenbareRuimte/bag_LVC:identificatie"))
-        self.voegToe(BAGattribuut(16, "gerelateerdeWoonplaats",
+        self.voegToe(BAGnumeriekAttribuut(16, "gerelateerdeWoonplaats",
                                                    "bag_LVC:gerelateerdeWoonplaats/bag_LVC:identificatie"))
 
 #--------------------------------------------------------------------------------------------------------
@@ -178,7 +178,7 @@ class Nummeraanduiding(BAGObject):
 class BAGadresseerbaarObject(BAGObject):
     def __init__(self, tag, naam, objectType):
         BAGObject.__init__(self, tag, naam, objectType)
-        self.voegToe(BAGattribuut(16, "hoofdadres",
+        self.voegToe(BAGnumeriekAttribuut(16, "hoofdadres",
                                        "bag_LVC:gerelateerdeAdressen/bag_LVC:hoofdadres/bag_LVC:identificatie"))
         self.relaties.append(BAGrelatieAttribuut(self, "adresseerbaarobjectnevenadres",
                                               16, "nevenadres",

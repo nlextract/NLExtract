@@ -73,7 +73,7 @@ def main():
 
     if args.dbinit:
         # Dumps all tables and recreates them
-        database.initialiseer('../db/script/bagdb-1.0.sql')
+        database.initialiseer('../db/script/bag-db.sql')
     elif args.extract:
         # Extracts any data from any source files/dirs/zips/xml/csv etc
         myreader = BAGFileReader(args.extract, args)

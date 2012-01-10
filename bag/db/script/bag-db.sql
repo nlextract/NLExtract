@@ -18,13 +18,14 @@ CREATE TABLE bagextractpluslog (
 );
 */
 
-DROP TABLE IF EXISTS bagextractplus;
-CREATE TABLE bagextractplus (
+DROP TABLE IF EXISTS bagextractinfo;
+CREATE TABLE bagextractinfo (
     id serial,
     sleutel character varying (25),
     waarde character varying (100)
 );
-INSERT INTO bagextractplus (sleutel,waarde) VALUES ('versie', '1.0.3');
+INSERT INTO bagextractinfo (sleutel,waarde) VALUES ('schema_versie', '1.0.1');
+INSERT INTO bagextractinfo (sleutel,waarde) VALUES ('software_versie', '1.0.0');
 
 -- BAG tabellen
 
@@ -32,11 +33,11 @@ DROP TABLE IF EXISTS adresseerbaarobjectnevenadres;
 
 CREATE TABLE adresseerbaarobjectnevenadres (
     id serial,
-    identificatie character varying(16),
-    aanduidingrecordinactief character varying(1),
-    aanduidingrecordcorrectie character varying(5),
-    begindatum date,
-    nevenadres character varying(16),
+    identificatie numeric(16,0),
+    aanduidingrecordinactief boolean,
+    aanduidingrecordcorrectie integer,
+    begindatum timestamp without time zone,
+    nevenadres numeric(16,0),
     PRIMARY KEY (id)
 );
 
@@ -46,17 +47,17 @@ DROP VIEW IF EXISTS ligplaatsactueel;
 DROP TABLE IF EXISTS ligplaats;
 CREATE TABLE ligplaats (
     id serial,
-    identificatie character varying(16),
-    aanduidingrecordinactief character varying(1),
-    aanduidingrecordcorrectie character varying(5),
-    officieel character varying(1),
-    inonderzoek character varying(1),
+    identificatie numeric(16,0),
+    aanduidingrecordinactief boolean,
+    aanduidingrecordcorrectie integer,
+    officieel boolean,
+    inonderzoek boolean,
     documentnummer character varying(20),
     documentdatum date,
-    hoofdadres character varying(16),
+    hoofdadres numeric(16,0),
     ligplaatsstatus character varying(80),
-    begindatum date,
-    einddatum date,
+    begindatum timestamp without time zone,
+    einddatum timestamp without time zone,
     geovlak geometry,
     PRIMARY KEY (id),
     CONSTRAINT enforce_dims_geometrie CHECK ((st_ndims(geovlak) = 3)),
@@ -76,11 +77,11 @@ DROP VIEW IF EXISTS nummeraanduidingactueelbestaand;
 DROP TABLE IF EXISTS nummeraanduiding;
 CREATE TABLE nummeraanduiding (
     id serial,
-    identificatie character varying(16),
-    aanduidingrecordinactief character varying(1),
-    aanduidingrecordcorrectie character varying(5),
-    officieel character varying(1),
-    inonderzoek character varying(1),
+    identificatie numeric(16,0),
+    aanduidingrecordinactief boolean,
+    aanduidingrecordcorrectie integer,
+    officieel boolean,
+    inonderzoek boolean,
     documentnummer character varying(20),
     documentdatum date,
     huisnummer character varying(5),
@@ -89,10 +90,10 @@ CREATE TABLE nummeraanduiding (
     postcode character varying(6),
     nummeraanduidingstatus character varying(80),
     typeadresseerbaarobject character varying(20),
-    gerelateerdeopenbareruimte character varying(16),
-    gerelateerdewoonplaats character varying(16),
-    begindatum date,
-    einddatum date,
+    gerelateerdeopenbareruimte numeric(16,0),
+    gerelateerdewoonplaats numeric(16,0),
+    begindatum timestamp without time zone,
+    einddatum timestamp without time zone,
     PRIMARY KEY (id)
 );
 /*
@@ -108,20 +109,20 @@ DROP VIEW IF EXISTS openbareruimteactueelbestaand;
 DROP TABLE IF EXISTS openbareruimte;
 CREATE TABLE openbareruimte (
     id serial,
-    identificatie character varying(16),
-    aanduidingrecordinactief character varying(1),
-    aanduidingrecordcorrectie character varying(5),
-    officieel character varying(1),
-    inonderzoek character varying(1),
+    identificatie numeric(16,0),
+    aanduidingrecordinactief boolean,
+    aanduidingrecordcorrectie integer,
+    officieel boolean,
+    inonderzoek boolean,
     documentnummer character varying(20),
     documentdatum date,
     openbareruimtenaam character varying(80),
     openbareruimtestatus character varying(80),
     openbareruimtetype character varying(40),
-    gerelateerdewoonplaats character varying(16),
+    gerelateerdewoonplaats numeric(16,0),
     verkorteopenbareruimtenaam character varying(80),
-    begindatum date,
-    einddatum date,
+    begindatum timestamp without time zone,
+    einddatum timestamp without time zone,
     PRIMARY KEY (id)
 );
 /*
@@ -137,17 +138,17 @@ DROP VIEW IF EXISTS pandactueelbestaand;
 DROP TABLE IF EXISTS pand;
 CREATE TABLE pand (
     id serial,
-    identificatie character varying(16),
-    aanduidingrecordinactief character varying(1),
-    aanduidingrecordcorrectie character varying(5),
-    officieel character varying(1),
-    inonderzoek character varying(1),
+    identificatie numeric(16,0),
+    aanduidingrecordinactief boolean,
+    aanduidingrecordcorrectie integer,
+    officieel boolean,
+    inonderzoek boolean,
     documentnummer character varying(20),
     documentdatum date,
     pandstatus character varying(80),
     bouwjaar character varying(6),
-    begindatum date,
-    einddatum date,
+    begindatum timestamp without time zone,
+    einddatum timestamp without time zone,
     geovlak geometry,
     PRIMARY KEY (id),
     CONSTRAINT enforce_dims_geometrie CHECK ((st_ndims(geovlak) = 3)),
@@ -168,17 +169,17 @@ DROP VIEW IF EXISTS standplaatsactueelbestaand;
 DROP TABLE IF EXISTS standplaats;
 CREATE TABLE standplaats (
     id serial,
-    identificatie character varying(16),
-    aanduidingrecordinactief character varying(1),
-    aanduidingrecordcorrectie character varying(5),
-    officieel character varying(1),
-    inonderzoek character varying(1),
+    identificatie numeric(16,0),
+    aanduidingrecordinactief boolean,
+    aanduidingrecordcorrectie integer,
+    officieel boolean,
+    inonderzoek boolean,
     documentnummer character varying(20),
     documentdatum date,
-    hoofdadres character varying(16),
+    hoofdadres numeric(16,0),
     standplaatsstatus character varying(80),
-    begindatum date,
-    einddatum date,
+    begindatum timestamp without time zone,
+    einddatum timestamp without time zone,
     geovlak geometry,
     PRIMARY KEY (id),
     CONSTRAINT enforce_dims_geometrie CHECK ((st_ndims(geovlak) = 3)),
@@ -198,20 +199,20 @@ DROP VIEW IF EXISTS verblijfsobjectactueelbestaand;
 DROP TABLE IF EXISTS verblijfsobject;
 CREATE TABLE verblijfsobject (
     id serial,
-    identificatie character varying(16),
-    aanduidingrecordinactief character varying(1),
-    aanduidingrecordcorrectie character varying(5),
-    officieel character varying(1),
-    inonderzoek character varying(1),
+    identificatie numeric(16,0),
+    aanduidingrecordinactief boolean,
+    aanduidingrecordcorrectie integer,
+    officieel boolean,
+    inonderzoek boolean,
     documentnummer character varying(20),
     documentdatum date,
-    hoofdadres character varying(16),
---    gerelateerdpand character varying(16),   IS RELATIE (multivalued)
+    hoofdadres numeric(16,0),
+--    gerelateerdpand numeric(16,0),   IS RELATIE (multivalued)
 --    gebruiksdoel character varying(50),      IS RELATIE (multivalued)
     verblijfsobjectstatus character varying(80),
     oppervlakteverblijfsobject character varying(6),
-    begindatum date,
-    einddatum date,
+    begindatum timestamp without time zone,
+    einddatum timestamp without time zone,
     geopunt geometry,
     geovlak geometry,
     PRIMARY KEY (id),
@@ -235,10 +236,10 @@ DROP TABLE IF EXISTS verblijfsobjectgebruiksdoel;
 
 CREATE TABLE verblijfsobjectgebruiksdoel (
     id serial,
-    identificatie character varying(16),
-    aanduidingrecordinactief character varying(1),
-    aanduidingrecordcorrectie character varying(5),
-    begindatum date,
+    identificatie numeric(16,0),
+    aanduidingrecordinactief boolean,
+    aanduidingrecordcorrectie integer,
+    begindatum timestamp without time zone,
     gebruiksdoelverblijfsobject character varying(50),
     PRIMARY KEY (id)
 );
@@ -248,11 +249,11 @@ DROP TABLE IF EXISTS verblijfsobjectpand;
 
 CREATE TABLE verblijfsobjectpand (
     id serial,
-    identificatie character varying(16),
-    aanduidingrecordinactief character varying(1),
-    aanduidingrecordcorrectie character varying(5),
-    begindatum date,
-    gerelateerdpand character varying(16),
+    identificatie numeric(16,0),
+    aanduidingrecordinactief boolean,
+    aanduidingrecordcorrectie integer,
+    begindatum timestamp without time zone,
+    gerelateerdpand numeric(16,0),
     PRIMARY KEY (id)
 );
 
@@ -260,17 +261,17 @@ CREATE TABLE verblijfsobjectpand (
 DROP TABLE IF EXISTS woonplaats;
 CREATE TABLE woonplaats (
     id serial,
-    identificatie character varying(16),
-    aanduidingrecordinactief character varying(1),
-    aanduidingrecordcorrectie character varying(5),
-    officieel character varying(1),
-    inonderzoek character varying(1),
+    identificatie numeric(16,0),
+    aanduidingrecordinactief boolean,
+    aanduidingrecordcorrectie integer,
+    officieel boolean,
+    inonderzoek boolean,
     documentnummer character varying(20),
     documentdatum date,
     woonplaatsnaam character varying(80),
     woonplaatsstatus character varying(80),
-    begindatum date,
-    einddatum date,
+    begindatum timestamp without time zone,
+    einddatum timestamp without time zone,
     geovlak geometry,
     PRIMARY KEY (id),
     CONSTRAINT enforce_dims_geometrie CHECK ((st_ndims(geovlak) = 2)),
@@ -318,15 +319,15 @@ DROP TABLE IF EXISTS gemeente_woonplaats;
 CREATE TABLE gemeente_woonplaats (
 	id serial,
 	woonplaatsnaam character varying(80),
-	woonplaatscode character varying(4),
+	woonplaatscode numeric(4),
 	begindatum_woonplaats date,
 	einddatum_woonplaats date,
 	gemeentenaam character varying(80),
-	gemeentecode character varying(4),
+	gemeentecode numeric(4),
 	begindatum_gemeente date,
 	aansluitdatum_gemeente date,
 	bijzonderheden text,
-	gemeentecode_nieuw character varying(4),
+	gemeentecode_nieuw numeric(4),
 	einddatum_gemeente date,
 	behandeld character varying(1),
 	PRIMARY KEY (id)
@@ -335,9 +336,9 @@ CREATE TABLE gemeente_woonplaats (
 DROP TABLE IF EXISTS gemeente_provincie;
 CREATE TABLE gemeente_provincie (
 	id serial,
-	gemeentecode character varying(4),
+	gemeentecode numeric(4),
 	gemeentenaam character varying(80),
-	provinciecode character varying(4),
+	provinciecode numeric(4),
 	provincienaam character varying(80),
 	PRIMARY KEY (id)
 );

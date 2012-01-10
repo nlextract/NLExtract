@@ -129,7 +129,7 @@ class BAGattribuut:
         # deze leeg hoort te zijn. Om dit te omzeilen, controleren we hier de waarde en maken deze zo nodig
         # zelf leeg.
         if self._naam == "einddatum" and self._waarde == "2299123100000000":
-            self._waarde = ""
+            self._waarde = None
 
     # Print informatie over het attribuut op het scherm
     def schrijf(self):
@@ -165,6 +165,13 @@ class BAGnumeriekAttribuut(BAGattribuut):
      Omschrijving  Bevat een numerieke waarde
     """
 
+    # Attribuut waarde voor SQL. Deze method kan worden overloaded
+    def waardeSQL(self):
+        if self._waarde != '':
+            return self._waarde
+        else:
+            return None
+
     def sqltype(self):
         """
          Attribuut sqltype. Deze method kan worden overloaded
@@ -172,30 +179,124 @@ class BAGnumeriekAttribuut(BAGattribuut):
         return "NUMERIC(%d)" % (self._lengte)
 
 
-class BAGdatumAttribuut(BAGattribuut):
-    """
-     Class         BAGdatumAttribuut
-     Afgeleid van  BAGattribuut
-     Omschrijving  Bevat een datum waarde
-    """
+#--------------------------------------------------------------------------------------------------------
+# Class BAGintegerAttribuut
+# Afgeleid van BAGattribuut
+# Omschrijving Bevat een numerieke waarde
+#--------------------------------------------------------------------------------------------------------
+class BAGintegerAttribuut(BAGattribuut):
+    # Constructor
+    def __init__(self, naam, tag):
+        self._naam = naam
+        self._tag = tag
+        self._waarde = None
 
-    # Attribuut waarde. Deze method kan worden overloaded
-    # Maak van de datum/tijdstip string in de BAG een datumwaarde voor in de database
-    def waarde(self):
-        # TODO: Echte datum functie toepassen.
-        tekst = self._waarde
-        if tekst == '':
-            # return "2299-12-31"
-            return None
+    def waardeSQL(self):
+        if self._waarde != '':
+            return self._waarde
         else:
-            return "%c%c%c%c-%c%c-%c%c" % (
-                tekst[0], tekst[1], tekst[2], tekst[3], tekst[4], tekst[5], tekst[6], tekst[7])
+            return None
 
+    # Attribuut sqltype. Deze method kan worden overloaded
     def sqltype(self):
-        """
-         Attribuut sqltype. Deze method kan worden overloaded
-        """
+        return "INTEGER"
+
+
+#--------------------------------------------------------------------------------------------------------
+# Class BAGdatumAttribuut
+# Afgeleid van BAGattribuut
+# Omschrijving Bevat een waarheid attribuut
+#--------------------------------------------------------------------------------------------------------
+class BAGbooleanAttribuut(BAGattribuut):
+    # Constructor
+    def __init__(self, naam, tag):
+        self._naam = naam
+        self._tag = tag
+        self._waarde = None
+
+    # Attribuut sqltype. Deze method kan worden overloaded
+    def sqltype(self):
+        return "BOOLEAN"
+
+    # Initialisatie vanuit XML
+    def leesUitXML(self, xml):
+        self._waarde = getValue(xml, self._tag)
+        if self._waarde == 'N':
+            self._waarde = 'FALSE'
+        elif self._waarde == 'J':
+            self._waarde = 'TRUE'
+        elif self._waarde == '':
+            self._waarde = None
+        else:
+            print 'Onverwacht: %s'%(self._waarde)
+
+
+#--------------------------------------------------------------------------------------------------------
+# Class BAGdatetimeAttribuut
+# Afgeleid van BAGattribuut
+# Omschrijving Bevat een waarheid attribuut
+#--------------------------------------------------------------------------------------------------------
+class BAGdatetimeAttribuut(BAGattribuut):
+    # Constructor
+    def __init__(self, naam, tag):
+        self._naam = naam
+        self._tag = tag
+        self._waarde = None
+
+    # Attribuut sqltype. Deze method kan worden overloaded
+    def sqltype(self):
+        return "TIMESTAMP WITHOUT TIME ZONE"
+
+    # Initialisatie vanuit XML
+    def leesUitXML(self, xml):
+        self._waarde = getValue(xml, self._tag)
+        if self._waarde != '':
+            jaar = self._waarde[0:4]
+            maand = self._waarde[4:6]
+            dag = self._waarde[6:8]
+            uur = self._waarde[8:10]
+            minuut = self._waarde[10:12]
+            seconden = self._waarde[12:14]
+            msec = self._waarde[14:16]
+
+            # 1999-01-08 04:05:06
+            # http://www.postgresql.org/docs/8.3/static/datatype-datetime.html
+            if jaar != '2299':
+                self._waarde = '%s%s%s %s%s%s'%(jaar, maand, dag, uur, minuut, seconden)
+            else:
+                self._waarde = None
+        else:
+            self._waarde = None
+
+
+
+#--------------------------------------------------------------------------------------------------------
+# Class BAGdateAttribuut
+# Afgeleid van BAGattribuut
+# Omschrijving Bevat een datum (jaar) attribuut
+#--------------------------------------------------------------------------------------------------------
+class BAGdateAttribuut(BAGattribuut):
+    # Constructor
+    def __init__(self, naam, tag):
+        self._naam = naam
+        self._tag = tag
+        self._waarde = None
+
+    # Attribuut sqltype. Deze method kan worden overloaded
+    def sqltype(self):
         return "DATE"
+
+    # Initialisatie vanuit XML
+    def leesUitXML(self, xml):
+        self._waarde = getValue(xml, self._tag)
+        if self._waarde == '':
+            jaar = self._waarde[0:4]
+
+            if jaar == '2299':
+                self._waarde = None
+        else:
+            self._waarde = None
+
 
 #--------------------------------------------------------------------------------------------------------
 # Class         BAGgeoAttribuut

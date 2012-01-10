@@ -71,7 +71,7 @@ class Database:
                 self.cursor.execute(sql, parameters)
             else:
                 self.cursor.execute(sql)
-        except (psycopg2.IntegrityError, psycopg2.ProgrammingError), e:
+        except (psycopg2.IntegrityError, psycopg2.ProgrammingError, Exception), e:
             Log.log.error("fout %s voor query: %s" % (str(e), str(self.cursor.mogrify(sql, parameters))))
             return self.cursor.rowcount
 
@@ -85,5 +85,5 @@ class Database:
             self.connection.commit()
             f.close()
             Log.log.info("SQL uitgevoerd OK")
-        except psycopg2.DatabaseError, e:
+        except (psycopg2.DatabaseError,Exception), e:
             Log.log.error("fout: script uitvoeren :%s" % str(e))
