@@ -81,18 +81,19 @@ class BAGFileReader:
         for naam in tzip.namelist():
             ext = naam.split('.')
             Log.log.info("readzipfile: " + naam)
-            if ext[1] == 'xml':
-                xml = self.parseXML(StringIO(tzip.read(naam)))
-                #xml = etree.parse (StringIO(tzip.read(naam)))
-                self.processXML(naam, xml)
-            elif ext[1] == 'zip':
-                self.readzipstring(StringIO(tzip.read(naam)))
-            elif ext[1] == 'csv':
-                Log.log.info(naam)
-                fileobject = StringIO(tzip.read(naam))
-                self.processCSV(naam, fileobject)
-            else:
-                Log.log.info(naam)
+            if len(ext) == 2:
+                if ext[1] == 'xml':
+                    xml = self.parseXML(StringIO(tzip.read(naam)))
+                    #xml = etree.parse (StringIO(tzip.read(naam)))
+                    self.processXML(naam, xml)
+                elif ext[1] == 'zip':
+                    self.readzipstring(StringIO(tzip.read(naam)))
+                elif ext[1] == 'csv':
+                    Log.log.info(naam)
+                    fileobject = StringIO(tzip.read(naam))
+                    self.processCSV(naam, fileobject)
+                else:
+                    Log.log.info("Negeer: " + naam)
 
     def readzipstring(self,naam):
         # Log.log.info("readzipstring naam=" + naam)
@@ -102,19 +103,20 @@ class BAGFileReader:
         for nested in tzip.namelist():
             Log.log.info("readzipstring: " + nested)
             ext = nested.split('.')
-            if ext[1] == 'xml':
-                xml = self.parseXML(StringIO(tzip.read(nested)))
-                #xml = etree.parse(StringIO(tzip.read(nested)))
-                self.processXML(nested, xml)
-            elif ext[1] == 'csv':
-                Log.log.info(nested)
-                fileobject = StringIO(tzip.read(nested))
-                self.processCSV(nested, fileobject)
-            elif ext[1] == 'zip':
-                Log.log.info(nested)
-                self.readzipstring(StringIO(tzip.read(nested)))
-            else:
-                Log.log.info(nested)
+            if len(ext) == 2:
+                if ext[1] == 'xml':
+                    xml = self.parseXML(StringIO(tzip.read(nested)))
+                    #xml = etree.parse(StringIO(tzip.read(nested)))
+                    self.processXML(nested, xml)
+                elif ext[1] == 'csv':
+                    Log.log.info(nested)
+                    fileobject = StringIO(tzip.read(nested))
+                    self.processCSV(nested, fileobject)
+                elif ext[1] == 'zip':
+                    Log.log.info(nested)
+                    self.readzipstring(StringIO(tzip.read(nested)))
+                else:
+                    Log.log.info("Negeer: " + nested)
 
     def parseXML(self,naam):
         Log.log.startTimer("parseXML")
