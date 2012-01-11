@@ -28,7 +28,12 @@ def getText(nodelist):
 def getValues(parent, tag):
     data = []
     # Splits de tag bij het eerste voorkomen van '/' met behulp van de partition-functie
-    tags = tag.partition("/")
+    #
+    # tags = tag.partition("/")  werkt alleen voor Python 2.5 en hoger en sommige
+    # omgevingen (PDOK) hebben helaas nog Python 2.4.3
+    # Splits in max 2 elementen, bijv.  ['bag_LVC:gerelateerdeAdressen', 'bag_LVC:nevenadres/bag_LVC:identificatie']
+    tags = tag.split("/", 1)
+    # print str(tags)
     for node in parent.getElementsByTagName(tags[0]):
         # getElementsByTagName geeft alle elementen met die tag die ergens onder de parent hangen.
         # We gebruiken hier echter alleen die elementen die rechtstreeks onder de parent hangen.
@@ -36,10 +41,13 @@ def getValues(parent, tag):
         # identificaties van gerelateerde objecten van dat verblijfsobject hebben.
         # Daarom controleren we dat de tag van de parent van de gevonden node, gelijk is aan de tag van de parent
         if node.parentNode.tagName == parent.tagName:
-            if tags[1] == "/":
-                data.extend(getValues(node, tags[2]))
-            else:
+            if len(tags) == 1:
+                # Leaf : 1 enkele node
                 data.append(getText(node.childNodes))
+
+            elif len(tags) > 1:
+                # Meerdere nodes: recurse met remainder
+                data.extend(getValues(node, tags[1]))
     return data
 
 # Geef de waarde van het eerste element met de gegeven tag binnen de XML (parent). Als er geen eerste
