@@ -129,10 +129,20 @@ class BAGObject:
         # UPDATE weather SET temp_lo = temp_lo+1, temp_hi = temp_lo+15, prcp = DEFAULT
         # WHERE city = 'San Francisco' AND date = '2003-07-03';
         # Unieke key is combined (identificatie,aanduidingRecordInactief,einddatum)
-        where = "WHERE identificatie = %s AND aanduidingrecordinactief = %s AND einddatum = %s"
+        where = "WHERE identificatie = %s AND aanduidingrecordinactief = %s AND einddatum "
+        eindDatum = self.origineelObj.attribuut('einddatum').waardeSQL()
+
+        # Tricky: indien eindDatum leeg moet in WHERE "is NULL" staan
+        # want "= NULL" geeft geen resultaat
+        # http://stackoverflow.com/questions/4476172/postgresql-select-where-timestamp-is-empty
+        if eindDatum:
+            where += "= %s"
+        else:
+            where += "is %s"
+
         self.inhoud.extend((self.origineelObj.attribuut('identificatie').waardeSQL(),
                              self.origineelObj.attribuut('aanduidingRecordInactief').waardeSQL(),
-                             self.origineelObj.attribuut('einddatum').waardeSQL()))
+                             eindDatum))
 
         self.sql = "UPDATE " + self.naam() + " SET " + nameVals + " " + where
 

@@ -266,7 +266,7 @@ class BAGdatetimeAttribuut(BAGattribuut):
             uur = self._waarde[8:10]
             minuut = self._waarde[10:12]
             seconden = self._waarde[12:14]
-            msec = self._waarde[14:16]
+            # msec = self._waarde[14:16]
 
             # 1999-01-08 04:05:06
             # http://www.postgresql.org/docs/8.3/static/datatype-datetime.html
@@ -551,10 +551,10 @@ class BAGrelatieAttribuut(BAGattribuut):
             sql = "INSERT INTO " + self.relatieNaam() + " "
             sql += "(identificatie,aanduidingrecordinactief,aanduidingrecordcorrectie,begindatum,"
             sql += self.naam() + ") VALUES (%s, %s, %s, %s, %s)"
-            self.inhoud.append((self._parent.attribuut('identificatie').waarde(),
-                                self._parent.attribuut('aanduidingRecordInactief').waarde(),
-                                self._parent.attribuut('aanduidingRecordCorrectie').waarde(),
-                                self._parent.attribuut('begindatum').waarde(),
+            self.inhoud.append((self._parent.attribuut('identificatie').waardeSQL(),
+                                self._parent.attribuut('aanduidingRecordInactief').waardeSQL(),
+                                self._parent.attribuut('aanduidingRecordCorrectie').waardeSQL(),
+                                self._parent.attribuut('begindatum').waardeSQL(),
                                 waarde))
 
             self.sql.append(sql)
@@ -568,13 +568,23 @@ class BAGrelatieAttribuut(BAGattribuut):
         # dus we deleten eerst alle bestaande relaties en voeren de nieuwe
         # in via insert. Helaas maar waar.
         sql = "DELETE FROM " + self.relatieNaam() + " WHERE  "
-        sql += "identificatie = %s AND aanduidingrecordinactief = %s AND aanduidingrecordcorrectie = %s AND begindatum = %s"
-        self.sql.append(sql)
+        sql += "identificatie = %s AND aanduidingrecordinactief = %s AND aanduidingrecordcorrectie = %s AND begindatum "
 
-        self.inhoud.append((self._parent.attribuut('identificatie').waarde(),
-                             self._parent.attribuut('aanduidingRecordInactief').waarde(),
-                             self._parent.attribuut('aanduidingRecordCorrectie').waarde(),
-                             self._parent.attribuut('begindatum').waarde()))
+
+        # Tricky: indien beginDatum (komt in principe niet voor)  leeg moet in WHERE "is NULL" staan
+        # want "= NULL" geeft geen resultaat
+        # http://stackoverflow.com/questions/4476172/postgresql-select-where-timestamp-is-empty
+        beginDatum = self._parent.attribuut('begindatum').waardeSQL()
+        if beginDatum:
+            sql += "= %s"
+        else:
+            sql += "is %s"
+
+        self.sql.append(sql)
+        self.inhoud.append((self._parent.attribuut('identificatie').waardeSQL(),
+                             self._parent.attribuut('aanduidingRecordInactief').waardeSQL(),
+                             self._parent.attribuut('aanduidingRecordCorrectie').waardeSQL(),
+                             beginDatum))
 
         # Gebruik bestaande INSERT SQL generatie voor de nieuwe relaties en append aan DELETE SQL
         self.maakInsertSQL(True)
