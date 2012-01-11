@@ -57,7 +57,7 @@ class Processor:
 
     def processDOM(self, node):
         self.bagObjecten = []
-        mode = None
+        mode = "Onbekend"
         if node.localName == 'BAG-Extract-Deelbestand-LVC':
             mode = 'Nieuw'
             #firstchild moet zijn 'antwoord'
@@ -88,7 +88,7 @@ class Processor:
                     for child in antwoord.childNodes:
                         if child.localName == "producten":
                             producten = child
-                            Log.log.startTimer("objCreate")
+                            Log.log.startTimer("objCreate (mutaties)")
                             for productnode in producten.childNodes:
                                 if productnode.localName == 'Mutatie-product' and productnode.childNodes:
                                     origineelObj = None
@@ -114,9 +114,13 @@ class Processor:
                                                     origineelObj = None
                                                     nieuwObj = None
 
-                            Log.log.endTimer("objCreate - objs=" + str(len(self.bagObjecten)))
+                            Log.log.endTimer("objCreate (mutaties) - objs=" + str(len(self.bagObjecten)))
+        else:
+            Log.log.info("Niet-verwerkbare XML node: " + node.localName)
+            return
 
         Log.log.startTimer("dbStart mode = " + mode)
+
         self.database.verbind()
         rels = 0
         wijzigingen = 0

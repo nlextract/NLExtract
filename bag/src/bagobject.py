@@ -128,7 +128,12 @@ class BAGObject:
 
         # UPDATE weather SET temp_lo = temp_lo+1, temp_hi = temp_lo+15, prcp = DEFAULT
         # WHERE city = 'San Francisco' AND date = '2003-07-03';
-        where = "WHERE identificatie =" + self.origineelObj.attribuut('identificatie').waardeSQL()
+        # Unieke key is combined (identificatie,aanduidingRecordInactief,einddatum)
+        where = "WHERE identificatie = %s AND aanduidingrecordinactief = %s AND einddatum = %s"
+        self.inhoud.extend((self.origineelObj.attribuut('identificatie').waardeSQL(),
+                             self.origineelObj.attribuut('aanduidingRecordInactief').waardeSQL(),
+                             self.origineelObj.attribuut('einddatum').waardeSQL()))
+
         self.sql = "UPDATE " + self.naam() + " SET " + nameVals + " " + where
 
         # Optioneel: relatie objecten
