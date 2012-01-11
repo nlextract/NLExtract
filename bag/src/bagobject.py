@@ -49,6 +49,7 @@ class BAGObject:
 
         self.relaties = []
 
+        self.origineelObj = None
         self._tag = tag
         self._naam = naam
         self._objectType = objectType
@@ -114,6 +115,25 @@ class BAGObject:
         for relatie in self.relaties:
             relatie.maakInsertSQL()
 
+    # Genereer SQL voor een UPDATE (als prepared statement).
+    def maakUpdateSQL(self):
+        nameVals = ""
+        self.inhoud = []
+        for naam, attribuut in self.attributen.iteritems():
+            if nameVals != "":
+                nameVals += ","
+
+            nameVals += attribuut.naam() + ' = ' + attribuut.waardeSQLTpl()
+            self.inhoud.append(attribuut.waardeSQL())
+
+        # UPDATE weather SET temp_lo = temp_lo+1, temp_hi = temp_lo+15, prcp = DEFAULT
+        # WHERE city = 'San Francisco' AND date = '2003-07-03';
+        where = "WHERE identificatie =" + self.origineelObj.attribuut('identificatie').waardeSQL()
+        self.sql = "UPDATE " + self.naam() + " SET " + nameVals + " " + where
+
+        # Optioneel: relatie objecten
+        for relatie in self.relaties:
+            relatie.maakUpdateSQL()
 
 #--------------------------------------------------------------------------------------------------------
 # Class         Woonplaats

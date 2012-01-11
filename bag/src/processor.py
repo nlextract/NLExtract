@@ -57,8 +57,9 @@ class Processor:
 
     def processDOM(self, node):
         self.bagObjecten = []
-
+        mode = None
         if node.localName == 'BAG-Extract-Deelbestand-LVC':
+            mode = 'Nieuw'
             #firstchild moet zijn 'antwoord'
             for childNode in node.childNodes:
                 if childNode.localName == 'antwoord':
@@ -77,24 +78,8 @@ class Processor:
                                     self.bagObjecten = BAGObjectFabriek.bof.BAGObjectArrayBijXML(productnode.childNodes)
                             Log.log.endTimer("objCreate - objs=" + str(len(self.bagObjecten)))
 
-                    Log.log.startTimer("dbInsert")
-                    self.database.verbind()
-                    rels = 0
-                    for bagObject in self.bagObjecten:
-                        bagObject.maakInsertSQL()
-                        self.database.uitvoeren(bagObject.sql, bagObject.inhoud)
-                        for relatie in bagObject.relaties:
-                            i = 0
-                            for sql in relatie.sql:
-                                self.database.uitvoeren(sql, relatie.inhoud[i])
-                                i += 1
-                                rels += 1
-
-                    self.database.connection.commit()
-                    Log.log.endTimer("dbInsert - objs=" + str(len(self.bagObjecten)) + " rels=" + str(rels))
-                    Log.log.info("------")
-
         elif node.localName == 'BAG-Mutaties-Deelbestand-LVC':
+            mode = 'Mutatie'
             #firstchild moet zijn 'antwoord'
             for childNode in node.childNodes:
                 if childNode.localName == 'antwoord':
@@ -106,28 +91,54 @@ class Processor:
                             Log.log.startTimer("objCreate")
                             for productnode in producten.childNodes:
                                 if productnode.localName == 'Mutatie-product' and productnode.childNodes:
+                                    origineelObj = None
+                                    nieuwObj = None
                                     for mutatienode in productnode.childNodes:
                                         if mutatienode.localName == 'Nieuw':
                                             # Log.log.info("Nieuw Object")
-                                            self.bagObjecten.extend(BAGObjectFabriek.bof.BAGObjectArrayBijXML(mutatienode.childNodes))
+                                            self.bagObjecten.extend(
+                                                BAGObjectFabriek.bof.BAGObjectArrayBijXML(mutatienode.childNodes))
+                                        elif mutatienode.localName == 'Origineel':
+                                            objs = BAGObjectFabriek.bof.BAGObjectArrayBijXML(mutatienode.childNodes)
+                                            if len(objs) > 0:
+                                                origineelObj = objs[0]
+                                        elif mutatienode.localName == 'Wijziging':
+                                            objs = BAGObjectFabriek.bof.BAGObjectArrayBijXML(mutatienode.childNodes)
+
+                                            if len(objs) > 0:
+                                                nieuwObj = objs[0]
+                                                if nieuwObj and origineelObj:
+                                                    nieuwObj.origineelObj = origineelObj
+                                                    self.bagObjecten.append(nieuwObj)
+                                                    # Log.log.info("Wijziging Object")
+                                                    origineelObj = None
+                                                    nieuwObj = None
 
                             Log.log.endTimer("objCreate - objs=" + str(len(self.bagObjecten)))
 
-                    Log.log.startTimer("dbInsert (mutaties)")
-                    self.database.verbind()
-                    rels = 0
-                    for bagObject in self.bagObjecten:
-                        bagObject.maakInsertSQL()
-                        self.database.uitvoeren(bagObject.sql, bagObject.inhoud)
-                        for relatie in bagObject.relaties:
-                            i = 0
-                            for sql in relatie.sql:
-                                self.database.uitvoeren(sql, relatie.inhoud[i])
-                                i += 1
-                                rels += 1
+        Log.log.startTimer("dbStart mode = " + mode)
+        self.database.verbind()
+        rels = 0
+        wijzigingen = 0
+        for bagObject in self.bagObjecten:
+            if bagObject.origineelObj:
+                # Mutatie: wijziging
+                bagObject.maakUpdateSQL()
+                wijzigingen += 1
+            else:
+                # Mutatie: nieuw object
+                bagObject.maakInsertSQL()
 
-                    self.database.connection.commit()
-                    Log.log.endTimer("dbInsert (mutaties) - objs=" + str(len(self.bagObjecten)) + " rels=" + str(rels))
-                    Log.log.info("------")
+            self.database.uitvoeren(bagObject.sql, bagObject.inhoud)
+            for relatie in bagObject.relaties:
+                i = 0
+                for sql in relatie.sql:
+                    self.database.uitvoeren(sql, relatie.inhoud[i])
+                    i += 1
+                    rels += 1
+
+        self.database.connection.commit()
+        Log.log.endTimer("dbEnd - nieuw=" + str(len(self.bagObjecten) - wijzigingen) + " gewijzigd=" + str(wijzigingen) + " rels=" + str(rels))
+        Log.log.info("------")
 
 

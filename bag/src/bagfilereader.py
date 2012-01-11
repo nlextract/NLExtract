@@ -67,10 +67,11 @@ class BAGFileReader:
                     if len(zipfilename) == 2:
                         ext = zipfilename[1]
                         if ext == 'xml':
-                            print each
+                            Log.log.info("==> XML File: " + each)
                             xml = self.parseXML(_file)
                             self.processXML(zipfilename[0],xml)
                         if ext == 'csv':
+                            Log.log.info("==> CSV File: " + each)
                             fileobject = open(_file, "rb")
                             self.processCSV(zipfilename[0],fileobject)
 

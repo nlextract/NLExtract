@@ -1,16 +1,31 @@
-bagextract is onderdeel van de NLExtract tools om het inlezen en verrijken van een BAG-extract
+bag-extract is onderdeel van de NLExtract tools om het inlezen en verrijken van een Kadaster BAG leveringen
 in een Postgres/Postgis database.
 
 bagextract biedt de volgende functionaliteiten:
- - Laden van een BAG Extract
+ - Laden van een Kadaster BAG Extract
+ - Toepassen van Kadaster BAG mutaties
  - Verrijken met gemeenten en provincies en volledige adressen
+ - Stijlen (SLDs) om BAG te visualiseren via een WMS
 
 Installeren:
- - download via git: git clone http://github.com/opengeogroep/NLExtract.git
+ - nodig Python (minimaal versie 2.4.3 getest)
+
+ - download NLExtract
+    via git: git clone http://github.com/opengeogroep/NLExtract.git
+    als .zip via https://github.com/opengeogroep/NLExtract/zipball/master
+
+ - optioneel: Python package afhankelijkheden installeren bijv
+   apt-get of yum install python-setuptools (voor easy_install commando)
+   apt-get of yum install python-devel (tbv psycopg2 bibliotheek)
+   apt-get of yum install postgresql-devel (tbv psycopg2 bibliotheek)
+
  - installeer de PostgreSQL python bibliotheek psycopg2:
    sudo easy_install psycopg2
+
  - indien je niet Python 3.0 of hoger hebt installeer Python package "argparse", bijv
    sudo easy_install argparse
+
+ - NB als je een proxy gebruikt via http_proxy  doe dan easy_install -E (exporteer huidge environment)
 
 Instellingen:
  - bag.conf
@@ -25,7 +40,7 @@ Instellingen:
     DB settings kunnen ook via commandline overuled worden, bijv.
       bagextract.py -H localhost -d bag -U postgres -W postgres -c
 
-Uitleg:
+Voorbeelden:
 
         1. Initialiseer een database (-c):
 
@@ -39,7 +54,7 @@ Uitleg:
 
             python bagextract.py -e 9999STA01052011.zip
 
-            -e werkt op directory, file of .zip
+            -e werkt op directory, file of .zip inclusief mutatie bestanden
 
         3.  Importeer gemeente_woonplaats informatie van het kadaster 
             http://www.kadaster.nl/bag/docs/BAG_Overzicht_aangesloten_gemeenten.zip
@@ -78,4 +93,4 @@ Issues:
 
 Voorbeeld:
         Zie http://docs.kademo.nl/project/bagextract.html voor een installatie voorbeeld, gevold door extract
-        verrijking en WMS visualisatie.
+        verrijking en WMS visualisatie op http://kademo.nl (kies BAG).

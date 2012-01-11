@@ -529,6 +529,7 @@ class BAGrelatieAttribuut(BAGattribuut):
 
     # Wijzig de waarde.
     def setWaarde(self, waarde):
+        # Waarde is serie, vanwege meerdere voorkomens van attributen in hoofdobjecten
         self._waarde.append(waarde)
 
     # Geef aan dat het attribuut niet enkelvoudig is (meerdere waardes kan hebben).
@@ -539,10 +540,13 @@ class BAGrelatieAttribuut(BAGattribuut):
     def leesUitXML(self, xml):
         self._waarde = getValues(xml, self.tag())
 
-    # VMaak insert SQL voor deze relatie
-    def maakInsertSQL(self):
-        self.sql = []
-        self.inhoud = []
+    # Maak insert SQL voor deze relatie
+    def maakInsertSQL(self, append=None):
+        # Default is nieuw (append=None) maar kan ook appenden aan bestaande SQL
+        if not append:
+            self.sql = []
+            self.inhoud = []
+
         for waarde in self._waarde:
             sql = "INSERT INTO " + self.relatieNaam() + " "
             sql += "(identificatie,aanduidingrecordinactief,aanduidingrecordcorrectie,begindatum,"
@@ -554,6 +558,26 @@ class BAGrelatieAttribuut(BAGattribuut):
                                 waarde))
 
             self.sql.append(sql)
+
+    # Maak update SQL voor deze relatie
+    def maakUpdateSQL(self):
+        self.sql = []
+        self.inhoud = []
+
+        # Voor relaties hebben we geen unieke keys en er kunnen relaties bijgekomen of weg zijn
+        # dus we deleten eerst alle bestaande relaties en voeren de nieuwe
+        # in via insert. Helaas maar waar.
+        sql = "DELETE FROM " + self.relatieNaam() + " WHERE  "
+        sql += "identificatie = %s AND aanduidingrecordinactief = %s AND aanduidingrecordcorrectie = %s AND begindatum = %s"
+        self.sql.append(sql)
+
+        self.inhoud.append((self._parent.attribuut('identificatie').waarde(),
+                             self._parent.attribuut('aanduidingRecordInactief').waarde(),
+                             self._parent.attribuut('aanduidingRecordCorrectie').waarde(),
+                             self._parent.attribuut('begindatum').waarde()))
+
+        # Gebruik bestaande INSERT SQL generatie voor de nieuwe relaties en append aan DELETE SQL
+        self.maakInsertSQL(True)
 
     # Print informatie over het attribuut op het scherm
     def schrijf(self):

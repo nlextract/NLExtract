@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Created by Just van den Broecke
+Specifieke wijzigingen op de objecten onder test/data (de mutatie bestanden van Kadaster waren willekeurig.
+
+-->
+<mb:BAG-Mutaties-Deelbestand-LVC xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                 xmlns:bag_LVC="http://www.kadaster.nl/schemas/imbag/lvc/v20090901"
+                                 xmlns:bagtype="http://www.kadaster.nl/schemas/imbag/imbag-types/v20090901"
+                                 xmlns:nen5825="http://www.kadaster.nl/schemas/imbag/nen5825/v20090901"
+                                 xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                                 xmlns:selecties-extract="http://www.kadaster.nl/schemas/bag-verstrekkingen/extract-selecties/v20090901"
+                                 xmlns:gml="http://www.opengis.net/gml"
+                                 xmlns:mb="http://www.kadaster.nl/schemas/bag-verstrekkingen/extract-deelbestand-mutaties-lvc/v20090901"
+                                 xmlns:product_LVC="http://www.kadaster.nl/schemas/bag-verstrekkingen/extract-producten-lvc/v20090901"
+                                 xsi:schemaLocation="http://www.kadaster.nl/schemas/bag-verstrekkingen/extract-deelbestand-mutaties-lvc/v20090901 http://www.kadaster.nl/schemas/bag-verstrekkingen/extract-deelbestand-mutaties-lvc/v20090901/BagvsExtractDeelbestandMutatieLvc-1.4.xsd">
+    <mb:antwoord>
+        <mb:vraag>
+            <selecties-extract:Gebied-Registratief>
+                <selecties-extract:Gebied-NLD>
+                    <selecties-extract:GebiedIdentificatie>999</selecties-extract:GebiedIdentificatie>
+                    <selecties-extract:GebiedNaam>Nederland</selecties-extract:GebiedNaam>
+                    <selecties-extract:gebiedTypeNederland>1</selecties-extract:gebiedTypeNederland>
+                </selecties-extract:Gebied-NLD>
+            </selecties-extract:Gebied-Registratief>
+            <selecties-extract:Mutatieperiode>
+                <selecties-extract:MutatiedatumVanaf>2011-04-01</selecties-extract:MutatiedatumVanaf>
+                <selecties-extract:MutatiedatumTot>2011-04-02</selecties-extract:MutatiedatumTot>
+            </selecties-extract:Mutatieperiode>
+        </mb:vraag>
+        <mb:producten>
+
+            <product_LVC:Mutatie-product>
+                <product_LVC:Verwerking>
+                    <product_LVC:TijdstipVerwerking>2011-04-01T12:39:05.914934</product_LVC:TijdstipVerwerking>
+                    <product_LVC:ObjectType>VBO</product_LVC:ObjectType>
+                    <product_LVC:VolgnrVerwerking>1</product_LVC:VolgnrVerwerking>
+                </product_LVC:Verwerking>
+                <product_LVC:Origineel>
+                    <bag_LVC:Verblijfsobject>
+                         <bag_LVC:gerelateerdeAdressen>
+                             <bag_LVC:hoofdadres>
+                                 <bag_LVC:identificatie>0003200000133985</bag_LVC:identificatie>
+                             </bag_LVC:hoofdadres>
+                         </bag_LVC:gerelateerdeAdressen>
+                         <bag_LVC:identificatie>0003010000125985</bag_LVC:identificatie>
+                         <bag_LVC:aanduidingRecordInactief>N</bag_LVC:aanduidingRecordInactief>
+                         <bag_LVC:aanduidingRecordCorrectie>0</bag_LVC:aanduidingRecordCorrectie>
+                         <bag_LVC:officieel>N</bag_LVC:officieel>
+                         <bag_LVC:verblijfsobjectGeometrie>
+                             <gml:Point srsName="urn:ogc:def:crs:EPSG::28992">
+                                 <gml:pos>252767.348 593745.504 0.0</gml:pos>
+                             </gml:Point>
+                         </bag_LVC:verblijfsobjectGeometrie>
+                         <bag_LVC:gebruiksdoelVerblijfsobject>woonfunctie</bag_LVC:gebruiksdoelVerblijfsobject>
+                         <bag_LVC:oppervlakteVerblijfsobject>69</bag_LVC:oppervlakteVerblijfsobject>
+                         <bag_LVC:verblijfsobjectStatus>Verblijfsobject in gebruik</bag_LVC:verblijfsobjectStatus>
+                         <bag_LVC:tijdvakgeldigheid>
+                             <bagtype:begindatumTijdvakGeldigheid>2010072000000000</bagtype:begindatumTijdvakGeldigheid>
+                         </bag_LVC:tijdvakgeldigheid>
+                         <bag_LVC:inOnderzoek>N</bag_LVC:inOnderzoek>
+                         <bag_LVC:bron>
+                             <bagtype:documentdatum>20100720</bagtype:documentdatum>
+                             <bagtype:documentnummer>FB 2010/PANDEN001</bagtype:documentnummer>
+                         </bag_LVC:bron>
+                         <bag_LVC:gerelateerdPand>
+
+                             <bag_LVC:identificatie>0003100000117485</bag_LVC:identificatie>
+                         </bag_LVC:gerelateerdPand>
+                     </bag_LVC:Verblijfsobject>
+                </product_LVC:Origineel>
+                <product_LVC:Wijziging>
+                    <bag_LVC:Verblijfsobject>
+                         <bag_LVC:gerelateerdeAdressen>
+                             <bag_LVC:hoofdadres>
+                                 <bag_LVC:identificatie>0003200000133985</bag_LVC:identificatie>
+                             </bag_LVC:hoofdadres>
+                         </bag_LVC:gerelateerdeAdressen>
+                         <bag_LVC:identificatie>0003010000125985</bag_LVC:identificatie>
+                         <bag_LVC:aanduidingRecordInactief>N</bag_LVC:aanduidingRecordInactief>
+                         <bag_LVC:aanduidingRecordCorrectie>0</bag_LVC:aanduidingRecordCorrectie>
+                         <bag_LVC:officieel>N</bag_LVC:officieel>
+                         <bag_LVC:verblijfsobjectGeometrie>
+                             <gml:Point srsName="urn:ogc:def:crs:EPSG::28992">
+                                 <gml:pos>252767.348 593745.504 0.0</gml:pos>
+                             </gml:Point>
+                         </bag_LVC:verblijfsobjectGeometrie>
+                         <bag_LVC:gebruiksdoelVerblijfsobject>woonfunctie</bag_LVC:gebruiksdoelVerblijfsobject>
+                        <!-- Test 1 Oppervlakte wijziging -->
+                         <bag_LVC:oppervlakteVerblijfsobject>169</bag_LVC:oppervlakteVerblijfsobject>
+                         <bag_LVC:verblijfsobjectStatus>Verblijfsobject in gebruik</bag_LVC:verblijfsobjectStatus>
+                         <bag_LVC:tijdvakgeldigheid>
+                             <bagtype:begindatumTijdvakGeldigheid>2010072000000000</bagtype:begindatumTijdvakGeldigheid>
+                         </bag_LVC:tijdvakgeldigheid>
+                         <bag_LVC:inOnderzoek>N</bag_LVC:inOnderzoek>
+                         <bag_LVC:bron>
+                             <bagtype:documentdatum>20100720</bagtype:documentdatum>
+                             <bagtype:documentnummer>FB 2010/PANDEN001</bagtype:documentnummer>
+                         </bag_LVC:bron>
+                         <bag_LVC:gerelateerdPand>
+
+                             <bag_LVC:identificatie>0003100000117485</bag_LVC:identificatie>
+                         </bag_LVC:gerelateerdPand>
+                     </bag_LVC:Verblijfsobject>
+
+                </product_LVC:Wijziging>
+            </product_LVC:Mutatie-product>
+           <product_LVC:Mutatie-product>
+                <product_LVC:Verwerking>
+                    <product_LVC:TijdstipVerwerking>2011-04-01T12:39:05.914934</product_LVC:TijdstipVerwerking>
+                    <product_LVC:ObjectType>VBO</product_LVC:ObjectType>
+                    <product_LVC:VolgnrVerwerking>1</product_LVC:VolgnrVerwerking>
+                </product_LVC:Verwerking>
+                <product_LVC:Origineel>
+                    <bag_LVC:Verblijfsobject>
+                        <bag_LVC:gerelateerdeAdressen>
+                            <bag_LVC:hoofdadres>
+                                <bag_LVC:identificatie>0007200000004200</bag_LVC:identificatie>
+                            </bag_LVC:hoofdadres>
+                        </bag_LVC:gerelateerdeAdressen>
+                        <bag_LVC:identificatie>0007010000004200</bag_LVC:identificatie>
+                        <bag_LVC:aanduidingRecordInactief>N</bag_LVC:aanduidingRecordInactief>
+                        <bag_LVC:aanduidingRecordCorrectie>0</bag_LVC:aanduidingRecordCorrectie>
+                        <bag_LVC:officieel>N</bag_LVC:officieel>
+                        <bag_LVC:verblijfsobjectGeometrie>
+                            <gml:Point srsName="urn:ogc:def:crs:EPSG::28992">
+                                <gml:pos>273114.825 566179.45 0.0</gml:pos>
+                            </gml:Point>
+                        </bag_LVC:verblijfsobjectGeometrie>
+                        <bag_LVC:gebruiksdoelVerblijfsobject>woonfunctie</bag_LVC:gebruiksdoelVerblijfsobject>
+                        <bag_LVC:oppervlakteVerblijfsobject>102</bag_LVC:oppervlakteVerblijfsobject>
+                        <bag_LVC:verblijfsobjectStatus>Verblijfsobject in gebruik</bag_LVC:verblijfsobjectStatus>
+                        <bag_LVC:tijdvakgeldigheid>
+                            <bagtype:begindatumTijdvakGeldigheid>2011012800000000</bagtype:begindatumTijdvakGeldigheid>
+                        </bag_LVC:tijdvakgeldigheid>
+                        <bag_LVC:inOnderzoek>N</bag_LVC:inOnderzoek>
+                        <bag_LVC:bron>
+                            <bagtype:documentdatum>20110128</bagtype:documentdatum>
+                            <bagtype:documentnummer>11012801T</bagtype:documentnummer>
+                        </bag_LVC:bron>
+                        <bag_LVC:gerelateerdPand>
+                            <bag_LVC:identificatie>0007100000001210</bag_LVC:identificatie>
+                        </bag_LVC:gerelateerdPand>
+                    </bag_LVC:Verblijfsobject>
+                </product_LVC:Origineel>
+                <product_LVC:Wijziging>
+                    <bag_LVC:Verblijfsobject>
+                        <bag_LVC:gerelateerdeAdressen>
+                            <bag_LVC:hoofdadres>
+                                <bag_LVC:identificatie>0007200000004200</bag_LVC:identificatie>
+                            </bag_LVC:hoofdadres>
+                        </bag_LVC:gerelateerdeAdressen>
+                        <bag_LVC:identificatie>0007010000004200</bag_LVC:identificatie>
+                        <bag_LVC:aanduidingRecordInactief>N</bag_LVC:aanduidingRecordInactief>
+                        <bag_LVC:aanduidingRecordCorrectie>0</bag_LVC:aanduidingRecordCorrectie>
+                        <bag_LVC:officieel>N</bag_LVC:officieel>
+                        <bag_LVC:verblijfsobjectGeometrie>
+                            <gml:Point srsName="urn:ogc:def:crs:EPSG::28992">
+                                <gml:pos>273114.825 566179.45 0.0</gml:pos>
+                            </gml:Point>
+                        </bag_LVC:verblijfsobjectGeometrie>
+                        <!-- Test 2 - relatie wijziging: nieuwe waarde -->
+                        <bag_LVC:gebruiksdoelVerblijfsobject>industriefunctie</bag_LVC:gebruiksdoelVerblijfsobject>
+                         <bag_LVC:oppervlakteVerblijfsobject>102</bag_LVC:oppervlakteVerblijfsobject>
+                        <bag_LVC:verblijfsobjectStatus>Verblijfsobject in gebruik</bag_LVC:verblijfsobjectStatus>
+                        <bag_LVC:tijdvakgeldigheid>
+                            <bagtype:begindatumTijdvakGeldigheid>2011012800000000</bagtype:begindatumTijdvakGeldigheid>
+                        </bag_LVC:tijdvakgeldigheid>
+                        <bag_LVC:inOnderzoek>N</bag_LVC:inOnderzoek>
+                        <bag_LVC:bron>
+                            <bagtype:documentdatum>20110128</bagtype:documentdatum>
+                            <bagtype:documentnummer>11012801T</bagtype:documentnummer>
+                        </bag_LVC:bron>
+                        <bag_LVC:gerelateerdPand>
+                            <bag_LVC:identificatie>0007100000001210</bag_LVC:identificatie>
+                        </bag_LVC:gerelateerdPand>
+                    </bag_LVC:Verblijfsobject>
+
+                </product_LVC:Wijziging>
+            </product_LVC:Mutatie-product>
+            <product_LVC:Mutatie-product>
+                <product_LVC:Verwerking>
+                    <product_LVC:TijdstipVerwerking>2011-04-01T12:39:05.914934</product_LVC:TijdstipVerwerking>
+                    <product_LVC:ObjectType>VBO</product_LVC:ObjectType>
+                    <product_LVC:VolgnrVerwerking>1</product_LVC:VolgnrVerwerking>
+                </product_LVC:Verwerking>
+                <product_LVC:Origineel>
+                    <bag_LVC:Verblijfsobject>
+                         <bag_LVC:gerelateerdeAdressen>
+                             <bag_LVC:hoofdadres>
+                                 <bag_LVC:identificatie>0007200000004201</bag_LVC:identificatie>
+                             </bag_LVC:hoofdadres>
+                         </bag_LVC:gerelateerdeAdressen>
+                         <bag_LVC:identificatie>0007010000004201</bag_LVC:identificatie>
+                         <bag_LVC:aanduidingRecordInactief>N</bag_LVC:aanduidingRecordInactief>
+                         <bag_LVC:aanduidingRecordCorrectie>0</bag_LVC:aanduidingRecordCorrectie>
+                         <bag_LVC:officieel>N</bag_LVC:officieel>
+                         <bag_LVC:verblijfsobjectGeometrie>
+                             <gml:Point srsName="urn:ogc:def:crs:EPSG::28992">
+                                 <gml:pos>273361.0 565916.0 0.0</gml:pos>
+                             </gml:Point>
+                         </bag_LVC:verblijfsobjectGeometrie>
+                         <bag_LVC:gebruiksdoelVerblijfsobject>woonfunctie</bag_LVC:gebruiksdoelVerblijfsobject>
+                         <bag_LVC:oppervlakteVerblijfsobject>252</bag_LVC:oppervlakteVerblijfsobject>
+                         <bag_LVC:verblijfsobjectStatus>Verblijfsobject in gebruik</bag_LVC:verblijfsobjectStatus>
+                         <bag_LVC:tijdvakgeldigheid>
+                             <bagtype:begindatumTijdvakGeldigheid>2009090100000000</bagtype:begindatumTijdvakGeldigheid>
+                         </bag_LVC:tijdvakgeldigheid>
+                         <bag_LVC:inOnderzoek>N</bag_LVC:inOnderzoek>
+                         <bag_LVC:bron>
+                             <bagtype:documentdatum>20090901</bagtype:documentdatum>
+                             <bagtype:documentnummer>2009090113/c</bagtype:documentnummer>
+                         </bag_LVC:bron>
+                         <bag_LVC:gerelateerdPand>
+                             <bag_LVC:identificatie>0007100000001211</bag_LVC:identificatie>
+                         </bag_LVC:gerelateerdPand>
+                     </bag_LVC:Verblijfsobject>
+                </product_LVC:Origineel>
+                <product_LVC:Wijziging>
+                    <bag_LVC:Verblijfsobject>
+                         <bag_LVC:gerelateerdeAdressen>
+                             <bag_LVC:hoofdadres>
+                                 <bag_LVC:identificatie>0007200000004201</bag_LVC:identificatie>
+                             </bag_LVC:hoofdadres>
+                         </bag_LVC:gerelateerdeAdressen>
+                         <bag_LVC:identificatie>0007010000004201</bag_LVC:identificatie>
+                         <bag_LVC:aanduidingRecordInactief>N</bag_LVC:aanduidingRecordInactief>
+                         <bag_LVC:aanduidingRecordCorrectie>0</bag_LVC:aanduidingRecordCorrectie>
+                         <bag_LVC:officieel>N</bag_LVC:officieel>
+                         <bag_LVC:verblijfsobjectGeometrie>
+                             <gml:Point srsName="urn:ogc:def:crs:EPSG::28992">
+                                 <gml:pos>273361.0 565916.0 0.0</gml:pos>
+                             </gml:Point>
+                         </bag_LVC:verblijfsobjectGeometrie>
+                         <bag_LVC:gebruiksdoelVerblijfsobject>woonfunctie</bag_LVC:gebruiksdoelVerblijfsobject>
+                        <!-- Test 2 - relatie wijziging: extra waarde -->
+                        <bag_LVC:gebruiksdoelVerblijfsobject>industriefunctie</bag_LVC:gebruiksdoelVerblijfsobject>
+                          <bag_LVC:oppervlakteVerblijfsobject>252</bag_LVC:oppervlakteVerblijfsobject>
+                         <bag_LVC:verblijfsobjectStatus>Verblijfsobject in gebruik</bag_LVC:verblijfsobjectStatus>
+                         <bag_LVC:tijdvakgeldigheid>
+                             <bagtype:begindatumTijdvakGeldigheid>2009090100000000</bagtype:begindatumTijdvakGeldigheid>
+                         </bag_LVC:tijdvakgeldigheid>
+                         <bag_LVC:inOnderzoek>N</bag_LVC:inOnderzoek>
+                         <bag_LVC:bron>
+                             <bagtype:documentdatum>20090901</bagtype:documentdatum>
+                             <bagtype:documentnummer>2009090113/c</bagtype:documentnummer>
+                         </bag_LVC:bron>
+                         <bag_LVC:gerelateerdPand>
+                             <bag_LVC:identificatie>0007100000001211</bag_LVC:identificatie>
+                         </bag_LVC:gerelateerdPand>
+                     </bag_LVC:Verblijfsobject>
+
+                </product_LVC:Wijziging>
+            </product_LVC:Mutatie-product>
+
+
+        </mb:producten>
+    </mb:antwoord>
+</mb:BAG-Mutaties-Deelbestand-LVC>
