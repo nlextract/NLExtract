@@ -144,7 +144,8 @@ class BAGenumAttribuut(BAGattribuut):
     # Constructor
     def __init__(self, lijst, naam, tag):
         self._lijst = lijst
-        self._lengte = len(max(lijst, key=len))
+#        self._lengte = len(max(lijst, key=len))
+        self._lengte = len(lijst)
         self._naam = naam
         self._tag = tag
         self._waarde = ""
