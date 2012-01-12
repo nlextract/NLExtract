@@ -1,8 +1,9 @@
 Nederlandse overheidsinstellingen zoals Het Kadaster en Rijkswaterstaat stellen
-hun (geo) data meer en meer beschikbaar als Open Data. Bijvoorbeeld de BAG (Basis
-Administratie Gebouwen) levert je alle addressen en gebouwen in Nederland met hun
-coordinaten. De Top10NL bevat gegevens voor de gehele topografie van Nederland,
-veel gedetailleerder dan Google Maps dat biedt.
+hun (geo) data meer en meer beschikbaar als Open Data. Bijvoorbeeld de BAG
+(Basisregistratie Adressen en Gebouwen, www.kadaster.nl/BAG) levert je alle
+adressen en gebouwen in Nederland met hun coordinaten. De Top10NL
+(www.kadaster.nl/top10nl) bevat gegevens voor de gehele topografie van
+Nederland, veel gedetailleerder dan Google Maps dat biedt.
 
 Dat is dus prachtig, want nu kan iedereen deze data zelf downloaden en naar eigen
 believen gebruiken...Ok, downloaden, maar dan ? Wat je op dit moment geleverd
@@ -32,7 +33,7 @@ database als PostGIS (www.postgis.org) te werken. Dan kun je bijvoorbeeld een
 uit de Top10NL gegevens. Of om de oppervlakte van je eigen huis te achterhalen
 uit de BAG.
 
-Ook wil je vaak data combineren en/of af leiden uit verschillende data-sets.
+Ook wil je vaak data combineren en/of afleiden uit verschillende data-sets.
 Een voorbeeld is het verrijken van BAG data met gemeente en provincie grenzen.
 Dit is in theorie allemaal binnen je bereik, echter er is nog net een stapje nodig:
 de aangeleverde bestanden omzetten naar een ruimtelijke database zodat je er echt
@@ -49,22 +50,23 @@ begin met die SLDs ? Daarom is er nu NLExtract !
 
 NLExtract levert tools, recepten, voorbeelden om Nederlandse geodata sets te
 converteren en te ontsluiten. Het gehele traject van brondata conversie (naar
-PostGIS, later ook naar bijv Oracle en Shape) tot visualisatie (SLDs) wordt afgedekt.
-Er wordt binnen NLextract zoveel mogelijk gebruik gemaakt van bestaande Open Source
-Geo tools zoals GDAL/OGR (www.gdal.org). Bij voorkeur wordt vector data geconverteerd
-naar PostGIS (en later ook rasterdata naar GeoTIFF).
+PostGIS, later ook naar bijv Oracle en Shape) tot visualisatie (SLDs) wordt
+afgedekt. Er wordt binnen NLextract zoveel mogelijk gebruik gemaakt van
+bestaande Open Source Geo tools zoals GDAL/OGR (www.gdal.org). Bij voorkeur
+wordt vector data geconverteerd naar PostGIS (en later ook rasterdata naar
+GeoTIFF).
 
-De eerste 3 datasets die gedaan zullen worden zijn BAG, Top10NL en NWB (Nationaal
-Wegen Bestand van Rijkswaterstaat).
+De eerste 3 datasets die gedaan zullen worden zijn BAG, Top10NL en NWB
+(Nationaal Wegen Bestand van Rijkswaterstaat).
 
-Iedere dataset heeft hieronder een eigen directory met aanwijzingen hoe te converteren
-en te visualiseren.
+Iedere dataset heeft hieronder een eigen directory met aanwijzingen hoe te
+converteren en te visualiseren.
 
-De GitHub hier bevat puur de NLExtract-broncode dus is in de eerste plaats gericht op
-ontwikkelaars. Wil je als ontwikkelaar meedoen ? Graag ! Laat ons weten, bijv. via
-info@opengeogroep.nl. Vooral zoeken we nog Windows-experts zodat het op dat platform
-ook goed gaat werken. Wil je nieuwe zaken zien of vind je fouten ? Gebruik
-de "issues".
+De GitHub hier bevat puur de NLExtract-broncode dus is in de eerste plaats
+gericht op ontwikkelaars. Wil je als ontwikkelaar meedoen ? Graag !
+Laat ons weten, bijv. via info@opengeogroep.nl. Vooral zoeken we nog
+Windows-experts zodat het op dat platform ook goed gaat werken. Wil je
+nieuwe zaken zien of vind je fouten ? Gebruik de "issues" link hierboven.
 
 
 
