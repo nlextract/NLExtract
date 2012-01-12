@@ -1,18 +1,20 @@
-bag-extract is onderdeel van de NLExtract tools om het inlezen en verrijken van een Kadaster BAG leveringen
-in een Postgres/Postgis database.
+bag-extract is onderdeel van de NLExtract tools voor het inlezen en verrijken van Kadaster BAG GML leveringen
+in (voorlopig) een Postgres/Postgis database.
 
-bagextract biedt de volgende functionaliteiten:
- - Laden van een Kadaster BAG Extract
- - Toepassen van Kadaster BAG mutaties
- - Verrijken met gemeenten en provincies en volledige adressen
- - Stijlen (SLDs) om BAG te visualiseren via een WMS
+bag-extract biedt de volgende functionaliteiten:
+ - Laden van een Kadaster BAG Extract vanuit Kadaster (.zip GML) levering
+ - Toepassen van Kadaster BAG mutaties vanuit Kadaster (.zip GML) levering
+ - Verrijken BAG met gemeenten en provincies en volledige "ACN-achtige" adressen
+ - Stijlen (SLDs) om de ingelezen BAG data te visualiseren via een WMS
 
-Installeren:
- - nodig Python (minimaal versie 2.4.3 getest)
-
+Downloaden:
  - download NLExtract
     via git: git clone http://github.com/opengeogroep/NLExtract.git
     als .zip via https://github.com/opengeogroep/NLExtract/zipball/master
+
+Afhankelijkheden:
+
+ - Python (minimaal versie 2.4.3 getest)
 
  - optioneel: Python package afhankelijkheden installeren bijv
    apt-get of yum install python-setuptools (voor easy_install commando)
@@ -27,8 +29,14 @@ Installeren:
 
  - NB als je een proxy gebruikt via http_proxy  doe dan easy_install -E (exporteer huidge environment)
 
+Commando:
+ - direct via python "python src/bagextract.py"
+ - of (Unix,Linux,Mac) via shell script: "bin/bag-extract.sh"
+ - Windows: voorlopig alleen via "python src/bagextract.py"
+ Alle commando's werken onafhankelijk van de plek (directory) waar ze aangeroepen worden
+
 Instellingen:
- - bag.conf
+ - extract.conf
 	Configuratiebestand dat nodig is bij het uitvoeren van de programma's. 
 	Dit bestand bevat de volgende instellingen:
 	- database naam van de Postgres database
@@ -37,21 +45,29 @@ Instellingen:
 	- user     user voor toegang tot de Postgres database
 	- password password van de user voor toegang tot de Postgres database
 
-    DB settings kunnen ook via commandline overuled worden, bijv.
-      bagextract.py -H localhost -d bag -U postgres -W postgres -c
+    Deze  settings kunnen via commandline opties of via -f <mijn conf file> overuled worden, bijv.
+    bagextract.py -H localhost -d bag -U postgres -W postgres -c
+    bagextract.py -f mijn.conf -c
 
 Voorbeelden:
+
+        0. Help en opties:
+
+            python src/bagextract.py -h
+            of
+            bin/bagextract.sh -h
+
+            Alle commando's via Python of shell .sh script.
 
         1. Initialiseer een database (-c):
 
             python bagextract.py -c
+            of
+            bagextract.sh -c
 
         2. Importeer een extract in de database (-e):
 
             python bagextract.py -e 9999STA01052011-000002.xml
-
-            of
-
             python bagextract.py -e 9999STA01052011.zip
 
             -e werkt op directory, file of .zip inclusief mutatie bestanden

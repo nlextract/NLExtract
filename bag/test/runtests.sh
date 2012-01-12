@@ -2,28 +2,31 @@
 #
 # Alle testen draaien
 #
-DATA_DIR=$PWD/data
-MUT_DIR=$PWD/mutatie
-DB_DIR=$PWD/../db
 
-cd ../src
+# Plaatsbepaling
+BE_HOME_DIR=`dirname $0`/..
+BE_HOME_DIR=`(cd "$BE_HOME_DIR"; pwd)`
+TEST_DIR=$BE_HOME_DIR/test
+DATA_DIR=$TEST_DIR/data
+MUT_DIR=$TEST_DIR/mutatie
+DB_DIR=$BE_HOME_DIR/db
+BAG_EXTRACT=$BE_HOME_DIR/bin/bag-extract.sh
 
 # DB leeg en schema aanmaken
-python bagextract.py --dbinit -v
+$BAG_EXTRACT --dbinit -v
 
 # Nieuwe objecten
-python bagextract.py -e $DATA_DIR -v
+$BAG_EXTRACT -e $DATA_DIR -v
 
 # Mutaties
-python bagextract.py -e $MUT_DIR -v
+$BAG_EXTRACT -e $MUT_DIR -v
 
 # Test verrijking van data met gemeenten+provincies
-python bagextract.py -e $DB_DIR/data -v
-python bagextract.py -v -q $DB_DIR/script/gemeente-tabel.sql
-python bagextract.py -v -q $DB_DIR/script/provincie-tabel.sql
+$BAG_EXTRACT -e $DB_DIR/data -v
+$BAG_EXTRACT -v -q $DB_DIR/script/gemeente-tabel.sql
+$BAG_EXTRACT -v -q $DB_DIR/script/provincie-tabel.sql
 
 # Maak een "ACN-achtig" adres met alles erin
-python bagextract.py -v -q $DB_DIR/script/adres-tabel.sql
+$BAG_EXTRACT -v -q $DB_DIR/script/adres-tabel.sql
 
-cd -
 

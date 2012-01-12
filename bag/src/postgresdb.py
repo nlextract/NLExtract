@@ -29,9 +29,9 @@ class Database:
             script = open(bestand, 'r').read()
             self.cursor.execute(script)
             self.connection.commit()
-            Log.log.info('script uitgevoerd')
+            Log.log.info('script is uitgevoerd')
         except psycopg2.DatabaseError, e:
-            Log.log.error("fout: procedures :%s" % str(e))
+            Log.log.fatal("ik krijg deze fout '%s' uit het bestand '%s'" % (str(e), str(bestand)))
 
     def verbind(self, initdb=False):
         try:
@@ -45,10 +45,9 @@ class Database:
                 self.maak_schema()
 
             self.zet_schema()
-            Log.log.info("verbonden met database %s" % (self.config.database))
+            Log.log.info("verbonden met de database %s" % (self.config.database))
         except Exception, e:
-            Log.log.error("fout %s: kan geen verbinding maken met database %s" % (str(e), self.config.database))
-            sys.exit()
+            Log.log.fatal("ik kan geen verbinding maken met database '%s'" % (self.config.database))
 
     def maak_schema(self):
         # Public schema: no further action required
@@ -71,8 +70,8 @@ class Database:
                 self.cursor.execute(sql, parameters)
             else:
                 self.cursor.execute(sql)
-        except (psycopg2.IntegrityError, psycopg2.ProgrammingError, Exception), e:
-            Log.log.error("fout %s voor query: %s" % (str(e), str(self.cursor.mogrify(sql, parameters))))
+        except (Exception), e:
+            Log.log.error("fout %s voor query: %s met parameters %s" % (str(e), str(sql), str(parameters))  )
             return self.cursor.rowcount
 
     def file_uitvoeren(self, sqlfile):
@@ -85,5 +84,5 @@ class Database:
             self.connection.commit()
             f.close()
             Log.log.info("SQL uitgevoerd OK")
-        except (psycopg2.DatabaseError,Exception), e:
-            Log.log.error("fout: script uitvoeren :%s" % str(e))
+        except (Exception), e:
+            Log.log.fatal("ik kan dit script niet uitvoeren vanwege deze fout: %s" % (str(e)))

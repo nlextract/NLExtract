@@ -27,6 +27,7 @@ __date__ = "Dec 21, 2011 3:46:27 PM$"
 """
 
 from bagattribuut import *
+from logging import Log
 
 #--------------------------------------------------------------------------------------------------------
 # Class         BAGObject

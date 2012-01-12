@@ -237,7 +237,7 @@ class BAGbooleanAttribuut(BAGattribuut):
         elif self._waarde == '':
             self._waarde = None
         else:
-            print 'Onverwacht: %s'%(self._waarde)
+            Log.log.error("Onverwachte boolean waarde: '%s'" % (self._waarde))
 
 
 #--------------------------------------------------------------------------------------------------------
@@ -392,7 +392,7 @@ class BAGpoint(BAGgeoAttribuut):
                     self.polygonAttr.leesUitXML(xml)
 
         except:
-            Log.log.error("Error constructing geom POINT from " + str(point))
+            Log.log.error("ik kan hier ech geen POINT van maken: %s (en zet dit op 0,0,0)" % str(point))
             self._waarde = "POINT(0 0 0)"
 
 #--------------------------------------------------------------------------------------------------------

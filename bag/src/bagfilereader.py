@@ -39,6 +39,10 @@ class BAGFileReader:
 
     def process(self):
         Log.log.info("process file=" + self.file)
+        if not os.path.exists(self.file):
+            Log.log.fatal("ik kan BAG-bestand of -directory: '" + self.file + "' ech niet vinden")
+            return
+
         # TODO: Verwerk een directory
         if os.path.isdir(self.file) == True:
             self.readDir()

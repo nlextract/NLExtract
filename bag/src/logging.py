@@ -5,6 +5,7 @@ __author__="miblon"
 __date__ ="$Jun 13, 2011 11:34:17 AM$"
 
 from time import *
+import sys
 
 # An extremely simple Singleton logger
 class Log:
@@ -25,19 +26,20 @@ class Log:
 
     def debug(self, message):
         if self.args.verbose:
-            print "INFO:" + message
+            print "INFO: " + message
 
     def info(self, message):
-        print "INFO:" + message
+        print "INFO: " + message
 
     def warn(self, message):
         Log.log("WARN:" + message)
 
     def error(self, message):
-        print("ERROR:" + message)
+        print("ERROR: " + message)
 
     def fatal(self, message):
-        print("ERROR:" + message)
+        print("FATAAL: sorry, ik kap ermee want " + message)
+        sys.exit(-1)
 
     def time(self, message=""):
         print(message + " " + strftime("%Y-%m-%d %H:%M:%S", localtime()))
