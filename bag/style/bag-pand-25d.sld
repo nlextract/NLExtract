@@ -21,15 +21,15 @@
             <FeatureTypeStyle>
                 <Rule>
                     <MinScaleDenominator>5000</MinScaleDenominator>
-                    <MaxScaleDenominator>35000</MaxScaleDenominator>
+                     <MaxScaleDenominator>35000</MaxScaleDenominator>
                     <PolygonSymbolizer>
-                        <Fill>
+                         <Fill>
                             <CssParameter name="fill">#FF6600</CssParameter>
-                            <CssParameter name="fill-opacity">1</CssParameter>
+                             <CssParameter name="fill-opacity">1</CssParameter>
                         </Fill>
-                        <!--                       <Stroke>
-                                                    <CssParameter name="stroke">#999999</CssParameter>
-                                                </Stroke>   -->
+ <!--                       <Stroke>
+                            <CssParameter name="stroke">#999999</CssParameter>
+                        </Stroke>   -->
                     </PolygonSymbolizer>
                 </Rule>
             </FeatureTypeStyle>
@@ -40,15 +40,15 @@
                         <Geometry>
                             <ogc:Function name="isometric">
                                 <ogc:PropertyName>geovlak</ogc:PropertyName>
-                                <ogc:Literal>1</ogc:Literal>
+                                <ogc:Literal>-1</ogc:Literal>
                             </ogc:Function>
                         </Geometry>
                         <Fill>
                             <CssParameter name="fill">#555555</CssParameter>
                         </Fill>
-                        <!--       <Stroke>
-                                                    <CssParameter name="stroke">#000000</CssParameter>
-                                                </Stroke>               -->
+                 <!--       <Stroke>
+                            <CssParameter name="stroke">#000000</CssParameter>
+                        </Stroke>               -->
                     </PolygonSymbolizer>
                 </Rule>
             </FeatureTypeStyle>
@@ -60,7 +60,7 @@
                             <ogc:Function name="offset">
                                 <ogc:PropertyName>geovlak</ogc:PropertyName>
                                 <ogc:Literal>0</ogc:Literal>
-                                <ogc:Literal>2</ogc:Literal>
+                                <ogc:Literal>-1</ogc:Literal>
                             </ogc:Function>
                         </Geometry>
                         <Fill>
@@ -69,17 +69,17 @@
                         <Stroke>
                             <CssParameter name="stroke">#222222</CssParameter>
                             <CssParameter name="stroke-linecap">
-                                <ogc:Literal>round</ogc:Literal>
-                            </CssParameter>
-                            <CssParameter name="stroke-linejoin">
-                                <ogc:Literal>bevel</ogc:Literal>
-                            </CssParameter>
-                            <CssParameter name="stroke-opacity">
-                                <ogc:Literal>1</ogc:Literal>
-                            </CssParameter>
-                            <CssParameter name="stroke-width">
-                                <ogc:Literal>0.7</ogc:Literal>
-                            </CssParameter>
+                                 <ogc:Literal>round</ogc:Literal>
+                             </CssParameter>
+                             <CssParameter name="stroke-linejoin">
+                                 <ogc:Literal>bevel</ogc:Literal>
+                             </CssParameter>
+                             <CssParameter name="stroke-opacity">
+                                 <ogc:Literal>1</ogc:Literal>
+                             </CssParameter>
+                             <CssParameter name="stroke-width">
+                                 <ogc:Literal>0.7</ogc:Literal>
+                             </CssParameter>
                         </Stroke>
                     </PolygonSymbolizer>
                 </Rule>
