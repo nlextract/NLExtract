@@ -133,10 +133,10 @@ class BAGattribuut:
     # Initialisatie vanuit XML
     def leesUitXML(self, xml):
         self._waarde = getValue(xml, self._tag)
-        # Door een bug in BAG Extract bevat de einddatum een fictieve waarde 31-12-2299 in het geval dat
+        # Door een bug in BAG Extract bevat de einddatumTijdvakGeldigheid een fictieve waarde 31-12-2299 in het geval dat
         # deze leeg hoort te zijn. Om dit te omzeilen, controleren we hier de waarde en maken deze zo nodig
         # zelf leeg.
-        if self._naam == "einddatum" and self._waarde == "2299123100000000":
+        if self._naam == "einddatumTijdvakGeldigheid" and self._waarde == "2299123100000000":
             self._waarde = None
 
     # Print informatie over het attribuut op het scherm
@@ -549,12 +549,12 @@ class BAGrelatieAttribuut(BAGattribuut):
 
         for waarde in self._waarde:
             sql = "INSERT INTO " + self.relatieNaam() + " "
-            sql += "(identificatie,aanduidingrecordinactief,aanduidingrecordcorrectie,begindatum,"
+            sql += "(identificatie,aanduidingrecordinactief,aanduidingrecordcorrectie,begindatumtijdvakgeldigheid,"
             sql += self.naam() + ") VALUES (%s, %s, %s, %s, %s)"
             self.inhoud.append((self._parent.attribuut('identificatie').waardeSQL(),
                                 self._parent.attribuut('aanduidingRecordInactief').waardeSQL(),
                                 self._parent.attribuut('aanduidingRecordCorrectie').waardeSQL(),
-                                self._parent.attribuut('begindatum').waardeSQL(),
+                                self._parent.attribuut('begindatumTijdvakGeldigheid').waardeSQL(),
                                 waarde))
 
             self.sql.append(sql)
@@ -568,13 +568,13 @@ class BAGrelatieAttribuut(BAGattribuut):
         # dus we deleten eerst alle bestaande relaties en voeren de nieuwe
         # in via insert. Helaas maar waar.
         sql = "DELETE FROM " + self.relatieNaam() + " WHERE  "
-        sql += "identificatie = %s AND aanduidingrecordinactief = %s AND aanduidingrecordcorrectie = %s AND begindatum "
+        sql += "identificatie = %s AND aanduidingrecordinactief = %s AND aanduidingrecordcorrectie = %s AND begindatumtijdvakgeldigheid "
 
 
         # Tricky: indien beginDatum (komt in principe niet voor)  leeg moet in WHERE "is NULL" staan
         # want "= NULL" geeft geen resultaat
         # http://stackoverflow.com/questions/4476172/postgresql-select-where-timestamp-is-empty
-        beginDatum = self._parent.attribuut('begindatum').waardeSQL()
+        beginDatum = self._parent.attribuut('begindatumTijdvakGeldigheid').waardeSQL()
         if beginDatum:
             sql += "= %s"
         else:

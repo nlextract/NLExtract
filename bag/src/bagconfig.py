@@ -29,7 +29,7 @@ class BAGConfig:
         if args.config:
             config_file = args.config
 
-        print "Configuratiebestand is " + str(config_file)
+        Log.log.info("Configuratiebestand is " + str(config_file))
         if not os.path.exists(config_file):
             Log.log.fatal("ik kan het configuratiebestand '" + str(config_file) + "' ech niet vinden.")
 
@@ -40,6 +40,7 @@ class BAGConfig:
             Log.log.fatal("ik kan " + str(config_file) + " wel vinden maar niet inlezen.")
 
         try:
+            # Zet parameters uit config bestand
             self.database = configdict.defaults()['database']
             self.schema   = configdict.defaults()['schema']
             self.host     = configdict.defaults()['host']
@@ -51,7 +52,7 @@ class BAGConfig:
             Log.log.fatal(" de inhoud van configuratiebestand " + str(config_file) + " is niet volledig.")
 
         try:
-            # Optional overrule from (commandline) args
+            # Optioneel: overrulen met (commandline) args
             if args.database:
                 self.database = args.database
             if args.host:
@@ -72,7 +73,7 @@ class BAGConfig:
                 if args.password:
                     self.password = args.password
 
-            # Assign Singleton
+            # Assign Singleton (of heeft Python daar namespaces voor?) (Java achtergrond)
             BAGConfig.config = self
         except:
             Log.log.fatal(" het overrulen van configuratiebestand " + str(config_file) + " via commandline loopt spaak")

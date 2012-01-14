@@ -43,8 +43,8 @@ class BAGObject:
         self.voegToe(BAGintegerAttribuut("aanduidingRecordCorrectie","bag_LVC:aanduidingRecordCorrectie"))
         self.voegToe(BAGbooleanAttribuut("officieel", "bag_LVC:officieel"))
         self.voegToe(BAGbooleanAttribuut("inOnderzoek", "bag_LVC:inOnderzoek"))
-        self.voegToe(BAGdatetimeAttribuut("begindatum","bag_LVC:tijdvakgeldigheid/bagtype:begindatumTijdvakGeldigheid"))
-        self.voegToe(BAGdatetimeAttribuut("einddatum","bag_LVC:tijdvakgeldigheid/bagtype:einddatumTijdvakGeldigheid"))
+        self.voegToe(BAGdatetimeAttribuut("begindatumTijdvakGeldigheid","bag_LVC:tijdvakgeldigheid/bagtype:begindatumTijdvakGeldigheid"))
+        self.voegToe(BAGdatetimeAttribuut("einddatumTijdvakGeldigheid","bag_LVC:tijdvakgeldigheid/bagtype:einddatumTijdvakGeldigheid"))
         self.voegToe(BAGattribuut(20, "documentnummer", "bag_LVC:bron/bagtype:documentnummer"))
         self.voegToe(BAGdateAttribuut("documentdatum", "bag_LVC:bron/bagtype:documentdatum"))
 
@@ -129,9 +129,9 @@ class BAGObject:
 
         # UPDATE weather SET temp_lo = temp_lo+1, temp_hi = temp_lo+15, prcp = DEFAULT
         # WHERE city = 'San Francisco' AND date = '2003-07-03';
-        # Unieke key is combined (identificatie,aanduidingRecordInactief,einddatum)
-        where = "WHERE identificatie = %s AND aanduidingrecordinactief = %s AND einddatum "
-        eindDatum = self.origineelObj.attribuut('einddatum').waardeSQL()
+        # Unieke key is combined (identificatie,aanduidingRecordInactief,aanduidingrecordcorrectie,einddatumTijdvakGeldigheid)
+        where = "WHERE identificatie = %s AND aanduidingrecordinactief = %s AND aanduidingrecordcorrectie = %s AND einddatumTijdvakGeldigheid "
+        eindDatum = self.origineelObj.attribuut('einddatumTijdvakGeldigheid').waardeSQL()
 
         # Tricky: indien eindDatum leeg moet in WHERE "is NULL" staan
         # want "= NULL" geeft geen resultaat
@@ -143,6 +143,7 @@ class BAGObject:
 
         self.inhoud.extend((self.origineelObj.attribuut('identificatie').waardeSQL(),
                              self.origineelObj.attribuut('aanduidingRecordInactief').waardeSQL(),
+                             self.origineelObj.attribuut('aanduidingRecordCorrectie').waardeSQL(),
                              eindDatum))
 
         self.sql = "UPDATE " + self.naam() + " SET " + nameVals + " " + where

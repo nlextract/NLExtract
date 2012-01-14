@@ -10,9 +10,9 @@ create table provincie as
   where gemeente_provincie.gemeentecode = gemeente.gemeentecode
   group by provinciecode,provincienaam;
 
-alter table provincie add column id serial;
+alter table provincie add column gid serial;
 
-ALTER TABLE ONLY provincie ADD CONSTRAINT provincie_pkey PRIMARY KEY (id);
+ALTER TABLE ONLY provincie ADD CONSTRAINT provincie_pkey PRIMARY KEY (gid);
 
 CREATE INDEX provincie_geom_idx ON provincie USING gist (geovlak);
 

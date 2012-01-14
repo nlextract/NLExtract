@@ -2,7 +2,7 @@
 -- want later indexeren kost teveel tijd
 DROP TABLE IF EXISTS adres;
 CREATE TABLE adres (
-    id serial,
+    gid serial,
     openbareruimtenaam character varying(80),
     huisnummer character varying(5),
     huisletter character varying(5),
@@ -19,7 +19,7 @@ CREATE TABLE adres (
     CONSTRAINT enforce_geotype_punt CHECK (((geometrytype(geopunt) = 'POINT'::text) OR (geopunt IS NULL))),
     CONSTRAINT enforce_srid_punt CHECK ((st_srid(geopunt) = 28992)),
 
-    PRIMARY KEY (id)
+    PRIMARY KEY (gid)
 );
 
 
@@ -40,10 +40,10 @@ INSERT INTO adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeg
 	n.identificatie as nummeraanduiding,
 	v.geopunt
 FROM
-	(SELECT identificatie,  geopunt, hoofdadres from verblijfsobject where aanduidingrecordinactief = FALSE and einddatum is null) v,
-	(SELECT identificatie,  huisnummer, huisletter, huisnummertoevoeging, postcode, gerelateerdeopenbareruimte from nummeraanduiding where aanduidingrecordinactief = FALSE and einddatum is null) n,
-	(SELECT identificatie,  openbareruimtenaam, gerelateerdewoonplaats from openbareruimte where aanduidingrecordinactief = FALSE and einddatum is null) o,
-	(SELECT identificatie,  woonplaatsnaam from woonplaats where aanduidingrecordinactief = FALSE and einddatum is null) w,
+	(SELECT identificatie,  geopunt, hoofdadres from verblijfsobject where aanduidingrecordinactief = FALSE and einddatumtijdvakgeldigheid is null) v,
+	(SELECT identificatie,  huisnummer, huisletter, huisnummertoevoeging, postcode, gerelateerdeopenbareruimte from nummeraanduiding where aanduidingrecordinactief = FALSE and einddatumtijdvakgeldigheid is null) n,
+	(SELECT identificatie,  openbareruimtenaam, gerelateerdewoonplaats from openbareruimte where aanduidingrecordinactief = FALSE and einddatumtijdvakgeldigheid is null) o,
+	(SELECT identificatie,  woonplaatsnaam from woonplaats where aanduidingrecordinactief = FALSE and einddatumtijdvakgeldigheid is null) w,
 	(SELECT woonplaatscode, gemeentenaam, gemeentecode from gemeente_woonplaats where einddatum_gemeente is null AND einddatum_woonplaats is null) g,
 	(SELECT gemeentecode,   provincienaam from gemeente_provincie) p
 WHERE

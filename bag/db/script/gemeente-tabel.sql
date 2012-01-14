@@ -3,7 +3,7 @@
 -- 1. in gemeente_woonplaats staan gemeenten die beeindigd zijn; deze uitfilteren
 -- 2. dubbele woonplaatsen in woonplaats tabel ! Zie bijv
 -- select id,identificatie, aanduidingrecordinactief, aanduidingrecordcorrectie, officieel, inonderzoek, documentnummer,
---    documentdatum, woonplaatsnaam,   woonplaatsstatus  ,begindatum, einddatum from woonplaats where identificatie = '1183'
+--    documentdatum, woonplaatsnaam,   woonplaatsstatus  ,begindatumtijdvakgeldigheid, einddatumtijdvakgeldigheid from woonplaats where identificatie = '1183'
 --    Dus ook inaktieve woonplaatsen uitfilteren !!
 -- SELECT identificatie, COUNT(identificatie) AS NumOccurrences FROM woonplaats GROUP BY identificatie HAVING ( COUNT(identificatie) > 1 );
 
@@ -15,9 +15,9 @@ create table gemeente as
   where gw.woonplaatscode = w.identificatie AND w.aanduidingrecordinactief = 'N' AND gw.einddatum_woonplaats IS NULL AND gw.einddatum_gemeente IS NULL
   group by gw.gemeentecode,gw.gemeentenaam;
 
-alter table gemeente add column id serial;
+alter table gemeente add column gid serial;
 
-ALTER TABLE ONLY gemeente ADD CONSTRAINT gemeente_pkey PRIMARY KEY (id);
+ALTER TABLE ONLY gemeente ADD CONSTRAINT gemeente_pkey PRIMARY KEY (gid);
 
 CREATE INDEX gemeente_geom_idx ON gemeente USING gist (geovlak);
 
