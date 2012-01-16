@@ -31,6 +31,11 @@ GDAL 1.8 minimaal is vereist. Voor XSLT dient "xsltproc" te worden geinstalleerd
 kan dit met apt-get install xsltproc. Op MacOSX  kan xsltproc bijv. via MacPorts of andere Unix tools
 worden geinstalleerd.
 
+Optioneel: Om de input leverings-GML  valideren dient "xmlstar" te worden geinstalleerd, zie
+http://xmlstar.sourceforge.net. Het te gebruiken commando is dan xmlstarlet of de shortcut
+bin/top10-validate.sh (zie onder)
+
+
 Testen
 ------
 Het beste is eerst te testen als volgt:
@@ -46,6 +51,25 @@ Onder bin/ staan shell-scripts om de conversies (ook wel ETL, Extract Transform 
 top10-extract.sh - converteert 1 enkele GML file naar PostGIS, deze roept 2 scripts aan
 top10-split.sh - geometrieen uitsplitsen en
 top10-ogr2ogr.sh - via ogr2ogr GML in PostGIS laden
+
+Valideren
+---------
+
+Sommige Top10NL files van Kadaster blijken invalide GML syntax te bevatten.
+
+top10-validate.sh <Top10NL GML file> - valideer input GML
+
+Voorbeeld:
+
+top10-validate.sh  06_west.gml
+
+geeft output:
+
+   06_west.gml:65535: element geometrieLijn: Schemas validity error :
+   Element '{http://www.kadaster.nl/top10nl}geometrieLijn': This element is not expected.
+   06_west.gml - invalid
+
+(Top10NL versie van 11.nov.2011)
 
 TODO
 ----
