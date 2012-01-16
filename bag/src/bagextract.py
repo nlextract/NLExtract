@@ -75,8 +75,11 @@ def main():
         # Dumps all tables and recreates them
         db_script = os.path.realpath(BAGConfig.config.bagextract_home + '/db/script/bag-db.sql')
         Log.log.info("alle database tabellen weggooien en opnieuw aanmaken...")
-
         database.initialiseer(db_script)
+
+        Log.log.info("Views aanmaken...")
+        db_script = os.path.realpath(BAGConfig.config.bagextract_home + '/db/script/bag-view-actueel-bestaand.sql')
+        database.file_uitvoeren(db_script)
     elif args.extract:
         # Extracts any data from any source files/dirs/zips/xml/csv etc
         myreader = BAGFileReader(args.extract, args)
