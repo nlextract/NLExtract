@@ -17,6 +17,7 @@ then
 fi
 
 echo "ogr2ogr $OGR_OVERWRITE_OR_APPEND -f $OGR_OUT_FORMAT "$OGR_OUT_OPTIONS" $OGR_GT $OGR_OPT_MULTIATTR $OGR_LCO -a_srs $OGR_ASRS $OGR_TSRS  -s_srs $OGR_SSRS  $1"
+hash ogr2ogr 2>&- || { echo >&2 "ogr2ogr prog is nodig, installeer GDAL/OGR www.gdal.org eerst. Ik houd hier op..."; exit 1; }
 ogr2ogr $OGR_OVERWRITE_OR_APPEND -f $OGR_OUT_FORMAT "$OGR_OUT_OPTIONS" $OGR_GT $OGR_OPT_MULTIATTR $OGR_LCO -a_srs $OGR_ASRS $OGR_TSRS -s_srs $OGR_SSRS  $1
 
 
