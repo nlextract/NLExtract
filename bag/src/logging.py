@@ -21,28 +21,29 @@ class Log:
         # Singleton: sole instance of Log o have a single Log object
         Log.log = self
 
-    def log(self, message):
+    def pr(self, message):
         print message
+        sys.stdout.flush()
 
     def debug(self, message):
         if self.args.verbose:
-            print "INFO: " + message
+            Log.log.pr("DEBUG: " + message)
 
     def info(self, message):
-        print "INFO: " + message
+        Log.log.pr("INFO: " + message)
 
     def warn(self, message):
-        Log.log("WARN:" + message)
+        Log.log.pr("WARN:" + message)
 
     def error(self, message):
-        print("ERROR: " + message)
+        Log.log.pr("ERROR: " + message)
 
     def fatal(self, message):
-        print("FATAAL: sorry, ik kap ermee want " + message)
+        Log.log.pr("FATAAL: sorry, ik kap ermee want " + message)
         sys.exit(-1)
 
     def time(self, message=""):
-        print(message + " " + strftime("%Y-%m-%d %H:%M:%S", localtime()))
+        self.info(message + " " + strftime("%Y-%m-%d %H:%M:%S", localtime()))
 
     # Start (global) + print timer: useful to time for processing and optimization
     def startTimer(self, message=""):
