@@ -85,6 +85,7 @@ class BAGattribuut:
         self._naam = naam
         self._tag = tag
         self._waarde = ""
+        self._parentObj = None
 
     # Attribuut lengte
     def lengte(self):
@@ -337,6 +338,8 @@ class BAGgeoAttribuut(BAGattribuut):
 
     def waardeSQLTpl(self):
         if self._waarde:
+            # Voor later: als we geometrie willen valideren, loggen en tegelijk repareren...
+            # return 'validateGeometry(\'' + self._parentObj.naam() + '\', ' + str(self._parentObj.identificatie()) +', GeomFromEWKT(%s))'
             return 'GeomFromEWKT(%s)'
         else:
             return '%s'
@@ -501,8 +504,48 @@ class BAGpolygoonOfpunt(BAGgeoAttribuut):
             Log.log.error("Geen punt of vlak geometrie gevonden")
             return
 
+        self._geoattr._parentObj = self._parentObj
         self._geoattr.leesUitXML(xml)
 
+#--------------------------------------------------------------------------------------------------------
+# Class         BAGgeoAttribuut
+# Afgeleid van  BAGattribuut
+# Omschrijving  Bevat een geometrie attribuut
+#--------------------------------------------------------------------------------------------------------
+class BAGgeometrieValidatie(BAGattribuut):
+    def __init__(self, naam, naam_geo_attr):
+        BAGattribuut.__init__(self, -1, naam, None)
+        self._naam_geo_attr = naam_geo_attr
+        self._geo_attr_waarde = None
+
+    def geoAttrWaardeSQL(self):
+        if self._geo_attr_waarde:
+            return self._geo_attr_waarde
+
+        geo_attr = self._parentObj.attribuut(self._naam_geo_attr)
+        if not geo_attr:
+            return None
+        self._geo_attr_waarde = geo_attr.waardeSQL()
+        return self._geo_attr_waarde
+
+    def waardeSQLTpl(self):
+        geo_attr_waarde = self.geoAttrWaardeSQL()
+        if not geo_attr_waarde:
+            return '%s'
+        else:
+            return 'ST_IsValid(GeomFromEWKT(%s))'
+
+    # Initialisatie vanuit XML
+    def leesUitXML(self, xml):
+        self._waarde = None
+
+    # Attribuut waarde. Deze method kan worden overloaded
+    def waardeSQL(self):
+        return self.geoAttrWaardeSQL()
+
+    # Attribuut soort
+    def soort(self):
+        return ""
 
 
 #--------------------------------------------------------------------------------------------------------

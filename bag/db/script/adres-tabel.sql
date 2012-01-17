@@ -11,8 +11,8 @@ CREATE TABLE adres (
     woonplaatsnaam character varying(80),
     gemeentenaam character varying(80),
     provincienaam character varying(16),
-    typeaddresseerbaarobject character varying(3),
-    addresseerbaarobject numeric(16,0),
+    typeadresseerbaarobject character varying(3),
+    adresseerbaarobject numeric(16,0),
     nummeraanduiding numeric(16,0),
     geopunt geometry,
     CONSTRAINT enforce_dims_punt CHECK ((st_ndims(geopunt) = 3)),
@@ -23,10 +23,11 @@ CREATE TABLE adres (
 );
 
 CREATE INDEX adres_geom_idx ON adres USING gist (geopunt);
+select probe_geometry_columns();
 
--- Insert data uit combinatie van BAG tabellen: Verblijfplaats
+-- Insert (actuele+bestaande) data uit combinatie van BAG tabellen: Verblijfplaats
 INSERT INTO adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeging, postcode, woonplaatsnaam, gemeentenaam,
-        provincienaam, typeaddresseerbaarobject, addresseerbaarobject, nummeraanduiding, geopunt)
+        provincienaam, typeadresseerbaarobject, adresseerbaarobject, nummeraanduiding, geopunt)
   SELECT
 	o.openbareruimtenaam,
 	n.huisnummer,
@@ -36,8 +37,8 @@ INSERT INTO adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeg
 	w.woonplaatsnaam,
 	g.gemeentenaam,
 	p.provincienaam,
-    'VBO' as typeaddresseerbaarobject,
-	v.identificatie as addresseerbaarobject,
+    'VBO' as typeadresseerbaarobject,
+	v.identificatie as adresseerbaarobject,
 	n.identificatie as nummeraanduiding,
 	v.geopunt
 FROM
@@ -54,9 +55,9 @@ WHERE
 	and w.identificatie = g.woonplaatscode
 	and g.gemeentecode = p.gemeentecode;
 
--- Insert data uit combinatie van BAG tabellen : Ligplaats
+-- Insert (actuele+bestaande) data uit combinatie van BAG tabellen : Ligplaats
 INSERT INTO adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeging, postcode, woonplaatsnaam,
-        gemeentenaam, provincienaam, typeaddresseerbaarobject, addresseerbaarobject, nummeraanduiding, geopunt)
+        gemeentenaam, provincienaam, typeadresseerbaarobject, adresseerbaarobject, nummeraanduiding, geopunt)
   SELECT
 	o.openbareruimtenaam,
 	n.huisnummer,
@@ -66,9 +67,10 @@ INSERT INTO adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeg
 	w.woonplaatsnaam,
 	g.gemeentenaam,
 	p.provincienaam,
-    'LIG' as typeaddresseerbaarobject,
-	l.identificatie as addresseerbaarobject,
+    'LIG' as typeadresseerbaarobject,
+	l.identificatie as adresseerbaarobject,
 	n.identificatie as nummeraanduiding,
+    -- Vlak geometrie wordt punt
 	ST_Force_3D(ST_Centroid(l.geovlak))  as geopunt
 FROM
 	(SELECT identificatie,  geovlak, hoofdadres from ligplaatsactueelbestaand) l,
@@ -86,7 +88,7 @@ WHERE
 
 -- Insert data uit combinatie van BAG tabellen : Standplaats
 INSERT INTO adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeging, postcode, woonplaatsnaam,
-        gemeentenaam, provincienaam, typeaddresseerbaarobject, addresseerbaarobject, nummeraanduiding, geopunt)
+        gemeentenaam, provincienaam, typeadresseerbaarobject, adresseerbaarobject, nummeraanduiding, geopunt)
   SELECT
 	o.openbareruimtenaam,
 	n.huisnummer,
@@ -96,9 +98,10 @@ INSERT INTO adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeg
 	w.woonplaatsnaam,
 	g.gemeentenaam,
 	p.provincienaam,
-    'STA' as typeaddresseerbaarobject,
-	l.identificatie as addresseerbaarobject,
+    'STA' as typeadresseerbaarobject,
+	l.identificatie as adresseerbaarobject,
 	n.identificatie as nummeraanduiding,
+    -- Vlak geometrie wordt punt
 	ST_Force_3D(ST_Centroid(l.geovlak)) as geopunt
 FROM
 	(SELECT identificatie,  geovlak, hoofdadres from standplaatsactueelbestaand) l,

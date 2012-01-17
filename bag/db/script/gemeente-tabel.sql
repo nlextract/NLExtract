@@ -20,5 +20,6 @@ alter table gemeente add column gid serial;
 ALTER TABLE ONLY gemeente ADD CONSTRAINT gemeente_pkey PRIMARY KEY (gid);
 
 CREATE INDEX gemeente_geom_idx ON gemeente USING gist (geovlak);
+CREATE INDEX gemeente_naam ON gemeente USING btree (gemeentenaam);
 
 select probe_geometry_columns();

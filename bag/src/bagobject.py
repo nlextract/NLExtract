@@ -57,11 +57,20 @@ class BAGObject:
 
    # Geef de XML-tag bij het type BAG-object.
     def voegToe(self, attribuut):
+        attribuut._parentObj = self
         self.attributen[attribuut.naam()] = attribuut
 
     # Geef de XML-tag bij het type BAG-object.
     def tag(self):
         return self._tag
+
+    # Geef unieke identificatie (nummer) van BAG-object.
+    def identificatie(self):
+        attr = self.attribuut('identificatie')
+        # Sanity check
+        if not attr:
+            return -1
+        return attr._waarde
 
     # Geef de naam bij het type BAG-object.
     def naam(self):
@@ -163,6 +172,7 @@ class Woonplaats(BAGObject):
         self.voegToe(BAGattribuut(80, "woonplaatsNaam", "bag_LVC:woonplaatsNaam"))
         self.voegToe(BAGattribuut(80, "woonplaatsStatus", "bag_LVC:woonplaatsStatus"))
         self.voegToe(BAGmultiPolygoon(2, "geovlak", "bag_LVC:woonplaatsGeometrie"))
+        self.voegToe(BAGgeometrieValidatie("geom_valid", "geovlak"))
 
     def heeftGeometrie(self):
         return True
@@ -245,6 +255,7 @@ class Standplaats(BAGadresseerbaarObject):
         BAGadresseerbaarObject.__init__(self, "bag_LVC:Standplaats", "standplaats", "STA")
         self.voegToe(BAGattribuut(80, "standplaatsStatus", "bag_LVC:standplaatsStatus"))
         self.voegToe(BAGpolygoon(3, "geovlak", "bag_LVC:standplaatsGeometrie"))
+        self.voegToe(BAGgeometrieValidatie("geom_valid", "geovlak"))
 
     def heeftGeometrie(self):
         return True
@@ -269,6 +280,7 @@ class Verblijfsobject(BAGadresseerbaarObject):
                                                                "bag_LVC:oppervlakteVerblijfsobject"))
         self.voegToe(BAGpoint(3, "geopunt", "bag_LVC:verblijfsobjectGeometrie"))
         self.voegToe(BAGpolygoon(3, "geovlak", "bag_LVC:verblijfsobjectGeometrie"))
+        self.voegToe(BAGgeometrieValidatie("geom_valid", "geovlak"))
 
         self.relaties.append(BAGrelatieAttribuut(self, "verblijfsobjectgebruiksdoel",
                                                                50, "gebruiksdoelVerblijfsobject",
@@ -299,6 +311,7 @@ class Pand(BAGObject):
         self.voegToe(BAGenumAttribuut(Pand.statusEnum, "pandStatus", "bag_LVC:pandstatus"))
         self.voegToe(BAGnumeriekAttribuut(4, "bouwjaar", "bag_LVC:bouwjaar"))
         self.voegToe(BAGpolygoon(3, "geovlak", "bag_LVC:pandGeometrie"))
+        self.voegToe(BAGgeometrieValidatie("geom_valid", "geovlak"))
 
     def heeftGeometrie(self):
         return True

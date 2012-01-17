@@ -29,7 +29,7 @@ INSERT INTO bagextractinfo (sleutel,waarde)
 INSERT INTO bagextractinfo (sleutel,waarde)
         VALUES ('software_versie', '1.0.0');
 
--- BAG tabellen
+-- BAG _ruwe import tabellen
 DROP TABLE IF EXISTS ligplaats CASCADE;
 CREATE TABLE ligplaats (
   gid serial,
@@ -44,6 +44,7 @@ CREATE TABLE ligplaats (
   ligplaatsstatus character varying(80),
   begindatumtijdvakgeldigheid timestamp without time zone,
   einddatumtijdvakgeldigheid timestamp without time zone,
+  geom_valid boolean default TRUE,
   geovlak geometry,
   PRIMARY KEY (gid),
   CONSTRAINT enforce_dims_geometrie CHECK ((st_ndims(geovlak) = 3)),
@@ -109,6 +110,7 @@ CREATE TABLE pand (
   bouwjaar numeric(4,0),
   begindatumtijdvakgeldigheid timestamp without time zone,
   einddatumtijdvakgeldigheid timestamp without time zone,
+  geom_valid boolean default TRUE,
   geovlak geometry,
   PRIMARY KEY (gid),
   CONSTRAINT enforce_dims_geometrie CHECK ((st_ndims(geovlak) = 3)),
@@ -131,6 +133,7 @@ CREATE TABLE standplaats (
   standplaatsstatus character varying(80),
   begindatumtijdvakgeldigheid timestamp without time zone,
   einddatumtijdvakgeldigheid timestamp without time zone,
+  geom_valid boolean default TRUE,
   geovlak geometry,
   PRIMARY KEY (gid),
   CONSTRAINT enforce_dims_geometrie CHECK ((st_ndims(geovlak) = 3)),
@@ -154,6 +157,7 @@ CREATE TABLE verblijfsobject (
   oppervlakteverblijfsobject numeric(6,0),
   begindatumtijdvakgeldigheid timestamp without time zone,
   einddatumtijdvakgeldigheid timestamp without time zone,
+  geom_valid boolean default TRUE,
   geopunt geometry,
   geovlak geometry,
   PRIMARY KEY (gid),
@@ -182,6 +186,7 @@ CREATE TABLE woonplaats (
   woonplaatsstatus character varying(80),
   begindatumtijdvakgeldigheid timestamp without time zone,
   einddatumtijdvakgeldigheid timestamp without time zone,
+  geom_valid boolean default TRUE,
   geovlak geometry,
   PRIMARY KEY (gid),
   CONSTRAINT enforce_dims_geometrie CHECK ((st_ndims(geovlak) = 2)),
@@ -242,7 +247,7 @@ CREATE UNIQUE INDEX ligplaats_key ON ligplaats USING btree (identificatie,aandui
 CREATE UNIQUE INDEX standplaats_key ON standplaats USING btree (identificatie,aanduidingrecordinactief,aanduidingrecordcorrectie,begindatumtijdvakgeldigheid);
 CREATE UNIQUE INDEX verblijfsobject_key ON verblijfsobject USING btree (identificatie,aanduidingrecordinactief,aanduidingrecordcorrectie,begindatumtijdvakgeldigheid);
 CREATE UNIQUE INDEX pand_key ON pand USING btree (identificatie,aanduidingrecordinactief,aanduidingrecordcorrectie,begindatumtijdvakgeldigheid);
--- met nummeraanduiding lijkt een probleem als unieke index
+-- met nummeraanduiding lijkt een probleem als unieke index  (in de gaten houden)
 CREATE UNIQUE INDEX nummeraanduiding_key ON nummeraanduiding USING btree (identificatie,aanduidingrecordinactief,aanduidingrecordcorrectie,begindatumtijdvakgeldigheid);
 CREATE UNIQUE INDEX openbareruimte_key ON openbareruimte USING btree (identificatie,aanduidingrecordinactief,aanduidingrecordcorrectie,begindatumtijdvakgeldigheid);
 CREATE UNIQUE INDEX woonplaats_key ON woonplaats USING btree (identificatie,aanduidingrecordinactief,aanduidingrecordcorrectie,begindatumtijdvakgeldigheid);
@@ -285,3 +290,5 @@ CREATE TABLE gemeente_provincie (
   provincienaam character varying(80),
   PRIMARY KEY (gid)
 );
+
+select probe_geometry_columns();

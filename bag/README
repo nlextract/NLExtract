@@ -4,8 +4,11 @@ in (voorlopig) een Postgres/Postgis database.
 bag-extract biedt de volgende functionaliteiten:
  - Laden van een Kadaster BAG Extract vanuit Kadaster (.zip GML) levering
  - Toepassen van Kadaster BAG mutaties vanuit Kadaster (.zip GML) levering
- - Verrijken BAG met gemeenten en provincies en volledige "ACN-achtige" adressen
+ - Verrijken BAG met gemeenten en provincies
+ - Verrijken: tabel met volledige "ACN-achtige" adressen genereren
  - Stijlen (SLDs) om de ingelezen BAG data te visualiseren via een WMS
+ - Validatie van input vlak geometrie
+ - Database VIEWs om bagobjecten te selecteren die actueel, bestaand en valide geometrie hebben
 
 Downloaden:
  - download NLExtract
@@ -33,6 +36,7 @@ Commando:
  - direct via python "python src/bagextract.py"
  - of (Unix,Linux,Mac) via shell script: "bin/bag-extract.sh"
  - Windows: voorlopig alleen via "python src/bagextract.py"
+
  Alle commando's werken onafhankelijk van de plek (directory) waar ze aangeroepen worden
 
 Instellingen:
@@ -59,7 +63,7 @@ Voorbeelden:
 
             Alle commando's via Python of shell .sh script.
 
-        1. Initialiseer een database (-c):
+        1. Initialiseer de database (-c):
 
             python bagextract.py -c
             of
@@ -70,7 +74,7 @@ Voorbeelden:
             python bagextract.py -e 9999STA01052011-000002.xml
             python bagextract.py -e 9999STA01052011.zip
 
-            -e werkt op directory, file of .zip inclusief mutatie bestanden
+            -e werkt op directory, file of .zip inclusief mutatie-bestanden
 
         3.  Importeer gemeente_woonplaats informatie van het kadaster 
             http://www.kadaster.nl/bag/docs/BAG_Overzicht_aangesloten_gemeenten.zip
