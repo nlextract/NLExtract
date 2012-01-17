@@ -18,6 +18,9 @@ $BAG_EXTRACT --dbinit -v
 # Nieuwe objecten
 $BAG_EXTRACT -e $DATA_DIR -v
 
+# Ontdubbelen
+$BAG_EXTRACT -v -q $DB_DIR/script/ontdubbel.sql
+
 # Mutaties
 $BAG_EXTRACT -e $MUT_DIR -v
 
