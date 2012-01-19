@@ -81,14 +81,6 @@ def main():
         myreader = BAGFileReader(BAGConfig.config.bagextract_home + '/db/data')
         myreader.process()
 
-        Log.log.info("Gemeente tabel genereren...")
-        db_script = os.path.realpath(BAGConfig.config.bagextract_home + '/db/script/gemeente-tabel.sql')
-        database.file_uitvoeren(db_script)
-
-        Log.log.info("Provincie tabel genereren...")
-        db_script = os.path.realpath(BAGConfig.config.bagextract_home + '/db/script/provincie-tabel.sql')
-        database.file_uitvoeren(db_script)
-
         Log.log.info("Views aanmaken...")
         db_script = os.path.realpath(BAGConfig.config.bagextract_home + '/db/script/bag-view-actueel-bestaand.sql')
         database.file_uitvoeren(db_script)

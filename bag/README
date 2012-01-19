@@ -59,15 +59,15 @@ Voorbeelden:
 
             python src/bagextract.py -h
             of
-            bin/bagextract.sh -h
+            bin/bag-extract.sh -h
 
-            Alle commando's via Python of shell .sh script.
+            Alle commando's kunnen via Python of shell .sh script uitgevoerd vanaf elke directory.
 
         1. Initialiseer de database en vul/verrijk met referentie-data (gemeenten/provincies) (-c):
 
             python bagextract.py -c
             of
-            bagextract.sh -c
+            bag-extract.sh -c
 
         2. Importeer een extract in de database (-e):
 
@@ -76,7 +76,14 @@ Voorbeelden:
 
             -e werkt op directory, file of .zip inclusief mutatie-bestanden
 
-        3. Verrijken: aanmaken volledig adres tabel uit BAG + gemeente + provincie tabellen
+        3. Verrijken: genereren gemeente + provincie tabellen met geometrie uit woonplaatsen
+
+             python bagextract.py -v -q ../db/script/gemeente-provincie-tabel.sql
+
+			Met de -q (query) optie kan elk SQL bestand worden uitgevoerd
+
+        4. Verrijken: aanmaken volledig adres tabel uit BAG + gemeente + provincie tabellen
+           (kan lang duren op gehele BAG, lijkt sneller te gaan via "psql" Postgres commando)
 
              psql -d bag < ../db/script/adres-tabel.sql
 
@@ -95,7 +102,7 @@ Issues:
 		Het script db/script/adres-tabel.sql vergt enkele uren. Beste is om deze met standaard PSQL uit te voeren.
 
 		Het resultaat van het genereren van gemeenten en provincies uit woonplaats geometrieen is nog "rommelig":
-		veel kleine polygonen.
+		veel kleine polygonen. Die willen we nog uitfilteren.
 
 Voorbeeld:
         Zie http://docs.kademo.nl/project/bagextract.html voor een installatie voorbeeld, gevold door extract

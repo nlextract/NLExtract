@@ -24,10 +24,8 @@ $BAG_EXTRACT -v -q $DB_DIR/script/ontdubbel.sql
 # Mutaties
 $BAG_EXTRACT -e $MUT_DIR -v
 
-# Test verrijking van data met gemeenten+provincies (zit al in dbinit)
-# $BAG_EXTRACT -e $DB_DIR/data -v
-# $BAG_EXTRACT -v -q $DB_DIR/script/gemeente-tabel.sql
-# $BAG_EXTRACT -v -q $DB_DIR/script/provincie-tabel.sql
+# Test verrijking van data met gemeenten+provincies
+$BAG_EXTRACT -v -q $DB_DIR/script/gemeente-provincie-tabel.sql
 
 # Maak een "ACN-achtig" adres met alles erin
 $BAG_EXTRACT -v -q $DB_DIR/script/adres-tabel.sql
