@@ -102,3 +102,11 @@ Begin
   END IF;
 End;$BODY$
   LANGUAGE 'plpgsql' VOLATILE;
+
+-- http://www.spatialdbadvisor.com/postgis_tips_tricks/92/filtering-rings-in-polygon-postgis
+-- http://www.bostongis.com/postgis_dump.snippet
+-- SELECT ST_AsText(b.the_geom) as final_geom, ST_Area(b.the_geom) as area
+--   FROM (SELECT (ST_DumpRings(vlak) FROM SELECT (ST_Dump(a.geovlak)).geom as vlak).geom As the_geom
+--           FROM (SELECT geovlak FROM provincie  as geom
+--                 ) a
+--         ) b;

@@ -29,11 +29,10 @@ except:
   from StringIO import StringIO
 
 class BAGFileReader:
-    def __init__(self, file, args):
-        self.args = args
+    def __init__(self, file):
         self.file = file
         self.init = True
-        self.processor = Processor(args)
+        self.processor = Processor()
         self.fileCount = 0
         self.recordCount = 0
 

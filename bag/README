@@ -63,7 +63,7 @@ Voorbeelden:
 
             Alle commando's via Python of shell .sh script.
 
-        1. Initialiseer de database (-c):
+        1. Initialiseer de database en vul/verrijk met referentie-data (gemeenten/provincies) (-c):
 
             python bagextract.py -c
             of
@@ -76,21 +76,7 @@ Voorbeelden:
 
             -e werkt op directory, file of .zip inclusief mutatie-bestanden
 
-        3.  Importeer gemeente_woonplaats informatie van het kadaster 
-            http://www.kadaster.nl/bag/docs/BAG_Overzicht_aangesloten_gemeenten.zip
-
-              python bagextract.py -e BAG_Overzicht_aangesloten_gemeenten.zip
-
-            of gemeenten (van Kadaster) + provincies (van CBS) uit locale data in distro :
-
-              python bagextract.py -e ../db/data
-
-        4. Verrijken: aanmaken gemeente en provincie tabellen met geometrie (afgeleid uit  woonplaats geometrie)
-
-             python bagextract.py -q ../db/script/gemeente-tabel.sql
-             python bagextract.py -q ../db/script/provincie-tabel.sql
-
-        5. Verrijken: aanmaken volledig adres tabel uit BAG + gemeente + provincie tabellen
+        3. Verrijken: aanmaken volledig adres tabel uit BAG + gemeente + provincie tabellen
 
              psql -d bag < ../db/script/adres-tabel.sql
 

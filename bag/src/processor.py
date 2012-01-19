@@ -31,8 +31,7 @@ class Processor:
     #
     # Deze moeten of gestript worden, of de functie die dit automatisch doet moet worden gevonden.
 
-    def __init__(self, args):
-        self.args = args
+    def __init__(self):
         self.database = Database()
 
     def processCSV(self, csvreader):

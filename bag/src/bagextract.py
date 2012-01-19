@@ -77,12 +77,24 @@ def main():
         Log.log.info("alle database tabellen weggooien en opnieuw aanmaken...")
         database.initialiseer(db_script)
 
+        Log.log.info("Initieele data (bijv. gemeenten/provincies) inlezen...")
+        myreader = BAGFileReader(BAGConfig.config.bagextract_home + '/db/data')
+        myreader.process()
+
+        Log.log.info("Gemeente tabel genereren...")
+        db_script = os.path.realpath(BAGConfig.config.bagextract_home + '/db/script/gemeente-tabel.sql')
+        database.file_uitvoeren(db_script)
+
+        Log.log.info("Provincie tabel genereren...")
+        db_script = os.path.realpath(BAGConfig.config.bagextract_home + '/db/script/provincie-tabel.sql')
+        database.file_uitvoeren(db_script)
+
         Log.log.info("Views aanmaken...")
         db_script = os.path.realpath(BAGConfig.config.bagextract_home + '/db/script/bag-view-actueel-bestaand.sql')
         database.file_uitvoeren(db_script)
     elif args.extract:
         # Extracts any data from any source files/dirs/zips/xml/csv etc
-        myreader = BAGFileReader(args.extract, args)
+        myreader = BAGFileReader(args.extract)
         myreader.process()
     elif args.query:
         # Voer willekeurig SQL script uit uit
