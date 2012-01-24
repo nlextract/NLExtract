@@ -8,6 +8,7 @@ BE_HOME_DIR=`dirname $0`/..
 BE_HOME_DIR=`(cd "$BE_HOME_DIR"; pwd)`
 TEST_DIR=$BE_HOME_DIR/test
 DATA_DIR=$TEST_DIR/data
+DATA_DUBBEL_DIR=$TEST_DIR/datadubbel
 MUT_DIR=$TEST_DIR/mutatie
 DB_DIR=$BE_HOME_DIR/db
 BAG_EXTRACT=$BE_HOME_DIR/bin/bag-extract.sh
@@ -16,13 +17,16 @@ BAG_EXTRACT=$BE_HOME_DIR/bin/bag-extract.sh
 $BAG_EXTRACT --dbinit -v
 
 # Nieuwe objecten
-$BAG_EXTRACT -e $DATA_DIR -v
+$BAG_EXTRACT -v -e $DATA_DIR
+
+# Dubbele objecten
+$BAG_EXTRACT -v -e $DATA_DUBBEL_DIR
 
 # Ontdubbelen
 $BAG_EXTRACT -v -q $DB_DIR/script/ontdubbel.sql
 
 # Mutaties
-$BAG_EXTRACT -e $MUT_DIR -v
+$BAG_EXTRACT -v -e $MUT_DIR
 
 # Test verrijking van data met gemeenten+provincies
 $BAG_EXTRACT -v -q $DB_DIR/script/gemeente-provincie-tabel.sql

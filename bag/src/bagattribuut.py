@@ -57,6 +57,8 @@ def getValue(parent, tag):
     if len(values) > 0:
         return values[0]
     else:
+        # TODO: moet eigenlijk None zijn...
+        # ook dan alle if != '' in BAGattribuut classes nalopen..
         return ""
 
 # Geef de eerste node met de tag name of return None
@@ -84,7 +86,7 @@ class BAGattribuut:
         self._lengte = lengte
         self._naam = naam
         self._tag = tag
-        self._waarde = ""
+        self._waarde = None
         self._parentObj = None
 
     # Attribuut lengte
@@ -109,6 +111,9 @@ class BAGattribuut:
 
     # Attribuut waarde voor SQL. Deze method kan worden overloaded
     def waardeSQL(self):
+        if self._waarde == '':
+            # Voor string kolommen (default) willen we NULL, geen lege string
+            return None
         return self.waarde()
 
     # Attribuut waarde voor SQL template. Deze method kan worden overloaded

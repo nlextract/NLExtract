@@ -71,7 +71,8 @@ CREATE VIEW nummeraanduidingactueel AS
     WHERE
       nummeraanduiding.begindatumtijdvakgeldigheid <= LOCALTIMESTAMP
       AND (nummeraanduiding.einddatumtijdvakgeldigheid is NULL OR nummeraanduiding.einddatumtijdvakgeldigheid >= LOCALTIMESTAMP)
-      AND nummeraanduiding.aanduidingrecordinactief = FALSE;
+      AND nummeraanduiding.aanduidingrecordinactief = FALSE
+      AND nummeraanduiding.postcode is NOT NULL;
 
 DROP VIEW IF EXISTS nummeraanduidingactueelbestaand;
 CREATE VIEW nummeraanduidingactueelbestaand AS
@@ -98,6 +99,7 @@ CREATE VIEW nummeraanduidingactueelbestaand AS
     nummeraanduiding.begindatumtijdvakgeldigheid <= LOCALTIMESTAMP
     AND (nummeraanduiding.einddatumtijdvakgeldigheid is NULL OR nummeraanduiding.einddatumtijdvakgeldigheid >= LOCALTIMESTAMP)
     AND nummeraanduiding.aanduidingrecordinactief = FALSE
+    AND nummeraanduiding.postcode is NOT NULL
     AND nummeraanduiding.nummeraanduidingstatus <> 'Naamgeving ingetrokken';
 
 DROP VIEW IF EXISTS openbareruimteactueel;
