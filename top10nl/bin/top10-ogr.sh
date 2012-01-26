@@ -3,22 +3,28 @@
 # ogr2ogr commando executie
 # pas top10-settings.sh aan voor specifieke opties
 
-echo "BEGIN top10-ogr: `date`"
+TOP10NL_HOME=`dirname $0`/..
+TOP10NL_HOME=`(cd "$TOP10NL_HOME"; pwd)`
+TOP10NL_BIN=$TOP10NL_HOME/bin
+GML_FILE=$1
 
-BASEDIR=`dirname $0`/..
-BASEDIR=`(cd "$BASEDIR"; pwd)`
+# Laadt util functies
+. $TOP10NL_BIN/utils.sh
+. $TOP10NL_HOME/bin/top10-settings.sh
 
-. $BASEDIR/bin/top10-settings.sh
+# Check input
+checkVarUsage "$0 <top10nl gml bestand>" $GML_FILE
+checkFile $GML_FILE
 
+startProg "$0"  "file=$GML_FILE"
 # Transformeren ?
 if [ -n "$OGR_TSRS" ]
 then
 	OGR_TSRS="-t_srs $OGR_TSRS"
 fi
 
-echo "ogr2ogr $OGR_OVERWRITE_OR_APPEND -f $OGR_OUT_FORMAT "$OGR_OUT_OPTIONS" $OGR_GT $OGR_OPT_MULTIATTR $OGR_LCO -a_srs $OGR_ASRS $OGR_TSRS  -s_srs $OGR_SSRS  $1"
+echo "ogr2ogr $OGR_OVERWRITE_OR_APPEND -f $OGR_OUT_FORMAT "$OGR_OUT_OPTIONS" $OGR_GT $OGR_OPT_MULTIATTR $OGR_LCO -a_srs $OGR_ASRS $OGR_TSRS  -s_srs $OGR_SSRS  $GML_FILE"
 hash ogr2ogr 2>&- || { echo >&2 "ogr2ogr prog is nodig, installeer GDAL/OGR www.gdal.org eerst. Ik houd hier op..."; exit 1; }
-ogr2ogr $OGR_OVERWRITE_OR_APPEND -f $OGR_OUT_FORMAT "$OGR_OUT_OPTIONS" $OGR_GT $OGR_OPT_MULTIATTR $OGR_LCO -a_srs $OGR_ASRS $OGR_TSRS -s_srs $OGR_SSRS  $1
+ogr2ogr $OGR_OVERWRITE_OR_APPEND -f $OGR_OUT_FORMAT "$OGR_OUT_OPTIONS" $OGR_GT $OGR_OPT_MULTIATTR $OGR_LCO -a_srs $OGR_ASRS $OGR_TSRS -s_srs $OGR_SSRS  $GML_FILE
 
-
-echo "EIND top10-ogr: `date`"
+endProg "$0"

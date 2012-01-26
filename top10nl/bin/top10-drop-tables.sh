@@ -4,14 +4,18 @@
 #
 # Auteur: Just van den Broecke
 #
+TOP10NL_HOME=`dirname $0`/..
+TOP10NL_HOME=`(cd "$TOP10NL_HOME"; pwd)`
+TOP10NL_BIN=$TOP10NL_HOME/bin
+SQL_FILE=$TOP10NL_BIN/top10-drop-tables.sql
 
-hash psql 2>&- || { echo >&2 "Kan het PostgreSQL client programma psql niet vinden. Heb ik echt nodig..."; exit 1; }
+# Laadt util functies
+. $TOP10NL_BIN/utils.sh
 
-BASEDIR=`dirname $0`/..
-BASEDIR=`(cd "$BASEDIR"; pwd)`
+checkProg "psql" "Het PostgreSQL client programma. Installeer deze of zet je PATH goed"
 
-. $BASEDIR/bin/top10-settings.sh
+. $TOP10NL_BIN/top10-settings.sh
 
 export PGPASSWORD=$PG_PASSWORD
-psql -d $PG_DB -U $PG_USER -p $PG_PORT -h $PG_HOST -f $BASEDIR/bin/top10-drop-tables.sql
+psql -d $PG_DB -U $PG_USER -p $PG_PORT -h $PG_HOST -f $SQL_FILE
 

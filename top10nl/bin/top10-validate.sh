@@ -4,20 +4,30 @@
 # Top10NL GML schema validatie.
 # Maakt gebruik van "xmlstarlet" zie http://xmlstar.sourceforge.net/
 # Installeer eerst "xmlstarlet"
-# Bijv. op Ubunto apt-get install xmlstarlet
+# Bijv. op Ubuntu apt-get install xmlstarlet
 #
 
-BASEDIR=`dirname $0`/..
-BASEDIR=`(cd "$BASEDIR"; pwd)`
+# Alle vars
+TOP10NL_HOME=`dirname $0`/..
+TOP10NL_HOME=`(cd "$TOP10NL_HOME"; pwd)`
+TOP10NL_BIN=$TOP10NL_HOME/bin
+XSD_FILE=$TOP10NL_HOME/doc/schema/top10nl.xsd
+XML_FILE=$1
 
-# Check of xmlstarlet is installed
-hash xmlstarlet 2>&- || { echo >&2 "xmlstarlet prog is nodig, installeer deze eerst: http://xmlstar.sourceforge.net. Ik houd hier op..."; exit 1; }
+# Laadt util functies
+. $TOP10NL_BIN/utils.sh
 
-GML_FILE=$1
-XSD_FILE=$BASEDIR/doc/schema/top10nl.xsd
+# Check input
+checkVarUsage "$0 <top10nl gml bestand>" $XML_FILE
+checkFile $XML_FILE
+checkFile $XSD_FILE
 
-echo "BEGIN top10-validate.sh: `date` file=$GML_FILE"
+# Check required prog + (optionele) msg if not installed
+checkProg "xmlstarlet" "Installeer deze eerst: http://xmlstar.sourceforge.net"
 
-xmlstarlet val -e --xsd $XSD_FILE $GML_FILE
-echo "END top10-validate.sh: `date`"
+startProg "$0"  "file=$XML_FILE"
+
+xmlstarlet val -e --xsd $XSD_FILE $XML_FILE
+
+endProg "$0"
 

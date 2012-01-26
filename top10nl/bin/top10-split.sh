@@ -4,15 +4,34 @@
 # xsltproc commando executie
 # pas top10-settings.sh aan voor specifieke opties
 
-echo "BEGIN top10-split: `date`"
 
-BASEDIR=`dirname $0`/..
-BASEDIR=`(cd "$BASEDIR"; pwd)`
+# Alle vars
+TOP10NL_HOME=`dirname $0`/..
+TOP10NL_HOME=`(cd "$TOP10NL_HOME"; pwd)`
+TOP10NL_BIN=$TOP10NL_HOME/bin
+XSL_FILE=$TOP10NL_BIN/top10-split.xsl
+XML_IN=$1
+XML_OUT=$2
 
-. $BASEDIR/bin/top10-settings.sh
+. $TOP10NL_HOME/bin/top10-settings.sh
 
-hash xsltproc 2>&- || { echo >&2 "xsltproc prog is nodig, installeer deze eerst. Ik houd hier op..."; exit 1; }
+# Laadt util functies
+. $TOP10NL_BIN/utils.sh
 
-nice xsltproc --maxdepth 50000 $BASEDIR/bin/top10-split.xsl $1 >  $2
+# Check input
+checkVarUsage "$0 'gml input file' 'gml output file'" $XML_IN
+checkVarUsage "$0 'gml input file' 'gml output file'" $XML_OUT
 
-echo "EIND top10-split: `date`"
+checkFile $XML_IN
+
+# Check required prog + (optionele) msg if not installed
+checkProg "xmlstarlet" "Installeer deze eerst. Zie http://xmlstar.sourceforge.net"
+
+startProg "$0"  "file=$XML_IN"
+
+nice xsltproc --maxdepth 50000 $XSL_FILE $XML_IN >  $XML_OUT
+
+# Zie http://xmlstar.sourceforge.net/doc/xmlstarlet.txt
+# nice xmlstarlet tr --maxdepth 50000  $XSL_FILE $XML_IN >  $XML_OUT
+
+endProg "$0"
