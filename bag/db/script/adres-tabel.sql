@@ -1,8 +1,18 @@
--- maak eerst een "echte" adressen tabel
--- want later indexeren kost teveel tijd
+--
+-- Maakt en vult afgeleide tabel "adres" aan met volledige adressen
+--
+-- De BAG bevat geen echte adressen zoals bijv. ACN (Adres Coordinaten Nederland), dwz
+-- een tabel met straat, huisnummer, woonplaats, gemeente, provincie etc.
+-- De elementen voor een compleet adres zitten wel in de (verrijkte) BAG.
+-- Via SQL scripts hieronder wordt een echte "adres" tabel aangemaakt en gevuld
+-- uit de BAG basistabellen.
+--
+-- Auteur: Just van den Broecke
+--
+
+-- Maak  een "echte" adressen tabel
 DROP TABLE IF EXISTS adres;
 CREATE TABLE adres (
-    gid serial,
     openbareruimtenaam character varying(80),
     huisnummer numeric(5,0),
     huisletter character varying(1),
@@ -17,13 +27,8 @@ CREATE TABLE adres (
     geopunt geometry,
     CONSTRAINT enforce_dims_punt CHECK ((st_ndims(geopunt) = 3)),
     CONSTRAINT enforce_geotype_punt CHECK (((geometrytype(geopunt) = 'POINT'::text) OR (geopunt IS NULL))),
-    CONSTRAINT enforce_srid_punt CHECK ((st_srid(geopunt) = 28992)),
-
-    PRIMARY KEY (gid)
+    CONSTRAINT enforce_srid_punt CHECK ((st_srid(geopunt) = 28992))
 );
-
-CREATE INDEX adres_geom_idx ON adres USING gist (geopunt);
-select probe_geometry_columns();
 
 -- Insert (actuele+bestaande) data uit combinatie van BAG tabellen: Verblijfplaats
 INSERT INTO adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeging, postcode, woonplaatsnaam, gemeentenaam,
@@ -116,6 +121,17 @@ WHERE
 	and o.gerelateerdewoonplaats = w.identificatie
 	and w.identificatie = g.woonplaatscode
 	and g.gemeentecode = p.gemeentecode;
+
+-- Maak indexen aan na inserten (betere performance)
+CREATE INDEX adres_geom_idx ON adres USING gist (geopunt);
+select probe_geometry_columns();
+
+DROP SEQUENCE IF EXISTS adres_gid_seq;
+CREATE SEQUENCE adres_gid_seq;
+ALTER TABLE adres ADD gid integer UNIQUE;
+ALTER TABLE adres ALTER COLUMN gid SET DEFAULT NEXTVAL('adres_gid_seq');
+UPDATE adres SET gid = NEXTVAL('adres_gid_seq');
+ALTER TABLE adres ADD PRIMARY KEY (gid);
 
 
 
