@@ -23,3 +23,6 @@ except ImportError:
           print("running with ElementTree")
         except ImportError:
           print("Failed to import ElementTree from any known place")
+
+def stripschema(tag):
+    return tag.split('}')[-1]
