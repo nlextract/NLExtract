@@ -24,14 +24,23 @@ checkVarUsage "$0 'gml input file' 'gml output file'" $XML_OUT
 
 checkFile $XML_IN
 
-# Check required prog + (optionele) msg if not installed
-checkProg "xmlstarlet" "Installeer deze eerst. Zie http://xmlstar.sourceforge.net"
+# Check voor een XSLT processor: eerst "xmlstarlet" daarna "xsltproc"
+XSLT_PROG=xmlstarlet
+hash $XSLT_PROG &> /dev/null
+if [ $? -eq 1 ]; then
+	XSLT_PROG=xsltproc
+	hash $XSLT_PROG &> /dev/null
+	if [ $? -eq 1 ]; then
+		checkProg "xmlstarlet" "Geen xslt programma gevonden. Installeer xmlstarlet (of evt xsltproc)  eerst. Zie http://xmlstar.sourceforge.net"
+	fi
+else
+	# xmlstarlet gevonden: append "tr" XSLT translate optie
+	XSLT_PROG="xmlstarlet tr"
+fi
 
+pr "Gebruik de XSLT processor: $XSLT_PROG"
 startProg "$0"  "file=$XML_IN"
 
-nice xsltproc --maxdepth 50000 $XSL_FILE $XML_IN >  $XML_OUT
-
-# Zie http://xmlstar.sourceforge.net/doc/xmlstarlet.txt
-# nice xmlstarlet tr --maxdepth 50000  $XSL_FILE $XML_IN >  $XML_OUT
+nice $XSLT_PROG --maxdepth 50000 $XSL_FILE $XML_IN >  $XML_OUT
 
 endProg "$0"
