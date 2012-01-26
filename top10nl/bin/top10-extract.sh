@@ -13,7 +13,7 @@ IN_FILE_OF_DIR=$1
 . $TOP10NL_BIN/utils.sh
 
 # Extract: een enkele Top10NL GML file
-function extractFile() {
+extractFile() {
 	GML_FILE=$1
 	GML_FILE_SPLIT=${GML_FILE}.split.xml
 
@@ -30,7 +30,7 @@ function extractFile() {
 }
 
 # Extract: een directory met Top10NL GML files
-function extractDir() {
+extractDir() {
 	IN_DIR=$1
 	pr "Alle Top10NL GML files in $IN_DIR exraheren..."
     for GML_FILE in `ls $IN_DIR/*.gml`

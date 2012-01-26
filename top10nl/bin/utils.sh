@@ -14,24 +14,24 @@ pr() {
 }
 
 # Util: error mesg and exit
-function error() {
+error() {
 	echo "ERROR: $1"
 	exit -1
 }
 
 # Util: usage and exit
-function usage() {
+usage() {
 	echo "Usage: $1 $2"
 	exit -1
 }
 
 # Util: print info
-function pr() {
+pr() {
 	echo "INFO: $1"
 }
 
 # Util: check if file exists
-function checkFile() {
+checkFile() {
     if [ ! -f $1 ]
     then
         error "Kan bestand '$1' niet vinden"
@@ -39,7 +39,7 @@ function checkFile() {
 }
 
 # Util: check if dir exists
-function checkDir() {
+checkDir() {
     if [ ! -d $1 ]
     then
         error "Kan directory $1 niet vinden"
@@ -47,13 +47,13 @@ function checkDir() {
 }
 
 # Util: check if var is not empty
-function checkProg() {
+checkProg() {
 	# Check of prog is installed and can be found
 	hash $1 2>&- || { echo >&2 "Kan programma $1 niet vinden. $2. Ik houd hier op..."; exit -1; }
 }
 
 # Util: check if var is not empty
-function checkVar() {
+checkVar() {
     if [ -z "$1" ]
     then
         error "Geen argument gegeven"
@@ -61,7 +61,7 @@ function checkVar() {
 }
 
 # Util: check if var is not empty
-function checkVarUsage() {
+checkVarUsage() {
     if [ -z "$2" ]
     then
         usage "$1"
@@ -69,11 +69,11 @@ function checkVarUsage() {
 }
 
 # Util: startProg
-function startProg() {
+startProg() {
 	pr "BEGIN $1: `date` $2"
 }
 
 # Util: endProg
-function endProg() {
+endProg() {
 	pr "END $1: `date` $2"
 }
