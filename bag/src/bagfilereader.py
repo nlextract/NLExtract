@@ -81,7 +81,6 @@ class BAGFileReader:
             Log.log.info("readzipfile: " + naam)
             if ext[1] == 'xml':
                 xml = self.parseXML(StringIO(tzip.read(naam)))
-                #xml = etree.parse (StringIO(tzip.read(naam)))
                 self.processXML(naam, xml)
             elif ext[1] == 'zip':
                 self.readzipstring(StringIO(tzip.read(naam)))
