@@ -70,10 +70,10 @@ checkVarUsage() {
 
 # Util: startProg
 startProg() {
-	pr "BEGIN $1: `date` $2"
+	pr "BEGIN `basename $1`: `date` $2"
 }
 
 # Util: endProg
 endProg() {
-	pr "END $1: `date` $2"
+	pr "END `basename $1`: `date` $2"
 }

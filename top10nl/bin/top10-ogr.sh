@@ -12,19 +12,21 @@ GML_FILE=$1
 . $TOP10NL_BIN/utils.sh
 . $TOP10NL_HOME/bin/top10-settings.sh
 
+# ogr2ogr moet installed zijn maar ook vindbaar in PATH
+checkProg "ogr2ogr" "programma 'ogr2ogr' niet gevonden. Installeer dit eerst of voeg aan PATH toe. Zie www.gdal.org"
+
 # Check input
 checkVarUsage "$0 <top10nl gml bestand>" $GML_FILE
 checkFile $GML_FILE
 
-startProg "$0"  "file=$GML_FILE"
 # Transformeren ?
 if [ -n "$OGR_TSRS" ]
 then
 	OGR_TSRS="-t_srs $OGR_TSRS"
 fi
 
+# Uitvoeren ogr2ogr
+startProg "$0" "file=$GML_FILE"
 echo "ogr2ogr $OGR_OVERWRITE_OR_APPEND -f $OGR_OUT_FORMAT "$OGR_OUT_OPTIONS" $OGR_GT $OGR_OPT_MULTIATTR $OGR_LCO -a_srs $OGR_ASRS $OGR_TSRS  -s_srs $OGR_SSRS  $GML_FILE"
-hash ogr2ogr 2>&- || { echo >&2 "ogr2ogr prog is nodig, installeer GDAL/OGR www.gdal.org eerst. Ik houd hier op..."; exit 1; }
 ogr2ogr $OGR_OVERWRITE_OR_APPEND -f $OGR_OUT_FORMAT "$OGR_OUT_OPTIONS" $OGR_GT $OGR_OPT_MULTIATTR $OGR_LCO -a_srs $OGR_ASRS $OGR_TSRS -s_srs $OGR_SSRS  $GML_FILE
-
 endProg "$0"
