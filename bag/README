@@ -87,7 +87,12 @@ Voorbeelden:
 
              psql -d bag < ../db/script/adres-tabel.sql
 
-Issues:
+            Gebruik het psql commando "set search_path to <your schema>,public; "
+            als je de adres-tabel in een expliciet Postgres schema wilt. Bijv
+			# set search_path to bag,public;
+			# \i /opt/nlextract/git/bag/db/script/adres-tabel.sql
+
+ Issues:
 
         Theoretisch is het mogelijk de hele bag in te lezen vanuit de "hoofd" zip, maar dit kan
         geheugen-problemen opleveren. De voorlopige oplossing is om de hoofdzip uit te pakken in een enkele
