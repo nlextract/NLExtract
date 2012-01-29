@@ -100,7 +100,7 @@ simpelweg doorgeggeven.
              <xsl:call-template name="SplitsRegistratiefGebied"/>
          </xsl:for-each>
 
-        <xsl:for-each select="top10nl:OverigRelief">
+        <xsl:for-each select="top10nl:OverigReliëf">
                 <xsl:call-template name="SplitsOverigRelief"/>
             </xsl:for-each>
 
@@ -213,14 +213,14 @@ simpelweg doorgeggeven.
      <xsl:template name="SplitsOverigRelief">
           <xsl:if test="top10nl:geometrieLijn != ''">
               <xsl:call-template name="CopyWithSingleGeometry">
-                  <xsl:with-param name="objectType">OverigRelief_Lijn</xsl:with-param>
+                  <xsl:with-param name="objectType">OverigReliëf_Lijn</xsl:with-param>
                   <xsl:with-param name="geometrie" select="top10nl:geometrieLijn"/>
               </xsl:call-template>
           </xsl:if>
 
           <xsl:if test="top10nl:geometriePunt != ''">
               <xsl:call-template name="CopyWithSingleGeometry">
-                  <xsl:with-param name="objectType">OverigRelief_Punt</xsl:with-param>
+                  <xsl:with-param name="objectType">OverigReliëf_Punt</xsl:with-param>
                   <xsl:with-param name="geometrie" select="top10nl:geometriePunt"/>
               </xsl:call-template>
           </xsl:if>
