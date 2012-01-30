@@ -87,102 +87,50 @@
             </top10nl:dimensie>
         </top10nl:Gebouw>
 
-        <top10nl:Wegdeel gml:id="nl.top10nl.115816446">
-            <nen3610:identificatie>NL.TOP10NL.115816446</nen3610:identificatie>
-            <nen3610:objectBeginTijd>2007-06-05T00:00:00</nen3610:objectBeginTijd>
-            <nen3610:versieBeginTijd>2007-06-05T00:00:00</nen3610:versieBeginTijd>
-            <nen3610:status>in gebruik</nen3610:status>
 
-            <top10nl:typeWeg>lokale weg</top10nl:typeWeg>
-            <top10nl:typeInfrastructuurWegdeel>verbinding</top10nl:typeInfrastructuurWegdeel>
-            <top10nl:hoofdverkeersgebruik>gemengd verkeer</top10nl:hoofdverkeersgebruik>
-            <top10nl:verhardingsbreedteklasse>2 - 4 meter</top10nl:verhardingsbreedteklasse>
-            <top10nl:gescheidenRijbaan>nee</top10nl:gescheidenRijbaan>
-            <top10nl:verhardingstype>verhard</top10nl:verhardingstype>
+        <top10nl:Spoorbaandeel gml:id="nl.top10nl.105510034">
+            <nen3610:identificatie>NL.TOP10NL.105510034</nen3610:identificatie>
+            <nen3610:objectBeginTijd>2008-11-24T00:00:00</nen3610:objectBeginTijd>
+            <nen3610:versieBeginTijd>2010-07-02T19:27:00</nen3610:versieBeginTijd>
+            <nen3610:status
+                    >in gebruik
+            </nen3610:status>
+
+
+            <top10nl:typeSpoorbaan
+                    >trein
+            </top10nl:typeSpoorbaan>
+            <top10nl:typeInfrastructuurSpoorbaandeel
+                    >verbinding
+            </top10nl:typeInfrastructuurSpoorbaandeel>
+            <top10nl:spoorbreedte
+                    >normaalspoor
+            </top10nl:spoorbreedte>
+            <top10nl:aantalSporen>1</top10nl:aantalSporen>
+            <top10nl:vervoerfunctie
+                    >gemengd gebruik
+            </top10nl:vervoerfunctie>
+            <top10nl:elektrificatie
+                    >niet geëlektrificeerd
+            </top10nl:elektrificatie>
+
+
             <top10nl:hoogteniveau>0</top10nl:hoogteniveau>
-            <top10nl:geometrieVlak>
-                <gml:Polygon srsName='urn:opengis:def:crs:EPSG::28992'>
-                    <gml:exterior>
-                        <gml:LinearRing>
-                            <gml:posList srsDimension="2">
-                                204663.751 448595.183 204660.066 448598.977 204657.193 448601.936
-                                204639.139 448584.403 204642.252 448581.048 204645.145 448577.927 204663.751 448595.183
-                            </gml:posList>
-                        </gml:LinearRing>
-                    </gml:exterior>
-                </gml:Polygon>
-            </top10nl:geometrieVlak>
-            <top10nl:hartLijn>
+            <top10nl:geometrieLijn>
                 <gml:LineString srsName='urn:opengis:def:crs:EPSG::28992'>
-                    <gml:posList srsDimension="2">
-                        204665.094 448604.038 204660.066 448598.977 204642.252 448581.048 204640.879 448579.667
-                    </gml:posList>
+                    <gml:posList srsDimension="2">266969.614 470904.392 267020.871 470896.852</gml:posList>
                 </gml:LineString>
-            </top10nl:hartLijn>
-            <top10nl:brontype>top10vector</top10nl:brontype>
-            <top10nl:bronbeschrijving>Topografisch basisbestand van TDKadaster als vectorbestand met een gesloten
-                vlakken
-                structuur, opgebouwd uit gecodeerde en onderling verbonden lijnelementen. Objecttypen en attributen zijn
-                middels elementcodering opgeslagen.
-            </top10nl:bronbeschrijving>
-            <top10nl:bronactualiteit>2005-01-01</top10nl:bronactualiteit>
-            <top10nl:bronnauwkeurigheid>2</top10nl:bronnauwkeurigheid>
-            <top10nl:dimensie>2D</top10nl:dimensie>
-        </top10nl:Wegdeel>
-
-        <top10nl:Wegdeel gml:id="nl.top10nl.115819074">
-            <nen3610:identificatie>NL.TOP10NL.115819074</nen3610:identificatie>
-            <nen3610:objectBeginTijd>2007-06-05T00:00:00</nen3610:objectBeginTijd>
-            <nen3610:versieBeginTijd>2007-06-05T00:00:00</nen3610:versieBeginTijd>
-            <nen3610:status>in gebruik</nen3610:status>
-
-
-            <top10nl:typeWeg>lokale weg</top10nl:typeWeg>
-            <top10nl:typeWeg>regionale weg</top10nl:typeWeg>
-            <top10nl:typeInfrastructuurWegdeel>kruising</top10nl:typeInfrastructuurWegdeel>
-            <top10nl:hoofdverkeersgebruik>gemengd verkeer</top10nl:hoofdverkeersgebruik>
-            <top10nl:verhardingsbreedteklasse>4 - 7 meter
-            </top10nl:verhardingsbreedteklasse>
-            <top10nl:gescheidenRijbaan>nee
-            </top10nl:gescheidenRijbaan>
-            <top10nl:verhardingstype>verhard
-            </top10nl:verhardingstype>
-
-
-            <top10nl:straatnaam xml:lang="nl">Eekstraat</top10nl:straatnaam>
-
-
-            <top10nl:hoogteniveau>0</top10nl:hoogteniveau>
-            <top10nl:geometrieVlak>
-                <gml:Polygon srsName='urn:opengis:def:crs:EPSG::28992'>
-                    <gml:exterior>
-                        <gml:LinearRing>
-                            <gml:posList srsDimension="2">208444.714 448303.087 208445.324 448310.779 208446.112
-                                448320.708 208438.363 448319.058 208434.91 448318.322 208432.681 448305.119 208435.875
-                                448304.579 208444.714 448303.087
-                            </gml:posList>
-                        </gml:LinearRing>
-                    </gml:exterior>
-                </gml:Polygon>
-            </top10nl:geometrieVlak>
-            <top10nl:hartPunt>
-                <gml:Point srsName='urn:opengis:def:crs:EPSG::28992'>
-                    <gml:pos srsDimension="2">208437.006 448311.152</gml:pos>
-                </gml:Point>
-            </top10nl:hartPunt>
+            </top10nl:geometrieLijn>
             <top10nl:brontype
                     >top10vector
             </top10nl:brontype>
-            <top10nl:bronbeschrijving>Topografisch basisbestand van TDKadaster als vectorbestand met een gesloten
-                vlakken structuur, opgebouwd uit gecodeerde en onderling verbonden lijnelementen. Objecttypen en
-                attributen zijn middels elementcodering opgeslagen.
-            </top10nl:bronbeschrijving>
-            <top10nl:bronactualiteit>2005-01-01</top10nl:bronactualiteit>
+            <top10nl:bronbeschrijving>TOP10vector 2004</top10nl:bronbeschrijving>
+            <top10nl:bronactualiteit>2004-01-01</top10nl:bronactualiteit>
             <top10nl:bronnauwkeurigheid>2</top10nl:bronnauwkeurigheid>
             <top10nl:dimensie
                     >2D
             </top10nl:dimensie>
-        </top10nl:Wegdeel>
+        </top10nl:Spoorbaandeel>
 
         <top10nl:Terrein gml:id="nl.top10nl.106598354">
             <nen3610:identificatie>NL.TOP10NL.106598354</nen3610:identificatie>
@@ -359,6 +307,103 @@
             <top10nl:dimensie>2D</top10nl:dimensie>
         </top10nl:Gebouw>
 
+        <top10nl:GeografischGebied gml:id="nl.top10nl.103059222">
+            <nen3610:identificatie>NL.TOP10NL.103059222</nen3610:identificatie>
+            <nen3610:objectBeginTijd>2008-11-24T00:00:00</nen3610:objectBeginTijd>
+            <nen3610:versieBeginTijd>2008-11-24T00:00:00</nen3610:versieBeginTijd>
+
+
+            <top10nl:naam xml:lang="nl">Zuiderhoofd</top10nl:naam>
+
+
+            <top10nl:typeGeografischGebied
+                    >kaap, hoek
+            </top10nl:typeGeografischGebied>
+            <top10nl:labelPunt>
+                <gml:Point srsName='urn:opengis:def:crs:EPSG::28992'>
+                    <gml:pos srsDimension="2">19826.409 394420.411</gml:pos>
+                </gml:Point>
+            </top10nl:labelPunt>
+            <top10nl:brontype
+                    >top10vector
+            </top10nl:brontype>
+            <top10nl:bronbeschrijving>TOP10vector 2004</top10nl:bronbeschrijving>
+            <top10nl:bronactualiteit>2004-01-01</top10nl:bronactualiteit>
+            <top10nl:bronnauwkeurigheid>2</top10nl:bronnauwkeurigheid>
+            <top10nl:dimensie
+                    >2D
+            </top10nl:dimensie>
+        </top10nl:GeografischGebied>
+
+        <top10nl:HoogteOfDieptePunt gml:id="nl.top10nl.105468293">
+            <nen3610:identificatie>NL.TOP10NL.105468293</nen3610:identificatie>
+            <nen3610:objectBeginTijd>2008-11-24T00:00:00</nen3610:objectBeginTijd>
+            <nen3610:versieBeginTijd>2008-11-24T00:00:00</nen3610:versieBeginTijd>
+            <nen3610:status>in gebruik
+            </nen3610:status>
+
+
+            <top10nl:typeReliëf>hoogtepunt
+            </top10nl:typeReliëf>
+            <top10nl:hoogte>6.7</top10nl:hoogte>
+            <top10nl:hoogteniveau>0</top10nl:hoogteniveau>
+            <top10nl:brontype>top10vector
+            </top10nl:brontype>
+            <top10nl:bronbeschrijving>TOP10vector 2004</top10nl:bronbeschrijving>
+            <top10nl:bronactualiteit>2004-01-01</top10nl:bronactualiteit>
+            <top10nl:bronnauwkeurigheid>2</top10nl:bronnauwkeurigheid>
+            <top10nl:dimensie>2D</top10nl:dimensie>
+            <top10nl:geometriePunt>
+                <gml:Point srsName='urn:opengis:def:crs:EPSG::28992'>
+                    <gml:pos srsDimension="2">19949.399 394712.679</gml:pos>
+                </gml:Point>
+            </top10nl:geometriePunt>
+        </top10nl:HoogteOfDieptePunt>
+
+        <top10nl:Hoogteverschil gml:id="nl.top10nl.104534892">
+            <nen3610:identificatie>NL.TOP10NL.104534892</nen3610:identificatie>
+            <nen3610:objectBeginTijd>2008-11-24T00:00:00</nen3610:objectBeginTijd>
+            <nen3610:versieBeginTijd>2008-11-24T00:00:00</nen3610:versieBeginTijd>
+            <nen3610:status
+                    >in gebruik
+            </nen3610:status>
+
+
+            <top10nl:typeReliëf
+                    >talud, hoogteverschil
+            </top10nl:typeReliëf>
+            <top10nl:hoogteklasse
+                    >&gt; 2,5 meter
+            </top10nl:hoogteklasse>
+            <top10nl:hoogteniveau>0</top10nl:hoogteniveau>
+            <top10nl:brontype
+                    >top10vector
+            </top10nl:brontype>
+            <top10nl:bronbeschrijving>TOP10vector 2004</top10nl:bronbeschrijving>
+            <top10nl:bronactualiteit>2004-01-01</top10nl:bronactualiteit>
+            <top10nl:bronnauwkeurigheid>2</top10nl:bronnauwkeurigheid>
+            <top10nl:dimensie
+                    >2D
+            </top10nl:dimensie>
+
+            <top10nl:hogeZijde>
+                <gml:LineString srsName='urn:opengis:def:crs:EPSG::28992'>
+                    <gml:posList srsDimension="2">19732.836 396338.505 19719.108 396276.532 19620.05 395796.524 19597.79
+                        395690.207 19586.289 395630.832 19574.417 395575.54
+                    </gml:posList>
+                </gml:LineString>
+            </top10nl:hogeZijde>
+            <top10nl:lageZijde>
+                <gml:LineString srsName='urn:opengis:def:crs:EPSG::28992'>
+                    <gml:posList srsDimension="2">19719.783 396300.486 19707.992 396265.547 19694.892 396227.465
+                        19675.713 396154.199 19647.018 396007.188 19624.023 395898.698 19605.155 395807.307 19593.57
+                        395751.458
+                        19587.195 395695.532 19577.053 395602.08 19575.577 395586.536
+                    </gml:posList>
+                </gml:LineString>
+            </top10nl:lageZijde>
+        </top10nl:Hoogteverschil>
+
 
         <top10nl:Inrichtingselement gml:id="nl.top10nl.104446635">
             <nen3610:identificatie>NL.TOP10NL.104446635</nen3610:identificatie>
@@ -398,6 +443,73 @@
             <top10nl:dimensie>2D</top10nl:dimensie>
         </top10nl:Inrichtingselement>
 
+        <top10nl:IsoHoogte gml:id="nl.top10nl.118382066">
+            <nen3610:identificatie>NL.TOP10NL.118382066</nen3610:identificatie>
+            <nen3610:objectBeginTijd>2009-04-20T00:00:00</nen3610:objectBeginTijd>
+            <nen3610:versieBeginTijd>2009-04-20T00:00:00</nen3610:versieBeginTijd>
+            <nen3610:status
+                    >in gebruik
+            </nen3610:status>
+
+
+            <top10nl:typeReliëf
+                    >dieptelijn
+            </top10nl:typeReliëf>
+            <top10nl:hoogte>-10</top10nl:hoogte>
+            <top10nl:hoogteniveau>0</top10nl:hoogteniveau>
+            <top10nl:brontype
+                    >overig
+            </top10nl:brontype>
+            <top10nl:bronbeschrijving>Rijkswaterstaat levert gegevens over de peilmeetstations aan TDKadaster
+            </top10nl:bronbeschrijving>
+            <top10nl:bronactualiteit>2001-02-01</top10nl:bronactualiteit>
+            <top10nl:bronnauwkeurigheid>10</top10nl:bronnauwkeurigheid>
+            <top10nl:dimensie
+                    >2D
+            </top10nl:dimensie>
+            <top10nl:geometrieLijn>
+                <gml:LineString srsName='urn:opengis:def:crs:EPSG::28992'>
+                    <gml:posList srsDimension="2">19935.786 397414.893 19933.453 397404.302 19929.244 397393.984
+                        19927.78 397391.166 19926.186 397388.361 19919.349 397378.379 19911.528 397368.218 19909.314
+                        397365.302 19907.077 397362.343 19898.82 397351.289 19890.373 397337.177 19888.015
+                        397332.289 19885.652 397326.977 19877.047 397304.251 19868.259 397276.991 19865.779 397268.82
+                        19863.278 397260.378 19854.077 397227.639 19844.653 397191.608 19842.012 397181.091 19839.358
+                        397170.339 19829.657 397129.557 19819.765 397088.603 19816.99 397077.744
+                    </gml:posList>
+                </gml:LineString>
+            </top10nl:geometrieLijn>
+        </top10nl:IsoHoogte>
+
+        <top10nl:KadeOfWal gml:id="nl.top10nl.105294452">
+            <nen3610:identificatie>NL.TOP10NL.105294452</nen3610:identificatie>
+            <nen3610:objectBeginTijd>2008-11-24T00:00:00</nen3610:objectBeginTijd>
+            <nen3610:versieBeginTijd>2008-11-24T00:00:00</nen3610:versieBeginTijd>
+            <nen3610:status
+                    >in gebruik
+            </nen3610:status>
+
+
+            <top10nl:typeReliëf
+                    >kade, wal
+            </top10nl:typeReliëf>
+            <top10nl:hoogteniveau>0</top10nl:hoogteniveau>
+            <top10nl:brontype
+                    >top10vector
+            </top10nl:brontype>
+            <top10nl:bronbeschrijving>TOP10vector 2004</top10nl:bronbeschrijving>
+            <top10nl:bronactualiteit>2004-01-01</top10nl:bronactualiteit>
+            <top10nl:bronnauwkeurigheid>2</top10nl:bronnauwkeurigheid>
+            <top10nl:dimensie
+                    >2D
+            </top10nl:dimensie>
+            <top10nl:geometrieLijn>
+                <gml:LineString srsName='urn:opengis:def:crs:EPSG::28992'>
+                    <gml:posList srsDimension="2">19835.474 396022.949 19780.695 395952.122 19849.438 395900.174
+                        19868.977 395886.038
+                    </gml:posList>
+                </gml:LineString>
+            </top10nl:geometrieLijn>
+        </top10nl:KadeOfWal>
         <top10nl:OverigReliëf gml:id="nl.top10nl.101344818">
             <nen3610:identificatie>NL.TOP10NL.101344818</nen3610:identificatie>
             <nen3610:objectBeginTijd>2007-06-06T00:00:00</nen3610:objectBeginTijd>
@@ -422,6 +534,147 @@
             <top10nl:bronnauwkeurigheid>2</top10nl:bronnauwkeurigheid>
             <top10nl:dimensie>2D</top10nl:dimensie>
         </top10nl:OverigReliëf>
+
+        <top10nl:RegistratiefGebied gml:id="nl.top10nl.123237664">
+            <nen3610:identificatie>NL.TOP10NL.123237664</nen3610:identificatie>
+            <nen3610:objectBeginTijd>2011-08-25T00:00:00</nen3610:objectBeginTijd>
+            <nen3610:versieBeginTijd>2011-08-25T00:00:00</nen3610:versieBeginTijd>
+
+
+            <top10nl:naam xml:lang="nl">Veere</top10nl:naam>
+
+
+            <top10nl:typeRegistratiefGebied>gemeente
+            </top10nl:typeRegistratiefGebied>
+            <top10nl:geometrieVlak>
+                <gml:Polygon srsName='urn:opengis:def:crs:EPSG::28992'>
+                    <gml:exterior>
+                        <gml:LinearRing>
+                            <gml:posList srsDimension="2">38643.986 402400.18 38956.9 403000 40000 404996.32 40655.1
+                                406250 41621.04 408098.7 40000 408134.1 34000 408272.12 32096.04 408317.47 30888.5
+                                406250 30000 404728.75 29183.08 403330.06 23205.42 400019.76 23203.12 400000 23083.5
+                                398970.2
+                                22950.927 398797.863 22739.892 398747.774 22616.577 398564.199 22404.779 398513.348
+                                22294.939 398310.703 22085.684 398257.818 21944.062 398096.618 21766.335 398003.813
+                                21635.646
+                                397844.901 21493.516 397696.669 21320.365 397645.308 21199.084 397479.786 20962.878
+                                397425.629 20857.614 397368.421 20740.401 397301.551 20655.225 397254.004 20548.182
+                                397192.474
+                                20458.428 397136.537 20371.726 397090.262 20279.176 397036.613
+                                38643.986 402400.18
+                            </gml:posList>
+                        </gml:LinearRing>
+                    </gml:exterior>
+                </gml:Polygon>
+            </top10nl:geometrieVlak>
+            <top10nl:brontype>luchtfoto
+            </top10nl:brontype>
+            <top10nl:bronbeschrijving>orthogerectificeerde luchtfoto¿s van het terrein opgenomen in een per geografische
+                eenheid afgebakende mozaïek.
+            </top10nl:bronbeschrijving>
+            <top10nl:bronactualiteit>2010-01-01</top10nl:bronactualiteit>
+            <top10nl:bronnauwkeurigheid>0.4</top10nl:bronnauwkeurigheid>
+            <top10nl:dimensie
+                    >2D
+            </top10nl:dimensie>
+        </top10nl:RegistratiefGebied>
+
+        <top10nl:Wegdeel gml:id="nl.top10nl.115816446">
+            <nen3610:identificatie>NL.TOP10NL.115816446</nen3610:identificatie>
+            <nen3610:objectBeginTijd>2007-06-05T00:00:00</nen3610:objectBeginTijd>
+            <nen3610:versieBeginTijd>2007-06-05T00:00:00</nen3610:versieBeginTijd>
+            <nen3610:status>in gebruik</nen3610:status>
+
+            <top10nl:typeWeg>lokale weg</top10nl:typeWeg>
+            <top10nl:typeInfrastructuurWegdeel>verbinding</top10nl:typeInfrastructuurWegdeel>
+            <top10nl:hoofdverkeersgebruik>gemengd verkeer</top10nl:hoofdverkeersgebruik>
+            <top10nl:verhardingsbreedteklasse>2 - 4 meter</top10nl:verhardingsbreedteklasse>
+            <top10nl:gescheidenRijbaan>nee</top10nl:gescheidenRijbaan>
+            <top10nl:verhardingstype>verhard</top10nl:verhardingstype>
+            <top10nl:hoogteniveau>0</top10nl:hoogteniveau>
+            <top10nl:geometrieVlak>
+                <gml:Polygon srsName='urn:opengis:def:crs:EPSG::28992'>
+                    <gml:exterior>
+                        <gml:LinearRing>
+                            <gml:posList srsDimension="2">
+                                204663.751 448595.183 204660.066 448598.977 204657.193 448601.936
+                                204639.139 448584.403 204642.252 448581.048 204645.145 448577.927 204663.751 448595.183
+                            </gml:posList>
+                        </gml:LinearRing>
+                    </gml:exterior>
+                </gml:Polygon>
+            </top10nl:geometrieVlak>
+            <top10nl:hartLijn>
+                <gml:LineString srsName='urn:opengis:def:crs:EPSG::28992'>
+                    <gml:posList srsDimension="2">
+                        204665.094 448604.038 204660.066 448598.977 204642.252 448581.048 204640.879 448579.667
+                    </gml:posList>
+                </gml:LineString>
+            </top10nl:hartLijn>
+            <top10nl:brontype>top10vector</top10nl:brontype>
+            <top10nl:bronbeschrijving>Topografisch basisbestand van TDKadaster als vectorbestand met een gesloten
+                vlakken
+                structuur, opgebouwd uit gecodeerde en onderling verbonden lijnelementen. Objecttypen en attributen zijn
+                middels elementcodering opgeslagen.
+            </top10nl:bronbeschrijving>
+            <top10nl:bronactualiteit>2005-01-01</top10nl:bronactualiteit>
+            <top10nl:bronnauwkeurigheid>2</top10nl:bronnauwkeurigheid>
+            <top10nl:dimensie>2D</top10nl:dimensie>
+        </top10nl:Wegdeel>
+
+        <top10nl:Wegdeel gml:id="nl.top10nl.115819074">
+            <nen3610:identificatie>NL.TOP10NL.115819074</nen3610:identificatie>
+            <nen3610:objectBeginTijd>2007-06-05T00:00:00</nen3610:objectBeginTijd>
+            <nen3610:versieBeginTijd>2007-06-05T00:00:00</nen3610:versieBeginTijd>
+            <nen3610:status>in gebruik</nen3610:status>
+
+
+            <top10nl:typeWeg>lokale weg</top10nl:typeWeg>
+            <top10nl:typeWeg>regionale weg</top10nl:typeWeg>
+            <top10nl:typeInfrastructuurWegdeel>kruising</top10nl:typeInfrastructuurWegdeel>
+            <top10nl:hoofdverkeersgebruik>gemengd verkeer</top10nl:hoofdverkeersgebruik>
+            <top10nl:verhardingsbreedteklasse>4 - 7 meter
+            </top10nl:verhardingsbreedteklasse>
+            <top10nl:gescheidenRijbaan>nee
+            </top10nl:gescheidenRijbaan>
+            <top10nl:verhardingstype>verhard
+            </top10nl:verhardingstype>
+
+
+            <top10nl:straatnaam xml:lang="nl">Eekstraat</top10nl:straatnaam>
+
+
+            <top10nl:hoogteniveau>0</top10nl:hoogteniveau>
+            <top10nl:geometrieVlak>
+                <gml:Polygon srsName='urn:opengis:def:crs:EPSG::28992'>
+                    <gml:exterior>
+                        <gml:LinearRing>
+                            <gml:posList srsDimension="2">208444.714 448303.087 208445.324 448310.779 208446.112
+                                448320.708 208438.363 448319.058 208434.91 448318.322 208432.681 448305.119 208435.875
+                                448304.579 208444.714 448303.087
+                            </gml:posList>
+                        </gml:LinearRing>
+                    </gml:exterior>
+                </gml:Polygon>
+            </top10nl:geometrieVlak>
+            <top10nl:hartPunt>
+                <gml:Point srsName='urn:opengis:def:crs:EPSG::28992'>
+                    <gml:pos srsDimension="2">208437.006 448311.152</gml:pos>
+                </gml:Point>
+            </top10nl:hartPunt>
+            <top10nl:brontype
+                    >top10vector
+            </top10nl:brontype>
+            <top10nl:bronbeschrijving>Topografisch basisbestand van TDKadaster als vectorbestand met een gesloten
+                vlakken structuur, opgebouwd uit gecodeerde en onderling verbonden lijnelementen. Objecttypen en
+                attributen zijn middels elementcodering opgeslagen.
+            </top10nl:bronbeschrijving>
+            <top10nl:bronactualiteit>2005-01-01</top10nl:bronactualiteit>
+            <top10nl:bronnauwkeurigheid>2</top10nl:bronnauwkeurigheid>
+            <top10nl:dimensie
+                    >2D
+            </top10nl:dimensie>
+        </top10nl:Wegdeel>
 
     </gml:featureMembers>
 
