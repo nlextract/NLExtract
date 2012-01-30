@@ -11,6 +11,7 @@ PG_DB=top10nl
 PG_PORT=5432
 PG_USER=postgres
 PG_PASSWORD=postgres
+PGCLIENTENCODING="ISO-8859-1"
 
 # Wat te doen met meervoudig-voorkomende elementen als "nwegnummer"
 # 3 mogelijkheden:

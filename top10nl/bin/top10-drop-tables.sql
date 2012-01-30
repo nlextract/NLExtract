@@ -1,3 +1,4 @@
+
 DROP TABLE IF EXISTS	functioneelgebied;
 DROP TABLE IF EXISTS 	functioneelgebied_punt;
 DROP TABLE IF EXISTS 	functioneelgebied_vlak;
@@ -26,9 +27,9 @@ DROP TABLE IF EXISTS	isohoogte_lijn;
 DROP TABLE IF EXISTS	kadeofwal;
 DROP TABLE IF EXISTS	kadeofwal_lijn;
 
-DROP TABLE IF EXISTS	"overigreliëf";
-DROP TABLE IF EXISTS	"overigreliëf_lijn";
-DROP TABLE IF EXISTS	"overigreliëf_punt";
+DROP TABLE IF EXISTS	"overigreliÎf";
+DROP TABLE IF EXISTS	"overigreliÎf_lijn";
+DROP TABLE IF EXISTS	"overigreliÎf_punt";
 
 DROP TABLE IF EXISTS	registratiefgebied;
 DROP TABLE IF EXISTS	registratiefgebied_vlak;
