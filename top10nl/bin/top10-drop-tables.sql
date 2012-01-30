@@ -27,9 +27,9 @@ DROP TABLE IF EXISTS	isohoogte_lijn;
 DROP TABLE IF EXISTS	kadeofwal;
 DROP TABLE IF EXISTS	kadeofwal_lijn;
 
-DROP TABLE IF EXISTS	"overigreliÎf";
-DROP TABLE IF EXISTS	"overigreliÎf_lijn";
-DROP TABLE IF EXISTS	"overigreliÎf_punt";
+DROP TABLE IF EXISTS	"overigreliÃ«f";
+DROP TABLE IF EXISTS	"overigreliÃ«f_lijn";
+DROP TABLE IF EXISTS	"overigreliÃ«f_punt";
 
 DROP TABLE IF EXISTS	registratiefgebied;
 DROP TABLE IF EXISTS	registratiefgebied_vlak;

@@ -11,7 +11,7 @@ PG_DB=top10nl
 PG_PORT=5432
 PG_USER=postgres
 PG_PASSWORD=postgres
-PGCLIENTENCODING="ISO-8859-1"
+PGCLIENTENCODING="UTF-8"
 
 # Wat te doen met meervoudig-voorkomende elementen als "nwegnummer"
 # 3 mogelijkheden:
@@ -36,7 +36,7 @@ OGR_OUT_FORMAT=PostgreSQL
 OGR_OUT_OPTIONS="PG:dbname=$PG_DB host=$PG_HOST port=$PG_PORT user=$PG_USER password=$PG_PASSWORD"
 
 # PostgreSQL Layer Creation (-lco) opties
-OGR_LCO="-lco PG_USE_COPY=YES -lco PRECISION=NO"
+OGR_LCO="-lco PG_USE_COPY=YES -lco PRECISION=NO -lco LAUNDER=YES"
 # -lco PGSQL_OGR_FID=fid  (werkt niet)
 
 # Overwrite of append

@@ -17,6 +17,6 @@ checkProg "psql" "Het PostgreSQL client programma. Installeer deze of zet je PAT
 . $TOP10NL_BIN/top10-settings.sh
 
 export PGPASSWORD=$PG_PASSWORD
-export PGCLIENTENCODING="ISO-8859-1"
+export PGCLIENTENCODING="UTF-8"
 psql -d $PG_DB -U $PG_USER -p $PG_PORT -h $PG_HOST -f $SQL_FILE
 
