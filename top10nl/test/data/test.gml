@@ -273,7 +273,7 @@
             </top10nl:dimensie>
         </top10nl:Waterdeel>
 
-       <top10nl:Waterdeel gml:id="nl.top10nl.111016036">
+        <top10nl:Waterdeel gml:id="nl.top10nl.111016036">
             <nen3610:identificatie>NL.TOP10NL.111016036</nen3610:identificatie>
             <nen3610:objectBeginTijd>2007-06-06T00:00:00</nen3610:objectBeginTijd>
             <nen3610:versieBeginTijd>2007-06-06T00:00:00</nen3610:versieBeginTijd>
@@ -305,7 +305,8 @@
                         <gml:LinearRing>
                             <gml:posList srsDimension="2">205220.822 449559.145 205220.502 449529.485 205222.249
                                 449508.26 205231.236 449488.034 205233.732 449487.285 205236.977 449487.285 205239.973
-                                449490.283 205240.971 449497.523 205240.766 449500.391 205239.224 449521.994 205244.716 449575.679 205244.716 449585.418 205241.221 449597.403
+                                449490.283 205240.971 449497.523 205240.766 449500.391 205239.224 449521.994 205244.716
+                                449575.679 205244.716 449585.418 205241.221 449597.403
                                 205238.974 449598.402 205236.229 449598.902 205232.234 449596.904 205225.494 449585.917
                                 205220.822 449559.145
                             </gml:posList>
@@ -358,6 +359,45 @@
             <top10nl:dimensie>2D</top10nl:dimensie>
         </top10nl:Gebouw>
 
+
+        <top10nl:Inrichtingselement gml:id="nl.top10nl.104446635">
+            <nen3610:identificatie>NL.TOP10NL.104446635</nen3610:identificatie>
+            <nen3610:objectBeginTijd>2008-11-24T00:00:00</nen3610:objectBeginTijd>
+            <nen3610:versieBeginTijd>2008-11-24T00:00:00</nen3610:versieBeginTijd>
+            <nen3610:status>in gebruik</nen3610:status>
+            <top10nl:typeInrichtingselement>boom</top10nl:typeInrichtingselement>
+            <top10nl:hoogteniveau>0</top10nl:hoogteniveau>
+            <top10nl:geometriePunt>
+                <gml:Point srsName='urn:opengis:def:crs:EPSG::28992'>
+                    <gml:pos srsDimension="2">127367.783 480289.913</gml:pos>
+                </gml:Point>
+            </top10nl:geometriePunt>
+            <top10nl:brontype>top10vector</top10nl:brontype>
+            <top10nl:bronbeschrijving>TOP10vector 2006</top10nl:bronbeschrijving>
+            <top10nl:bronactualiteit>2006-01-01</top10nl:bronactualiteit>
+            <top10nl:bronnauwkeurigheid>2</top10nl:bronnauwkeurigheid>
+            <top10nl:dimensie>2D</top10nl:dimensie>
+        </top10nl:Inrichtingselement>
+
+        <top10nl:Inrichtingselement gml:id="nl.top10nl.103977522">
+            <nen3610:identificatie>NL.TOP10NL.103977522</nen3610:identificatie>
+            <nen3610:objectBeginTijd>2008-11-24T00:00:00</nen3610:objectBeginTijd>
+            <nen3610:versieBeginTijd>2008-11-24T00:00:00</nen3610:versieBeginTijd>
+            <nen3610:status>in gebruik</nen3610:status>
+            <top10nl:typeInrichtingselement>dam, koedam</top10nl:typeInrichtingselement>
+            <top10nl:hoogteniveau>0</top10nl:hoogteniveau>
+            <top10nl:geometrieLijn>
+                <gml:LineString srsName='urn:opengis:def:crs:EPSG::28992'>
+                    <gml:posList srsDimension="2">124078.371 498672.728 124086.055 498671.23</gml:posList>
+                </gml:LineString>
+            </top10nl:geometrieLijn>
+            <top10nl:brontype>top10vector</top10nl:brontype>
+            <top10nl:bronbeschrijving>TOP10vector 2006</top10nl:bronbeschrijving>
+            <top10nl:bronactualiteit>2006-01-01</top10nl:bronactualiteit>
+            <top10nl:bronnauwkeurigheid>2</top10nl:bronnauwkeurigheid>
+            <top10nl:dimensie>2D</top10nl:dimensie>
+        </top10nl:Inrichtingselement>
+
         <top10nl:OverigReliëf gml:id="nl.top10nl.101344818">
             <nen3610:identificatie>NL.TOP10NL.101344818</nen3610:identificatie>
             <nen3610:objectBeginTijd>2007-06-06T00:00:00</nen3610:objectBeginTijd>
@@ -366,13 +406,13 @@
             <top10nl:typeReliëf>hoogtelijn</top10nl:typeReliëf>
 
             <top10nl:geometrieLijn>
-                 <gml:LineString srsName='urn:opengis:def:crs:EPSG::28992'>
-                     <gml:posList srsDimension="2">204158.72 447730.107 204168.775 447732.95 204174.785 447731.89
-                         204180.618 447728.177 204189.166 447721.017 204219.397 447705.768 204233.091 447695.43
-                         204261.514 447676.562 204280.892 447661.313 204288.644 447652.137 204301.515 447632.5
-                     </gml:posList>
-                 </gml:LineString>
-             </top10nl:geometrieLijn>
+                <gml:LineString srsName='urn:opengis:def:crs:EPSG::28992'>
+                    <gml:posList srsDimension="2">204158.72 447730.107 204168.775 447732.95 204174.785 447731.89
+                        204180.618 447728.177 204189.166 447721.017 204219.397 447705.768 204233.091 447695.43
+                        204261.514 447676.562 204280.892 447661.313 204288.644 447652.137 204301.515 447632.5
+                    </gml:posList>
+                </gml:LineString>
+            </top10nl:geometrieLijn>
             <top10nl:brontype>top10vector</top10nl:brontype>
             <top10nl:bronbeschrijving>Topografisch basisbestand van TDKadaster als vectorbestand met een gesloten
                 vlakken structuur, opgebouwd uit gecodeerde en onderling verbonden lijnelementen. Objecttypen en
