@@ -5,6 +5,7 @@
     <categories>
       <category symbol="0" value="hoogbouw" label="hoogbouw"/>
       <category symbol="1" value="laagbouw" label="laagbouw"/>
+      <category symbol="2" value="onbekend" label="onbekend"/>
     </categories>
     <symbols>
       <symbol outputUnit="MM" alpha="1" type="fill" name="0">
@@ -24,7 +25,17 @@
           <prop k="offset" v="0,0"/>
           <prop k="style" v="solid"/>
           <prop k="style_border" v="solid"/>
-          <prop k="width_border" v="0.11"/>
+          <prop k="width_border" v="0.1"/>
+        </layer>
+      </symbol>
+      <symbol outputUnit="MM" alpha="1" type="fill" name="2">
+        <layer pass="0" class="SimpleFill" locked="0">
+          <prop k="color" v="108,99,101,255"/>
+          <prop k="color_border" v="62,53,57,255"/>
+          <prop k="offset" v="0,0"/>
+          <prop k="style" v="solid"/>
+          <prop k="style_border" v="solid"/>
+          <prop k="width_border" v="0.08"/>
         </layer>
       </symbol>
     </symbols>

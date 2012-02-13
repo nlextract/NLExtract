@@ -218,7 +218,7 @@
           <prop k="color_border" v="230,68,68,255"/>
           <prop k="name" v="circle"/>
           <prop k="offset" v="-0.1,-0.1"/>
-          <prop k="size" v="1.25"/>
+          <prop k="size" v="1"/>
         </layer>
       </symbol>
       <symbol outputUnit="MM" alpha="1" type="marker" name="24">
@@ -408,7 +408,7 @@
           <prop k="color_border" v="84,84,84,255"/>
           <prop k="name" v="circle"/>
           <prop k="offset" v="-0.1,-0.1"/>
-          <prop k="size" v="1.3"/>
+          <prop k="size" v="1.1"/>
         </layer>
       </symbol>
       <symbol outputUnit="MM" alpha="1" type="marker" name="41">
@@ -428,7 +428,7 @@
           <prop k="color_border" v="33,35,39,255"/>
           <prop k="name" v="circle"/>
           <prop k="offset" v="-0.1,-0.1"/>
-          <prop k="size" v="0.44"/>
+          <prop k="size" v="0.41"/>
         </layer>
       </symbol>
       <symbol outputUnit="MM" alpha="1" type="marker" name="43">

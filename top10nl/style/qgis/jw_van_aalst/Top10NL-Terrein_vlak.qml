@@ -21,6 +21,9 @@
       <category symbol="15" value="populieren" label="populieren"/>
       <category symbol="16" value="spoorbaanlichaam" label="spoorbaanlichaam"/>
       <category symbol="17" value="zand" label="zand"/>
+      <category symbol="18" value="dodenakker met bos" label="dodenakker met bos"/>
+      <category symbol="19" value="laadperron" label="laadperron"/>
+      <category symbol="20" value="onbekend" label="onbekend"/>
     </categories>
     <symbols>
       <symbol outputUnit="MM" alpha="1" type="fill" name="0">
@@ -123,6 +126,26 @@
           <prop k="width_border" v="0.1"/>
         </layer>
       </symbol>
+      <symbol outputUnit="MM" alpha="1" type="fill" name="18">
+        <layer pass="0" class="SimpleFill" locked="0">
+          <prop k="color" v="185,188,156,255"/>
+          <prop k="color_border" v="115,118,90,255"/>
+          <prop k="offset" v="0,0"/>
+          <prop k="style" v="solid"/>
+          <prop k="style_border" v="solid"/>
+          <prop k="width_border" v="0.11"/>
+        </layer>
+      </symbol>
+      <symbol outputUnit="MM" alpha="1" type="fill" name="19">
+        <layer pass="0" class="SimpleFill" locked="0">
+          <prop k="color" v="125,122,125,255"/>
+          <prop k="color_border" v="119,113,118,255"/>
+          <prop k="offset" v="0,0"/>
+          <prop k="style" v="solid"/>
+          <prop k="style_border" v="solid"/>
+          <prop k="width_border" v="0.12"/>
+        </layer>
+      </symbol>
       <symbol outputUnit="MM" alpha="1" type="fill" name="2">
         <layer pass="0" class="SimpleFill" locked="0">
           <prop k="color" v="93,98,106,255"/>
@@ -131,6 +154,16 @@
           <prop k="style" v="solid"/>
           <prop k="style_border" v="solid"/>
           <prop k="width_border" v="0.12"/>
+        </layer>
+      </symbol>
+      <symbol outputUnit="MM" alpha="1" type="fill" name="20">
+        <layer pass="0" class="SimpleFill" locked="0">
+          <prop k="color" v="170,163,166,255"/>
+          <prop k="color_border" v="70,64,66,255"/>
+          <prop k="offset" v="0,0"/>
+          <prop k="style" v="solid"/>
+          <prop k="style_border" v="solid"/>
+          <prop k="width_border" v="0.08"/>
         </layer>
       </symbol>
       <symbol outputUnit="MM" alpha="1" type="fill" name="3">
