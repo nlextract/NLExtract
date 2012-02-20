@@ -18,6 +18,7 @@ from bagconfig import BAGConfig
 
 class ArgParser(argparse.ArgumentParser):
      def error(self, message):
+        print message
         self.print_help()
         sys.exit(2)
 
