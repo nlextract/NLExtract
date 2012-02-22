@@ -64,10 +64,18 @@
       <symbol outputUnit="MM" alpha="1" type="marker" name="1">
         <layer pass="0" class="SimpleMarker" locked="0">
           <prop k="angle" v="0"/>
-          <prop k="color" v="147,105,41,255"/>
-          <prop k="color_border" v="94,78,58,255"/>
+          <prop k="color" v="255,247,8,255"/>
+          <prop k="color_border" v="253,245,5,255"/>
           <prop k="name" v="circle"/>
-          <prop k="offset" v="-0.2,-0.2"/>
+          <prop k="offset" v="-0.1,-0.1"/>
+          <prop k="size" v="1.25"/>
+        </layer>
+        <layer pass="0" class="SimpleMarker" locked="0">
+          <prop k="angle" v="0"/>
+          <prop k="color" v="150,103,33,255"/>
+          <prop k="color_border" v="110,77,36,255"/>
+          <prop k="name" v="circle"/>
+          <prop k="offset" v="-0.1,-0.1"/>
           <prop k="size" v="0.71"/>
         </layer>
       </symbol>
@@ -124,11 +132,11 @@
       <symbol outputUnit="MM" alpha="1" type="marker" name="15">
         <layer pass="0" class="SimpleMarker" locked="0">
           <prop k="angle" v="0"/>
-          <prop k="color" v="199,28,22,255"/>
-          <prop k="color_border" v="90,14,10,255"/>
-          <prop k="name" v="circle"/>
-          <prop k="offset" v="-0.11,-0.1"/>
-          <prop k="size" v="0.98"/>
+          <prop k="color" v="199,20,14,255"/>
+          <prop k="color_border" v="67,9,6,255"/>
+          <prop k="name" v="triangle"/>
+          <prop k="offset" v="-0.11,-0.15"/>
+          <prop k="size" v="1.1"/>
         </layer>
       </symbol>
       <symbol outputUnit="MM" alpha="1" type="marker" name="16">
@@ -266,9 +274,9 @@
           <prop k="angle" v="0"/>
           <prop k="color" v="182,188,116,255"/>
           <prop k="color_border" v="68,63,50,255"/>
-          <prop k="name" v="circle"/>
+          <prop k="name" v="rectangle"/>
           <prop k="offset" v="-0.2,-0.15"/>
-          <prop k="size" v="1.41"/>
+          <prop k="size" v="1.55"/>
         </layer>
       </symbol>
       <symbol outputUnit="MM" alpha="1" type="marker" name="29">

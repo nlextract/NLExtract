@@ -6,7 +6,7 @@
       <symbol outputUnit="MM" alpha="1" type="fill" name="0">
         <layer pass="0" class="SimpleFill" locked="0">
           <prop k="color" v="250,249,250,255"/>
-          <prop k="color_border" v="84,79,81,255"/>
+          <prop k="color_border" v="71,66,68,255"/>
           <prop k="offset" v="0,0"/>
           <prop k="style" v="no"/>
           <prop k="style_border" v="solid"/>

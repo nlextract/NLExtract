@@ -50,7 +50,7 @@
       <category symbol="44" value="(2:rolbaan, platform,overig)" label="(2:rolbaan, platform,overig)"/>
       <category symbol="45" value="(3:rolbaan, platform,overig,straat)" label="nog een"/>
       <category symbol="46" value="(3:hoofdweg,lokale weg,straat)" label="(3:hoofdweg,lokale weg,straat)"/>
-      <category symbol="47" value="(3:startbaan, landingsbaan,rolbaan, platform,straat)" label="(3:startbaan, landingsbaan,rolbaan, platform,straat)"/>
+      <category symbol="47" value="(4:hoofdweg,lokale weg,straat,overig)" label="(4:hoofdweg,lokale weg,straat,overig)"/>
     </categories>
     <symbols>
       <symbol outputUnit="MM" alpha="1" type="fill" name="0">
@@ -180,7 +180,7 @@
           <prop k="offset" v="0,0"/>
           <prop k="style" v="solid"/>
           <prop k="style_border" v="solid"/>
-          <prop k="width_border" v="0.17"/>
+          <prop k="width_border" v="0.14"/>
         </layer>
       </symbol>
       <symbol outputUnit="MM" alpha="1" type="fill" name="20">
@@ -290,7 +290,7 @@
           <prop k="offset" v="0,0"/>
           <prop k="style" v="solid"/>
           <prop k="style_border" v="solid"/>
-          <prop k="width_border" v="0.17"/>
+          <prop k="width_border" v="0.12"/>
         </layer>
       </symbol>
       <symbol outputUnit="MM" alpha="1" type="fill" name="30">
@@ -400,7 +400,7 @@
           <prop k="offset" v="0,0"/>
           <prop k="style" v="solid"/>
           <prop k="style_border" v="solid"/>
-          <prop k="width_border" v="0.17"/>
+          <prop k="width_border" v="0.15"/>
         </layer>
       </symbol>
       <symbol outputUnit="MM" alpha="1" type="fill" name="40">
@@ -474,13 +474,13 @@
         </layer>
       </symbol>
       <symbol outputUnit="MM" alpha="1" type="fill" name="47">
-        <layer pass="0" class="SimpleFill" locked="0">
-          <prop k="color" v="242,246,250,255"/>
-          <prop k="color_border" v="242,246,250,255"/>
+        <layer pass="47" class="SimpleFill" locked="0">
+          <prop k="color" v="199,65,67,255"/>
+          <prop k="color_border" v="199,65,67,255"/>
           <prop k="offset" v="0,0"/>
           <prop k="style" v="solid"/>
           <prop k="style_border" v="solid"/>
-          <prop k="width_border" v="0.18"/>
+          <prop k="width_border" v="0.19"/>
         </layer>
       </symbol>
       <symbol outputUnit="MM" alpha="1" type="fill" name="5">
@@ -490,7 +490,7 @@
           <prop k="offset" v="0,0"/>
           <prop k="style" v="solid"/>
           <prop k="style_border" v="solid"/>
-          <prop k="width_border" v="0.17"/>
+          <prop k="width_border" v="0.12"/>
         </layer>
       </symbol>
       <symbol outputUnit="MM" alpha="1" type="fill" name="6">
@@ -525,8 +525,8 @@
       </symbol>
       <symbol outputUnit="MM" alpha="1" type="fill" name="9">
         <layer pass="10" class="SimpleFill" locked="0">
-          <prop k="color" v="118,68,210,255"/>
-          <prop k="color_border" v="118,68,210,255"/>
+          <prop k="color" v="244,188,55,255"/>
+          <prop k="color_border" v="244,188,55,255"/>
           <prop k="offset" v="0,0"/>
           <prop k="style" v="solid"/>
           <prop k="style_border" v="solid"/>
@@ -553,7 +553,53 @@
     <rotation field=""/>
     <sizescale field=""/>
   </renderer-v2>
-  <customproperties/>
+  <customproperties>
+    <property key="labeling" value="pal"/>
+    <property key="labeling/addDirectionSymbol" value="false"/>
+    <property key="labeling/bufferColorB" value="255"/>
+    <property key="labeling/bufferColorG" value="255"/>
+    <property key="labeling/bufferColorR" value="255"/>
+    <property key="labeling/bufferSize" value="1"/>
+    <property key="labeling/dataDefinedProperty0" value=""/>
+    <property key="labeling/dataDefinedProperty1" value=""/>
+    <property key="labeling/dataDefinedProperty10" value=""/>
+    <property key="labeling/dataDefinedProperty11" value=""/>
+    <property key="labeling/dataDefinedProperty12" value=""/>
+    <property key="labeling/dataDefinedProperty13" value=""/>
+    <property key="labeling/dataDefinedProperty14" value=""/>
+    <property key="labeling/dataDefinedProperty2" value=""/>
+    <property key="labeling/dataDefinedProperty3" value=""/>
+    <property key="labeling/dataDefinedProperty4" value=""/>
+    <property key="labeling/dataDefinedProperty5" value=""/>
+    <property key="labeling/dataDefinedProperty6" value=""/>
+    <property key="labeling/dataDefinedProperty7" value=""/>
+    <property key="labeling/dataDefinedProperty8" value=""/>
+    <property key="labeling/dataDefinedProperty9" value=""/>
+    <property key="labeling/dist" value="0"/>
+    <property key="labeling/distInMapUnits" value="false"/>
+    <property key="labeling/enabled" value="false"/>
+    <property key="labeling/fieldName" value="straatnaam"/>
+    <property key="labeling/fontFamily" value="Cambria"/>
+    <property key="labeling/fontItalic" value="true"/>
+    <property key="labeling/fontSize" value="9"/>
+    <property key="labeling/fontSizeInMapUnits" value="false"/>
+    <property key="labeling/fontStrikeout" value="false"/>
+    <property key="labeling/fontUnderline" value="false"/>
+    <property key="labeling/fontWeight" value="50"/>
+    <property key="labeling/labelPerPart" value="false"/>
+    <property key="labeling/mergeLines" value="false"/>
+    <property key="labeling/minFeatureSize" value="0"/>
+    <property key="labeling/multiLineLabels" value="false"/>
+    <property key="labeling/obstacle" value="true"/>
+    <property key="labeling/placement" value="2"/>
+    <property key="labeling/placementFlags" value="2"/>
+    <property key="labeling/priority" value="5"/>
+    <property key="labeling/scaleMax" value="0"/>
+    <property key="labeling/scaleMin" value="0"/>
+    <property key="labeling/textColorB" value="0"/>
+    <property key="labeling/textColorG" value="0"/>
+    <property key="labeling/textColorR" value="0"/>
+  </customproperties>
   <displayfield>ogc_fid</displayfield>
   <label>0</label>
   <labelattributes>

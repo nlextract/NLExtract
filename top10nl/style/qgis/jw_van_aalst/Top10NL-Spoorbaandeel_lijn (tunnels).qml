@@ -12,7 +12,7 @@
           <prop k="offset" v="0"/>
           <prop k="penstyle" v="dash"/>
           <prop k="use_custom_dash" v="0"/>
-          <prop k="width" v="0.29"/>
+          <prop k="width" v="0.42"/>
         </layer>
       </symbol>
     </symbols>
@@ -104,7 +104,7 @@
     <edittype type="0" name="vervoerfun"/>
     <edittype type="0" name="vervoerfunctie"/>
   </edittypes>
-  <editform></editform>
+  <editform>.</editform>
   <editforminit></editforminit>
   <annotationform>../../../../../..</annotationform>
   <attributeactions/>

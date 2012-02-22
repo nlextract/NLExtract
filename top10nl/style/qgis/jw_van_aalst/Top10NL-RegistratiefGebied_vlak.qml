@@ -3,16 +3,14 @@
   <transparencyLevelInt>255</transparencyLevelInt>
   <renderer-v2 symbollevels="0" type="singleSymbol">
     <symbols>
-      <symbol outputUnit="MM" alpha="1" type="line" name="0">
-        <layer pass="0" class="SimpleLine" locked="0">
-          <prop k="capstyle" v="square"/>
-          <prop k="color" v="129,106,69,255"/>
-          <prop k="customdash" v="0.57;0.87"/>
-          <prop k="joinstyle" v="bevel"/>
-          <prop k="offset" v="0"/>
-          <prop k="penstyle" v="dot"/>
-          <prop k="use_custom_dash" v="1"/>
-          <prop k="width" v="0.08"/>
+      <symbol outputUnit="MM" alpha="1" type="fill" name="0">
+        <layer pass="0" class="SimpleFill" locked="0">
+          <prop k="color" v="121,121,121,255"/>
+          <prop k="color_border" v="0,0,0,255"/>
+          <prop k="offset" v="0,0"/>
+          <prop k="style" v="no"/>
+          <prop k="style_border" v="no"/>
+          <prop k="width_border" v="0.1"/>
         </layer>
       </symbol>
     </symbols>
@@ -20,60 +18,47 @@
     <sizescale field=""/>
   </renderer-v2>
   <customproperties/>
-  <displayfield>gml_id</displayfield>
+  <displayfield>ogc_fid</displayfield>
   <label>1</label>
-  <labelfield>hoogte</labelfield>
+  <labelfield>naam</labelfield>
   <labelattributes>
-    <label fieldname="hoogte" text=""/>
-    <family fieldname="" name="Cambria"/>
-    <size fieldname="" units="pt" value="7"/>
+    <label fieldname="naam" text=""/>
+    <family fieldname="" name="Century Gothic"/>
+    <size fieldname="" units="pt" value="24"/>
     <bold fieldname="" on="0"/>
-    <italic fieldname="" on="1"/>
+    <italic fieldname="" on="0"/>
     <underline fieldname="" on="0"/>
     <strikeout fieldname="" on="0"/>
-    <color fieldname="" red="138" blue="76" green="115"/>
+    <color fieldname="" red="111" blue="198" green="93"/>
     <x fieldname=""/>
     <y fieldname=""/>
-    <offset x="0" y="1.6" units="pt" yfieldname="" xfieldname=""/>
+    <offset x="0" y="0" units="pt" yfieldname="" xfieldname=""/>
     <angle fieldname="" value="0" auto="0"/>
     <alignment fieldname="" value="center"/>
-    <buffercolor fieldname="" red="255" blue="255" green="255"/>
-    <buffersize fieldname="" units="pt" value="1"/>
-    <bufferenabled fieldname="" on=""/>
+    <buffercolor fieldname="" red="240" blue="240" green="240"/>
+    <buffersize fieldname="" units="pt" value="0.8"/>
+    <bufferenabled fieldname="" on="1"/>
     <multilineenabled fieldname="" on=""/>
     <selectedonly on=""/>
   </labelattributes>
   <edittypes>
-    <edittype type="0" name="bronactual"/>
     <edittype type="0" name="bronactualiteit"/>
-    <edittype type="0" name="bronbeschr"/>
     <edittype type="0" name="bronbeschrijving"/>
-    <edittype type="0" name="bronnauwke"/>
     <edittype type="0" name="bronnauwkeurigheid"/>
     <edittype type="0" name="brontype"/>
     <edittype type="0" name="dimensie"/>
     <edittype type="0" name="fid"/>
     <edittype type="0" name="gml_id"/>
-    <edittype type="0" name="hoogte"/>
-    <edittype type="0" name="hoogtenive"/>
-    <edittype type="0" name="hoogteniveau"/>
-    <edittype type="0" name="identifica"/>
     <edittype type="0" name="identificatie"/>
-    <edittype type="0" name="objectBegi"/>
-    <edittype type="0" name="objectBeginTijd"/>
+    <edittype type="0" name="naam"/>
     <edittype type="0" name="objectbegintijd"/>
     <edittype type="0" name="ogc_fid"/>
-    <edittype type="0" name="status"/>
-    <edittype type="0" name="typeReliÃ«"/>
-    <edittype type="0" name="typeReliÃ«f"/>
-    <edittype type="0" name="typereliëf"/>
-    <edittype type="0" name="versieBegi"/>
-    <edittype type="0" name="versieBeginTijd"/>
+    <edittype type="0" name="typeregistratiefgebied"/>
     <edittype type="0" name="versiebegintijd"/>
   </edittypes>
-  <editform>.</editform>
+  <editform></editform>
   <editforminit></editforminit>
-  <annotationform>../../../../../..</annotationform>
+  <annotationform></annotationform>
   <attributeactions/>
   <overlay display="false" type="diagram">
     <renderer item_interpretation="linear">

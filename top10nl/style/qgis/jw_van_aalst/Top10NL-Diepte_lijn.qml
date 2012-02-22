@@ -21,24 +21,25 @@
   </renderer-v2>
   <customproperties/>
   <displayfield>gml_id</displayfield>
-  <label>0</label>
+  <label>1</label>
+  <labelfield>hoogte</labelfield>
   <labelattributes>
-    <label fieldname="" text="Label"/>
-    <family fieldname="" name="MS Shell Dlg 2"/>
-    <size fieldname="" units="pt" value="12"/>
+    <label fieldname="hoogte" text="Label"/>
+    <family fieldname="" name="Cambria"/>
+    <size fieldname="" units="pt" value="11"/>
     <bold fieldname="" on="0"/>
-    <italic fieldname="" on="0"/>
+    <italic fieldname="" on="1"/>
     <underline fieldname="" on="0"/>
     <strikeout fieldname="" on="0"/>
-    <color fieldname="" red="0" blue="0" green="0"/>
+    <color fieldname="" red="104" blue="133" green="108"/>
     <x fieldname=""/>
     <y fieldname=""/>
-    <offset x="0" y="0" units="pt" yfieldname="" xfieldname=""/>
+    <offset x="0" y="1.6" units="pt" yfieldname="" xfieldname=""/>
     <angle fieldname="" value="0" auto="0"/>
     <alignment fieldname="" value="center"/>
-    <buffercolor fieldname="" red="255" blue="255" green="255"/>
-    <buffersize fieldname="" units="pt" value="1"/>
-    <bufferenabled fieldname="" on=""/>
+    <buffercolor fieldname="" red="148" blue="235" green="204"/>
+    <buffersize fieldname="" units="pt" value="1.5"/>
+    <bufferenabled fieldname="" on="1"/>
     <multilineenabled fieldname="" on=""/>
     <selectedonly on=""/>
   </labelattributes>

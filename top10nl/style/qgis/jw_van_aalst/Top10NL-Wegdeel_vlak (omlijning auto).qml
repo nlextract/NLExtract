@@ -10,7 +10,7 @@
           <prop k="offset" v="0,0"/>
           <prop k="style" v="no"/>
           <prop k="style_border" v="solid"/>
-          <prop k="width_border" v="0.54"/>
+          <prop k="width_border" v="0.5"/>
         </layer>
       </symbol>
     </symbols>

@@ -12,7 +12,7 @@
           <prop k="offset" v="0"/>
           <prop k="penstyle" v="dash"/>
           <prop k="use_custom_dash" v="0"/>
-          <prop k="width" v="0.37"/>
+          <prop k="width" v="0.44"/>
         </layer>
       </symbol>
     </symbols>

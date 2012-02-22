@@ -6,7 +6,7 @@
       <symbol outputUnit="MM" alpha="0.615686274509804" type="line" name="0">
         <layer pass="0" class="SimpleLine" locked="0">
           <prop k="capstyle" v="square"/>
-          <prop k="color" v="132,138,115,255"/>
+          <prop k="color" v="136,142,119,255"/>
           <prop k="customdash" v="0.4;0.8"/>
           <prop k="joinstyle" v="bevel"/>
           <prop k="offset" v="0"/>
@@ -70,7 +70,7 @@
     <edittype type="0" name="versieBegi"/>
     <edittype type="0" name="versiebegintijd"/>
   </edittypes>
-  <editform></editform>
+  <editform>.</editform>
   <editforminit></editforminit>
   <annotationform>.</annotationform>
   <attributeactions/>

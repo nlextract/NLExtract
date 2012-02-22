@@ -20,6 +20,9 @@
       <category symbol="14" value="laadperron" label="laadperron"/>
       <category symbol="15" value="leiding" label="leiding"/>
       <category symbol="16" value="stormvloedkering" label="stormvloedkering"/>
+      <category symbol="17" value="overig" label="overig"/>
+      <category symbol="18" value="tank" label="tank"/>
+      <category symbol="19" value="onbekend" label="onbekend"/>
     </categories>
     <symbols>
       <symbol outputUnit="MM" alpha="1" type="line" name="0">
@@ -31,19 +34,19 @@
           <prop k="offset" v="0"/>
           <prop k="penstyle" v="solid"/>
           <prop k="use_custom_dash" v="0"/>
-          <prop k="width" v="0.21"/>
+          <prop k="width" v="0.16"/>
         </layer>
       </symbol>
       <symbol outputUnit="MM" alpha="1" type="line" name="1">
         <layer pass="0" class="SimpleLine" locked="0">
           <prop k="capstyle" v="square"/>
-          <prop k="color" v="108,132,105,255"/>
-          <prop k="customdash" v="5;2"/>
+          <prop k="color" v="112,138,107,255"/>
+          <prop k="customdash" v="0.2;1.2"/>
           <prop k="joinstyle" v="bevel"/>
           <prop k="offset" v="0"/>
-          <prop k="penstyle" v="no"/>
+          <prop k="penstyle" v="dot"/>
           <prop k="use_custom_dash" v="0"/>
-          <prop k="width" v="0"/>
+          <prop k="width" v="0.09"/>
         </layer>
       </symbol>
       <symbol outputUnit="MM" alpha="1" type="line" name="10">
@@ -103,7 +106,7 @@
           <prop k="offset" v="0"/>
           <prop k="penstyle" v="solid"/>
           <prop k="use_custom_dash" v="0"/>
-          <prop k="width" v="0.22"/>
+          <prop k="width" v="0.25"/>
         </layer>
       </symbol>
       <symbol outputUnit="MM" alpha="1" type="line" name="15">
@@ -128,6 +131,42 @@
           <prop k="penstyle" v="solid"/>
           <prop k="use_custom_dash" v="0"/>
           <prop k="width" v="0.46"/>
+        </layer>
+      </symbol>
+      <symbol outputUnit="MM" alpha="1" type="line" name="17">
+        <layer pass="0" class="SimpleLine" locked="0">
+          <prop k="capstyle" v="square"/>
+          <prop k="color" v="34,37,26,255"/>
+          <prop k="customdash" v="5;2"/>
+          <prop k="joinstyle" v="bevel"/>
+          <prop k="offset" v="0"/>
+          <prop k="penstyle" v="solid"/>
+          <prop k="use_custom_dash" v="0"/>
+          <prop k="width" v="1.5"/>
+        </layer>
+      </symbol>
+      <symbol outputUnit="MM" alpha="1" type="line" name="18">
+        <layer pass="0" class="SimpleLine" locked="0">
+          <prop k="capstyle" v="square"/>
+          <prop k="color" v="47,48,55,255"/>
+          <prop k="customdash" v="5;2"/>
+          <prop k="joinstyle" v="bevel"/>
+          <prop k="offset" v="0"/>
+          <prop k="penstyle" v="solid"/>
+          <prop k="use_custom_dash" v="0"/>
+          <prop k="width" v="0.25"/>
+        </layer>
+      </symbol>
+      <symbol outputUnit="MM" alpha="1" type="line" name="19">
+        <layer pass="0" class="SimpleLine" locked="0">
+          <prop k="capstyle" v="square"/>
+          <prop k="color" v="184,31,31,255"/>
+          <prop k="customdash" v="5;2"/>
+          <prop k="joinstyle" v="bevel"/>
+          <prop k="offset" v="0"/>
+          <prop k="penstyle" v="solid"/>
+          <prop k="use_custom_dash" v="0"/>
+          <prop k="width" v="1.5"/>
         </layer>
       </symbol>
       <symbol outputUnit="MM" alpha="1" type="line" name="2">
@@ -169,7 +208,7 @@
       <symbol outputUnit="MM" alpha="1" type="line" name="5">
         <layer pass="0" class="SimpleLine" locked="0">
           <prop k="capstyle" v="square"/>
-          <prop k="color" v="33,8,10,255"/>
+          <prop k="color" v="42,3,6,255"/>
           <prop k="customdash" v="1.9;0.95"/>
           <prop k="joinstyle" v="bevel"/>
           <prop k="offset" v="0"/>

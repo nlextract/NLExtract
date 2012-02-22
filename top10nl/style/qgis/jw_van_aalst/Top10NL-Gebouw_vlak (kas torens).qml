@@ -27,9 +27,6 @@
       <category symbol="21" value="(2:ruïne,toren)" label="(2:ruïne,toren)"/>
       <category symbol="22" value="(2:toren,overig)" label="(2:toren,overig)"/>
       <category symbol="23" value="(2:vuurtoren,watertoren)" label="(2:vuurtoren,watertoren)"/>
-      <category symbol="24" value="radartoren" label="radartoren"/>
-      <category symbol="25" value="toren" label="toren"/>
-      <category symbol="26" value="vuurtoren" label="vuurtoren"/>
     </categories>
     <symbols>
       <symbol outputUnit="MM" alpha="1" type="fill" name="0">
@@ -44,7 +41,7 @@
       </symbol>
       <symbol outputUnit="MM" alpha="1" type="fill" name="1">
         <layer pass="0" class="SimpleFill" locked="0">
-          <prop k="color" v="204,225,218,255"/>
+          <prop k="color" v="203,225,218,255"/>
           <prop k="color_border" v="58,88,95,255"/>
           <prop k="offset" v="0,0"/>
           <prop k="style" v="solid"/>
@@ -104,37 +101,37 @@
       </symbol>
       <symbol outputUnit="MM" alpha="1" type="fill" name="15">
         <layer pass="0" class="SimpleFill" locked="0">
-          <prop k="color" v="73,47,46,255"/>
+          <prop k="color" v="73,62,61,255"/>
           <prop k="color_border" v="38,17,14,255"/>
           <prop k="offset" v="0,0"/>
           <prop k="style" v="solid"/>
           <prop k="style_border" v="solid"/>
-          <prop k="width_border" v="0.21"/>
+          <prop k="width_border" v="0.14"/>
         </layer>
       </symbol>
       <symbol outputUnit="MM" alpha="1" type="fill" name="16">
         <layer pass="0" class="SimpleFill" locked="0">
-          <prop k="color" v="73,47,46,255"/>
+          <prop k="color" v="71,60,62,255"/>
           <prop k="color_border" v="38,17,14,255"/>
           <prop k="offset" v="0,0"/>
           <prop k="style" v="solid"/>
           <prop k="style_border" v="solid"/>
-          <prop k="width_border" v="0.24"/>
+          <prop k="width_border" v="0.14"/>
         </layer>
       </symbol>
       <symbol outputUnit="MM" alpha="1" type="fill" name="17">
         <layer pass="0" class="SimpleFill" locked="0">
-          <prop k="color" v="73,47,46,255"/>
+          <prop k="color" v="73,62,61,255"/>
           <prop k="color_border" v="38,17,14,255"/>
           <prop k="offset" v="0,0"/>
           <prop k="style" v="solid"/>
           <prop k="style_border" v="solid"/>
-          <prop k="width_border" v="0.24"/>
+          <prop k="width_border" v="0.14"/>
         </layer>
       </symbol>
       <symbol outputUnit="MM" alpha="1" type="fill" name="18">
         <layer pass="0" class="SimpleFill" locked="0">
-          <prop k="color" v="73,47,46,255"/>
+          <prop k="color" v="73,62,61,255"/>
           <prop k="color_border" v="38,17,14,255"/>
           <prop k="offset" v="0,0"/>
           <prop k="style" v="solid"/>
@@ -144,7 +141,7 @@
       </symbol>
       <symbol outputUnit="MM" alpha="1" type="fill" name="19">
         <layer pass="0" class="SimpleFill" locked="0">
-          <prop k="color" v="38,132,233,255"/>
+          <prop k="color" v="100,154,210,255"/>
           <prop k="color_border" v="14,17,44,255"/>
           <prop k="offset" v="0,0"/>
           <prop k="style" v="solid"/>
@@ -154,47 +151,47 @@
       </symbol>
       <symbol outputUnit="MM" alpha="1" type="fill" name="2">
         <layer pass="0" class="SimpleFill" locked="0">
-          <prop k="color" v="73,47,46,255"/>
+          <prop k="color" v="71,60,62,255"/>
           <prop k="color_border" v="38,17,14,255"/>
           <prop k="offset" v="0,0"/>
           <prop k="style" v="solid"/>
           <prop k="style_border" v="solid"/>
-          <prop k="width_border" v="0.24"/>
+          <prop k="width_border" v="0.16"/>
         </layer>
       </symbol>
       <symbol outputUnit="MM" alpha="1" type="fill" name="20">
         <layer pass="0" class="SimpleFill" locked="0">
-          <prop k="color" v="73,47,46,255"/>
+          <prop k="color" v="73,62,61,255"/>
           <prop k="color_border" v="38,17,14,255"/>
           <prop k="offset" v="0,0"/>
           <prop k="style" v="solid"/>
           <prop k="style_border" v="solid"/>
-          <prop k="width_border" v="0.22"/>
+          <prop k="width_border" v="0.14"/>
         </layer>
       </symbol>
       <symbol outputUnit="MM" alpha="1" type="fill" name="21">
         <layer pass="0" class="SimpleFill" locked="0">
-          <prop k="color" v="73,47,46,255"/>
+          <prop k="color" v="73,62,61,255"/>
           <prop k="color_border" v="38,17,14,255"/>
           <prop k="offset" v="0,0"/>
           <prop k="style" v="solid"/>
           <prop k="style_border" v="solid"/>
-          <prop k="width_border" v="0.22"/>
+          <prop k="width_border" v="0.14"/>
         </layer>
       </symbol>
       <symbol outputUnit="MM" alpha="1" type="fill" name="22">
         <layer pass="0" class="SimpleFill" locked="0">
-          <prop k="color" v="73,53,52,255"/>
+          <prop k="color" v="71,60,62,255"/>
           <prop k="color_border" v="38,17,14,255"/>
           <prop k="offset" v="0,0"/>
           <prop k="style" v="solid"/>
           <prop k="style_border" v="solid"/>
-          <prop k="width_border" v="0.38"/>
+          <prop k="width_border" v="0.16"/>
         </layer>
       </symbol>
       <symbol outputUnit="MM" alpha="1" type="fill" name="23">
         <layer pass="0" class="SimpleFill" locked="0">
-          <prop k="color" v="41,85,207,255"/>
+          <prop k="color" v="97,152,207,255"/>
           <prop k="color_border" v="15,17,44,255"/>
           <prop k="offset" v="0,0"/>
           <prop k="style" v="solid"/>
@@ -202,39 +199,9 @@
           <prop k="width_border" v="0.22"/>
         </layer>
       </symbol>
-      <symbol outputUnit="MM" alpha="1" type="fill" name="24">
-        <layer pass="0" class="SimpleFill" locked="0">
-          <prop k="color" v="54,230,34,255"/>
-          <prop k="color_border" v="16,45,14,255"/>
-          <prop k="offset" v="0,0"/>
-          <prop k="style" v="solid"/>
-          <prop k="style_border" v="solid"/>
-          <prop k="width_border" v="0.28"/>
-        </layer>
-      </symbol>
-      <symbol outputUnit="MM" alpha="1" type="fill" name="25">
-        <layer pass="0" class="SimpleFill" locked="0">
-          <prop k="color" v="73,47,46,255"/>
-          <prop k="color_border" v="38,17,14,255"/>
-          <prop k="offset" v="0,0"/>
-          <prop k="style" v="solid"/>
-          <prop k="style_border" v="solid"/>
-          <prop k="width_border" v="0.24"/>
-        </layer>
-      </symbol>
-      <symbol outputUnit="MM" alpha="1" type="fill" name="26">
-        <layer pass="0" class="SimpleFill" locked="0">
-          <prop k="color" v="232,25,10,255"/>
-          <prop k="color_border" v="38,17,14,255"/>
-          <prop k="offset" v="0,0"/>
-          <prop k="style" v="solid"/>
-          <prop k="style_border" v="solid"/>
-          <prop k="width_border" v="0.24"/>
-        </layer>
-      </symbol>
       <symbol outputUnit="MM" alpha="1" type="fill" name="3">
         <layer pass="0" class="SimpleFill" locked="0">
-          <prop k="color" v="40,90,166,255"/>
+          <prop k="color" v="79,122,166,255"/>
           <prop k="color_border" v="14,17,38,255"/>
           <prop k="offset" v="0,0"/>
           <prop k="style" v="solid"/>
@@ -294,12 +261,12 @@
       </symbol>
       <symbol outputUnit="MM" alpha="1" type="fill" name="9">
         <layer pass="0" class="SimpleFill" locked="0">
-          <prop k="color" v="73,47,46,255"/>
+          <prop k="color" v="73,61,60,255"/>
           <prop k="color_border" v="38,17,14,255"/>
           <prop k="offset" v="0,0"/>
           <prop k="style" v="solid"/>
           <prop k="style_border" v="solid"/>
-          <prop k="width_border" v="0.24"/>
+          <prop k="width_border" v="0.16"/>
         </layer>
       </symbol>
     </symbols>

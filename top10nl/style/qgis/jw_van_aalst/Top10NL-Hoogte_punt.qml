@@ -3,16 +3,14 @@
   <transparencyLevelInt>255</transparencyLevelInt>
   <renderer-v2 symbollevels="0" type="singleSymbol">
     <symbols>
-      <symbol outputUnit="MM" alpha="1" type="line" name="0">
-        <layer pass="0" class="SimpleLine" locked="0">
-          <prop k="capstyle" v="square"/>
-          <prop k="color" v="129,106,69,255"/>
-          <prop k="customdash" v="0.57;0.87"/>
-          <prop k="joinstyle" v="bevel"/>
-          <prop k="offset" v="0"/>
-          <prop k="penstyle" v="dot"/>
-          <prop k="use_custom_dash" v="1"/>
-          <prop k="width" v="0.08"/>
+      <symbol outputUnit="MM" alpha="1" type="marker" name="0">
+        <layer pass="0" class="SimpleMarker" locked="0">
+          <prop k="angle" v="0"/>
+          <prop k="color" v="42,41,43,255"/>
+          <prop k="color_border" v="0,0,0,255"/>
+          <prop k="name" v="circle"/>
+          <prop k="offset" v="0,0"/>
+          <prop k="size" v="0.2"/>
         </layer>
       </symbol>
     </symbols>
@@ -20,60 +18,49 @@
     <sizescale field=""/>
   </renderer-v2>
   <customproperties/>
-  <displayfield>gml_id</displayfield>
+  <displayfield>ogc_fid</displayfield>
   <label>1</label>
   <labelfield>hoogte</labelfield>
   <labelattributes>
     <label fieldname="hoogte" text=""/>
     <family fieldname="" name="Cambria"/>
-    <size fieldname="" units="pt" value="7"/>
+    <size fieldname="" units="pt" value="9"/>
     <bold fieldname="" on="0"/>
     <italic fieldname="" on="1"/>
     <underline fieldname="" on="0"/>
     <strikeout fieldname="" on="0"/>
-    <color fieldname="" red="138" blue="76" green="115"/>
+    <color fieldname="" red="28" blue="31" green="34"/>
     <x fieldname=""/>
     <y fieldname=""/>
-    <offset x="0" y="1.6" units="pt" yfieldname="" xfieldname=""/>
+    <offset x="0" y="2" units="pt" yfieldname="" xfieldname=""/>
     <angle fieldname="" value="0" auto="0"/>
-    <alignment fieldname="" value="center"/>
-    <buffercolor fieldname="" red="255" blue="255" green="255"/>
-    <buffersize fieldname="" units="pt" value="1"/>
-    <bufferenabled fieldname="" on=""/>
+    <alignment fieldname="" value="above"/>
+    <buffercolor fieldname="" red="242" blue="242" green="242"/>
+    <buffersize fieldname="" units="mu" value="0.57"/>
+    <bufferenabled fieldname="" on="1"/>
     <multilineenabled fieldname="" on=""/>
     <selectedonly on=""/>
   </labelattributes>
   <edittypes>
-    <edittype type="0" name="bronactual"/>
     <edittype type="0" name="bronactualiteit"/>
-    <edittype type="0" name="bronbeschr"/>
     <edittype type="0" name="bronbeschrijving"/>
-    <edittype type="0" name="bronnauwke"/>
     <edittype type="0" name="bronnauwkeurigheid"/>
     <edittype type="0" name="brontype"/>
     <edittype type="0" name="dimensie"/>
     <edittype type="0" name="fid"/>
     <edittype type="0" name="gml_id"/>
     <edittype type="0" name="hoogte"/>
-    <edittype type="0" name="hoogtenive"/>
     <edittype type="0" name="hoogteniveau"/>
-    <edittype type="0" name="identifica"/>
     <edittype type="0" name="identificatie"/>
-    <edittype type="0" name="objectBegi"/>
-    <edittype type="0" name="objectBeginTijd"/>
     <edittype type="0" name="objectbegintijd"/>
     <edittype type="0" name="ogc_fid"/>
     <edittype type="0" name="status"/>
-    <edittype type="0" name="typeReliÃ«"/>
-    <edittype type="0" name="typeReliÃ«f"/>
     <edittype type="0" name="typereliëf"/>
-    <edittype type="0" name="versieBegi"/>
-    <edittype type="0" name="versieBeginTijd"/>
     <edittype type="0" name="versiebegintijd"/>
   </edittypes>
   <editform>.</editform>
   <editforminit></editforminit>
-  <annotationform>../../../../../..</annotationform>
+  <annotationform>.</annotationform>
   <attributeactions/>
   <overlay display="false" type="diagram">
     <renderer item_interpretation="linear">

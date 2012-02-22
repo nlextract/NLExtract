@@ -16,7 +16,7 @@
           <prop k="offset" v="0,0"/>
           <prop k="style" v="solid"/>
           <prop k="style_border" v="solid"/>
-          <prop k="width_border" v="0.17"/>
+          <prop k="width_border" v="0.12"/>
         </layer>
       </symbol>
       <symbol outputUnit="MM" alpha="1" type="fill" name="1">
@@ -36,7 +36,7 @@
           <prop k="offset" v="0,0"/>
           <prop k="style" v="solid"/>
           <prop k="style_border" v="solid"/>
-          <prop k="width_border" v="0.17"/>
+          <prop k="width_border" v="0.12"/>
         </layer>
       </symbol>
       <symbol outputUnit="MM" alpha="1" type="fill" name="3">

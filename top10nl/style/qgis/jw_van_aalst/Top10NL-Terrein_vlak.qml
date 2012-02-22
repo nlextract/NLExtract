@@ -118,7 +118,7 @@
       </symbol>
       <symbol outputUnit="MM" alpha="1" type="fill" name="17">
         <layer pass="0" class="SimpleFill" locked="0">
-          <prop k="color" v="240,231,146,255"/>
+          <prop k="color" v="240,233,155,255"/>
           <prop k="color_border" v="142,131,89,255"/>
           <prop k="offset" v="0,0"/>
           <prop k="style" v="solid"/>
@@ -128,7 +128,7 @@
       </symbol>
       <symbol outputUnit="MM" alpha="1" type="fill" name="18">
         <layer pass="0" class="SimpleFill" locked="0">
-          <prop k="color" v="185,188,156,255"/>
+          <prop k="color" v="185,186,155,255"/>
           <prop k="color_border" v="115,118,90,255"/>
           <prop k="offset" v="0,0"/>
           <prop k="style" v="solid"/>
@@ -168,8 +168,8 @@
       </symbol>
       <symbol outputUnit="MM" alpha="1" type="fill" name="3">
         <layer pass="0" class="SimpleFill" locked="0">
-          <prop k="color" v="107,99,101,255"/>
-          <prop k="color_border" v="79,71,73,255"/>
+          <prop k="color" v="119,110,112,255"/>
+          <prop k="color_border" v="61,55,56,255"/>
           <prop k="offset" v="0,0"/>
           <prop k="style" v="solid"/>
           <prop k="style_border" v="no"/>
