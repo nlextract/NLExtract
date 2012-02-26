@@ -155,8 +155,10 @@ CREATE TABLE verblijfsobject (
   hoofdadres numeric(16,0),
   verblijfsobjectstatus character varying(80),
   oppervlakteverblijfsobject numeric(6,0),
+  -- gebruiksdoelverblijfsobject1 character varying(50),
   begindatumtijdvakgeldigheid timestamp without time zone,
   einddatumtijdvakgeldigheid timestamp without time zone,
+  -- gerelateerdpand1 numeric(16,0),
   geom_valid boolean default TRUE,
   geopunt geometry,
   geovlak geometry,
@@ -198,6 +200,7 @@ CREATE TABLE woonplaats (
 );
 
 -- Relatie tabellen
+-- Verblijfsobject kan meerdere gebruiksdoelen hebben.
 DROP TABLE IF EXISTS verblijfsobjectgebruiksdoel CASCADE;
 
 CREATE TABLE verblijfsobjectgebruiksdoel (
@@ -210,6 +213,8 @@ CREATE TABLE verblijfsobjectgebruiksdoel (
   PRIMARY KEY (gid)
 );
 
+-- Verblijfsobjecten maken altijd deel uit van een of meerdere panden.
+-- Panden hoeven geen verblijfsobjecten te bevatten.
 DROP TABLE IF EXISTS verblijfsobjectpand CASCADE;
 
 CREATE TABLE verblijfsobjectpand (

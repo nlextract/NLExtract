@@ -48,7 +48,9 @@ class Processor:
         # Verwerk het bestand, lees gemeente_woonplaatsen in de database
         Log.log.info("Insert objectCount=" + str(len(objecten)))
         self.database.verbind()
-        self.database.connection.set_client_encoding('LATIN1')
+
+        # We gaan er even vanuit dat de encoding van de CSVs UTF-8 is
+        self.database.connection.set_client_encoding('UTF8')
         for object in objecten:
             object.insert()
             self.database.uitvoeren(object.sql, object.valuelist)

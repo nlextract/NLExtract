@@ -155,7 +155,7 @@ Anloo;1149;;;Aa en Hunze;1680;;05-02-2010;;;
 Annen;1150;;;Aa en Hunze;1680;;05-02-2010;;;
 Annerveenschekanaal;1151;;;Aa en Hunze;1680;;05-02-2010;;;
 Balloo;1152;;;Aa en Hunze;1680;;05-02-2010;;;
-Balloërveld;1153;;;Aa en Hunze;1680;;05-02-2010;;;
+BalloÃ«rveld;1153;;;Aa en Hunze;1680;;05-02-2010;;;
 Deurze;1154;;;Aa en Hunze;1680;;05-02-2010;;;
 Eext;1155;;;Aa en Hunze;1680;;05-02-2010;;;
 Eexterveen;1156;;;Aa en Hunze;1680;;05-02-2010;;;
@@ -498,7 +498,7 @@ Den Oever;1489;;;Wieringen;0462;;09-11-2010;;;
 Westerland;1490;;;Wieringen;0462;;09-11-2010;;;
 Raalte;1491;;;Raalte;0177;;08-10-2010;;;
 Heino;1492;;;Raalte;0177;;08-10-2010;;;
-Mariënheem;1493;;;Raalte;0177;;08-10-2010;;;
+MariÃ«nheem;1493;;;Raalte;0177;;08-10-2010;;;
 Luttenberg;1494;;;Raalte;0177;;08-10-2010;;;
 Laag Zuthem;1495;;;Raalte;0177;;08-10-2010;;;
 Lierderholthuis;1496;;;Raalte;0177;;08-10-2010;;;
@@ -563,7 +563,7 @@ Hoogenweg;1554;;;Hardenberg;0160;;06-10-2010;;;
 Kloosterhaar;1555;;;Hardenberg;0160;;06-10-2010;;;
 Loozen;1556;;;Hardenberg;0160;;06-10-2010;;;
 Lutten;1557;;;Hardenberg;0160;;06-10-2010;;;
-Mariënberg;1558;;;Hardenberg;0160;;06-10-2010;;;
+MariÃ«nberg;1558;;;Hardenberg;0160;;06-10-2010;;;
 Radewijk;1559;;;Hardenberg;0160;;06-10-2010;;;
 Rheeze;1560;;;Hardenberg;0160;;06-10-2010;;;
 Rheezerveen;1561;;;Hardenberg;0160;;06-10-2010;;;
@@ -678,20 +678,20 @@ Deurningen;1669;;;Oldenzaal;0173;;27-10-2009;;;
 Beek;1670;;;Beek;0888;;12-11-2010;;;
 Spaubeek;1671;;;Beek;0888;;12-11-2010;;;
 Maastricht-Airport;1672;;;Beek;0888;;12-11-2010;;;
-Bakhuizen;1673;;;Gaasterlân-Sleat;0653;;08-07-2010;;;
-Balk;1674;;;Gaasterlân-Sleat;0653;;08-07-2010;;;
-Elahuizen;1675;;;Gaasterlân-Sleat;0653;;08-07-2010;;;
-Harich;1676;;;Gaasterlân-Sleat;0653;;08-07-2010;;;
-Kolderwolde;1677;;;Gaasterlân-Sleat;0653;;08-07-2010;;;
-Mirns;1678;;;Gaasterlân-Sleat;0653;;08-07-2010;;;
-Nijemirdum;1679;;;Gaasterlân-Sleat;0653;;08-07-2010;;;
-Oudega;1680;;;Gaasterlân-Sleat;0653;;08-07-2010;;;
-Oudemirdum;1681;;;Gaasterlân-Sleat;0653;;08-07-2010;;;;
-Rijs;1682;;;Gaasterlân-Sleat;0653;;08-07-2010;;;;
-Ruigahuizen;1683;;;Gaasterlân-Sleat;0653;;08-07-2010;;;;
-Sloten;1684;;;Gaasterlân-Sleat;0653;;08-07-2010;;;;
-Sondel;1685;;;Gaasterlân-Sleat;0653;;08-07-2010;;;;
-Wijckel;1686;;;Gaasterlân-Sleat;0653;;08-07-2010;;;;
+Bakhuizen;1673;;;GaasterlÃ¢n-Sleat;0653;;08-07-2010;;;
+Balk;1674;;;GaasterlÃ¢n-Sleat;0653;;08-07-2010;;;
+Elahuizen;1675;;;GaasterlÃ¢n-Sleat;0653;;08-07-2010;;;
+Harich;1676;;;GaasterlÃ¢n-Sleat;0653;;08-07-2010;;;
+Kolderwolde;1677;;;GaasterlÃ¢n-Sleat;0653;;08-07-2010;;;
+Mirns;1678;;;GaasterlÃ¢n-Sleat;0653;;08-07-2010;;;
+Nijemirdum;1679;;;GaasterlÃ¢n-Sleat;0653;;08-07-2010;;;
+Oudega;1680;;;GaasterlÃ¢n-Sleat;0653;;08-07-2010;;;
+Oudemirdum;1681;;;GaasterlÃ¢n-Sleat;0653;;08-07-2010;;;;
+Rijs;1682;;;GaasterlÃ¢n-Sleat;0653;;08-07-2010;;;;
+Ruigahuizen;1683;;;GaasterlÃ¢n-Sleat;0653;;08-07-2010;;;;
+Sloten;1684;;;GaasterlÃ¢n-Sleat;0653;;08-07-2010;;;;
+Sondel;1685;;;GaasterlÃ¢n-Sleat;0653;;08-07-2010;;;;
+Wijckel;1686;;;GaasterlÃ¢n-Sleat;0653;;08-07-2010;;;;
 Berkel en Rodenrijs;1687;;;Lansingerland;1621;;16-02-2010;;;;
 Bergschenhoek;1688;;;Lansingerland;1621;;16-02-2010;;;;
 Bleiswijk;1689;;;Lansingerland;1621;;16-02-2010;;;;
@@ -795,8 +795,8 @@ Vlierden;1775;;;Deurne;0762;;19-07-2010;;;
 Liessel;1776;;;Deurne;0762;;19-07-2010;;;
 Neerkant;1777;;;Deurne;0762;;19-07-2010;;;
 Helenaveen;1778;;;Deurne;0762;;19-07-2010;;;
-1e Exloërmond;1779;;;Borger-Odoorn;1681;;11-08-2010;;;
-2e Exloërmond;1780;;;Borger-Odoorn;1681;;11-08-2010;;;
+1e ExloÃ«rmond;1779;;;Borger-Odoorn;1681;;11-08-2010;;;
+2e ExloÃ«rmond;1780;;;Borger-Odoorn;1681;;11-08-2010;;;
 2e Valthermond;1781;;;Borger-Odoorn;1681;;11-08-2010;;;
 Borger;1782;;;Borger-Odoorn;1681;;11-08-2010;;;
 Bronneger;1783;;;Borger-Odoorn;1681;;11-08-2010;;;
@@ -810,7 +810,7 @@ Ees;1790;;;Borger-Odoorn;1681;;11-08-2010;;;
 Eesergroen;1791;;;Borger-Odoorn;1681;;11-08-2010;;;
 Eeserveen;1792;;;Borger-Odoorn;1681;;11-08-2010;;;
 Ellertshaar;1793;;;Borger-Odoorn;1681;;11-08-2010;;;
-Exloërveen;1794;;;Borger-Odoorn;1681;;11-08-2010;;;
+ExloÃ«rveen;1794;;;Borger-Odoorn;1681;;11-08-2010;;;
 Exloo;1795;;;Borger-Odoorn;1681;;11-08-2010;;;
 Klijndijk;1796;;;Borger-Odoorn;1681;;11-08-2010;;;
 Nieuw-Buinen;1797;;;Borger-Odoorn;1681;;11-08-2010;;;
@@ -938,7 +938,7 @@ Wessem;1919;;;Maasgouw;1641;;15-12-2010;;;
 Maasbracht;1920;;;Maasgouw;1641;;15-12-2010;;;
 Linne;1921;;;Maasgouw;1641;;15-12-2010;;;
 Stevensweert;1922;;;Maasgouw;1641;;15-12-2010;;;
-Ohé en Laak;1923;;;Maasgouw;1641;;15-12-2010;;;
+OhÃ© en Laak;1923;;;Maasgouw;1641;;15-12-2010;;;
 Almelo;1924;;;Almelo;0141;;04-08-2010;;;
 Aadorp;1925;;;Almelo;0141;;04-08-2010;;;
 Bornerbroek;1926;;;Almelo;0141;;04-08-2010;;;
@@ -966,7 +966,7 @@ Uitdam;1947;;;Waterland;0852;;09-12-2010;;;
 Zuiderwoude;1948;;;Waterland;0852;;09-12-2010;;;
 Reuver;1949;;;Beesel;0889;;09-12-2010;;;
 Beesel;1950;;;Beesel;0889;;09-12-2010;;;
-Babyloniënbroek;1951;;;Aalburg;0738;;28-12-2010;;;
+BabyloniÃ«nbroek;1951;;;Aalburg;0738;;28-12-2010;;;
 Drongelen;1952;;;Aalburg;0738;;28-12-2010;;;
 Eethen;1953;;;Aalburg;0738;;28-12-2010;;;
 Genderen;1954;;;Aalburg;0738;;28-12-2010;;;
@@ -981,23 +981,23 @@ Polsbroek;1962;;;Lopik;0331;;23-12-2010;;;;
 Linschoten;1963;;;Montfoort;0335;;21-12-2010;;;;
 Montfoort;1964;;;Montfoort;0335;;21-12-2010;;;;
 Workum;1965;;;Nijefurd;0104;;16-12-2009;Gem. beeindigd, nieuwe code --> ;1900;20110101;X
-Workum;1965;;;Súdwest Fryslân;1900;20110101;14-12-2010;;;;
+Workum;1965;;;SÃºdwest FryslÃ¢n;1900;20110101;14-12-2010;;;;
 Koudum;1966;;;Nijefurd;0104;;16-12-2009;Gem. beeindigd, nieuwe code --> ;1900;20110101;X
-Koudum;1966;;;Súdwest Fryslân;1900;20110101;14-12-2010;;;;
+Koudum;1966;;;SÃºdwest FryslÃ¢n;1900;20110101;14-12-2010;;;;
 Molkwerum;1967;;;Nijefurd;0104;;16-12-2009;Gem. beeindigd, nieuwe code --> ;1900;20110101;X
-Molkwerum;1967;;;Súdwest Fryslân;1900;20110101;14-12-2010;;;;
+Molkwerum;1967;;;SÃºdwest FryslÃ¢n;1900;20110101;14-12-2010;;;;
 Hindeloopen;1968;;;Nijefurd;0104;;16-12-2009;Gem. beeindigd, nieuwe code --> ;1900;20110101;X
-Hindeloopen;1968;;;Súdwest Fryslân;1900;20110101;14-12-2010;;;;
+Hindeloopen;1968;;;SÃºdwest FryslÃ¢n;1900;20110101;14-12-2010;;;;
 Stavoren;1969;;;Nijefurd;0104;;16-12-2009;Gem. beeindigd, nieuwe code --> ;1900;20110101;X
-Stavoren;1969;;;Súdwest Fryslân;1900;20110101;14-12-2010;;;;
+Stavoren;1969;;;SÃºdwest FryslÃ¢n;1900;20110101;14-12-2010;;;;
 Hemelum;1970;;;Nijefurd;0104;;16-12-2009;Gem. beeindigd, nieuwe code --> ;1900;20110101;X
-Hemelum;1970;;;Súdwest Fryslân;1900;20110101;14-12-2010;;;;
+Hemelum;1970;;;SÃºdwest FryslÃ¢n;1900;20110101;14-12-2010;;;;
 Warns;1971;;;Nijefurd;0104;;16-12-2009;Gem. beeindigd, nieuwe code --> ;1900;20110101;X
-Warns;1971;;;Súdwest Fryslân;1900;20110101;14-12-2010;;;;
+Warns;1971;;;SÃºdwest FryslÃ¢n;1900;20110101;14-12-2010;;;;
 Nijhuizum;1972;;;Nijefurd;0104;;16-12-2009;Gem. beeindigd, nieuwe code --> ;1900;20110101;X
-Nijhuizum;1972;;;Súdwest Fryslân;1900;20110101;14-12-2010;;;;
+Nijhuizum;1972;;;SÃºdwest FryslÃ¢n;1900;20110101;14-12-2010;;;;
 It Heidenskip;1973;;;Nijefurd;0104;;16-12-2009;Gem. beeindigd, nieuwe code --> ;1900;20110101;X
-It Heidenskip;1973;;;Súdwest Fryslân;1900;20110101;14-12-2010;;;;
+It Heidenskip;1973;;;SÃºdwest FryslÃ¢n;1900;20110101;14-12-2010;;;;
 Weert;1974;;;Weert;0988;;10-12-2010;;;;
 Stramproy;1975;;;Weert;0988;;10-12-2010;;;;
 Mill;1976;;;Mill en Sint Hubert;0815;;11-11-2010;;;;
@@ -1043,16 +1043,16 @@ Easterwierrum;2015;;;Littenseradiel;0140;;27-09-2010;;;
 Hidaard;2016;;;Littenseradiel;0140;;27-09-2010;;;
 Hilaard;2017;;;Littenseradiel;0140;;27-09-2010;;;
 Hinnaard;2018;;;Littenseradiel;0140;;27-09-2010;;;
-Húns;2019;;;Littenseradiel;0140;;27-09-2010;;;
+HÃºns;2019;;;Littenseradiel;0140;;27-09-2010;;;
 Iens;2020;;;Littenseradiel;0140;;27-09-2010;;;
 Itens;2021;;;Littenseradiel;0140;;27-09-2010;;;
 Jellum;2022;;;Littenseradiel;0140;;27-09-2010;;;
 Jorwert;2023;;;Littenseradiel;0140;;27-09-2010;;;
-Kûbaard;2024;;;Littenseradiel;0140;;27-09-2010;;;
+KÃ»baard;2024;;;Littenseradiel;0140;;27-09-2010;;;
 Leons;2025;;;Littenseradiel;0140;;27-09-2010;;;
 Lytsewierrum;2026;;;Littenseradiel;0140;;27-09-2010;;;
 Mantgum;2027;;;Littenseradiel;0140;;27-09-2010;;;
-Reahûs;2028;;;Littenseradiel;0140;;27-09-2010;;;
+ReahÃ»s;2028;;;Littenseradiel;0140;;27-09-2010;;;
 Rien;2029;;;Littenseradiel;0140;;27-09-2010;;;
 Spannum;2030;;;Littenseradiel;0140;;27-09-2010;;;
 Waaksens;2031;;;Littenseradiel;0140;;27-09-2010;;;
@@ -1107,7 +1107,7 @@ Sint-Annaland;2076;;;Tholen;0716;;06-08-2010;;;;
 Oud-Vossemeer;2077;;;Tholen;0716;;06-08-2010;;;;
 Sint Philipsland;2078;;;Tholen;0716;;06-08-2010;;;;
 Bolsward;2079;;;Bolsward;0064;;09-04-2010;Gem. beeindigd, nieuwe code --> ;1900;20110101;X
-Bolsward;2079;;;Súdwest Fryslân;1900;20110101;14-12-2010;;;;
+Bolsward;2079;;;SÃºdwest FryslÃ¢n;1900;20110101;14-12-2010;;;;
 Landhorst;2080;;;Sint Anthonis;1702;;01-10-2010;;;;
 Ledeacker;2081;;;Sint Anthonis;1702;;01-10-2010;;;;
 Oploo;2082;;;Sint Anthonis;1702;;01-10-2010;;;;
@@ -1263,7 +1263,7 @@ Vragender;2226;;;Oost Gelre;1586;;21-09-2010;;;;
 Lichtenvoorde;2227;;;Oost Gelre;1586;;21-09-2010;;;;
 Harreveld;2228;;;Oost Gelre;1586;;21-09-2010;;;;
 Zieuwent;2229;;;Oost Gelre;1586;;21-09-2010;;;
-Mariënvelde;2230;;;Oost Gelre;1586;;21-09-2010;;;
+MariÃ«nvelde;2230;;;Oost Gelre;1586;;21-09-2010;;;
 Bellingwolde;2231;;;Bellingwedde;0007;;07-10-2010;;;
 Blijham;2232;;;Bellingwedde;0007;;07-10-2010;;;
 Oudeschans;2233;;;Bellingwedde;0007;;07-10-2010;;;
@@ -1334,60 +1334,60 @@ Ter Apelkanaal;2297;;;Vlagtwedde;0048;;17-11-2010;;;;
 Vlagtwedde;2298;;;Vlagtwedde;0048;;17-11-2010;;;;
 Gorinchem;2299;;;Gorinchem;0512;;29-12-2010;;;;
 Dalem;2300;;;Gorinchem;0512;;29-12-2010;;;;
-Allingawier;2301;;;Wûnseradiel;0710;;17-08-2010;Gem. beeindigd, nieuwe code --> ;1900;20110101;X
-Allingawier;2301;;;Súdwest Fryslân;1900;20110101;14-12-2010;;;;
-Arum;2302;;;Wûnseradiel;0710;;17-08-2010;Gem. beeindigd, nieuwe code --> ;1900;20110101;X
-Arum;2302;;;Súdwest Fryslân;1900;20110101;14-12-2010;;;;
-Breezanddijk;2303;;;Wûnseradiel;0710;;17-08-2010;Gem. beeindigd, nieuwe code --> ;1900;20110101;X
-Breezanddijk;2303;;;Súdwest Fryslân;1900;20110101;14-12-2010;;;;
-Burgwerd;2304;;;Wûnseradiel;0710;;17-08-2010;Gem. beeindigd, nieuwe code --> ;1900;20110101;X
-Burgwerd;2304;;;Súdwest Fryslân;1900;20110101;14-12-2010;;;;
-Cornwerd;2305;;;Wûnseradiel;0710;;17-08-2010;Gem. beeindigd, nieuwe code --> ;1900;20110101;X
-Cornwerd;2305;;;Súdwest Fryslân;1900;20110101;14-12-2010;;;;
-Dedgum;2306;;;Wûnseradiel;0710;;17-08-2010;Gem. beeindigd, nieuwe code --> ;1900;20110101;X
-Dedgum;2306;;;Súdwest Fryslân;1900;20110101;14-12-2010;;;;
-Exmorra;2307;;;Wûnseradiel;0710;;17-08-2010;Gem. beeindigd, nieuwe code --> ;1900;20110101;X
-Exmorra;2307;;;Súdwest Fryslân;1900;20110101;14-12-2010;;;;
-Ferwoude;2308;;;Wûnseradiel;0710;;17-08-2010;Gem. beeindigd, nieuwe code --> ;1900;20110101;X
-Ferwoude;2308;;;Súdwest Fryslân;1900;20110101;14-12-2010;;;;
-Gaast;2309;;;Wûnseradiel;0710;;17-08-2010;Gem. beeindigd, nieuwe code --> ;1900;20110101;X
-Gaast;2309;;;Súdwest Fryslân;1900;20110101;14-12-2010;;;;
-Hartwerd;2310;;;Wûnseradiel;0710;;17-08-2010;Gem. beeindigd, nieuwe code --> ;1900;20110101;X
-Hartwerd;2310;;;Súdwest Fryslân;1900;20110101;14-12-2010;;;;
-Hichtum;2311;;;Wûnseradiel;0710;;17-08-2010;Gem. beeindigd, nieuwe code --> ;1900;20110101;X
-Hichtum;2311;;;Súdwest Fryslân;1900;20110101;14-12-2010;;;;
-Hieslum;2312;;;Wûnseradiel;0710;;17-08-2010;Gem. beeindigd, nieuwe code --> ;1900;20110101;X
-Hieslum;2312;;;Súdwest Fryslân;1900;20110101;14-12-2010;;;;
-Idsegahuizum;2313;;;Wûnseradiel;0710;;17-08-2010;Gem. beeindigd, nieuwe code --> ;1900;20110101;X
-Idsegahuizum;2313;;;Súdwest Fryslân;1900;20110101;14-12-2010;;;;
-Kimswerd;2314;;;Wûnseradiel;0710;;17-08-2010;Gem. beeindigd, nieuwe code --> ;1900;20110101;X
-Kimswerd;2314;;;Súdwest Fryslân;1900;20110101;14-12-2010;;;;
-Kornwerderzand;2315;;;Wûnseradiel;0710;;17-08-2010;Gem. beeindigd, nieuwe code --> ;1900;20110101;X
-Kornwerderzand;2315;;;Súdwest Fryslân;1900;20110101;14-12-2010;;;;
-Lollum;2316;;;Wûnseradiel;0710;;17-08-2010;Gem. beeindigd, nieuwe code --> ;1900;20110101;X
-Lollum;2316;;;Súdwest Fryslân;1900;20110101;14-12-2010;;;;
-Longerhouw;2317;;;Wûnseradiel;0710;;17-08-2010;Gem. beeindigd, nieuwe code --> ;1900;20110101;X
-Longerhouw;2317;;;Súdwest Fryslân;1900;20110101;14-12-2010;;;;
-Makkum;2318;;;Wûnseradiel;0710;;17-08-2010;Gem. beeindigd, nieuwe code --> ;1900;20110101;X
-Makkum;2318;;;Súdwest Fryslân;1900;20110101;14-12-2010;;;;
-Parrega;2319;;;Wûnseradiel;0710;;17-08-2010;Gem. beeindigd, nieuwe code --> ;1900;20110101;X
-Parrega;2319;;;Súdwest Fryslân;1900;20110101;14-12-2010;;;;
-Piaam;2320;;;Wûnseradiel;0710;;17-08-2010;Gem. beeindigd, nieuwe code --> ;1900;20110101;X
-Piaam;2320;;;Súdwest Fryslân;1900;20110101;14-12-2010;;;;
-Pingjum;2321;;;Wûnseradiel;0710;;17-08-2010;Gem. beeindigd, nieuwe code --> ;1900;20110101;X
-Pingjum;2321;;;Súdwest Fryslân;1900;20110101;14-12-2010;;;;
-Schettens;2322;;;Wûnseradiel;0710;;17-08-2010;Gem. beeindigd, nieuwe code --> ;1900;20110101;X
-Schettens;2322;;;Súdwest Fryslân;1900;20110101;14-12-2010;;;;
-Schraard;2323;;;Wûnseradiel;0710;;17-08-2010;Gem. beeindigd, nieuwe code --> ;1900;20110101;X
-Schraard;2323;;;Súdwest Fryslân;1900;20110101;14-12-2010;;;;
-Tjerkwerd;2324;;;Wûnseradiel;0710;;17-08-2010;Gem. beeindigd, nieuwe code --> ;1900;20110101;X
-Tjerkwerd;2324;;;Súdwest Fryslân;1900;20110101;14-12-2010;;;;
-Witmarsum;2325;;;Wûnseradiel;0710;;17-08-2010;Gem. beeindigd, nieuwe code --> ;1900;20110101;X
-Witmarsum;2325;;;Súdwest Fryslân;1900;20110101;14-12-2010;;;;
-Wons;2326;;;Wûnseradiel;0710;;17-08-2010;Gem. beeindigd, nieuwe code --> ;1900;20110101;X
-Wons;2326;;;Súdwest Fryslân;1900;20110101;14-12-2010;;;;
-Zurich;2327;;;Wûnseradiel;0710;;17-08-2010;Gem. beeindigd, nieuwe code --> ;1900;20110101;X
-Zurich;2327;;;Súdwest Fryslân;1900;20110101;14-12-2010;;;;
+Allingawier;2301;;;WÃ»nseradiel;0710;;17-08-2010;Gem. beeindigd, nieuwe code --> ;1900;20110101;X
+Allingawier;2301;;;SÃºdwest FryslÃ¢n;1900;20110101;14-12-2010;;;;
+Arum;2302;;;WÃ»nseradiel;0710;;17-08-2010;Gem. beeindigd, nieuwe code --> ;1900;20110101;X
+Arum;2302;;;SÃºdwest FryslÃ¢n;1900;20110101;14-12-2010;;;;
+Breezanddijk;2303;;;WÃ»nseradiel;0710;;17-08-2010;Gem. beeindigd, nieuwe code --> ;1900;20110101;X
+Breezanddijk;2303;;;SÃºdwest FryslÃ¢n;1900;20110101;14-12-2010;;;;
+Burgwerd;2304;;;WÃ»nseradiel;0710;;17-08-2010;Gem. beeindigd, nieuwe code --> ;1900;20110101;X
+Burgwerd;2304;;;SÃºdwest FryslÃ¢n;1900;20110101;14-12-2010;;;;
+Cornwerd;2305;;;WÃ»nseradiel;0710;;17-08-2010;Gem. beeindigd, nieuwe code --> ;1900;20110101;X
+Cornwerd;2305;;;SÃºdwest FryslÃ¢n;1900;20110101;14-12-2010;;;;
+Dedgum;2306;;;WÃ»nseradiel;0710;;17-08-2010;Gem. beeindigd, nieuwe code --> ;1900;20110101;X
+Dedgum;2306;;;SÃºdwest FryslÃ¢n;1900;20110101;14-12-2010;;;;
+Exmorra;2307;;;WÃ»nseradiel;0710;;17-08-2010;Gem. beeindigd, nieuwe code --> ;1900;20110101;X
+Exmorra;2307;;;SÃºdwest FryslÃ¢n;1900;20110101;14-12-2010;;;;
+Ferwoude;2308;;;WÃ»nseradiel;0710;;17-08-2010;Gem. beeindigd, nieuwe code --> ;1900;20110101;X
+Ferwoude;2308;;;SÃºdwest FryslÃ¢n;1900;20110101;14-12-2010;;;;
+Gaast;2309;;;WÃ»nseradiel;0710;;17-08-2010;Gem. beeindigd, nieuwe code --> ;1900;20110101;X
+Gaast;2309;;;SÃºdwest FryslÃ¢n;1900;20110101;14-12-2010;;;;
+Hartwerd;2310;;;WÃ»nseradiel;0710;;17-08-2010;Gem. beeindigd, nieuwe code --> ;1900;20110101;X
+Hartwerd;2310;;;SÃºdwest FryslÃ¢n;1900;20110101;14-12-2010;;;;
+Hichtum;2311;;;WÃ»nseradiel;0710;;17-08-2010;Gem. beeindigd, nieuwe code --> ;1900;20110101;X
+Hichtum;2311;;;SÃºdwest FryslÃ¢n;1900;20110101;14-12-2010;;;;
+Hieslum;2312;;;WÃ»nseradiel;0710;;17-08-2010;Gem. beeindigd, nieuwe code --> ;1900;20110101;X
+Hieslum;2312;;;SÃºdwest FryslÃ¢n;1900;20110101;14-12-2010;;;;
+Idsegahuizum;2313;;;WÃ»nseradiel;0710;;17-08-2010;Gem. beeindigd, nieuwe code --> ;1900;20110101;X
+Idsegahuizum;2313;;;SÃºdwest FryslÃ¢n;1900;20110101;14-12-2010;;;;
+Kimswerd;2314;;;WÃ»nseradiel;0710;;17-08-2010;Gem. beeindigd, nieuwe code --> ;1900;20110101;X
+Kimswerd;2314;;;SÃºdwest FryslÃ¢n;1900;20110101;14-12-2010;;;;
+Kornwerderzand;2315;;;WÃ»nseradiel;0710;;17-08-2010;Gem. beeindigd, nieuwe code --> ;1900;20110101;X
+Kornwerderzand;2315;;;SÃºdwest FryslÃ¢n;1900;20110101;14-12-2010;;;;
+Lollum;2316;;;WÃ»nseradiel;0710;;17-08-2010;Gem. beeindigd, nieuwe code --> ;1900;20110101;X
+Lollum;2316;;;SÃºdwest FryslÃ¢n;1900;20110101;14-12-2010;;;;
+Longerhouw;2317;;;WÃ»nseradiel;0710;;17-08-2010;Gem. beeindigd, nieuwe code --> ;1900;20110101;X
+Longerhouw;2317;;;SÃºdwest FryslÃ¢n;1900;20110101;14-12-2010;;;;
+Makkum;2318;;;WÃ»nseradiel;0710;;17-08-2010;Gem. beeindigd, nieuwe code --> ;1900;20110101;X
+Makkum;2318;;;SÃºdwest FryslÃ¢n;1900;20110101;14-12-2010;;;;
+Parrega;2319;;;WÃ»nseradiel;0710;;17-08-2010;Gem. beeindigd, nieuwe code --> ;1900;20110101;X
+Parrega;2319;;;SÃºdwest FryslÃ¢n;1900;20110101;14-12-2010;;;;
+Piaam;2320;;;WÃ»nseradiel;0710;;17-08-2010;Gem. beeindigd, nieuwe code --> ;1900;20110101;X
+Piaam;2320;;;SÃºdwest FryslÃ¢n;1900;20110101;14-12-2010;;;;
+Pingjum;2321;;;WÃ»nseradiel;0710;;17-08-2010;Gem. beeindigd, nieuwe code --> ;1900;20110101;X
+Pingjum;2321;;;SÃºdwest FryslÃ¢n;1900;20110101;14-12-2010;;;;
+Schettens;2322;;;WÃ»nseradiel;0710;;17-08-2010;Gem. beeindigd, nieuwe code --> ;1900;20110101;X
+Schettens;2322;;;SÃºdwest FryslÃ¢n;1900;20110101;14-12-2010;;;;
+Schraard;2323;;;WÃ»nseradiel;0710;;17-08-2010;Gem. beeindigd, nieuwe code --> ;1900;20110101;X
+Schraard;2323;;;SÃºdwest FryslÃ¢n;1900;20110101;14-12-2010;;;;
+Tjerkwerd;2324;;;WÃ»nseradiel;0710;;17-08-2010;Gem. beeindigd, nieuwe code --> ;1900;20110101;X
+Tjerkwerd;2324;;;SÃºdwest FryslÃ¢n;1900;20110101;14-12-2010;;;;
+Witmarsum;2325;;;WÃ»nseradiel;0710;;17-08-2010;Gem. beeindigd, nieuwe code --> ;1900;20110101;X
+Witmarsum;2325;;;SÃºdwest FryslÃ¢n;1900;20110101;14-12-2010;;;;
+Wons;2326;;;WÃ»nseradiel;0710;;17-08-2010;Gem. beeindigd, nieuwe code --> ;1900;20110101;X
+Wons;2326;;;SÃºdwest FryslÃ¢n;1900;20110101;14-12-2010;;;;
+Zurich;2327;;;WÃ»nseradiel;0710;;17-08-2010;Gem. beeindigd, nieuwe code --> ;1900;20110101;X
+Zurich;2327;;;SÃºdwest FryslÃ¢n;1900;20110101;14-12-2010;;;;
 Castenray;2328;;;Venray;0984;;20-07-2010;;;;
 Heide;2329;;;Venray;0984;;20-07-2010;;;;
 Leunen;2330;;;Venray;0984;;20-07-2010;;;
@@ -1461,61 +1461,61 @@ Zeijerveld;2397;;;Assen;0106;;06-11-2009;;;;
 Heerjansdam;2398;;;Zwijndrecht;0642;;25-06-2010;;;;
 Zwijndrecht;2399;;;Zwijndrecht;0642;;25-06-2010;;;;
 Abbega;2400;;;Wymbritseradiel;0683;;14-12-2010;Gem. beeindigd, nieuwe code --> ;1900;20110101;X
-Abbega;2400;;;Súdwest Fryslân;1900;20110101;14-12-2010;;;;
+Abbega;2400;;;SÃºdwest FryslÃ¢n;1900;20110101;14-12-2010;;;;
 Blauwhuis;2401;;;Wymbritseradiel;0683;;14-12-2010;Gem. beeindigd, nieuwe code --> ;1900;20110101;X
-Blauwhuis;2401;;;Súdwest Fryslân;1900;20110101;14-12-2010;;;;
+Blauwhuis;2401;;;SÃºdwest FryslÃ¢n;1900;20110101;14-12-2010;;;;
 Folsgare;2402;;;Wymbritseradiel;0683;;14-12-2010;Gem. beeindigd, nieuwe code --> ;1900;20110101;X
-Folsgare;2402;;;Súdwest Fryslân;1900;20110101;14-12-2010;;;;
+Folsgare;2402;;;SÃºdwest FryslÃ¢n;1900;20110101;14-12-2010;;;;
 Gaastmeer;2403;;;Wymbritseradiel;0683;;14-12-2010;Gem. beeindigd, nieuwe code --> ;1900;20110101;X
-Gaastmeer;2403;;;Súdwest Fryslân;1900;20110101;14-12-2010;;;;
+Gaastmeer;2403;;;SÃºdwest FryslÃ¢n;1900;20110101;14-12-2010;;;;
 Gauw;2404;;;Wymbritseradiel;0683;;14-12-2010;Gem. beeindigd, nieuwe code --> ;1900;20110101;X
-Gauw;2404;;;Súdwest Fryslân;1900;20110101;14-12-2010;;;;
-Goënga;2405;;;Wymbritseradiel;0683;;14-12-2010;Gem. beeindigd, nieuwe code --> ;1900;20110101;X
-Goënga;2405;;;Súdwest Fryslân;1900;20110101;14-12-2010;;;;
+Gauw;2404;;;SÃºdwest FryslÃ¢n;1900;20110101;14-12-2010;;;;
+GoÃ«nga;2405;;;Wymbritseradiel;0683;;14-12-2010;Gem. beeindigd, nieuwe code --> ;1900;20110101;X
+GoÃ«nga;2405;;;SÃºdwest FryslÃ¢n;1900;20110101;14-12-2010;;;;
 Greonterp;2406;;;Wymbritseradiel;0683;;14-12-2010;Gem. beeindigd, nieuwe code --> ;1900;20110101;X
-Greonterp;2406;;;Súdwest Fryslân;1900;20110101;14-12-2010;;;;
+Greonterp;2406;;;SÃºdwest FryslÃ¢n;1900;20110101;14-12-2010;;;;
 Heeg;2407;;;Wymbritseradiel;0683;;14-12-2010;Gem. beeindigd, nieuwe code --> ;1900;20110101;X
-Heeg;2407;;;Súdwest Fryslân;1900;20110101;14-12-2010;;;;
+Heeg;2407;;;SÃºdwest FryslÃ¢n;1900;20110101;14-12-2010;;;;
 Hommerts;2408;;;Wymbritseradiel;0683;;14-12-2010;Gem. beeindigd, nieuwe code --> ;1900;20110101;X
-Hommerts;2408;;;Súdwest Fryslân;1900;20110101;14-12-2010;;;;
+Hommerts;2408;;;SÃºdwest FryslÃ¢n;1900;20110101;14-12-2010;;;;
 Idzega;2409;;;Wymbritseradiel;0683;;14-12-2010;Gem. beeindigd, nieuwe code --> ;1900;20110101;X
-Idzega;2409;;;Súdwest Fryslân;1900;20110101;14-12-2010;;;;
+Idzega;2409;;;SÃºdwest FryslÃ¢n;1900;20110101;14-12-2010;;;;
 IJlst;2410;;;Wymbritseradiel;0683;;14-12-2010;Gem. beeindigd, nieuwe code --> ;1900;20110101;X
-IJlst;2410;;;Súdwest Fryslân;1900;20110101;14-12-2010;;;;
+IJlst;2410;;;SÃºdwest FryslÃ¢n;1900;20110101;14-12-2010;;;;
 Indijk;2411;;;Wymbritseradiel;0683;;14-12-2010;Gem. beeindigd, nieuwe code --> ;1900;20110101;X
-Indijk;2411;;;Súdwest Fryslân;1900;20110101;14-12-2010;;;;
+Indijk;2411;;;SÃºdwest FryslÃ¢n;1900;20110101;14-12-2010;;;;
 Jutrijp;2412;;;Wymbritseradiel;0683;;14-12-2010;Gem. beeindigd, nieuwe code --> ;1900;20110101;X
-Jutrijp;2412;;;Súdwest Fryslân;1900;20110101;14-12-2010;;;;
+Jutrijp;2412;;;SÃºdwest FryslÃ¢n;1900;20110101;14-12-2010;;;;
 Koufurderrige;2413;;;Wymbritseradiel;0683;;14-12-2010;Gem. beeindigd, nieuwe code --> ;1900;20110101;X
-Koufurderrige;2413;;;Súdwest Fryslân;1900;20110101;14-12-2010;;;;
+Koufurderrige;2413;;;SÃºdwest FryslÃ¢n;1900;20110101;14-12-2010;;;;
 Nijland;2414;;;Wymbritseradiel;0683;;14-12-2010;Gem. beeindigd, nieuwe code --> ;1900;20110101;X
-Nijland;2414;;;Súdwest Fryslân;1900;20110101;14-12-2010;;;;
+Nijland;2414;;;SÃºdwest FryslÃ¢n;1900;20110101;14-12-2010;;;;
 Oosthem;2415;;;Wymbritseradiel;0683;;14-12-2010;Gem. beeindigd, nieuwe code --> ;1900;20110101;X
-Oosthem;2415;;;Súdwest Fryslân;1900;20110101;14-12-2010;;;;
+Oosthem;2415;;;SÃºdwest FryslÃ¢n;1900;20110101;14-12-2010;;;;
 Oppenhuizen;2416;;;Wymbritseradiel;0683;;14-12-2010;Gem. beeindigd, nieuwe code --> ;1900;20110101;X
-Oppenhuizen;2416;;;Súdwest Fryslân;1900;20110101;14-12-2010;;;;
+Oppenhuizen;2416;;;SÃºdwest FryslÃ¢n;1900;20110101;14-12-2010;;;;
 Oudega;2417;;;Wymbritseradiel;0683;;14-12-2010;Gem. beeindigd, nieuwe code --> ;1900;20110101;X
-Oudega;2417;;;Súdwest Fryslân;1900;20110101;14-12-2010;;;;
+Oudega;2417;;;SÃºdwest FryslÃ¢n;1900;20110101;14-12-2010;;;;
 Sandfirden;2418;;;Wymbritseradiel;0683;;14-12-2010;Gem. beeindigd, nieuwe code --> ;1900;20110101;X
-Sandfirden;2418;;;Súdwest Fryslân;1900;20110101;14-12-2010;;;;
+Sandfirden;2418;;;SÃºdwest FryslÃ¢n;1900;20110101;14-12-2010;;;;
 Scharnegoutum;2419;;;Wymbritseradiel;0683;;14-12-2010;Gem. beeindigd, nieuwe code --> ;1900;20110101;X
-Scharnegoutum;2419;;;Súdwest Fryslân;1900;20110101;14-12-2010;;;;
+Scharnegoutum;2419;;;SÃºdwest FryslÃ¢n;1900;20110101;14-12-2010;;;;
 Smallebrugge;2420;;;Wymbritseradiel;0683;;14-12-2010;Gem. beeindigd, nieuwe code --> ;1900;20110101;X
-Smallebrugge;2420;;;Súdwest Fryslân;1900;20110101;14-12-2010;;;;
+Smallebrugge;2420;;;SÃºdwest FryslÃ¢n;1900;20110101;14-12-2010;;;;
 Tirns;2421;;;Wymbritseradiel;0683;;14-12-2010;Gem. beeindigd, nieuwe code --> ;1900;20110101;X
-Tirns;2421;;;Súdwest Fryslân;1900;20110101;14-12-2010;;;;
+Tirns;2421;;;SÃºdwest FryslÃ¢n;1900;20110101;14-12-2010;;;;
 Tjalhuizum;2422;;;Wymbritseradiel;0683;;14-12-2010;Gem. beeindigd, nieuwe code --> ;1900;20110101;X
-Tjalhuizum;2422;;;Súdwest Fryslân;1900;20110101;14-12-2010;;;;
+Tjalhuizum;2422;;;SÃºdwest FryslÃ¢n;1900;20110101;14-12-2010;;;;
 Uitwellingerga;2423;;;Wymbritseradiel;0683;;14-12-2010;Gem. beeindigd, nieuwe code --> ;1900;20110101;X
-Uitwellingerga;2423;;;Súdwest Fryslân;1900;20110101;14-12-2010;;;;
+Uitwellingerga;2423;;;SÃºdwest FryslÃ¢n;1900;20110101;14-12-2010;;;;
 Westhem;2424;;;Wymbritseradiel;0683;;14-12-2010;Gem. beeindigd, nieuwe code --> ;1900;20110101;X
-Westhem;2424;;;Súdwest Fryslân;1900;20110101;14-12-2010;;;;
+Westhem;2424;;;SÃºdwest FryslÃ¢n;1900;20110101;14-12-2010;;;;
 Wolsum;2425;;;Wymbritseradiel;0683;;14-12-2010;Gem. beeindigd, nieuwe code --> ;1900;20110101;X
-Wolsum;2425;;;Súdwest Fryslân;1900;20110101;14-12-2010;;;;
+Wolsum;2425;;;SÃºdwest FryslÃ¢n;1900;20110101;14-12-2010;;;;
 Woudsend;2426;;;Wymbritseradiel;0683;;14-12-2010;Gem. beeindigd, nieuwe code --> ;1900;20110101;X
-Woudsend;2426;;;Súdwest Fryslân;1900;20110101;14-12-2010;;;;
+Woudsend;2426;;;SÃºdwest FryslÃ¢n;1900;20110101;14-12-2010;;;;
 Ypecolsga;2427;;;Wymbritseradiel;0683;;14-12-2010;Gem. beeindigd, nieuwe code --> ;1900;20110101;X
-Ypecolsga;2427;;;Súdwest Fryslân;1900;20110101;14-12-2010;;;;
+Ypecolsga;2427;;;SÃºdwest FryslÃ¢n;1900;20110101;14-12-2010;;;;
 Schiermonnikoog;2428;;;Schiermonnikoog;0088;;10-01-2011;;;;
 Biddinghuizen;2429;;;Dronten;0303;;14-12-2010;;;;
 Dronten;2430;;;Dronten;0303;;14-12-2010;;;
@@ -1534,9 +1534,9 @@ Wyns;2442;;;Tytsjerksteradiel;0737;;03-11-2010;;;
 Oentsjerk;2443;;;Tytsjerksteradiel;0737;;03-11-2010;;;
 Gytsjerk;2444;;;Tytsjerksteradiel;0737;;03-11-2010;;;
 Ryptsjerk;2445;;;Tytsjerksteradiel;0737;;03-11-2010;;;
-Mûnein;2446;;;Tytsjerksteradiel;0737;;03-11-2010;;;
+MÃ»nein;2446;;;Tytsjerksteradiel;0737;;03-11-2010;;;
 Tytsjerk;2447;;;Tytsjerksteradiel;0737;;03-11-2010;;;
-Suwâld;2448;;;Tytsjerksteradiel;0737;;03-11-2010;;;
+SuwÃ¢ld;2448;;;Tytsjerksteradiel;0737;;03-11-2010;;;
 Hurdegaryp;2449;;;Tytsjerksteradiel;0737;;03-11-2010;;;
 Noardburgum;2450;;;Tytsjerksteradiel;0737;;03-11-2010;;;
 Burgum;2451;;;Tytsjerksteradiel;0737;;03-11-2010;;;
@@ -1544,7 +1544,7 @@ Jistrum;2452;;;Tytsjerksteradiel;0737;;03-11-2010;;;
 Sumar;2453;;;Tytsjerksteradiel;0737;;03-11-2010;;;
 Eastermar;2454;;;Tytsjerksteradiel;0737;;03-11-2010;;;
 Garyp;2455;;;Tytsjerksteradiel;0737;;03-11-2010;;;
-Earnewâld;2456;;;Tytsjerksteradiel;0737;;03-11-2010;;;
+EarnewÃ¢ld;2456;;;Tytsjerksteradiel;0737;;03-11-2010;;;
 Smilde;2457;;;Assen;0106;;06-11-2009;;;
 Heemskerk;2458;;;Heemskerk;0396;;10-01-2011;;;
 Rijswijk;2459;;;Rijswijk;0603;;25-12-2010;;;
@@ -1575,36 +1575,36 @@ Ottersum;2480;;;Gennep;0907;;23-12-2010;;;;
 Ven-Zelderheide;2481;;;Gennep;0907;;23-12-2010;;;;
 Gennep;2482;;;Gennep;0907;;23-12-2010;;;;
 Heijen;2483;;;Gennep;0907;;23-12-2010;;;;
-Akmarijp;2484;;;Skarsterlân;0051;;16-11-2010;;;;
-Boornzwaag;2485;;;Skarsterlân;0051;;16-11-2010;;;;
-Broek;2486;;;Skarsterlân;0051;;16-11-2010;;;;
-Dijken;2487;;;Skarsterlân;0051;;16-11-2010;;;;
-Doniaga;2488;;;Skarsterlân;0051;;16-11-2010;;;;
-Goingarijp;2489;;;Skarsterlân;0051;;16-11-2010;;;;
-Haskerdijken;2490;;;Skarsterlân;0051;;16-11-2010;;;;
-Haskerhorne;2491;;;Skarsterlân;0051;;16-11-2010;;;
-Idskenhuizen;2492;;;Skarsterlân;0051;;16-11-2010;;;
-Joure;2493;;;Skarsterlân;0051;;16-11-2010;;;
-Langweer;2494;;;Skarsterlân;0051;;16-11-2010;;;
-Legemeer;2495;;;Skarsterlân;0051;;16-11-2010;;;
-Nieuwebrug;2496;;;Skarsterlân;0051;;16-11-2010;;;
-Nijehaske;2497;;;Skarsterlân;0051;;16-11-2010;;;
-Oldeouwer;2498;;;Skarsterlân;0051;;16-11-2010;;;
-Oudehaske;2499;;;Skarsterlân;0051;;16-11-2010;;;
-Ouwsterhaule;2500;;;Skarsterlân;0051;;16-11-2010;;;
-Ouwster-Nijega;2501;;;Skarsterlân;0051;;16-11-2010;;;
-Rohel;2502;;;Skarsterlân;0051;;16-11-2010;;;
-Rotstergaast;2503;;;Skarsterlân;0051;;16-11-2010;;;
-Rotsterhaule;2504;;;Skarsterlân;0051;;16-11-2010;;;
-Rottum;2505;;;Skarsterlân;0051;;16-11-2010;;;
-Scharsterbrug;2506;;;Skarsterlân;0051;;16-11-2010;;;
-Sint Nicolaasga;2507;;;Skarsterlân;0051;;16-11-2010;;;
-Sintjohannesga;2508;;;Skarsterlân;0051;;16-11-2010;;;
-Snikzwaag;2509;;;Skarsterlân;0051;;16-11-2010;;;
-Terkaple;2510;;;Skarsterlân;0051;;16-11-2010;;;
-Teroele;2511;;;Skarsterlân;0051;;16-11-2010;;;
-Tjerkgaast;2512;;;Skarsterlân;0051;;16-11-2010;;;
-Vegelinsoord;2513;;;Skarsterlân;0051;;16-11-2010;;;
+Akmarijp;2484;;;SkarsterlÃ¢n;0051;;16-11-2010;;;;
+Boornzwaag;2485;;;SkarsterlÃ¢n;0051;;16-11-2010;;;;
+Broek;2486;;;SkarsterlÃ¢n;0051;;16-11-2010;;;;
+Dijken;2487;;;SkarsterlÃ¢n;0051;;16-11-2010;;;;
+Doniaga;2488;;;SkarsterlÃ¢n;0051;;16-11-2010;;;;
+Goingarijp;2489;;;SkarsterlÃ¢n;0051;;16-11-2010;;;;
+Haskerdijken;2490;;;SkarsterlÃ¢n;0051;;16-11-2010;;;;
+Haskerhorne;2491;;;SkarsterlÃ¢n;0051;;16-11-2010;;;
+Idskenhuizen;2492;;;SkarsterlÃ¢n;0051;;16-11-2010;;;
+Joure;2493;;;SkarsterlÃ¢n;0051;;16-11-2010;;;
+Langweer;2494;;;SkarsterlÃ¢n;0051;;16-11-2010;;;
+Legemeer;2495;;;SkarsterlÃ¢n;0051;;16-11-2010;;;
+Nieuwebrug;2496;;;SkarsterlÃ¢n;0051;;16-11-2010;;;
+Nijehaske;2497;;;SkarsterlÃ¢n;0051;;16-11-2010;;;
+Oldeouwer;2498;;;SkarsterlÃ¢n;0051;;16-11-2010;;;
+Oudehaske;2499;;;SkarsterlÃ¢n;0051;;16-11-2010;;;
+Ouwsterhaule;2500;;;SkarsterlÃ¢n;0051;;16-11-2010;;;
+Ouwster-Nijega;2501;;;SkarsterlÃ¢n;0051;;16-11-2010;;;
+Rohel;2502;;;SkarsterlÃ¢n;0051;;16-11-2010;;;
+Rotstergaast;2503;;;SkarsterlÃ¢n;0051;;16-11-2010;;;
+Rotsterhaule;2504;;;SkarsterlÃ¢n;0051;;16-11-2010;;;
+Rottum;2505;;;SkarsterlÃ¢n;0051;;16-11-2010;;;
+Scharsterbrug;2506;;;SkarsterlÃ¢n;0051;;16-11-2010;;;
+Sint Nicolaasga;2507;;;SkarsterlÃ¢n;0051;;16-11-2010;;;
+Sintjohannesga;2508;;;SkarsterlÃ¢n;0051;;16-11-2010;;;
+Snikzwaag;2509;;;SkarsterlÃ¢n;0051;;16-11-2010;;;
+Terkaple;2510;;;SkarsterlÃ¢n;0051;;16-11-2010;;;
+Teroele;2511;;;SkarsterlÃ¢n;0051;;16-11-2010;;;
+Tjerkgaast;2512;;;SkarsterlÃ¢n;0051;;16-11-2010;;;
+Vegelinsoord;2513;;;SkarsterlÃ¢n;0051;;16-11-2010;;;
 Barsingerhorn;2514;;;Niedorp;0412;;18-01-2011;;;
 Haringhuizen;2515;;;Niedorp;0412;;18-01-2011;;;
 Kolhorn;2516;;;Niedorp;0412;;18-01-2011;;;
@@ -1635,7 +1635,7 @@ Warstiens;2540;;;Boarnsterhim;0055;;24-12-2010;;;
 Warten;2541;;;Boarnsterhim;0055;;24-12-2010;;;
 Lent;2545;;;Nijmegen;0268;;10-12-2010;;;
 Ommen;2546;;;Ommen;0175;;26-07-2010;;;
-Arriën;2547;;;Ommen;0175;;26-07-2010;;;
+ArriÃ«n;2547;;;Ommen;0175;;26-07-2010;;;
 Beerze;2548;;;Ommen;0175;;26-07-2010;;;
 Beerzerveld;2549;;;Ommen;0175;;26-07-2010;;;
 Dalmsholte;2550;;;Ommen;0175;;26-07-2010;;;
@@ -1682,7 +1682,7 @@ Herkenbosch;2590;;;Roerdalen;1669;;17-12-2010;;;
 Melick;2591;;;Roerdalen;1669;;17-12-2010;;;
 Montfort;2592;;;Roerdalen;1669;;17-12-2010;;;
 Posterholt;2593;;;Roerdalen;1669;;17-12-2010;;;
-Sint Odiliënberg;2594;;;Roerdalen;1669;;17-12-2010;;;
+Sint OdiliÃ«nberg;2594;;;Roerdalen;1669;;17-12-2010;;;
 Vlodrop;2595;;;Roerdalen;1669;;17-12-2010;;;
 Sprang-Capelle;2596;;;Waalwijk;0867;;31-12-2010;;;
 Waalwijk;2597;;;Waalwijk;0867;;31-12-2010;;;
@@ -1965,13 +1965,13 @@ Lettele;2858;;;Deventer;0150;;22-06-2010;;;;
 Okkenbroek;2859;;;Deventer;0150;;22-06-2010;;;;
 Schalkhaar;2860;;;Deventer;0150;;22-06-2010;;;;
 Sneek;2861;;;Sneek;0091;;17-09-2010;Gem. beeindigd, nieuwe code --> ;1900;20110101;X
-Sneek;2861;;01-01-2011;Súdwest Fryslân;1900;20110101;14-12-2010;;;;
-Loënga;2862;;;Sneek;0091;;17-09-2010;Gem. beeindigd, nieuwe code --> ;1900;20110101;X
-Loënga;2862;;01-01-2011;Súdwest Fryslân;1900;20110101;14-12-2010;;;;
+Sneek;2861;;01-01-2011;SÃºdwest FryslÃ¢n;1900;20110101;14-12-2010;;;;
+LoÃ«nga;2862;;;Sneek;0091;;17-09-2010;Gem. beeindigd, nieuwe code --> ;1900;20110101;X
+LoÃ«nga;2862;;01-01-2011;SÃºdwest FryslÃ¢n;1900;20110101;14-12-2010;;;;
 Offingawier;2863;;;Sneek;0091;;17-09-2010;Gem. beeindigd, nieuwe code --> ;1900;20110101;X
-Offingawier;2863;;01-01-2011;Súdwest Fryslân;1900;20110101;14-12-2010;;;;
+Offingawier;2863;;01-01-2011;SÃºdwest FryslÃ¢n;1900;20110101;14-12-2010;;;;
 Ysbrechtum;2864;;;Sneek;0091;;17-09-2010;Gem. beeindigd, nieuwe code --> ;1900;20110101;X
-Ysbrechtum;2864;;01-01-2011;Súdwest Fryslân;1900;20110101;14-12-2010;;;;
+Ysbrechtum;2864;;01-01-2011;SÃºdwest FryslÃ¢n;1900;20110101;14-12-2010;;;;
 Heerde;2865;;;Heerde;0246;;15-12-2010;;;;
 Veessen;2866;;;Heerde;0246;;15-12-2010;;;;
 Vorchten;2867;;;Heerde;0246;;15-12-2010;;;;
@@ -2316,7 +2316,7 @@ Jislum;3206;;;Ferwerderadiel;1722;;21-12-2010;;;
 Lichtaard;3207;;;Ferwerderadiel;1722;;21-12-2010;;;
 Marrum;3208;;;Ferwerderadiel;1722;;21-12-2010;;;
 Reitsum;3209;;;Ferwerderadiel;1722;;21-12-2010;;;
-Wânswert;3210;;;Ferwerderadiel;1722;;21-12-2010;;;
+WÃ¢nswert;3210;;;Ferwerderadiel;1722;;21-12-2010;;;
 Acquoy;3211;;;Geldermalsen;0236;;15-12-2010;;;
 Rhenoy;3212;;;Geldermalsen;0236;;15-12-2010;;;
 Beesd;3213;;;Geldermalsen;0236;;15-12-2010;;;
@@ -2371,23 +2371,23 @@ Neerlangel;3261;;;Oss;0828;;15-03-2011;;;
 Neerloon;3262;;;Oss;0828;;15-03-2011;;;
 Overlangel;3263;;;Oss;0828;;15-03-2011;;;
 Keent;3264;;;Oss;0828;;15-03-2011;;;
-Broeksterwâld;3265;;;Dantumadiel;1891;;22-12-2010;;;
-Damwâld;3266;;;Dantumadiel;1891;;22-12-2010;;;
+BroeksterwÃ¢ld;3265;;;Dantumadiel;1891;;22-12-2010;;;
+DamwÃ¢ld;3266;;;Dantumadiel;1891;;22-12-2010;;;
 De Falom;3267;;;Dantumadiel;1891;;22-12-2010;;;
 Driezum;3268;;;Dantumadiel;1891;;22-12-2010;;;
-Wâlterswâld;3269;;;Dantumadiel;1891;;22-12-2010;;;
+WÃ¢lterswÃ¢ld;3269;;;Dantumadiel;1891;;22-12-2010;;;
 Rinsumageast;3270;;;Dantumadiel;1891;;22-12-2010;;;
-Feanwâlden;3271;;;Dantumadiel;1891;;22-12-2010;;;
+FeanwÃ¢lden;3271;;;Dantumadiel;1891;;22-12-2010;;;
 Readtsjerk;3272;;;Dantumadiel;1891;;22-12-2010;;;
 De Westereen;3273;;;Dantumadiel;1891;;22-12-2010;;;
-Sibrandahûs;3274;;;Dantumadiel;1891;;22-12-2010;;;
+SibrandahÃ»s;3274;;;Dantumadiel;1891;;22-12-2010;;;
 Boornbergum;3275;;;Smallingerland;0090;;24-12-2010;;;
 De Tike;3276;;;Smallingerland;0090;;24-12-2010;;;
 De Veenhoop;3277;;;Smallingerland;0090;;24-12-2010;;;
 De Wilgen;3278;;;Smallingerland;0090;;24-12-2010;;;
 Drachten;3279;;;Smallingerland;0090;;24-12-2010;;;
 Drachtstercompagnie;3280;;;Smallingerland;0090;;24-12-2010;;;
-Goëngahuizen;3281;;;Smallingerland;0090;;24-12-2010;;;
+GoÃ«ngahuizen;3281;;;Smallingerland;0090;;24-12-2010;;;
 Houtigehage;3282;;;Smallingerland;0090;;24-12-2010;;;
 Kortehemmen;3283;;;Smallingerland;0090;;24-12-2010;;;
 Nijega;3284;;;Smallingerland;0090;;24-12-2010;;;
@@ -2454,7 +2454,7 @@ Drachten-Azeven;3344;;;Opsterland;0086;;21-12-2010;;;
 Frieschepalen;3345;;;Opsterland;0086;;21-12-2010;;;
 Gorredijk;3346;;;Opsterland;0086;;21-12-2010;;;
 Hemrik;3347;;;Opsterland;0086;;21-12-2010;;;
-Jonkerslân;3348;;;Opsterland;0086;;21-12-2010;;;
+JonkerslÃ¢n;3348;;;Opsterland;0086;;21-12-2010;;;
 Langezwaag;3349;;;Opsterland;0086;;21-12-2010;;;
 Lippenhuizen;3350;;;Opsterland;0086;;21-12-2010;;;
 Luxwoude;3351;;;Opsterland;0086;;21-12-2010;;;
@@ -2610,10 +2610,10 @@ Haarsteeg;3500;;;Heusden;0797;;31-12-2010;;;
 HEUSDEN GEM HEUSDEN;3501;;03-10-2011;Heusden;0797;;31-12-2010;;;
 Nieuwkuijk;3502;;;Heusden;0797;;31-12-2010;;;
 Vlijmen;3503;;;Heusden;0797;;31-12-2010;;;
-Sneek;3504;01-01-2011;;Súdwest Fryslân;1900;;14-12-2010;;;
-Loënga;3505;01-01-2011;;Súdwest Fryslân;1900;;14-12-2010;;;
-Offingawier;3506;01-01-2011;;Súdwest Fryslân;1900;;14-12-2010;;;
-Ysbrechtum;3507;01-01-2011;;Súdwest Fryslân;1900;;14-12-2010;;;
+Sneek;3504;01-01-2011;;SÃºdwest FryslÃ¢n;1900;;14-12-2010;;;
+LoÃ«nga;3505;01-01-2011;;SÃºdwest FryslÃ¢n;1900;;14-12-2010;;;
+Offingawier;3506;01-01-2011;;SÃºdwest FryslÃ¢n;1900;;14-12-2010;;;
+Ysbrechtum;3507;01-01-2011;;SÃºdwest FryslÃ¢n;1900;;14-12-2010;;;
 Beerta;3508;07-04-2011;;Oldambt;1895;;25-08-2010;;;
 Blauwestad;3509;07-04-2011;;Oldambt;1895;;25-08-2010;;;
 Hengelo;3510;01-06-2011;;Hengelo (O);0164;;28-01-2010;;;

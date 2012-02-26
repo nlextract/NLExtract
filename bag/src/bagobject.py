@@ -278,6 +278,10 @@ class Verblijfsobject(BAGadresseerbaarObject):
                                                                                         "bag_LVC:verblijfsobjectStatus"))
         self.voegToe(BAGnumeriekAttribuut(6, "oppervlakteVerblijfsobject",
                                                                "bag_LVC:oppervlakteVerblijfsobject"))
+        # Het eerste gerelateerde pand (in principe kunnen er meer zijn, zie relatie)
+        # self.voegToe(BAGnumeriekAttribuut(16, "gerelateerdPand1", "bag_LVC:gerelateerdPand/bag_LVC:identificatie"))
+        # Het eerste verblijfsdoel  (in principe kunnen er meer zijn, zie relatie)
+        # self.voegToe(BAGnumeriekAttribuut(50, "gebruiksdoelVerblijfsobject1", "bag_LVC:gebruiksdoelVerblijfsobject"))
         self.voegToe(BAGpoint(3, "geopunt", "bag_LVC:verblijfsobjectGeometrie"))
         self.voegToe(BAGpolygoon(3, "geovlak", "bag_LVC:verblijfsobjectGeometrie"))
         self.voegToe(BAGgeometrieValidatie("geom_valid", "geovlak"))
