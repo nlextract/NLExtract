@@ -14,6 +14,7 @@ __date__ = "Jan 9, 2012 3:46:27 PM$"
  OpenGeoGroep.nl
 """
 from logging import Log
+from etree import tagVolledigeNS
 
 # Geef de waarde van een textnode in XML
 def getText(nodelist):
@@ -22,6 +23,8 @@ def getText(nodelist):
         if node.nodeType == node.TEXT_NODE:
             rc = rc + node.data
     return rc
+
+# TODO: werking van deze functie controleren en vergelijken met origineel
 
 # Geef de waardes van alle elementen met de gegeven tag binnen de XML (parent).
 # De tag kan een samengestelde tag zijn opgebouwd uit verschillende niveaus gescheiden door een '/'.
@@ -34,13 +37,13 @@ def getValues(parent, tag):
     # Splits in max 2 elementen, bijv.  ['bag_LVC:gerelateerdeAdressen', 'bag_LVC:nevenadres/bag_LVC:identificatie']
     tags = tag.split("/", 1)
     # print str(tags)
-    for node in parent.getElementsByTagName(tags[0]):
+    for node in list(parent):
         # getElementsByTagName geeft alle elementen met die tag die ergens onder de parent hangen.
         # We gebruiken hier echter alleen die elementen die rechtstreeks onder de parent hangen.
         # Immers als we op zoek zijn naar de identificatie van een verblijfsobject dan willen we niet de
         # identificaties van gerelateerde objecten van dat verblijfsobject hebben.
         # Daarom controleren we dat de tag van de parent van de gevonden node, gelijk is aan de tag van de parent
-        if node.parentNode.tagName == parent.tagName:
+        if stripschema(node.tag) == parent.tagName:
             if len(tags) == 1:
                 # Leaf : 1 enkele node
                 data.append(getText(node.childNodes))
@@ -60,18 +63,6 @@ def getValue(parent, tag):
         # TODO: moet eigenlijk None zijn...
         # ook dan alle if != '' in BAGattribuut classes nalopen..
         return ""
-
-# Geef de eerste node met de tag name of return None
-def getNodeByTagName(node, tag):
-    resultNode = None
-    try:
-         resultNode = node.getElementsByTagName(tag)[0]
-    except:
-        resultNode = None
-
-    return resultNode
-
-
 
 #--------------------------------------------------------------------------------------------------------
 # Class         BAGattribuut
@@ -382,10 +373,10 @@ class BAGpoint(BAGgeoAttribuut):
         try:
             pos = ""
             teller = 0
-            geometrie = getNodeByTagName(xml, self._tag)
-            point = getNodeByTagName(geometrie, "gml:Point")
+            geometrie = xml.find('.//'+tagVolledigeNS(self._tag, xml.nsmap))
+            point = geometrie.find('.//'+tagVolledigeNS("gml:Point", geometrie.nsmap))
             if point:
-                for na in point.getElementsByTagName("gml:pos"):
+                for na in point.iterfind('.//'+tagVolledigeNS("gml:pos", point.nsmap)):
                     teller += 1
                     pos = pos + na.firstChild.nodeValue + ","
 
@@ -394,13 +385,13 @@ class BAGpoint(BAGgeoAttribuut):
                 self._waarde = "POINT(" + pos + ")"
             else:
                 # Polygoon (wordt later omgezet naar punt)
-                polygon = getNodeByTagName(geometrie, "gml:Polygon")
+                polygon = geometrie.find('.//'+tagVolledigeNS("gml:Polygon", geometrie.nsmap))
                 if polygon:
                     self.polygonAttr = BAGpolygoon(3, self._naam, self._tag)
                     self.polygonAttr.leesUitXML(xml)
 
         except:
-            Log.log.error("ik kan hier ech geen POINT van maken: %s (en zet dit op 0,0,0)" % str(point))
+            Log.log.error("ik kan hier echt geen POINT van maken: %s (en zet dit op 0,0,0)" % str(point))
             self._waarde = "POINT(0 0 0)"
 
 #--------------------------------------------------------------------------------------------------------
@@ -421,8 +412,8 @@ class BAGpolygoon(BAGgeoAttribuut):
     def _leesXMLposList(self, xml):
         wktPosList = ""
         puntTeller = 0
-        for xmlPosList in xml.getElementsByTagName("gml:posList"):
-            for coordinaat in xmlPosList.firstChild.nodeValue.split(" "):
+        for xmlPosList in xml.iterfind('.//'+tagVolledigeNS("gml:posList", xml.nsmap)):
+            for coordinaat in xmlPosList.text.split(" "):
                 if not coordinaat or not coordinaat.strip():
                     continue
                 puntTeller += 1
@@ -435,21 +426,25 @@ class BAGpolygoon(BAGgeoAttribuut):
     # Converteer een polygoon uit de XML-string naar een WKT-string.
     # Een polygoon bestaat uit een buitenring en 0 of meerdere binnenringen (gaten).
     def _leesXMLpolygoon(self, xmlPolygoon):
-        xmlExterior = xmlPolygoon.getElementsByTagName("gml:exterior")[0]
-        wktExterior = "(" + self._leesXMLposList(xmlExterior) + ")"
+        xmlExterior = xmlPolygoon.find('.//'+tagVolledigeNS("gml:exterior", xmlPolygoon.nsmap))
+        if xmlExterior is not None:
+            wktExterior = "(" + self._leesXMLposList(xmlExterior) + ")"
+        else:
+            wktExterior = ""
 
         wktInteriors = ""
-        for xmlInterior in xmlPolygoon.getElementsByTagName("gml:interior"):
+        for xmlInterior in xmlPolygoon.iterfind('.//'+tagVolledigeNS("gml:interior", xmlPolygoon.nsmap)):
             wktInteriors += ",(" + self._leesXMLposList(xmlInterior) + ")"
 
         return "(" + wktExterior + wktInteriors + ")"
 
     # Initialisatie vanuit XML
     def leesUitXML(self, xml):
-        xmlGeometrie = xml.getElementsByTagName(self._tag)[0]
-        xmlPolygoon = getNodeByTagName(xmlGeometrie, "gml:Polygon")
-        if xmlPolygoon:
-            self._waarde = "POLYGON" + self._leesXMLpolygoon(xmlPolygoon)
+        xmlGeometrie = xml.find('.//'+tagVolledigeNS(self._tag, xml.nsmap))
+        if xmlGeometrie is not None:
+            xmlPolygoon = xmlGeometrie.find('.//'+tagVolledigeNS("gml:Polygon", xmlGeometrie.nsmap))
+            if xmlPolygoon:
+                self._waarde = "POLYGON" + self._leesXMLpolygoon(xmlPolygoon)
 
 #--------------------------------------------------------------------------------------------------------
 # Class         BAGmultiPolygoon
@@ -464,8 +459,8 @@ class BAGmultiPolygoon(BAGpolygoon):
     # Initialisatie vanuit XML
     def leesUitXML(self, xml):
         wktGeometrie = ""
-        xmlGeometrie = xml.getElementsByTagName(self._tag)[0]
-        for xmlPolygoon in xmlGeometrie.getElementsByTagName("gml:Polygon"):
+        xmlGeometrie = xml.find('.//'+tagVolledigeNS(self._tag, xml.nsmap))
+        for xmlPolygoon in xmlGeometrie.iterfind('.//'+tagVolledigeNS("gml:Polygon", xmlGeometrie.nsmap)):
             if wktGeometrie <> "":
                 wktGeometrie += ","
             wktGeometrie += self._leesXMLpolygoon(xmlPolygoon)
@@ -496,12 +491,12 @@ class BAGpolygoonOfpunt(BAGgeoAttribuut):
 
     # Initialisatie vanuit XML
     def leesUitXML(self, xml):
-        xmlGeometrie = getNodeByTagName(xml, self._tag)
-        geometrie = getNodeByTagName(xmlGeometrie, "gml:Point")
+        xmlGeometrie = xml.find('.//'+tagVolledigeNS(self._tag, xml.nsmap))
+        geometrie = xmlGeometrie.find('.//'+tagVolledigeNS("gml:Point", xml.nsmap))
         if geometrie:
             self._geoattr = BAGpoint(3, self._naam, self._tag)
         else:
-            geometrie = getNodeByTagName(xml, "gml:Polygon")
+            geometrie = xml.find('.//'+tagVolledigeNS("gml:Polygon", xml.nsmap))
             if geometrie:
                 self._geoattr = BAGpolygoon(3, self._naam, self._tag)
 
