@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2006 sp2 U (http://www.altova.com) by Kadaster (Kadaster) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:meta="http://www.kadaster.nl/schemas/bag-verstrekkingen/extract-meta/v20090901" xmlns:selectie-extract="http://www.kadaster.nl/schemas/bag-verstrekkingen/extract-selecties/v20090901" xmlns:xb="http://www.kadaster.nl/schemas/bag-verstrekkingen/extract-levering/v20090901" targetNamespace="http://www.kadaster.nl/schemas/bag-verstrekkingen/extract-levering/v20090901" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.3">
+	<xs:import namespace="http://www.kadaster.nl/schemas/bag-verstrekkingen/extract-meta/v20090901" schemaLocation="../../extract-meta/v20090901/BagvsExtractMeta-1.3.xsd"/>
+	<xs:import namespace="http://www.kadaster.nl/schemas/bag-verstrekkingen/extract-selecties/v20090901" schemaLocation="../../extract-selecties/v20090901/BagvsExtractSelecties-0.7.xsd"/>
+	<xs:element name="BAG-Extract-Levering">
+		<xs:annotation>
+			<xs:documentation>Terugkoppeling van gegevens omtrent de levering van het product. </xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation> BAG-Verstrekking met produkt-data</xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element name="stuurgegevens" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>To be defined in a later release: Stuurgegevens behorende bij versie v20090901 van het koppelvlak. </xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="metadata" type="meta:Metagegevens">
+					<xs:annotation>
+						<xs:documentation>Algemene gegevens over de aanvragende partij, de afhandeling en metadata behorende bij het geleverde product. </xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="antwoord">
+					<xs:annotation>
+						<xs:documentation>Antwoord behorende bij de bestelling van het product. Bevat gegevens van het gevraagde en geleverde product, zoals beschreven in de productdefinitie. </xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="vraag">
+								<xs:annotation>
+									<xs:documentation>Terugkoppeling van de vraag: gegevens omtrent de gekozen specifieke kenmerken van het product.</xs:documentation>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:sequence>
+										<xs:choice>
+											<xs:annotation>
+												<xs:documentation>Gekozen gegevensvariant en type product. </xs:documentation>
+											</xs:annotation>
+											<xs:sequence>
+												<xs:element ref="selectie-extract:LVC-Extract"/>
+												<xs:element ref="selectie-extract:MUT-Extract" minOccurs="0"/>
+											</xs:sequence>
+											<xs:element ref="selectie-extract:APD-Extract"/>
+										</xs:choice>
+										<xs:element ref="selectie-extract:Leverfrequentie"/>
+										<xs:element ref="selectie-extract:Gebied-Registratief"/>
+										<xs:element ref="selectie-extract:SchemaInfo" minOccurs="0">
+											<xs:annotation>
+												<xs:documentation>De term schema verwijst naar een XSD. Dit element bevat informatie om aan te geven in welke structuur het gevraagde informatieproduct geleverd moet worden. Het schema is terug te vinden in de koppelvlakdocumentatie. Default wordt het meest recente schema geleverd, tenzij anders aangegeven. </xs:documentation>
+											</xs:annotation>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="producten">
+								<xs:annotation>
+									<xs:documentation>Geleverd product: de producten zijn besloten in de deelbestanden. </xs:documentation>
+								</xs:annotation>
+								<xs:complexType/>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

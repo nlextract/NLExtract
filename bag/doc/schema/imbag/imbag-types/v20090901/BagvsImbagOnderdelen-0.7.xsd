@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2006 sp2 U (http://www.altova.com) by Kadaster (Kadaster) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:bagtype="http://www.kadaster.nl/schemas/imbag/imbag-types/v20090901" xmlns:gml="http://www.opengis.net/gml" targetNamespace="http://www.kadaster.nl/schemas/imbag/imbag-types/v20090901" elementFormDefault="qualified" attributeFormDefault="unqualified" version="0.7">
+	<xs:import namespace="http://www.opengis.net/gml" schemaLocation="../../gml/bag-gml.xsd"/>
+	<xs:simpleType name="StatusPlaats">
+		<xs:annotation>
+			<xs:documentation>Een aanduiding van alle waarden die de status van een
+ligplaats en een standplaats kan aannemen.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Plaats aangewezen"/>
+			<xs:enumeration value="Plaats ingetrokken"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="StatusPand">
+		<xs:annotation>
+			<xs:documentation>Een codering van de verschillende waarden die de status
+van een pand kan aannemen.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="StatusVerblijfsobject">
+		<xs:annotation>
+			<xs:documentation>Een aanduiding van alle waarden die de status van een
+verblijfsobject kan aannemen.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Verblijfsobject gevormd"/>
+			<xs:enumeration value="Niet gerealiseerd verblijfsobject"/>
+			<xs:enumeration value="Verblijfsobject in gebruik (niet ingemeten)"/>
+			<xs:enumeration value="Verblijfsobject in gebruik"/>
+			<xs:enumeration value="Verblijfsobject ingetrokken"/>
+			<xs:enumeration value="Verblijfsobject buiten gebruik"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="PuntOfVlak">
+		<xs:annotation>
+			<xs:documentation>Keuze tussen een punt (gml:Point) of een vlak (gml:Surface).</xs:documentation>
+		</xs:annotation>
+		<xs:choice>
+			<xs:element ref="gml:Point"/>
+			<xs:element ref="gml:_Surface"/>
+		</xs:choice>
+	</xs:complexType>
+	<xs:simpleType name="TypeAdresseerbaarObject">
+		<xs:annotation>
+			<xs:documentation>De aard van een als zodanig benoemde
+NUMMERAANDUIDING.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Verblijfsobject"/>
+			<xs:enumeration value="Standplaats"/>
+			<xs:enumeration value="Ligplaats"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="TypeOpenbareRuimte">
+		<xs:annotation>
+			<xs:documentation>De aard van de als zodanig benoemde OPENBARE
+RUIMTE.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Weg"/>
+			<xs:enumeration value="Water"/>
+			<xs:enumeration value="Spoorbaan"/>
+			<xs:enumeration value="Terrein"/>
+			<xs:enumeration value="Kunstwerk"/>
+			<xs:enumeration value="Landschappelijk gebied"/>
+			<xs:enumeration value="Administratief gebied"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:element name="Tijdvakgeldigheid" type="bagtype:Tijdvakgeldigheid">
+		<xs:annotation>
+			<xs:documentation>Een periode waarin een of meer gegevens die worden bijgehouden over een object een wijziging hebben ondergaan.Formaat is DatumTijd en is 16 karakters gedefinieerd als (JJJJMMDDUUMMSSmm)</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="Tijdvakgeldigheid">
+		<xs:annotation>
+			<xs:documentation>Een periode waarin een of meer gegevens die worden bijgehouden over een object een wijziging hebben ondergaan.Formaat is DatumTijd en is 16 karakters gedefinieerd als (JJJJMMDDUUMMSSmm)</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="begindatumTijdvakGeldigheid" type="bagtype:DatumTijd">
+				<xs:annotation>
+					<xs:documentation>De begindatum van een periode waarin een of meer gegevens die worden bijgehouden over een object een wijziging hebben ondergaan. </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="einddatumTijdvakGeldigheid" type="bagtype:DatumTijd" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>De einddatum van een periode waarin er geen wijzigingen hebben plaatsgevonden in de gegevens die worden bijgehouden over een  object.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="Bron" type="bagtype:Bron"/>
+	<xs:complexType name="Bron">
+		<xs:annotation>
+			<xs:documentation>Nieuwe (versies van) objecten worden opgenomen op basis van daartoe aangewezen brondocumenten waarin de opname, mutatie of een in de historie plaatsen van gegevens van het object als zodanig is vastgelegd.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="documentdatum" type="bagtype:Datum">
+				<xs:annotation>
+					<xs:documentation>De datum waarop het brondocument is vastgesteld, op
+basis waarvan een opname, mutatie of een verwijdering
+van gegevens ten aanzien van een object heeft plaatsgevonden. Formaat is: (JJJJMMDD)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="documentnummer" type="bagtype:Documentnummer">
+				<xs:annotation>
+					<xs:documentation>De unieke aanduiding van het brondocument op basis
+waarvan een opname, mutatie of een verwijdering van
+gegevens ten aanzien van een oject heeft plaatsgevonden, binnen een gemeente.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="Huisletter">
+		<xs:annotation>
+			<xs:documentation>Alfabetische string met een lengte van 1.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[a-z,A-Z]"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Indicatie">
+		<xs:annotation>
+			<xs:documentation>Een aanduiding waarmee wordt aangegeven of een
+bepaalde indicatie al dan niet van toepassing is op een
+verschijningsvorm van een object in de registratie.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="J"/>
+			<xs:enumeration value="N"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Documentnummer">
+		<xs:annotation>
+			<xs:documentation>Alfanumerieke string met een maximale lengte van 20.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="20"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Huisnummertoevoeging">
+		<xs:annotation>
+			<xs:documentation>Alfanumerieke string met een maximale lengte van 4.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="4"/>
+			<xs:pattern value="([a-z,A-Z,0-9])+"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Woonplaatscode">
+		<xs:annotation>
+			<xs:documentation>Een code ter identificatie van een WOONPLAATS bestaande uit 4 cijfers.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="([0-9]){4}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="VlakOfMultiVlak">
+		<xs:choice>
+			<xs:element ref="gml:_Surface"/>
+			<xs:element ref="gml:MultiSurface"/>
+		</xs:choice>
+	</xs:complexType>
+	<xs:simpleType name="Objectnaam">
+		<xs:annotation>
+			<xs:documentation>Alfanumerieke string met een maximale lengte van 80.
+</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="80"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Objectnummer">
+		<xs:annotation>
+			<xs:documentation>Uniek objectaanduiding binnen een gemeente, bestaande uit 16 cijfers.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="16"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Postcode">
+		<xs:annotation>
+			<xs:documentation>Alfanumerieke string bestaande uit vier cijfers en twee letters.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[1-9][0-9][0-9][0-9][A-Z][A-Z]"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Gebruiksdoel">
+		<xs:annotation>
+			<xs:documentation>Een categorisering waarmee het gebruiksdoel van een
+object kan worden verbijzonderd.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="woonfunctie"/>
+			<xs:enumeration value="bijeenkomstfunctie"/>
+			<xs:enumeration value="celfunctie"/>
+			<xs:enumeration value="gezondheidszorgfunctie"/>
+			<xs:enumeration value="industriefunctie"/>
+			<xs:enumeration value="kantoorfunctie"/>
+			<xs:enumeration value="logiesfunctie"/>
+			<xs:enumeration value="onderwijsfunctie"/>
+			<xs:enumeration value="sportfunctie"/>
+			<xs:enumeration value="winkelfunctie"/>
+			<xs:enumeration value="overige gebruiksfunctie"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Oppervlaktemaat">
+		<xs:annotation>
+			<xs:documentation>Numerieke waarde met een maximale lengte van 6.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:integer">
+			<xs:maxInclusive value="999999"/>
+			<xs:minInclusive value="1"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="StatusNaamgeving">
+		<xs:annotation>
+			<xs:documentation>Een aanduiding van alle waarden die de status van een
+openbare ruimte of een nummeraanduiding kan
+aannemen.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Naamgeving uitgegeven"/>
+			<xs:enumeration value="Naamgeving ingetrokken"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="indicatieCorrectie">
+		<xs:annotation>
+			<xs:documentation>numeriek gegeven die aantal mutaties, op een object ingeval van synchronisatie of mutatie van actualiteit in de toekomst, aangeeft.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:integer"/>
+	</xs:simpleType>
+	<xs:simpleType name="Huisnummer">
+		<xs:annotation>
+			<xs:documentation>Natuurlijk getal tussen 1 en 99999.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:integer">
+			<xs:maxInclusive value="99999"/>
+			<xs:minInclusive value="1"/>
+			<xs:totalDigits value="5"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="StatusWoonplaats">
+		<xs:annotation>
+			<xs:documentation>Een aanduiding van alle waarden die de status van een
+woonplaats kan aannemen.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Woonplaats aangewezen"/>
+			<xs:enumeration value="Woonplaats ingetrokken"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Productcode">
+		<xs:annotation>
+			<xs:documentation>bv. B300LX01: Bevraging, volgnr300, Levenscyclus, XML, versie01. </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="DatumTijd">
+		<xs:annotation>
+			<xs:documentation>formaat JJJJMMDDUUMMSSmm</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:token">
+			<xs:minLength value="8"/>
+			<xs:maxLength value="16"/>
+			<xs:pattern value="[0-2][0-9][0-9][0-9][0-1][0-9][0-3][0-9][0-2][0-9][0-5][0-9][0-5][0-9][0-9][0-9]"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Datum">
+		<xs:annotation>
+			<xs:documentation>Datum formaat: N8. Masker: JJJJMMDD</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:token">
+			<xs:minLength value="8"/>
+			<xs:maxLength value="8"/>
+			<xs:pattern value="[0-2][0-9][0-9][0-9][0-1][0-9][0-3][0-9]"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

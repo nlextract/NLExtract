@@ -27,9 +27,22 @@ in PostGIS geladen.
 
 Installatie
 -----------
-GDAL 1.8 minimaal is vereist. Voor XSLT dient "xsltproc" te worden geinstalleerd.  Op Ubuntu
-kan dit met apt-get install xsltproc. Op MacOSX  kan xsltproc bijv. via MacPorts of andere Unix tools
-worden geinstalleerd.
+Voorlopig even voor Unixen (Linux, MacOS, ...). Windows versie is in de maak...
+
+Vereist:
+- XSLT "xmlstarlet" of "xsltproc" http://xmlstar.sourceforge.net  (evt xsltproc)
+- GDAL/OGR versie 1.8.1 minimaal (voor ogr2ogr) http://www.gdal.org
+
+Ubuntu/Debian
+apt-get install gdal-bin
+apt-get install xmlstarlet (of apt-get install xsltproc)
+
+MacOSX  xmlstarlet (of xsltproc) bijv. via MacPorts, GDAL/OGR bij voorkeur via
+http://www.kyngchaos.com/software/frameworks (GDAL Complete)
+
+Om de input leverings-GML  te valideren wordt "xmlstar" gebruikt, zie
+http://xmlstar.sourceforge.net. Het te gebruiken commando is dan xmlstarlet of de shortcut
+bin/top10-validate.sh (zie onder)
 
 Testen
 ------
@@ -43,14 +56,37 @@ Hoe te gebruiken ?
 ------------------
 Onder bin/ staan shell-scripts om de conversies (ook wel ETL, Extract Transform Load geheten)  te doen.
 
-top10-extract.sh - converteert 1 enkele GML file naar PostGIS, deze roept 2 scripts aan
+==> pas eerst bin/top10-settings.sh aan m.n. voor je lokale database en ogr2ogr opties !!  <==
+
+top10-extract.sh <file of directory> - converteert 1 enkele GML file of hele directory met GML files naar PostGIS
+
+top10-extract.sh roept 2 hulp-scripts aan:
 top10-split.sh - geometrieen uitsplitsen en
 top10-ogr2ogr.sh - via ogr2ogr GML in PostGIS laden
+
+Valideren
+---------
+
+Sommige Top10NL files van Kadaster blijken invalide GML syntax te bevatten.
+
+top10-validate.sh <Top10NL GML file> - valideer input GML
+
+Voorbeeld:
+
+top10-validate.sh  06_west.gml
+
+geeft output:
+
+   06_west.gml:65535: element geometrieLijn: Schemas validity error :
+   Element '{http://www.kadaster.nl/top10nl}geometrieLijn': This element is not expected.
+   06_west.gml - invalid
+
+(Top10NL versie van 11.nov.2011)
 
 TODO
 ----
 
-Scripts voor Windows. Onder Windows is er een standaard MSDOS tool msxsl.exe beschikbaar.
+Scripts voor Windows. Onder Windows is er een standaard MSDOS tool msxsl.exe of xmlstarlet beschikbaar.
 Zie http://www.microsoft.com/download/en/details.aspx?displaylang=en&id=21714
 
 

@@ -1,0 +1,2111 @@
+<!DOCTYPE qgis PUBLIC 'http://mrcc.com/qgis.dtd' 'SYSTEM'>
+<qgis projectname="" version="1.9.90-Alpha">
+    <title></title>
+    <mapcanvas>
+        <units>meters</units>
+        <extent>
+            <xmin>107627.343763</xmin>
+            <ymin>551517.604276</ymin>
+            <xmax>117643.025206</xmax>
+            <ymax>557233.971913</ymax>
+        </extent>
+        <projections>0</projections>
+        <destinationsrs>
+            <spatialrefsys>
+                <proj4>+proj=sterea +lat_0=52.15616055555555 +lon_0=5.38763888888889 +k=0.9999079 +x_0=155000 +y_0=463000 +ellps=bessel +towgs84=565.417,50.3319,465.552,-0.398957,0.343988,-1.8774,4.0725 +units=m +no_defs</proj4>
+                <srsid>2517</srsid>
+                <srid>28992</srid>
+                <authid>EPSG:28992</authid>
+                <description>Amersfoort / RD New</description>
+                <projectionacronym>sterea</projectionacronym>
+                <ellipsoidacronym>bessel</ellipsoidacronym>
+                <geographicflag>false</geographicflag>
+            </spatialrefsys>
+        </destinationsrs>
+    </mapcanvas>
+    <legend>
+        <legendlayer open="false" checked="Qt::Checked" name="knooppuntnaam" showFeatureCount="0">
+            <filegroup open="false" hidden="false">
+                <legendlayerfile isInOverview="0" layerid="knooppuntnaam20120210122639104" visible="1"/>
+            </filegroup>
+        </legendlayer>
+        <legendlayer open="false" checked="Qt::Checked" name="ewegnummer" showFeatureCount="0">
+            <filegroup open="false" hidden="false">
+                <legendlayerfile isInOverview="0" layerid="ewegnummer20120210122456943" visible="1"/>
+            </filegroup>
+        </legendlayer>
+        <legendlayer open="false" checked="Qt::Checked" name="nwegnummer" showFeatureCount="0">
+            <filegroup open="false" hidden="false">
+                <legendlayerfile isInOverview="0" layerid="nwegnummer20120210121622480" visible="1"/>
+            </filegroup>
+        </legendlayer>
+        <legendlayer open="false" checked="Qt::Checked" name="awegnummer" showFeatureCount="0">
+            <filegroup open="false" hidden="false">
+                <legendlayerfile isInOverview="0" layerid="awegnummer20120210121000556" visible="1"/>
+            </filegroup>
+        </legendlayer>
+        <legendlayer open="false" checked="Qt::Checked" name="rijbanen" showFeatureCount="0">
+            <filegroup open="false" hidden="false">
+                <legendlayerfile isInOverview="0" layerid="rijbanen20120210120036334" visible="1"/>
+            </filegroup>
+        </legendlayer>
+        <legendlayer open="false" checked="Qt::Checked" name="Straatnamen" showFeatureCount="0">
+            <filegroup open="false" hidden="false">
+                <legendlayerfile isInOverview="0" layerid="WEGDEEL_HARTLIJN20120210101812969" visible="1"/>
+            </filegroup>
+        </legendlayer>
+        <legendlayer open="false" checked="Qt::Checked" name="Brugnamen" showFeatureCount="0">
+            <filegroup open="false" hidden="false">
+                <legendlayerfile isInOverview="0" layerid="WEGDEEL_HARTLIJN_BRUGGEN20120210101233154" visible="1"/>
+            </filegroup>
+        </legendlayer>
+        <legendlayer open="false" checked="Qt::Checked" name="Tunnelnamen" showFeatureCount="0">
+            <filegroup open="false" hidden="false">
+                <legendlayerfile isInOverview="0" layerid="WEGDEEL_HARTLIJN_TUNNELS20120210101233107" visible="1"/>
+            </filegroup>
+        </legendlayer>
+        <legendlayer open="false" checked="Qt::Checked" name="Functioneel gebied - sportcomplex" showFeatureCount="0">
+            <filegroup open="false" hidden="false">
+                <legendlayerfile isInOverview="0" layerid="FUNCTIONEELGEBIED_LABEL20120210094353381" visible="1"/>
+            </filegroup>
+        </legendlayer>
+        <legendlayer open="false" checked="Qt::Checked" name="Functioneel gebied - camping" showFeatureCount="0">
+            <filegroup open="false" hidden="false">
+                <legendlayerfile isInOverview="0" layerid="FUNCTIONEELGEBIED_LABEL20120210093707696" visible="1"/>
+            </filegroup>
+        </legendlayer>
+        <legendlayer open="false" checked="Qt::Checked" name="wegdeel_hartpunt" showFeatureCount="0">
+            <filegroup open="false" hidden="false">
+                <legendlayerfile isInOverview="0" layerid="wegdeel_hartpunt20120210093019726" visible="1"/>
+            </filegroup>
+        </legendlayer>
+        <legendlayer open="false" checked="Qt::Checked" name="INRICHTINGSELEMENT_PUNT" showFeatureCount="0">
+            <filegroup open="false" hidden="false">
+                <legendlayerfile isInOverview="0" layerid="INRICHTINGSELEMENT_PUNT20120210082426782" visible="1"/>
+            </filegroup>
+        </legendlayer>
+        <legendlayer open="false" checked="Qt::Checked" name="HOOGTEOFDIEPTEPUNT" showFeatureCount="0">
+            <filegroup open="false" hidden="false">
+                <legendlayerfile isInOverview="0" layerid="HOOGTEOFDIEPTEPUNT20120210080627128" visible="1"/>
+            </filegroup>
+        </legendlayer>
+    </legend>
+    <projectlayers layercount="13">
+        <maplayer minimumScale="0" maximumScale="1e+08" geometry="Point" type="vector" hasScaleBasedVisibilityFlag="0">
+            <id>FUNCTIONEELGEBIED_LABEL20120210093707696</id>
+            <datasource>./Top10NL_shapefiles/FUNCTIONEELGEBIED_LABEL.shp|layerid=0|subset="TYPEFUNCTG" = 6</datasource>
+            <layername>Functioneel gebied - camping</layername>
+            <srs>
+                <spatialrefsys>
+                    <proj4>+proj=sterea +lat_0=52.15616055555555 +lon_0=5.38763888888889 +k=0.9999079 +x_0=155000 +y_0=463000 +ellps=bessel +towgs84=565.417,50.3319,465.552,-0.398957,0.343988,-1.8774,4.0725 +units=m +no_defs</proj4>
+                    <srsid>2517</srsid>
+                    <srid>28992</srid>
+                    <authid>EPSG:28992</authid>
+                    <description>Amersfoort / RD New</description>
+                    <projectionacronym>sterea</projectionacronym>
+                    <ellipsoidacronym>bessel</ellipsoidacronym>
+                    <geographicflag>false</geographicflag>
+                </spatialrefsys>
+            </srs>
+            <transparencyLevelInt>255</transparencyLevelInt>
+            <provider encoding="windows-1252">ogr</provider>
+            <vectorjoins/>
+            <renderer-v2 symbollevels="0" type="singleSymbol">
+                <symbols>
+                    <symbol outputUnit="MM" alpha="1" type="marker" name="0">
+                        <layer pass="0" class="FontMarker" locked="0">
+                            <prop k="angle" v="0"/>
+                            <prop k="chr" v="&amp;"/>
+                            <prop k="color" v="0,112,255,255"/>
+                            <prop k="font" v="ESRI ArcGIS TDN"/>
+                            <prop k="offset" v="0,-4"/>
+                            <prop k="size" v="10"/>
+                        </layer>
+                    </symbol>
+                </symbols>
+                <rotation field=""/>
+                <sizescale field=""/>
+            </renderer-v2>
+            <customproperties/>
+            <displayfield>OBJECTID</displayfield>
+            <label>0</label>
+            <labelfield>IDENTIFICA</labelfield>
+            <labelattributes>
+                <label fieldname="IDENTIFICA" text=""/>
+                <family fieldname="" name="Arial"/>
+                <size fieldname="" units="pt" value="8"/>
+                <bold fieldname="" on="0"/>
+                <italic fieldname="" on="0"/>
+                <underline fieldname="" on="0"/>
+                <strikeout fieldname="" on="0"/>
+                <color fieldname="" red="0" blue="0" green="0"/>
+                <x fieldname=""/>
+                <y fieldname=""/>
+                <offset x="0" y="0" units="pt" yfieldname="" xfieldname=""/>
+                <angle fieldname="" value="0" auto="0"/>
+                <alignment fieldname="" value="center"/>
+                <buffercolor fieldname="" red="255" blue="255" green="255"/>
+                <buffersize fieldname="" units="pt" value="1"/>
+                <bufferenabled fieldname="" on=""/>
+                <multilineenabled fieldname="" on=""/>
+                <selectedonly on=""/>
+            </labelattributes>
+            <edittypes>
+                <edittype type="0" name="BRONACTUAL"/>
+                <edittype type="0" name="BRONBESCHR"/>
+                <edittype type="0" name="BRONNAUWKE"/>
+                <edittype type="0" name="BRONTYPE"/>
+                <edittype type="0" name="BRONTYPE_C"/>
+                <edittype type="0" name="DIMENSIE"/>
+                <edittype type="0" name="IDENTIFICA"/>
+                <edittype type="0" name="ID_NR"/>
+                <edittype type="0" name="NAAM"/>
+                <edittype type="0" name="OBJECTBEGI"/>
+                <edittype type="0" name="OBJECTEIND"/>
+                <edittype type="0" name="OBJECTID"/>
+                <edittype type="0" name="STATUS"/>
+                <edittype type="0" name="STATUS_COD"/>
+                <edittype type="0" name="SYMBOL"/>
+                <edittype type="0" name="TDN_CODE"/>
+                <edittype type="0" name="TYPEFUNCTG"/>
+                <edittype type="0" name="TYPEFUNCTI"/>
+                <edittype type="0" name="VERSIEBEGI"/>
+                <edittype type="0" name="VERSIEEIND"/>
+            </edittypes>
+            <editform>.</editform>
+            <editforminit></editforminit>
+            <annotationform>.</annotationform>
+            <attributeactions/>
+            <overlay display="false" type="diagram">
+                <renderer item_interpretation="linear">
+                    <diagramitem size="0" value="0"/>
+                    <diagramitem size="0" value="0"/>
+                </renderer>
+                <factory sizeUnits="MM" type="Pie">
+                    <wellknownname>Pie</wellknownname>
+                    <classificationfield>0</classificationfield>
+                </factory>
+                <scalingAttribute>0</scalingAttribute>
+            </overlay>
+        </maplayer>
+        <maplayer minimumScale="0" maximumScale="1e+08" geometry="Point" type="vector" hasScaleBasedVisibilityFlag="0">
+            <id>FUNCTIONEELGEBIED_LABEL20120210094353381</id>
+            <datasource>./Top10NL_shapefiles/FUNCTIONEELGEBIED_LABEL.shp|layerid=0|subset="TYPEFUNCTG" = 48</datasource>
+            <layername>Functioneel gebied - sportcomplex</layername>
+            <srs>
+                <spatialrefsys>
+                    <proj4>+proj=sterea +lat_0=52.15616055555555 +lon_0=5.38763888888889 +k=0.9999079 +x_0=155000 +y_0=463000 +ellps=bessel +towgs84=565.417,50.3319,465.552,-0.398957,0.343988,-1.8774,4.0725 +units=m +no_defs</proj4>
+                    <srsid>2517</srsid>
+                    <srid>28992</srid>
+                    <authid>EPSG:28992</authid>
+                    <description>Amersfoort / RD New</description>
+                    <projectionacronym>sterea</projectionacronym>
+                    <ellipsoidacronym>bessel</ellipsoidacronym>
+                    <geographicflag>false</geographicflag>
+                </spatialrefsys>
+            </srs>
+            <transparencyLevelInt>255</transparencyLevelInt>
+            <provider encoding="windows-1252">ogr</provider>
+            <vectorjoins/>
+            <renderer-v2 symbollevels="0" type="singleSymbol">
+                <symbols>
+                    <symbol outputUnit="MM" alpha="1" type="marker" name="0">
+                        <layer pass="0" class="FontMarker" locked="0">
+                            <prop k="angle" v="0"/>
+                            <prop k="chr" v="G"/>
+                            <prop k="color" v="255,255,255,255"/>
+                            <prop k="font" v="ESRI ArcGIS TDN"/>
+                            <prop k="offset" v="0,-4"/>
+                            <prop k="size" v="10"/>
+                        </layer>
+                        <layer pass="0" class="FontMarker" locked="0">
+                            <prop k="angle" v="0"/>
+                            <prop k="chr" v="F"/>
+                            <prop k="color" v="0,112,255,255"/>
+                            <prop k="font" v="ESRI ArcGIS TDN"/>
+                            <prop k="offset" v="0,-4"/>
+                            <prop k="size" v="10"/>
+                        </layer>
+                    </symbol>
+                </symbols>
+                <rotation field=""/>
+                <sizescale field=""/>
+            </renderer-v2>
+            <customproperties/>
+            <displayfield>OBJECTID</displayfield>
+            <label>0</label>
+            <labelattributes>
+                <label fieldname="" text="Label"/>
+                <family fieldname="" name="MS Shell Dlg 2"/>
+                <size fieldname="" units="pt" value="12"/>
+                <bold fieldname="" on="0"/>
+                <italic fieldname="" on="0"/>
+                <underline fieldname="" on="0"/>
+                <strikeout fieldname="" on="0"/>
+                <color fieldname="" red="0" blue="0" green="0"/>
+                <x fieldname=""/>
+                <y fieldname=""/>
+                <offset x="0" y="0" units="pt" yfieldname="" xfieldname=""/>
+                <angle fieldname="" value="0" auto="0"/>
+                <alignment fieldname="" value="center"/>
+                <buffercolor fieldname="" red="255" blue="255" green="255"/>
+                <buffersize fieldname="" units="pt" value="1"/>
+                <bufferenabled fieldname="" on=""/>
+                <multilineenabled fieldname="" on=""/>
+                <selectedonly on=""/>
+            </labelattributes>
+            <edittypes>
+                <edittype type="0" name="BRONACTUAL"/>
+                <edittype type="0" name="BRONBESCHR"/>
+                <edittype type="0" name="BRONNAUWKE"/>
+                <edittype type="0" name="BRONTYPE"/>
+                <edittype type="0" name="BRONTYPE_C"/>
+                <edittype type="0" name="DIMENSIE"/>
+                <edittype type="0" name="IDENTIFICA"/>
+                <edittype type="0" name="ID_NR"/>
+                <edittype type="0" name="NAAM"/>
+                <edittype type="0" name="OBJECTBEGI"/>
+                <edittype type="0" name="OBJECTEIND"/>
+                <edittype type="0" name="OBJECTID"/>
+                <edittype type="0" name="STATUS"/>
+                <edittype type="0" name="STATUS_COD"/>
+                <edittype type="0" name="SYMBOL"/>
+                <edittype type="0" name="TDN_CODE"/>
+                <edittype type="0" name="TYPEFUNCTG"/>
+                <edittype type="0" name="TYPEFUNCTI"/>
+                <edittype type="0" name="VERSIEBEGI"/>
+                <edittype type="0" name="VERSIEEIND"/>
+            </edittypes>
+            <editform>.</editform>
+            <editforminit></editforminit>
+            <annotationform>.</annotationform>
+            <attributeactions/>
+            <overlay display="false" type="diagram">
+                <renderer item_interpretation="linear">
+                    <diagramitem size="0" value="0"/>
+                    <diagramitem size="0" value="0"/>
+                </renderer>
+                <factory sizeUnits="MM" type="Pie">
+                    <wellknownname>Pie</wellknownname>
+                    <classificationfield>0</classificationfield>
+                </factory>
+                <scalingAttribute>0</scalingAttribute>
+            </overlay>
+        </maplayer>
+        <maplayer minimumScale="0" maximumScale="100000" geometry="Point" type="vector" hasScaleBasedVisibilityFlag="1">
+            <id>HOOGTEOFDIEPTEPUNT20120210080627128</id>
+            <datasource>./Top10NL_shapefiles/HOOGTEOFDIEPTEPUNT.shp</datasource>
+            <layername>HOOGTEOFDIEPTEPUNT</layername>
+            <srs>
+                <spatialrefsys>
+                    <proj4>+proj=sterea +lat_0=52.15616055555555 +lon_0=5.38763888888889 +k=0.9999079 +x_0=155000 +y_0=463000 +ellps=bessel +towgs84=565.417,50.3319,465.552,-0.398957,0.343988,-1.8774,4.0725 +units=m +no_defs</proj4>
+                    <srsid>2517</srsid>
+                    <srid>28992</srid>
+                    <authid>EPSG:28992</authid>
+                    <description>Amersfoort / RD New</description>
+                    <projectionacronym>sterea</projectionacronym>
+                    <ellipsoidacronym>bessel</ellipsoidacronym>
+                    <geographicflag>false</geographicflag>
+                </spatialrefsys>
+            </srs>
+            <transparencyLevelInt>255</transparencyLevelInt>
+            <provider encoding="windows-1252">ogr</provider>
+            <vectorjoins/>
+            <renderer-v2 attr="TYPERELIEF" symbollevels="0" type="categorizedSymbol">
+                <categories>
+                    <category symbol="0" value="2" label="dieptepunt"/>
+                    <category symbol="1" value="4" label="hoogtepunt"/>
+                    <category symbol="2" value="8" label="peil"/>
+                </categories>
+                <symbols>
+                    <symbol outputUnit="MM" alpha="1" type="marker" name="0">
+                        <layer pass="0" class="SimpleMarker" locked="0">
+                            <prop k="angle" v="0"/>
+                            <prop k="color" v="0,0,255,255"/>
+                            <prop k="color_border" v="0,0,255,255"/>
+                            <prop k="name" v="cross"/>
+                            <prop k="offset" v="0,0"/>
+                            <prop k="size" v="2"/>
+                        </layer>
+                    </symbol>
+                    <symbol outputUnit="MM" alpha="1" type="marker" name="1">
+                        <layer pass="0" class="SimpleMarker" locked="0">
+                            <prop k="angle" v="0"/>
+                            <prop k="color" v="158,56,0,255"/>
+                            <prop k="color_border" v="158,56,0,255"/>
+                            <prop k="name" v="cross"/>
+                            <prop k="offset" v="0,0"/>
+                            <prop k="size" v="2"/>
+                        </layer>
+                    </symbol>
+                    <symbol outputUnit="MM" alpha="1" type="marker" name="2">
+                        <layer pass="0" class="SimpleMarker" locked="0">
+                            <prop k="angle" v="0"/>
+                            <prop k="color" v="115,0,76,255"/>
+                            <prop k="color_border" v="115,0,76,255"/>
+                            <prop k="name" v="cross"/>
+                            <prop k="offset" v="0,0"/>
+                            <prop k="size" v="2"/>
+                        </layer>
+                    </symbol>
+                </symbols>
+                <rotation field=""/>
+                <sizescale field=""/>
+            </renderer-v2>
+            <customproperties/>
+            <displayfield>OBJECTID</displayfield>
+            <label>0</label>
+            <labelattributes>
+                <label fieldname="" text="Label"/>
+                <family fieldname="" name="MS Shell Dlg 2"/>
+                <size fieldname="" units="pt" value="12"/>
+                <bold fieldname="" on="0"/>
+                <italic fieldname="" on="0"/>
+                <underline fieldname="" on="0"/>
+                <strikeout fieldname="" on="0"/>
+                <color fieldname="" red="0" blue="0" green="0"/>
+                <x fieldname=""/>
+                <y fieldname=""/>
+                <offset x="0" y="0" units="pt" yfieldname="" xfieldname=""/>
+                <angle fieldname="" value="0" auto="0"/>
+                <alignment fieldname="" value="center"/>
+                <buffercolor fieldname="" red="255" blue="255" green="255"/>
+                <buffersize fieldname="" units="pt" value="1"/>
+                <bufferenabled fieldname="" on=""/>
+                <multilineenabled fieldname="" on=""/>
+                <selectedonly on=""/>
+            </labelattributes>
+            <edittypes>
+                <edittype type="0" name="BRONACTUAL"/>
+                <edittype type="0" name="BRONBESCHR"/>
+                <edittype type="0" name="BRONNAUWKE"/>
+                <edittype type="0" name="BRONTYPE"/>
+                <edittype type="0" name="BRONTYPE_C"/>
+                <edittype type="0" name="DIMENSIE"/>
+                <edittype type="0" name="FUNCTIE"/>
+                <edittype type="0" name="FUNCTIE_CO"/>
+                <edittype type="0" name="HOOGTE"/>
+                <edittype type="0" name="HOOGTEKLAS"/>
+                <edittype type="0" name="HOOGTEKL_1"/>
+                <edittype type="0" name="HOOGTENIVE"/>
+                <edittype type="0" name="IDENTIFICA"/>
+                <edittype type="0" name="ID_NR"/>
+                <edittype type="0" name="NAAM"/>
+                <edittype type="0" name="OBJECTBEGI"/>
+                <edittype type="0" name="OBJECTEIND"/>
+                <edittype type="0" name="OBJECTID"/>
+                <edittype type="0" name="STATUS"/>
+                <edittype type="0" name="STATUS_COD"/>
+                <edittype type="0" name="SYMBOL"/>
+                <edittype type="0" name="TDN_CODE"/>
+                <edittype type="0" name="TYPERELIEF"/>
+                <edittype type="0" name="TYPERELI_1"/>
+                <edittype type="0" name="VERSIEBEGI"/>
+                <edittype type="0" name="VERSIEEIND"/>
+            </edittypes>
+            <editform>.</editform>
+            <editforminit></editforminit>
+            <annotationform>.</annotationform>
+            <attributeactions/>
+            <overlay display="false" type="diagram">
+                <renderer item_interpretation="linear">
+                    <diagramitem size="0" value="0"/>
+                    <diagramitem size="0" value="0"/>
+                </renderer>
+                <factory sizeUnits="MM" type="Pie">
+                    <wellknownname>Pie</wellknownname>
+                    <classificationfield>0</classificationfield>
+                </factory>
+                <scalingAttribute>0</scalingAttribute>
+            </overlay>
+        </maplayer>
+        <maplayer minimumScale="0" maximumScale="26000" geometry="Point" type="vector" hasScaleBasedVisibilityFlag="1">
+            <id>INRICHTINGSELEMENT_PUNT20120210082426782</id>
+            <datasource>./Top10NL_shapefiles/INRICHTINGSELEMENT_PUNT.shp</datasource>
+            <layername>INRICHTINGSELEMENT_PUNT</layername>
+            <srs>
+                <spatialrefsys>
+                    <proj4>+proj=sterea +lat_0=52.15616055555555 +lon_0=5.38763888888889 +k=0.9999079 +x_0=155000 +y_0=463000 +ellps=bessel +towgs84=565.417,50.3319,465.552,-0.398957,0.343988,-1.8774,4.0725 +units=m +no_defs</proj4>
+                    <srsid>2517</srsid>
+                    <srid>28992</srid>
+                    <authid>EPSG:28992</authid>
+                    <description>Amersfoort / RD New</description>
+                    <projectionacronym>sterea</projectionacronym>
+                    <ellipsoidacronym>bessel</ellipsoidacronym>
+                    <geographicflag>false</geographicflag>
+                </spatialrefsys>
+            </srs>
+            <transparencyLevelInt>255</transparencyLevelInt>
+            <provider encoding="windows-1252">ogr</provider>
+            <vectorjoins/>
+            <renderer-v2 symbollevels="0" type="RuleRenderer" firstrule="0">
+                <rules>
+                    <rule scalemaxdenom="0" description="RD punt" filter="SYMBOL_H0 = 603" symbol="0" scalemindenom="0" label="RD punt"/>
+                    <rule scalemaxdenom="0" description="GPS kernnetpunt" filter="SYMBOL_H0 = 602" symbol="1" scalemindenom="0" label="GPS kernnetpunt"/>
+                    <rule scalemaxdenom="0" description="baak" filter="SYMBOL_H0 = 605" symbol="2" scalemindenom="0" label="baak"/>
+                    <rule scalemaxdenom="0" description="boom" filter="SYMBOL_H0 = 607" symbol="3" scalemindenom="0" label="boom"/>
+                    <rule scalemaxdenom="0" description="brandtoren" filter="SYMBOL_H0 = 610" symbol="4" scalemindenom="0" label="brandtoren"/>
+                    <rule scalemaxdenom="0" description="dukdalf" filter="SYMBOL_H0 = 612" symbol="5" scalemindenom="0" label="dukdalf"/>
+                    <rule scalemaxdenom="0" description="gedenkteken, monument" filter="SYMBOL_H0 = 614" symbol="6" scalemindenom="0" label="gedenkteken, monument"/>
+                    <rule scalemaxdenom="0" description="gemaal" filter="SYMBOL_H0 = 616" symbol="7" scalemindenom="0" label="gemaal"/>
+                    <rule scalemaxdenom="0" description="grenspunt" filter="SYMBOL_H0 = 618" symbol="8" scalemindenom="0" label="grenspunt"/>
+                    <rule scalemaxdenom="0" description="hoogspanningsmast" filter="SYMBOL_H0 = 623" symbol="9" scalemindenom="0" label="hoogspanningsmast"/>
+                    <rule scalemaxdenom="0" description="kapel" filter="SYMBOL_H0 = 628" symbol="10" scalemindenom="0" label="kapel"/>
+                    <rule scalemaxdenom="0" description="kilometerpaal" filter="SYMBOL_H0 = 629" symbol="11" scalemindenom="0" label="kilometerpaal"/>
+                    <rule scalemaxdenom="0" description="kilometerpaal spoorweg" filter="SYMBOL_H0 = 630" symbol="12" scalemindenom="0" label="kilometerpaal spoorweg"/>
+                    <rule scalemaxdenom="0" description="" filter="SYMBOL_H0 = 631" symbol="13" scalemindenom="0" label="kilometerpaal water"/>
+                    <rule scalemaxdenom="0" description="" filter="SYMBOL_H0 = 632" symbol="14" scalemindenom="0" label="kilometerraaibord"/>
+                    <rule scalemaxdenom="0" description="" filter="SYMBOL_H0 = 633" symbol="15" scalemindenom="0" label="kilometerraaipaal"/>
+                    <rule scalemaxdenom="0" description="" filter="SYMBOL_H0 = 636" symbol="16" scalemindenom="0" label="kogelvanger schietbaan"/>
+                    <rule scalemaxdenom="0" description="" filter="SYMBOL_H0 = 638" symbol="17" scalemindenom="0" label="kruis"/>
+                    <rule scalemaxdenom="0" description="" filter="SYMBOL_H0 = 641" symbol="18" scalemindenom="0" label="licht, lichtopstand"/>
+                    <rule scalemaxdenom="0" description="" filter="SYMBOL_H0 = 644" symbol="19" scalemindenom="0" label="markant object"/>
+                    <rule scalemaxdenom="0" description="" filter="SYMBOL_H0 = 649" symbol="20" scalemindenom="0" label="paal"/>
+                    <rule scalemaxdenom="0" description="" filter="SYMBOL_H0 = 652" symbol="21" scalemindenom="0" label="peilschaal"/>
+                    <rule scalemaxdenom="0" description="" filter="SYMBOL_H0 = 653" symbol="22" scalemindenom="0" label="pijler"/>
+                    <rule scalemaxdenom="0" description="" filter="SYMBOL_H0 = 654" symbol="23" scalemindenom="0" label="radarpost"/>
+                    <rule scalemaxdenom="0" description="" filter="SYMBOL_H0 = 659" symbol="24" scalemindenom="0" label="seinmast"/>
+                    <rule scalemaxdenom="0" description="" filter="SYMBOL_H0 = 660" symbol="25" scalemindenom="0" label="sluisdeur"/>
+                    <rule scalemaxdenom="0" description="" filter="SYMBOL_H0 = 661" symbol="26" scalemindenom="0" label="station"/>
+                    <rule scalemaxdenom="0" description="" filter="SYMBOL_H0 = 665" symbol="27" scalemindenom="0" label="stuw"/>
+                    <rule scalemaxdenom="0" description="" filter="SYMBOL_H0 = 667" symbol="28" scalemindenom="0" label="toren"/>
+                    <rule scalemaxdenom="0" description="" filter="SYMBOL_H0 = 668" symbol="29" scalemindenom="0" label="uitzichttoren"/>
+                    <rule scalemaxdenom="0" description="" filter="SYMBOL_H0 = 673" symbol="30" scalemindenom="0" label="wegwijzer"/>
+                    <rule scalemaxdenom="0" description="" filter="SYMBOL_H0 = 674" symbol="31" scalemindenom="0" label="windmolen"/>
+                    <rule scalemaxdenom="0" description="" filter="SYMBOL_H0 = 675" symbol="32" scalemindenom="0" label="windmolen: korenmolen"/>
+                    <rule scalemaxdenom="0" description="" filter="SYMBOL_H0 = 676" symbol="33" scalemindenom="0" label="windmolen: watermolen"/>
+                    <rule scalemaxdenom="0" description="" filter="SYMBOL_H0 = 677" symbol="34" scalemindenom="0" label="windmolentje"/>
+                    <rule scalemaxdenom="0" description="" filter="SYMBOL_H0 = 678" symbol="35" scalemindenom="0" label="windturbine"/>
+                    <rule scalemaxdenom="0" description="" filter="SYMBOL_H0 = 680" symbol="36" scalemindenom="0" label="zendmast"/>
+                    <rule scalemaxdenom="0" description="" filter="SYMBOL_H0 = 681" symbol="37" scalemindenom="0" label="zichtbaar wrak"/>
+                </rules>
+                <symbols>
+                    <symbol outputUnit="MM" alpha="1" type="marker" name="0">
+                        <layer pass="0" class="SvgMarker" locked="0">
+                            <prop k="angle" v="0"/>
+                            <prop k="fill" v="#000000"/>
+                            <prop k="name" v="E:/data/Kadaster/images/RD Punt.svg"/>
+                            <prop k="offset" v="0,0"/>
+                            <prop k="outline" v="#000000"/>
+                            <prop k="outline-width" v="1"/>
+                            <prop k="size" v="6"/>
+                        </layer>
+                    </symbol>
+                    <symbol outputUnit="MM" alpha="1" type="marker" name="1">
+                        <layer pass="0" class="SvgMarker" locked="0">
+                            <prop k="angle" v="0"/>
+                            <prop k="fill" v="#000000"/>
+                            <prop k="name" v="E:/data/Kadaster/images/GPS kernnetpunt.svg"/>
+                            <prop k="offset" v="0,0"/>
+                            <prop k="outline" v="#000000"/>
+                            <prop k="outline-width" v="1"/>
+                            <prop k="size" v="6"/>
+                        </layer>
+                    </symbol>
+                    <symbol outputUnit="MM" alpha="1" type="marker" name="10">
+                        <layer pass="0" class="SimpleMarker" locked="0">
+                            <prop k="angle" v="0"/>
+                            <prop k="color" v="252,197,202,255"/>
+                            <prop k="color_border" v="0,0,0,255"/>
+                            <prop k="name" v="circle"/>
+                            <prop k="offset" v="0,0"/>
+                            <prop k="size" v="2"/>
+                        </layer>
+                    </symbol>
+                    <symbol outputUnit="MM" alpha="1" type="marker" name="11">
+                        <layer pass="0" class="FontMarker" locked="0">
+                            <prop k="angle" v="45"/>
+                            <prop k="chr" v="$"/>
+                            <prop k="color" v="230,0,0,255"/>
+                            <prop k="font" v="ESRI ArcGIS TDN"/>
+                            <prop k="offset" v="0,-4"/>
+                            <prop k="size" v="10"/>
+                        </layer>
+                    </symbol>
+                    <symbol outputUnit="MM" alpha="1" type="marker" name="12">
+                        <layer pass="0" class="SimpleMarker" locked="0">
+                            <prop k="angle" v="0"/>
+                            <prop k="color" v="255,0,0,255"/>
+                            <prop k="color_border" v="255,0,0,255"/>
+                            <prop k="name" v="circle"/>
+                            <prop k="offset" v="0,0"/>
+                            <prop k="size" v="2"/>
+                        </layer>
+                    </symbol>
+                    <symbol outputUnit="MM" alpha="1" type="marker" name="13">
+                        <layer pass="0" class="SimpleMarker" locked="0">
+                            <prop k="angle" v="0"/>
+                            <prop k="color" v="0,77,168,255"/>
+                            <prop k="color_border" v="0,77,168,255"/>
+                            <prop k="name" v="circle"/>
+                            <prop k="offset" v="0,0"/>
+                            <prop k="size" v="2"/>
+                        </layer>
+                    </symbol>
+                    <symbol outputUnit="MM" alpha="1" type="marker" name="14">
+                        <layer pass="0" class="FontMarker" locked="0">
+                            <prop k="angle" v="0"/>
+                            <prop k="chr" v="6"/>
+                            <prop k="color" v="0,0,0,255"/>
+                            <prop k="font" v="ESRI ArcGIS TDN"/>
+                            <prop k="offset" v="0,-4"/>
+                            <prop k="size" v="10"/>
+                        </layer>
+                    </symbol>
+                    <symbol outputUnit="MM" alpha="1" type="marker" name="15">
+                        <layer pass="0" class="SimpleMarker" locked="0">
+                            <prop k="angle" v="0"/>
+                            <prop k="color" v="0,0,0,255"/>
+                            <prop k="color_border" v="0,0,0,255"/>
+                            <prop k="name" v="circle"/>
+                            <prop k="offset" v="0,0"/>
+                            <prop k="size" v="2"/>
+                        </layer>
+                    </symbol>
+                    <symbol outputUnit="MM" alpha="1" type="marker" name="16">
+                        <layer pass="0" class="SimpleMarker" locked="0">
+                            <prop k="angle" v="0"/>
+                            <prop k="color" v="252,192,228,255"/>
+                            <prop k="color_border" v="0,0,0,255"/>
+                            <prop k="name" v="circle"/>
+                            <prop k="offset" v="0,0"/>
+                            <prop k="size" v="2"/>
+                        </layer>
+                    </symbol>
+                    <symbol outputUnit="MM" alpha="1" type="marker" name="17">
+                        <layer pass="0" class="SimpleMarker" locked="0">
+                            <prop k="angle" v="0"/>
+                            <prop k="color" v="250,252,199,255"/>
+                            <prop k="color_border" v="0,0,0,255"/>
+                            <prop k="name" v="circle"/>
+                            <prop k="offset" v="0,0"/>
+                            <prop k="size" v="2"/>
+                        </layer>
+                    </symbol>
+                    <symbol outputUnit="MM" alpha="1" type="marker" name="18">
+                        <layer pass="0" class="FontMarker" locked="0">
+                            <prop k="angle" v="0"/>
+                            <prop k="chr" v="9"/>
+                            <prop k="color" v="0,0,0,255"/>
+                            <prop k="font" v="ESRI ArcGIS TDN"/>
+                            <prop k="offset" v="0,-4"/>
+                            <prop k="size" v="10"/>
+                        </layer>
+                    </symbol>
+                    <symbol outputUnit="MM" alpha="1" type="marker" name="19">
+                        <layer pass="0" class="SimpleMarker" locked="0">
+                            <prop k="angle" v="0"/>
+                            <prop k="color" v="255,0,0,255"/>
+                            <prop k="color_border" v="0,0,0,255"/>
+                            <prop k="name" v="circle"/>
+                            <prop k="offset" v="0,0"/>
+                            <prop k="size" v="2"/>
+                        </layer>
+                    </symbol>
+                    <symbol outputUnit="MM" alpha="1" type="marker" name="2">
+                        <layer pass="0" class="SimpleMarker" locked="0">
+                            <prop k="angle" v="0"/>
+                            <prop k="color" v="0,0,0,255"/>
+                            <prop k="color_border" v="0,0,0,255"/>
+                            <prop k="name" v="circle"/>
+                            <prop k="offset" v="0,0"/>
+                            <prop k="size" v="1"/>
+                        </layer>
+                    </symbol>
+                    <symbol outputUnit="MM" alpha="1" type="marker" name="20">
+                        <layer pass="0" class="SimpleMarker" locked="0">
+                            <prop k="angle" v="0"/>
+                            <prop k="color" v="0,0,0,255"/>
+                            <prop k="color_border" v="0,0,0,255"/>
+                            <prop k="name" v="circle"/>
+                            <prop k="offset" v="0,0"/>
+                            <prop k="size" v="1.5"/>
+                        </layer>
+                    </symbol>
+                    <symbol outputUnit="MM" alpha="1" type="marker" name="21">
+                        <layer pass="0" class="SimpleMarker" locked="0">
+                            <prop k="angle" v="0"/>
+                            <prop k="color" v="199,182,252,255"/>
+                            <prop k="color_border" v="0,0,0,255"/>
+                            <prop k="name" v="circle"/>
+                            <prop k="offset" v="0,0"/>
+                            <prop k="size" v="2"/>
+                        </layer>
+                    </symbol>
+                    <symbol outputUnit="MM" alpha="1" type="marker" name="22">
+                        <layer pass="0" class="SimpleMarker" locked="0">
+                            <prop k="angle" v="0"/>
+                            <prop k="color" v="236,233,216,255"/>
+                            <prop k="color_border" v="0,0,0,255"/>
+                            <prop k="name" v="circle"/>
+                            <prop k="offset" v="0,0"/>
+                            <prop k="size" v="2"/>
+                        </layer>
+                    </symbol>
+                    <symbol outputUnit="MM" alpha="1" type="marker" name="23">
+                        <layer pass="0" class="SimpleMarker" locked="0">
+                            <prop k="angle" v="0"/>
+                            <prop k="color" v="252,211,204,255"/>
+                            <prop k="color_border" v="0,0,0,255"/>
+                            <prop k="name" v="circle"/>
+                            <prop k="offset" v="0,0"/>
+                            <prop k="size" v="2"/>
+                        </layer>
+                    </symbol>
+                    <symbol outputUnit="MM" alpha="1" type="marker" name="24">
+                        <layer pass="0" class="SimpleMarker" locked="0">
+                            <prop k="angle" v="0"/>
+                            <prop k="color" v="252,228,207,255"/>
+                            <prop k="color_border" v="0,0,0,255"/>
+                            <prop k="name" v="circle"/>
+                            <prop k="offset" v="0,0"/>
+                            <prop k="size" v="2"/>
+                        </layer>
+                    </symbol>
+                    <symbol outputUnit="MM" alpha="1" type="marker" name="25">
+                        <layer pass="0" class="SimpleMarker" locked="0">
+                            <prop k="angle" v="0"/>
+                            <prop k="color" v="233,252,187,255"/>
+                            <prop k="color_border" v="0,0,0,255"/>
+                            <prop k="name" v="circle"/>
+                            <prop k="offset" v="0,0"/>
+                            <prop k="size" v="2"/>
+                        </layer>
+                    </symbol>
+                    <symbol outputUnit="MM" alpha="1" type="marker" name="26">
+                        <layer pass="0" class="SimpleMarker" locked="0">
+                            <prop k="angle" v="0"/>
+                            <prop k="color" v="252,204,249,255"/>
+                            <prop k="color_border" v="0,0,0,255"/>
+                            <prop k="name" v="circle"/>
+                            <prop k="offset" v="0,0"/>
+                            <prop k="size" v="2"/>
+                        </layer>
+                    </symbol>
+                    <symbol outputUnit="MM" alpha="1" type="marker" name="27">
+                        <layer pass="0" class="SimpleMarker" locked="0">
+                            <prop k="angle" v="0"/>
+                            <prop k="color" v="215,249,252,255"/>
+                            <prop k="color_border" v="0,0,0,255"/>
+                            <prop k="name" v="circle"/>
+                            <prop k="offset" v="0,0"/>
+                            <prop k="size" v="2"/>
+                        </layer>
+                    </symbol>
+                    <symbol outputUnit="MM" alpha="1" type="marker" name="28">
+                        <layer pass="0" class="FontMarker" locked="0">
+                            <prop k="angle" v="0"/>
+                            <prop k="chr" v="2"/>
+                            <prop k="color" v="0,0,0,255"/>
+                            <prop k="font" v="ESRI ArcGIS TDN"/>
+                            <prop k="offset" v="0,-4"/>
+                            <prop k="size" v="10"/>
+                        </layer>
+                    </symbol>
+                    <symbol outputUnit="MM" alpha="1" type="marker" name="29">
+                        <layer pass="0" class="SimpleMarker" locked="0">
+                            <prop k="angle" v="0"/>
+                            <prop k="color" v="182,234,252,255"/>
+                            <prop k="color_border" v="0,0,0,255"/>
+                            <prop k="name" v="circle"/>
+                            <prop k="offset" v="0,0"/>
+                            <prop k="size" v="2"/>
+                        </layer>
+                    </symbol>
+                    <symbol outputUnit="MM" alpha="1" type="marker" name="3">
+                        <layer pass="0" class="SimpleMarker" locked="0">
+                            <prop k="angle" v="0"/>
+                            <prop k="color" v="0,0,0,255"/>
+                            <prop k="color_border" v="0,0,0,255"/>
+                            <prop k="name" v="circle"/>
+                            <prop k="offset" v="0,0"/>
+                            <prop k="size" v="1.25"/>
+                        </layer>
+                    </symbol>
+                    <symbol outputUnit="MM" alpha="1" type="marker" name="30">
+                        <layer pass="0" class="FontMarker" locked="0">
+                            <prop k="angle" v="30"/>
+                            <prop k="chr" v="C"/>
+                            <prop k="color" v="0,0,0,255"/>
+                            <prop k="font" v="ESRI ArcGIS TDN"/>
+                            <prop k="offset" v="0,-4"/>
+                            <prop k="size" v="10"/>
+                        </layer>
+                    </symbol>
+                    <symbol outputUnit="MM" alpha="1" type="marker" name="31">
+                        <layer pass="0" class="FontMarker" locked="0">
+                            <prop k="angle" v="0"/>
+                            <prop k="chr" v="P"/>
+                            <prop k="color" v="0,0,0,255"/>
+                            <prop k="font" v="ESRI ArcGIS TDN"/>
+                            <prop k="offset" v="1,-1"/>
+                            <prop k="size" v="10"/>
+                        </layer>
+                    </symbol>
+                    <symbol outputUnit="MM" alpha="1" type="marker" name="32">
+                        <layer pass="0" class="FontMarker" locked="0">
+                            <prop k="angle" v="0"/>
+                            <prop k="chr" v="P"/>
+                            <prop k="color" v="0,0,0,255"/>
+                            <prop k="font" v="ESRI ArcGIS TDN"/>
+                            <prop k="offset" v="1,-1"/>
+                            <prop k="size" v="10"/>
+                        </layer>
+                    </symbol>
+                    <symbol outputUnit="MM" alpha="1" type="marker" name="33">
+                        <layer pass="0" class="FontMarker" locked="0">
+                            <prop k="angle" v="0"/>
+                            <prop k="chr" v="P"/>
+                            <prop k="color" v="0,0,0,255"/>
+                            <prop k="font" v="ESRI ArcGIS TDN"/>
+                            <prop k="offset" v="1,-1"/>
+                            <prop k="size" v="10"/>
+                        </layer>
+                    </symbol>
+                    <symbol outputUnit="MM" alpha="1" type="marker" name="34">
+                        <layer pass="0" class="SimpleMarker" locked="0">
+                            <prop k="angle" v="0"/>
+                            <prop k="color" v="252,184,182,255"/>
+                            <prop k="color_border" v="0,0,0,255"/>
+                            <prop k="name" v="circle"/>
+                            <prop k="offset" v="0,0"/>
+                            <prop k="size" v="2"/>
+                        </layer>
+                    </symbol>
+                    <symbol outputUnit="MM" alpha="1" type="marker" name="35">
+                        <layer pass="0" class="FontMarker" locked="0">
+                            <prop k="angle" v="0"/>
+                            <prop k="chr" v="R"/>
+                            <prop k="color" v="0,0,0,255"/>
+                            <prop k="font" v="ESRI ArcGIS TDN"/>
+                            <prop k="offset" v="0,-4"/>
+                            <prop k="size" v="10"/>
+                        </layer>
+                    </symbol>
+                    <symbol outputUnit="MM" alpha="1" type="marker" name="36">
+                        <layer pass="0" class="FontMarker" locked="0">
+                            <prop k="angle" v="0"/>
+                            <prop k="chr" v="S"/>
+                            <prop k="color" v="0,0,0,255"/>
+                            <prop k="font" v="ESRI ArcGIS TDN"/>
+                            <prop k="offset" v="0,-4"/>
+                            <prop k="size" v="10"/>
+                        </layer>
+                    </symbol>
+                    <symbol outputUnit="MM" alpha="1" type="marker" name="37">
+                        <layer pass="0" class="SimpleMarker" locked="0">
+                            <prop k="angle" v="0"/>
+                            <prop k="color" v="252,198,184,255"/>
+                            <prop k="color_border" v="0,0,0,255"/>
+                            <prop k="name" v="circle"/>
+                            <prop k="offset" v="0,0"/>
+                            <prop k="size" v="2"/>
+                        </layer>
+                    </symbol>
+                    <symbol outputUnit="MM" alpha="1" type="marker" name="4">
+                        <layer pass="0" class="SimpleMarker" locked="0">
+                            <prop k="angle" v="0"/>
+                            <prop k="color" v="0,0,0,255"/>
+                            <prop k="color_border" v="0,0,0,255"/>
+                            <prop k="name" v="circle"/>
+                            <prop k="offset" v="0,0"/>
+                            <prop k="size" v="1"/>
+                        </layer>
+                    </symbol>
+                    <symbol outputUnit="MM" alpha="1" type="marker" name="5">
+                        <layer pass="0" class="SimpleMarker" locked="0">
+                            <prop k="angle" v="0"/>
+                            <prop k="color" v="0,0,0,255"/>
+                            <prop k="color_border" v="0,0,0,255"/>
+                            <prop k="name" v="circle"/>
+                            <prop k="offset" v="0,0"/>
+                            <prop k="size" v="1"/>
+                        </layer>
+                    </symbol>
+                    <symbol outputUnit="MM" alpha="1" type="marker" name="6">
+                        <layer pass="0" class="FontMarker" locked="0">
+                            <prop k="angle" v="0"/>
+                            <prop k="chr" v="&lt;"/>
+                            <prop k="color" v="0,0,0,255"/>
+                            <prop k="font" v="ESRI ArcGIS TDN"/>
+                            <prop k="offset" v="0,-4"/>
+                            <prop k="size" v="10"/>
+                        </layer>
+                    </symbol>
+                    <symbol outputUnit="MM" alpha="1" type="marker" name="7">
+                        <layer pass="0" class="FontMarker" locked="0">
+                            <prop k="angle" v="0"/>
+                            <prop k="chr" v="q"/>
+                            <prop k="color" v="0,0,0,255"/>
+                            <prop k="font" v="ESRI ArcGIS TDN"/>
+                            <prop k="offset" v="0,-4"/>
+                            <prop k="size" v="10"/>
+                        </layer>
+                    </symbol>
+                    <symbol outputUnit="MM" alpha="1" type="marker" name="8">
+                        <layer pass="0" class="SimpleMarker" locked="0">
+                            <prop k="angle" v="0"/>
+                            <prop k="color" v="255,0,0,255"/>
+                            <prop k="color_border" v="0,0,0,255"/>
+                            <prop k="name" v="circle"/>
+                            <prop k="offset" v="0,0"/>
+                            <prop k="size" v="2"/>
+                        </layer>
+                    </symbol>
+                    <symbol outputUnit="MM" alpha="1" type="marker" name="9">
+                        <layer pass="0" class="SimpleMarker" locked="0">
+                            <prop k="angle" v="0"/>
+                            <prop k="color" v="0,0,0,255"/>
+                            <prop k="color_border" v="0,0,0,255"/>
+                            <prop k="name" v="circle"/>
+                            <prop k="offset" v="0,0"/>
+                            <prop k="size" v="2"/>
+                        </layer>
+                    </symbol>
+                    <symbol outputUnit="MM" alpha="1" type="marker" name="default">
+                        <layer pass="0" class="SimpleMarker" locked="0">
+                            <prop k="angle" v="0"/>
+                            <prop k="color" v="85,156,35,255"/>
+                            <prop k="color_border" v="0,0,0,255"/>
+                            <prop k="name" v="circle"/>
+                            <prop k="offset" v="0,0"/>
+                            <prop k="size" v="2"/>
+                        </layer>
+                    </symbol>
+                </symbols>
+            </renderer-v2>
+            <customproperties/>
+            <displayfield>OBJECTID</displayfield>
+            <label>0</label>
+            <labelattributes>
+                <label fieldname="" text="Label"/>
+                <family fieldname="" name="MS Shell Dlg 2"/>
+                <size fieldname="" units="pt" value="12"/>
+                <bold fieldname="" on="0"/>
+                <italic fieldname="" on="0"/>
+                <underline fieldname="" on="0"/>
+                <strikeout fieldname="" on="0"/>
+                <color fieldname="" red="0" blue="0" green="0"/>
+                <x fieldname=""/>
+                <y fieldname=""/>
+                <offset x="0" y="0" units="pt" yfieldname="" xfieldname=""/>
+                <angle fieldname="" value="0" auto="0"/>
+                <alignment fieldname="" value="center"/>
+                <buffercolor fieldname="" red="255" blue="255" green="255"/>
+                <buffersize fieldname="" units="pt" value="1"/>
+                <bufferenabled fieldname="" on=""/>
+                <multilineenabled fieldname="" on=""/>
+                <selectedonly on=""/>
+            </labelattributes>
+            <edittypes>
+                <edittype type="0" name="BRONACTUAL"/>
+                <edittype type="0" name="BRONBESCHR"/>
+                <edittype type="0" name="BRONNAUWKE"/>
+                <edittype type="0" name="BRONTYPE"/>
+                <edittype type="0" name="BRONTYPE_C"/>
+                <edittype type="0" name="DIMENSIE"/>
+                <edittype type="0" name="HOOGTE"/>
+                <edittype type="0" name="HOOGTENIVE"/>
+                <edittype type="0" name="IDENTIFICA"/>
+                <edittype type="0" name="ID_NR"/>
+                <edittype type="0" name="NAAM"/>
+                <edittype type="0" name="NUMMER"/>
+                <edittype type="0" name="OBJECTBEGI"/>
+                <edittype type="0" name="OBJECTEIND"/>
+                <edittype type="0" name="OBJECTID"/>
+                <edittype type="0" name="STATUS"/>
+                <edittype type="0" name="STATUS_COD"/>
+                <edittype type="0" name="SYMBOL"/>
+                <edittype type="0" name="SYMBOL_H0"/>
+                <edittype type="0" name="TDN_CODE"/>
+                <edittype type="0" name="TYPEINRELE"/>
+                <edittype type="0" name="TYPEINRICH"/>
+                <edittype type="0" name="VERSIEBEGI"/>
+                <edittype type="0" name="VERSIEEIND"/>
+            </edittypes>
+            <editform>.</editform>
+            <editforminit></editforminit>
+            <annotationform>.</annotationform>
+            <attributeactions/>
+            <overlay display="false" type="diagram">
+                <renderer item_interpretation="linear">
+                    <diagramitem size="0" value="0"/>
+                    <diagramitem size="0" value="0"/>
+                </renderer>
+                <factory sizeUnits="MM" type="Pie">
+                    <wellknownname>Pie</wellknownname>
+                    <classificationfield>0</classificationfield>
+                </factory>
+                <scalingAttribute>0</scalingAttribute>
+            </overlay>
+        </maplayer>
+        <maplayer minimumScale="0" maximumScale="26000" minLabelScale="0" maxLabelScale="26000" geometry="Line" type="vector" hasScaleBasedVisibilityFlag="1" scaleBasedLabelVisibilityFlag="1">
+            <id>WEGDEEL_HARTLIJN20120210101812969</id>
+            <datasource>./Top10NL_shapefiles/WEGDEEL_HARTLIJN.shp</datasource>
+            <layername>Straatnamen</layername>
+            <srs>
+                <spatialrefsys>
+                    <proj4>+proj=sterea +lat_0=52.15616055555555 +lon_0=5.38763888888889 +k=0.9999079 +x_0=155000 +y_0=463000 +ellps=bessel +towgs84=565.417,50.3319,465.552,-0.398957,0.343988,-1.8774,4.0725 +units=m +no_defs</proj4>
+                    <srsid>2517</srsid>
+                    <srid>28992</srid>
+                    <authid>EPSG:28992</authid>
+                    <description>Amersfoort / RD New</description>
+                    <projectionacronym>sterea</projectionacronym>
+                    <ellipsoidacronym>bessel</ellipsoidacronym>
+                    <geographicflag>false</geographicflag>
+                </spatialrefsys>
+            </srs>
+            <transparencyLevelInt>255</transparencyLevelInt>
+            <provider encoding="windows-1252">ogr</provider>
+            <vectorjoins/>
+            <singlesymbol>
+                <symbol>
+                    <lowervalue></lowervalue>
+                    <uppervalue></uppervalue>
+                    <label></label>
+                    <pointsymbol>hard:circle</pointsymbol>
+                    <pointsize>2</pointsize>
+                    <pointsizeunits>pixels</pointsizeunits>
+                    <rotationclassificationfieldname></rotationclassificationfieldname>
+                    <scaleclassificationfieldname></scaleclassificationfieldname>
+                    <symbolfieldname></symbolfieldname>
+                    <outlinecolor red="220" blue="199" green="54"/>
+                    <outlinestyle>NoPen</outlinestyle>
+                    <outlinewidth>0.26</outlinewidth>
+                    <fillcolor red="0" blue="0" green="0"/>
+                    <fillpattern>NoBrush</fillpattern>
+                    <texturepath>.</texturepath>
+                </symbol>
+            </singlesymbol>
+            <customproperties/>
+            <displayfield>OBJECTID</displayfield>
+            <label>1</label>
+            <labelfield>STRAATNAAM</labelfield>
+            <labelattributes>
+                <label fieldname="STRAATNAAM" text=""/>
+                <family fieldname="" name="Arial"/>
+                <size fieldname="" units="pt" value="18"/>
+                <bold fieldname="" on="0"/>
+                <italic fieldname="" on="0"/>
+                <underline fieldname="" on="0"/>
+                <strikeout fieldname="" on="0"/>
+                <color fieldname="" red="0" blue="0" green="0"/>
+                <x fieldname=""/>
+                <y fieldname=""/>
+                <offset x="0" y="0" units="pt" yfieldname="" xfieldname=""/>
+                <angle fieldname="" value="0" auto="0"/>
+                <alignment fieldname="" value="center"/>
+                <buffercolor fieldname="" red="255" blue="255" green="255"/>
+                <buffersize fieldname="" units="pt" value="1"/>
+                <bufferenabled fieldname="" on=""/>
+                <multilineenabled fieldname="" on=""/>
+                <selectedonly on=""/>
+            </labelattributes>
+            <edittypes>
+                <edittype type="0" name="AANTALRIJS"/>
+                <edittype type="0" name="AFRITNAAM"/>
+                <edittype type="0" name="AFRITNUMME"/>
+                <edittype type="0" name="AWEGNUMMER"/>
+                <edittype type="0" name="BRONACTUAL"/>
+                <edittype type="0" name="BRONBESCHR"/>
+                <edittype type="0" name="BRONNAUWKE"/>
+                <edittype type="0" name="BRONTYPE"/>
+                <edittype type="0" name="BRONTYPE_C"/>
+                <edittype type="0" name="BRUGNAAM"/>
+                <edittype type="0" name="DIMENSIE"/>
+                <edittype type="0" name="EWEGNUMMER"/>
+                <edittype type="0" name="FYSIEKVOOR"/>
+                <edittype type="0" name="FYSIEKVO_1"/>
+                <edittype type="0" name="GESCHEIDEN"/>
+                <edittype type="0" name="HOOFDVERKE"/>
+                <edittype type="0" name="HOOFDVER_1"/>
+                <edittype type="0" name="HOOGTENIVE"/>
+                <edittype type="0" name="IDENTIFICA"/>
+                <edittype type="0" name="ID_NR"/>
+                <edittype type="0" name="KNOOPPUNTN"/>
+                <edittype type="0" name="NWEGNUMMER"/>
+                <edittype type="0" name="OBJECTBEGI"/>
+                <edittype type="0" name="OBJECTEIND"/>
+                <edittype type="0" name="OBJECTID"/>
+                <edittype type="0" name="SHAPE_Leng"/>
+                <edittype type="0" name="STATUS"/>
+                <edittype type="0" name="STATUS_COD"/>
+                <edittype type="0" name="STRAATNAAM"/>
+                <edittype type="0" name="SWEGNUMMER"/>
+                <edittype type="0" name="SYMBOL"/>
+                <edittype type="0" name="SYMBOL_H0"/>
+                <edittype type="0" name="TDN_CODE"/>
+                <edittype type="0" name="TUNNELNAAM"/>
+                <edittype type="0" name="TYPEINFRAS"/>
+                <edittype type="0" name="TYPEINFR_1"/>
+                <edittype type="0" name="TYPEWEG"/>
+                <edittype type="0" name="TYPEWEG_C1"/>
+                <edittype type="0" name="VERHARDING"/>
+                <edittype type="0" name="VERHARDI_1"/>
+                <edittype type="0" name="VERHARDI_2"/>
+                <edittype type="0" name="VERHARDI_3"/>
+                <edittype type="0" name="VERHBREEDT"/>
+                <edittype type="0" name="VERSIEBEGI"/>
+                <edittype type="0" name="VERSIEEIND"/>
+            </edittypes>
+            <editform>.</editform>
+            <editforminit></editforminit>
+            <annotationform>.</annotationform>
+            <attributeactions/>
+            <overlay display="false" type="diagram">
+                <renderer item_interpretation="linear">
+                    <diagramitem size="0" value="0"/>
+                    <diagramitem size="0" value="0"/>
+                </renderer>
+                <factory sizeUnits="MM" type="Pie">
+                    <wellknownname>Pie</wellknownname>
+                    <classificationfield>0</classificationfield>
+                </factory>
+                <scalingAttribute>0</scalingAttribute>
+            </overlay>
+        </maplayer>
+        <maplayer minimumScale="0" maximumScale="1e+08" minLabelScale="0" maxLabelScale="26000" geometry="Line" type="vector" hasScaleBasedVisibilityFlag="0" scaleBasedLabelVisibilityFlag="1">
+            <id>WEGDEEL_HARTLIJN_BRUGGEN20120210101233154</id>
+            <datasource>./Top10NL_shapefiles/WEGDEEL_HARTLIJN_BRUGGEN.shp</datasource>
+            <layername>Brugnamen</layername>
+            <srs>
+                <spatialrefsys>
+                    <proj4>+proj=sterea +lat_0=52.15616055555555 +lon_0=5.38763888888889 +k=0.9999079 +x_0=155000 +y_0=463000 +ellps=bessel +towgs84=565.417,50.3319,465.552,-0.398957,0.343988,-1.8774,4.0725 +units=m +no_defs</proj4>
+                    <srsid>2517</srsid>
+                    <srid>28992</srid>
+                    <authid>EPSG:28992</authid>
+                    <description>Amersfoort / RD New</description>
+                    <projectionacronym>sterea</projectionacronym>
+                    <ellipsoidacronym>bessel</ellipsoidacronym>
+                    <geographicflag>false</geographicflag>
+                </spatialrefsys>
+            </srs>
+            <transparencyLevelInt>255</transparencyLevelInt>
+            <provider encoding="windows-1252">ogr</provider>
+            <vectorjoins/>
+            <singlesymbol>
+                <symbol>
+                    <lowervalue></lowervalue>
+                    <uppervalue></uppervalue>
+                    <label></label>
+                    <pointsymbol>hard:circle</pointsymbol>
+                    <pointsize>2</pointsize>
+                    <pointsizeunits>pixels</pointsizeunits>
+                    <rotationclassificationfieldname></rotationclassificationfieldname>
+                    <scaleclassificationfieldname></scaleclassificationfieldname>
+                    <symbolfieldname></symbolfieldname>
+                    <outlinecolor red="90" blue="210" green="229"/>
+                    <outlinestyle>NoPen</outlinestyle>
+                    <outlinewidth>0.26</outlinewidth>
+                    <fillcolor red="0" blue="0" green="0"/>
+                    <fillpattern>NoBrush</fillpattern>
+                    <texturepath>.</texturepath>
+                </symbol>
+            </singlesymbol>
+            <customproperties/>
+            <displayfield>OBJECTID</displayfield>
+            <label>1</label>
+            <labelfield>BRUGNAAM</labelfield>
+            <labelattributes>
+                <label fieldname="BRUGNAAM" text=""/>
+                <family fieldname="" name="Arial"/>
+                <size fieldname="" units="pt" value="36"/>
+                <bold fieldname="" on="0"/>
+                <italic fieldname="" on="0"/>
+                <underline fieldname="" on="0"/>
+                <strikeout fieldname="" on="0"/>
+                <color fieldname="" red="0" blue="0" green="0"/>
+                <x fieldname=""/>
+                <y fieldname=""/>
+                <offset x="0" y="0" units="pt" yfieldname="" xfieldname=""/>
+                <angle fieldname="" value="0" auto="0"/>
+                <alignment fieldname="" value="center"/>
+                <buffercolor fieldname="" red="255" blue="255" green="255"/>
+                <buffersize fieldname="" units="pt" value="1"/>
+                <bufferenabled fieldname="" on=""/>
+                <multilineenabled fieldname="" on=""/>
+                <selectedonly on=""/>
+            </labelattributes>
+            <edittypes>
+                <edittype type="0" name="AANTALRIJS"/>
+                <edittype type="0" name="AFRITNAAM"/>
+                <edittype type="0" name="AFRITNUMME"/>
+                <edittype type="0" name="AWEGNUMMER"/>
+                <edittype type="0" name="BRONACTUAL"/>
+                <edittype type="0" name="BRONBESCHR"/>
+                <edittype type="0" name="BRONNAUWKE"/>
+                <edittype type="0" name="BRONTYPE"/>
+                <edittype type="0" name="BRONTYPE_C"/>
+                <edittype type="0" name="BRUGNAAM"/>
+                <edittype type="0" name="DIMENSIE"/>
+                <edittype type="0" name="EWEGNUMMER"/>
+                <edittype type="0" name="FYSIEKVOOR"/>
+                <edittype type="0" name="FYSIEKVO_1"/>
+                <edittype type="0" name="GESCHEIDEN"/>
+                <edittype type="0" name="HOOFDVERKE"/>
+                <edittype type="0" name="HOOFDVER_1"/>
+                <edittype type="0" name="HOOGTENIVE"/>
+                <edittype type="0" name="IDENTIFICA"/>
+                <edittype type="0" name="ID_NR"/>
+                <edittype type="0" name="KNOOPPUNTN"/>
+                <edittype type="0" name="NWEGNUMMER"/>
+                <edittype type="0" name="OBJECTBEGI"/>
+                <edittype type="0" name="OBJECTEIND"/>
+                <edittype type="0" name="OBJECTID"/>
+                <edittype type="0" name="SHAPE_Leng"/>
+                <edittype type="0" name="STATUS"/>
+                <edittype type="0" name="STATUS_COD"/>
+                <edittype type="0" name="STRAATNAAM"/>
+                <edittype type="0" name="SWEGNUMMER"/>
+                <edittype type="0" name="SYMBOL"/>
+                <edittype type="0" name="SYMBOL_H0"/>
+                <edittype type="0" name="TDN_CODE"/>
+                <edittype type="0" name="TUNNELNAAM"/>
+                <edittype type="0" name="TYPEINFRAS"/>
+                <edittype type="0" name="TYPEINFR_1"/>
+                <edittype type="0" name="TYPEWEG"/>
+                <edittype type="0" name="TYPEWEG_C1"/>
+                <edittype type="0" name="VERHARDING"/>
+                <edittype type="0" name="VERHARDI_1"/>
+                <edittype type="0" name="VERHARDI_2"/>
+                <edittype type="0" name="VERHARDI_3"/>
+                <edittype type="0" name="VERHBREEDT"/>
+                <edittype type="0" name="VERSIEBEGI"/>
+                <edittype type="0" name="VERSIEEIND"/>
+            </edittypes>
+            <editform>.</editform>
+            <editforminit></editforminit>
+            <annotationform>.</annotationform>
+            <attributeactions/>
+            <overlay display="false" type="diagram">
+                <renderer item_interpretation="linear">
+                    <diagramitem size="0" value="0"/>
+                    <diagramitem size="0" value="0"/>
+                </renderer>
+                <factory sizeUnits="MM" type="Pie">
+                    <wellknownname>Pie</wellknownname>
+                    <classificationfield>0</classificationfield>
+                </factory>
+                <scalingAttribute>0</scalingAttribute>
+            </overlay>
+        </maplayer>
+        <maplayer minimumScale="0" maximumScale="1e+08" minLabelScale="0" maxLabelScale="26000" geometry="Line" type="vector" hasScaleBasedVisibilityFlag="0" scaleBasedLabelVisibilityFlag="1">
+            <id>WEGDEEL_HARTLIJN_TUNNELS20120210101233107</id>
+            <datasource>./Top10NL_shapefiles/WEGDEEL_HARTLIJN_TUNNELS.shp</datasource>
+            <layername>Tunnelnamen</layername>
+            <srs>
+                <spatialrefsys>
+                    <proj4>+proj=sterea +lat_0=52.15616055555555 +lon_0=5.38763888888889 +k=0.9999079 +x_0=155000 +y_0=463000 +ellps=bessel +towgs84=565.417,50.3319,465.552,-0.398957,0.343988,-1.8774,4.0725 +units=m +no_defs</proj4>
+                    <srsid>2517</srsid>
+                    <srid>28992</srid>
+                    <authid>EPSG:28992</authid>
+                    <description>Amersfoort / RD New</description>
+                    <projectionacronym>sterea</projectionacronym>
+                    <ellipsoidacronym>bessel</ellipsoidacronym>
+                    <geographicflag>false</geographicflag>
+                </spatialrefsys>
+            </srs>
+            <transparencyLevelInt>255</transparencyLevelInt>
+            <provider encoding="windows-1252">ogr</provider>
+            <vectorjoins/>
+            <singlesymbol>
+                <symbol>
+                    <lowervalue></lowervalue>
+                    <uppervalue></uppervalue>
+                    <label></label>
+                    <pointsymbol>hard:circle</pointsymbol>
+                    <pointsize>2</pointsize>
+                    <pointsizeunits>pixels</pointsizeunits>
+                    <rotationclassificationfieldname></rotationclassificationfieldname>
+                    <scaleclassificationfieldname></scaleclassificationfieldname>
+                    <symbolfieldname></symbolfieldname>
+                    <outlinecolor red="207" blue="123" green="150"/>
+                    <outlinestyle>NoPen</outlinestyle>
+                    <outlinewidth>0.26</outlinewidth>
+                    <fillcolor red="0" blue="0" green="0"/>
+                    <fillpattern>NoBrush</fillpattern>
+                    <texturepath>.</texturepath>
+                </symbol>
+            </singlesymbol>
+            <customproperties/>
+            <displayfield>OBJECTID</displayfield>
+            <label>1</label>
+            <labelfield>TUNNELNAAM</labelfield>
+            <labelattributes>
+                <label fieldname="TUNNELNAAM" text=""/>
+                <family fieldname="" name="Arial"/>
+                <size fieldname="" units="pt" value="36"/>
+                <bold fieldname="" on="0"/>
+                <italic fieldname="" on="0"/>
+                <underline fieldname="" on="0"/>
+                <strikeout fieldname="" on="0"/>
+                <color fieldname="" red="0" blue="0" green="0"/>
+                <x fieldname=""/>
+                <y fieldname=""/>
+                <offset x="0" y="0" units="pt" yfieldname="" xfieldname=""/>
+                <angle fieldname="" value="0" auto="0"/>
+                <alignment fieldname="" value="center"/>
+                <buffercolor fieldname="" red="255" blue="255" green="255"/>
+                <buffersize fieldname="" units="pt" value="1"/>
+                <bufferenabled fieldname="" on=""/>
+                <multilineenabled fieldname="" on=""/>
+                <selectedonly on=""/>
+            </labelattributes>
+            <edittypes>
+                <edittype type="0" name="AANTALRIJS"/>
+                <edittype type="0" name="AFRITNAAM"/>
+                <edittype type="0" name="AFRITNUMME"/>
+                <edittype type="0" name="AWEGNUMMER"/>
+                <edittype type="0" name="BRONACTUAL"/>
+                <edittype type="0" name="BRONBESCHR"/>
+                <edittype type="0" name="BRONNAUWKE"/>
+                <edittype type="0" name="BRONTYPE"/>
+                <edittype type="0" name="BRONTYPE_C"/>
+                <edittype type="0" name="BRUGNAAM"/>
+                <edittype type="0" name="DIMENSIE"/>
+                <edittype type="0" name="EWEGNUMMER"/>
+                <edittype type="0" name="FYSIEKVOOR"/>
+                <edittype type="0" name="FYSIEKVO_1"/>
+                <edittype type="0" name="GESCHEIDEN"/>
+                <edittype type="0" name="HOOFDVERKE"/>
+                <edittype type="0" name="HOOFDVER_1"/>
+                <edittype type="0" name="HOOGTENIVE"/>
+                <edittype type="0" name="IDENTIFICA"/>
+                <edittype type="0" name="ID_NR"/>
+                <edittype type="0" name="KNOOPPUNTN"/>
+                <edittype type="0" name="NWEGNUMMER"/>
+                <edittype type="0" name="OBJECTBEGI"/>
+                <edittype type="0" name="OBJECTEIND"/>
+                <edittype type="0" name="OBJECTID"/>
+                <edittype type="0" name="SHAPE_Leng"/>
+                <edittype type="0" name="STATUS"/>
+                <edittype type="0" name="STATUS_COD"/>
+                <edittype type="0" name="STRAATNAAM"/>
+                <edittype type="0" name="SWEGNUMMER"/>
+                <edittype type="0" name="SYMBOL"/>
+                <edittype type="0" name="SYMBOL_H0"/>
+                <edittype type="0" name="TDN_CODE"/>
+                <edittype type="0" name="TUNNELNAAM"/>
+                <edittype type="0" name="TYPEINFRAS"/>
+                <edittype type="0" name="TYPEINFR_1"/>
+                <edittype type="0" name="TYPEWEG"/>
+                <edittype type="0" name="TYPEWEG_C1"/>
+                <edittype type="0" name="VERHARDING"/>
+                <edittype type="0" name="VERHARDI_1"/>
+                <edittype type="0" name="VERHARDI_2"/>
+                <edittype type="0" name="VERHARDI_3"/>
+                <edittype type="0" name="VERHBREEDT"/>
+                <edittype type="0" name="VERSIEBEGI"/>
+                <edittype type="0" name="VERSIEEIND"/>
+            </edittypes>
+            <editform>.</editform>
+            <editforminit></editforminit>
+            <annotationform>.</annotationform>
+            <attributeactions/>
+            <overlay display="false" type="diagram">
+                <renderer item_interpretation="linear">
+                    <diagramitem size="0" value="0"/>
+                    <diagramitem size="0" value="0"/>
+                </renderer>
+                <factory sizeUnits="MM" type="Pie">
+                    <wellknownname>Pie</wellknownname>
+                    <classificationfield>0</classificationfield>
+                </factory>
+                <scalingAttribute>0</scalingAttribute>
+            </overlay>
+        </maplayer>
+        <maplayer minimumScale="0" maximumScale="26000" geometry="Line" type="vector" hasScaleBasedVisibilityFlag="1">
+            <id>awegnummer20120210121000556</id>
+            <datasource>./Top10NL_shapefiles/awegnummer.shp</datasource>
+            <layername>awegnummer</layername>
+            <srs>
+                <spatialrefsys>
+                    <proj4>+proj=sterea +lat_0=52.15616055555555 +lon_0=5.38763888888889 +k=0.9999079 +x_0=155000 +y_0=463000 +ellps=bessel +towgs84=565.417,50.3319,465.552,-0.398957,0.343988,-1.8774,4.0725 +units=m +no_defs</proj4>
+                    <srsid>2517</srsid>
+                    <srid>28992</srid>
+                    <authid>EPSG:28992</authid>
+                    <description>Amersfoort / RD New</description>
+                    <projectionacronym>sterea</projectionacronym>
+                    <ellipsoidacronym>bessel</ellipsoidacronym>
+                    <geographicflag>false</geographicflag>
+                </spatialrefsys>
+            </srs>
+            <transparencyLevelInt>255</transparencyLevelInt>
+            <provider encoding="windows-1252">ogr</provider>
+            <vectorjoins/>
+            <renderer-v2 symbollevels="0" type="singleSymbol">
+                <symbols>
+                    <symbol outputUnit="MM" alpha="1" type="line" name="0">
+                        <layer pass="0" class="MarkerLine" locked="0">
+                            <prop k="interval" v="3"/>
+                            <prop k="offset" v="0"/>
+                            <prop k="placement" v="centralpoint"/>
+                            <prop k="rotate" v="0"/>
+                        </layer>
+                    </symbol>
+                    <symbol outputUnit="MM" alpha="1" type="marker" name="@0@0">
+                        <layer pass="0" class="SvgMarker" locked="0">
+                            <prop k="angle" v="0"/>
+                            <prop k="fill" v="#000000"/>
+                            <prop k="name" v="E:/data/Kadaster/images/awegnummer.svg"/>
+                            <prop k="offset" v="0,0"/>
+                            <prop k="outline" v="#000000"/>
+                            <prop k="outline-width" v="1"/>
+                            <prop k="size" v="11"/>
+                        </layer>
+                    </symbol>
+                </symbols>
+                <rotation field=""/>
+                <sizescale field=""/>
+            </renderer-v2>
+            <customproperties/>
+            <displayfield>OBJECTID</displayfield>
+            <label>1</label>
+            <labelfield>AWEGNUMMER</labelfield>
+            <labelattributes>
+                <label fieldname="AWEGNUMMER" text=""/>
+                <family fieldname="" name="Arial"/>
+                <size fieldname="" units="pt" value="10"/>
+                <bold fieldname="" on="0"/>
+                <italic fieldname="" on="0"/>
+                <underline fieldname="" on="0"/>
+                <strikeout fieldname="" on="0"/>
+                <color fieldname="" red="255" blue="255" green="255"/>
+                <x fieldname=""/>
+                <y fieldname=""/>
+                <offset x="0" y="0" units="pt" yfieldname="" xfieldname=""/>
+                <angle fieldname="" value="0" auto="0"/>
+                <alignment fieldname="" value="center"/>
+                <buffercolor fieldname="" red="255" blue="255" green="255"/>
+                <buffersize fieldname="" units="pt" value="1"/>
+                <bufferenabled fieldname="" on=""/>
+                <multilineenabled fieldname="" on=""/>
+                <selectedonly on=""/>
+            </labelattributes>
+            <edittypes>
+                <edittype type="0" name="AANTALRIJS"/>
+                <edittype type="0" name="AFRITNAAM"/>
+                <edittype type="0" name="AFRITNUMME"/>
+                <edittype type="0" name="AWEGNUMMER"/>
+                <edittype type="0" name="BRONACTUAL"/>
+                <edittype type="0" name="BRONBESCHR"/>
+                <edittype type="0" name="BRONNAUWKE"/>
+                <edittype type="0" name="BRONTYPE"/>
+                <edittype type="0" name="BRONTYPE_C"/>
+                <edittype type="0" name="BRUGNAAM"/>
+                <edittype type="0" name="DIMENSIE"/>
+                <edittype type="0" name="EWEGNUMMER"/>
+                <edittype type="0" name="FYSIEKVOOR"/>
+                <edittype type="0" name="FYSIEKVO_1"/>
+                <edittype type="0" name="GESCHEIDEN"/>
+                <edittype type="0" name="HOOFDVERKE"/>
+                <edittype type="0" name="HOOFDVER_1"/>
+                <edittype type="0" name="HOOGTENIVE"/>
+                <edittype type="0" name="IDENTIFICA"/>
+                <edittype type="0" name="ID_NR"/>
+                <edittype type="0" name="KNOOPPUNTN"/>
+                <edittype type="0" name="NWEGNUMMER"/>
+                <edittype type="0" name="OBJECTBEGI"/>
+                <edittype type="0" name="OBJECTEIND"/>
+                <edittype type="0" name="OBJECTID"/>
+                <edittype type="0" name="SHAPE_Leng"/>
+                <edittype type="0" name="STATUS"/>
+                <edittype type="0" name="STATUS_COD"/>
+                <edittype type="0" name="STRAATNAAM"/>
+                <edittype type="0" name="SWEGNUMMER"/>
+                <edittype type="0" name="SYMBOL"/>
+                <edittype type="0" name="SYMBOL_H0"/>
+                <edittype type="0" name="TDN_CODE"/>
+                <edittype type="0" name="TUNNELNAAM"/>
+                <edittype type="0" name="TYPEINFRAS"/>
+                <edittype type="0" name="TYPEINFR_1"/>
+                <edittype type="0" name="TYPEWEG"/>
+                <edittype type="0" name="TYPEWEG_C1"/>
+                <edittype type="0" name="VERHARDING"/>
+                <edittype type="0" name="VERHARDI_1"/>
+                <edittype type="0" name="VERHARDI_2"/>
+                <edittype type="0" name="VERHARDI_3"/>
+                <edittype type="0" name="VERHBREEDT"/>
+                <edittype type="0" name="VERSIEBEGI"/>
+                <edittype type="0" name="VERSIEEIND"/>
+            </edittypes>
+            <editform></editform>
+            <editforminit></editforminit>
+            <annotationform></annotationform>
+            <attributeactions/>
+            <overlay display="false" type="diagram">
+                <renderer item_interpretation="linear">
+                    <diagramitem size="0" value="0"/>
+                    <diagramitem size="0" value="0"/>
+                </renderer>
+                <factory sizeUnits="MM" type="Pie">
+                    <wellknownname>Pie</wellknownname>
+                    <classificationfield>0</classificationfield>
+                </factory>
+                <scalingAttribute>0</scalingAttribute>
+            </overlay>
+        </maplayer>
+        <maplayer minimumScale="0" maximumScale="26000" geometry="Line" type="vector" hasScaleBasedVisibilityFlag="1">
+            <id>ewegnummer20120210122456943</id>
+            <datasource>./Top10NL_shapefiles/ewegnummer.shp</datasource>
+            <layername>ewegnummer</layername>
+            <srs>
+                <spatialrefsys>
+                    <proj4>+proj=sterea +lat_0=52.15616055555555 +lon_0=5.38763888888889 +k=0.9999079 +x_0=155000 +y_0=463000 +ellps=bessel +towgs84=565.417,50.3319,465.552,-0.398957,0.343988,-1.8774,4.0725 +units=m +no_defs</proj4>
+                    <srsid>2517</srsid>
+                    <srid>28992</srid>
+                    <authid>EPSG:28992</authid>
+                    <description>Amersfoort / RD New</description>
+                    <projectionacronym>sterea</projectionacronym>
+                    <ellipsoidacronym>bessel</ellipsoidacronym>
+                    <geographicflag>false</geographicflag>
+                </spatialrefsys>
+            </srs>
+            <transparencyLevelInt>255</transparencyLevelInt>
+            <provider encoding="windows-1252">ogr</provider>
+            <vectorjoins/>
+            <renderer-v2 symbollevels="0" type="singleSymbol">
+                <symbols>
+                    <symbol outputUnit="MM" alpha="1" type="line" name="0">
+                        <layer pass="0" class="MarkerLine" locked="0">
+                            <prop k="interval" v="3"/>
+                            <prop k="offset" v="0"/>
+                            <prop k="placement" v="centralpoint"/>
+                            <prop k="rotate" v="0"/>
+                        </layer>
+                    </symbol>
+                    <symbol outputUnit="MM" alpha="1" type="marker" name="@0@0">
+                        <layer pass="0" class="SvgMarker" locked="0">
+                            <prop k="angle" v="0"/>
+                            <prop k="fill" v="#000000"/>
+                            <prop k="name" v="E:/data/Kadaster/images/ewegnummer.svg"/>
+                            <prop k="offset" v="0,0"/>
+                            <prop k="outline" v="#000000"/>
+                            <prop k="outline-width" v="1"/>
+                            <prop k="size" v="11"/>
+                        </layer>
+                    </symbol>
+                </symbols>
+                <rotation field=""/>
+                <sizescale field=""/>
+            </renderer-v2>
+            <customproperties/>
+            <displayfield>OBJECTID</displayfield>
+            <label>1</label>
+            <labelfield>EWEGNUMMER</labelfield>
+            <labelattributes>
+                <label fieldname="EWEGNUMMER" text=""/>
+                <family fieldname="" name="Arial"/>
+                <size fieldname="" units="pt" value="10"/>
+                <bold fieldname="" on="0"/>
+                <italic fieldname="" on="0"/>
+                <underline fieldname="" on="0"/>
+                <strikeout fieldname="" on="0"/>
+                <color fieldname="" red="255" blue="255" green="255"/>
+                <x fieldname=""/>
+                <y fieldname=""/>
+                <offset x="0" y="0" units="pt" yfieldname="" xfieldname=""/>
+                <angle fieldname="" value="0" auto="0"/>
+                <alignment fieldname="" value="center"/>
+                <buffercolor fieldname="" red="255" blue="255" green="255"/>
+                <buffersize fieldname="" units="pt" value="1"/>
+                <bufferenabled fieldname="" on=""/>
+                <multilineenabled fieldname="" on=""/>
+                <selectedonly on=""/>
+            </labelattributes>
+            <edittypes>
+                <edittype type="0" name="AANTALRIJS"/>
+                <edittype type="0" name="AFRITNAAM"/>
+                <edittype type="0" name="AFRITNUMME"/>
+                <edittype type="0" name="AWEGNUMMER"/>
+                <edittype type="0" name="BRONACTUAL"/>
+                <edittype type="0" name="BRONBESCHR"/>
+                <edittype type="0" name="BRONNAUWKE"/>
+                <edittype type="0" name="BRONTYPE"/>
+                <edittype type="0" name="BRONTYPE_C"/>
+                <edittype type="0" name="BRUGNAAM"/>
+                <edittype type="0" name="DIMENSIE"/>
+                <edittype type="0" name="EWEGNUMMER"/>
+                <edittype type="0" name="FYSIEKVOOR"/>
+                <edittype type="0" name="FYSIEKVO_1"/>
+                <edittype type="0" name="GESCHEIDEN"/>
+                <edittype type="0" name="HOOFDVERKE"/>
+                <edittype type="0" name="HOOFDVER_1"/>
+                <edittype type="0" name="HOOGTENIVE"/>
+                <edittype type="0" name="IDENTIFICA"/>
+                <edittype type="0" name="ID_NR"/>
+                <edittype type="0" name="KNOOPPUNTN"/>
+                <edittype type="0" name="NWEGNUMMER"/>
+                <edittype type="0" name="OBJECTBEGI"/>
+                <edittype type="0" name="OBJECTEIND"/>
+                <edittype type="0" name="OBJECTID"/>
+                <edittype type="0" name="SHAPE_Leng"/>
+                <edittype type="0" name="STATUS"/>
+                <edittype type="0" name="STATUS_COD"/>
+                <edittype type="0" name="STRAATNAAM"/>
+                <edittype type="0" name="SWEGNUMMER"/>
+                <edittype type="0" name="SYMBOL"/>
+                <edittype type="0" name="SYMBOL_H0"/>
+                <edittype type="0" name="TDN_CODE"/>
+                <edittype type="0" name="TUNNELNAAM"/>
+                <edittype type="0" name="TYPEINFRAS"/>
+                <edittype type="0" name="TYPEINFR_1"/>
+                <edittype type="0" name="TYPEWEG"/>
+                <edittype type="0" name="TYPEWEG_C1"/>
+                <edittype type="0" name="VERHARDING"/>
+                <edittype type="0" name="VERHARDI_1"/>
+                <edittype type="0" name="VERHARDI_2"/>
+                <edittype type="0" name="VERHARDI_3"/>
+                <edittype type="0" name="VERHBREEDT"/>
+                <edittype type="0" name="VERSIEBEGI"/>
+                <edittype type="0" name="VERSIEEIND"/>
+            </edittypes>
+            <editform></editform>
+            <editforminit></editforminit>
+            <annotationform></annotationform>
+            <attributeactions/>
+            <overlay display="false" type="diagram">
+                <renderer item_interpretation="linear">
+                    <diagramitem size="0" value="0"/>
+                    <diagramitem size="0" value="0"/>
+                </renderer>
+                <factory sizeUnits="MM" type="Pie">
+                    <wellknownname>Pie</wellknownname>
+                    <classificationfield>0</classificationfield>
+                </factory>
+                <scalingAttribute>0</scalingAttribute>
+            </overlay>
+        </maplayer>
+        <maplayer minimumScale="0" maximumScale="26000" minLabelScale="0" maxLabelScale="1e+08" geometry="Line" type="vector" hasScaleBasedVisibilityFlag="1" scaleBasedLabelVisibilityFlag="0">
+            <id>knooppuntnaam20120210122639104</id>
+            <datasource>./Top10NL_shapefiles/knooppuntnaam.shp</datasource>
+            <layername>knooppuntnaam</layername>
+            <srs>
+                <spatialrefsys>
+                    <proj4>+proj=sterea +lat_0=52.15616055555555 +lon_0=5.38763888888889 +k=0.9999079 +x_0=155000 +y_0=463000 +ellps=bessel +towgs84=565.417,50.3319,465.552,-0.398957,0.343988,-1.8774,4.0725 +units=m +no_defs</proj4>
+                    <srsid>2517</srsid>
+                    <srid>28992</srid>
+                    <authid>EPSG:28992</authid>
+                    <description>Amersfoort / RD New</description>
+                    <projectionacronym>sterea</projectionacronym>
+                    <ellipsoidacronym>bessel</ellipsoidacronym>
+                    <geographicflag>false</geographicflag>
+                </spatialrefsys>
+            </srs>
+            <transparencyLevelInt>255</transparencyLevelInt>
+            <provider encoding="windows-1252">ogr</provider>
+            <vectorjoins/>
+            <singlesymbol>
+                <symbol>
+                    <lowervalue></lowervalue>
+                    <uppervalue></uppervalue>
+                    <label></label>
+                    <pointsymbol>hard:circle</pointsymbol>
+                    <pointsize>2</pointsize>
+                    <pointsizeunits>pixels</pointsizeunits>
+                    <rotationclassificationfieldname></rotationclassificationfieldname>
+                    <scaleclassificationfieldname></scaleclassificationfieldname>
+                    <symbolfieldname></symbolfieldname>
+                    <outlinecolor red="186" blue="237" green="244"/>
+                    <outlinestyle>NoPen</outlinestyle>
+                    <outlinewidth>0.26</outlinewidth>
+                    <fillcolor red="0" blue="0" green="0"/>
+                    <fillpattern>SolidPattern</fillpattern>
+                    <texturepath null="1"></texturepath>
+                </symbol>
+            </singlesymbol>
+            <customproperties/>
+            <displayfield>OBJECTID</displayfield>
+            <label>1</label>
+            <labelfield>KNOOPPUNTN</labelfield>
+            <labelattributes>
+                <label fieldname="KNOOPPUNTN" text=""/>
+                <family fieldname="" name="MS Shell Dlg 2"/>
+                <size fieldname="" units="pt" value="10"/>
+                <bold fieldname="" on="0"/>
+                <italic fieldname="" on="0"/>
+                <underline fieldname="" on="0"/>
+                <strikeout fieldname="" on="0"/>
+                <color fieldname="" red="0" blue="168" green="77"/>
+                <x fieldname=""/>
+                <y fieldname=""/>
+                <offset x="0" y="0" units="pt" yfieldname="" xfieldname=""/>
+                <angle fieldname="" value="0" auto="0"/>
+                <alignment fieldname="" value="center"/>
+                <buffercolor fieldname="" red="85" blue="255" green="255"/>
+                <buffersize fieldname="" units="pt" value="1"/>
+                <bufferenabled fieldname="" on=""/>
+                <multilineenabled fieldname="" on=""/>
+                <selectedonly on=""/>
+            </labelattributes>
+            <edittypes>
+                <edittype type="0" name="AANTALRIJS"/>
+                <edittype type="0" name="AFRITNAAM"/>
+                <edittype type="0" name="AFRITNUMME"/>
+                <edittype type="0" name="AWEGNUMMER"/>
+                <edittype type="0" name="BRONACTUAL"/>
+                <edittype type="0" name="BRONBESCHR"/>
+                <edittype type="0" name="BRONNAUWKE"/>
+                <edittype type="0" name="BRONTYPE"/>
+                <edittype type="0" name="BRONTYPE_C"/>
+                <edittype type="0" name="BRUGNAAM"/>
+                <edittype type="0" name="DIMENSIE"/>
+                <edittype type="0" name="EWEGNUMMER"/>
+                <edittype type="0" name="FYSIEKVOOR"/>
+                <edittype type="0" name="FYSIEKVO_1"/>
+                <edittype type="0" name="GESCHEIDEN"/>
+                <edittype type="0" name="HOOFDVERKE"/>
+                <edittype type="0" name="HOOFDVER_1"/>
+                <edittype type="0" name="HOOGTENIVE"/>
+                <edittype type="0" name="IDENTIFICA"/>
+                <edittype type="0" name="ID_NR"/>
+                <edittype type="0" name="KNOOPPUNTN"/>
+                <edittype type="0" name="NWEGNUMMER"/>
+                <edittype type="0" name="OBJECTBEGI"/>
+                <edittype type="0" name="OBJECTEIND"/>
+                <edittype type="0" name="OBJECTID"/>
+                <edittype type="0" name="SHAPE_Leng"/>
+                <edittype type="0" name="STATUS"/>
+                <edittype type="0" name="STATUS_COD"/>
+                <edittype type="0" name="STRAATNAAM"/>
+                <edittype type="0" name="SWEGNUMMER"/>
+                <edittype type="0" name="SYMBOL"/>
+                <edittype type="0" name="SYMBOL_H0"/>
+                <edittype type="0" name="TDN_CODE"/>
+                <edittype type="0" name="TUNNELNAAM"/>
+                <edittype type="0" name="TYPEINFRAS"/>
+                <edittype type="0" name="TYPEINFR_1"/>
+                <edittype type="0" name="TYPEWEG"/>
+                <edittype type="0" name="TYPEWEG_C1"/>
+                <edittype type="0" name="VERHARDING"/>
+                <edittype type="0" name="VERHARDI_1"/>
+                <edittype type="0" name="VERHARDI_2"/>
+                <edittype type="0" name="VERHARDI_3"/>
+                <edittype type="0" name="VERHBREEDT"/>
+                <edittype type="0" name="VERSIEBEGI"/>
+                <edittype type="0" name="VERSIEEIND"/>
+            </edittypes>
+            <editform></editform>
+            <editforminit></editforminit>
+            <annotationform></annotationform>
+            <attributeactions/>
+            <overlay display="false" type="diagram">
+                <renderer item_interpretation="linear">
+                    <diagramitem size="0" value="0"/>
+                    <diagramitem size="0" value="0"/>
+                </renderer>
+                <factory sizeUnits="MM" type="Pie">
+                    <wellknownname>Pie</wellknownname>
+                    <classificationfield>0</classificationfield>
+                </factory>
+                <scalingAttribute>0</scalingAttribute>
+            </overlay>
+        </maplayer>
+        <maplayer minimumScale="0" maximumScale="26000" geometry="Line" type="vector" hasScaleBasedVisibilityFlag="1">
+            <id>nwegnummer20120210121622480</id>
+            <datasource>./Top10NL_shapefiles/nwegnummer.shp</datasource>
+            <layername>nwegnummer</layername>
+            <srs>
+                <spatialrefsys>
+                    <proj4>+proj=sterea +lat_0=52.15616055555555 +lon_0=5.38763888888889 +k=0.9999079 +x_0=155000 +y_0=463000 +ellps=bessel +towgs84=565.417,50.3319,465.552,-0.398957,0.343988,-1.8774,4.0725 +units=m +no_defs</proj4>
+                    <srsid>2517</srsid>
+                    <srid>28992</srid>
+                    <authid>EPSG:28992</authid>
+                    <description>Amersfoort / RD New</description>
+                    <projectionacronym>sterea</projectionacronym>
+                    <ellipsoidacronym>bessel</ellipsoidacronym>
+                    <geographicflag>false</geographicflag>
+                </spatialrefsys>
+            </srs>
+            <transparencyLevelInt>255</transparencyLevelInt>
+            <provider encoding="windows-1252">ogr</provider>
+            <vectorjoins/>
+            <renderer-v2 symbollevels="0" type="singleSymbol">
+                <symbols>
+                    <symbol outputUnit="MM" alpha="1" type="line" name="0">
+                        <layer pass="0" class="MarkerLine" locked="0">
+                            <prop k="interval" v="3"/>
+                            <prop k="offset" v="0"/>
+                            <prop k="placement" v="centralpoint"/>
+                            <prop k="rotate" v="0"/>
+                        </layer>
+                    </symbol>
+                    <symbol outputUnit="MM" alpha="1" type="marker" name="@0@0">
+                        <layer pass="0" class="SvgMarker" locked="0">
+                            <prop k="angle" v="0"/>
+                            <prop k="fill" v="#000000"/>
+                            <prop k="name" v="E:/data/Kadaster/images/nwegnummer.svg"/>
+                            <prop k="offset" v="0,0"/>
+                            <prop k="outline" v="#000000"/>
+                            <prop k="outline-width" v="1"/>
+                            <prop k="size" v="11"/>
+                        </layer>
+                    </symbol>
+                </symbols>
+                <rotation field=""/>
+                <sizescale field=""/>
+            </renderer-v2>
+            <customproperties/>
+            <displayfield>OBJECTID</displayfield>
+            <label>1</label>
+            <labelfield>NWEGNUMMER</labelfield>
+            <labelattributes>
+                <label fieldname="NWEGNUMMER" text=""/>
+                <family fieldname="" name="Arial"/>
+                <size fieldname="" units="pt" value="10"/>
+                <bold fieldname="" on="0"/>
+                <italic fieldname="" on="0"/>
+                <underline fieldname="" on="0"/>
+                <strikeout fieldname="" on="0"/>
+                <color fieldname="" red="0" blue="0" green="0"/>
+                <x fieldname=""/>
+                <y fieldname=""/>
+                <offset x="0" y="0" units="pt" yfieldname="" xfieldname=""/>
+                <angle fieldname="" value="0" auto="0"/>
+                <alignment fieldname="" value="center"/>
+                <buffercolor fieldname="" red="255" blue="255" green="255"/>
+                <buffersize fieldname="" units="pt" value="1"/>
+                <bufferenabled fieldname="" on=""/>
+                <multilineenabled fieldname="" on=""/>
+                <selectedonly on=""/>
+            </labelattributes>
+            <edittypes>
+                <edittype type="0" name="AANTALRIJS"/>
+                <edittype type="0" name="AFRITNAAM"/>
+                <edittype type="0" name="AFRITNUMME"/>
+                <edittype type="0" name="AWEGNUMMER"/>
+                <edittype type="0" name="BRONACTUAL"/>
+                <edittype type="0" name="BRONBESCHR"/>
+                <edittype type="0" name="BRONNAUWKE"/>
+                <edittype type="0" name="BRONTYPE"/>
+                <edittype type="0" name="BRONTYPE_C"/>
+                <edittype type="0" name="BRUGNAAM"/>
+                <edittype type="0" name="DIMENSIE"/>
+                <edittype type="0" name="EWEGNUMMER"/>
+                <edittype type="0" name="FYSIEKVOOR"/>
+                <edittype type="0" name="FYSIEKVO_1"/>
+                <edittype type="0" name="GESCHEIDEN"/>
+                <edittype type="0" name="HOOFDVERKE"/>
+                <edittype type="0" name="HOOFDVER_1"/>
+                <edittype type="0" name="HOOGTENIVE"/>
+                <edittype type="0" name="IDENTIFICA"/>
+                <edittype type="0" name="ID_NR"/>
+                <edittype type="0" name="KNOOPPUNTN"/>
+                <edittype type="0" name="NWEGNUMMER"/>
+                <edittype type="0" name="OBJECTBEGI"/>
+                <edittype type="0" name="OBJECTEIND"/>
+                <edittype type="0" name="OBJECTID"/>
+                <edittype type="0" name="SHAPE_Leng"/>
+                <edittype type="0" name="STATUS"/>
+                <edittype type="0" name="STATUS_COD"/>
+                <edittype type="0" name="STRAATNAAM"/>
+                <edittype type="0" name="SWEGNUMMER"/>
+                <edittype type="0" name="SYMBOL"/>
+                <edittype type="0" name="SYMBOL_H0"/>
+                <edittype type="0" name="TDN_CODE"/>
+                <edittype type="0" name="TUNNELNAAM"/>
+                <edittype type="0" name="TYPEINFRAS"/>
+                <edittype type="0" name="TYPEINFR_1"/>
+                <edittype type="0" name="TYPEWEG"/>
+                <edittype type="0" name="TYPEWEG_C1"/>
+                <edittype type="0" name="VERHARDING"/>
+                <edittype type="0" name="VERHARDI_1"/>
+                <edittype type="0" name="VERHARDI_2"/>
+                <edittype type="0" name="VERHARDI_3"/>
+                <edittype type="0" name="VERHBREEDT"/>
+                <edittype type="0" name="VERSIEBEGI"/>
+                <edittype type="0" name="VERSIEEIND"/>
+            </edittypes>
+            <editform></editform>
+            <editforminit></editforminit>
+            <annotationform></annotationform>
+            <attributeactions/>
+            <overlay display="false" type="diagram">
+                <renderer item_interpretation="linear">
+                    <diagramitem size="0" value="0"/>
+                    <diagramitem size="0" value="0"/>
+                </renderer>
+                <factory sizeUnits="MM" type="Pie">
+                    <wellknownname>Pie</wellknownname>
+                    <classificationfield>0</classificationfield>
+                </factory>
+                <scalingAttribute>0</scalingAttribute>
+            </overlay>
+        </maplayer>
+        <maplayer minimumScale="0" maximumScale="26000" geometry="Line" type="vector" hasScaleBasedVisibilityFlag="1">
+            <id>rijbanen20120210120036334</id>
+            <datasource>./Top10NL_shapefiles/rijbanen.shp</datasource>
+            <layername>rijbanen</layername>
+            <srs>
+                <spatialrefsys>
+                    <proj4>+proj=sterea +lat_0=52.15616055555555 +lon_0=5.38763888888889 +k=0.9999079 +x_0=155000 +y_0=463000 +ellps=bessel +towgs84=565.417,50.3319,465.552,-0.398957,0.343988,-1.8774,4.0725 +units=m +no_defs</proj4>
+                    <srsid>2517</srsid>
+                    <srid>28992</srid>
+                    <authid>EPSG:28992</authid>
+                    <description>Amersfoort / RD New</description>
+                    <projectionacronym>sterea</projectionacronym>
+                    <ellipsoidacronym>bessel</ellipsoidacronym>
+                    <geographicflag>false</geographicflag>
+                </spatialrefsys>
+            </srs>
+            <transparencyLevelInt>255</transparencyLevelInt>
+            <provider encoding="windows-1252">ogr</provider>
+            <vectorjoins/>
+            <renderer-v2 symbollevels="0" type="singleSymbol">
+                <symbols>
+                    <symbol outputUnit="MM" alpha="1" type="line" name="0">
+                        <layer pass="0" class="MarkerLine" locked="0">
+                            <prop k="interval" v="3"/>
+                            <prop k="offset" v="0"/>
+                            <prop k="placement" v="centralpoint"/>
+                            <prop k="rotate" v="0"/>
+                        </layer>
+                    </symbol>
+                    <symbol outputUnit="MM" alpha="1" type="marker" name="@0@0">
+                        <layer pass="0" class="SvgMarker" locked="0">
+                            <prop k="angle" v="0"/>
+                            <prop k="fill" v="#000000"/>
+                            <prop k="name" v="E:/data/Kadaster/images/rijbanen.svg"/>
+                            <prop k="offset" v="0,1"/>
+                            <prop k="outline" v="#000000"/>
+                            <prop k="outline-width" v="1"/>
+                            <prop k="size" v="6"/>
+                        </layer>
+                    </symbol>
+                </symbols>
+                <rotation field=""/>
+                <sizescale field=""/>
+            </renderer-v2>
+            <customproperties/>
+            <displayfield>OBJECTID</displayfield>
+            <label>1</label>
+            <labelfield>AANTALRIJS</labelfield>
+            <labelattributes>
+                <label fieldname="AANTALRIJS" text=""/>
+                <family fieldname="" name="MS Shell Dlg 2"/>
+                <size fieldname="" units="pt" value="12"/>
+                <bold fieldname="" on="0"/>
+                <italic fieldname="" on="0"/>
+                <underline fieldname="" on="0"/>
+                <strikeout fieldname="" on="0"/>
+                <color fieldname="" red="0" blue="0" green="0"/>
+                <x fieldname=""/>
+                <y fieldname=""/>
+                <offset x="0" y="0" units="pt" yfieldname="" xfieldname=""/>
+                <angle fieldname="" value="0" auto="0"/>
+                <alignment fieldname="" value="center"/>
+                <buffercolor fieldname="" red="255" blue="255" green="255"/>
+                <buffersize fieldname="" units="pt" value="1"/>
+                <bufferenabled fieldname="" on=""/>
+                <multilineenabled fieldname="" on=""/>
+                <selectedonly on=""/>
+            </labelattributes>
+            <edittypes>
+                <edittype type="0" name="AANTALRIJS"/>
+                <edittype type="0" name="AFRITNAAM"/>
+                <edittype type="0" name="AFRITNUMME"/>
+                <edittype type="0" name="AWEGNUMMER"/>
+                <edittype type="0" name="BRONACTUAL"/>
+                <edittype type="0" name="BRONBESCHR"/>
+                <edittype type="0" name="BRONNAUWKE"/>
+                <edittype type="0" name="BRONTYPE"/>
+                <edittype type="0" name="BRONTYPE_C"/>
+                <edittype type="0" name="BRUGNAAM"/>
+                <edittype type="0" name="DIMENSIE"/>
+                <edittype type="0" name="EWEGNUMMER"/>
+                <edittype type="0" name="FYSIEKVOOR"/>
+                <edittype type="0" name="FYSIEKVO_1"/>
+                <edittype type="0" name="GESCHEIDEN"/>
+                <edittype type="0" name="HOOFDVERKE"/>
+                <edittype type="0" name="HOOFDVER_1"/>
+                <edittype type="0" name="HOOGTENIVE"/>
+                <edittype type="0" name="IDENTIFICA"/>
+                <edittype type="0" name="ID_NR"/>
+                <edittype type="0" name="KNOOPPUNTN"/>
+                <edittype type="0" name="NWEGNUMMER"/>
+                <edittype type="0" name="OBJECTBEGI"/>
+                <edittype type="0" name="OBJECTEIND"/>
+                <edittype type="0" name="OBJECTID"/>
+                <edittype type="0" name="SHAPE_Leng"/>
+                <edittype type="0" name="STATUS"/>
+                <edittype type="0" name="STATUS_COD"/>
+                <edittype type="0" name="STRAATNAAM"/>
+                <edittype type="0" name="SWEGNUMMER"/>
+                <edittype type="0" name="SYMBOL"/>
+                <edittype type="0" name="SYMBOL_H0"/>
+                <edittype type="0" name="TDN_CODE"/>
+                <edittype type="0" name="TUNNELNAAM"/>
+                <edittype type="0" name="TYPEINFRAS"/>
+                <edittype type="0" name="TYPEINFR_1"/>
+                <edittype type="0" name="TYPEWEG"/>
+                <edittype type="0" name="TYPEWEG_C1"/>
+                <edittype type="0" name="VERHARDING"/>
+                <edittype type="0" name="VERHARDI_1"/>
+                <edittype type="0" name="VERHARDI_2"/>
+                <edittype type="0" name="VERHARDI_3"/>
+                <edittype type="0" name="VERHBREEDT"/>
+                <edittype type="0" name="VERSIEBEGI"/>
+                <edittype type="0" name="VERSIEEIND"/>
+            </edittypes>
+            <editform></editform>
+            <editforminit></editforminit>
+            <annotationform></annotationform>
+            <attributeactions/>
+            <overlay display="false" type="diagram">
+                <renderer item_interpretation="linear">
+                    <diagramitem size="0" value="0"/>
+                    <diagramitem size="0" value="0"/>
+                </renderer>
+                <factory sizeUnits="MM" type="Pie">
+                    <wellknownname>Pie</wellknownname>
+                    <classificationfield>0</classificationfield>
+                </factory>
+                <scalingAttribute>0</scalingAttribute>
+            </overlay>
+        </maplayer>
+        <maplayer minimumScale="0" maximumScale="10000" minLabelScale="0" maxLabelScale="1e+08" geometry="Point" type="vector" hasScaleBasedVisibilityFlag="1" scaleBasedLabelVisibilityFlag="0">
+            <id>wegdeel_hartpunt20120210093019726</id>
+            <datasource>./Top10NL_shapefiles/wegdeel_hartpunt.shp</datasource>
+            <layername>wegdeel_hartpunt</layername>
+            <srs>
+                <spatialrefsys>
+                    <proj4>+proj=sterea +lat_0=52.15616055555555 +lon_0=5.38763888888889 +k=0.9999079 +x_0=155000 +y_0=463000 +ellps=bessel +towgs84=565.417,50.3319,465.552,-0.398957,0.343988,-1.8774,4.0725 +units=m +no_defs</proj4>
+                    <srsid>2517</srsid>
+                    <srid>28992</srid>
+                    <authid>EPSG:28992</authid>
+                    <description>Amersfoort / RD New</description>
+                    <projectionacronym>sterea</projectionacronym>
+                    <ellipsoidacronym>bessel</ellipsoidacronym>
+                    <geographicflag>false</geographicflag>
+                </spatialrefsys>
+            </srs>
+            <transparencyLevelInt>255</transparencyLevelInt>
+            <provider encoding="windows-1252">ogr</provider>
+            <vectorjoins/>
+            <singlesymbol>
+                <symbol>
+                    <lowervalue></lowervalue>
+                    <uppervalue></uppervalue>
+                    <label></label>
+                    <pointsymbol>hard:circle</pointsymbol>
+                    <pointsize>1</pointsize>
+                    <pointsizeunits>pixels</pointsizeunits>
+                    <rotationclassificationfieldname></rotationclassificationfieldname>
+                    <scaleclassificationfieldname></scaleclassificationfieldname>
+                    <symbolfieldname></symbolfieldname>
+                    <outlinecolor red="0" blue="0" green="0"/>
+                    <outlinestyle>SolidLine</outlinestyle>
+                    <outlinewidth>0.26</outlinewidth>
+                    <fillcolor red="150" blue="45" green="0"/>
+                    <fillpattern>SolidPattern</fillpattern>
+                    <texturepath>.</texturepath>
+                </symbol>
+            </singlesymbol>
+            <customproperties/>
+            <displayfield>OBJECTID</displayfield>
+            <label>0</label>
+            <labelattributes>
+                <label fieldname="" text="Label"/>
+                <family fieldname="" name="MS Shell Dlg 2"/>
+                <size fieldname="" units="pt" value="12"/>
+                <bold fieldname="" on="0"/>
+                <italic fieldname="" on="0"/>
+                <underline fieldname="" on="0"/>
+                <strikeout fieldname="" on="0"/>
+                <color fieldname="" red="0" blue="0" green="0"/>
+                <x fieldname=""/>
+                <y fieldname=""/>
+                <offset x="0" y="0" units="pt" yfieldname="" xfieldname=""/>
+                <angle fieldname="" value="0" auto="0"/>
+                <alignment fieldname="" value="center"/>
+                <buffercolor fieldname="" red="255" blue="255" green="255"/>
+                <buffersize fieldname="" units="pt" value="1"/>
+                <bufferenabled fieldname="" on=""/>
+                <multilineenabled fieldname="" on=""/>
+                <selectedonly on=""/>
+            </labelattributes>
+            <edittypes>
+                <edittype type="0" name="AANTALRIJS"/>
+                <edittype type="0" name="AFRITNAAM"/>
+                <edittype type="0" name="AFRITNUMME"/>
+                <edittype type="0" name="AWEGNUMMER"/>
+                <edittype type="0" name="BRONACTUAL"/>
+                <edittype type="0" name="BRONBESCHR"/>
+                <edittype type="0" name="BRONNAUWKE"/>
+                <edittype type="0" name="BRONTYPE"/>
+                <edittype type="0" name="BRONTYPE_C"/>
+                <edittype type="0" name="BRUGNAAM"/>
+                <edittype type="0" name="DIMENSIE"/>
+                <edittype type="0" name="EWEGNUMMER"/>
+                <edittype type="0" name="FYSIEKVOOR"/>
+                <edittype type="0" name="FYSIEKVO_1"/>
+                <edittype type="0" name="GESCHEIDEN"/>
+                <edittype type="0" name="HOOFDVERKE"/>
+                <edittype type="0" name="HOOFDVER_1"/>
+                <edittype type="0" name="HOOGTENIVE"/>
+                <edittype type="0" name="IDENTIFICA"/>
+                <edittype type="0" name="ID_NR"/>
+                <edittype type="0" name="KNOOPPUNTN"/>
+                <edittype type="0" name="NWEGNUMMER"/>
+                <edittype type="0" name="OBJECTBEGI"/>
+                <edittype type="0" name="OBJECTEIND"/>
+                <edittype type="0" name="OBJECTID"/>
+                <edittype type="0" name="STATUS"/>
+                <edittype type="0" name="STATUS_COD"/>
+                <edittype type="0" name="STRAATNAAM"/>
+                <edittype type="0" name="SWEGNUMMER"/>
+                <edittype type="0" name="SYMBOL"/>
+                <edittype type="0" name="SYMBOL_H0"/>
+                <edittype type="0" name="TDN_CODE"/>
+                <edittype type="0" name="TUNNELNAAM"/>
+                <edittype type="0" name="TYPEINFRAS"/>
+                <edittype type="0" name="TYPEINFR_1"/>
+                <edittype type="0" name="TYPEWEG"/>
+                <edittype type="0" name="TYPEWEG_C1"/>
+                <edittype type="0" name="VERHARDING"/>
+                <edittype type="0" name="VERHARDI_1"/>
+                <edittype type="0" name="VERHARDI_2"/>
+                <edittype type="0" name="VERHARDI_3"/>
+                <edittype type="0" name="VERHBREEDT"/>
+                <edittype type="0" name="VERSIEBEGI"/>
+                <edittype type="0" name="VERSIEEIND"/>
+            </edittypes>
+            <editform>.</editform>
+            <editforminit></editforminit>
+            <annotationform>.</annotationform>
+            <attributeactions/>
+            <overlay display="false" type="diagram">
+                <renderer item_interpretation="linear">
+                    <diagramitem size="0" value="0"/>
+                    <diagramitem size="0" value="0"/>
+                </renderer>
+                <factory sizeUnits="MM" type="Pie">
+                    <wellknownname>Pie</wellknownname>
+                    <classificationfield>0</classificationfield>
+                </factory>
+                <scalingAttribute>0</scalingAttribute>
+            </overlay>
+        </maplayer>
+    </projectlayers>
+    <properties>
+        <SpatialRefSys>
+            <ProjectCrs type="QString">EPSG:28992</ProjectCrs>
+        </SpatialRefSys>
+        <Paths>
+            <Absolute type="bool">false</Absolute>
+        </Paths>
+        <Gui>
+            <SelectionColorBluePart type="int">0</SelectionColorBluePart>
+            <CanvasColorGreenPart type="int">255</CanvasColorGreenPart>
+            <CanvasColorRedPart type="int">255</CanvasColorRedPart>
+            <SelectionColorRedPart type="int">170</SelectionColorRedPart>
+            <SelectionColorAlphaPart type="int">255</SelectionColorAlphaPart>
+            <SelectionColorGreenPart type="int">0</SelectionColorGreenPart>
+            <CanvasColorBluePart type="int">255</CanvasColorBluePart>
+        </Gui>
+        <PositionPrecision>
+            <DecimalPlaces type="int">2</DecimalPlaces>
+            <Automatic type="bool">true</Automatic>
+        </PositionPrecision>
+    </properties>
+</qgis>

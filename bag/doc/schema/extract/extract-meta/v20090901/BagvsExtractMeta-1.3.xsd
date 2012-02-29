@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2006 sp2 U (http://www.altova.com) by Kadaster (Kadaster) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:meta="http://www.kadaster.nl/schemas/bag-verstrekkingen/extract-meta/v20090901" targetNamespace="http://www.kadaster.nl/schemas/bag-verstrekkingen/extract-meta/v20090901" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.3">
+	<xs:complexType name="Metagegevens">
+		<xs:sequence>
+			<xs:element ref="meta:Klantgegevens"/>
+			<xs:element ref="meta:Ordergegevens"/>
+			<xs:element ref="meta:Bestelgegevens"/>
+			<xs:element ref="meta:Productgegevens"/>
+			<xs:element ref="meta:BestandInfo"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="Metagegevens" type="meta:Metagegevens"/>
+	<xs:complexType name="Ordergegevens">
+		<xs:sequence>
+			<xs:element ref="meta:Ordernummer"/>
+			<xs:element ref="meta:Leveringnummer"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="Ordergegevens" type="meta:Ordergegevens"/>
+	<xs:element name="Ordernummer">
+		<xs:simpleType>
+			<xs:restriction base="xs:string"/>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="Leveringnummer" type="xs:string"/>
+	<xs:complexType name="Bestelgegevens">
+		<xs:sequence>
+			<xs:element ref="meta:Besteldatum">
+				<xs:annotation>
+					<xs:documentation>Datum waarop de bestelling is geregistreerd.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="meta:Label">
+				<xs:annotation>
+					<xs:documentation>Door de klant op te geven label bij een specifieke bestelling. Bij elke bij deze bestelling behorende levering wordt dit label meegegeven.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="Bestelgegevens" type="meta:Bestelgegevens"/>
+	<xs:element name="Besteldatum" type="xs:date"/>
+	<xs:element name="Label" type="xs:string">
+		<xs:annotation>
+			<xs:documentation>Het label wat de gebruiker op kan geven om het bestelde product, in geval van Extract een registratief  gebied, terug te kunnen herkennen. </xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="Klantgegevens">
+		<xs:sequence>
+			<xs:element ref="meta:Klantnummer"/>
+			<xs:element ref="meta:Klantnaam" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="Klantgegevens" type="meta:Klantgegevens"/>
+	<xs:element name="Klantnaam" type="xs:string"/>
+	<xs:element name="Klantnummer" type="xs:string"/>
+	<xs:complexType name="BestandInfo">
+		<xs:sequence>
+			<xs:element ref="meta:Bestandsnaam" minOccurs="0"/>
+			<xs:element ref="meta:Bestandsgrootte" minOccurs="0"/>
+			<xs:element ref="meta:Draaimoment" minOccurs="0"/>
+			<xs:element ref="meta:DeelbestandInfo" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="BestandInfo" type="meta:BestandInfo"/>
+	<xs:element name="Bestandsgrootte" type="xs:string"/>
+	<xs:element name="Bestandsnaam" type="xs:string"/>
+	<xs:element name="Draaimoment" type="xs:dateTime"/>
+	<xs:complexType name="DeelbestandInfo">
+		<xs:sequence>
+			<xs:element ref="meta:Bestandsnaam" minOccurs="0"/>
+			<xs:element ref="meta:Bestandsgrootte" minOccurs="0"/>
+			<xs:element ref="meta:Draaimoment" minOccurs="0"/>
+			<xs:element ref="meta:Objecttype" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="DeelbestandInfo" type="meta:DeelbestandInfo"/>
+	<xs:element name="Objecttype" type="xs:string"/>
+	<xs:complexType name="Productgegevens">
+		<xs:sequence>
+			<xs:element ref="meta:Productcode" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Code voor kenmerken van een product, bestaande uit afkortingen van door de klant gemaakte selecties. </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="meta:Kanaal" minOccurs="0"/>
+			<xs:element ref="meta:GebiedType" minOccurs="0"/>
+			<xs:element ref="meta:Gegevensvariant" minOccurs="0"/>
+			<xs:element ref="meta:Formaat" minOccurs="0"/>
+			<xs:element ref="meta:Producttype" minOccurs="0"/>
+			<xs:element ref="meta:Productversie" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="Productgegevens" type="meta:Productgegevens"/>
+	<xs:element name="Productcode" type="xs:string"/>
+	<xs:element name="Kanaal" type="xs:string"/>
+	<xs:element name="GebiedType" type="xs:string"/>
+	<xs:element name="Gegevensvariant" type="xs:string"/>
+	<xs:element name="Formaat" type="xs:string"/>
+	<xs:element name="Producttype" type="xs:string"/>
+	<xs:element name="Productversie" type="xs:string"/>
+</xs:schema>

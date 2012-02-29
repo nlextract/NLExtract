@@ -67,7 +67,7 @@
                 </bag_LVC:bron>
                 <bag_LVC:nummeraanduidingStatus>Naamgeving uitgegeven</bag_LVC:nummeraanduidingStatus>
                 <bag_LVC:gerelateerdeOpenbareRuimte>
-                    <bag_LVC:identificatie>0003300000117203</bag_LVC:identificatie>
+                    <bag_LVC:identificatie>0855300000001319</bag_LVC:identificatie>
                 </bag_LVC:gerelateerdeOpenbareRuimte>
             </bag_LVC:Nummeraanduiding>
 
@@ -89,7 +89,7 @@
                 </bag_LVC:bron>
                 <bag_LVC:nummeraanduidingStatus>Naamgeving uitgegeven</bag_LVC:nummeraanduidingStatus>
                 <bag_LVC:gerelateerdeOpenbareRuimte>
-                    <bag_LVC:identificatie>0010300000000628</bag_LVC:identificatie>
+                    <bag_LVC:identificatie>0855300000001319</bag_LVC:identificatie>
                 </bag_LVC:gerelateerdeOpenbareRuimte>
             </bag_LVC:Nummeraanduiding>
             <bag_LVC:Nummeraanduiding>
@@ -455,7 +455,7 @@
                 <bag_LVC:aanduidingRecordCorrectie>0</bag_LVC:aanduidingRecordCorrectie>
                 <bag_LVC:huisnummer>96</bag_LVC:huisnummer>
                 <bag_LVC:officieel>N</bag_LVC:officieel>
-                <bag_LVC:postcode>9934EG</bag_LVC:postcode>
+                <!-- <bag_LVC:postcode>9934EG</bag_LVC:postcode>  -->
                 <bag_LVC:tijdvakgeldigheid>
                     <bagtype:begindatumTijdvakGeldigheid>2010051100000000</bagtype:begindatumTijdvakGeldigheid>
                 </bag_LVC:tijdvakgeldigheid>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2006 sp2 U (http://www.altova.com) by Kadaster (Kadaster) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:nen5825="http://www.kadaster.nl/schemas/imbag/nen5825/v20090901" targetNamespace="http://www.kadaster.nl/schemas/imbag/nen5825/v20090901" elementFormDefault="qualified" attributeFormDefault="unqualified" version="0.7">
+	<xs:simpleType name="VerkorteObjectnaam">
+		<xs:annotation>
+			<xs:documentation>Alfanumerieke string met een maximale lengte van 80.
+</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="24"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:element name="VerkorteOpenbareruimteNaam" type="nen5825:VerkorteObjectnaam"/>
+</xs:schema>

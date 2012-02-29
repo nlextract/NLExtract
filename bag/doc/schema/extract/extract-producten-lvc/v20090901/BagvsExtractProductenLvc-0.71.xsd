@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2010 (http://www.altova.com) by Kadaster (Kadaster) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:product_LVC="http://www.kadaster.nl/schemas/bag-verstrekkingen/extract-producten-lvc/v20090901" xmlns:bag_LVC="http://www.kadaster.nl/schemas/imbag/lvc/v20090901" xmlns:bagtype="http://www.kadaster.nl/schemas/imbag/imbag-types/v20090901" targetNamespace="http://www.kadaster.nl/schemas/bag-verstrekkingen/extract-producten-lvc/v20090901" elementFormDefault="qualified" attributeFormDefault="unqualified" version="0.7">
+	<xs:import namespace="http://www.kadaster.nl/schemas/imbag/imbag-types/v20090901" schemaLocation="../../../imbag/imbag-types/v20090901/BagvsImbagOnderdelen-0.7.xsd"/>
+	<xs:import namespace="http://www.kadaster.nl/schemas/imbag/lvc/v20090901" schemaLocation="../../../imbag/lvc/v20090901/BagvsImbagLvc-0.71.xsd"/>
+	<xs:complexType name="_product" abstract="1">
+		<xs:sequence>
+			<xs:element name="productcode" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="LVC-product">
+		<xs:complexContent>
+			<xs:extension base="product_LVC:_product">
+				<xs:sequence>
+					<xs:element ref="bag_LVC:Woonplaats" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element ref="bag_LVC:OpenbareRuimte" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element ref="bag_LVC:Nummeraanduiding" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element ref="bag_LVC:Verblijfsobject" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element ref="bag_LVC:Pand" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element ref="bag_LVC:Standplaats" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element ref="bag_LVC:Ligplaats" minOccurs="0" maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="LVC-product" type="product_LVC:LVC-product"/>
+	<xs:element name="APD-product" type="product_LVC:LVC-product"/>
+	<xs:complexType name="Mutatie-product">
+		<xs:complexContent>
+			<xs:extension base="product_LVC:_product">
+				<xs:sequence>
+					<xs:element ref="product_LVC:Verwerking"/>
+					<xs:element name="Origineel" type="product_LVC:LVC-voorkomen" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Het originele voorkomen, zoals bekend in de Landelijke Voorziening BAG, voorafgaande aan een mutatie op een BAG-Object</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="Wijziging" type="product_LVC:LVC-voorkomen" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>De wijziging op het originele voorkomen, als gevolg van een mutatie op een BAG-Object</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="Nieuw" type="product_LVC:LVC-voorkomen" minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>Een nieuw voorkomen dat ontstaat, als gevolg van een mutatie op een BAG-Object. </xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="Mutatie-product" type="product_LVC:Mutatie-product"/>
+	<xs:complexType name="LVC-voorkomen">
+		<xs:choice>
+			<xs:element ref="bag_LVC:Woonplaats" minOccurs="0"/>
+			<xs:element ref="bag_LVC:OpenbareRuimte" minOccurs="0"/>
+			<xs:element ref="bag_LVC:Nummeraanduiding" minOccurs="0"/>
+			<xs:element ref="bag_LVC:Verblijfsobject" minOccurs="0"/>
+			<xs:element ref="bag_LVC:Pand" minOccurs="0"/>
+			<xs:element ref="bag_LVC:Standplaats" minOccurs="0"/>
+			<xs:element ref="bag_LVC:Ligplaats" minOccurs="0"/>
+		</xs:choice>
+	</xs:complexType>
+	<xs:element name="LVC-voorkomen" type="product_LVC:LVC-voorkomen"/>
+	<xs:complexType name="Verwerking">
+		<xs:annotation>
+			<xs:documentation>Stuurgegevens t.b.v. verwerking van een LVC_Mutatie</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="TijdstipVerwerking" type="product_LVC:TijdstipVerwerking">
+				<xs:annotation>
+					<xs:documentation>TijdstipVerwerking geeft aan wanneer een gegevens in de Landelijke Voorziening BAG is verwerkt. Dit gegeven wordt gebruikt om de volgorde van verwerking aan te geven wanneer er meerdere verwerkingen uitgevoerd moeten worden. Alle gegevens met dezelfde TijdstipVerwerkingen horen tegelijk (in 1 transactie) verwerkt worden. </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="product_LVC:ObjectType">
+				<xs:annotation>
+					<xs:documentation>Het BAG Object type voor de verwerking van een LVC_Mutatie. Alle verwerkingen binnen 1 LVC_mutatie zijn van hetzelfde objecttype. </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="product_LVC:Woonplaats" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>De woonplaats waartoe het  object, waarop de mutatie betrekking heeft, behoort </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="VolgnrVerwerking" type="product_LVC:VolgnummerVerwerking"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="VolgnummerVerwerking">
+		<xs:annotation>
+			<xs:documentation>Volgnummer van mutaties in een consistente set.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:integer">
+			<xs:totalDigits value="3"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="TijdstipVerwerking">
+		<xs:annotation>
+			<xs:documentation>Verwerkingstijdstip in duizendste van een seconde</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:dateTime"/>
+	</xs:simpleType>
+	<xs:element name="Verwerking" type="product_LVC:Verwerking"/>
+	<xs:element name="ObjectType" type="xs:string"/>
+	<xs:element name="Woonplaats" type="product_LVC:Woonplaats"/>
+	<xs:complexType name="Woonplaats">
+		<xs:sequence>
+			<xs:element ref="product_LVC:WoonplaatsIdentificatie"/>
+			<xs:element ref="product_LVC:WoonplaatsNaam" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="WoonplaatsIdentificatie" type="bagtype:Woonplaatscode"/>
+	<xs:element name="WoonplaatsNaam" type="bagtype:Objectnaam"/>
+</xs:schema>

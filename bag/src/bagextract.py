@@ -9,7 +9,7 @@ __date__ = "$Jun 11, 2011 3:46:27 PM$"
 
 import argparse #apt-get install python-argparse
 import sys
-
+import os
 from postgresdb import Database
 from logging import Log
 from bagfilereader import BAGFileReader
@@ -18,6 +18,7 @@ from bagconfig import BAGConfig
 
 class ArgParser(argparse.ArgumentParser):
      def error(self, message):
+        print message
         self.print_help()
         sys.exit(2)
 
@@ -42,17 +43,18 @@ def main():
         geheugen-problemen.
 
     """
-    parser = ArgParser(description='BAG Extract, commandline tool voor het verwerken van BAG bestanden',
-        epilog="Configureer de database in BAG.conf of geef de database parameters op")
-    parser.add_argument('-c', '--dbinit', action='store_true', help='wist oude tabellen en maakt nieuw tabellen')
-    parser.add_argument('-d', '--database', metavar='BAG', help='database naam')
-    parser.add_argument('-s', '--schema', metavar='BAG', help='database schema')
-    parser.add_argument('-q', '--query', metavar='bestand', help='voer een SQL query uit')
-    parser.add_argument('-e', '--extract', metavar='bestand', help='neemt een pad naar een bestand of map en importeert deze in de database')
-    parser.add_argument('-H', '--host', metavar='localhost', help='database host')
-    parser.add_argument('-U', '--username', metavar='postgres', help='database gebruiker')
-    parser.add_argument('-p', '--port', metavar='5432', help='database poort')
-    parser.add_argument('-W', '--password', metavar='postgres', help='wachtwoord voor postgres')
+    parser = ArgParser(description='bag-extract, commandline tool voor het extraheren en inlezen van BAG bestanden',
+        epilog="Configureer de database in extract.conf of geef eigen versie van extract.conf via -f of geef parameters via commando regel expliciet op")
+    parser.add_argument('-c', '--dbinit', action='store_true', help='verwijdert (DROP TABLE) alle tabellen en maakt (CREATE TABLE) nieuwe tabellen aan')
+    parser.add_argument('-d', '--database', metavar='<naam>', help='geef naam van de database')
+    parser.add_argument('-s', '--schema', metavar='<naam>', help='geef naam van het database schema')
+    parser.add_argument('-f', '--config', metavar='<bestand>', help='gebruik dit configuratiebestand i.p.v. extract.conf')
+    parser.add_argument('-q', '--query', metavar='<bestand>', help='voer database bewerkingen uit met opgegeven SQL bestand')
+    parser.add_argument('-e', '--extract', metavar='<naam>', help='importeert of muteert de database met gegeven BAG-bestand of -directory')
+    parser.add_argument('-H', '--host', metavar='<hostnaam of -adres>', help='verbind met de database op deze host')
+    parser.add_argument('-U', '--username', metavar='<naam>', help='verbind met database met deze gebruikersnaam')
+    parser.add_argument('-p', '--port', metavar='<poort>', help='verbind met database naar deze poort')
+    parser.add_argument('-W', '--password', metavar='<paswoord>', help='gebruikt dit wachtwoord voor database gebruiker')
     parser.add_argument('-w', '--no-password', action='store_true', help='gebruik geen wachtwoord voor de database verbinding')
     parser.add_argument('-v', '--verbose', action='store_true', help='toon uitgebreide informatie tijdens het verwerken')
 
@@ -67,16 +69,25 @@ def main():
     # Database
     database = Database()
 
-
     # Print start time
     Log.log.time("Start")
 
     if args.dbinit:
         # Dumps all tables and recreates them
-        database.initialiseer('../db/script/bagdb-1.0.sql')
+        db_script = os.path.realpath(BAGConfig.config.bagextract_home + '/db/script/bag-db.sql')
+        Log.log.info("alle database tabellen weggooien en opnieuw aanmaken...")
+        database.initialiseer(db_script)
+
+        Log.log.info("Initieele data (bijv. gemeenten/provincies) inlezen...")
+        myreader = BAGFileReader(BAGConfig.config.bagextract_home + '/db/data')
+        myreader.process()
+
+        Log.log.info("Views aanmaken...")
+        db_script = os.path.realpath(BAGConfig.config.bagextract_home + '/db/script/bag-view-actueel-bestaand.sql')
+        database.file_uitvoeren(db_script)
     elif args.extract:
         # Extracts any data from any source files/dirs/zips/xml/csv etc
-        myreader = BAGFileReader(args.extract, args)
+        myreader = BAGFileReader(args.extract)
         myreader.process()
     elif args.query:
         # Voer willekeurig SQL script uit uit
@@ -84,7 +95,7 @@ def main():
 
         database.file_uitvoeren(args.query)
     else:
-        Log.log.warn("niet-ondersteunde optie")
+        Log.log.fatal("je geeft een niet-ondersteunde optie. Tip: probeer -h optie")
 
     # Print end time
     Log.log.time("End")

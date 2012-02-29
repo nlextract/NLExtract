@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mb:BAG-Mutaties-Deelbestand-LVC xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                 xmlns:bag_LVC="http://www.kadaster.nl/schemas/imbag/lvc/v20090901"
+                                 xmlns:bagtype="http://www.kadaster.nl/schemas/imbag/imbag-types/v20090901"
+                                 xmlns:nen5825="http://www.kadaster.nl/schemas/imbag/nen5825/v20090901"
+                                 xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                                 xmlns:selecties-extract="http://www.kadaster.nl/schemas/bag-verstrekkingen/extract-selecties/v20090901"
+                                 xmlns:gml="http://www.opengis.net/gml"
+                                 xmlns:mb="http://www.kadaster.nl/schemas/bag-verstrekkingen/extract-deelbestand-mutaties-lvc/v20090901"
+                                 xmlns:product_LVC="http://www.kadaster.nl/schemas/bag-verstrekkingen/extract-producten-lvc/v20090901"
+                                 xsi:schemaLocation="http://www.kadaster.nl/schemas/bag-verstrekkingen/extract-deelbestand-mutaties-lvc/v20090901 http://www.kadaster.nl/schemas/bag-verstrekkingen/extract-deelbestand-mutaties-lvc/v20090901/BagvsExtractDeelbestandMutatieLvc-1.4.xsd">
+    <mb:antwoord>
+        <mb:vraag>
+            <selecties-extract:Gebied-Registratief>
+                <selecties-extract:Gebied-NLD>
+                    <selecties-extract:GebiedIdentificatie>999</selecties-extract:GebiedIdentificatie>
+                    <selecties-extract:GebiedNaam>Nederland</selecties-extract:GebiedNaam>
+                    <selecties-extract:gebiedTypeNederland>1</selecties-extract:gebiedTypeNederland>
+                </selecties-extract:Gebied-NLD>
+            </selecties-extract:Gebied-Registratief>
+            <selecties-extract:Mutatieperiode>
+                <selecties-extract:MutatiedatumVanaf>2011-04-01</selecties-extract:MutatiedatumVanaf>
+                <selecties-extract:MutatiedatumTot>2011-04-02</selecties-extract:MutatiedatumTot>
+            </selecties-extract:Mutatieperiode>
+        </mb:vraag>
+        <mb:producten>
+            <product_LVC:Mutatie-product>
+                <product_LVC:Verwerking>
+                    <product_LVC:TijdstipVerwerking>2011-04-01T12:35:39.699961</product_LVC:TijdstipVerwerking>
+                    <product_LVC:ObjectType>STA</product_LVC:ObjectType>
+                    <product_LVC:VolgnrVerwerking>0</product_LVC:VolgnrVerwerking>
+                </product_LVC:Verwerking>
+                <product_LVC:Nieuw>
+                    <bag_LVC:Standplaats>
+                        <bag_LVC:gerelateerdeAdressen>
+                            <bag_LVC:hoofdadres>
+                                <bag_LVC:identificatie>0050200000380031</bag_LVC:identificatie>
+                            </bag_LVC:hoofdadres>
+                        </bag_LVC:gerelateerdeAdressen>
+                        <bag_LVC:identificatie>0050030000380030</bag_LVC:identificatie>
+                        <bag_LVC:aanduidingRecordInactief>N</bag_LVC:aanduidingRecordInactief>
+                        <bag_LVC:aanduidingRecordCorrectie>0</bag_LVC:aanduidingRecordCorrectie>
+                        <bag_LVC:officieel>J</bag_LVC:officieel>
+                        <bag_LVC:standplaatsStatus>Plaats aangewezen</bag_LVC:standplaatsStatus>
+                        <bag_LVC:standplaatsGeometrie>
+                            <gml:Polygon srsName="urn:ogc:def:crs:EPSG::28992">
+                                <gml:exterior>
+                                    <gml:LinearRing>
+                                        <gml:posList srsDimension="3" count="5">163076.642 485678.006 0.0 163078.89
+                                            485675.725 0.0 163084.98 485681.683 0.0 163083.009 485683.98 0.0 163076.642
+                                            485678.006 0.0
+                                        </gml:posList>
+                                    </gml:LinearRing>
+                                </gml:exterior>
+                            </gml:Polygon>
+                        </bag_LVC:standplaatsGeometrie>
+                        <bag_LVC:tijdvakgeldigheid>
+                            <bagtype:begindatumTijdvakGeldigheid>2011040100000100</bagtype:begindatumTijdvakGeldigheid>
+                        </bag_LVC:tijdvakgeldigheid>
+                        <bag_LVC:inOnderzoek>J</bag_LVC:inOnderzoek>
+                        <bag_LVC:bron>
+                            <bagtype:documentdatum>20110331</bagtype:documentdatum>
+                            <bagtype:documentnummer>11I0000680</bagtype:documentnummer>
+                        </bag_LVC:bron>
+                    </bag_LVC:Standplaats>
+                </product_LVC:Nieuw>
+            </product_LVC:Mutatie-product>
+        </mb:producten>
+    </mb:antwoord>
+</mb:BAG-Mutaties-Deelbestand-LVC>

@@ -1,0 +1,67 @@
+QuantumGIS stijlspecificatie
+TOP10NL Kleurenschema "JW"
+Jan-Willem van Aalst, jw@imergis.nl
+Versie: 22 februari 2012
+Voorbeelden: 
+http://wiki.osgeo.org/wiki/Nederlands/Galerie
+
+De QML bestanden zelf zijn te downloaden:
+http://www.imergis.nl/file/QGIS-kleurenschemas-jwstyle-qmlformaat.zip
+
+Kaartlagen, van hoog naar laag, in QGIS panel "Lagen":
+
+* Groep: Inrichting *
+- Gemgrenzen2011 [Topgrenzen als Shapefile, kosteloos te downloaden vanaf www.kadaster.nl]
+- Inrichtingselement_punt   [Categoriseren op: typeinrichtingselement]
+	SQL WHERE: "hoogteniveau" = 0
+- Inrichtingselement_lijn   [Categoriseren op: typeinrichtingselement]
+	SQL WHERE: "hoogteniveau" = 0
+
+== Groep: Bebouwing ==
+- Gebouw_vlak (kas/torens)   [Categoriseren op: typegebouw]
+	SQL WHERE: "typegebouw" = '(1:kas, warenhuis)' OR "typegebouw" LIKE '%toren%'
+- Gebouw_vlak (alles)   [Categoriseren op: hoogteklasse]
+	SQL WHERE: "hoogteniveau" = 0
+
+== Groep: Infra ==
+- Spoorbaandeel_lijn
+	SQL WHERE: "hoogteniveau" = 0
+- Spoorbaandeel_lijn (spoortunnels)
+	SQL WHERE: "hoogteniveau" < 0
+- Wegdeel_vlak (correcties kruisingen fietspaden), gebruik Top10NL-Wegdeel_vlak (fiets_voet_bus).qml
+    SQL WHERE: ("hoofdverkeersgebruik" LIKE '%fiets%' AND "hoofdverkeersgebruik" NOT LIKE '%snel%') AND ("typeweg" LIKE '%1:o%') AND ("typeinfrastructuurwegdeel" = 'kruising') AND ("hoogteniveau" = 0)
+- Wegdeel_vlak (onverharde wegen)   [Categoriseren op: verhardingstype]
+	SQL WHERE: "hoogteniveau" = 0
+- Wegdeel_vlak (autowegen)   [Categoriseren op: typeweg]
+	SQL WHERE: "hoogteniveau" = 0 AND "hoofdverkeersgebruik" <> '(1:fietsers, bromfietsers)' AND "hoofdverkeersgebruik" <> '(1:voetgangers)' AND "hoofdverkeersgebruik" <> '(1:busverkeer)' AND "hoofdverkeersgebruik" <> '(2:fietsers, bromfietsers,voetgangers)' AND NOT ("hoofdverkeersgebruik" = '(2:busverkeer,gemengd verkeer)' AND "typeweg" NOT LIKE '%weg%') AND NOT ("hoofdverkeersgebruik" LIKE '%arker%')
+- Wegdeel_vlak (omlijning fiets/voet/bus)
+	SQL WHERE: "hoogteniveau" = 0 AND ("hoofdverkeersgebruik" <> '(1:fietsers, bromfietsers)' AND "hoofdverkeersgebruik" <> '(1:voetgangers)' AND "hoofdverkeersgebruik" <> '(1:busverkeer)' AND "typeinfrastructuurwegdeel" <> 'kruising') AND NOT "hoofdverkeersgebruik" LIKE '%arke%'
+- Wegdeel_vlak (fiets/voet/bus)   [Categoriseren op: hoofdverkeersgebruik]
+	SQL WHERE: "hoogteniveau" = 0 AND ("hoofdverkeersgebruik" LIKE '%fietse%' OR "hoofdverkeersgebruik" LIKE '%voetg%' OR "hoofdverkeersgebruik" LIKE '%busv%' OR "hoofdverkeersgebruik" LIKE '%arkeren%')
+- Wegdeel_hartlijn (paden, tunnels)
+	SQL WHERE: -
+- Wegdeel_vlak (omlijning alles)
+	SQL WHERE: "hoogteniveau" = 0
+
+== Groep: Terrein ==
+- HoogteofDiepte_punt (hoogte)
+	SQL WHERE: "hoogteniveau" = 0 AND "hoogte" > 10
+- HoogteofDiepte_punt (diepte)
+	SQL WHERE: "hoogteniveau" = 0 AND "hoogte" < -2
+- Waterdeel_lijn
+	SQL WHERE: "hoogteniveau" = 0
+- Hoogteverschilhz_lijn
+	SQL WHERE: "hoogteniveau" = 0
+- Hoogteverschillz_lijn
+	SQL WHERE: "hoogteniveau" = 0
+- IsoHoogte (hoogtelijnen op land)
+	SQL WHERE: "typereliëf" = 'hoogtelijn' AND "hoogte" > 3 AND "hoogteniveau" = 0
+- Waterdeel_vlak (functie)   [Categoriseren op: functie]
+	SQL WHERE: "hoogteniveau" = 0
+- Terrein_vlak   [Categoriseren op: typelandgebruik]
+	SQL WHERE: -
+- IsoHoogte (dieptelijnen in water)
+	SQL WHERE: "typereliëf" = 'dieptelijn' AND "hoogteniveau" = 0 AND "hoogte" < 0
+- Waterdeel_vlak   [Categoriseren op: typewater]
+	SQL WHERE: -
+

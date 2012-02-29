@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2010 (http://www.altova.com) by Kadaster (Kadaster) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:product_LVC_gml="http://www.kadaster.nl/schemas/bag-verstrekkingen/extract-producten-lvc-gml/v20090901" xmlns:bag_LVC_gml="http://www.kadaster.nl/schemas/imbag/lvc-gml/v20090901" xmlns:bagtype="http://www.kadaster.nl/schemas/imbag/imbag-types/v20090901" targetNamespace="http://www.kadaster.nl/schemas/bag-verstrekkingen/extract-producten-lvc-gml/v20090901" elementFormDefault="qualified" attributeFormDefault="unqualified" version="0.7">
+	<xs:import namespace="http://www.kadaster.nl/schemas/imbag/lvc-gml/v20090901" schemaLocation="../../../imbag/lvc-gml/v20090901/BagvsImbagLvcGml-0.71.xsd"/>
+	<xs:complexType name="_gml-product" abstract="1">
+		<xs:sequence>
+			<xs:element name="productcode" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="LVC-GML-product">
+		<xs:complexContent>
+			<xs:extension base="product_LVC_gml:_gml-product">
+				<xs:sequence>
+					<xs:element ref="bag_LVC_gml:Woonplaats" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element ref="bag_LVC_gml:OpenbareRuimte" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element ref="bag_LVC_gml:Nummeraanduiding" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element ref="bag_LVC_gml:Verblijfsobject" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element ref="bag_LVC_gml:Pand" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element ref="bag_LVC_gml:Standplaats" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element ref="bag_LVC_gml:Ligplaats" minOccurs="0" maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="LVC-GML-product" type="product_LVC_gml:LVC-GML-product"/>
+</xs:schema>

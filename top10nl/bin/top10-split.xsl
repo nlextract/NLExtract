@@ -60,7 +60,7 @@ simpelweg doorgeggeven.
 
     FunctioneelGebied  geometrieVlak  labelPunt
     GeografischGebied   geometrieVlak labelPunt
-    InrichtingsElement geometrieLijn  geometriePunt
+    Inrichtingselement geometrieLijn  geometriePunt
     RegistratiefGebied geometrieVlak  labelPunt
 
     IsoHoogte  geometrieLijn    (OK)
@@ -91,8 +91,8 @@ simpelweg doorgeggeven.
              <xsl:call-template name="SplitsGeografischGebied"/>
          </xsl:for-each>
 
-        <xsl:for-each select="top10nl:InrichtingsElement">
-              <xsl:call-template name="SplitsInrichtingsElement"/>
+        <xsl:for-each select="top10nl:Inrichtingselement">
+              <xsl:call-template name="SplitsInrichtingselement"/>
           </xsl:for-each>
 
 
@@ -100,7 +100,7 @@ simpelweg doorgeggeven.
              <xsl:call-template name="SplitsRegistratiefGebied"/>
          </xsl:for-each>
 
-        <xsl:for-each select="top10nl:OverigRelief">
+        <xsl:for-each select="top10nl:OverigReliëf">
                 <xsl:call-template name="SplitsOverigRelief"/>
             </xsl:for-each>
 
@@ -192,18 +192,18 @@ simpelweg doorgeggeven.
            </xsl:if>
        </xsl:template>
 
-    <!--  Splits InrichtingsElement heeft geometrieLijn en geometriePunt -->
-     <xsl:template name="SplitsInrichtingsElement">
+    <!--  Splits Inrichtingselement heeft geometrieLijn en geometriePunt -->
+     <xsl:template name="SplitsInrichtingselement">
           <xsl:if test="top10nl:geometrieLijn != ''">
               <xsl:call-template name="CopyWithSingleGeometry">
-                  <xsl:with-param name="objectType">InrichtingsElement_Lijn</xsl:with-param>
+                  <xsl:with-param name="objectType">Inrichtingselement_Lijn</xsl:with-param>
                   <xsl:with-param name="geometrie" select="top10nl:geometrieLijn"/>
               </xsl:call-template>
           </xsl:if>
 
           <xsl:if test="top10nl:geometriePunt != ''">
               <xsl:call-template name="CopyWithSingleGeometry">
-                  <xsl:with-param name="objectType">InrichtingsElement_Punt</xsl:with-param>
+                  <xsl:with-param name="objectType">Inrichtingselement_Punt</xsl:with-param>
                   <xsl:with-param name="geometrie" select="top10nl:geometriePunt"/>
               </xsl:call-template>
           </xsl:if>
@@ -213,14 +213,14 @@ simpelweg doorgeggeven.
      <xsl:template name="SplitsOverigRelief">
           <xsl:if test="top10nl:geometrieLijn != ''">
               <xsl:call-template name="CopyWithSingleGeometry">
-                  <xsl:with-param name="objectType">OverigRelief_Lijn</xsl:with-param>
+                  <xsl:with-param name="objectType">OverigReliëf_Lijn</xsl:with-param>
                   <xsl:with-param name="geometrie" select="top10nl:geometrieLijn"/>
               </xsl:call-template>
           </xsl:if>
 
           <xsl:if test="top10nl:geometriePunt != ''">
               <xsl:call-template name="CopyWithSingleGeometry">
-                  <xsl:with-param name="objectType">OverigRelief_Punt</xsl:with-param>
+                  <xsl:with-param name="objectType">OverigReliëf_Punt</xsl:with-param>
                   <xsl:with-param name="geometrie" select="top10nl:geometriePunt"/>
               </xsl:call-template>
           </xsl:if>

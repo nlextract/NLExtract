@@ -2,13 +2,16 @@
 #
 # Auteur: Just van den Broecke
 # Test script
+#
+TOP10NL_HOME=`dirname $0`/..
+TOP10NL_HOME=`(cd "$TOP10NL_HOME"; pwd)`
+TOP10NL_BIN=$TOP10NL_HOME/bin
+TOP10NL_TEST_DATA=$TOP10NL_HOME/test/data
 
-bin=../bin
-d=data
+$TOP10NL_BIN/top10-drop-tables.sh
 
-$bin/top10-drop-tables.sh
+rm $TOP10NL_TEST_DATA/*.split.xml
+rm $TOP10NL_TEST_DATA/*gfs
 
-rm $d/*.split*
-
-$bin/top10-extract.sh $d/test.gml
+$TOP10NL_BIN/top10-extract.sh $TOP10NL_TEST_DATA/test.gml
 

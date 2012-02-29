@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml" xmlns:nen3610="http://www.ravi.nl/nen3610" xmlns:scXML="http://www.isotc211.org/scXML" xmlns:smXML="http://www.isotc211.org/smXML" xmlns:top10nl="http://www.kadaster.nl/top10nl" xmlns:xlink="http://www.w3.org/1999/xlink" elementFormDefault="qualified" targetNamespace="http://www.kadaster.nl/top10nl" version="1.0">
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        xmlns:gml="http://www.opengis.net/gml"
+        xmlns:nen3610="http://www.ravi.nl/nen3610"
+        xmlns:scXML="http://www.isotc211.org/scXML"
+        xmlns:smXML="http://www.isotc211.org/smXML"
+        xmlns:top10nl="http://www.kadaster.nl/top10nl"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        elementFormDefault="qualified" targetNamespace="http://www.kadaster.nl/top10nl" version="1.0">
   <import namespace="http://www.ravi.nl/nen3610" schemaLocation="nen3610.xsd"/>
   <import namespace="http://www.opengis.net/gml" schemaLocation="http://schemas.opengis.net/gml/3.1.1/base/feature.xsd"/>
-  <import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="http://www.w3.org/2001/xml.xsd"/>
+  <!-- Voor snelheid gebruik local versie XML NS DTD : http://lists.w3.org/Archives/Public/site-comments/2011Apr/0025.html -->
+  <import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="xml.xsd"/>
   <complexType name="NaamMetTaalType">
     <simpleContent>
       <extension base="gml:CodeType">

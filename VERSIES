@@ -1,0 +1,10 @@
+Dit bestand bevat versie informatie voor NLExtract. Versies en snapshots zijn te downloaden
+via de link: http://www.nlextract.nl/file-cabinet
+
+
+v1.0.0 - 27.feb.2012
+- de allereerste versie !
+- extraheren BAG en Top10NL
+- verrijking BAG met gemeenten/provincies
+- afgeleide BAG tabellen zoals ACN-achtige adressen
+- visualisaties Top10NL voor met name QGIS

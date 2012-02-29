@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Created by GO Publisher Agent 1.4-beta-3-SNAPSHOT Build 14925 from 2008-12-19 13:21-->
+<!--Snowflake Software Ltd. (http://www.snowflakesoftware.co.uk)-->
+<xb:BAG-Extract-Deelbestand-LVC xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                xmlns:bag_LVC="http://www.kadaster.nl/schemas/imbag/lvc/v20090901"
+                                xmlns:xb="http://www.kadaster.nl/schemas/bag-verstrekkingen/extract-deelbestand-lvc/v20090901"
+                                xmlns:bagtype="http://www.kadaster.nl/schemas/imbag/imbag-types/v20090901"
+                                xmlns:nen5825="http://www.kadaster.nl/schemas/imbag/nen5825/v20090901"
+                                xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                                xmlns:selecties-extract="http://www.kadaster.nl/schemas/bag-verstrekkingen/extract-selecties/v20090901"
+                                xmlns:gml="http://www.opengis.net/gml"
+                                xmlns:product_LVC="http://www.kadaster.nl/schemas/bag-verstrekkingen/extract-producten-lvc/v20090901"
+                                xsi:schemaLocation="http://www.kadaster.nl/schemas/bag-verstrekkingen/extract-deelbestand-lvc/v20090901 http://www.kadaster.nl/schemas/bag-verstrekkingen/extract-deelbestand-lvc/v20090901/BagvsExtractDeelbestandExtractLvc-1.4.xsd">
+    <xb:antwoord>
+        <xb:vraag>
+            <selecties-extract:Gebied-Registratief>
+                <selecties-extract:Gebied-NLD>
+                    <selecties-extract:GebiedIdentificatie>9999</selecties-extract:GebiedIdentificatie>
+                    <selecties-extract:GebiedNaam>Nederland</selecties-extract:GebiedNaam>
+                    <selecties-extract:gebiedTypeNederland>1</selecties-extract:gebiedTypeNederland>
+                </selecties-extract:Gebied-NLD>
+            </selecties-extract:Gebied-Registratief>
+            <selecties-extract:StandTechnischeDatum>20111001</selecties-extract:StandTechnischeDatum>
+            <selecties-extract:StandPeildatum>20111001</selecties-extract:StandPeildatum>
+        </xb:vraag>
+        <xb:producten>
+            <product_LVC:LVC-product>
+                <product_LVC:productcode>DNLDPXEE02</product_LVC:productcode>
+
+
+                <bag_LVC:Verblijfsobject>
+                    <bag_LVC:gerelateerdeAdressen>
+                        <bag_LVC:hoofdadres>
+                            <bag_LVC:identificatie>0003200000133985</bag_LVC:identificatie>
+                        </bag_LVC:hoofdadres>
+                    </bag_LVC:gerelateerdeAdressen>
+                    <bag_LVC:identificatie>0003010000125985</bag_LVC:identificatie>
+                    <bag_LVC:aanduidingRecordInactief>N</bag_LVC:aanduidingRecordInactief>
+                    <bag_LVC:aanduidingRecordCorrectie>0</bag_LVC:aanduidingRecordCorrectie>
+                    <bag_LVC:officieel>N</bag_LVC:officieel>
+                    <bag_LVC:verblijfsobjectGeometrie>
+                        <gml:Point srsName="urn:ogc:def:crs:EPSG::28992">
+                            <gml:pos>252767.348 593745.504 0.0</gml:pos>
+                        </gml:Point>
+                    </bag_LVC:verblijfsobjectGeometrie>
+                    <bag_LVC:gebruiksdoelVerblijfsobject>woonfunctie</bag_LVC:gebruiksdoelVerblijfsobject>
+                    <bag_LVC:oppervlakteVerblijfsobject>69</bag_LVC:oppervlakteVerblijfsobject>
+                    <bag_LVC:verblijfsobjectStatus>Verblijfsobject in gebruik</bag_LVC:verblijfsobjectStatus>
+                    <bag_LVC:tijdvakgeldigheid>
+                        <bagtype:begindatumTijdvakGeldigheid>2010072000000000</bagtype:begindatumTijdvakGeldigheid>
+                    </bag_LVC:tijdvakgeldigheid>
+                    <bag_LVC:inOnderzoek>N</bag_LVC:inOnderzoek>
+                    <bag_LVC:bron>
+                        <bagtype:documentdatum>20100720</bagtype:documentdatum>
+                        <bagtype:documentnummer>FB 2010/PANDEN001</bagtype:documentnummer>
+                    </bag_LVC:bron>
+                    <bag_LVC:gerelateerdPand>
+
+                        <bag_LVC:identificatie>0003100000117485</bag_LVC:identificatie>
+                    </bag_LVC:gerelateerdPand>
+                </bag_LVC:Verblijfsobject>
+
+            </product_LVC:LVC-product>
+        </xb:producten>
+    </xb:antwoord>
+</xb:BAG-Extract-Deelbestand-LVC>
