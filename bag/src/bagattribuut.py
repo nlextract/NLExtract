@@ -28,7 +28,7 @@ def getText(nodelist):
 
 # Geef de waardes van alle elementen met de gegeven tag binnen de XML (parent).
 def getValues(parent, tag):
-    return [node.text for node in parent.iterfind('.//'+tagVolledigeNS(tag, parent.nsmap))]
+    return [node.text for node in parent.iterfind('./'+tagVolledigeNS(tag, parent.nsmap))]
 
 # Geef de waarde van het eerste element met de gegeven tag binnen de XML (parent). Als er geen eerste
 # element gevonden wordt, is het resultaat een lege string.
@@ -72,6 +72,10 @@ class BAGattribuut:
     # Attribuut sqltype. Deze method kan worden overloaded
     def sqltype(self):
         return "VARCHAR(%d)" % self._lengte
+    
+    # Initialiseer database voor dit type
+    def sqlinit(self):
+        return ''
 
     # Attribuut waarde. Deze method kan worden overloaded
     def waarde(self):
@@ -138,7 +142,7 @@ class BAGenumAttribuut(BAGattribuut):
 
     # Initialiseer database
     def sqlinit(self):
-        return "CREATE TYPE %s AS ENUM ('%s')" % (self._naam, "', '".join(self._lijst))
+        return "DROP TYPE IF EXISTS %s;\nCREATE TYPE %s AS ENUM ('%s');\n" % (self._naam, self._naam, "', '".join(self._lijst))
 
 
 class BAGnumeriekAttribuut(BAGattribuut):
@@ -348,27 +352,20 @@ class BAGpoint(BAGgeoAttribuut):
         self.polygonAttr = None
         point = None
         try:
-            pos = ""
-            teller = 0
-            geometrie = xml.find('.//'+tagVolledigeNS(self._tag, xml.nsmap))
-            point = geometrie.find('.//'+tagVolledigeNS("gml:Point", geometrie.nsmap))
-            if point:
-                for na in point.iterfind('.//'+tagVolledigeNS("gml:pos", point.nsmap)):
-                    teller += 1
-                    pos = pos + na.firstChild.nodeValue + ","
-
-                if teller > 0:
-                    pos = pos[:-1]
+            geometrie = xml.find('./'+tagVolledigeNS(self._tag, xml.nsmap))
+            point = geometrie.find('./'+tagVolledigeNS("gml:Point", geometrie.nsmap))
+            if point is not None:
+                pos = ','.join([ na.text for na in point.iterfind('./'+tagVolledigeNS("gml:pos", point.nsmap)) ])
                 self._waarde = "POINT(" + pos + ")"
             else:
                 # Polygoon (wordt later omgezet naar punt)
-                polygon = geometrie.find('.//'+tagVolledigeNS("gml:Polygon", geometrie.nsmap))
+                polygon = geometrie.find('./'+tagVolledigeNS("gml:Polygon", geometrie.nsmap))
                 if polygon:
                     self.polygonAttr = BAGpolygoon(3, self._naam, self._tag)
                     self.polygonAttr.leesUitXML(xml)
 
         except:
-            Log.log.error("ik kan hier echt geen POINT van maken: %s (en zet dit op 0,0,0)" % str(point))
+            Log.log.error("ik kan hier echt geen POINT van maken: %s (en zet dit op 0,0,0)" % str(point.text))
             self._waarde = "POINT(0 0 0)"
 
 #--------------------------------------------------------------------------------------------------------
@@ -389,7 +386,7 @@ class BAGpolygoon(BAGgeoAttribuut):
     def _leesXMLposList(self, xml):
         wktPosList = ""
         puntTeller = 0
-        for xmlPosList in xml.iterfind('.//'+tagVolledigeNS("gml:posList", xml.nsmap)):
+        for xmlPosList in xml.iterfind('.//'+tagVolledigeNS("gml:LinearRing/gml:posList", xml.nsmap)):
             for coordinaat in xmlPosList.text.split(" "):
                 if not coordinaat or not coordinaat.strip():
                     continue
@@ -403,24 +400,24 @@ class BAGpolygoon(BAGgeoAttribuut):
     # Converteer een polygoon uit de XML-string naar een WKT-string.
     # Een polygoon bestaat uit een buitenring en 0 of meerdere binnenringen (gaten).
     def _leesXMLpolygoon(self, xmlPolygoon):
-        xmlExterior = xmlPolygoon.find('.//'+tagVolledigeNS("gml:exterior", xmlPolygoon.nsmap))
+        xmlExterior = xmlPolygoon.find('./'+tagVolledigeNS("gml:exterior", xmlPolygoon.nsmap))
         if xmlExterior is not None:
             wktExterior = "(" + self._leesXMLposList(xmlExterior) + ")"
         else:
             wktExterior = ""
 
         wktInteriors = ""
-        for xmlInterior in xmlPolygoon.iterfind('.//'+tagVolledigeNS("gml:interior", xmlPolygoon.nsmap)):
+        for xmlInterior in xmlPolygoon.iterfind('./'+tagVolledigeNS("gml:interior", xmlPolygoon.nsmap)):
             wktInteriors += ",(" + self._leesXMLposList(xmlInterior) + ")"
 
         return "(" + wktExterior + wktInteriors + ")"
 
     # Initialisatie vanuit XML
     def leesUitXML(self, xml):
-        xmlGeometrie = xml.find('.//'+tagVolledigeNS(self._tag, xml.nsmap))
+        xmlGeometrie = xml.find('./'+tagVolledigeNS(self._tag, xml.nsmap))
         if xmlGeometrie is not None:
-            xmlPolygoon = xmlGeometrie.find('.//'+tagVolledigeNS("gml:Polygon", xmlGeometrie.nsmap))
-            if xmlPolygoon:
+            xmlPolygoon = xmlGeometrie.find('./'+tagVolledigeNS("gml:Polygon", xmlGeometrie.nsmap))
+            if xmlPolygoon is not None:
                 self._waarde = "POLYGON" + self._leesXMLpolygoon(xmlPolygoon)
 
 #--------------------------------------------------------------------------------------------------------
@@ -436,8 +433,8 @@ class BAGmultiPolygoon(BAGpolygoon):
     # Initialisatie vanuit XML
     def leesUitXML(self, xml):
         wktGeometrie = ""
-        xmlGeometrie = xml.find('.//'+tagVolledigeNS(self._tag, xml.nsmap))
-        for xmlPolygoon in xmlGeometrie.iterfind('.//'+tagVolledigeNS("gml:Polygon", xmlGeometrie.nsmap)):
+        xmlGeometrie = xml.find('./'+tagVolledigeNS(self._tag, xml.nsmap))
+        for xmlPolygoon in xmlGeometrie.iterfind('./'+tagVolledigeNS("gml:Polygon", xmlGeometrie.nsmap)):
             if wktGeometrie <> "":
                 wktGeometrie += ","
             wktGeometrie += self._leesXMLpolygoon(xmlPolygoon)
@@ -468,12 +465,12 @@ class BAGpolygoonOfpunt(BAGgeoAttribuut):
 
     # Initialisatie vanuit XML
     def leesUitXML(self, xml):
-        xmlGeometrie = xml.find('.//'+tagVolledigeNS(self._tag, xml.nsmap))
-        geometrie = xmlGeometrie.find('.//'+tagVolledigeNS("gml:Point", xml.nsmap))
+        xmlGeometrie = xml.find('./'+tagVolledigeNS(self._tag, xml.nsmap))
+        geometrie = xmlGeometrie.find('./'+tagVolledigeNS("gml:Point", xml.nsmap))
         if geometrie:
             self._geoattr = BAGpoint(3, self._naam, self._tag)
         else:
-            geometrie = xml.find('.//'+tagVolledigeNS("gml:Polygon", xml.nsmap))
+            geometrie = xml.find('./'+tagVolledigeNS("gml:Polygon", xml.nsmap))
             if geometrie:
                 self._geoattr = BAGpolygoon(3, self._naam, self._tag)
 
@@ -511,6 +508,9 @@ class BAGgeometrieValidatie(BAGattribuut):
             return '%s'
         else:
             return 'ST_IsValid(GeomFromEWKT(%s))'
+    
+    def sqltype(self):
+        return "BOOLEAN"
 
     # Initialisatie vanuit XML
     def leesUitXML(self, xml):

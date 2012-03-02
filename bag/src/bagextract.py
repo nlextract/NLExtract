@@ -14,7 +14,7 @@ from postgresdb import Database
 from logging import Log
 from bagfilereader import BAGFileReader
 from bagconfig import BAGConfig
-
+from bagobject import VerblijfsObjectPand, AdresseerbaarObjectNevenAdres, VerblijfsObjectGebruiksdoel, Woonplaats, OpenbareRuimte, Nummeraanduiding, Ligplaats, Standplaats, Verblijfsobject, Pand
 
 class ArgParser(argparse.ArgumentParser):
      def error(self, message):
@@ -57,6 +57,7 @@ def main():
     parser.add_argument('-W', '--password', metavar='<paswoord>', help='gebruikt dit wachtwoord voor database gebruiker')
     parser.add_argument('-w', '--no-password', action='store_true', help='gebruik geen wachtwoord voor de database verbinding')
     parser.add_argument('-v', '--verbose', action='store_true', help='toon uitgebreide informatie tijdens het verwerken')
+    parser.add_argument('-D', '--dbinitcode', action='store_true', help='createert een lijst met statements om het DB script aan te passen')
 
     # Initialiseer
     args = parser.parse_args()
@@ -85,6 +86,24 @@ def main():
         Log.log.info("Views aanmaken...")
         db_script = os.path.realpath(BAGConfig.config.bagextract_home + '/db/script/bag-view-actueel-bestaand.sql')
         database.file_uitvoeren(db_script)
+    elif args.dbinitcode:
+        # Creates the insert statements from the code, and prints them
+        bagObjecten = []
+        bagObjecten.append(VerblijfsObjectPand())
+        bagObjecten.append(AdresseerbaarObjectNevenAdres())
+        bagObjecten.append(VerblijfsObjectGebruiksdoel())
+
+        bagObjecten.append(Woonplaats())
+        bagObjecten.append(OpenbareRuimte())
+        bagObjecten.append(Nummeraanduiding())
+        bagObjecten.append(Ligplaats())
+        bagObjecten.append(Standplaats())
+        bagObjecten.append(Verblijfsobject())
+        bagObjecten.append(Pand())
+
+        for bagObject in bagObjecten:
+            print bagObject.maakTabel()
+
     elif args.extract:
         # Extracts any data from any source files/dirs/zips/xml/csv etc
         myreader = BAGFileReader(args.extract)

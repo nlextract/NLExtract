@@ -27,6 +27,9 @@ except ImportError:
 def stripschema(tag):
     return tag.split('}')[-1]
 
-def tagVolledigeNS(tag, nsmap):
-    sep = tag.split(':')
-    return '{%s}%s' % (nsmap[sep[0]], sep[1])
+def tagVolledigeNS(old, nsmap):
+    tags = []
+    for tag in old.split('/'):
+        sep = tag.split(':')
+        tags.append('{%s}%s' % (nsmap[sep[0]], sep[1]))
+    return '/'.join(tags)
