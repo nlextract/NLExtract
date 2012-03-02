@@ -14,44 +14,21 @@ __date__ = "Jan 9, 2012 3:46:27 PM$"
  OpenGeoGroep.nl
 """
 from logging import Log
-from etree import tagVolledigeNS
+from etree import tagVolledigeNS, stripschema
+import sys
 
 # Geef de waarde van een textnode in XML
 def getText(nodelist):
     rc = ""
     for node in nodelist:
-        if node.nodeType == node.TEXT_NODE:
-            rc = rc + node.data
+        rc = rc + node.text
     return rc
 
 # TODO: werking van deze functie controleren en vergelijken met origineel
 
 # Geef de waardes van alle elementen met de gegeven tag binnen de XML (parent).
-# De tag kan een samengestelde tag zijn opgebouwd uit verschillende niveaus gescheiden door een '/'.
 def getValues(parent, tag):
-    data = []
-    # Splits de tag bij het eerste voorkomen van '/' met behulp van de partition-functie
-    #
-    # tags = tag.partition("/")  werkt alleen voor Python 2.5 en hoger en sommige
-    # omgevingen (PDOK) hebben helaas nog Python 2.4.3
-    # Splits in max 2 elementen, bijv.  ['bag_LVC:gerelateerdeAdressen', 'bag_LVC:nevenadres/bag_LVC:identificatie']
-    tags = tag.split("/", 1)
-    # print str(tags)
-    for node in list(parent):
-        # getElementsByTagName geeft alle elementen met die tag die ergens onder de parent hangen.
-        # We gebruiken hier echter alleen die elementen die rechtstreeks onder de parent hangen.
-        # Immers als we op zoek zijn naar de identificatie van een verblijfsobject dan willen we niet de
-        # identificaties van gerelateerde objecten van dat verblijfsobject hebben.
-        # Daarom controleren we dat de tag van de parent van de gevonden node, gelijk is aan de tag van de parent
-        if stripschema(node.tag) == parent.tagName:
-            if len(tags) == 1:
-                # Leaf : 1 enkele node
-                data.append(getText(node.childNodes))
-
-            elif len(tags) > 1:
-                # Meerdere nodes: recurse met remainder
-                data.extend(getValues(node, tags[1]))
-    return data
+    return [node.text for node in parent.iterfind('.//'+tagVolledigeNS(tag, parent.nsmap))]
 
 # Geef de waarde van het eerste element met de gegeven tag binnen de XML (parent). Als er geen eerste
 # element gevonden wordt, is het resultaat een lege string.

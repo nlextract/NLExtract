@@ -22,16 +22,6 @@ from logging import Log
 from etree import stripschema
 
 class Processor:
-    # TODO:
-    # Ben tot hier gekomen met etree. node.localName kent alleen een representatief
-    # in de vorm van element.tag
-    # Maar hier zitten de namespaces in:
-    #
-    # print xml.getroot().tag
-    #   {http://www.kadaster.nl/schemas/bag-verstrekkingen/extract-deelbestand-lvc/v20090901}BAG-Extract-Deelbestand-LVC
-    #
-    # Deze moeten of gestript worden, of de functie die dit automatisch doet moet worden gevonden.
-
     def __init__(self):
         self.database = Database()
 
@@ -60,52 +50,52 @@ class Processor:
     def processDOM(self, node):
         self.bagObjecten = []
         mode = "Onbekend"
-        if stripschema(node.localName) == 'BAG-Extract-Deelbestand-LVC':
+        if stripschema(node.tag) == 'BAG-Extract-Deelbestand-LVC':
             mode = 'Nieuw'
             #firstchild moet zijn 'antwoord'
-            for childNode in node.childNodes:
-                if stripschema(childNode.localName) == 'antwoord':
+            for childNode in node:
+                if stripschema(childNode.tag) == 'antwoord':
                     # Antwoord bevat twee childs: vraag en producten
                     antwoord = childNode
-                    for child in antwoord.childNodes:
-                        if stripschema(child.localName) == "vraag":
+                    for child in antwoord:
+                        if stripschema(child.tag) == "vraag":
                             # TODO: Is het een idee om vraag als object ook af te
                             # handelen en op te slaan
                             vraag = child
-                        elif stripschema(child.localName) == "producten":
+                        elif stripschema(child.tag) == "producten":
                             producten = child
                             Log.log.startTimer("objCreate")
-                            for productnode in producten.childNodes:
-                                if stripschema(productnode.localName) == 'LVC-product' and productnode.childNodes:
-                                    self.bagObjecten = BAGObjectFabriek.bof.BAGObjectArrayBijXML(productnode.childNodes)
+                            for productnode in producten:
+                                if stripschema(productnode.tag) == 'LVC-product':
+                                    self.bagObjecten = BAGObjectFabriek.bof.BAGObjectArrayBijXML(productnode)
                             Log.log.endTimer("objCreate - objs=" + str(len(self.bagObjecten)))
 
-        elif stripschema(node.localName) == 'BAG-Mutaties-Deelbestand-LVC':
+        elif stripschema(node.tag) == 'BAG-Mutaties-Deelbestand-LVC':
             mode = 'Mutatie'
             #firstchild moet zijn 'antwoord'
-            for childNode in node.childNodes:
-                if stripschema(childNode.localName) == 'antwoord':
+            for childNode in node:
+                if stripschema(childNode.tag) == 'antwoord':
                     # Antwoord bevat twee childs: vraag en producten
                     antwoord = childNode
-                    for child in antwoord.childNodes:
-                        if stripschema(child.localName) == "producten":
+                    for child in antwoord:
+                        if stripschema(child.tag) == "producten":
                             producten = child
                             Log.log.startTimer("objCreate (mutaties)")
-                            for productnode in producten.childNodes:
-                                if stripschema(productnode.localName) == 'Mutatie-product' and productnode.childNodes:
+                            for productnode in producten:
+                                if stripschema(productnode.tag) == 'Mutatie-product':
                                     origineelObj = None
                                     nieuwObj = None
-                                    for mutatienode in productnode.childNodes:
-                                        if stripschema(mutatienode.localName) == 'Nieuw':
+                                    for mutatienode in productnode:
+                                        if stripschema(mutatienode.tag) == 'Nieuw':
                                             # Log.log.info("Nieuw Object")
                                             self.bagObjecten.extend(
-                                                BAGObjectFabriek.bof.BAGObjectArrayBijXML(mutatienode.childNodes))
-                                        elif stripschema(mutatienode.localName) == 'Origineel':
-                                            objs = BAGObjectFabriek.bof.BAGObjectArrayBijXML(mutatienode.childNodes)
+                                                BAGObjectFabriek.bof.BAGObjectArrayBijXML(mutatienode))
+                                        elif stripschema(mutatienode.tag) == 'Origineel':
+                                            objs = BAGObjectFabriek.bof.BAGObjectArrayBijXML(mutatienode)
                                             if len(objs) > 0:
                                                 origineelObj = objs[0]
-                                        elif stripschema(mutatienode.localName) == 'Wijziging':
-                                            objs = BAGObjectFabriek.bof.BAGObjectArrayBijXML(mutatienode.childNodes)
+                                        elif stripschema(mutatienode.tag) == 'Wijziging':
+                                            objs = BAGObjectFabriek.bof.BAGObjectArrayBijXML(mutatienode)
 
                                             if len(objs) > 0:
                                                 nieuwObj = objs[0]
@@ -118,7 +108,7 @@ class Processor:
 
                             Log.log.endTimer("objCreate (mutaties) - objs=" + str(len(self.bagObjecten)))
         else:
-            Log.log.info("Niet-verwerkbare XML node: " + stripschema(node.localName))
+            Log.log.info("Niet-verwerkbare XML node: " + stripschema(node.tag))
             return
 
         Log.log.startTimer("dbStart mode = " + mode)

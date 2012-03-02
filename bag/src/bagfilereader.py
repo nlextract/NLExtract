@@ -18,7 +18,7 @@ __date__ = "$Jun 11, 2011 3:46:27 PM$"
 import zipfile
 from processor import Processor
 import os
-import etree
+from etree import etree
 import csv
 from logging import Log
 
@@ -130,7 +130,6 @@ class BAGFileReader:
         #de orm bepaalt of het een extract of een mutatie is
         self.processor.processDOM(xmldoc)
         #Log.log.info(document)
-        xml.unlink()
 
     def processCSV(self,naam, fileobject):
         Log.log.info(naam)
