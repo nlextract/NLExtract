@@ -17,12 +17,18 @@ Downloaden:
 
 Afhankelijkheden:
 
- - Python (minimaal versie 2.4.3 getest)
+ - Python (minimaal versie 2.4.3 getest, beste is 2.7 of hoger voor lxml)
 
  - optioneel: Python package afhankelijkheden installeren bijv
    apt-get of yum install python-setuptools (voor easy_install commando)
    apt-get of yum install python-devel (tbv psycopg2 bibliotheek)
    apt-get of yum install postgresql-devel (tbv psycopg2 bibliotheek)
+
+ - razendsnelle native XML parsing met libxml2/libxslt libraries samen met Python lxml:
+   kan meer dan een factor twee in snelheid schelen...
+   apt-get of yum install libxml2
+   apt-get of yum install libxslt1.1
+   apt-get of yum install python-lxml
 
  - installeer de PostgreSQL python bibliotheek psycopg2:
    sudo easy_install psycopg2
