@@ -306,7 +306,13 @@ class Verblijfsobject(BAGadresseerbaarObject):
                   'Verblijfsobject in gebruik',
                   'Verblijfsobject ingetrokken',
                   'Verblijfsobject buiten gebruik']
+    gebruiksdoelEnum = ['woonfunctie','bijeenkomstfunctie',
+                        'celfunctie','gezondheidszorgfunctie',
+                        'industriefunctie','kantoorfunctie',
+                        'logiesfunctie','onderwijsfunctie',
+                        'sportfunctie','winkelfunctie','overige gebruiksfunctie']
     def __init__(self):
+
         BAGadresseerbaarObject.__init__(self, "bag_LVC:Verblijfsobject", "verblijfsobject", "VBO")
         self.voegToe(BAGenumAttribuut(Verblijfsobject.statusEnum,"verblijfsobjectStatus",
                                         "bag_LVC:verblijfsobjectStatus"))
@@ -320,9 +326,9 @@ class Verblijfsobject(BAGadresseerbaarObject):
         self.voegToe(BAGpolygoon(3, "geovlak", "bag_LVC:verblijfsobjectGeometrie"))
         self.voegToe(BAGgeometrieValidatie("geom_valid", "geovlak"))
 
-        self.relaties.append(BAGrelatieAttribuut(self, "verblijfsobjectgebruiksdoel",
-                                                               50, "gebruiksdoelVerblijfsobject",
-                                                               "bag_LVC:gebruiksdoelVerblijfsobject"))
+        self.relaties.append(BAGenumRelatieAttribuut(self, "verblijfsobjectgebruiksdoel",
+                                                               "gebruiksdoelVerblijfsobject",
+                                                               "bag_LVC:gebruiksdoelVerblijfsobject", Verblijfsobject.gebruiksdoelEnum))
         self.relaties.append(BAGrelatieAttribuut(self, "verblijfsobjectpand",
                                                    16, "gerelateerdPand",
                                                    "bag_LVC:gerelateerdPand/bag_LVC:identificatie"))
@@ -487,7 +493,7 @@ class AdresseerbaarObjectNevenAdres(BAGRelatie):
 class VerblijfsObjectGebruiksdoel(BAGRelatie):
     def __init__(self):
         BAGRelatie.__init__(self, "", "verblijfsobjectgebruiksdoel", "")
-        self.voegToe(BAGattribuut(50, "gebruiksdoelverblijfsobject", "bag_LVC:gebruiksdoelVerblijfsobject"))
+        self.voegToe(BAGenumAttribuut(Verblijfsobject.gebruiksdoelEnum, "gebruiksdoelverblijfsobject", "bag_LVC:gebruiksdoelVerblijfsobject"))
 
 
 BAGObjectFabriek()

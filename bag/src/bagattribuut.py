@@ -618,3 +618,25 @@ class BAGrelatieAttribuut(BAGattribuut):
                 first = False
             else:
                 print "- %-27s  %s" % ("", waarde)
+
+#--------------------------------------------------------------------------------------------------------
+# Class         BAGenumRelatieAttribuut
+# Afgeleid van  BAGrelatieAttribuut
+# Omschrijving  Bevat een relatie attribuut van type enum.
+#--------------------------------------------------------------------------------------------------------
+class BAGenumRelatieAttribuut(BAGrelatieAttribuut):
+    # Constructor
+    def __init__(self, parent, relatieNaam, naam, tag, lijst):
+        BAGrelatieAttribuut.__init__(self, parent, relatieNaam, len(lijst), naam, tag)
+        self._lijst = lijst
+#        self._lengte = len(max(lijst, key=len))
+        self._lengte = len(lijst)
+
+    # Attribuut sqltype. Deze method kan worden overloaded
+    def sqltype(self):
+        return self._naam
+
+    # Initialiseer database
+    def sqlinit(self):
+        return "DROP TYPE IF EXISTS %s;\nCREATE TYPE %s AS ENUM ('%s');\n" % (self._naam, self._naam, "', '".join(self._lijst))
+

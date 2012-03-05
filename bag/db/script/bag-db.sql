@@ -25,9 +25,9 @@ CREATE TABLE bagextractinfo (
   waarde character varying (100)
 );
 INSERT INTO bagextractinfo (sleutel,waarde)
-        VALUES ('schema_versie', '1.0.2');
+        VALUES ('schema_versie', '1.0.3');
 INSERT INTO bagextractinfo (sleutel,waarde)
-        VALUES ('software_versie', '1.0.0');
+        VALUES ('software_versie', '1.1.0');
 
 -- Relatie tabellen
 -- Verblijfsobject kan meerdere gebruiksdoelen hebben.
@@ -38,9 +38,9 @@ CREATE TABLE verblijfsobjectpand (
   aanduidingRecordInactief BOOLEAN,
   aanduidingRecordCorrectie INTEGER,
   begindatumTijdvakGeldigheid TIMESTAMP WITHOUT TIME ZONE,
-  gerelateerdpand NUMERIC(16)
+  gerelateerdpand NUMERIC(16),
+  PRIMARY KEY (gid)
 );
-
 
 -- Verblijfsobjecten maken altijd deel uit van een of meerdere panden.
 -- Panden hoeven geen verblijfsobjecten te bevatten.
@@ -51,9 +51,9 @@ CREATE TABLE adresseerbaarobjectnevenadres (
   aanduidingRecordInactief BOOLEAN,
   aanduidingRecordCorrectie INTEGER,
   begindatumTijdvakGeldigheid TIMESTAMP WITHOUT TIME ZONE,
-  nevenadres NUMERIC(16)
+  nevenadres NUMERIC(16),
+  PRIMARY KEY (gid)
 );
-
 
 DROP TABLE IF EXISTS verblijfsobjectgebruiksdoel CASCADE;
 CREATE TABLE verblijfsobjectgebruiksdoel (
@@ -62,9 +62,9 @@ CREATE TABLE verblijfsobjectgebruiksdoel (
   aanduidingRecordInactief BOOLEAN,
   aanduidingRecordCorrectie INTEGER,
   begindatumTijdvakGeldigheid TIMESTAMP WITHOUT TIME ZONE,
-  gebruiksdoelverblijfsobject VARCHAR(50)
+  gebruiksdoelverblijfsobject VARCHAR(50) ,
+  PRIMARY KEY (gid)
 );
-
 
 -- BAG _ruwe import tabellen
 DROP TABLE IF EXISTS woonplaats CASCADE;
@@ -83,10 +83,17 @@ CREATE TABLE woonplaats (
   documentdatum DATE,
   woonplaatsNaam VARCHAR(80),
   woonplaatsStatus woonplaatsStatus,
-  geom_valid BOOLEAN
-) WITH (OIDS=true);
-SELECT AddGeometryColumn('public', 'woonplaats', 'geovlak', 28992, 'MULTIPOLYGON', 2);
+  geom_valid BOOLEAN,
+  geovlak geometry,
 
+  CONSTRAINT enforce_dims_geometrie CHECK ((st_ndims(geovlak) = 2)),
+  CONSTRAINT enforce_geotype_geometrie CHECK (
+          ((geometrytype(geovlak) = 'MULTIPOLYGON'::text) OR (geovlak IS NULL))),
+  CONSTRAINT enforce_srid_geometrie CHECK ((st_srid(geovlak) = 28992)),
+  PRIMARY KEY (gid)
+) WITH (OIDS=true);
+-- werkt niet met PG schema
+-- SELECT AddGeometryColumn('public', 'woonplaats', 'geovlak', 28992, 'MULTIPOLYGON', 2);
 
 DROP TABLE IF EXISTS openbareruimte CASCADE;
 DROP TYPE IF EXISTS openbareRuimteStatus;
@@ -108,9 +115,9 @@ CREATE TABLE openbareruimte (
   openbareRuimteStatus openbareRuimteStatus,
   openbareRuimteType openbareRuimteType,
   gerelateerdeWoonplaats NUMERIC(16),
-  verkorteOpenbareRuimteNaam VARCHAR(80)
+  verkorteOpenbareRuimteNaam VARCHAR(80),
+  PRIMARY KEY (gid)
 );
-
 
 DROP TABLE IF EXISTS nummeraanduiding CASCADE;
 DROP TYPE IF EXISTS nummeraanduidingStatus;
@@ -135,9 +142,9 @@ CREATE TABLE nummeraanduiding (
   nummeraanduidingStatus nummeraanduidingStatus,
   typeAdresseerbaarObject typeAdresseerbaarObject,
   gerelateerdeOpenbareRuimte NUMERIC(16),
-  gerelateerdeWoonplaats NUMERIC(16)
+  gerelateerdeWoonplaats NUMERIC(16),
+  PRIMARY KEY (gid)
 );
-
 
 DROP TABLE IF EXISTS ligplaats CASCADE;
 DROP TYPE IF EXISTS ligplaatsStatus;
@@ -155,10 +162,16 @@ CREATE TABLE ligplaats (
   documentdatum DATE,
   hoofdadres NUMERIC(16),
   ligplaatsStatus ligplaatsStatus,
-  geom_valid BOOLEAN
+  geom_valid BOOLEAN,
+  geovlak geometry,
+  CONSTRAINT enforce_dims_geometrie CHECK ((st_ndims(geovlak) = 3)),
+  CONSTRAINT enforce_geotype_geometrie CHECK (
+          ((geometrytype(geovlak) = 'POLYGON'::text) OR (geovlak IS NULL))),
+  CONSTRAINT enforce_srid_geometrie CHECK ((st_srid(geovlak) = 28992)),
+  PRIMARY KEY (gid)
 ) WITH (OIDS=true);
-SELECT AddGeometryColumn('public', 'ligplaats', 'geovlak', 28992, 'POLYGON', 3);
-
+-- werkt niet met PG schema
+-- SELECT AddGeometryColumn('public', 'ligplaats', 'geovlak', 28992, 'POLYGON', 3);
 
 DROP TABLE IF EXISTS standplaats CASCADE;
 DROP TYPE IF EXISTS standplaatsStatus;
@@ -176,10 +189,16 @@ CREATE TABLE standplaats (
   documentdatum DATE,
   hoofdadres NUMERIC(16),
   standplaatsStatus standplaatsStatus,
-  geom_valid BOOLEAN
+  geom_valid BOOLEAN,
+  geovlak geometry,
+  CONSTRAINT enforce_dims_geometrie CHECK ((st_ndims(geovlak) = 3)),
+  CONSTRAINT enforce_geotype_geometrie CHECK (
+          ((geometrytype(geovlak) = 'POLYGON'::text) OR (geovlak IS NULL))),
+  CONSTRAINT enforce_srid_geometrie CHECK ((st_srid(geovlak) = 28992)),
+  PRIMARY KEY (gid)
 ) WITH (OIDS=true);
-SELECT AddGeometryColumn('public', 'standplaats', 'geovlak', 28992, 'POLYGON', 3);
-
+-- werkt niet met PG schema
+-- SELECT AddGeometryColumn('public', 'standplaats', 'geovlak', 28992, 'POLYGON', 3);
 
 DROP TABLE IF EXISTS verblijfsobject CASCADE;
 DROP TYPE IF EXISTS verblijfsobjectStatus;
@@ -198,11 +217,23 @@ CREATE TABLE verblijfsobject (
   hoofdadres NUMERIC(16),
   verblijfsobjectStatus verblijfsobjectStatus,
   oppervlakteVerblijfsobject NUMERIC(6),
-  geom_valid BOOLEAN
-) WITH (OIDS=true);
-SELECT AddGeometryColumn('public', 'verblijfsobject', 'geopunt', 28992, 'POINT', 3);
-SELECT AddGeometryColumn('public', 'verblijfsobject', 'geovlak', 28992, 'POLYGON', 3);
+  geom_valid BOOLEAN,
+  geopunt geometry,
+  geovlak geometry,
+  CONSTRAINT enforce_dims_punt CHECK ((st_ndims(geopunt) = 3)),
+  CONSTRAINT enforce_geotype_punt CHECK (
+          ((geometrytype(geopunt) = 'POINT'::text) OR (geopunt IS NULL))),
+  CONSTRAINT enforce_srid_punt CHECK ((st_srid(geopunt) = 28992)),
 
+  CONSTRAINT enforce_dims_vlak CHECK ((st_ndims(geovlak) = 3)),
+  CONSTRAINT enforce_geotype_vlak CHECK (
+          ((geometrytype(geovlak) = 'POLYGON'::text) OR (geovlak IS NULL))),
+  CONSTRAINT enforce_srid_vlak CHECK ((st_srid(geovlak) = 28992)),
+  PRIMARY KEY (gid)
+) WITH (OIDS=true);
+-- werkt niet met PG schema
+-- SELECT AddGeometryColumn('public', 'verblijfsobject', 'geopunt', 28992, 'POINT', 3);
+-- SELECT AddGeometryColumn('public', 'verblijfsobject', 'geovlak', 28992, 'POLYGON', 3);
 
 DROP TABLE IF EXISTS pand CASCADE;
 DROP TYPE IF EXISTS pandStatus;
@@ -220,20 +251,44 @@ CREATE TABLE pand (
   documentdatum DATE,
   pandStatus pandStatus,
   bouwjaar NUMERIC(4),
-  geom_valid BOOLEAN
+  geom_valid BOOLEAN,
+  geovlak geometry,
+  CONSTRAINT enforce_dims_geometrie CHECK ((st_ndims(geovlak) = 3)),
+  CONSTRAINT enforce_geotype_geometrie CHECK (
+          ((geometrytype(geovlak) = 'POLYGON'::text) OR (geovlak IS NULL))),
+  CONSTRAINT enforce_srid_geometrie CHECK ((st_srid(geovlak) = 28992)),
+  PRIMARY KEY (gid)
+
 ) WITH (OIDS=true);
-SELECT AddGeometryColumn('public', 'pand', 'geovlak', 28992, 'POLYGON', 3);
+-- werkt niet met PG schema
+-- SELECT AddGeometryColumn('public', 'pand', 'geovlak', 28992, 'POLYGON', 3);
 
-
+-- <xs:restriction base="xs:string">
+--     <xs:enumeration value="woonfunctie"/>
+--     <xs:enumeration value="bijeenkomstfunctie"/>
+--     <xs:enumeration value="celfunctie"/>
+--     <xs:enumeration value="gezondheidszorgfunctie"/>
+--     <xs:enumeration value="industriefunctie"/>
+--     <xs:enumeration value="kantoorfunctie"/>
+--     <xs:enumeration value="logiesfunctie"/>
+--     <xs:enumeration value="onderwijsfunctie"/>
+--     <xs:enumeration value="sportfunctie"/>
+--     <xs:enumeration value="winkelfunctie"/>
+--     <xs:enumeration value="overige gebruiksfunctie"/>
+-- </xs:restriction>
 DROP TABLE IF EXISTS verblijfsobjectgebruiksdoel CASCADE;
-
+DROP TYPE IF EXISTS gebruiksdoelVerblijfsobject;
+CREATE TYPE gebruiksdoelVerblijfsobject AS ENUM (
+'woonfunctie','bijeenkomstfunctie','celfunctie','gezondheidszorgfunctie','industriefunctie','kantoorfunctie',
+'logiesfunctie','onderwijsfunctie','sportfunctie','winkelfunctie','overige gebruiksfunctie'
+);
 CREATE TABLE verblijfsobjectgebruiksdoel (
   gid serial,
   identificatie numeric(16,0),
   aanduidingrecordinactief boolean,
   aanduidingrecordcorrectie integer,
   begindatumtijdvakgeldigheid timestamp without time zone,
-  gebruiksdoelverblijfsobject character varying(50),
+  gebruiksdoelverblijfsobject gebruiksdoelVerblijfsobject,
   PRIMARY KEY (gid)
 );
 
