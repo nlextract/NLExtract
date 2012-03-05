@@ -8,3 +8,11 @@ v1.0.0 - 27.feb.2012
 - verrijking BAG met gemeenten/provincies
 - afgeleide BAG tabellen zoals ACN-achtige adressen
 - visualisaties Top10NL voor met name QGIS
+
+v1.0.1 - 5.mrt.2012
+- BAG: laatste versie voor performance boost door native LXML/Etree XML-parsing!
+- minor fixes
+- BAG nieuwste (24jan2012) kadaster-woonplaats-gemeente koppeltabel
+- BAG: LATIN1/UTF-8 encoding issues opgelost, nu alle bronnen/doelen UTF-8
+- start met SQL scripts tbv reverse geocoding op Adres tabel
+

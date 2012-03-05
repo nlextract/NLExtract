@@ -82,8 +82,9 @@ Voorbeelden:
 
 			Met de -q (query) optie kan elk SQL bestand worden uitgevoerd
 
-        4. Verrijken: aanmaken volledig adres tabel uit BAG + gemeente + provincie tabellen
-           (kan lang duren op gehele BAG, lijkt sneller te gaan via "psql" Postgres commando)
+        4. Verrijken: aanmaken tabel met volledige "ACN-achtige" adressen uit BAG + gemeente + provincie tabellen
+           (kan lang duren op gehele BAG, lijkt sneller te gaan via "psql" Postgres commando).
+           NB Doe altijd eerst stappen 1-3. !
 
              psql -d bag < ../db/script/adres-tabel.sql
 
@@ -94,8 +95,8 @@ Voorbeelden:
 
  Issues:
 
-        Theoretisch is het mogelijk de hele bag in te lezen vanuit de "hoofd" zip, maar dit kan
-        geheugen-problemen opleveren. De voorlopige oplossing is om de hoofdzip uit te pakken in een enkele
+        Het is mogelijk de hele BAG .zip levering in te lezen vanuit de "hoofd" zip, maar dit kan
+        soms geheugen-problemen opleveren. De voorlopige oplossing is om de hoofdzip uit te pakken in een enkele
         directory en dan de (7) individuele BAG .zip files te extraheren.
 
         Het (geometrisch) aggregeren van woonplaatsen naar gemeenten en vervolgens naar provincies
@@ -104,7 +105,8 @@ Voorbeelden:
 		ERROR:  GEOS union() threw an error!". Dit is mogelijk een bug in "libgeos" (GEOS) een library gebruikt
 		door PostGIS. Dit probleem trad op in GEOS v3.2.2 maar niet in versie 3.3.1.
 
-		Het script db/script/adres-tabel.sql vergt enkele uren. Beste is om deze met standaard PSQL uit te voeren.
+		Het script db/script/adres-tabel.sql vergt 20 minuten tot enkele uren. Vaak afhankelijk van je machine maar
+		vooral ook je PostgreSQL instellingen. Beste is om deze met standaard PSQL uit te voeren.
 
 		Het resultaat van het genereren van gemeenten en provincies uit woonplaats geometrieen is nog "rommelig":
 		veel kleine polygonen. Die willen we nog uitfilteren.
