@@ -25,182 +25,206 @@ CREATE TABLE bagextractinfo (
   waarde character varying (100)
 );
 INSERT INTO bagextractinfo (sleutel,waarde)
-        VALUES ('schema_versie', '1.0.1');
+        VALUES ('schema_versie', '1.0.2');
 INSERT INTO bagextractinfo (sleutel,waarde)
         VALUES ('software_versie', '1.0.0');
 
--- BAG _ruwe import tabellen
-DROP TABLE IF EXISTS ligplaats CASCADE;
-CREATE TABLE ligplaats (
-  gid serial,
-  identificatie numeric(16,0),
-  aanduidingrecordinactief boolean,
-  aanduidingrecordcorrectie integer,
-  officieel boolean,
-  inonderzoek boolean,
-  documentnummer character varying(20),
-  documentdatum date,
-  hoofdadres numeric(16,0),
-  ligplaatsstatus character varying(80),
-  begindatumtijdvakgeldigheid timestamp without time zone,
-  einddatumtijdvakgeldigheid timestamp without time zone,
-  geom_valid boolean default TRUE,
-  geovlak geometry,
-  PRIMARY KEY (gid),
-  CONSTRAINT enforce_dims_geometrie CHECK ((st_ndims(geovlak) = 3)),
-  CONSTRAINT enforce_geotype_geometrie CHECK (
-          ((geometrytype(geovlak) = 'POLYGON'::text) OR (geovlak IS NULL))),
-  CONSTRAINT enforce_srid_geometrie CHECK ((st_srid(geovlak) = 28992))
-);
-
-DROP TABLE IF EXISTS nummeraanduiding CASCADE;
-CREATE TABLE nummeraanduiding (
-  gid serial,
-  identificatie numeric(16,0),
-  aanduidingrecordinactief boolean,
-  aanduidingrecordcorrectie integer,
-  officieel boolean,
-  inonderzoek boolean,
-  documentnummer character varying(20),
-  documentdatum date,
-  huisnummer numeric(5,0),
-  huisletter character varying(1),
-  huisnummertoevoeging character varying(4),
-  postcode character varying(6),
-  nummeraanduidingstatus character varying(80),
-  typeadresseerbaarobject character varying(20),
-  gerelateerdeopenbareruimte numeric(16,0),
-  gerelateerdewoonplaats numeric(16,0),
-  begindatumtijdvakgeldigheid timestamp without time zone,
-  einddatumtijdvakgeldigheid timestamp without time zone,
-  PRIMARY KEY (gid)
-);
-
-DROP TABLE IF EXISTS openbareruimte CASCADE;
-CREATE TABLE openbareruimte (
-  gid serial,
-  identificatie numeric(16,0),
-  aanduidingrecordinactief boolean,
-  aanduidingrecordcorrectie integer,
-  officieel boolean,
-  inonderzoek boolean,
-  documentnummer character varying(20),
-  documentdatum date,
-  openbareruimtenaam character varying(80),
-  openbareruimtestatus character varying(80),
-  openbareruimtetype character varying(40),
-  gerelateerdewoonplaats numeric(16,0),
-  verkorteopenbareruimtenaam character varying(80),
-  begindatumtijdvakgeldigheid timestamp without time zone,
-  einddatumtijdvakgeldigheid timestamp without time zone,
-  PRIMARY KEY (gid)
-);
-
-DROP TABLE IF EXISTS pand CASCADE;
-CREATE TABLE pand (
-  gid serial,
-  identificatie numeric(16,0),
-  aanduidingrecordinactief boolean,
-  aanduidingrecordcorrectie integer,
-  officieel boolean,
-  inonderzoek boolean,
-  documentnummer character varying(20),
-  documentdatum date,
-  pandstatus character varying(80),
-  bouwjaar numeric(4,0),
-  begindatumtijdvakgeldigheid timestamp without time zone,
-  einddatumtijdvakgeldigheid timestamp without time zone,
-  geom_valid boolean default TRUE,
-  geovlak geometry,
-  PRIMARY KEY (gid),
-  CONSTRAINT enforce_dims_geometrie CHECK ((st_ndims(geovlak) = 3)),
-  CONSTRAINT enforce_geotype_geometrie CHECK (
-          ((geometrytype(geovlak) = 'POLYGON'::text) OR (geovlak IS NULL))),
-  CONSTRAINT enforce_srid_geometrie CHECK ((st_srid(geovlak) = 28992))
-);
-
-DROP TABLE IF EXISTS standplaats CASCADE;
-CREATE TABLE standplaats (
-  gid serial,
-  identificatie numeric(16,0),
-  aanduidingrecordinactief boolean,
-  aanduidingrecordcorrectie integer,
-  officieel boolean,
-  inonderzoek boolean,
-  documentnummer character varying(20),
-  documentdatum date,
-  hoofdadres numeric(16,0),
-  standplaatsstatus character varying(80),
-  begindatumtijdvakgeldigheid timestamp without time zone,
-  einddatumtijdvakgeldigheid timestamp without time zone,
-  geom_valid boolean default TRUE,
-  geovlak geometry,
-  PRIMARY KEY (gid),
-  CONSTRAINT enforce_dims_geometrie CHECK ((st_ndims(geovlak) = 3)),
-  CONSTRAINT enforce_geotype_geometrie CHECK (
-          ((geometrytype(geovlak) = 'POLYGON'::text) OR (geovlak IS NULL))),
-  CONSTRAINT enforce_srid_geometrie CHECK ((st_srid(geovlak) = 28992))
-);
-
-DROP TABLE IF EXISTS verblijfsobject CASCADE;
-CREATE TABLE verblijfsobject (
-  gid serial,
-  identificatie numeric(16,0),
-  aanduidingrecordinactief boolean,
-  aanduidingrecordcorrectie integer,
-  officieel boolean,
-  inonderzoek boolean,
-  documentnummer character varying(20),
-  documentdatum date,
-  hoofdadres numeric(16,0),
-  verblijfsobjectstatus character varying(80),
-  oppervlakteverblijfsobject numeric(6,0),
-  -- gebruiksdoelverblijfsobject1 character varying(50),
-  begindatumtijdvakgeldigheid timestamp without time zone,
-  einddatumtijdvakgeldigheid timestamp without time zone,
-  -- gerelateerdpand1 numeric(16,0),
-  geom_valid boolean default TRUE,
-  geopunt geometry,
-  geovlak geometry,
-  PRIMARY KEY (gid),
-  CONSTRAINT enforce_dims_punt CHECK ((st_ndims(geopunt) = 3)),
-  CONSTRAINT enforce_geotype_punt CHECK (
-          ((geometrytype(geopunt) = 'POINT'::text) OR (geopunt IS NULL))),
-  CONSTRAINT enforce_srid_punt CHECK ((st_srid(geopunt) = 28992)),
-
-  CONSTRAINT enforce_dims_vlak CHECK ((st_ndims(geovlak) = 3)),
-  CONSTRAINT enforce_geotype_vlak CHECK (
-          ((geometrytype(geovlak) = 'POLYGON'::text) OR (geovlak IS NULL))),
-  CONSTRAINT enforce_srid_vlak CHECK ((st_srid(geovlak) = 28992))
-);
-
-DROP TABLE IF EXISTS woonplaats CASCADE;
-CREATE TABLE woonplaats (
-  gid serial,
-  identificatie numeric(16,0),
-  aanduidingrecordinactief boolean,
-  aanduidingrecordcorrectie integer,
-  officieel boolean,
-  inonderzoek boolean,
-  documentnummer character varying(20),
-  documentdatum date,
-  woonplaatsnaam character varying(80),
-  woonplaatsstatus character varying(80),
-  begindatumtijdvakgeldigheid timestamp without time zone,
-  einddatumtijdvakgeldigheid timestamp without time zone,
-  geom_valid boolean default TRUE,
-  geovlak geometry,
-  PRIMARY KEY (gid),
-  CONSTRAINT enforce_dims_geometrie CHECK ((st_ndims(geovlak) = 2)),
-  CONSTRAINT enforce_geotype_geometrie CHECK (
-          ((geometrytype(geovlak) = 'MULTIPOLYGON'::text) OR (geovlak IS NULL))),
-  CONSTRAINT enforce_srid_geometrie CHECK ((st_srid(geovlak) = 28992))
-)WITH (
-        OIDS=TRUE
-);
-
 -- Relatie tabellen
 -- Verblijfsobject kan meerdere gebruiksdoelen hebben.
+DROP TABLE IF EXISTS verblijfsobjectpand CASCADE;
+CREATE TABLE verblijfsobjectpand (
+  gid SERIAL,
+  identificatie NUMERIC(16),
+  aanduidingRecordInactief BOOLEAN,
+  aanduidingRecordCorrectie INTEGER,
+  begindatumTijdvakGeldigheid TIMESTAMP WITHOUT TIME ZONE,
+  gerelateerdpand NUMERIC(16)
+);
+
+
+-- Verblijfsobjecten maken altijd deel uit van een of meerdere panden.
+-- Panden hoeven geen verblijfsobjecten te bevatten.
+DROP TABLE IF EXISTS adresseerbaarobjectnevenadres CASCADE;
+CREATE TABLE adresseerbaarobjectnevenadres (
+  gid SERIAL,
+  identificatie NUMERIC(16),
+  aanduidingRecordInactief BOOLEAN,
+  aanduidingRecordCorrectie INTEGER,
+  begindatumTijdvakGeldigheid TIMESTAMP WITHOUT TIME ZONE,
+  nevenadres NUMERIC(16)
+);
+
+
+DROP TABLE IF EXISTS verblijfsobjectgebruiksdoel CASCADE;
+CREATE TABLE verblijfsobjectgebruiksdoel (
+  gid SERIAL,
+  identificatie NUMERIC(16),
+  aanduidingRecordInactief BOOLEAN,
+  aanduidingRecordCorrectie INTEGER,
+  begindatumTijdvakGeldigheid TIMESTAMP WITHOUT TIME ZONE,
+  gebruiksdoelverblijfsobject VARCHAR(50)
+);
+
+
+-- BAG _ruwe import tabellen
+DROP TABLE IF EXISTS woonplaats CASCADE;
+DROP TYPE IF EXISTS woonplaatsStatus;
+CREATE TYPE woonplaatsStatus AS ENUM ('Woonplaats aangewezen', 'Woonplaats ingetrokken');
+CREATE TABLE woonplaats (
+  gid SERIAL,
+  identificatie NUMERIC(16),
+  aanduidingRecordInactief BOOLEAN,
+  aanduidingRecordCorrectie INTEGER,
+  officieel BOOLEAN,
+  inOnderzoek BOOLEAN,
+  begindatumTijdvakGeldigheid TIMESTAMP WITHOUT TIME ZONE,
+  einddatumTijdvakGeldigheid TIMESTAMP WITHOUT TIME ZONE,
+  documentnummer VARCHAR(20),
+  documentdatum DATE,
+  woonplaatsNaam VARCHAR(80),
+  woonplaatsStatus woonplaatsStatus,
+  geom_valid BOOLEAN
+) WITH (OIDS=true);
+SELECT AddGeometryColumn('public', 'woonplaats', 'geovlak', 28992, 'MULTIPOLYGON', 2);
+
+
+DROP TABLE IF EXISTS openbareruimte CASCADE;
+DROP TYPE IF EXISTS openbareRuimteStatus;
+CREATE TYPE openbareRuimteStatus AS ENUM ('Naamgeving uitgegeven', 'Naamgeving ingetrokken');
+DROP TYPE IF EXISTS openbareRuimteType;
+CREATE TYPE openbareRuimteType AS ENUM ('Weg', 'Water', 'Spoorbaan', 'Terrein', 'Kunstwerk', 'Landschappelijk gebied', 'Administratief gebied');
+CREATE TABLE openbareruimte (
+  gid SERIAL,
+  identificatie NUMERIC(16),
+  aanduidingRecordInactief BOOLEAN,
+  aanduidingRecordCorrectie INTEGER,
+  officieel BOOLEAN,
+  inOnderzoek BOOLEAN,
+  begindatumTijdvakGeldigheid TIMESTAMP WITHOUT TIME ZONE,
+  einddatumTijdvakGeldigheid TIMESTAMP WITHOUT TIME ZONE,
+  documentnummer VARCHAR(20),
+  documentdatum DATE,
+  openbareRuimteNaam VARCHAR(80),
+  openbareRuimteStatus openbareRuimteStatus,
+  openbareRuimteType openbareRuimteType,
+  gerelateerdeWoonplaats NUMERIC(16),
+  verkorteOpenbareRuimteNaam VARCHAR(80)
+);
+
+
+DROP TABLE IF EXISTS nummeraanduiding CASCADE;
+DROP TYPE IF EXISTS nummeraanduidingStatus;
+CREATE TYPE nummeraanduidingStatus AS ENUM ('Naamgeving uitgegeven', 'Naamgeving ingetrokken');
+DROP TYPE IF EXISTS typeAdresseerbaarObject;
+CREATE TYPE typeAdresseerbaarObject AS ENUM ('Verblijfsobject', 'Standplaats', 'Ligplaats');
+CREATE TABLE nummeraanduiding (
+  gid SERIAL,
+  identificatie NUMERIC(16),
+  aanduidingRecordInactief BOOLEAN,
+  aanduidingRecordCorrectie INTEGER,
+  officieel BOOLEAN,
+  inOnderzoek BOOLEAN,
+  begindatumTijdvakGeldigheid TIMESTAMP WITHOUT TIME ZONE,
+  einddatumTijdvakGeldigheid TIMESTAMP WITHOUT TIME ZONE,
+  documentnummer VARCHAR(20),
+  documentdatum DATE,
+  huisnummer NUMERIC(5),
+  huisletter VARCHAR(1),
+  huisnummertoevoeging VARCHAR(4),
+  postcode VARCHAR(6),
+  nummeraanduidingStatus nummeraanduidingStatus,
+  typeAdresseerbaarObject typeAdresseerbaarObject,
+  gerelateerdeOpenbareRuimte NUMERIC(16),
+  gerelateerdeWoonplaats NUMERIC(16)
+);
+
+
+DROP TABLE IF EXISTS ligplaats CASCADE;
+DROP TYPE IF EXISTS ligplaatsStatus;
+CREATE TYPE ligplaatsStatus AS ENUM ('Plaats aangewezen', 'Plaats ingetrokken');
+CREATE TABLE ligplaats (
+  gid SERIAL,
+  identificatie NUMERIC(16),
+  aanduidingRecordInactief BOOLEAN,
+  aanduidingRecordCorrectie INTEGER,
+  officieel BOOLEAN,
+  inOnderzoek BOOLEAN,
+  begindatumTijdvakGeldigheid TIMESTAMP WITHOUT TIME ZONE,
+  einddatumTijdvakGeldigheid TIMESTAMP WITHOUT TIME ZONE,
+  documentnummer VARCHAR(20),
+  documentdatum DATE,
+  hoofdadres NUMERIC(16),
+  ligplaatsStatus ligplaatsStatus,
+  geom_valid BOOLEAN
+) WITH (OIDS=true);
+SELECT AddGeometryColumn('public', 'ligplaats', 'geovlak', 28992, 'POLYGON', 3);
+
+
+DROP TABLE IF EXISTS standplaats CASCADE;
+DROP TYPE IF EXISTS standplaatsStatus;
+CREATE TYPE standplaatsStatus AS ENUM ('Plaats aangewezen', 'Plaats ingetrokken');
+CREATE TABLE standplaats (
+  gid SERIAL,
+  identificatie NUMERIC(16),
+  aanduidingRecordInactief BOOLEAN,
+  aanduidingRecordCorrectie INTEGER,
+  officieel BOOLEAN,
+  inOnderzoek BOOLEAN,
+  begindatumTijdvakGeldigheid TIMESTAMP WITHOUT TIME ZONE,
+  einddatumTijdvakGeldigheid TIMESTAMP WITHOUT TIME ZONE,
+  documentnummer VARCHAR(20),
+  documentdatum DATE,
+  hoofdadres NUMERIC(16),
+  standplaatsStatus standplaatsStatus,
+  geom_valid BOOLEAN
+) WITH (OIDS=true);
+SELECT AddGeometryColumn('public', 'standplaats', 'geovlak', 28992, 'POLYGON', 3);
+
+
+DROP TABLE IF EXISTS verblijfsobject CASCADE;
+DROP TYPE IF EXISTS verblijfsobjectStatus;
+CREATE TYPE verblijfsobjectStatus AS ENUM ('Verblijfsobject gevormd', 'Niet gerealiseerd verblijfsobject', 'Verblijfsobject in gebruik (niet ingemeten)', 'Verblijfsobject in gebruik', 'Verblijfsobject ingetrokken', 'Verblijfsobject buiten gebruik');
+CREATE TABLE verblijfsobject (
+  gid SERIAL,
+  identificatie NUMERIC(16),
+  aanduidingRecordInactief BOOLEAN,
+  aanduidingRecordCorrectie INTEGER,
+  officieel BOOLEAN,
+  inOnderzoek BOOLEAN,
+  begindatumTijdvakGeldigheid TIMESTAMP WITHOUT TIME ZONE,
+  einddatumTijdvakGeldigheid TIMESTAMP WITHOUT TIME ZONE,
+  documentnummer VARCHAR(20),
+  documentdatum DATE,
+  hoofdadres NUMERIC(16),
+  verblijfsobjectStatus verblijfsobjectStatus,
+  oppervlakteVerblijfsobject NUMERIC(6),
+  geom_valid BOOLEAN
+) WITH (OIDS=true);
+SELECT AddGeometryColumn('public', 'verblijfsobject', 'geopunt', 28992, 'POINT', 3);
+SELECT AddGeometryColumn('public', 'verblijfsobject', 'geovlak', 28992, 'POLYGON', 3);
+
+
+DROP TABLE IF EXISTS pand CASCADE;
+DROP TYPE IF EXISTS pandStatus;
+CREATE TYPE pandStatus AS ENUM ('Bouwvergunning verleend', 'Niet gerealiseerd pand', 'Bouw gestart', 'Pand in gebruik (niet ingemeten)', 'Pand in gebruik', 'Sloopvergunning verleend', 'Pand gesloopt', 'Pand buiten gebruik');
+CREATE TABLE pand (
+  gid SERIAL,
+  identificatie NUMERIC(16),
+  aanduidingRecordInactief BOOLEAN,
+  aanduidingRecordCorrectie INTEGER,
+  officieel BOOLEAN,
+  inOnderzoek BOOLEAN,
+  begindatumTijdvakGeldigheid TIMESTAMP WITHOUT TIME ZONE,
+  einddatumTijdvakGeldigheid TIMESTAMP WITHOUT TIME ZONE,
+  documentnummer VARCHAR(20),
+  documentdatum DATE,
+  pandStatus pandStatus,
+  bouwjaar NUMERIC(4),
+  geom_valid BOOLEAN
+) WITH (OIDS=true);
+SELECT AddGeometryColumn('public', 'pand', 'geovlak', 28992, 'POLYGON', 3);
+
+
 DROP TABLE IF EXISTS verblijfsobjectgebruiksdoel CASCADE;
 
 CREATE TABLE verblijfsobjectgebruiksdoel (
@@ -210,32 +234,6 @@ CREATE TABLE verblijfsobjectgebruiksdoel (
   aanduidingrecordcorrectie integer,
   begindatumtijdvakgeldigheid timestamp without time zone,
   gebruiksdoelverblijfsobject character varying(50),
-  PRIMARY KEY (gid)
-);
-
--- Verblijfsobjecten maken altijd deel uit van een of meerdere panden.
--- Panden hoeven geen verblijfsobjecten te bevatten.
-DROP TABLE IF EXISTS verblijfsobjectpand CASCADE;
-
-CREATE TABLE verblijfsobjectpand (
-  gid serial,
-  identificatie numeric(16,0),
-  aanduidingrecordinactief boolean,
-  aanduidingrecordcorrectie integer,
-  begindatumtijdvakgeldigheid timestamp without time zone,
-  gerelateerdpand numeric(16,0),
-  PRIMARY KEY (gid)
-);
-
-DROP TABLE IF EXISTS adresseerbaarobjectnevenadres CASCADE;
-
-CREATE TABLE adresseerbaarobjectnevenadres (
-  gid serial,
-  identificatie numeric(16,0),
-  aanduidingrecordinactief boolean,
-  aanduidingrecordcorrectie integer,
-  begindatumtijdvakgeldigheid timestamp without time zone,
-  nevenadres numeric(16,0),
   PRIMARY KEY (gid)
 );
 
