@@ -18,11 +18,10 @@ __date__ = "$Jun 11, 2011 3:46:27 PM$"
 import zipfile
 from processor import Processor
 import os
-from xml.dom.minidom import parse
+from etree import etree
 import csv
 from logging import Log
 
-#from lxml import etree
 try:
   from cStringIO import StringIO
 except:
@@ -87,7 +86,6 @@ class BAGFileReader:
             if len(ext) == 2:
                 if ext[1] == 'xml':
                     xml = self.parseXML(StringIO(tzip.read(naam)))
-                    #xml = etree.parse (StringIO(tzip.read(naam)))
                     self.processXML(naam, xml)
                 elif ext[1] == 'zip':
                     self.readzipstring(StringIO(tzip.read(naam)))
@@ -109,7 +107,6 @@ class BAGFileReader:
             if len(ext) == 2:
                 if ext[1] == 'xml':
                     xml = self.parseXML(StringIO(tzip.read(nested)))
-                    #xml = etree.parse(StringIO(tzip.read(nested)))
                     self.processXML(nested, xml)
                 elif ext[1] == 'csv':
                     Log.log.info(nested)
@@ -123,18 +120,16 @@ class BAGFileReader:
 
     def parseXML(self,naam):
         Log.log.startTimer("parseXML")
-        xml = parse(naam)
+        xml = etree.parse(naam)
         Log.log.endTimer("parseXML")
         return xml
     
     def processXML(self,naam, xml):
         Log.log.info("processXML: " + naam)
-        xmldoc = xml.documentElement
-        #xmldoc = xml.getroot()
+        xmldoc = xml.getroot()
         #de orm bepaalt of het een extract of een mutatie is
         self.processor.processDOM(xmldoc)
         #Log.log.info(document)
-        xml.unlink()
 
     def processCSV(self,naam, fileobject):
         Log.log.info(naam)
