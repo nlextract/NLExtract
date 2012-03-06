@@ -1,0 +1,17 @@
+Door: Just van den broecke - 6 maart 2012
+
+Deze SLDs zijn aangeleverd door GeoCat www.geocat.net, zij schrijven:
+
+"SLD files created with GeoCat Bridge premium
+v1.1.0 using ArcGIS Desktop with Geoserver extensions.
+Date: 26 January 2012
+See www.geocat.net for more details"
+
+"De oorspronkelijke brondata was niet de Top10NL GML
+maar PGDB (ESRI Personal Geodatabase) en is gebaseerd op simple feature stores,
+dus niet direct geschikt voor de via NLExtract opgeleverde Top10NL data."
+
+Het NLExtract plan is nu om:
+- PostgreSQL/PostGIS scripts te maken die equivalente (aan PGDB) tabellen aanmaken
+- de SLDs lichtelijk omschrijven om deze tabellen te gebruiken
+
