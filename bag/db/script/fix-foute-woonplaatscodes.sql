@@ -28,7 +28,7 @@
 -- Dus Amstelhoek, de Hoef, Mijdrecht, Vinkeveen, Waverveen moeten aangepast in koppeltabel
 
 UPDATE gemeente_woonplaats SET woonplaatscode = 3547 WHERE woonplaatsnaam = 'Amstelhoek';
-UPDATE gemeente_woonplaats SET woonplaatscode = 3548 WHERE woonplaatsnaam = 'de Hoef';
+UPDATE gemeente_woonplaats SET woonplaatscode = 3548 WHERE woonplaatsnaam = 'De Hoef';
 UPDATE gemeente_woonplaats SET woonplaatscode = 3549 WHERE woonplaatsnaam = 'Mijdrecht';
 UPDATE gemeente_woonplaats SET woonplaatscode = 3550 WHERE woonplaatsnaam = 'Vinkeveen';
 UPDATE gemeente_woonplaats SET woonplaatscode = 3551 WHERE woonplaatsnaam = 'Waverveen';
