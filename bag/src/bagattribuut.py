@@ -434,7 +434,7 @@ class BAGmultiPolygoon(BAGpolygoon):
     def leesUitXML(self, xml):
         wktGeometrie = ""
         xmlGeometrie = xml.find('./'+tagVolledigeNS(self._tag, xml.nsmap))
-        for xmlPolygoon in xmlGeometrie.iterfind('./'+tagVolledigeNS("gml:Polygon", xmlGeometrie.nsmap)):
+        for xmlPolygoon in xmlGeometrie.iterfind('.//'+tagVolledigeNS("gml:Polygon", xmlGeometrie.nsmap)):
             if wktGeometrie <> "":
                 wktGeometrie += ","
             wktGeometrie += self._leesXMLpolygoon(xmlPolygoon)

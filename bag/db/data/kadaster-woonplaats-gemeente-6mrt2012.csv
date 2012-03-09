@@ -1,12 +1,12 @@
 Woonplaats;Woonplaats code;Ingangsdatum WPL;Einddatum WPL;Gemeente;Gemeente code;Ingangsdatum nieuwe gemeente;Gemeente beeindigd per
- 't Goy;2054;;;Houten;0321;;
- 't Haantje;2164;;;Coevorden;0109;;
- 't Harde;1845;;;Elburg;0230;;
- 't Loo Oldebroek;3068;;;Oldebroek;0269;;
- 't Veld;2520;;;Niedorp;0412;;20120101
- 't Veld;2520;;;Hollands Kroon;1911;;
- 't Waar;1895;;;Oldambt;1895;;
- 't Zand;2758;;;Zijpe;0476;;
+'t Goy;2054;;;Houten;0321;;
+'t Haantje;2164;;;Coevorden;0109;;
+'t Harde;1845;;;Elburg;0230;;
+'t Loo Oldebroek;3068;;;Oldebroek;0269;;
+'t Veld;2520;;;Niedorp;0412;;01-01-2012
+'t Veld;2520;;;Hollands Kroon;1911;01-01-2012;
+'t Waar;1895;;;Oldambt;1895;;
+'t Zand;2758;;;Zijpe;0476;;
 1e Exloërmond;1779;;;Borger-Odoorn;1681;;
 2e Exloërmond;1780;;;Borger-Odoorn;1681;;
 2e Valthermond;1781;;;Borger-Odoorn;1681;;
@@ -22,13 +22,13 @@ Aardenburg;2961;;;Sluis;1714;;
 Aarlanderveen;1079;;;Alphen aan den Rijn;0484;;
 Aarle-Rixtel;1445;;;Laarbeek;1659;;
 Aartswoud;2788;;;Opmeer;0432;;
-Abbega;2400;;;Wymbritseradiel;0683;;20110101
-Abbega;2400;;;Súdwest Fryslân;1900;20110101;
+Abbega;2400;;;Wymbritseradiel;0683;;01-01-2011
+Abbega;2400;;;Súdwest Fryslân;1900;01-01-2011;
 Abbekerk;3147;;;Medemblik;0420;;
 Abbenbroek;1385;;;Bernisse;0568;;
 Abbenes;1608;;;Haarlemmermeer;0394;;
-Abcoude;1332;;;Abcoude;0305;;20110101
-Abcoude;1332;;;De Ronde Venen;0736;20110101;
+Abcoude;1332;;;Abcoude;0305;;01-01-2011
+Abcoude;1332;;;De Ronde Venen;0736;01-01-2011;
 Achlum;1364;;;Franekeradeel;0070;;
 Achterveld;1063;;;Barneveld;0203;;
 Achterveld;2640;;;Leusden;0327;;
@@ -53,8 +53,8 @@ Aldeboarn;2532;;;Boarnsterhim;0055;;
 Aldtsjerk;2441;;;Tytsjerksteradiel;0737;;
 Alem;1623;;;Maasdriel;0263;;
 Alkmaar;2348;;;Alkmaar;0361;;
-Allingawier;2301;;;Wûnseradiel;0710;;20110101
-Allingawier;2301;;;Súdwest Fryslân;1900;20110101;
+Allingawier;2301;;;Wûnseradiel;0710;;01-01-2011
+Allingawier;2301;;;Súdwest Fryslân;1900;01-01-2011;
 Almelo;1924;;;Almelo;0141;;
 Almen;1334;;;Lochem;0262;;
 Almere;1270;;;Almere;0034;;
@@ -75,7 +75,8 @@ Amerongen;3337;;;Utrechtse Heuvelrug;1581;;
 Amersfoort;1664;;;Amersfoort;0307;;
 Ammerstol;2367;;;Bergambacht;0491;;
 Ammerzoden;1624;;;Maasdriel;0263;;
-Amstelhoek;1932;;;De Ronde Venen;0736;;
+Amstelhoek;1932;;07-02-2012;De Ronde Venen;0736;;
+Amstelhoek;3547;07-02-2012;;De Ronde Venen;0736;;
 Amstelveen;1050;;;Amstelveen;0362;;
 Amstenrade;2099;;;Schinnen;0962;;
 Amsterdam;1024;;;Amsterdam;0363;;
@@ -83,8 +84,8 @@ Amsterdam Zuidoost;1025;;;Amsterdam;0363;;
 Andel;3301;;;Woudrichem;0874;;
 Andelst;1862;;;Overbetuwe;1734;;
 Anderen;1148;;;Aa en Hunze;1680;;
-Andijk;1053;;;Andijk;0364;;20110101
-Andijk;1053;;;Medemblik;0420;20110101;
+Andijk;1053;;;Andijk;0364;;01-01-2011
+Andijk;1053;;;Medemblik;0420;01-01-2011;
 Ane;1537;;;Hardenberg;0160;;
 Anerveen;1538;;;Hardenberg;0160;;
 Anevelde;1539;;;Hardenberg;0160;;
@@ -93,8 +94,8 @@ Angerlo;1299;;;Zevenaar;0299;;
 Anjum;3388;;;Dongeradeel;0058;;
 Ankeveen;2999;;;Wijdemeren;1696;;
 Anloo;1149;;;Aa en Hunze;1680;;
-Anna Paulowna;3185;;;Anna Paulowna;0366;;20120101
-Anna Paulowna;3185;;;Hollands Kroon;1911;;
+Anna Paulowna;3185;;;Anna Paulowna;0366;;01-01-2012
+Anna Paulowna;3185;;;Hollands Kroon;1911;01-01-2012;
 Annen;1150;;;Aa en Hunze;1680;;
 Annerveenschekanaal;1151;;;Aa en Hunze;1680;;
 Ansen;3104;;;Westerveld;1701;;
@@ -108,8 +109,8 @@ Arkel;1432;;;Giessenlanden;0689;;
 Arnemuiden;1008;;;Middelburg;0687;;
 Arnhem;1296;;;Arnhem;0202;;
 Arriën;2547;;;Ommen;0175;;
-Arum;2302;;;Wûnseradiel;0710;;20110101
-Arum;2302;;;Súdwest Fryslân;1900;20110101;
+Arum;2302;;;Wûnseradiel;0710;;01-01-2011
+Arum;2302;;;Súdwest Fryslân;1900;01-01-2011;
 Asch;3370;;;Buren;0214;;
 Asperen;2353;;;Lingewaal;0733;;
 Assen;2391;;;Assen;0106;;
@@ -124,8 +125,8 @@ Azewijn;2202;;;Montferland;1955;;
 Baaiduinen;2621;;;Terschelling;0093;;
 Baaium;2008;;;Littenseradiel;0140;;
 Baak;1527;;;Bronckhorst;1876;;
-Baambrugge;1333;;;Abcoude;0305;;20110101
-Baambrugge;1333;;;De Ronde Venen;0736;20110101;
+Baambrugge;1333;;;Abcoude;0305;;01-01-2011
+Baambrugge;1333;;;De Ronde Venen;0736;01-01-2011;
 Baard;2009;;;Littenseradiel;0140;;
 Baarland;1251;;;Borsele;0654;;
 Baarle-Nassau;2883;;;Baarle-Nassau;0744;;
@@ -150,16 +151,16 @@ Balloërveld;1153;;;Aa en Hunze;1680;;
 Balloo;1152;;;Aa en Hunze;1680;;
 Ballum;2587;;;Ameland;0060;;
 Baneheide;3067;;;Simpelveld;0965;;
-Banholt;1690;;;Margraten;0936;;20110101
-Banholt;1690;;;Eijsden-Margraten;1903;20110101;
+Banholt;1690;;;Margraten;0936;;01-01-2011
+Banholt;1690;;;Eijsden-Margraten;1903;01-01-2011;
 Bant;1272;;;Noordoostpolder;0171;;
 Bantega;2239;;;Lemsterland;0082;;
 Barchem;1335;;;Lochem;0262;;
 Barendrecht;1594;;;Barendrecht;0489;;
 Barger-Compascuum;1987;;;Emmen;0114;;
 Barneveld;1054;;;Barneveld;0203;;
-Barsingerhorn;2514;;;Niedorp;0412;;20120101
-Barsingerhorn;2514;;;Hollands Kroon;1911;;
+Barsingerhorn;2514;;;Niedorp;0412;;01-01-2012
+Barsingerhorn;2514;;;Hollands Kroon;1911;01-01-2012;
 Basse;2693;;;Steenwijkerland;1708;;
 Batenburg;2568;;;Wijchen;0296;;
 Bathmen;2854;;;Deventer;0150;;
@@ -189,12 +190,12 @@ Belfeld;1476;;;Venlo;0983;;
 Bellingwolde;2231;;;Bellingwedde;0007;;
 Beltrum;1661;;;Berkelland;1859;;
 Belt-Schutsloot;2694;;;Steenwijkerland;1708;;
-Bemelen;1691;;;Margraten;0936;;20110101
-Bemelen;1691;;;Eijsden-Margraten;1903;20110101;
+Bemelen;1691;;;Margraten;0936;;01-01-2011
+Bemelen;1691;;;Eijsden-Margraten;1903;01-01-2011;
 Bemmel;3131;;;Lingewaard;1705;;
 Beneden-Leeuwen;1769;;;West Maas en Waal;0668;;
-Bennebroek;1391;;;Bloemendaal;0377;;
-Bennebroek;3533;12-01-2012;;Bloemendaal;0377;;
+Bennebroek;1391;;03-01-2012;Bloemendaal;0377;;
+Bennebroek;3533;03-01-2012;;Bloemendaal;0377;;
 Bennekom;2766;;;Ede;0228;;
 Benneveld;2146;;;Coevorden;0109;;
 Benningbroek;3148;;;Medemblik;0420;;
@@ -221,8 +222,8 @@ Berkel-Enschot;1044;;;Tilburg;0855;;
 Berkenwoude;2366;;;Bergambacht;0491;;
 Berkhout;1184;;;Koggenland;1598;;
 Berlicum;2057;;;Sint-Michielsgestel;0845;;
-Berltsum;2724;;;Menaldumadeel;0083;;20110101
-Berltsum;2724;;;Menameradiel;1908;20110101;
+Berltsum;2724;;;Menaldumadeel;0083;;01-01-2011
+Berltsum;2724;;;Menameradiel;1908;01-01-2011;
 Bern;2627;;;Zaltbommel;0297;;
 Best;1456;;;Best;0753;;
 Beugen;1214;;;Boxmeer;0756;;
@@ -240,22 +241,22 @@ Biezenmortel;1425;;;Haaren;0788;;
 Biggekerke;2775;;;Veere;0717;;
 Bilthoven;2935;;;De Bilt;0310;;
 Bingelrade;2845;;;Onderbanken;0881;;
-Bitgum;2722;;;Menaldumadeel;0083;;20110101
-Bitgum;2722;;;Menameradiel;1908;20110101;
-Bitgummole;2723;;;Menaldumadeel;0083;;20110101
-Bitgummole;2723;;;Menameradiel;1908;20110101;
+Bitgum;2722;;;Menaldumadeel;0083;;01-01-2011
+Bitgum;2722;;;Menameradiel;1908;01-01-2011;
+Bitgummole;2723;;;Menaldumadeel;0083;;01-01-2011
+Bitgummole;2723;;;Menameradiel;1908;01-01-2011;
 Bladel;1064;;;Bladel;1728;;
 Blankenham;2695;;;Steenwijkerland;1708;;
 Blaricum;2828;;;Blaricum;0376;;
 Blauwestad;3319;08-02-2010;07-04-2011;Oldambt;1895;;
 Blauwestad;3509;07-04-2011;;Oldambt;1895;;
-Blauwhuis;2401;;;Wymbritseradiel;0683;;20110101
-Blauwhuis;2401;;;Súdwest Fryslân;1900;20110101;
+Blauwhuis;2401;;;Wymbritseradiel;0683;;01-01-2011
+Blauwhuis;2401;;;Súdwest Fryslân;1900;01-01-2011;
 Bleiswijk;1689;;;Lansingerland;1621;;
 Blesdijke;1720;;;Weststellingwerf;0098;;
 Bleskensgraaf ca;1980;;;Graafstroom;0693;;
-Blessum;2725;;;Menaldumadeel;0083;;20110101
-Blessum;2725;;;Menameradiel;1908;20110101;
+Blessum;2725;;;Menaldumadeel;0083;;01-01-2011
+Blessum;2725;;;Menameradiel;1908;01-01-2011;
 Blije;3199;;;Ferwerderadiel;1722;;
 Blijham;2232;;;Bellingwedde;0007;;
 Blitterswijck;1856;;;Venray;0984;;
@@ -264,8 +265,8 @@ Blokker;2462;;;Hoorn;0405;;
 Blokzijl;2696;;;Steenwijkerland;1708;;
 Boazum;2011;;;Littenseradiel;0140;;
 Bocholtz;3066;;;Simpelveld;0965;;
-Bodegraven;2665;;;Bodegraven;0497;;20110101
-Bodegraven;2665;;;Bodegraven-Reeuwijk;1901;20110101;
+Bodegraven;2665;;;Bodegraven;0497;;01-01-2011
+Bodegraven;2665;;;Bodegraven-Reeuwijk;1901;01-01-2011;
 Boekel;3138;;;Boekel;0755;;
 Boelenslaan;3174;;;Achtkarspelen;0059;;
 Boer;1371;;;Franekeradeel;0070;;
@@ -273,10 +274,10 @@ Boerakker;2259;;;Marum;0025;;
 Boerakker;2339;;;Leek;0022;;
 Boesingheliede;1615;;;Haarlemmermeer;0394;;
 Boijl;1721;;;Weststellingwerf;0098;;
-Boksum;2726;;;Menaldumadeel;0083;;20110101
-Boksum;2726;;;Menameradiel;1908;20110101;
-Bolsward;2079;;;Bolsward;0064;;20110101
-Bolsward;2079;;;Súdwest Fryslân;1900;20110101;
+Boksum;2726;;;Menaldumadeel;0083;;01-01-2011
+Boksum;2726;;;Menameradiel;1908;01-01-2011;
+Bolsward;2079;;;Bolsward;0064;;01-01-2011
+Bolsward;2079;;;Súdwest Fryslân;1900;01-01-2011;
 Bontebok;2193;;;Heerenveen;0074;;
 Boornbergum;3275;;;Smallingerland;0090;;
 Boornzwaag;2485;;;Skarsterlân;0051;;
@@ -309,14 +310,14 @@ Brantgum;3390;;;Dongeradeel;0058;;
 Breda;1702;;;Breda;0758;;
 Bredevoort;1194;;;Aalten;0197;;
 Breedenbroek;1587;;;Oude IJsselstreek;1509;;
-Breezand;3186;;;Anna Paulowna;0366;;20120101
-Breezand;3186;;;Hollands Kroon;1911;;
-Breezanddijk;2303;;;Wûnseradiel;0710;;20110101
-Breezanddijk;2303;;;Súdwest Fryslân;1900;20110101;
+Breezand;3186;;;Anna Paulowna;0366;;01-01-2012
+Breezand;3186;;;Hollands Kroon;1911;01-01-2012;
+Breezanddijk;2303;;;Wûnseradiel;0710;;01-01-2011
+Breezanddijk;2303;;;Súdwest Fryslân;1900;01-01-2011;
 Breskens;2965;;;Sluis;1714;;
 Breugel;2600;;;Son en Breugel;0848;;
-Breukelen;1392;;;Breukelen;0311;;20110101
-Breukelen;1392;;;Stichtse Vecht;1904;20110101;
+Breukelen;1392;;;Breukelen;0311;;01-01-2011
+Breukelen;1392;;;Stichtse Vecht;1904;01-01-2011;
 Breukeleveen;3004;;;Wijdemeren;1696;;
 Brielle;2368;;;Brielle;0501;;
 Briltil;2115;;;Zuidhorn;0056;;
@@ -362,15 +363,15 @@ Burgerbrug;2762;;;Zijpe;0476;;
 Burgerveen;1603;;;Haarlemmermeer;0394;;
 Burgh-Haamstede;2676;;;Schouwen-Duiveland;1676;;
 Burgum;2451;;;Tytsjerksteradiel;0737;;
-Burgwerd;2304;;;Wûnseradiel;0710;;20110101
-Burgwerd;2304;;;Súdwest Fryslân;1900;20110101;
+Burgwerd;2304;;;Wûnseradiel;0710;;01-01-2011
+Burgwerd;2304;;;Súdwest Fryslân;1900;01-01-2011;
 Burum;3308;;;Kollumerland en Nieuwkruisland;0079;;
 Bussum;1331;;;Bussum;0381;;
 Buurmalsen;3221;01-06-2010;14-12-2011;Geldermalsen;0236;;
 Buurmalsen;3373;;;Buren;0214;;
 Buurmalsen;3532;24-11-2011;;Geldermalsen;0236;;
-Cadier en Keer;1692;;;Margraten;0936;;20110101
-Cadier en Keer;1692;;;Eijsden-Margraten;1903;20110101;
+Cadier en Keer;1692;;;Margraten;0936;;01-01-2011
+Cadier en Keer;1692;;;Eijsden-Margraten;1903;01-01-2011;
 Cadzand;2964;;;Sluis;1714;;
 Callantsoog;2757;;;Zijpe;0476;;
 Capelle aan den IJssel;1105;;;Capelle aan den IJssel;0502;;
@@ -384,8 +385,8 @@ Coevorden;2147;;;Coevorden;0109;;
 Colijnsplaat;3190;;;Noord-Beveland;1695;;
 Collendoorn;1544;;;Hardenberg;0160;;
 Colmschate;2855;;;Deventer;0150;;
-Cornwerd;2305;;;Wûnseradiel;0710;;20110101
-Cornwerd;2305;;;Súdwest Fryslân;1900;20110101;
+Cornwerd;2305;;;Wûnseradiel;0710;;01-01-2011
+Cornwerd;2305;;;Súdwest Fryslân;1900;01-01-2011;
 Cothen;1304;;;Wijk bij Duurstede;0352;;
 Creil;1281;;;Noordoostpolder;0171;;
 Cromvoirt;1620;;;Vught;0865;;
@@ -412,7 +413,8 @@ De Goorn;1185;;;Koggenland;1598;;
 De Groeve;2924;;;Tynaarlo;1730;;
 De Heen;1401;;;Steenbergen;0851;;
 De Heurne;1195;;;Aalten;0197;;
-De Hoef;1934;;;De Ronde Venen;0736;;
+De Hoef;1934;;07-02-2012;De Ronde Venen;0736;;
+de Hoef;3548;07-02-2012;;De Ronde Venen;0736;;
 De Hoeve;1723;;;Weststellingwerf;0098;;
 De Kiel;2151;;;Coevorden;0109;;
 De Klomp;2770;;;Ede;0228;;
@@ -444,13 +446,13 @@ de Woude;2269;;;Castricum;0383;;
 De Zilk;1928;;;Noordwijkerhout;0576;;
 Dearsum;2526;;;Boarnsterhim;0055;;
 Dedemsvaart;1546;;;Hardenberg;0160;;
-Dedgum;2306;;;Wûnseradiel;0710;;20110101
-Dedgum;2306;;;Súdwest Fryslân;1900;20110101;
+Dedgum;2306;;;Wûnseradiel;0710;;01-01-2011
+Dedgum;2306;;;Súdwest Fryslân;1900;01-01-2011;
 Deelen;2773;;;Ede;0228;;
 Deest;2903;;;Druten;0225;;
 Deil;3217;;;Geldermalsen;0236;;
-Deinum;2727;;;Menaldumadeel;0083;;20110101
-Deinum;2727;;;Menameradiel;1908;20110101;
+Deinum;2727;;;Menaldumadeel;0083;;01-01-2011
+Deinum;2727;;;Menameradiel;1908;01-01-2011;
 Delden;1440;;;Hof van Twente;1735;;
 Delfgauw;1143;;;Pijnacker-Nootdorp;1926;;
 Delfstrahuizen;2240;;;Lemsterland;0082;;
@@ -471,8 +473,8 @@ Den Hoorn Texel;2741;;;Texel;0448;;
 Den Horn;2117;;;Zuidhorn;0056;;
 Den Hout;2958;;;Oosterhout;0826;;
 Den Ilp;1329;;;Landsmeer;0415;;
-Den Oever;1489;;;Wieringen;0462;;20120101
-Den Oever;1489;;;Hollands Kroon;1911;;
+Den Oever;1489;;;Wieringen;0462;;01-01-2012
+Den Oever;1489;;;Hollands Kroon;1911;01-01-2012;
 Den Velde;1547;;;Hardenberg;0160;;
 Denekamp;1408;;;Dinkelland;1774;;
 Deurne;1774;;;Deurne;0762;;
@@ -527,8 +529,8 @@ Drempt;1520;;;Bronckhorst;1876;;
 Dreumel;1771;;;West Maas en Waal;0668;;
 Driebergen-Rijsenburg;3335;;;Utrechtse Heuvelrug;1581;;
 Drieborg;1422;;;Oldambt;1895;;
-Driebruggen;2477;;;Reeuwijk;0595;;20110101
-Driebruggen;2477;;;Bodegraven-Reeuwijk;1901;20110101;
+Driebruggen;2477;;;Reeuwijk;0595;;01-01-2011
+Driebruggen;2477;;;Bodegraven-Reeuwijk;1901;01-01-2011;
 Driehuis NH;2836;;;Velsen;0453;;
 Driehuizen;1886;;;Schermer;0458;;
 Driel;1863;;;Overbetuwe;1734;;
@@ -539,8 +541,8 @@ Drimmelen;2574;;;Drimmelen;1719;;
 Drogeham;3176;;;Achtkarspelen;0059;;
 Drogteropslagen;3163;;;De Wolden;1690;;
 Drongelen;1952;;;Aalburg;0738;;
-Dronryp;2729;;;Menaldumadeel;0083;;20110101
-Dronryp;2729;;;Menameradiel;1908;20110101;
+Dronryp;2729;;;Menaldumadeel;0083;;01-01-2011
+Dronryp;2729;;;Menameradiel;1908;01-01-2011;
 Dronten;2430;;;Dronten;0303;;
 Drouwen;1787;;;Borger-Odoorn;1681;;
 Drouwenermond;1788;;;Borger-Odoorn;1681;;
@@ -564,8 +566,8 @@ Echten;2241;;;Lemsterland;0082;;
 Echten;3164;;;De Wolden;1690;;
 Echtenerbrug;2242;;;Lemsterland;0082;;
 Eck en Wiel;3374;;;Buren;0214;;
-Eckelrade;1693;;;Margraten;0936;;20110101
-Eckelrade;1693;;;Eijsden-Margraten;1903;20110101;
+Eckelrade;1693;;;Margraten;0936;;01-01-2011
+Eckelrade;1693;;;Eijsden-Margraten;1903;01-01-2011;
 Edam;1747;;;Edam-Volendam;0385;;
 Ede;2764;;;Ede;0228;;
 Ederveen;2769;;;Ede;0228;;
@@ -598,8 +600,8 @@ Egmond aan den Hoef;3048;;;Bergen (NH);0373;;
 Egmond aan Zee;3049;;;Bergen (NH);0373;;
 Egmond-Binnen;3050;;;Bergen (NH);0373;;
 Eibergen;1662;;;Berkelland;1859;;
-Eijsden;1700;;;Eijsden;0905;;20110101
-Eijsden;1700;;;Eijsden-Margraten;1903;20110101;
+Eijsden;1700;;;Eijsden;0905;;01-01-2011
+Eijsden;1700;;;Eijsden-Margraten;1903;01-01-2011;
 Eindhoven;1101;;;Eindhoven;0772;;
 Einighausen;2810;;;Sittard-Geleen;1883;;
 Ekehaar;1159;;;Aa en Hunze;1680;;
@@ -659,8 +661,8 @@ Evertsoord;1517;;;Horst aan de Maas;1507;;
 Ewijk;2752;;;Beuningen;0209;;
 Exloërveen;1794;;;Borger-Odoorn;1681;;
 Exloo;1795;;;Borger-Odoorn;1681;;
-Exmorra;2307;;;Wûnseradiel;0710;;20110101
-Exmorra;2307;;;Súdwest Fryslân;1900;20110101;
+Exmorra;2307;;;Wûnseradiel;0710;;01-01-2011
+Exmorra;2307;;;Súdwest Fryslân;1900;01-01-2011;
 Eygelshoven;2650;;;Kerkrade;0928;;
 Eys;1234;;;Gulpen-Wittem;1729;;
 Ezinge;2467;;;Winsum;0053;;
@@ -669,8 +671,8 @@ Feanwâlden;3271;;;Dantumadiel;1891;;
 Feerwerd;2468;;;Winsum;0053;;
 Feinsum;3226;;;Leeuwarderadeel;0081;;
 Ferwert;3201;;;Ferwerderadiel;1722;;
-Ferwoude;2308;;;Wûnseradiel;0710;;20110101
-Ferwoude;2308;;;Súdwest Fryslân;1900;20110101;
+Ferwoude;2308;;;Wûnseradiel;0710;;01-01-2011
+Ferwoude;2308;;;Súdwest Fryslân;1900;01-01-2011;
 Fijnaart;1321;;;Moerdijk;1709;;
 Finsterwolde;1419;;;Oldambt;1895;;
 Firdgum;1378;;;Franekeradeel;0070;;
@@ -678,8 +680,8 @@ Fleringen;1284;;;Tubbergen;0183;;
 Fluitenberg;1812;;;Hoogeveen;0118;;
 Fochteloo;1756;;;Ooststellingwerf;0085;;
 Follega;2244;;;Lemsterland;0082;;
-Folsgare;2402;;;Wymbritseradiel;0683;;20110101
-Folsgare;2402;;;Súdwest Fryslân;1900;20110101;
+Folsgare;2402;;;Wymbritseradiel;0683;;01-01-2011
+Folsgare;2402;;;Súdwest Fryslân;1900;01-01-2011;
 Formerum;2617;;;Terschelling;0093;;
 Foudgum;3394;;;Dongeradeel;0058;;
 Foxhol;1017;;;Hoogezand-Sappemeer;0018;;
@@ -690,10 +692,10 @@ Friens;2527;;;Boarnsterhim;0055;;
 Frieschepalen;3345;;;Opsterland;0086;;
 Froombosch;1348;;;Slochteren;0040;;
 Gaanderen;3247;;;Doetinchem;0222;;
-Gaast;2309;;;Wûnseradiel;0710;;20110101
-Gaast;2309;;;Súdwest Fryslân;1900;20110101;
-Gaastmeer;2403;;;Wymbritseradiel;0683;;20110101
-Gaastmeer;2403;;;Súdwest Fryslân;1900;20110101;
+Gaast;2309;;;Wûnseradiel;0710;;01-01-2011
+Gaast;2309;;;Súdwest Fryslân;1900;01-01-2011;
+Gaastmeer;2403;;;Wymbritseradiel;0683;;01-01-2011
+Gaastmeer;2403;;;Súdwest Fryslân;1900;01-01-2011;
 Galder;3434;;;Alphen-Chaam;1723;;
 Gameren;2631;;;Zaltbommel;0297;;
 Gapinge;2777;;;Veere;0717;;
@@ -710,8 +712,8 @@ Gasselternijveen;1163;;;Aa en Hunze;1680;;
 Gasselternijveenschemond;1164;;;Aa en Hunze;1680;;
 Gastel;1570;;;Cranendonck;1706;;
 Gasteren;1165;;;Aa en Hunze;1680;;
-Gauw;2404;;;Wymbritseradiel;0683;;20110101
-Gauw;2404;;;Súdwest Fryslân;1900;20110101;
+Gauw;2404;;;Wymbritseradiel;0683;;01-01-2011
+Gauw;2404;;;Súdwest Fryslân;1900;01-01-2011;
 Geelbroek;1166;;;Aa en Hunze;1680;;
 Geerdijk;3322;;;Twenterand;1700;;
 Geersdijk;3193;;;Noord-Beveland;1695;;
@@ -755,8 +757,8 @@ Glane;1712;;;Losser;0168;;
 Glimmen;1267;;;Haren;0017;;
 Godlinze;3236;;;Delfzijl;0010;;
 Goedereede;2931;;;Goedereede;0511;;
-Goënga;2405;;;Wymbritseradiel;0683;;20110101
-Goënga;2405;;;Súdwest Fryslân;1900;20110101;
+Goënga;2405;;;Wymbritseradiel;0683;;01-01-2011
+Goënga;2405;;;Súdwest Fryslân;1900;01-01-2011;
 Goëngahuizen;3281;;;Smallingerland;0090;;
 Goes;1824;;;Goes;0664;;
 Goingarijp;2489;;;Skarsterlân;0051;;
@@ -778,8 +780,8 @@ Gramsbergen;1549;;;Hardenberg;0160;;
 Grashoek;3440;;;Peel en Maas;1894;;
 Grathem;2943;;;Leudal;1640;;
 Grave;3197;;;Grave;0786;;
-Greonterp;2406;;;Wymbritseradiel;0683;;20110101
-Greonterp;2406;;;Súdwest Fryslân;1900;20110101;
+Greonterp;2406;;;Wymbritseradiel;0683;;01-01-2011
+Greonterp;2406;;;Súdwest Fryslân;1900;01-01-2011;
 Grevenbicht;2812;;;Sittard-Geleen;1883;;
 Griendtsveen;1029;;;Horst aan de Maas;1507;;
 Grijpskerk;2118;;;Zuidhorn;0056;;
@@ -793,8 +795,8 @@ Groessen;2097;;;Duiven;0226;;
 Groet;3044;;;Bergen (NH);0373;;
 Grolloo;1169;;;Aa en Hunze;1680;;
 Groningen;1070;;;Groningen;0014;;
-Gronsveld;1701;;;Eijsden;0905;;20110101
-Gronsveld;1701;;;Eijsden-Margraten;1903;20110101;
+Gronsveld;1701;;;Eijsden;0905;;01-01-2011
+Gronsveld;1701;;;Eijsden-Margraten;1903;01-01-2011;
 Groot-Ammers;1806;;;Liesveld;0694;;
 Grootebroek;1103;;;Stede Broec;0532;;
 Grootegast;2175;;;Grootegast;0015;;
@@ -841,16 +843,16 @@ Haren;3253;;;Oss;0828;;
 Haren Gn;1266;;;Haren;0017;;
 Harfsen;1339;;;Lochem;0262;;
 Harich;1676;;;Gaasterlân-Sleat;0653;;
-Haringhuizen;2515;;;Niedorp;0412;;20120101
-Haringhuizen;2515;;;Hollands Kroon;1911;;
+Haringhuizen;2515;;;Niedorp;0412;;01-01-2012
+Haringhuizen;2515;;;Hollands Kroon;1911;01-01-2012;
 Harkema;3178;;;Achtkarspelen;0059;;
 Harkstede;1349;;;Slochteren;0040;;
 Harlingen;2891;;;Harlingen;0072;;
 Harmelen;1072;;;Woerden;0632;;
 Harreveld;2228;;;Oost Gelre;1586;;
 Harskamp;2768;;;Ede;0228;;
-Hartwerd;2310;;;Wûnseradiel;0710;;20110101
-Hartwerd;2310;;;Súdwest Fryslân;1900;20110101;
+Hartwerd;2310;;;Wûnseradiel;0710;;01-01-2011
+Hartwerd;2310;;;Súdwest Fryslân;1900;01-01-2011;
 Haskerdijken;2490;;;Skarsterlân;0051;;
 Haskerhorne;2491;;;Skarsterlân;0051;;
 Hasselt;2199;;;Zwartewaterland;1896;;
@@ -866,8 +868,8 @@ Hazerswoude-Rijndijk;2851;;;Rijnwoude;1672;;
 Hedel;1625;;;Maasdriel;0263;;
 Hedikhuizen;3515;01-09-2011;;Heusden;0797;;
 Hee;2623;;;Terschelling;0093;;
-Heeg;2407;;;Wymbritseradiel;0683;;20110101
-Heeg;2407;;;Súdwest Fryslân;1900;20110101;
+Heeg;2407;;;Wymbritseradiel;0683;;01-01-2011
+Heeg;2407;;;Súdwest Fryslân;1900;01-01-2011;
 Heel;1917;;;Maasgouw;1641;;
 Heelsum;2987;;;Renkum;0274;;
 Heelweg;1576;;;Oude IJsselstreek;1509;;
@@ -914,8 +916,8 @@ Hellum;1350;;;Slochteren;0040;;
 Helmond;1146;;;Helmond;0794;;
 Helvoirt;1428;;;Haaren;0788;;
 Hem;1507;;;Drechterland;0498;;
-Hemelum;1970;;;Nijefurd;0104;;20110101
-Hemelum;1970;;;Súdwest Fryslân;1900;20110101;
+Hemelum;1970;;;Nijefurd;0104;;01-01-2011
+Hemelum;1970;;;Súdwest Fryslân;1900;01-01-2011;
 Hemmen;1865;;;Overbetuwe;1734;;
 Hempens;1202;;;Leeuwarden;0080;;
 Hemrik;3347;;;Opsterland;0086;;
@@ -948,24 +950,24 @@ Heveadorp;2988;;;Renkum;0274;;
 Heythuysen;2947;;;Leudal;1640;;
 Hezingen;1288;;;Tubbergen;0183;;
 Hiaure;3398;;;Dongeradeel;0058;;
-Hichtum;2311;;;Wûnseradiel;0710;;20110101
-Hichtum;2311;;;Súdwest Fryslân;1900;20110101;
+Hichtum;2311;;;Wûnseradiel;0710;;01-01-2011
+Hichtum;2311;;;Súdwest Fryslân;1900;01-01-2011;
 Hidaard;2016;;;Littenseradiel;0140;;
 Hierden;3223;;;Harderwijk;0243;;
-Hieslum;2312;;;Wûnseradiel;0710;;20110101
-Hieslum;2312;;;Súdwest Fryslân;1900;20110101;
+Hieslum;2312;;;Wûnseradiel;0710;;01-01-2011
+Hieslum;2312;;;Súdwest Fryslân;1900;01-01-2011;
 Hijken;3013;;;Midden-Drenthe;1731;;
 Hijum;3227;;;Leeuwarderadeel;0081;;
 Hilaard;2017;;;Littenseradiel;0140;;
-Hillegom;1710;;;Hillegom;0534;;
-Hillegom;3535;12-01-2012;;Hillegom;0534;;
+Hillegom;1710;;12-01-2012;Hillegom;0534;;
+Hillegom;3535;05-01-2012;;Hillegom;0534;;
 Hilvarenbeek;1307;;;Hilvarenbeek;0798;;
 Hilversum;1036;;;Hilversum;0402;;
-Hindeloopen;1968;;;Nijefurd;0104;;20110101
-Hindeloopen;1968;;;Súdwest Fryslân;1900;20110101;
+Hindeloopen;1968;;;Nijefurd;0104;;01-01-2011
+Hindeloopen;1968;;;Súdwest Fryslân;1900;01-01-2011;
 Hinnaard;2018;;;Littenseradiel;0140;;
-Hippolytushoef;1488;;;Wieringen;0462;;20120101
-Hippolytushoef;1488;;;Hollands Kroon;1911;;
+Hippolytushoef;1488;;;Wieringen;0462;;01-01-2012
+Hippolytushoef;1488;;;Hollands Kroon;1911;01-01-2012;
 Hitzum;1363;;;Franekeradeel;0070;;
 Hobrede;1838;;;Zeevang;0478;;
 Hoedekenskerke;1256;;;Borsele;0654;;
@@ -989,8 +991,8 @@ Holthone;1553;;;Hardenberg;0160;;
 Holtum;2814;;;Sittard-Geleen;1883;;
 Holwerd;3399;;;Dongeradeel;0058;;
 Holwierde;3237;;;Delfzijl;0010;;
-Hommerts;2408;;;Wymbritseradiel;0683;;20110101
-Hommerts;2408;;;Súdwest Fryslân;1900;20110101;
+Hommerts;2408;;;Wymbritseradiel;0683;;01-01-2011
+Hommerts;2408;;;Súdwest Fryslân;1900;01-01-2011;
 Homoet;1868;;;Overbetuwe;1734;;
 Honselersdijk;2656;;;Westland;1783;;
 Hoofddorp;1597;;;Haarlemmermeer;0394;;
@@ -1044,15 +1046,15 @@ Hunsel;2949;;;Leudal;1640;;
 Hurdegaryp;2449;;;Tytsjerksteradiel;0737;;
 Hurwenen;1628;;;Maasdriel;0263;;
 Idaerd;2529;;;Boarnsterhim;0055;;
-Idsegahuizum;2313;;;Wûnseradiel;0710;;20110101
-Idsegahuizum;2313;;;Súdwest Fryslân;1900;20110101;
+Idsegahuizum;2313;;;Wûnseradiel;0710;;01-01-2011
+Idsegahuizum;2313;;;Súdwest Fryslân;1900;01-01-2011;
 Idskenhuizen;2492;;;Skarsterlân;0051;;
-Idzega;2409;;;Wymbritseradiel;0683;;20110101
-Idzega;2409;;;Súdwest Fryslân;1900;20110101;
+Idzega;2409;;;Wymbritseradiel;0683;;01-01-2011
+Idzega;2409;;;Súdwest Fryslân;1900;01-01-2011;
 Iens;2020;;;Littenseradiel;0140;;
 IJhorst;1048;;;Staphorst;0180;;
-IJlst;2410;;;Wymbritseradiel;0683;;20110101
-IJlst;2410;;;Súdwest Fryslân;1900;20110101;
+IJlst;2410;;;Wymbritseradiel;0683;;01-01-2011
+IJlst;2410;;;Súdwest Fryslân;1900;01-01-2011;
 IJmuiden;2835;;;Velsen;0453;;
 IJsselham;2701;;;Steenwijkerland;1708;;
 IJsselmuiden;2895;;;Kampen;0166;;
@@ -1060,14 +1062,14 @@ IJsselstein;2432;;;IJsselstein;0353;;
 IJzendijke;2974;;;Sluis;1714;;
 IJzendoorn;1099;;;Neder-Betuwe;1740;;
 Ilpendam;1941;;;Waterland;0852;;
-Indijk;2411;;;Wymbritseradiel;0683;;20110101
-Indijk;2411;;;Súdwest Fryslân;1900;20110101;
+Indijk;2411;;;Wymbritseradiel;0683;;01-01-2011
+Indijk;2411;;;Súdwest Fryslân;1900;01-01-2011;
 Ingber;1226;;;Gulpen-Wittem;1729;;
-Ingelum;2728;;;Menaldumadeel;0083;;20110101
-Ingelum;2728;;;Menameradiel;1908;20110101;
+Ingelum;2728;;;Menaldumadeel;0083;;01-01-2011
+Ingelum;2728;;;Menameradiel;1908;01-01-2011;
 Ingen;3376;;;Buren;0214;;
-It Heidenskip;1973;;;Nijefurd;0104;;20110101
-It Heidenskip;1973;;;Súdwest Fryslân;1900;20110101;
+It Heidenskip;1973;;;Nijefurd;0104;;01-01-2011
+It Heidenskip;1973;;;Súdwest Fryslân;1900;01-01-2011;
 Itens;2021;;;Littenseradiel;0140;;
 Ittervoort;2950;;;Leudal;1640;;
 Jaarsveld;1959;;;Lopik;0331;;
@@ -1087,8 +1089,8 @@ Joure;2493;;;Skarsterlân;0051;;
 Jouswier;3400;;;Dongeradeel;0058;;
 Jubbega;2196;;;Heerenveen;0074;;
 Julianadorp;3058;;;Den Helder;0400;;
-Jutrijp;2412;;;Wymbritseradiel;0683;;20110101
-Jutrijp;2412;;;Súdwest Fryslân;1900;20110101;
+Jutrijp;2412;;;Wymbritseradiel;0683;;01-01-2011
+Jutrijp;2412;;;Súdwest Fryslân;1900;01-01-2011;
 Kaag;3035;;;Kaag en Braassem;1884;;
 Kaard;2622;;;Terschelling;0093;;
 Kaatsheuvel;3052;;;Loon op Zand;0809;;
@@ -1125,8 +1127,8 @@ Kessel;1699;;;Peel en Maas;1894;;
 Kesteren;1096;;;Neder-Betuwe;1740;;
 Kiel-Windeweer;1019;;;Hoogezand-Sappemeer;0018;;
 Kilder;2207;;;Montferland;1955;;
-Kimswerd;2314;;;Wûnseradiel;0710;;20110101
-Kimswerd;2314;;;Súdwest Fryslân;1900;20110101;
+Kimswerd;2314;;;Wûnseradiel;0710;;01-01-2011
+Kimswerd;2314;;;Súdwest Fryslân;1900;01-01-2011;
 Kinderdijk;2794;;;Nieuw-Lekkerland;0571;;
 Kinnum;2624;;;Terschelling;0093;;
 Klaaswaal;2371;;;Cromstrijen;0611;;
@@ -1147,16 +1149,16 @@ Kloosterzande;3100;;;Hulst;0677;;
 Klundert;1319;;;Moerdijk;1709;;
 Knegsel;2994;;;Eersel;0770;;
 Koarnjum;3229;;;Leeuwarderadeel;0081;;
-Kockengen;1393;;;Breukelen;0311;;20110101
-Kockengen;1393;;;Stichtse Vecht;1904;20110101;
+Kockengen;1393;;;Breukelen;0311;;01-01-2011
+Kockengen;1393;;;Stichtse Vecht;1904;01-01-2011;
 Koedijk;1120;;;Langedijk;0416;;
 Koedijk;2349;;;Alkmaar;0361;;
 Koekange;3167;;;De Wolden;1690;;
 Koewacht;1131;;;Terneuzen;0715;;
 Kolderwolde;1677;;;Gaasterlân-Sleat;0653;;
 Kolham;1351;;;Slochteren;0040;;
-Kolhorn;2516;;;Niedorp;0412;;20120101
-Kolhorn;2516;;;Hollands Kroon;1911;;
+Kolhorn;2516;;;Niedorp;0412;;01-01-2012
+Kolhorn;2516;;;Hollands Kroon;1911;01-01-2012;
 Kollum;3309;;;Kollumerland en Nieuwkruisland;0079;;
 Kollumerpomp;3310;;;Kollumerland en Nieuwkruisland;0079;;
 Kollumerzwaag;3311;;;Kollumerland en Nieuwkruisland;0079;;
@@ -1169,22 +1171,22 @@ Kootstertille;3179;;;Achtkarspelen;0059;;
 Kootwijk;1062;;;Barneveld;0203;;
 Kootwijkerbroek;1056;;;Barneveld;0203;;
 Kornhorn;2176;;;Grootegast;0015;;
-Kornwerderzand;2315;;;Wûnseradiel;0710;;20110101
-Kornwerderzand;2315;;;Súdwest Fryslân;1900;20110101;
+Kornwerderzand;2315;;;Wûnseradiel;0710;;01-01-2011
+Kornwerderzand;2315;;;Súdwest Fryslân;1900;01-01-2011;
 Kortehemmen;3283;;;Smallingerland;0090;;
-Kortenhoef;3001;;;Wijdemeren;1696;;
-Kortenhoef;3526;01-01-2012;;Wijdemeren;1696;;
+Kortenhoef;3001;;06-03-2012;Wijdemeren;1696;;
+Kortenhoef;3526;09-12-2011;;Wijdemeren;1696;;
 Kortgene;3189;;;Noord-Beveland;1695;;
 Koudekerk aan den Rijn;2850;;;Rijnwoude;1672;;
 Koudekerke;2779;;;Veere;0717;;
-Koudum;1966;;;Nijefurd;0104;;20110101
-Koudum;1966;;;Súdwest Fryslân;1900;20110101;
-Koufurderrige;2413;;;Wymbritseradiel;0683;;20110101
-Koufurderrige;2413;;;Súdwest Fryslân;1900;20110101;
+Koudum;1966;;;Nijefurd;0104;;01-01-2011
+Koudum;1966;;;Súdwest Fryslân;1900;01-01-2011;
+Koufurderrige;2413;;;Wymbritseradiel;0683;;01-01-2011
+Koufurderrige;2413;;;Súdwest Fryslân;1900;01-01-2011;
 Krabbendijke;3462;;;Reimerswaal;0703;;
 Kraggenburg;1275;;;Noordoostpolder;0171;;
-Kreileroord;2433;;;Wieringermeer;0463;;20120101
-Kreileroord;2433;;;Hollands Kroon;1911;;
+Kreileroord;2433;;;Wieringermeer;0463;;01-01-2012
+Kreileroord;2433;;;Hollands Kroon;1911;01-01-2012;
 Krewerd;3238;;;Delfzijl;0010;;
 Krimpen aan de Lek;2375;;;Nederlek;0643;;
 Krimpen aan den IJssel;1144;;;Krimpen aan den IJssel;0542;;
@@ -1298,26 +1300,26 @@ Lithoijen;3469;;;Oss;0828;;
 Lobith;2978;;;Rijnwaarden;0196;;
 Lochem;1343;;;Lochem;0262;;
 Loenen;2251;;;Apeldoorn;0200;;
-Loenen aan de Vecht;2219;;;Loenen;0329;;20110101
-Loenen aan de Vecht;2219;;;Stichtse Vecht;1904;20110101;
-Loenersloot;2220;;;Loenen;0329;;20110101
-Loenersloot;2220;;;Stichtse Vecht;1904;20110101;
-Loënga;2862;;;Sneek;0091;;20110101
-Loënga;2862;;01-01-2011;Súdwest Fryslân;1900;20110101;
+Loenen aan de Vecht;2219;;;Loenen;0329;;01-01-2011
+Loenen aan de Vecht;2219;;;Stichtse Vecht;1904;01-01-2011;
+Loenersloot;2220;;;Loenen;0329;;01-01-2011
+Loenersloot;2220;;;Stichtse Vecht;1904;01-01-2011;
+Loënga;2862;;;Sneek;0091;;01-01-2011
+Loënga;2862;;01-01-2011;Súdwest Fryslân;1900;01-01-2011;
 Loënga;3505;01-01-2011;;Súdwest Fryslân;1900;;
 Loerbeek;2209;;;Montferland;1955;;
-Lollum;2316;;;Wûnseradiel;0710;;20110101
-Lollum;2316;;;Súdwest Fryslân;1900;20110101;
+Lollum;2316;;;Wûnseradiel;0710;;01-01-2011
+Lollum;2316;;;Súdwest Fryslân;1900;01-01-2011;
 Lomm;3141;;;Venlo;0983;;
-Longerhouw;2317;;;Wûnseradiel;0710;;20110101
-Longerhouw;2317;;;Súdwest Fryslân;1900;20110101;
+Longerhouw;2317;;;Wûnseradiel;0710;;01-01-2011
+Longerhouw;2317;;;Súdwest Fryslân;1900;01-01-2011;
 Loo Gld;2098;;;Duiven;0226;;
 Loo Gld;3135;;;Lingewaard;1705;;
 Loon;2392;;;Assen;0106;;
 Loon op Zand;3053;;;Loon op Zand;0809;;
 Loosbroek;3061;;;Bernheze;1721;;
-Loosdrecht;3002;;;Wijdemeren;1696;;
-Loosdrecht;3537;01-01-2012;;Wijdemeren;1696;;
+Loosdrecht;3002;;06-03-2012;Wijdemeren;1696;;
+Loosdrecht;3537;09-12-2011;;Wijdemeren;1696;;
 Loozen;1556;;;Hardenberg;0160;;
 Lopik;1960;;;Lopik;0331;;
 Lopikerkapel;1961;;;Lopik;0331;;
@@ -1331,8 +1333,8 @@ Luinjeberd;2183;;;Heerenveen;0074;;
 Lunteren;2765;;;Ede;0228;;
 Lutjebroek;1104;;;Stede Broec;0532;;
 Lutjegast;2177;;;Grootegast;0015;;
-Lutjewinkel;2517;;;Niedorp;0412;;20120101
-Lutjewinkel;2517;;;Hollands Kroon;1911;;
+Lutjewinkel;2517;;;Niedorp;0412;;01-01-2012
+Lutjewinkel;2517;;;Hollands Kroon;1911;01-01-2012;
 Luttelgeest;1273;;;Noordoostpolder;0171;;
 Lutten;1557;;;Hardenberg;0160;;
 Luttenberg;1494;;;Raalte;0177;;
@@ -1342,8 +1344,8 @@ Lytsewierrum;2026;;;Littenseradiel;0140;;
 Maarheeze;1568;;;Cranendonck;1706;;
 Maarn;3340;;;Utrechtse Heuvelrug;1581;;
 Maarsbergen;3341;;;Utrechtse Heuvelrug;1581;;
-Maarssen;2064;;;Maarssen;0333;;20110101
-Maarssen;2064;;;Stichtse Vecht;1904;20110101;
+Maarssen;2064;;;Maarssen;0333;;01-01-2011
+Maarssen;2064;;;Stichtse Vecht;1904;01-01-2011;
 Maartensdijk;2936;;;De Bilt;0310;;
 Maasbommel;1772;;;West Maas en Waal;0668;;
 Maasbracht;1920;;;Maasgouw;1641;;
@@ -1359,16 +1361,16 @@ Maasvlakte Rotterdam;3084;;;Rotterdam;0599;;
 Macharen;3252;;;Oss;0828;;
 Made;2577;;;Drimmelen;1719;;
 Makkinga;1760;;;Ooststellingwerf;0085;;
-Makkum;2318;;;Wûnseradiel;0710;;20110101
-Makkum;2318;;;Súdwest Fryslân;1900;20110101;
+Makkum;2318;;;Wûnseradiel;0710;;01-01-2011
+Makkum;2318;;;Súdwest Fryslân;1900;01-01-2011;
 Malden;3494;;;Heumen;0252;;
 Mander;1290;;;Tubbergen;0183;;
 Manderveen;1291;;;Tubbergen;0183;;
 Mantgum;2027;;;Littenseradiel;0140;;
 Mantinge;3016;;;Midden-Drenthe;1731;;
 Maren-Kessel;3471;;;Oss;0828;;
-Margraten;1694;;;Margraten;0936;;20110101
-Margraten;1694;;;Eijsden-Margraten;1903;20110101;
+Margraten;1694;;;Margraten;0936;;01-01-2011
+Margraten;1694;;;Eijsden-Margraten;1903;01-01-2011;
 Maria Hoop;2043;;;Echt-Susteren;1711;;
 Mariahout;1448;;;Laarbeek;1659;;
 Mariaparochie;1292;;;Tubbergen;0183;;
@@ -1382,8 +1384,8 @@ Markenbinnen;1904;;;Graft-De Rijp;0365;;
 Marknesse;1274;;;Noordoostpolder;0171;;
 Marle;1383;;;Olst-Wijhe;1773;;
 Marrum;3208;;;Ferwerderadiel;1722;;
-Marsum;2730;;;Menaldumadeel;0083;;20110101
-Marsum;2730;;;Menameradiel;1908;20110101;
+Marsum;2730;;;Menaldumadeel;0083;;01-01-2011
+Marsum;2730;;;Menameradiel;1908;01-01-2011;
 Marum;2263;;;Marum;0025;;
 Marwijksoord;1170;;;Aa en Hunze;1680;;
 Mastenbroek;2200;;;Zwartewaterland;1896;;
@@ -1406,8 +1408,8 @@ Melderslo;1034;;;Horst aan de Maas;1507;;
 Melick;2591;;;Roerdalen;1669;;
 Meliskerke;2780;;;Veere;0717;;
 Melissant;2379;;;Dirksland;0504;;
-Menaam;2731;;;Menaldumadeel;0083;;20110101
-Menaam;2731;;;Menameradiel;1908;20110101;
+Menaam;2731;;;Menaldumadeel;0083;;01-01-2011
+Menaam;2731;;;Menameradiel;1908;01-01-2011;
 Mensingeweer;3421;;;De Marne;1663;;
 Meppel;1082;;;Meppel;0119;;
 Meppen;2157;;;Coevorden;0109;;
@@ -1417,16 +1419,16 @@ Meteren;3219;01-06-2010;14-12-2011;Geldermalsen;0236;;
 Meteren;3530;24-11-2011;;Geldermalsen;0236;;
 Meterik;1035;;;Horst aan de Maas;1507;;
 Metslawier;3402;;;Dongeradeel;0058;;
-Mheer;1695;;;Margraten;0936;;20110101
-Mheer;1695;;;Eijsden-Margraten;1903;20110101;
+Mheer;1695;;;Margraten;0936;;01-01-2011
+Mheer;1695;;;Eijsden-Margraten;1903;01-01-2011;
 Middelaar;2801;;;Mook en Middelaar;0944;;
 Middelburg;1007;;;Middelburg;0687;;
 Middelharnis;3143;;;Middelharnis;0559;;
 Middelie;1840;;;Zeevang;0478;;
 Middelstum;3450;;;Loppersum;0024;;
 Middenbeemster;2170;;;Beemster;0370;;
-Middenmeer;2434;;;Wieringermeer;0463;;20120101
-Middenmeer;2434;;;Hollands Kroon;1911;;
+Middenmeer;2434;;;Wieringermeer;0463;;01-01-2012
+Middenmeer;2434;;;Hollands Kroon;1911;01-01-2012;
 Midlaren;2926;;;Tynaarlo;1730;;
 Midlum;2892;;;Harlingen;0072;;
 Midsland;2619;;;Terschelling;0093;;
@@ -1435,7 +1437,8 @@ Midwolde;2343;;;Leek;0022;;
 Midwoud;3152;;;Medemblik;0420;;
 Miedum;1199;;;Leeuwarden;0080;;
 Mierlo;1127;;;Geldrop-Mierlo;1771;;
-Mijdrecht;1929;;;De Ronde Venen;0736;;
+Mijdrecht;1929;;07-02-2012;De Ronde Venen;0736;;
+Mijdrecht;3549;07-02-2012;;De Ronde Venen;0736;;
 Mijnsheerenland;2383;;;Binnenmaas;0585;;
 Mildam;2191;;;Heerenveen;0074;;
 Milheeze;2091;;;Gemert-Bakel;1652;;
@@ -1452,8 +1455,8 @@ Moerstraten;1593;;;Roosendaal;1674;;
 Molenaarsgraaf;1983;;;Graafstroom;0693;;
 Molenhoek;2802;;;Mook en Middelaar;0944;;
 Molenschot;2069;;;Gilze en Rijen;0784;;
-Molkwerum;1967;;;Nijefurd;0104;;20110101
-Molkwerum;1967;;;Súdwest Fryslân;1900;20110101;
+Molkwerum;1967;;;Nijefurd;0104;;01-01-2011
+Molkwerum;1967;;;Súdwest Fryslân;1900;01-01-2011;
 Monnickendam;1944;;;Waterland;0852;;
 Monster;2659;;;Westland;1783;;
 Montfoort;1964;;;Montfoort;0335;;
@@ -1513,8 +1516,8 @@ Nieuw-Beijerland;2887;;;Korendijk;0588;;
 Nieuw-Buinen;1797;;;Borger-Odoorn;1681;;
 Nieuw-Dordrecht;1994;;;Emmen;0114;;
 Nieuwdorp;1259;;;Borsele;0654;;
-Nieuwe Niedorp;2518;;;Niedorp;0412;;20120101
-Nieuwe Niedorp;2518;;;Hollands Kroon;1911;;
+Nieuwe Niedorp;2518;;;Niedorp;0412;;01-01-2012
+Nieuwe Niedorp;2518;;;Hollands Kroon;1911;01-01-2012;
 Nieuwe Pekela;1398;;;Pekela;0765;;
 Nieuwe Wetering;3037;;;Kaag en Braassem;1884;;
 Nieuwebrug;2496;;;Skarsterlân;0051;;
@@ -1522,16 +1525,16 @@ Nieuwediep;1172;;;Aa en Hunze;1680;;
 Nieuwegein;1108;;;Nieuwegein;0356;;
 Nieuwehorne;2194;;;Heerenveen;0074;;
 Nieuwendijk;2216;;;Werkendam;0870;;
-Nieuwer Ter Aa;1394;;;Breukelen;0311;;20110101
-Nieuwer Ter Aa;1394;;;Stichtse Vecht;1904;20110101;
-Nieuwerbrug aan den Rijn;2666;;;Bodegraven;0497;;20110101
-Nieuwerbrug aan den Rijn;2666;;;Bodegraven-Reeuwijk;1901;20110101;
+Nieuwer Ter Aa;1394;;;Breukelen;0311;;01-01-2011
+Nieuwer Ter Aa;1394;;;Stichtse Vecht;1904;01-01-2011;
+Nieuwerbrug aan den Rijn;2666;;;Bodegraven;0497;;01-01-2011
+Nieuwerbrug aan den Rijn;2666;;;Bodegraven-Reeuwijk;1901;01-01-2011;
 Nieuwerkerk;2680;;;Schouwen-Duiveland;1676;;
 Nieuwerkerk aan den IJssel;1016;;;Zuidplas;1892;;
 Nieuweroord;1815;;;Hoogeveen;0118;;
 Nieuweroord;3017;;;Midden-Drenthe;1731;;
-Nieuwersluis;2221;;;Loenen;0329;;20110101
-Nieuwersluis;2221;;;Stichtse Vecht;1904;20110101;
+Nieuwersluis;2221;;;Loenen;0329;;01-01-2011
+Nieuwersluis;2221;;;Stichtse Vecht;1904;01-01-2011;
 Nieuweschoot;2187;;;Heerenveen;0074;;
 Nieuwe-Tonge;3144;;;Middelharnis;0559;;
 Nieuwkoop;2667;;;Nieuwkoop;0569;;
@@ -1553,8 +1556,8 @@ Nieuw-Vossemeer;1404;;;Steenbergen;0851;;
 Nieuw-Weerdinge;1996;;;Emmen;0114;;
 Niezijl;2122;;;Zuidhorn;0056;;
 Niftrik;2569;;;Wijchen;0296;;
-Nigtevecht;2222;;;Loenen;0329;;20110101
-Nigtevecht;2222;;;Stichtse Vecht;1904;20110101;
+Nigtevecht;2222;;;Loenen;0329;;01-01-2011
+Nigtevecht;2222;;;Stichtse Vecht;1904;01-01-2011;
 Nij Altoenae;3330;;;het Bildt;0063;;
 Nij Beets;3352;;;Opsterland;0086;;
 Nijbroek;2607;;;Voorst;0285;;
@@ -1568,12 +1571,12 @@ Nijemirdum;1679;;;Gaasterlân-Sleat;0653;;
 Nijensleek;3116;;;Westerveld;1701;;
 Nijetrijne;1729;;;Weststellingwerf;0098;;
 Nijeveen;1083;;;Meppel;0119;;
-Nijhuizum;1972;;;Nijefurd;0104;;20110101
-Nijhuizum;1972;;;Súdwest Fryslân;1900;20110101;
+Nijhuizum;1972;;;Nijefurd;0104;;01-01-2011
+Nijhuizum;1972;;;Súdwest Fryslân;1900;01-01-2011;
 Nijkerk;2869;;;Nijkerk;0267;;
 Nijkerkerveen;2870;;;Nijkerk;0267;;
-Nijland;2414;;;Wymbritseradiel;0683;;20110101
-Nijland;2414;;;Súdwest Fryslân;1900;20110101;
+Nijland;2414;;;Wymbritseradiel;0683;;01-01-2011
+Nijland;2414;;;Súdwest Fryslân;1900;01-01-2011;
 Nijlande;1173;;;Aa en Hunze;1680;;
 Nijmegen;3030;;;Nijmegen;0268;;
 Nijverdal;1042;;;Hellendoorn;0163;;
@@ -1582,8 +1585,8 @@ Nisse;1260;;;Borsele;0654;;
 Nistelrode;3062;;;Bernheze;1721;;
 Noardburgum;2450;;;Tytsjerksteradiel;0737;;
 Nooitgedacht;1174;;;Aa en Hunze;1680;;
-Noorbeek;1696;;;Margraten;0936;;20110101
-Noorbeek;1696;;;Eijsden-Margraten;1903;20110101;
+Noorbeek;1696;;;Margraten;0936;;01-01-2011
+Noorbeek;1696;;;Eijsden-Margraten;1903;01-01-2011;
 Noordbeemster;2171;;;Beemster;0370;;
 Noordbroek;2279;;;Menterwolde;1987;;
 Noordeinde;1905;;;Graft-De Rijp;0365;;
@@ -1625,8 +1628,8 @@ Oeffelt;1219;;;Boxmeer;0756;;
 Oegstgeest;2744;;;Oegstgeest;0579;;
 Oene;1347;;;Epe;0232;;
 Oentsjerk;2443;;;Tytsjerksteradiel;0737;;
-Offingawier;2863;;;Sneek;0091;;20110101
-Offingawier;2863;;01-01-2011;Súdwest Fryslân;1900;20110101;
+Offingawier;2863;;;Sneek;0091;;01-01-2011
+Offingawier;2863;;01-01-2011;Súdwest Fryslân;1900;01-01-2011;
 Offingawier;3506;01-01-2011;;Súdwest Fryslân;1900;;
 Ohé en Laak;1923;;;Maasgouw;1641;;
 Oijen;3470;;;Oss;0828;;
@@ -1682,8 +1685,8 @@ Oosterwolde;1763;;;Ooststellingwerf;0085;;
 Oosterwolde Gld;3072;;;Oldebroek;0269;;
 Oosterzee;2246;;;Lemsterland;0082;;
 Oost-Graftdijk;1906;;;Graft-De Rijp;0365;;
-Oosthem;2415;;;Wymbritseradiel;0683;;20110101
-Oosthem;2415;;;Súdwest Fryslân;1900;20110101;
+Oosthem;2415;;;Wymbritseradiel;0683;;01-01-2011
+Oosthem;2415;;;Súdwest Fryslân;1900;01-01-2011;
 Oosthuizen;1841;;;Zeevang;0478;;
 Oostkapelle;2781;;;Veere;0717;;
 Oostknollendam;2285;;;Wormerland;0880;;
@@ -1704,8 +1707,8 @@ Opheusden;1098;;;Neder-Betuwe;1740;;
 Opijnen;3365;;;Neerijnen;0304;;
 Oploo;2082;;;Sint Anthonis;1702;;
 Opmeer;2791;;;Opmeer;0432;;
-Oppenhuizen;2416;;;Wymbritseradiel;0683;;20110101
-Oppenhuizen;2416;;;Súdwest Fryslân;1900;20110101;
+Oppenhuizen;2416;;;Wymbritseradiel;0683;;01-01-2011
+Oppenhuizen;2416;;;Súdwest Fryslân;1900;01-01-2011;
 Opperdoes;3155;;;Medemblik;0420;;
 Oranje;3019;;;Midden-Drenthe;1731;;
 Oranjewoud;2189;;;Heerenveen;0074;;
@@ -1720,26 +1723,26 @@ Oterleek;1888;;;Schermer;0458;;
 Otterlo;2767;;;Ede;0228;;
 Ottersum;2480;;;Gennep;0907;;
 Ottoland;1984;;;Graafstroom;0693;;
-Oud Ade;3038;;;Kaag en Braassem;1884;;
+Oud Ade;3038;;04-01-2012;Kaag en Braassem;1884;;
 Oud Ade;3540;04-01-2012;;Kaag en Braassem;1884;;
 Oud Annerveen;1175;;;Aa en Hunze;1680;;
 Oud Gastel;1248;;;Halderberge;1655;;
 Oud Ootmarsum;1413;;;Dinkelland;1774;;
-Oud Zuilen;2066;;;Maarssen;0333;;20110101
-Oud Zuilen;2066;;;Stichtse Vecht;1904;20110101;
+Oud Zuilen;2066;;;Maarssen;0333;;01-01-2011
+Oud Zuilen;2066;;;Stichtse Vecht;1904;01-01-2011;
 Oud-Alblas;1985;;;Graafstroom;0693;;
 Oud-Beijerland;2793;;;Oud-Beijerland;0584;;
 Ouddorp;2932;;;Goedereede;0511;;
 Oude Meer;1599;;;Haarlemmermeer;0394;;
-Oude Niedorp;2519;;;Niedorp;0412;;20120101
-Oude Niedorp;2519;;;Hollands Kroon;1911;;
+Oude Niedorp;2519;;;Niedorp;0412;;01-01-2012
+Oude Niedorp;2519;;;Hollands Kroon;1911;01-01-2012;
 Oude Pekela;1397;;;Pekela;0765;;
 Oude Wetering;3039;;;Kaag en Braassem;1884;;
 Oude Willem;3117;;;Westerveld;1701;;
 Oudebildtzijl;3328;;;het Bildt;0063;;
 Oudega;1680;;;Gaasterlân-Sleat;0653;;
-Oudega;2417;;;Wymbritseradiel;0683;;20110101
-Oudega;2417;;;Súdwest Fryslân;1900;20110101;
+Oudega;2417;;;Wymbritseradiel;0683;;01-01-2011
+Oudega;2417;;;Súdwest Fryslân;1900;01-01-2011;
 Oudega;3286;;;Smallingerland;0090;;
 Oudehaske;2499;;;Skarsterlân;0051;;
 Oudehorne;2195;;;Heerenveen;0074;;
@@ -1786,8 +1789,8 @@ Papekop;1911;;;Oudewater;0589;;
 Papendrecht;1477;;;Papendrecht;0590;;
 Papenhoven;2818;;;Sittard-Geleen;1883;;
 Papenvoort;1176;;;Aa en Hunze;1680;;
-Parrega;2319;;;Wûnseradiel;0710;;20110101
-Parrega;2319;;;Súdwest Fryslân;1900;20110101;
+Parrega;2319;;;Wûnseradiel;0710;;01-01-2011
+Parrega;2319;;;Súdwest Fryslân;1900;01-01-2011;
 Paterswolde;2910;;;Tynaarlo;1730;;
 Peest;1645;;;Noordenveld;1699;;
 Peins;1368;;;Franekeradeel;0070;;
@@ -1799,15 +1802,15 @@ Pesse;1818;;;Hoogeveen;0118;;
 Pesse;3118;;;Westerveld;1701;;
 Petten;2761;;;Zijpe;0476;;
 Philippine;1133;;;Terneuzen;0715;;
-Piaam;2320;;;Wûnseradiel;0710;;20110101
-Piaam;2320;;;Súdwest Fryslân;1900;20110101;
+Piaam;2320;;;Wûnseradiel;0710;;01-01-2011
+Piaam;2320;;;Súdwest Fryslân;1900;01-01-2011;
 Piershil;2888;;;Korendijk;0588;;
 Pieterburen;3423;;;De Marne;1663;;
 Pietersbierum;1374;;;Franekeradeel;0070;;
 Pieterzijl;2125;;;Zuidhorn;0056;;
 Pijnacker;1141;;;Pijnacker-Nootdorp;1926;;
-Pingjum;2321;;;Wûnseradiel;0710;;20110101
-Pingjum;2321;;;Súdwest Fryslân;1900;20110101;
+Pingjum;2321;;;Wûnseradiel;0710;;01-01-2011
+Pingjum;2321;;;Súdwest Fryslân;1900;01-01-2011;
 Plasmolen;2804;;;Mook en Middelaar;0944;;
 Poederoijen;2635;;;Zaltbommel;0297;;
 Poeldijk;2661;;;Westland;1783;;
@@ -1844,8 +1847,8 @@ Readtsjerk;3272;;;Dantumadiel;1891;;
 Reahûs;2028;;;Littenseradiel;0140;;
 Reduzum;2535;;;Boarnsterhim;0055;;
 Reek;1852;;;Landerd;1685;;
-Reeuwijk;2476;;;Reeuwijk;0595;;20110101
-Reeuwijk;2476;;;Bodegraven-Reeuwijk;1901;20110101;
+Reeuwijk;2476;;;Reeuwijk;0595;;01-01-2011
+Reeuwijk;2476;;;Bodegraven-Reeuwijk;1901;01-01-2011;
 Reijmerstok;1227;;;Gulpen-Wittem;1729;;
 Reitsum;3209;;;Ferwerderadiel;1722;;
 Rekken;1663;;;Berkelland;1859;;
@@ -1931,8 +1934,8 @@ Saaksum;2126;;;Zuidhorn;0056;;
 Saasveld;1415;;;Dinkelland;1774;;
 Saaxumhuizen;2471;;;Winsum;0053;;
 Sambeek;1222;;;Boxmeer;0756;;
-Sandfirden;2418;;;Wymbritseradiel;0683;;20110101
-Sandfirden;2418;;;Súdwest Fryslân;1900;20110101;
+Sandfirden;2418;;;Wymbritseradiel;0683;;01-01-2011
+Sandfirden;2418;;;Súdwest Fryslân;1900;01-01-2011;
 Santpoort-Noord;2837;;;Velsen;0453;;
 Santpoort-Zuid;2838;;;Velsen;0453;;
 Sappemeer;1021;;;Hoogezand-Sappemeer;0018;;
@@ -1948,8 +1951,8 @@ Schalsum;1369;;;Franekeradeel;0070;;
 Schardam;1842;;;Zeevang;0478;;
 Scharendijke;2686;;;Schouwen-Duiveland;1676;;
 Scharmer;1355;;;Slochteren;0040;;
-Scharnegoutum;2419;;;Wymbritseradiel;0683;;20110101
-Scharnegoutum;2419;;;Súdwest Fryslân;1900;20110101;
+Scharnegoutum;2419;;;Wymbritseradiel;0683;;01-01-2011
+Scharnegoutum;2419;;;Súdwest Fryslân;1900;01-01-2011;
 Scharsterbrug;2506;;;Skarsterlân;0051;;
 Scharwoude;1189;;;Koggenland;1598;;
 Scheemda;1893;;;Oldambt;1895;;
@@ -1960,10 +1963,10 @@ Schermerhorn;1889;;;Schermer;0458;;
 Scherpenisse;2073;;;Tholen;0716;;
 Scherpenzeel;1737;;;Weststellingwerf;0098;;
 Scherpenzeel;2135;;;Scherpenzeel;0279;;
-Schettens;2322;;;Wûnseradiel;0710;;20110101
-Schettens;2322;;;Súdwest Fryslân;1900;20110101;
-Scheulder;1697;;;Margraten;0936;;20110101
-Scheulder;1697;;;Eijsden-Margraten;1903;20110101;
+Schettens;2322;;;Wûnseradiel;0710;;01-01-2011
+Schettens;2322;;;Súdwest Fryslân;1900;01-01-2011;
+Scheulder;1697;;;Margraten;0936;;01-01-2011
+Scheulder;1697;;;Eijsden-Margraten;1903;01-01-2011;
 Schiedam;1935;;;Schiedam;0606;;
 Schiermonnikoog;2428;;;Schiermonnikoog;0088;;
 Schijf;2582;;;Rucphen;0840;;
@@ -1987,8 +1990,8 @@ Schoonrewoerd;2272;;;Leerdam;0545;;
 Schoorl;3045;;;Bergen (NH);0373;;
 Schore;1469;;;Kapelle;0678;;
 Schouwerzijl;3424;;;De Marne;1663;;
-Schraard;2323;;;Wûnseradiel;0710;;20110101
-Schraard;2323;;;Súdwest Fryslân;1900;20110101;
+Schraard;2323;;;Wûnseradiel;0710;;01-01-2011
+Schraard;2323;;;Súdwest Fryslân;1900;01-01-2011;
 Schuinesloot;1562;;;Hardenberg;0160;;
 Sebaldeburen;2181;;;Grootegast;0015;;
 Sellingen;2295;;;Vlagtwedde;0048;;
@@ -2023,8 +2026,8 @@ Sinderen;1579;;;Oude IJsselstreek;1509;;
 Sint Agatha;1454;;;Cuijk;1684;;
 Sint Annen;1834;;;Ten Boer;0009;;
 Sint Anthonis;2083;;;Sint Anthonis;1702;;
-Sint Geertruid;1698;;;Margraten;0936;;20110101
-Sint Geertruid;1698;;;Eijsden-Margraten;1903;20110101;
+Sint Geertruid;1698;;;Margraten;0936;;01-01-2011
+Sint Geertruid;1698;;;Eijsden-Margraten;1903;01-01-2011;
 Sint Hubert;1977;;;Mill en Sint Hubert;0815;;
 Sint Jansklooster;2712;;;Steenwijkerland;1708;;
 Sint Jansteen;3089;;;Hulst;0677;;
@@ -2045,11 +2048,11 @@ Sint-Oedenrode;2787;;;Sint-Oedenrode;0846;;
 Sirjansland;2688;;;Schouwen-Duiveland;1676;;
 Sittard;2819;;10-05-2011;Sittard-Geleen;1883;;
 Sittard;3512;01-01-2011;;Sittard-Geleen;1883;;
-Skingen;2732;;;Menaldumadeel;0083;;20110101
-Skingen;2732;;;Menameradiel;1908;20110101;
+Skingen;2732;;;Menaldumadeel;0083;;01-01-2011
+Skingen;2732;;;Menameradiel;1908;01-01-2011;
 Slagharen;1564;;;Hardenberg;0160;;
-Slappeterp;2733;;;Menaldumadeel;0083;;20110101
-Slappeterp;2733;;;Menameradiel;1908;20110101;
+Slappeterp;2733;;;Menaldumadeel;0083;;01-01-2011
+Slappeterp;2733;;;Menameradiel;1908;01-01-2011;
 Sleen;2162;;;Coevorden;0109;;
 Sleeuwijk;2217;;;Werkendam;0870;;
 Slenaken;1229;;;Gulpen-Wittem;1729;;
@@ -2057,20 +2060,20 @@ Sliedrecht;2438;;;Sliedrecht;0610;;
 Slijkenburg;1738;;;Weststellingwerf;0098;;
 Slijk-Ewijk;1871;;;Overbetuwe;1734;;
 Slochteren;1358;;;Slochteren;0040;;
-Slootdorp;2435;;;Wieringermeer;0463;;20120101
-Slootdorp;2435;;;Hollands Kroon;1911;;
+Slootdorp;2435;;;Wieringermeer;0463;;01-01-2012
+Slootdorp;2435;;;Hollands Kroon;1911;01-01-2012;
 Sloten;1684;;;Gaasterlân-Sleat;0653;;
 Sluis;2962;;;Sluis;1714;;
 Sluiskil;1135;;;Terneuzen;0715;;
 Smakt;2334;;;Venray;0984;;
 Smalle Ee;3288;;;Smallingerland;0090;;
-Smallebrugge;2420;;;Wymbritseradiel;0683;;20110101
-Smallebrugge;2420;;;Súdwest Fryslân;1900;20110101;
+Smallebrugge;2420;;;Wymbritseradiel;0683;;01-01-2011
+Smallebrugge;2420;;;Súdwest Fryslân;1900;01-01-2011;
 Smilde;2457;;;Assen;0106;;
 Smilde;3021;;;Midden-Drenthe;1731;;
 Snakkerburen;1200;;;Leeuwarden;0080;;
-Sneek;2861;;;Sneek;0091;;20110101
-Sneek;2861;;01-01-2011;Súdwest Fryslân;1900;20110101;
+Sneek;2861;;;Sneek;0091;;01-01-2011
+Sneek;2861;;01-01-2011;Súdwest Fryslân;1900;01-01-2011;
 Sneek;3504;01-01-2011;;Súdwest Fryslân;1900;;
 Snelrewaard;1912;;;Oudewater;0589;;
 Snikzwaag;2509;;;Skarsterlân;0051;;
@@ -2083,7 +2086,7 @@ Son;2599;;;Son en Breugel;0848;;
 Son en Breugel;3520;26-07-2011;;Son en Breugel;0848;;
 Sondel;1685;;;Gaasterlân-Sleat;0653;;
 Sonnega;1739;;;Weststellingwerf;0098;;
-Spaarndam;2642;;;Haarlemmerliede en Spaarnwoude;0393;;
+Spaarndam;2642;;05-01-2012;Haarlemmerliede en Spaarnwoude;0393;;
 Spaarndam;3534;05-01-2012;;Haarlemmerliede en Spaarnwoude;0393;;
 Spaarndam gem. Haarlem;2908;;;Haarlem;0392;;
 Spanbroek;2792;;;Opmeer;0432;;
@@ -2115,8 +2118,8 @@ Starnmeer;1907;;;Graft-De Rijp;0365;;
 Startenhuizen;3452;;;Loppersum;0024;;
 Startenhuizen;3481;;;Eemsmond;1651;;
 Stavenisse;2075;;;Tholen;0716;;
-Stavoren;1969;;;Nijefurd;0104;;20110101
-Stavoren;1969;;;Súdwest Fryslân;1900;20110101;
+Stavoren;1969;;;Nijefurd;0104;;01-01-2011
+Stavoren;1969;;;Súdwest Fryslân;1900;01-01-2011;
 Stedum;3453;;;Loppersum;0024;;
 Steenbergen;1405;;;Steenbergen;0851;;
 Steenbergen;1650;;;Noordenveld;1699;;
@@ -2198,8 +2201,8 @@ Thorn;1916;;;Maasgouw;1641;;
 Tiel;2557;;;Tiel;0281;;
 Tiendeveen;1820;;;Hoogeveen;0118;;
 Tiendeveen;3024;;;Midden-Drenthe;1731;;
-Tienhoven;2065;;;Maarssen;0333;;20110101
-Tienhoven;2065;;;Stichtse Vecht;1904;20110101;
+Tienhoven;2065;;;Maarssen;0333;;01-01-2011
+Tienhoven;2065;;;Stichtse Vecht;1904;01-01-2011;
 Tienhoven;2107;;;Zederik;0707;;
 Tienray;1860;;;Horst aan de Maas;1507;;
 Tijnje;3356;;;Opsterland;0086;;
@@ -2207,14 +2210,14 @@ Tilburg;1043;;;Tilburg;0855;;
 Tilligte;1416;;;Dinkelland;1774;;
 Tinallinge;2473;;;Winsum;0053;;
 Tinte;1211;;;Westvoorne;0614;;
-Tirns;2421;;;Wymbritseradiel;0683;;20110101
-Tirns;2421;;;Súdwest Fryslân;1900;20110101;
-Tjalhuizum;2422;;;Wymbritseradiel;0683;;20110101
-Tjalhuizum;2422;;;Súdwest Fryslân;1900;20110101;
+Tirns;2421;;;Wymbritseradiel;0683;;01-01-2011
+Tirns;2421;;;Súdwest Fryslân;1900;01-01-2011;
+Tjalhuizum;2422;;;Wymbritseradiel;0683;;01-01-2011
+Tjalhuizum;2422;;;Súdwest Fryslân;1900;01-01-2011;
 Tjalleberd;2184;;;Heerenveen;0074;;
 Tjerkgaast;2512;;;Skarsterlân;0051;;
-Tjerkwerd;2324;;;Wûnseradiel;0710;;20110101
-Tjerkwerd;2324;;;Súdwest Fryslân;1900;20110101;
+Tjerkwerd;2324;;;Wûnseradiel;0710;;01-01-2011
+Tjerkwerd;2324;;;Súdwest Fryslân;1900;01-01-2011;
 Tjuchem;1360;;;Slochteren;0040;;
 Tolbert;2345;;;Leek;0022;;
 Toldijk;1531;;;Bronckhorst;1876;;
@@ -2251,8 +2254,8 @@ Uitgeest;2755;;;Uitgeest;0450;;
 Uithoorn;2062;;;Uithoorn;0451;;
 Uithuizen;3483;;;Eemsmond;1651;;
 Uithuizermeeden;3484;;;Eemsmond;1651;;
-Uitwellingerga;2423;;;Wymbritseradiel;0683;;20110101
-Uitwellingerga;2423;;;Súdwest Fryslân;1900;20110101;
+Uitwellingerga;2423;;;Wymbritseradiel;0683;;01-01-2011
+Uitwellingerga;2423;;;Súdwest Fryslân;1900;01-01-2011;
 Uitwijk;3304;;;Woudrichem;0874;;
 Ulestraten;1465;;;Meerssen;0938;;
 Ulft;1580;;;Oude IJsselstreek;1509;;
@@ -2296,9 +2299,9 @@ Velden;3142;;;Venlo;0983;;
 Veldhoven;1384;;;Veldhoven;0861;;
 Velp;1500;;;Rheden;0275;;
 Velp;3198;;;Grave;0786;;
-Velsen-Noord;2833;;;Velsen;0453;;
+Velsen-Noord;2833;;30-01-2012;Velsen;0453;;
 Velsen-Noord;3538;16-01-2012;;Velsen;0453;;
-Velsen-Zuid;2834;;;Velsen;0453;;
+Velsen-Zuid;2834;;31-01-2012;Velsen;0453;;
 Velsen-Zuid;3536;16-01-2012;;Velsen;0453;;
 Velserbroek;2839;;;Velsen;0453;;
 Venebrugge;1565;;;Hardenberg;0160;;
@@ -2324,7 +2327,8 @@ Vinkega;1743;;;Weststellingwerf;0098;;
 Vinkel;2749;;;Maasdonk;1671;;
 Vinkel;3063;;;Bernheze;1721;;
 Vinkenbuurt;2555;;;Ommen;0175;;
-Vinkeveen;1930;;;De Ronde Venen;0736;;
+Vinkeveen;1930;;07-02-2012;De Ronde Venen;0736;;
+Vinkeveen;3550;07-02-2012;;De Ronde Venen;0736;;
 Visvliet;2127;;;Zuidhorn;0056;;
 Vlaardingen;1015;;;Vlaardingen;0622;;
 Vlagtwedde;2298;;;Vlagtwedde;0048;;
@@ -2358,8 +2362,8 @@ Vortum-Mullem;1224;;;Boxmeer;0756;;
 Vragender;2226;;;Oost Gelre;1586;;
 Vredenheim;1181;;;Aa en Hunze;1680;;
 Vredepeel;2337;;;Venray;0984;;
-Vreeland;2223;;;Loenen;0329;;20110101
-Vreeland;2223;;;Stichtse Vecht;1904;20110101;
+Vreeland;2223;;;Loenen;0329;;01-01-2011
+Vreeland;2223;;04-01-2012;Stichtse Vecht;1904;01-01-2011;
 Vreeland;3525;04-01-2012;;Stichtse Vecht;1904;;
 Vries;2912;;;Tynaarlo;1730;;
 Vriescheloo;2235;;;Bellingwedde;0007;;
@@ -2376,8 +2380,8 @@ Waalre;1006;;;Waalre;0866;;
 Waalwijk;2597;;;Waalwijk;0867;;
 Waarde;3466;;;Reimerswaal;0703;;
 Waardenburg;3368;;;Neerijnen;0304;;
-Waarder;2478;;;Reeuwijk;0595;;20110101
-Waarder;2478;;;Bodegraven-Reeuwijk;1901;20110101;
+Waarder;2478;;;Reeuwijk;0595;;01-01-2011
+Waarder;2478;;;Bodegraven-Reeuwijk;1901;01-01-2011;
 Waardhuizen;3305;;;Woudrichem;0874;;
 Waarland;3293;;;Harenkarspel;0395;;
 Waaxens;3412;;;Dongeradeel;0058;;
@@ -2403,10 +2407,10 @@ Warffum;3486;;;Eemsmond;1651;;
 Warfhuizen;3427;;;De Marne;1663;;
 Warfstermolen;3316;;;Kollumerland en Nieuwkruisland;0079;;
 Warmenhuizen;3294;;;Harenkarspel;0395;;
-Warmond;2005;;;Teylingen;1525;;
-Warmond;3542;01-01-2012;;Teylingen;1525;;
-Warns;1971;;;Nijefurd;0104;;20110101
-Warns;1971;;;Súdwest Fryslân;1900;20110101;
+Warmond;2005;;21-12-2011;Teylingen;1525;;
+Warmond;3542;20-12-2011;;Teylingen;1525;;
+Warns;1971;;;Nijefurd;0104;;01-01-2011
+Warns;1971;;;Súdwest Fryslân;1900;01-01-2011;
 Warnsveld;1396;;;Zutphen;0301;;
 Warstiens;2540;;;Boarnsterhim;0055;;
 Warten;2541;;;Boarnsterhim;0055;;
@@ -2418,7 +2422,8 @@ Watergang;1945;;;Waterland;0852;;
 Waterhuizen;1022;;;Hoogezand-Sappemeer;0018;;
 Wateringen;2664;;;Westland;1783;;
 Waterlandkerkje;2963;;;Sluis;1714;;
-Waverveen;1933;;;De Ronde Venen;0736;;
+Waverveen;1933;;07-02-2012;De Ronde Venen;0736;;
+Waverveen;3551;07-02-2012;;De Ronde Venen;0736;;
 Wedde;2236;;;Bellingwedde;0007;;
 Weerselo;1417;;;Dinkelland;1774;;
 Weert;1974;;;Weert;0988;;
@@ -2439,8 +2444,8 @@ Wergea;2539;;;Boarnsterhim;0055;;
 Werkendam;2218;;;Werkendam;0870;;
 Werkhoven;2605;;;Bunnik;0312;;
 Wernhout;3491;;;Zundert;0879;;
-Wervershoof;1106;;;Medemblik;0420;20110101;
-Wervershoof;1106;;;Wervershoof;0459;;20110101
+Wervershoof;1106;;;Medemblik;0420;01-01-2011;
+Wervershoof;1106;;;Wervershoof;0459;;01-01-2011
 Wesepe;1381;;;Olst-Wijhe;1773;;
 Wessem;1919;;;Maasgouw;1641;;
 Westbeemster;2172;;;Beemster;0370;;
@@ -2455,16 +2460,16 @@ Westeremden;3455;;;Loppersum;0024;;
 Westergeest;3317;;;Kollumerland en Nieuwkruisland;0079;;
 Westerhaar-Vriezenveensewijk;3327;;;Twenterand;1700;;
 Westerhoven;1460;;;Bergeijk;1724;;
-Westerland;1490;;;Wieringen;0462;;20120101
-Westerland;1490;;;Hollands Kroon;1911;;
+Westerland;1490;;;Wieringen;0462;;01-01-2012
+Westerland;1490;;;Hollands Kroon;1911;01-01-2012;
 Westerlee;1900;;;Oldambt;1895;;
 Westernieland;3429;;;De Marne;1663;;
 Westervelde;1652;;;Noordenveld;1699;;
 Westervoort;1936;;;Westervoort;0293;;
 Westerwijtwerd;3456;;;Loppersum;0024;;
 West-Graftdijk;1908;;;Graft-De Rijp;0365;;
-Westhem;2424;;;Wymbritseradiel;0683;;20110101
-Westhem;2424;;;Súdwest Fryslân;1900;20110101;
+Westhem;2424;;;Wymbritseradiel;0683;;01-01-2011
+Westhem;2424;;;Súdwest Fryslân;1900;01-01-2011;
 Westhoek;3329;;;het Bildt;0063;;
 Westkapelle;2785;;;Veere;0717;;
 Westknollendam;1881;;;Zaanstad;0479;;
@@ -2481,13 +2486,13 @@ Wezep;3073;;;Oldebroek;0269;;
 Wezup;2166;;;Coevorden;0109;;
 Wezuperbrug;2167;;;Coevorden;0109;;
 Wichmond;1533;;;Bronckhorst;1876;;
-Wier;2734;;;Menaldumadeel;0083;;20110101
-Wier;2734;;;Menameradiel;1908;20110101;
+Wier;2734;;;Menaldumadeel;0083;;01-01-2011
+Wier;2734;;;Menameradiel;1908;01-01-2011;
 Wierden;1087;;;Wierden;0189;;
-Wieringerwaard;3187;;;Anna Paulowna;0366;;20120101
-Wieringerwaard;3187;;;Hollands Kroon;1911;;
-Wieringerwerf;2436;;;Wieringermeer;0463;;20120101
-Wieringerwerf;2436;;;Hollands Kroon;1911;;
+Wieringerwaard;3187;;;Anna Paulowna;0366;;01-01-2012
+Wieringerwaard;3187;;;Hollands Kroon;1911;01-01-2012;
+Wieringerwerf;2436;;;Wieringermeer;0463;;01-01-2012
+Wieringerwerf;2436;;;Hollands Kroon;1911;01-01-2012;
 Wierum;3414;;;Dongeradeel;0058;;
 Wijchen;2564;;;Wijchen;0296;;
 Wijckel;1686;;;Gaasterlân-Sleat;0653;;
@@ -2515,8 +2520,8 @@ Wilp;2613;;;Voorst;0285;;
 Wilsum;2898;;;Kampen;0166;;
 Winde;2920;;;Tynaarlo;1730;;
 Windraak;2820;;;Sittard-Geleen;1883;;
-Winkel;2521;;;Niedorp;0412;;20120101
-Winkel;2521;;;Hollands Kroon;1911;;
+Winkel;2521;;;Niedorp;0412;;01-01-2012
+Winkel;2521;;;Hollands Kroon;1911;01-01-2012;
 Winneweer;1836;;;Ten Boer;0009;;
 Winschoten;1471;;;Oldambt;1895;;
 Winssen;2753;;;Beuningen;0209;;
@@ -2538,8 +2543,8 @@ Wirdum;3457;;;Loppersum;0024;;
 Wirdum;3545;05-01-2012;;Leeuwarden;0080;;
 Wissenkerke;3191;;;Noord-Beveland;1695;;
 Witharen;2556;;;Ommen;0175;;
-Witmarsum;2325;;;Wûnseradiel;0710;;20110101
-Witmarsum;2325;;;Súdwest Fryslân;1900;20110101;
+Witmarsum;2325;;;Wûnseradiel;0710;;01-01-2011
+Witmarsum;2325;;;Súdwest Fryslân;1900;01-01-2011;
 Witte Paarden;2720;;;Steenwijkerland;1708;;
 Wittelte;3128;;;Westerveld;1701;;
 Wittem;1233;;;Gulpen-Wittem;1729;;
@@ -2553,33 +2558,33 @@ Wognum;3158;;;Medemblik;0420;;
 Woldendorp;3245;;;Delfzijl;0010;;
 Wolfheze;2989;;;Renkum;0274;;
 Wolphaartsdijk;1828;;;Goes;0664;;
-Wolsum;2425;;;Wymbritseradiel;0683;;20110101
-Wolsum;2425;;;Súdwest Fryslân;1900;20110101;
+Wolsum;2425;;;Wymbritseradiel;0683;;01-01-2011
+Wolsum;2425;;;Súdwest Fryslân;1900;01-01-2011;
 Woltersum;1833;;;Ten Boer;0009;;
 Wolvega;1744;;;Weststellingwerf;0098;;
 Wommels;2036;;;Littenseradiel;0140;;
-Wons;2326;;;Wûnseradiel;0710;;20110101
-Wons;2326;;;Súdwest Fryslân;1900;20110101;
-Workum;1965;;;Nijefurd;0104;;20110101
-Workum;1965;;;Súdwest Fryslân;1900;20110101;
+Wons;2326;;;Wûnseradiel;0710;;01-01-2011
+Wons;2326;;;Súdwest Fryslân;1900;01-01-2011;
+Workum;1965;;;Nijefurd;0104;;01-01-2011
+Workum;1965;;;Súdwest Fryslân;1900;01-01-2011;
 Wormer;2287;;;Wormerland;0880;;
 Wormerveer;1883;;;Zaanstad;0479;;
 Woubrugge;3043;;;Kaag en Braassem;1884;;
 Woudbloem;1361;;;Slochteren;0040;;
 Woudenberg;2523;;;Woudenberg;0351;;
 Woudrichem;3306;;;Woudrichem;0874;;
-Woudsend;2426;;;Wymbritseradiel;0683;;20110101
-Woudsend;2426;;;Súdwest Fryslân;1900;20110101;
+Woudsend;2426;;;Wymbritseradiel;0683;;01-01-2011
+Woudsend;2426;;;Súdwest Fryslân;1900;01-01-2011;
 Wouw;1589;;;Roosendaal;1674;;
 Wouwse Plantage;1592;;;Roosendaal;1674;;
 Wyns;2442;;;Tytsjerksteradiel;0737;;
 Wytgaard;1206;;;Leeuwarden;0080;;
 Yde;2921;;;Tynaarlo;1730;;
 Yerseke;3467;;;Reimerswaal;0703;;
-Ypecolsga;2427;;;Wymbritseradiel;0683;;20110101
-Ypecolsga;2427;;;Súdwest Fryslân;1900;20110101;
-Ysbrechtum;2864;;;Sneek;0091;;20110101
-Ysbrechtum;2864;;01-01-2011;Súdwest Fryslân;1900;20110101;
+Ypecolsga;2427;;;Wymbritseradiel;0683;;01-01-2011
+Ypecolsga;2427;;;Súdwest Fryslân;1900;01-01-2011;
+Ysbrechtum;2864;;;Sneek;0091;;01-01-2011
+Ysbrechtum;2864;;01-01-2011;Súdwest Fryslân;1900;01-01-2011;
 Ysbrechtum;3507;01-01-2011;;Súdwest Fryslân;1900;;
 Ysselsteyn;2338;;;Venray;0984;;
 Zaamslag;1139;;;Terneuzen;0715;;
@@ -2618,8 +2623,8 @@ Zevenhuizen;2346;;;Leek;0022;;
 Zierikzee;2689;;;Schouwen-Duiveland;1676;;
 Zieuwent;2229;;;Oost Gelre;1586;;
 Zijderveld;2844;;;Vianen;0620;;
-Zijdewind;2522;;;Niedorp;0412;;20120101
-Zijdewind;2522;;;Hollands Kroon;1911;;
+Zijdewind;2522;;;Niedorp;0412;;01-01-2012
+Zijdewind;2522;;;Hollands Kroon;1911;01-01-2012;
 Zijldijk;3460;;;Loppersum;0024;;
 Zoelen;3384;;;Buren;0214;;
 Zoelmond;3385;;;Buren;0214;;
@@ -2650,13 +2655,13 @@ Zuidzande;2972;;;Sluis;1714;;
 Zuilichem;2637;;;Zaltbommel;0297;;
 Zuna;1091;;;Wierden;0189;;
 Zundert;3489;;;Zundert;0879;;
-Zurich;2327;;;Wûnseradiel;0710;;20110101
-Zurich;2327;;;Súdwest Fryslân;1900;20110101;
+Zurich;2327;;;Wûnseradiel;0710;;01-01-2011
+Zurich;2327;;;Súdwest Fryslân;1900;01-01-2011;
 Zutphen;1395;;;Zutphen;0301;;
 Zuurdijk;3431;;;De Marne;1663;;
 Zwaag;2463;;;Hoorn;0405;;
-Zwaagdijk;1107;;;Medemblik;0420;20110101;
-Zwaagdijk;1107;;;Wervershoof;0459;;20110101
+Zwaagdijk;1107;;;Medemblik;0420;01-01-2011;
+Zwaagdijk;1107;;;Wervershoof;0459;;01-01-2011
 Zwaagdijk;3159;;;Medemblik;0420;;
 Zwaanshoek;1611;;;Haarlemmermeer;0394;;
 Zwagerbosch;3318;;;Kollumerland en Nieuwkruisland;0079;;
@@ -2672,746 +2677,3 @@ Zwiggelte;3029;;;Midden-Drenthe;1731;;
 Zwijndrecht;2399;;;Zwijndrecht;0642;;
 Zwinderen;2169;;;Coevorden;0109;;
 Zwolle;1182;;;Zwolle;0193;;
-;;;;;;;
-;;;;;;;
-;;;;;;;
-;;;;;;;
-;;;;;;;
-;;;;;;;
-;;;;;;;
-;;;;;;;
-;;;;;;;
-;;;;;;;
-;;;;;;;
-;;;;;;;
-;;;;;;;
-;;;;;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;
-;;;

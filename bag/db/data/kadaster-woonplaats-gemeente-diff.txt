@@ -1,0 +1,860 @@
+Verschillen kadaster woonplaats-gemeente koppeling
+24 jan 2012 (regel start met <) t.o.v. 6 maart 2012 (regel start met >).
+
+Verschillen zijn vnl datum formaat, herindelingen, begin/einddata woonplaaten en gemeenten
+en daardoor ook woonplaatscodes.
+
+2,9c2,9
+<  't Goy;2054;;;Houten;0321;;
+<  't Haantje;2164;;;Coevorden;0109;;
+<  't Harde;1845;;;Elburg;0230;;
+<  't Loo Oldebroek;3068;;;Oldebroek;0269;;
+<  't Veld;2520;;;Niedorp;0412;;20120101
+<  't Veld;2520;;;Hollands Kroon;1911;;
+<  't Waar;1895;;;Oldambt;1895;;
+<  't Zand;2758;;;Zijpe;0476;;
+---
+> 't Goy;2054;;;Houten;0321;;
+> 't Haantje;2164;;;Coevorden;0109;;
+> 't Harde;1845;;;Elburg;0230;;
+> 't Loo Oldebroek;3068;;;Oldebroek;0269;;
+> 't Veld;2520;;;Niedorp;0412;;01-01-2012
+> 't Veld;2520;;;Hollands Kroon;1911;01-01-2012;
+> 't Waar;1895;;;Oldambt;1895;;
+> 't Zand;2758;;;Zijpe;0476;;
+25,26c25,26
+< Abbega;2400;;;Wymbritseradiel;0683;;20110101
+< Abbega;2400;;;Súdwest Fryslân;1900;20110101;
+---
+> Abbega;2400;;;Wymbritseradiel;0683;;01-01-2011
+> Abbega;2400;;;Súdwest Fryslân;1900;01-01-2011;
+30,31c30,31
+< Abcoude;1332;;;Abcoude;0305;;20110101
+< Abcoude;1332;;;De Ronde Venen;0736;20110101;
+---
+> Abcoude;1332;;;Abcoude;0305;;01-01-2011
+> Abcoude;1332;;;De Ronde Venen;0736;01-01-2011;
+56,57c56,57
+< Allingawier;2301;;;Wûnseradiel;0710;;20110101
+< Allingawier;2301;;;Súdwest Fryslân;1900;20110101;
+---
+> Allingawier;2301;;;Wûnseradiel;0710;;01-01-2011
+> Allingawier;2301;;;Súdwest Fryslân;1900;01-01-2011;
+78c78,79
+< Amstelhoek;1932;;;De Ronde Venen;0736;;
+---
+> Amstelhoek;1932;;07-02-2012;De Ronde Venen;0736;;
+> Amstelhoek;3547;07-02-2012;;De Ronde Venen;0736;;
+86,87c87,88
+< Andijk;1053;;;Andijk;0364;;20110101
+< Andijk;1053;;;Medemblik;0420;20110101;
+---
+> Andijk;1053;;;Andijk;0364;;01-01-2011
+> Andijk;1053;;;Medemblik;0420;01-01-2011;
+96,97c97,98
+< Anna Paulowna;3185;;;Anna Paulowna;0366;;20120101
+< Anna Paulowna;3185;;;Hollands Kroon;1911;;
+---
+> Anna Paulowna;3185;;;Anna Paulowna;0366;;01-01-2012
+> Anna Paulowna;3185;;;Hollands Kroon;1911;01-01-2012;
+111,112c112,113
+< Arum;2302;;;Wûnseradiel;0710;;20110101
+< Arum;2302;;;Súdwest Fryslân;1900;20110101;
+---
+> Arum;2302;;;Wûnseradiel;0710;;01-01-2011
+> Arum;2302;;;Súdwest Fryslân;1900;01-01-2011;
+127,128c128,129
+< Baambrugge;1333;;;Abcoude;0305;;20110101
+< Baambrugge;1333;;;De Ronde Venen;0736;20110101;
+---
+> Baambrugge;1333;;;Abcoude;0305;;01-01-2011
+> Baambrugge;1333;;;De Ronde Venen;0736;01-01-2011;
+153,154c154,155
+< Banholt;1690;;;Margraten;0936;;20110101
+< Banholt;1690;;;Eijsden-Margraten;1903;20110101;
+---
+> Banholt;1690;;;Margraten;0936;;01-01-2011
+> Banholt;1690;;;Eijsden-Margraten;1903;01-01-2011;
+161,162c162,163
+< Barsingerhorn;2514;;;Niedorp;0412;;20120101
+< Barsingerhorn;2514;;;Hollands Kroon;1911;;
+---
+> Barsingerhorn;2514;;;Niedorp;0412;;01-01-2012
+> Barsingerhorn;2514;;;Hollands Kroon;1911;01-01-2012;
+192,193c193,194
+< Bemelen;1691;;;Margraten;0936;;20110101
+< Bemelen;1691;;;Eijsden-Margraten;1903;20110101;
+---
+> Bemelen;1691;;;Margraten;0936;;01-01-2011
+> Bemelen;1691;;;Eijsden-Margraten;1903;01-01-2011;
+196,197c197,198
+< Bennebroek;1391;;;Bloemendaal;0377;;
+< Bennebroek;3533;12-01-2012;;Bloemendaal;0377;;
+---
+> Bennebroek;1391;;03-01-2012;Bloemendaal;0377;;
+> Bennebroek;3533;03-01-2012;;Bloemendaal;0377;;
+224,225c225,226
+< Berltsum;2724;;;Menaldumadeel;0083;;20110101
+< Berltsum;2724;;;Menameradiel;1908;20110101;
+---
+> Berltsum;2724;;;Menaldumadeel;0083;;01-01-2011
+> Berltsum;2724;;;Menameradiel;1908;01-01-2011;
+243,246c244,247
+< Bitgum;2722;;;Menaldumadeel;0083;;20110101
+< Bitgum;2722;;;Menameradiel;1908;20110101;
+< Bitgummole;2723;;;Menaldumadeel;0083;;20110101
+< Bitgummole;2723;;;Menameradiel;1908;20110101;
+---
+> Bitgum;2722;;;Menaldumadeel;0083;;01-01-2011
+> Bitgum;2722;;;Menameradiel;1908;01-01-2011;
+> Bitgummole;2723;;;Menaldumadeel;0083;;01-01-2011
+> Bitgummole;2723;;;Menameradiel;1908;01-01-2011;
+252,253c253,254
+< Blauwhuis;2401;;;Wymbritseradiel;0683;;20110101
+< Blauwhuis;2401;;;Súdwest Fryslân;1900;20110101;
+---
+> Blauwhuis;2401;;;Wymbritseradiel;0683;;01-01-2011
+> Blauwhuis;2401;;;Súdwest Fryslân;1900;01-01-2011;
+257,258c258,259
+< Blessum;2725;;;Menaldumadeel;0083;;20110101
+< Blessum;2725;;;Menameradiel;1908;20110101;
+---
+> Blessum;2725;;;Menaldumadeel;0083;;01-01-2011
+> Blessum;2725;;;Menameradiel;1908;01-01-2011;
+267,268c268,269
+< Bodegraven;2665;;;Bodegraven;0497;;20110101
+< Bodegraven;2665;;;Bodegraven-Reeuwijk;1901;20110101;
+---
+> Bodegraven;2665;;;Bodegraven;0497;;01-01-2011
+> Bodegraven;2665;;;Bodegraven-Reeuwijk;1901;01-01-2011;
+276,279c277,280
+< Boksum;2726;;;Menaldumadeel;0083;;20110101
+< Boksum;2726;;;Menameradiel;1908;20110101;
+< Bolsward;2079;;;Bolsward;0064;;20110101
+< Bolsward;2079;;;Súdwest Fryslân;1900;20110101;
+---
+> Boksum;2726;;;Menaldumadeel;0083;;01-01-2011
+> Boksum;2726;;;Menameradiel;1908;01-01-2011;
+> Bolsward;2079;;;Bolsward;0064;;01-01-2011
+> Bolsward;2079;;;Súdwest Fryslân;1900;01-01-2011;
+312,315c313,316
+< Breezand;3186;;;Anna Paulowna;0366;;20120101
+< Breezand;3186;;;Hollands Kroon;1911;;
+< Breezanddijk;2303;;;Wûnseradiel;0710;;20110101
+< Breezanddijk;2303;;;Súdwest Fryslân;1900;20110101;
+---
+> Breezand;3186;;;Anna Paulowna;0366;;01-01-2012
+> Breezand;3186;;;Hollands Kroon;1911;01-01-2012;
+> Breezanddijk;2303;;;Wûnseradiel;0710;;01-01-2011
+> Breezanddijk;2303;;;Súdwest Fryslân;1900;01-01-2011;
+318,319c319,320
+< Breukelen;1392;;;Breukelen;0311;;20110101
+< Breukelen;1392;;;Stichtse Vecht;1904;20110101;
+---
+> Breukelen;1392;;;Breukelen;0311;;01-01-2011
+> Breukelen;1392;;;Stichtse Vecht;1904;01-01-2011;
+365,366c366,367
+< Burgwerd;2304;;;Wûnseradiel;0710;;20110101
+< Burgwerd;2304;;;Súdwest Fryslân;1900;20110101;
+---
+> Burgwerd;2304;;;Wûnseradiel;0710;;01-01-2011
+> Burgwerd;2304;;;Súdwest Fryslân;1900;01-01-2011;
+372,373c373,374
+< Cadier en Keer;1692;;;Margraten;0936;;20110101
+< Cadier en Keer;1692;;;Eijsden-Margraten;1903;20110101;
+---
+> Cadier en Keer;1692;;;Margraten;0936;;01-01-2011
+> Cadier en Keer;1692;;;Eijsden-Margraten;1903;01-01-2011;
+387,388c388,389
+< Cornwerd;2305;;;Wûnseradiel;0710;;20110101
+< Cornwerd;2305;;;Súdwest Fryslân;1900;20110101;
+---
+> Cornwerd;2305;;;Wûnseradiel;0710;;01-01-2011
+> Cornwerd;2305;;;Súdwest Fryslân;1900;01-01-2011;
+415c416,417
+< De Hoef;1934;;;De Ronde Venen;0736;;
+---
+> De Hoef;1934;;07-02-2012;De Ronde Venen;0736;;
+> de Hoef;3548;07-02-2012;;De Ronde Venen;0736;;
+447,448c449,450
+< Dedgum;2306;;;Wûnseradiel;0710;;20110101
+< Dedgum;2306;;;Súdwest Fryslân;1900;20110101;
+---
+> Dedgum;2306;;;Wûnseradiel;0710;;01-01-2011
+> Dedgum;2306;;;Súdwest Fryslân;1900;01-01-2011;
+452,453c454,455
+< Deinum;2727;;;Menaldumadeel;0083;;20110101
+< Deinum;2727;;;Menameradiel;1908;20110101;
+---
+> Deinum;2727;;;Menaldumadeel;0083;;01-01-2011
+> Deinum;2727;;;Menameradiel;1908;01-01-2011;
+474,475c476,477
+< Den Oever;1489;;;Wieringen;0462;;20120101
+< Den Oever;1489;;;Hollands Kroon;1911;;
+---
+> Den Oever;1489;;;Wieringen;0462;;01-01-2012
+> Den Oever;1489;;;Hollands Kroon;1911;01-01-2012;
+530,531c532,533
+< Driebruggen;2477;;;Reeuwijk;0595;;20110101
+< Driebruggen;2477;;;Bodegraven-Reeuwijk;1901;20110101;
+---
+> Driebruggen;2477;;;Reeuwijk;0595;;01-01-2011
+> Driebruggen;2477;;;Bodegraven-Reeuwijk;1901;01-01-2011;
+542,543c544,545
+< Dronryp;2729;;;Menaldumadeel;0083;;20110101
+< Dronryp;2729;;;Menameradiel;1908;20110101;
+---
+> Dronryp;2729;;;Menaldumadeel;0083;;01-01-2011
+> Dronryp;2729;;;Menameradiel;1908;01-01-2011;
+567,568c569,570
+< Eckelrade;1693;;;Margraten;0936;;20110101
+< Eckelrade;1693;;;Eijsden-Margraten;1903;20110101;
+---
+> Eckelrade;1693;;;Margraten;0936;;01-01-2011
+> Eckelrade;1693;;;Eijsden-Margraten;1903;01-01-2011;
+601,602c603,604
+< Eijsden;1700;;;Eijsden;0905;;20110101
+< Eijsden;1700;;;Eijsden-Margraten;1903;20110101;
+---
+> Eijsden;1700;;;Eijsden;0905;;01-01-2011
+> Eijsden;1700;;;Eijsden-Margraten;1903;01-01-2011;
+662,663c664,665
+< Exmorra;2307;;;Wûnseradiel;0710;;20110101
+< Exmorra;2307;;;Súdwest Fryslân;1900;20110101;
+---
+> Exmorra;2307;;;Wûnseradiel;0710;;01-01-2011
+> Exmorra;2307;;;Súdwest Fryslân;1900;01-01-2011;
+672,673c674,675
+< Ferwoude;2308;;;Wûnseradiel;0710;;20110101
+< Ferwoude;2308;;;Súdwest Fryslân;1900;20110101;
+---
+> Ferwoude;2308;;;Wûnseradiel;0710;;01-01-2011
+> Ferwoude;2308;;;Súdwest Fryslân;1900;01-01-2011;
+681,682c683,684
+< Folsgare;2402;;;Wymbritseradiel;0683;;20110101
+< Folsgare;2402;;;Súdwest Fryslân;1900;20110101;
+---
+> Folsgare;2402;;;Wymbritseradiel;0683;;01-01-2011
+> Folsgare;2402;;;Súdwest Fryslân;1900;01-01-2011;
+693,696c695,698
+< Gaast;2309;;;Wûnseradiel;0710;;20110101
+< Gaast;2309;;;Súdwest Fryslân;1900;20110101;
+< Gaastmeer;2403;;;Wymbritseradiel;0683;;20110101
+< Gaastmeer;2403;;;Súdwest Fryslân;1900;20110101;
+---
+> Gaast;2309;;;Wûnseradiel;0710;;01-01-2011
+> Gaast;2309;;;Súdwest Fryslân;1900;01-01-2011;
+> Gaastmeer;2403;;;Wymbritseradiel;0683;;01-01-2011
+> Gaastmeer;2403;;;Súdwest Fryslân;1900;01-01-2011;
+713,714c715,716
+< Gauw;2404;;;Wymbritseradiel;0683;;20110101
+< Gauw;2404;;;Súdwest Fryslân;1900;20110101;
+---
+> Gauw;2404;;;Wymbritseradiel;0683;;01-01-2011
+> Gauw;2404;;;Súdwest Fryslân;1900;01-01-2011;
+758,759c760,761
+< Goënga;2405;;;Wymbritseradiel;0683;;20110101
+< Goënga;2405;;;Súdwest Fryslân;1900;20110101;
+---
+> Goënga;2405;;;Wymbritseradiel;0683;;01-01-2011
+> Goënga;2405;;;Súdwest Fryslân;1900;01-01-2011;
+781,782c783,784
+< Greonterp;2406;;;Wymbritseradiel;0683;;20110101
+< Greonterp;2406;;;Súdwest Fryslân;1900;20110101;
+---
+> Greonterp;2406;;;Wymbritseradiel;0683;;01-01-2011
+> Greonterp;2406;;;Súdwest Fryslân;1900;01-01-2011;
+796,797c798,799
+< Gronsveld;1701;;;Eijsden;0905;;20110101
+< Gronsveld;1701;;;Eijsden-Margraten;1903;20110101;
+---
+> Gronsveld;1701;;;Eijsden;0905;;01-01-2011
+> Gronsveld;1701;;;Eijsden-Margraten;1903;01-01-2011;
+844,845c846,847
+< Haringhuizen;2515;;;Niedorp;0412;;20120101
+< Haringhuizen;2515;;;Hollands Kroon;1911;;
+---
+> Haringhuizen;2515;;;Niedorp;0412;;01-01-2012
+> Haringhuizen;2515;;;Hollands Kroon;1911;01-01-2012;
+852,853c854,855
+< Hartwerd;2310;;;Wûnseradiel;0710;;20110101
+< Hartwerd;2310;;;Súdwest Fryslân;1900;20110101;
+---
+> Hartwerd;2310;;;Wûnseradiel;0710;;01-01-2011
+> Hartwerd;2310;;;Súdwest Fryslân;1900;01-01-2011;
+869,870c871,872
+< Heeg;2407;;;Wymbritseradiel;0683;;20110101
+< Heeg;2407;;;Súdwest Fryslân;1900;20110101;
+---
+> Heeg;2407;;;Wymbritseradiel;0683;;01-01-2011
+> Heeg;2407;;;Súdwest Fryslân;1900;01-01-2011;
+917,918c919,920
+< Hemelum;1970;;;Nijefurd;0104;;20110101
+< Hemelum;1970;;;Súdwest Fryslân;1900;20110101;
+---
+> Hemelum;1970;;;Nijefurd;0104;;01-01-2011
+> Hemelum;1970;;;Súdwest Fryslân;1900;01-01-2011;
+951,952c953,954
+< Hichtum;2311;;;Wûnseradiel;0710;;20110101
+< Hichtum;2311;;;Súdwest Fryslân;1900;20110101;
+---
+> Hichtum;2311;;;Wûnseradiel;0710;;01-01-2011
+> Hichtum;2311;;;Súdwest Fryslân;1900;01-01-2011;
+955,956c957,958
+< Hieslum;2312;;;Wûnseradiel;0710;;20110101
+< Hieslum;2312;;;Súdwest Fryslân;1900;20110101;
+---
+> Hieslum;2312;;;Wûnseradiel;0710;;01-01-2011
+> Hieslum;2312;;;Súdwest Fryslân;1900;01-01-2011;
+960,961c962,963
+< Hillegom;1710;;;Hillegom;0534;;
+< Hillegom;3535;12-01-2012;;Hillegom;0534;;
+---
+> Hillegom;1710;;12-01-2012;Hillegom;0534;;
+> Hillegom;3535;05-01-2012;;Hillegom;0534;;
+964,965c966,967
+< Hindeloopen;1968;;;Nijefurd;0104;;20110101
+< Hindeloopen;1968;;;Súdwest Fryslân;1900;20110101;
+---
+> Hindeloopen;1968;;;Nijefurd;0104;;01-01-2011
+> Hindeloopen;1968;;;Súdwest Fryslân;1900;01-01-2011;
+967,968c969,970
+< Hippolytushoef;1488;;;Wieringen;0462;;20120101
+< Hippolytushoef;1488;;;Hollands Kroon;1911;;
+---
+> Hippolytushoef;1488;;;Wieringen;0462;;01-01-2012
+> Hippolytushoef;1488;;;Hollands Kroon;1911;01-01-2012;
+992,993c994,995
+< Hommerts;2408;;;Wymbritseradiel;0683;;20110101
+< Hommerts;2408;;;Súdwest Fryslân;1900;20110101;
+---
+> Hommerts;2408;;;Wymbritseradiel;0683;;01-01-2011
+> Hommerts;2408;;;Súdwest Fryslân;1900;01-01-2011;
+1047,1048c1049,1050
+< Idsegahuizum;2313;;;Wûnseradiel;0710;;20110101
+< Idsegahuizum;2313;;;Súdwest Fryslân;1900;20110101;
+---
+> Idsegahuizum;2313;;;Wûnseradiel;0710;;01-01-2011
+> Idsegahuizum;2313;;;Súdwest Fryslân;1900;01-01-2011;
+1050,1051c1052,1053
+< Idzega;2409;;;Wymbritseradiel;0683;;20110101
+< Idzega;2409;;;Súdwest Fryslân;1900;20110101;
+---
+> Idzega;2409;;;Wymbritseradiel;0683;;01-01-2011
+> Idzega;2409;;;Súdwest Fryslân;1900;01-01-2011;
+1054,1055c1056,1057
+< IJlst;2410;;;Wymbritseradiel;0683;;20110101
+< IJlst;2410;;;Súdwest Fryslân;1900;20110101;
+---
+> IJlst;2410;;;Wymbritseradiel;0683;;01-01-2011
+> IJlst;2410;;;Súdwest Fryslân;1900;01-01-2011;
+1063,1064c1065,1066
+< Indijk;2411;;;Wymbritseradiel;0683;;20110101
+< Indijk;2411;;;Súdwest Fryslân;1900;20110101;
+---
+> Indijk;2411;;;Wymbritseradiel;0683;;01-01-2011
+> Indijk;2411;;;Súdwest Fryslân;1900;01-01-2011;
+1066,1067c1068,1069
+< Ingelum;2728;;;Menaldumadeel;0083;;20110101
+< Ingelum;2728;;;Menameradiel;1908;20110101;
+---
+> Ingelum;2728;;;Menaldumadeel;0083;;01-01-2011
+> Ingelum;2728;;;Menameradiel;1908;01-01-2011;
+1069,1070c1071,1072
+< It Heidenskip;1973;;;Nijefurd;0104;;20110101
+< It Heidenskip;1973;;;Súdwest Fryslân;1900;20110101;
+---
+> It Heidenskip;1973;;;Nijefurd;0104;;01-01-2011
+> It Heidenskip;1973;;;Súdwest Fryslân;1900;01-01-2011;
+1090,1091c1092,1093
+< Jutrijp;2412;;;Wymbritseradiel;0683;;20110101
+< Jutrijp;2412;;;Súdwest Fryslân;1900;20110101;
+---
+> Jutrijp;2412;;;Wymbritseradiel;0683;;01-01-2011
+> Jutrijp;2412;;;Súdwest Fryslân;1900;01-01-2011;
+1128,1129c1130,1131
+< Kimswerd;2314;;;Wûnseradiel;0710;;20110101
+< Kimswerd;2314;;;Súdwest Fryslân;1900;20110101;
+---
+> Kimswerd;2314;;;Wûnseradiel;0710;;01-01-2011
+> Kimswerd;2314;;;Súdwest Fryslân;1900;01-01-2011;
+1150,1151c1152,1153
+< Kockengen;1393;;;Breukelen;0311;;20110101
+< Kockengen;1393;;;Stichtse Vecht;1904;20110101;
+---
+> Kockengen;1393;;;Breukelen;0311;;01-01-2011
+> Kockengen;1393;;;Stichtse Vecht;1904;01-01-2011;
+1158,1159c1160,1161
+< Kolhorn;2516;;;Niedorp;0412;;20120101
+< Kolhorn;2516;;;Hollands Kroon;1911;;
+---
+> Kolhorn;2516;;;Niedorp;0412;;01-01-2012
+> Kolhorn;2516;;;Hollands Kroon;1911;01-01-2012;
+1172,1173c1174,1175
+< Kornwerderzand;2315;;;Wûnseradiel;0710;;20110101
+< Kornwerderzand;2315;;;Súdwest Fryslân;1900;20110101;
+---
+> Kornwerderzand;2315;;;Wûnseradiel;0710;;01-01-2011
+> Kornwerderzand;2315;;;Súdwest Fryslân;1900;01-01-2011;
+1175,1176c1177,1178
+< Kortenhoef;3001;;;Wijdemeren;1696;;
+< Kortenhoef;3526;01-01-2012;;Wijdemeren;1696;;
+---
+> Kortenhoef;3001;;06-03-2012;Wijdemeren;1696;;
+> Kortenhoef;3526;09-12-2011;;Wijdemeren;1696;;
+1180,1183c1182,1185
+< Koudum;1966;;;Nijefurd;0104;;20110101
+< Koudum;1966;;;Súdwest Fryslân;1900;20110101;
+< Koufurderrige;2413;;;Wymbritseradiel;0683;;20110101
+< Koufurderrige;2413;;;Súdwest Fryslân;1900;20110101;
+---
+> Koudum;1966;;;Nijefurd;0104;;01-01-2011
+> Koudum;1966;;;Súdwest Fryslân;1900;01-01-2011;
+> Koufurderrige;2413;;;Wymbritseradiel;0683;;01-01-2011
+> Koufurderrige;2413;;;Súdwest Fryslân;1900;01-01-2011;
+1186,1187c1188,1189
+< Kreileroord;2433;;;Wieringermeer;0463;;20120101
+< Kreileroord;2433;;;Hollands Kroon;1911;;
+---
+> Kreileroord;2433;;;Wieringermeer;0463;;01-01-2012
+> Kreileroord;2433;;;Hollands Kroon;1911;01-01-2012;
+1301,1306c1303,1308
+< Loenen aan de Vecht;2219;;;Loenen;0329;;20110101
+< Loenen aan de Vecht;2219;;;Stichtse Vecht;1904;20110101;
+< Loenersloot;2220;;;Loenen;0329;;20110101
+< Loenersloot;2220;;;Stichtse Vecht;1904;20110101;
+< Loënga;2862;;;Sneek;0091;;20110101
+< Loënga;2862;;01-01-2011;Súdwest Fryslân;1900;20110101;
+---
+> Loenen aan de Vecht;2219;;;Loenen;0329;;01-01-2011
+> Loenen aan de Vecht;2219;;;Stichtse Vecht;1904;01-01-2011;
+> Loenersloot;2220;;;Loenen;0329;;01-01-2011
+> Loenersloot;2220;;;Stichtse Vecht;1904;01-01-2011;
+> Loënga;2862;;;Sneek;0091;;01-01-2011
+> Loënga;2862;;01-01-2011;Súdwest Fryslân;1900;01-01-2011;
+1309,1310c1311,1312
+< Lollum;2316;;;Wûnseradiel;0710;;20110101
+< Lollum;2316;;;Súdwest Fryslân;1900;20110101;
+---
+> Lollum;2316;;;Wûnseradiel;0710;;01-01-2011
+> Lollum;2316;;;Súdwest Fryslân;1900;01-01-2011;
+1312,1313c1314,1315
+< Longerhouw;2317;;;Wûnseradiel;0710;;20110101
+< Longerhouw;2317;;;Súdwest Fryslân;1900;20110101;
+---
+> Longerhouw;2317;;;Wûnseradiel;0710;;01-01-2011
+> Longerhouw;2317;;;Súdwest Fryslân;1900;01-01-2011;
+1319,1320c1321,1322
+< Loosdrecht;3002;;;Wijdemeren;1696;;
+< Loosdrecht;3537;01-01-2012;;Wijdemeren;1696;;
+---
+> Loosdrecht;3002;;06-03-2012;Wijdemeren;1696;;
+> Loosdrecht;3537;09-12-2011;;Wijdemeren;1696;;
+1334,1335c1336,1337
+< Lutjewinkel;2517;;;Niedorp;0412;;20120101
+< Lutjewinkel;2517;;;Hollands Kroon;1911;;
+---
+> Lutjewinkel;2517;;;Niedorp;0412;;01-01-2012
+> Lutjewinkel;2517;;;Hollands Kroon;1911;01-01-2012;
+1345,1346c1347,1348
+< Maarssen;2064;;;Maarssen;0333;;20110101
+< Maarssen;2064;;;Stichtse Vecht;1904;20110101;
+---
+> Maarssen;2064;;;Maarssen;0333;;01-01-2011
+> Maarssen;2064;;;Stichtse Vecht;1904;01-01-2011;
+1362,1363c1364,1365
+< Makkum;2318;;;Wûnseradiel;0710;;20110101
+< Makkum;2318;;;Súdwest Fryslân;1900;20110101;
+---
+> Makkum;2318;;;Wûnseradiel;0710;;01-01-2011
+> Makkum;2318;;;Súdwest Fryslân;1900;01-01-2011;
+1370,1371c1372,1373
+< Margraten;1694;;;Margraten;0936;;20110101
+< Margraten;1694;;;Eijsden-Margraten;1903;20110101;
+---
+> Margraten;1694;;;Margraten;0936;;01-01-2011
+> Margraten;1694;;;Eijsden-Margraten;1903;01-01-2011;
+1385,1386c1387,1388
+< Marsum;2730;;;Menaldumadeel;0083;;20110101
+< Marsum;2730;;;Menameradiel;1908;20110101;
+---
+> Marsum;2730;;;Menaldumadeel;0083;;01-01-2011
+> Marsum;2730;;;Menameradiel;1908;01-01-2011;
+1409,1410c1411,1412
+< Menaam;2731;;;Menaldumadeel;0083;;20110101
+< Menaam;2731;;;Menameradiel;1908;20110101;
+---
+> Menaam;2731;;;Menaldumadeel;0083;;01-01-2011
+> Menaam;2731;;;Menameradiel;1908;01-01-2011;
+1420,1421c1422,1423
+< Mheer;1695;;;Margraten;0936;;20110101
+< Mheer;1695;;;Eijsden-Margraten;1903;20110101;
+---
+> Mheer;1695;;;Margraten;0936;;01-01-2011
+> Mheer;1695;;;Eijsden-Margraten;1903;01-01-2011;
+1428,1429c1430,1431
+< Middenmeer;2434;;;Wieringermeer;0463;;20120101
+< Middenmeer;2434;;;Hollands Kroon;1911;;
+---
+> Middenmeer;2434;;;Wieringermeer;0463;;01-01-2012
+> Middenmeer;2434;;;Hollands Kroon;1911;01-01-2012;
+1438c1440,1441
+< Mijdrecht;1929;;;De Ronde Venen;0736;;
+---
+> Mijdrecht;1929;;07-02-2012;De Ronde Venen;0736;;
+> Mijdrecht;3549;07-02-2012;;De Ronde Venen;0736;;
+1455,1456c1458,1459
+< Molkwerum;1967;;;Nijefurd;0104;;20110101
+< Molkwerum;1967;;;Súdwest Fryslân;1900;20110101;
+---
+> Molkwerum;1967;;;Nijefurd;0104;;01-01-2011
+> Molkwerum;1967;;;Súdwest Fryslân;1900;01-01-2011;
+1516,1517c1519,1520
+< Nieuwe Niedorp;2518;;;Niedorp;0412;;20120101
+< Nieuwe Niedorp;2518;;;Hollands Kroon;1911;;
+---
+> Nieuwe Niedorp;2518;;;Niedorp;0412;;01-01-2012
+> Nieuwe Niedorp;2518;;;Hollands Kroon;1911;01-01-2012;
+1525,1528c1528,1531
+< Nieuwer Ter Aa;1394;;;Breukelen;0311;;20110101
+< Nieuwer Ter Aa;1394;;;Stichtse Vecht;1904;20110101;
+< Nieuwerbrug aan den Rijn;2666;;;Bodegraven;0497;;20110101
+< Nieuwerbrug aan den Rijn;2666;;;Bodegraven-Reeuwijk;1901;20110101;
+---
+> Nieuwer Ter Aa;1394;;;Breukelen;0311;;01-01-2011
+> Nieuwer Ter Aa;1394;;;Stichtse Vecht;1904;01-01-2011;
+> Nieuwerbrug aan den Rijn;2666;;;Bodegraven;0497;;01-01-2011
+> Nieuwerbrug aan den Rijn;2666;;;Bodegraven-Reeuwijk;1901;01-01-2011;
+1533,1534c1536,1537
+< Nieuwersluis;2221;;;Loenen;0329;;20110101
+< Nieuwersluis;2221;;;Stichtse Vecht;1904;20110101;
+---
+> Nieuwersluis;2221;;;Loenen;0329;;01-01-2011
+> Nieuwersluis;2221;;;Stichtse Vecht;1904;01-01-2011;
+1556,1557c1559,1560
+< Nigtevecht;2222;;;Loenen;0329;;20110101
+< Nigtevecht;2222;;;Stichtse Vecht;1904;20110101;
+---
+> Nigtevecht;2222;;;Loenen;0329;;01-01-2011
+> Nigtevecht;2222;;;Stichtse Vecht;1904;01-01-2011;
+1571,1572c1574,1575
+< Nijhuizum;1972;;;Nijefurd;0104;;20110101
+< Nijhuizum;1972;;;Súdwest Fryslân;1900;20110101;
+---
+> Nijhuizum;1972;;;Nijefurd;0104;;01-01-2011
+> Nijhuizum;1972;;;Súdwest Fryslân;1900;01-01-2011;
+1575,1576c1578,1579
+< Nijland;2414;;;Wymbritseradiel;0683;;20110101
+< Nijland;2414;;;Súdwest Fryslân;1900;20110101;
+---
+> Nijland;2414;;;Wymbritseradiel;0683;;01-01-2011
+> Nijland;2414;;;Súdwest Fryslân;1900;01-01-2011;
+1585,1586c1588,1589
+< Noorbeek;1696;;;Margraten;0936;;20110101
+< Noorbeek;1696;;;Eijsden-Margraten;1903;20110101;
+---
+> Noorbeek;1696;;;Margraten;0936;;01-01-2011
+> Noorbeek;1696;;;Eijsden-Margraten;1903;01-01-2011;
+1628,1629c1631,1632
+< Offingawier;2863;;;Sneek;0091;;20110101
+< Offingawier;2863;;01-01-2011;Súdwest Fryslân;1900;20110101;
+---
+> Offingawier;2863;;;Sneek;0091;;01-01-2011
+> Offingawier;2863;;01-01-2011;Súdwest Fryslân;1900;01-01-2011;
+1685,1686c1688,1689
+< Oosthem;2415;;;Wymbritseradiel;0683;;20110101
+< Oosthem;2415;;;Súdwest Fryslân;1900;20110101;
+---
+> Oosthem;2415;;;Wymbritseradiel;0683;;01-01-2011
+> Oosthem;2415;;;Súdwest Fryslân;1900;01-01-2011;
+1707,1708c1710,1711
+< Oppenhuizen;2416;;;Wymbritseradiel;0683;;20110101
+< Oppenhuizen;2416;;;Súdwest Fryslân;1900;20110101;
+---
+> Oppenhuizen;2416;;;Wymbritseradiel;0683;;01-01-2011
+> Oppenhuizen;2416;;;Súdwest Fryslân;1900;01-01-2011;
+1723c1726
+< Oud Ade;3038;;;Kaag en Braassem;1884;;
+---
+> Oud Ade;3038;;04-01-2012;Kaag en Braassem;1884;;
+1728,1729c1731,1732
+< Oud Zuilen;2066;;;Maarssen;0333;;20110101
+< Oud Zuilen;2066;;;Stichtse Vecht;1904;20110101;
+---
+> Oud Zuilen;2066;;;Maarssen;0333;;01-01-2011
+> Oud Zuilen;2066;;;Stichtse Vecht;1904;01-01-2011;
+1734,1735c1737,1738
+< Oude Niedorp;2519;;;Niedorp;0412;;20120101
+< Oude Niedorp;2519;;;Hollands Kroon;1911;;
+---
+> Oude Niedorp;2519;;;Niedorp;0412;;01-01-2012
+> Oude Niedorp;2519;;;Hollands Kroon;1911;01-01-2012;
+1741,1742c1744,1745
+< Oudega;2417;;;Wymbritseradiel;0683;;20110101
+< Oudega;2417;;;Súdwest Fryslân;1900;20110101;
+---
+> Oudega;2417;;;Wymbritseradiel;0683;;01-01-2011
+> Oudega;2417;;;Súdwest Fryslân;1900;01-01-2011;
+1789,1790c1792,1793
+< Parrega;2319;;;Wûnseradiel;0710;;20110101
+< Parrega;2319;;;Súdwest Fryslân;1900;20110101;
+---
+> Parrega;2319;;;Wûnseradiel;0710;;01-01-2011
+> Parrega;2319;;;Súdwest Fryslân;1900;01-01-2011;
+1802,1803c1805,1806
+< Piaam;2320;;;Wûnseradiel;0710;;20110101
+< Piaam;2320;;;Súdwest Fryslân;1900;20110101;
+---
+> Piaam;2320;;;Wûnseradiel;0710;;01-01-2011
+> Piaam;2320;;;Súdwest Fryslân;1900;01-01-2011;
+1809,1810c1812,1813
+< Pingjum;2321;;;Wûnseradiel;0710;;20110101
+< Pingjum;2321;;;Súdwest Fryslân;1900;20110101;
+---
+> Pingjum;2321;;;Wûnseradiel;0710;;01-01-2011
+> Pingjum;2321;;;Súdwest Fryslân;1900;01-01-2011;
+1847,1848c1850,1851
+< Reeuwijk;2476;;;Reeuwijk;0595;;20110101
+< Reeuwijk;2476;;;Bodegraven-Reeuwijk;1901;20110101;
+---
+> Reeuwijk;2476;;;Reeuwijk;0595;;01-01-2011
+> Reeuwijk;2476;;;Bodegraven-Reeuwijk;1901;01-01-2011;
+1934,1935c1937,1938
+< Sandfirden;2418;;;Wymbritseradiel;0683;;20110101
+< Sandfirden;2418;;;Súdwest Fryslân;1900;20110101;
+---
+> Sandfirden;2418;;;Wymbritseradiel;0683;;01-01-2011
+> Sandfirden;2418;;;Súdwest Fryslân;1900;01-01-2011;
+1951,1952c1954,1955
+< Scharnegoutum;2419;;;Wymbritseradiel;0683;;20110101
+< Scharnegoutum;2419;;;Súdwest Fryslân;1900;20110101;
+---
+> Scharnegoutum;2419;;;Wymbritseradiel;0683;;01-01-2011
+> Scharnegoutum;2419;;;Súdwest Fryslân;1900;01-01-2011;
+1963,1966c1966,1969
+< Schettens;2322;;;Wûnseradiel;0710;;20110101
+< Schettens;2322;;;Súdwest Fryslân;1900;20110101;
+< Scheulder;1697;;;Margraten;0936;;20110101
+< Scheulder;1697;;;Eijsden-Margraten;1903;20110101;
+---
+> Schettens;2322;;;Wûnseradiel;0710;;01-01-2011
+> Schettens;2322;;;Súdwest Fryslân;1900;01-01-2011;
+> Scheulder;1697;;;Margraten;0936;;01-01-2011
+> Scheulder;1697;;;Eijsden-Margraten;1903;01-01-2011;
+1990,1991c1993,1994
+< Schraard;2323;;;Wûnseradiel;0710;;20110101
+< Schraard;2323;;;Súdwest Fryslân;1900;20110101;
+---
+> Schraard;2323;;;Wûnseradiel;0710;;01-01-2011
+> Schraard;2323;;;Súdwest Fryslân;1900;01-01-2011;
+2026,2027c2029,2030
+< Sint Geertruid;1698;;;Margraten;0936;;20110101
+< Sint Geertruid;1698;;;Eijsden-Margraten;1903;20110101;
+---
+> Sint Geertruid;1698;;;Margraten;0936;;01-01-2011
+> Sint Geertruid;1698;;;Eijsden-Margraten;1903;01-01-2011;
+2048,2049c2051,2052
+< Skingen;2732;;;Menaldumadeel;0083;;20110101
+< Skingen;2732;;;Menameradiel;1908;20110101;
+---
+> Skingen;2732;;;Menaldumadeel;0083;;01-01-2011
+> Skingen;2732;;;Menameradiel;1908;01-01-2011;
+2051,2052c2054,2055
+< Slappeterp;2733;;;Menaldumadeel;0083;;20110101
+< Slappeterp;2733;;;Menameradiel;1908;20110101;
+---
+> Slappeterp;2733;;;Menaldumadeel;0083;;01-01-2011
+> Slappeterp;2733;;;Menameradiel;1908;01-01-2011;
+2060,2061c2063,2064
+< Slootdorp;2435;;;Wieringermeer;0463;;20120101
+< Slootdorp;2435;;;Hollands Kroon;1911;;
+---
+> Slootdorp;2435;;;Wieringermeer;0463;;01-01-2012
+> Slootdorp;2435;;;Hollands Kroon;1911;01-01-2012;
+2067,2068c2070,2071
+< Smallebrugge;2420;;;Wymbritseradiel;0683;;20110101
+< Smallebrugge;2420;;;Súdwest Fryslân;1900;20110101;
+---
+> Smallebrugge;2420;;;Wymbritseradiel;0683;;01-01-2011
+> Smallebrugge;2420;;;Súdwest Fryslân;1900;01-01-2011;
+2072,2073c2075,2076
+< Sneek;2861;;;Sneek;0091;;20110101
+< Sneek;2861;;01-01-2011;Súdwest Fryslân;1900;20110101;
+---
+> Sneek;2861;;;Sneek;0091;;01-01-2011
+> Sneek;2861;;01-01-2011;Súdwest Fryslân;1900;01-01-2011;
+2086c2089
+< Spaarndam;2642;;;Haarlemmerliede en Spaarnwoude;0393;;
+---
+> Spaarndam;2642;;05-01-2012;Haarlemmerliede en Spaarnwoude;0393;;
+2118,2119c2121,2122
+< Stavoren;1969;;;Nijefurd;0104;;20110101
+< Stavoren;1969;;;Súdwest Fryslân;1900;20110101;
+---
+> Stavoren;1969;;;Nijefurd;0104;;01-01-2011
+> Stavoren;1969;;;Súdwest Fryslân;1900;01-01-2011;
+2201,2202c2204,2205
+< Tienhoven;2065;;;Maarssen;0333;;20110101
+< Tienhoven;2065;;;Stichtse Vecht;1904;20110101;
+---
+> Tienhoven;2065;;;Maarssen;0333;;01-01-2011
+> Tienhoven;2065;;;Stichtse Vecht;1904;01-01-2011;
+2210,2213c2213,2216
+< Tirns;2421;;;Wymbritseradiel;0683;;20110101
+< Tirns;2421;;;Súdwest Fryslân;1900;20110101;
+< Tjalhuizum;2422;;;Wymbritseradiel;0683;;20110101
+< Tjalhuizum;2422;;;Súdwest Fryslân;1900;20110101;
+---
+> Tirns;2421;;;Wymbritseradiel;0683;;01-01-2011
+> Tirns;2421;;;Súdwest Fryslân;1900;01-01-2011;
+> Tjalhuizum;2422;;;Wymbritseradiel;0683;;01-01-2011
+> Tjalhuizum;2422;;;Súdwest Fryslân;1900;01-01-2011;
+2216,2217c2219,2220
+< Tjerkwerd;2324;;;Wûnseradiel;0710;;20110101
+< Tjerkwerd;2324;;;Súdwest Fryslân;1900;20110101;
+---
+> Tjerkwerd;2324;;;Wûnseradiel;0710;;01-01-2011
+> Tjerkwerd;2324;;;Súdwest Fryslân;1900;01-01-2011;
+2254,2255c2257,2258
+< Uitwellingerga;2423;;;Wymbritseradiel;0683;;20110101
+< Uitwellingerga;2423;;;Súdwest Fryslân;1900;20110101;
+---
+> Uitwellingerga;2423;;;Wymbritseradiel;0683;;01-01-2011
+> Uitwellingerga;2423;;;Súdwest Fryslân;1900;01-01-2011;
+2299c2302
+< Velsen-Noord;2833;;;Velsen;0453;;
+---
+> Velsen-Noord;2833;;30-01-2012;Velsen;0453;;
+2301c2304
+< Velsen-Zuid;2834;;;Velsen;0453;;
+---
+> Velsen-Zuid;2834;;31-01-2012;Velsen;0453;;
+2327c2330,2331
+< Vinkeveen;1930;;;De Ronde Venen;0736;;
+---
+> Vinkeveen;1930;;07-02-2012;De Ronde Venen;0736;;
+> Vinkeveen;3550;07-02-2012;;De Ronde Venen;0736;;
+2361,2362c2365,2366
+< Vreeland;2223;;;Loenen;0329;;20110101
+< Vreeland;2223;;;Stichtse Vecht;1904;20110101;
+---
+> Vreeland;2223;;;Loenen;0329;;01-01-2011
+> Vreeland;2223;;04-01-2012;Stichtse Vecht;1904;01-01-2011;
+2379,2380c2383,2384
+< Waarder;2478;;;Reeuwijk;0595;;20110101
+< Waarder;2478;;;Bodegraven-Reeuwijk;1901;20110101;
+---
+> Waarder;2478;;;Reeuwijk;0595;;01-01-2011
+> Waarder;2478;;;Bodegraven-Reeuwijk;1901;01-01-2011;
+2406,2409c2410,2413
+< Warmond;2005;;;Teylingen;1525;;
+< Warmond;3542;01-01-2012;;Teylingen;1525;;
+< Warns;1971;;;Nijefurd;0104;;20110101
+< Warns;1971;;;Súdwest Fryslân;1900;20110101;
+---
+> Warmond;2005;;21-12-2011;Teylingen;1525;;
+> Warmond;3542;20-12-2011;;Teylingen;1525;;
+> Warns;1971;;;Nijefurd;0104;;01-01-2011
+> Warns;1971;;;Súdwest Fryslân;1900;01-01-2011;
+2421c2425,2426
+< Waverveen;1933;;;De Ronde Venen;0736;;
+---
+> Waverveen;1933;;07-02-2012;De Ronde Venen;0736;;
+> Waverveen;3551;07-02-2012;;De Ronde Venen;0736;;
+2442,2443c2447,2448
+< Wervershoof;1106;;;Medemblik;0420;20110101;
+< Wervershoof;1106;;;Wervershoof;0459;;20110101
+---
+> Wervershoof;1106;;;Medemblik;0420;01-01-2011;
+> Wervershoof;1106;;;Wervershoof;0459;;01-01-2011
+2458,2459c2463,2464
+< Westerland;1490;;;Wieringen;0462;;20120101
+< Westerland;1490;;;Hollands Kroon;1911;;
+---
+> Westerland;1490;;;Wieringen;0462;;01-01-2012
+> Westerland;1490;;;Hollands Kroon;1911;01-01-2012;
+2466,2467c2471,2472
+< Westhem;2424;;;Wymbritseradiel;0683;;20110101
+< Westhem;2424;;;Súdwest Fryslân;1900;20110101;
+---
+> Westhem;2424;;;Wymbritseradiel;0683;;01-01-2011
+> Westhem;2424;;;Súdwest Fryslân;1900;01-01-2011;
+2484,2485c2489,2490
+< Wier;2734;;;Menaldumadeel;0083;;20110101
+< Wier;2734;;;Menameradiel;1908;20110101;
+---
+> Wier;2734;;;Menaldumadeel;0083;;01-01-2011
+> Wier;2734;;;Menameradiel;1908;01-01-2011;
+2487,2490c2492,2495
+< Wieringerwaard;3187;;;Anna Paulowna;0366;;20120101
+< Wieringerwaard;3187;;;Hollands Kroon;1911;;
+< Wieringerwerf;2436;;;Wieringermeer;0463;;20120101
+< Wieringerwerf;2436;;;Hollands Kroon;1911;;
+---
+> Wieringerwaard;3187;;;Anna Paulowna;0366;;01-01-2012
+> Wieringerwaard;3187;;;Hollands Kroon;1911;01-01-2012;
+> Wieringerwerf;2436;;;Wieringermeer;0463;;01-01-2012
+> Wieringerwerf;2436;;;Hollands Kroon;1911;01-01-2012;
+2518,2519c2523,2524
+< Winkel;2521;;;Niedorp;0412;;20120101
+< Winkel;2521;;;Hollands Kroon;1911;;
+---
+> Winkel;2521;;;Niedorp;0412;;01-01-2012
+> Winkel;2521;;;Hollands Kroon;1911;01-01-2012;
+2541,2542c2546,2547
+< Witmarsum;2325;;;Wûnseradiel;0710;;20110101
+< Witmarsum;2325;;;Súdwest Fryslân;1900;20110101;
+---
+> Witmarsum;2325;;;Wûnseradiel;0710;;01-01-2011
+> Witmarsum;2325;;;Súdwest Fryslân;1900;01-01-2011;
+2556,2557c2561,2562
+< Wolsum;2425;;;Wymbritseradiel;0683;;20110101
+< Wolsum;2425;;;Súdwest Fryslân;1900;20110101;
+---
+> Wolsum;2425;;;Wymbritseradiel;0683;;01-01-2011
+> Wolsum;2425;;;Súdwest Fryslân;1900;01-01-2011;
+2561,2564c2566,2569
+< Wons;2326;;;Wûnseradiel;0710;;20110101
+< Wons;2326;;;Súdwest Fryslân;1900;20110101;
+< Workum;1965;;;Nijefurd;0104;;20110101
+< Workum;1965;;;Súdwest Fryslân;1900;20110101;
+---
+> Wons;2326;;;Wûnseradiel;0710;;01-01-2011
+> Wons;2326;;;Súdwest Fryslân;1900;01-01-2011;
+> Workum;1965;;;Nijefurd;0104;;01-01-2011
+> Workum;1965;;;Súdwest Fryslân;1900;01-01-2011;
+2571,2572c2576,2577
+< Woudsend;2426;;;Wymbritseradiel;0683;;20110101
+< Woudsend;2426;;;Súdwest Fryslân;1900;20110101;
+---
+> Woudsend;2426;;;Wymbritseradiel;0683;;01-01-2011
+> Woudsend;2426;;;Súdwest Fryslân;1900;01-01-2011;
+2579,2582c2584,2587
+< Ypecolsga;2427;;;Wymbritseradiel;0683;;20110101
+< Ypecolsga;2427;;;Súdwest Fryslân;1900;20110101;
+< Ysbrechtum;2864;;;Sneek;0091;;20110101
+< Ysbrechtum;2864;;01-01-2011;Súdwest Fryslân;1900;20110101;
+---
+> Ypecolsga;2427;;;Wymbritseradiel;0683;;01-01-2011
+> Ypecolsga;2427;;;Súdwest Fryslân;1900;01-01-2011;
+> Ysbrechtum;2864;;;Sneek;0091;;01-01-2011
+> Ysbrechtum;2864;;01-01-2011;Súdwest Fryslân;1900;01-01-2011;
+2621,2622c2626,2627
+< Zijdewind;2522;;;Niedorp;0412;;20120101
+< Zijdewind;2522;;;Hollands Kroon;1911;;
+---
+> Zijdewind;2522;;;Niedorp;0412;;01-01-2012
+> Zijdewind;2522;;;Hollands Kroon;1911;01-01-2012;
+2653,2654c2658,2659
+< Zurich;2327;;;Wûnseradiel;0710;;20110101
+< Zurich;2327;;;Súdwest Fryslân;1900;20110101;
+---
+> Zurich;2327;;;Wûnseradiel;0710;;01-01-2011
+> Zurich;2327;;;Súdwest Fryslân;1900;01-01-2011;
+2658,2659c2663,2664
+< Zwaagdijk;1107;;;Medemblik;0420;20110101;
+< Zwaagdijk;1107;;;Wervershoof;0459;;20110101
+---
+> Zwaagdijk;1107;;;Medemblik;0420;01-01-2011;
+> Zwaagdijk;1107;;;Wervershoof;0459;;01-01-2011
+2675,3417d2679

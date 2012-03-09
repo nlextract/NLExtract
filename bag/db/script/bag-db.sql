@@ -321,7 +321,11 @@ CREATE INDEX verblijfsobjectgebruiksdoelkey ON verblijfsobjectgebruiksdoel USING
 CREATE INDEX
         adresseerbaarobjectnevenadreskey ON adresseerbaarobjectnevenadres USING btree (identificatie, aanduidingrecordinactief, aanduidingrecordcorrectie, begindatumtijdvakgeldigheid, nevenadres);
 
-DROP TABLE IF EXISTS gemeente_woonplaats;
+-- Moet in de pas lopen met CSV ../data/kadaster-gemeente-woonplaats-<datum>.csv
+-- Vesie van 6 maart heeft CSV header
+-- Woonplaats;Woonplaats code;Ingangsdatum WPL;Einddatum WPL;Gemeente;Gemeente code;
+--     Ingangsdatum nieuwe gemeente;Gemeente beeindigd per
+DROP TABLE IF EXISTS gemeente_woonplaats CASCADE;
 CREATE TABLE gemeente_woonplaats (
   gid serial,
   woonplaatsnaam character varying(80),
@@ -331,15 +335,18 @@ CREATE TABLE gemeente_woonplaats (
   gemeentenaam character varying(80),
   gemeentecode numeric(4),
   begindatum_gemeente date,
-  aansluitdatum_gemeente date,
-  bijzonderheden text,
-  gemeentecode_nieuw numeric(4),
+--  aansluitdatum_gemeente date,
+--  bijzonderheden text,
+--  gemeentecode_nieuw numeric(4),
   einddatum_gemeente date,
-  behandeld character varying(1),
+--  behandeld character varying(1),
   PRIMARY KEY (gid)
 );
 
-DROP TABLE IF EXISTS gemeente_provincie;
+CREATE INDEX gem_wpl_woonplaatscode_idx ON gemeente_woonplaats USING btree (woonplaatscode);
+CREATE INDEX gem_wpl_woonplaatscode_datum_idx ON gemeente_woonplaats USING btree (woonplaatscode,einddatum_woonplaats);
+
+DROP TABLE IF EXISTS gemeente_provincie CASCADE;
 CREATE TABLE gemeente_provincie (
   gid serial,
   gemeentecode numeric(4),
