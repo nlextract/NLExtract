@@ -11,7 +11,7 @@
 --
 
 -- Maak  een "echte" adressen tabel
-DROP TABLE IF EXISTS adres;
+DROP TABLE IF EXISTS adres CASCADE;
 CREATE TABLE adres (
     openbareruimtenaam character varying(80),
     huisnummer numeric(5,0),
