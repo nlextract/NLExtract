@@ -6,7 +6,7 @@
 -- START Originele Code, Regina Obe
 --   doc:  http://bostongis.com/PrinterFriendly.aspx?content_name=postgis_nearest_neighbor_generic
 --   SQL: http://bostongis.com/downloads/pgis_nn.txt
-CREATE OR REPLACE FUNCTION expandoverlap_metric(a geometry, b geometry, maxe double precision, maxslice double precision)
+CREATE OR REPLACE FUNCTION nlx_expandoverlap_metric(a geometry, b geometry, maxe double precision, maxslice double precision)
   RETURNS integer AS
 $BODY$
 BEGIN
@@ -20,10 +20,11 @@ END;
 $BODY$
 LANGUAGE 'plpgsql' IMMUTABLE;
 
+DROP TYPE IF EXISTS pgis_nn CASCADE;
 CREATE TYPE pgis_nn AS
    (nn_gid integer, nn_dist numeric(16,5));
 
-CREATE OR REPLACE FUNCTION _pgis_fn_nn(geom1 geometry, distguess double precision, numnn integer, maxslices integer, lookupset varchar(150), swhere varchar(5000), sgid2field varchar(100), sgeom2field varchar(100))
+CREATE OR REPLACE FUNCTION nlx_pgis_fn_nn(geom1 geometry, distguess double precision, numnn integer, maxslices integer, lookupset varchar(150), swhere varchar(5000), sgid2field varchar(100), sgeom2field varchar(100))
   RETURNS SETOF pgis_nn AS
 $BODY$
 DECLARE
@@ -36,7 +37,7 @@ DECLARE
 BEGIN
     ncollected := 0; it := 0;
     WHILE ncollected < numnn AND it <= maxslices LOOP
-        strsql := 'SELECT currentit.' || sgid2field || ', distance(ref.geom, currentit.' || sgeom2field || ') as dist FROM ' || lookupset || '  as currentit, (SELECT geometry(''' || CAST(geom1 As text) || ''') As geom) As ref WHERE ' || swhere || ' AND distance(ref.geom, currentit.' || sgeom2field || ') <= ' || CAST(distguess As varchar(200)) || ' AND expand(ref.geom, ' || CAST(distguess*it/maxslices As varchar(100)) ||  ') && currentit.' || sgeom2field || ' AND expandoverlap_metric(ref.geom, currentit.' || sgeom2field || ', ' || CAST(distguess As varchar(200)) || ', ' || CAST(maxslices As varchar(200)) || ') = ' || CAST(it As varchar(100)) || ' ORDER BY distance(ref.geom, currentit.' || sgeom2field || ') LIMIT ' ||
+        strsql := 'SELECT currentit.' || sgid2field || ', distance(ref.geom, currentit.' || sgeom2field || ') as dist FROM ' || lookupset || '  as currentit, (SELECT geometry(''' || CAST(geom1 As text) || ''') As geom) As ref WHERE ' || swhere || ' AND distance(ref.geom, currentit.' || sgeom2field || ') <= ' || CAST(distguess As varchar(200)) || ' AND expand(ref.geom, ' || CAST(distguess*it/maxslices As varchar(100)) ||  ') && currentit.' || sgeom2field || ' AND nlx_expandoverlap_metric(ref.geom, currentit.' || sgeom2field || ', ' || CAST(distguess As varchar(200)) || ', ' || CAST(maxslices As varchar(200)) || ') = ' || CAST(it As varchar(100)) || ' ORDER BY distance(ref.geom, currentit.' || sgeom2field || ') LIMIT ' ||
         CAST((numnn - ncollected) As varchar(200));
         --RAISE NOTICE 'sql: %', strsql;
         FOR rec in EXECUTE (strsql) LOOP
@@ -53,10 +54,10 @@ END
 $BODY$
 LANGUAGE 'plpgsql' STABLE;
 
-CREATE OR REPLACE FUNCTION pgis_fn_nn(geom1 geometry, distguess double precision, numnn integer, maxslices integer, lookupset varchar(150), swhere varchar(5000), sgid2field varchar(100), sgeom2field varchar(100))
+CREATE OR REPLACE FUNCTION nlx_main_pgis_fn_nn(geom1 geometry, distguess double precision, numnn integer, maxslices integer, lookupset varchar(150), swhere varchar(5000), sgid2field varchar(100), sgeom2field varchar(100))
   RETURNS SETOF pgis_nn AS
 $BODY$
-    SELECT * FROM _pgis_fn_nn($1,$2, $3, $4, $5, $6, $7, $8);
+    SELECT * FROM nlx_pgis_fn_nn($1,$2, $3, $4, $5, $6, $7, $8);
 $BODY$
   LANGUAGE 'sql' STABLE;
 -- EIND Originele Code, Regina Obe
@@ -66,8 +67,8 @@ $BODY$
 
 -- Adressen voor x,y binnen straal meters
 -- TODO geef ook afstand erbij terug
-DROP FUNCTION IF EXISTS adressen_voor_xy(x double precision, y double precision, straal_meters double precision, max_records integer);
-CREATE OR REPLACE FUNCTION adressen_voor_xy(x double precision, y double precision, straal_meters double precision, max_records integer)
+DROP FUNCTION IF EXISTS nlx_adressen_voor_xy(x double precision, y double precision, straal_meters double precision, max_records integer);
+CREATE OR REPLACE FUNCTION nlx_adressen_voor_xy(x double precision, y double precision, straal_meters double precision, max_records integer)
   RETURNS SETOF adres AS
 $BODY$
 DECLARE
@@ -78,7 +79,7 @@ BEGIN
   point := ST_GeomFromText('POINT(' || x || ' ' || y || ')', 28992);
 
 -- 111253 454919 centrum bodegraven
-  for rnn in  SELECT * FROM pgis_fn_nn(point, straal_meters, max_records, 50,'adres', 'true', 'gid', 'geopunt') ORDER BY nn_dist LOOP
+  for rnn in  SELECT * FROM nlx_main_pgis_fn_nn(point, straal_meters, max_records, 50,'adres', 'true', 'gid', 'geopunt') ORDER BY nn_dist LOOP
     for radres in  SELECT * FROM adres WHERE gid = rnn.nn_gid LOOP
        return next radres;
     end LOOP;
@@ -90,14 +91,15 @@ $BODY$
 LANGUAGE 'plpgsql' STABLE;
 
 -- Dichtstbijzijnde adres voor x,y, geef 1 enkel adres terug
-DROP FUNCTION IF EXISTS adres_voor_xy(x double precision, y double precision);
-CREATE OR REPLACE FUNCTION adres_voor_xy(x double precision, y double precision)
+-- met testdata onder test/data: select * from  nlx_adres_voor_xy(252767, 593745);
+DROP FUNCTION IF EXISTS nlx_adres_voor_xy(x double precision, y double precision);
+CREATE OR REPLACE FUNCTION nlx_adres_voor_xy(x double precision, y double precision)
 RETURNS SETOF adres AS
   $BODY$
   DECLARE
     r adres;
   BEGIN
-    for r in SELECT * from adressen_voor_xy(x ,y , 5000, 1) LOOP
+    for r in SELECT * from nlx_adressen_voor_xy(x ,y , 5000, 1) LOOP
       return next r;
     end LOOP;
     return;
@@ -118,7 +120,7 @@ LANGUAGE 'plpgsql' STABLE;
 --   return;
 
 -- select * from pgis_fn_nn(ST_GeomFromText('POINT(252767 593745)',28992), 1000000, 2,1000,'adres', 'true', 'gid', 'geopunt');
---   select * from adres_voor_xy(118562, 480600, 1000000, 2);
+--   select * from nlx_adres_voor_xy(118562, 480600, 1000000, 2);
 
 --  -- SELECT * FROM Adres;
 --         , pgis_fn_nn(point, 100000, max_records, 1000, 'adres', 'true', 'gid', 'geopunt') g
