@@ -97,7 +97,7 @@ RETURNS SETOF adres AS
   DECLARE
     r adres;
   BEGIN
-    for r in SELECT * from adres_voor_xy(x ,y , 5000, 1) LOOP
+    for r in SELECT * from adressen_voor_xy(x ,y , 5000, 1) LOOP
       return next r;
     end LOOP;
     return;
