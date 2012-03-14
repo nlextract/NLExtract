@@ -1,10 +1,28 @@
 --
--- Geocodeer BAG adressen, verrijkt met bestuurlijke eenheden (gemeenten, provincies).
+-- Geogecodeerd BAG adressen, verrijkt met bestuurlijke eenheden (gemeenten, provincies).
 --
 -- Auteur: Just van den Broecke
 --
+-- De tabellen hieronder zijn afgeleid van de BAG import tabellen
+-- met als doel om tabellen te bieden waarop (reverse) geocoding kan worden
+-- toegepast. Gecoding hulp- functies staan in het bijbehorende
+-- SQL bestand geocode-functies.
+--
+-- Gebruik:
+-- * BAG importeren via bag-extract -e <bag-levering>
+-- * BAG verrijken met gemeenten en provincies  bag-extract -q db/script/gemeente-provincie-tabel.sql
+-- * geocoding tabellen laden: bag-extract -q geocode-tabellen.sql
+-- * geocoding functies laden: bag-extract -q geocode-functies.sql
+-- * functies aanroepen bijv. select * from  nlx_adres_voor_xy(118566, 480606);
+--
+-- Tip: houdt de bag import data en geocoding tabellen gescheiden
+-- door gebruik PostgreSQL schema's. Het beste is om de BAG in te lezen in apart schema
+-- bijv. "bag_import" en vervolgens de geocode-tabellen in een nieuw schema "bag_geocode".
+-- In extract.conf kan ook een schema search path worden aangegeven door bijv:
+--  schema = bag_geocode,bag_import,public
+--
 
--- Maak  een "echte" adressen tabel
+-- Volledig adres
 DROP TABLE IF EXISTS adres_punt CASCADE;
 CREATE TABLE adres_punt (
     straatnaam character varying(80),
