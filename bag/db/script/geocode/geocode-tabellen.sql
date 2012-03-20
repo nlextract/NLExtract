@@ -1,11 +1,11 @@
 --
--- Geogecodeerd BAG adressen, verrijkt met bestuurlijke eenheden (gemeenten, provincies).
+-- Geogecodeerde BAG adressen -en elementen, verrijkt met bestuurlijke eenheden (gemeenten, provincies).
 --
 -- Auteur: Just van den Broecke
 --
 -- De tabellen hieronder zijn afgeleid van de BAG import tabellen
 -- met als doel om tabellen te bieden waarop (reverse) geocoding kan worden
--- toegepast. Gecoding hulp- functies staan in het bijbehorende
+-- toegepast. Geocoding hulp- functies staan in het bijbehorende
 -- SQL bestand geocode-functies.
 --
 -- Gebruik:
@@ -23,8 +23,8 @@
 --
 
 -- Volledig adres
-DROP TABLE IF EXISTS adres_punt CASCADE;
-CREATE TABLE adres_punt (
+DROP TABLE IF EXISTS geo_adres CASCADE;
+CREATE TABLE geo_adres (
     straatnaam character varying(80),
     huisnummer numeric(5,0),
     huisletter character varying(1),
@@ -40,7 +40,7 @@ CREATE TABLE adres_punt (
 );
 
 -- Insert (actuele+bestaande) data uit combinatie van BAG tabellen: Verblijfplaats
-INSERT INTO adres_punt (straatnaam, huisnummer, huisletter, toevoeging, postcode, woonplaats, gemeente, provincie, geopunt)
+INSERT INTO geo_adres (straatnaam, huisnummer, huisletter, toevoeging, postcode, woonplaats, gemeente, provincie, geopunt)
   SELECT
 	o.openbareruimtenaam,
 	n.huisnummer,
@@ -66,7 +66,7 @@ WHERE
 	and g.gemeentecode = p.gemeentecode;
 
 -- Insert (actuele+bestaande) data uit combinatie van BAG tabellen : Ligplaats
-INSERT INTO adres_punt (straatnaam, huisnummer, huisletter, toevoeging, postcode, woonplaats, gemeente, provincie, geopunt)
+INSERT INTO geo_adres (straatnaam, huisnummer, huisletter, toevoeging, postcode, woonplaats, gemeente, provincie, geopunt)
   SELECT
 	o.openbareruimtenaam,
 	n.huisnummer,
@@ -93,7 +93,7 @@ WHERE
 	and g.gemeentecode = p.gemeentecode;
 
 -- Insert data uit combinatie van BAG tabellen : Standplaats
-INSERT INTO adres_punt (straatnaam, huisnummer, huisletter, toevoeging, postcode, woonplaats, gemeente, provincie, geopunt)
+INSERT INTO geo_adres (straatnaam, huisnummer, huisletter, toevoeging, postcode, woonplaats, gemeente, provincie, geopunt)
   SELECT
 	o.openbareruimtenaam,
 	n.huisnummer,
@@ -120,174 +120,173 @@ WHERE
 	and g.gemeentecode = p.gemeentecode;
 
 -- Maak indexen aan na inserten (betere performance)
-CREATE INDEX adres_punt_geom_idx ON adres_punt USING gist (geopunt);
-select probe_geometry_columns();
+CREATE INDEX geo_adres_geom_idx ON geo_adres USING gist (geopunt);
 
-DROP SEQUENCE IF EXISTS adres_punt_gid_seq;
-CREATE SEQUENCE adres_punt_gid_seq;
-ALTER TABLE adres_punt ADD gid integer UNIQUE;
-ALTER TABLE adres_punt ALTER COLUMN gid SET DEFAULT NEXTVAL('adres_punt_gid_seq');
-UPDATE adres_punt SET gid = NEXTVAL('adres_punt_gid_seq');
-ALTER TABLE adres_punt ADD PRIMARY KEY (gid);
+DROP SEQUENCE IF EXISTS geo_adres_gid_seq;
+CREATE SEQUENCE geo_adres_gid_seq;
+ALTER TABLE geo_adres ADD gid integer UNIQUE;
+ALTER TABLE geo_adres ALTER COLUMN gid SET DEFAULT NEXTVAL('geo_adres_gid_seq');
+UPDATE geo_adres SET gid = NEXTVAL('geo_adres_gid_seq');
+ALTER TABLE geo_adres ADD PRIMARY KEY (gid);
 
 
 --
 -- Postcode 6 Tabel
 --
-DROP TABLE IF EXISTS postcode6_punt CASCADE;
+DROP TABLE IF EXISTS geo_postcode6 CASCADE;
 
-CREATE table postcode6_punt AS
+CREATE table geo_postcode6 AS
 (
-  SELECT distinct provincie, gemeente, woonplaats, straatnaam, postcode from adres_punt
+  SELECT distinct provincie, gemeente, woonplaats, straatnaam, postcode from geo_adres
 );
 
-DROP SEQUENCE IF EXISTS postcode6_punt_id_seq;
-CREATE SEQUENCE postcode6_punt_id_seq;
+DROP SEQUENCE IF EXISTS geo_postcode6_id_seq;
+CREATE SEQUENCE geo_postcode6_id_seq;
 
-ALTER TABLE postcode6_punt ADD id integer UNIQUE;
+ALTER TABLE geo_postcode6 ADD id integer UNIQUE;
 
-ALTER TABLE postcode6_punt ALTER COLUMN id SET DEFAULT
-        NEXTVAL('postcode6_punt_id_seq');
+ALTER TABLE geo_postcode6 ALTER COLUMN id SET DEFAULT
+        NEXTVAL('geo_postcode6_id_seq');
 
-UPDATE postcode6_punt SET id = NEXTVAL('postcode6_punt_id_seq');
+UPDATE geo_postcode6 SET id = NEXTVAL('geo_postcode6_id_seq');
 
-ALTER TABLE postcode6_punt ADD PRIMARY KEY (id);
+ALTER TABLE geo_postcode6 ADD PRIMARY KEY (id);
 
-SELECT AddGeometryColumn('postcode6_punt','geopunt',28992,'POINT',2);
+SELECT AddGeometryColumn('geo_postcode6','geopunt',28992,'POINT',2);
 
-ALTER TABLE postcode6_punt ADD CONSTRAINT enforce_dims_punt CHECK ((st_ndims(geopunt) = 2));
-ALTER TABLE postcode6_punt ADD CONSTRAINT enforce_geotype_punt CHECK (
+ALTER TABLE geo_postcode6 ADD CONSTRAINT enforce_dims_punt CHECK ((st_ndims(geopunt) = 2));
+ALTER TABLE geo_postcode6 ADD CONSTRAINT enforce_geotype_punt CHECK (
         ((geometrytype(geopunt) = 'POINT'::text) OR (geopunt IS NULL)));
-ALTER TABLE postcode6_punt ADD CONSTRAINT enforce_srid_punt CHECK ((st_srid(geopunt) = 28992));
+ALTER TABLE geo_postcode6 ADD CONSTRAINT enforce_srid_punt CHECK ((st_srid(geopunt) = 28992));
 
-DROP INDEX IF EXISTS postcode6_punt_temp_idx;
-CREATE INDEX postcode6_punt_temp_idx on adres_punt  USING BTREE (postcode);
+DROP INDEX IF EXISTS geo_postcode6_temp_idx;
+CREATE INDEX geo_postcode6_temp_idx on geo_adres  USING BTREE (postcode);
 
-update postcode6_punt AS pc6
+update geo_postcode6 AS pc6
   set geopunt =
           (SELECT ST_Force_2D(geopunt)
-            from adres_punt
+            from geo_adres
             where postcode = pc6.postcode
                     and
                     straatnaam = pc6.straatnaam
                   limit 1);
 
-CREATE INDEX postcode6_punt_sdx on postcode6_punt  USING GIST (geopunt);
+CREATE INDEX geo_postcode6_sdx on geo_postcode6  USING GIST (geopunt);
 
-ALTER TABLE postcode6_punt
+ALTER TABLE geo_postcode6
 ALTER COLUMN provincie SET NOT  NULL;
 
-ALTER TABLE postcode6_punt
+ALTER TABLE geo_postcode6
 ALTER COLUMN gemeente SET NOT  NULL;
 
-ALTER TABLE postcode6_punt
+ALTER TABLE geo_postcode6
 ALTER COLUMN woonplaats SET NOT  NULL;
 
-ALTER TABLE postcode6_punt
+ALTER TABLE geo_postcode6
 ALTER COLUMN straatnaam SET NOT  NULL;
 
-ALTER TABLE postcode6_punt
+ALTER TABLE geo_postcode6
 ALTER COLUMN postcode SET NOT  NULL;
 
 --
 -- Postcode 4 Tabel
 --
-DROP TABLE IF EXISTS postcode4_punt CASCADE;
+DROP TABLE IF EXISTS geo_postcode4 CASCADE;
 
-CREATE table postcode4_punt AS (
-    SELECT distinct provincie, gemeente, woonplaats, substring(postcode for 4) AS postcode from postcode6_punt
+CREATE table geo_postcode4 AS (
+    SELECT distinct provincie, gemeente, woonplaats, substring(postcode for 4) AS postcode from geo_postcode6
 );
 
-DROP SEQUENCE IF EXISTS postcode4_punt_id_seq;
-CREATE SEQUENCE postcode4_punt_id_seq;
+DROP SEQUENCE IF EXISTS geo_postcode4_id_seq;
+CREATE SEQUENCE geo_postcode4_id_seq;
 
-ALTER TABLE postcode4_punt ADD id integer UNIQUE;
+ALTER TABLE geo_postcode4 ADD id integer UNIQUE;
 
-ALTER TABLE postcode4_punt ALTER COLUMN id SET DEFAULT NEXTVAL('postcode4_punt_id_seq');
+ALTER TABLE geo_postcode4 ALTER COLUMN id SET DEFAULT NEXTVAL('geo_postcode4_id_seq');
 
-UPDATE postcode4_punt SET id = NEXTVAL('postcode4_punt_id_seq');
+UPDATE geo_postcode4 SET id = NEXTVAL('geo_postcode4_id_seq');
 
-ALTER TABLE postcode4_punt ADD PRIMARY KEY (id);
+ALTER TABLE geo_postcode4 ADD PRIMARY KEY (id);
 
-SELECT AddGeometryColumn('postcode4_punt','geopunt',28992,'POINT',2);
+SELECT AddGeometryColumn('geo_postcode4','geopunt',28992,'POINT',2);
 
-DROP INDEX IF EXISTS postcode4_punt_temp_idx;
-CREATE INDEX postcode4_punt_temp_idx on postcode6_punt  USING BTREE (substr(postcode,1,4));
+DROP INDEX IF EXISTS geo_postcode4_temp_idx;
+CREATE INDEX geo_postcode4_temp_idx on geo_postcode6  USING BTREE (substr(postcode,1,4));
 
-update postcode4_punt AS pc4
+update geo_postcode4 AS pc4
   set geopunt =
           (SELECT geopunt
-            from postcode6_punt
+            from geo_postcode6
             where substr(postcode,1,4) = pc4.postcode
                   limit 1);
 
-CREATE INDEX postcode4_punt_sdx2 on postcode4_punt  USING GIST (geopunt);
+CREATE INDEX geo_postcode4_sdx2 on geo_postcode4  USING GIST (geopunt);
 
-ALTER TABLE postcode4_punt
+ALTER TABLE geo_postcode4
 ALTER COLUMN provincie SET NOT  NULL;
 
-ALTER TABLE postcode4_punt
+ALTER TABLE geo_postcode4
 ALTER COLUMN gemeente SET NOT  NULL;
 
-ALTER TABLE postcode4_punt
+ALTER TABLE geo_postcode4
 ALTER COLUMN woonplaats SET NOT  NULL;
 
-ALTER TABLE postcode6_punt
+ALTER TABLE geo_postcode6
 ALTER COLUMN postcode SET NOT  NULL;
 
 --
 -- Straatnaam Tabel
 --
-DROP TABLE IF EXISTS straatnaam_punt CASCADE;
+DROP TABLE IF EXISTS geo_straatnaam CASCADE;
 
-CREATE table straatnaam_punt AS (
-    SELECT distinct provincie, gemeente, woonplaats, straatnaam from postcode6_punt
+CREATE table geo_straatnaam AS (
+    SELECT distinct provincie, gemeente, woonplaats, straatnaam from geo_postcode6
 );
 
-DROP SEQUENCE IF EXISTS straatnaam_punt_id_seq;
-CREATE SEQUENCE straatnaam_punt_id_seq;
+DROP SEQUENCE IF EXISTS geo_straatnaam_id_seq;
+CREATE SEQUENCE geo_straatnaam_id_seq;
 
-ALTER TABLE straatnaam_punt ADD id integer UNIQUE;
+ALTER TABLE geo_straatnaam ADD id integer UNIQUE;
 
-ALTER TABLE straatnaam_punt ALTER COLUMN id SET DEFAULT NEXTVAL('straatnaam_punt_id_seq');
+ALTER TABLE geo_straatnaam ALTER COLUMN id SET DEFAULT NEXTVAL('geo_straatnaam_id_seq');
 
-UPDATE straatnaam_punt SET id = NEXTVAL('straatnaam_punt_id_seq');
+UPDATE geo_straatnaam SET id = NEXTVAL('geo_straatnaam_id_seq');
 
-ALTER TABLE straatnaam_punt ADD PRIMARY KEY (id);
+ALTER TABLE geo_straatnaam ADD PRIMARY KEY (id);
 
-SELECT AddGeometryColumn('straatnaam_punt','geopunt',28992,'POINT',2);
+SELECT AddGeometryColumn('geo_straatnaam','geopunt',28992,'POINT',2);
 
-DROP INDEX IF EXISTS straatnaam_punt_temp_idx;
-CREATE INDEX straatnaam_punt_temp_idx on postcode6_punt  USING BTREE (straatnaam);
+DROP INDEX IF EXISTS geo_straatnaam_temp_idx;
+CREATE INDEX geo_straatnaam_temp_idx on geo_postcode6  USING BTREE (straatnaam);
 
-update straatnaam_punt
+update geo_straatnaam
   set geopunt =
           (SELECT geopunt
-            from postcode6_punt
-            where straatnaam = straatnaam_punt.straatnaam
+            from geo_postcode6
+            where straatnaam = geo_straatnaam.straatnaam
                   limit 1);
 
--- CREATE INDEX straatnaam_punt_sdx1 on straatnaam_punt  USING GIST (geom);
+-- CREATE INDEX geo_straatnaam_sdx1 on geo_straatnaam  USING GIST (geom);
 
-CREATE INDEX straatnaam_punt_sdx2 on straatnaam_punt  USING GIST (geopunt);
+CREATE INDEX geo_straatnaam_sdx2 on geo_straatnaam  USING GIST (geopunt);
 
-ALTER TABLE straatnaam_punt
+ALTER TABLE geo_straatnaam
 ALTER COLUMN provincie SET NOT  NULL;
 
-ALTER TABLE straatnaam_punt
+ALTER TABLE geo_straatnaam
 ALTER COLUMN gemeente SET NOT  NULL;
 
-ALTER TABLE straatnaam_punt
+ALTER TABLE geo_straatnaam
 ALTER COLUMN woonplaats SET NOT  NULL;
 
-ALTER TABLE straatnaam_punt
+ALTER TABLE geo_straatnaam
 ALTER COLUMN straatnaam SET NOT  NULL;
 
 --
 -- Woonplaats Tabel
 --
-DROP TABLE IF EXISTS woonplaats_punt CASCADE;
-CREATE TABLE woonplaats_punt (
+DROP TABLE IF EXISTS geo_woonplaats CASCADE;
+CREATE TABLE geo_woonplaats (
     provincie text NOT NULL,
     gemeente character varying(250) NOT NULL,
     woonplaats character varying(250) NOT NULL,
@@ -301,7 +300,7 @@ CREATE TABLE woonplaats_punt (
 
 
 -- Insert (actuele+bestaande) data uit combinatie van BAG tabellen: Verblijfplaats
-INSERT INTO woonplaats_punt (provincie, gemeente, woonplaats, geopunt)
+INSERT INTO geo_woonplaats (provincie, gemeente, woonplaats, geopunt)
   SELECT
 	p.provincienaam as provincie,
 	g.gemeentenaam as gemeente,
@@ -315,13 +314,13 @@ WHERE
 	w.identificatie = g.woonplaatscode
 	and g.gemeentecode = p.gemeentecode;
 
-create index woonplaats_punt_sdx1 on woonplaats_punt using gist (geopunt);
+create index geo_woonplaats_sdx1 on geo_woonplaats using gist (geopunt);
 
 --
 -- Gemeente Tabel
 --
-DROP TABLE IF EXISTS gemeente_punt CASCADE;
-CREATE TABLE gemeente_punt (
+DROP TABLE IF EXISTS geo_gemeente CASCADE;
+CREATE TABLE geo_gemeente (
     provincie text NOT NULL,
     gemeente character varying(250) NOT NULL,
     id serial,
@@ -334,7 +333,7 @@ CREATE TABLE gemeente_punt (
 
 
 -- Insert (actuele+bestaande) data uit combinatie van BAG tabellen: Verblijfplaats
-INSERT INTO gemeente_punt (provincie, gemeente, geopunt)
+INSERT INTO geo_gemeente (provincie, gemeente, geopunt)
   SELECT
 	p.provincienaam as provincie,
 	g.gemeentenaam as gemeente,
@@ -345,11 +344,14 @@ FROM
 WHERE
   g.gemeentecode = p.gemeentecode;
 
+CREATE INDEX geo_gemeente_geopunt_idx ON geo_gemeente USING gist (geopunt);
+CREATE INDEX geo_gemeente_gemeente_idx ON geo_gemeente USING btree (gemeente);
+
 --
 -- Provincie Tabel
 --
-DROP TABLE IF EXISTS provincie_punt CASCADE;
-CREATE TABLE provincie_punt (
+DROP TABLE IF EXISTS geo_provincie CASCADE;
+CREATE TABLE geo_provincie (
     provincie text NOT NULL,
     id serial,
     geopunt geometry,
@@ -360,9 +362,14 @@ CREATE TABLE provincie_punt (
 );
 
 -- Insert (actuele+bestaande) data uit combinatie van BAG tabellen: Verblijfplaats
-INSERT INTO provincie_punt (provincie, geopunt)
+INSERT INTO geo_provincie (provincie, geopunt)
   SELECT
 	p.provincienaam as provincie,
 	ST_Force_2D(ST_Centroid(p.geovlak))as geopunt
 FROM
 	(SELECT provincienaam, geovlak from provincie) p;
+
+CREATE INDEX geo_provincie_geopunt_idx ON geo_provincie USING gist (geopunt);
+
+select probe_geometry_columns();
+

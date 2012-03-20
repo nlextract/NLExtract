@@ -9,10 +9,23 @@
 --
 
 --
--- Reverse Geocoding functies: vind adres(sen) of adres-elementen dichtst bij een punt
+-- Geocoding: geef x,y voor een adres of element daarvan
 --
 
--- Just van den Broecke
+-- Voorbeelden
+-- SELECT provincie, ST_X(geopunt) AS x, ST_Y(geopunt) AS y FROM geo_provincie WHERE provincie ILIKE '%noor%';
+--
+--    provincie   |        x         |        y
+-- ---------------+------------------+------------------
+--  Noord-Holland | 121039.803683826 | 486374.864328308
+-- (1 row)
+-- We zouden hier functies voor kunnen maken maar de queries zijn triviaal (in vergelijking
+-- tot reverse gecoding).
+
+--
+--
+-- Reverse Geocoding functies: vind adres(sen) of adres-elementen dichtst bij een punt
+--
 
 -- START Originele Code, Regina Obe
 --   doc:  http://bostongis.com/PrinterFriendly.aspx?content_name=postgis_nearest_neighbor_generic
@@ -80,18 +93,18 @@ $BODY$
 -- TODO geef ook afstand erbij terug
 DROP FUNCTION IF EXISTS nlx_adressen_voor_xy(x double precision, y double precision, straal_meters double precision, max_records integer);
 CREATE OR REPLACE FUNCTION nlx_adressen_voor_xy(x double precision, y double precision, straal_meters double precision, max_records integer)
-  RETURNS SETOF adres_punt AS
+  RETURNS SETOF geo_adres AS
 $BODY$
 DECLARE
     point geometry;
     rnn pgis_nn%rowtype;
-    radres adres_punt%rowtype;
+    radres geo_adres%rowtype;
 BEGIN
   point := ST_GeomFromText('POINT(' || x || ' ' || y || ')', 28992);
 
 -- 111253 454919 centrum bodegraven
-  for rnn in  SELECT * FROM _nlx_main_pgis_fn_nn(point, straal_meters, max_records, 50,'adres_punt', 'true', 'gid', 'geopunt') ORDER BY nn_dist LOOP
-    for radres in  SELECT * FROM adres_punt WHERE gid = rnn.nn_gid LOOP
+  for rnn in  SELECT * FROM _nlx_main_pgis_fn_nn(point, straal_meters, max_records, 50,'geo_adres', 'true', 'gid', 'geopunt') ORDER BY nn_dist LOOP
+    for radres in  SELECT * FROM geo_adres WHERE gid = rnn.nn_gid LOOP
        return next radres;
     end LOOP;
   end LOOP;
@@ -106,10 +119,10 @@ LANGUAGE 'plpgsql' STABLE;
 -- met testdata amstelveen: select * from  nlx_adres_voor_xy(118566, 480606); ;-)
 DROP FUNCTION IF EXISTS nlx_adres_voor_xy(x double precision, y double precision);
 CREATE OR REPLACE FUNCTION nlx_adres_voor_xy(x double precision, y double precision)
-RETURNS SETOF adres_punt AS
+RETURNS SETOF geo_adres AS
   $BODY$
   DECLARE
-    r adres_punt;
+    r geo_adres;
   BEGIN
     for r in SELECT * from nlx_adressen_voor_xy(x ,y , 5000, 1) LOOP
       return next r;
