@@ -129,6 +129,8 @@ ALTER TABLE geo_adres ALTER COLUMN gid SET DEFAULT NEXTVAL('geo_adres_gid_seq');
 UPDATE geo_adres SET gid = NEXTVAL('geo_adres_gid_seq');
 ALTER TABLE geo_adres ADD PRIMARY KEY (gid);
 
+CREATE INDEX geo_adres_postcode_huisnummer_idx ON geo_adres USING btree (postcode,huisnummer);
+
 
 --
 -- Postcode 6 Tabel
@@ -161,6 +163,10 @@ ALTER TABLE geo_postcode6 ADD CONSTRAINT enforce_srid_punt CHECK ((st_srid(geopu
 
 DROP INDEX IF EXISTS geo_postcode6_temp_idx;
 CREATE INDEX geo_postcode6_temp_idx on geo_adres  USING BTREE (postcode);
+CREATE INDEX geo_postcode6_postcode_idx ON geo_postcode6 USING btree (postcode);
+CREATE INDEX geo_postcode6_woonplaats_idx ON geo_postcode6 USING btree (woonplaats);
+CREATE INDEX geo_postcode6_gemeente_idx ON geo_postcode6 USING btree (gemeente);
+CREATE INDEX geo_postcode6_straatnaam_idx ON geo_postcode6 USING btree (straatnaam);
 
 update geo_postcode6 AS pc6
   set geopunt =
@@ -211,7 +217,10 @@ ALTER TABLE geo_postcode4 ADD PRIMARY KEY (id);
 SELECT AddGeometryColumn('geo_postcode4','geopunt',28992,'POINT',2);
 
 DROP INDEX IF EXISTS geo_postcode4_temp_idx;
-CREATE INDEX geo_postcode4_temp_idx on geo_postcode6  USING BTREE (substr(postcode,1,4));
+CREATE INDEX geo_postcode64_temp_idx on geo_postcode6  USING BTREE (substr(postcode,1,4));
+CREATE INDEX geo_postcode4_postcode_idx ON geo_postcode4 USING btree (postcode);
+CREATE INDEX geo_postcode4_woonplaats_idx ON geo_postcode4 USING btree (woonplaats);
+CREATE INDEX geo_postcode4_gemeente_idx ON geo_postcode4 USING btree (gemeente);
 
 update geo_postcode4 AS pc4
   set geopunt =
@@ -258,6 +267,9 @@ SELECT AddGeometryColumn('geo_straatnaam','geopunt',28992,'POINT',2);
 
 DROP INDEX IF EXISTS geo_straatnaam_temp_idx;
 CREATE INDEX geo_straatnaam_temp_idx on geo_postcode6  USING BTREE (straatnaam);
+CREATE INDEX geo_straatnaam_straatnaamidx ON geo_straatnaam USING btree (straatnaam);
+CREATE INDEX geo_straatnaam_gemeente_idx ON geo_straatnaam USING btree (gemeente);
+CREATE INDEX geo_straatnaam_woonplaats_idx ON geo_straatnaam USING btree (woonplaats);
 
 update geo_straatnaam
   set geopunt =
@@ -314,7 +326,9 @@ WHERE
 	w.identificatie = g.woonplaatscode
 	and g.gemeentecode = p.gemeentecode;
 
-create index geo_woonplaats_sdx1 on geo_woonplaats using gist (geopunt);
+create index geo_woonplaats_sidx1 on geo_woonplaats using gist (geopunt);
+CREATE INDEX geo_woonplaats_woonplaats_idx ON geo_woonplaats USING btree (woonplaats);
+CREATE INDEX geo_woonplaats_woonplaats_gem_idx ON geo_woonplaats USING btree (gemeente,woonplaats);
 
 --
 -- Gemeente Tabel
