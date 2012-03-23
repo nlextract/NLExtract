@@ -111,6 +111,13 @@ class Processor:
             Log.log.info("Niet-verwerkbare XML node: " + stripschema(node.tag))
             return
 
+        self.dbStoreInsert(mode)
+
+        # Experimenteel: dbStoreCopy() gebruikt COPY ipv INSERT
+        # maar moet nog gefinetuned
+        # self.dbStoreCopy(mode)
+
+    def dbStoreInsert(self, mode):
         Log.log.startTimer("dbStart mode = " + mode)
 
         self.database.verbind()
@@ -137,4 +144,98 @@ class Processor:
         Log.log.endTimer("dbEnd - nieuw=" + str(len(self.bagObjecten) - wijzigingen) + " gewijzigd=" + str(wijzigingen) + " rels=" + str(rels))
         Log.log.info("------")
 
+    # Experimenteel: inlezen via COPY ipv INSERT: fikse snelheidswinst
+    def dbStoreCopy(self, mode):
+        try:
+            from cStringIO import StringIO
+            import codecs
+            Log.log.info("running with cStringIO")
+        except:
+            from StringIO import StringIO
+            Log.log.info("running with StringIO")
 
+        Log.log.startTimer("dbStart mode = " + mode)
+        self.database.verbind()
+
+        # BAG Objecten en Relaties hebben verschillende tabellen/kolommen
+        # Houd deze bij in dictionaries
+        # TODO: maak 1 object voor combinatie buffer/kolommen
+        buffers = {}
+        columns = {}
+        rels = 0
+        wijzigingen = 0
+        for bagObject in self.bagObjecten:
+            if bagObject.origineelObj:
+                # Mutatie: wijziging, doe nog even traditioneel want heeft wat SQL logica
+                bagObject.maakUpdateSQL()
+                wijzigingen += 1
+                self.database.uitvoeren(bagObject.sql, bagObject.inhoud)
+            else:
+                # Maak buffer eenmalig aan per tabel
+                if bagObject.naam() not in buffers:
+                    buffer = StringIO()
+                    # cStringIO heeft niet standaard UTF-8 support en BAG is in UTF-8
+                    bufferUTF8 = codecs.getwriter("utf8")(buffer)
+
+                    buffers[bagObject.naam()] = bufferUTF8
+
+                # Voeg de inhoud aan buffer toe
+                bagObject.maakCopySQL(buffers[bagObject.naam()])
+
+                # Kolom namen
+                # TODO dit hoeft natuurlijk maar 1x
+                columns[bagObject.naam()] = bagObject.velden
+
+            for relatie in bagObject.relaties:
+                # Maak buffer eenmalig aan per relatietabel
+                if relatie.relatieNaam() not in buffers:
+                    buffer = StringIO()
+
+                    # cStringIO heeft niet standaard UTF-8 support en BAG is in UTF-8
+                    bufferUTF8 = codecs.getwriter("utf8")(buffer)
+                    buffers[relatie.relatieNaam()] = bufferUTF8
+
+                buffers[relatie.relatieNaam()].write(relatie.sql)
+                # Kolom namen
+                # TODO dit hoeft natuurlijk maar 1x
+                columns[relatie.relatieNaam()] = relatie.velden
+                rels += 1
+
+        # Doe DB COPY operaties
+        for table in buffers:
+            buf = buffers[table]
+            buf.seek(0)
+            self.database.cursor.copy_from(buf, table, sep='~', null='\\\N', columns=columns[table])
+            buf.close()
+
+        self.database.connection.commit()
+
+        Log.log.endTimer("dbEnd - nieuw=" + str(len(self.bagObjecten) - wijzigingen) + " gewijzigd=" + str(wijzigingen) + " rels=" + str(rels))
+        Log.log.info("------")
+
+# TODO mogelijke versnelling met StringIO en concatenatie met COPY ipv INSERT
+# http://stackoverflow.com/questions/8144002/use-binary-copy-table-from-with-psycopg2/8150329#8150329
+# ## Find the best implementation available on this platform
+#try:
+#    from cStringIO import StringIO
+#    print("running with cStringIO")
+#except:
+#    from StringIO import StringIO
+#    print("running with StringIO")
+#
+## Writing to a buffer
+#output = StringIO()
+#output.write('This goes into the buffer. ')
+#print >>output, 'And so does this.'
+#
+## Retrieve the value written
+#print output.getvalue()
+#
+#output.close() # discard buffer memory
+#
+## Initialize a read buffer
+#input = StringIO('Inital value for read buffer')
+#
+## Read from the buffer
+#print input.read()
+#

@@ -108,6 +108,33 @@ class BAGObject:
         for relatie in self.relaties:
              relatie.schrijf()
 
+    # Genereer SQL voor een COPY.
+    def maakCopySQL(self, buffer):
+        velden = []
+        i = 0
+        for attribuut in self.attributen_volgorde:
+
+            velden.append(attribuut.naam())
+            w = attribuut.waardeSQL()
+            if not w:
+                w = '\\\N'
+
+            if attribuut.naam() == 'geom_valid':
+                w = repr(False)
+
+            if i > 0:
+                buffer.write("~")
+
+            buffer.write(w)
+            i += 1
+
+        self.velden = velden
+        buffer.write("\n")
+
+        # Optioneel: relatie objecten
+        for relatie in self.relaties:
+            relatie.maakCopySQL()
+
     # Genereer SQL voor een INSERT (als prepared statement).
     def maakInsertSQL(self):
         velden = ""

@@ -394,7 +394,7 @@ class BAGpolygoon(BAGgeoAttribuut):
                 if puntTeller > self.dimensie():
                     wktPosList += ","
                     puntTeller = 1
-                wktPosList += " " + coordinaat
+                wktPosList += " " + coordinaat.strip()
         return wktPosList
 
     # Converteer een polygoon uit de XML-string naar een WKT-string.
@@ -578,6 +578,20 @@ class BAGrelatieAttribuut(BAGattribuut):
                                 waarde))
 
             self.sql.append(sql)
+
+    # Maak insert SQL voor deze relatie
+    def maakCopySQL(self):
+        self.velden = ("identificatie","aanduidingrecordinactief","aanduidingrecordcorrectie","begindatumtijdvakgeldigheid", self.naam())
+        self.sql = ""
+        for waarde in self._waarde:
+            self.sql += self._parent.attribuut('identificatie').waardeSQL() + "~"
+            self.sql += self._parent.attribuut('aanduidingRecordInactief').waardeSQL() + "~"
+            self.sql += self._parent.attribuut('aanduidingRecordCorrectie').waardeSQL() + "~"
+            self.sql += self._parent.attribuut('begindatumTijdvakGeldigheid').waardeSQL() + "~"
+
+            if not waarde:
+                waarde = '\\\N'
+            self.sql += waarde + "\n"
 
     # Maak update SQL voor deze relatie
     def maakUpdateSQL(self):

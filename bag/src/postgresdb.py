@@ -70,6 +70,8 @@ class Database:
                 self.cursor.execute(sql, parameters)
             else:
                 self.cursor.execute(sql)
+
+            # Log.log.debug(self.cursor.statusmessage)
         except (Exception), e:
             Log.log.error("fout %s voor query: %s met parameters %s" % (str(e), str(sql), str(parameters))  )
             return self.cursor.rowcount
