@@ -106,13 +106,17 @@ def main():
 
     elif args.extract:
         # Extracts any data from any source files/dirs/zips/xml/csv etc
+        Database().log_actie('start_extract', args.extract)
         myreader = BAGFileReader(args.extract)
         myreader.process()
+        Database().log_actie('stop_extract', args.extract)
     elif args.query:
         # Voer willekeurig SQL script uit uit
+        Database().log_actie('start_query', args.query)
         database = Database()
 
         database.file_uitvoeren(args.query)
+        Database().log_actie('stop_query', args.query)
     else:
         Log.log.fatal("je geeft een niet-ondersteunde optie. Tip: probeer -h optie")
 

@@ -22,7 +22,16 @@
 -- We zouden hier functies voor kunnen maken maar de queries zijn triviaal (in vergelijking
 -- tot reverse gecoding).
 
+-- XY voor adres
+-- SELECT ST_X(geopunt) AS x, ST_Y(geopunt) AS y FROM geo_adres WHERE postcode = '1181PL' AND huisnummer = 3;
+
 --
+-- geef alfabetische lijst van straatnamen in woonplaats
+-- select straatnaam from geo_straatnaam where woonplaats = 'Amstelveen' order by straatnaam;
+--
+-- geef alfabetische lijst van woonplaatsen in gemeente
+-- select woonplaats from geo_woonplaats where gemeente = 'De Ronde Venen' order by woonplaats;;
+
 --
 -- Reverse Geocoding functies: vind adres(sen) of adres-elementen dichtst bij een punt
 --

@@ -27,6 +27,7 @@
 --
 -- Dus Amstelhoek, de Hoef, Mijdrecht, Vinkeveen, Waverveen moeten aangepast in koppeltabel
 
+-- NB deze fix is niet meer nodig voor de koppeltabel van 6 maart en later...
 UPDATE gemeente_woonplaats SET woonplaatscode = 3547 WHERE woonplaatsnaam = 'Amstelhoek';
 UPDATE gemeente_woonplaats SET woonplaatscode = 3548 WHERE woonplaatsnaam = 'De Hoef';
 UPDATE gemeente_woonplaats SET woonplaatscode = 3549 WHERE woonplaatsnaam = 'Mijdrecht';

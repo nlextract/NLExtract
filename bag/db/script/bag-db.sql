@@ -7,27 +7,37 @@
 -- TODO optimaliseren !!
 
 -- Systeem tabellen
-DROP TABLE IF EXISTS bagextractpluslog;
-/*
--- Niet meer loggen in de database
-CREATE TABLE bagextractpluslog (
-    datum date,
-    actie character varying(1000),
-    bestand character varying(1000),
-    logfile character varying(1000)
-);
-*/
-
-DROP TABLE IF EXISTS bagextractinfo;
-CREATE TABLE bagextractinfo (
+-- Meta informatie, handig om te weten, wat en wanneer is ingelezen
+-- bagextract.py zal bijv leverings info en BAG leverings datum inserten
+DROP TABLE IF EXISTS nlx_bag_info;
+CREATE TABLE nlx_bag_info (
   gid serial,
+  tijdstempel timestamp default current_timestamp,
   sleutel character varying (25),
-  waarde character varying (100)
+  waarde text
 );
-INSERT INTO bagextractinfo (sleutel,waarde)
+
+INSERT INTO nlx_bag_info (sleutel,waarde)
         VALUES ('schema_versie', '1.0.3');
-INSERT INTO bagextractinfo (sleutel,waarde)
+INSERT INTO nlx_bag_info (sleutel,waarde)
         VALUES ('software_versie', '1.1.0');
+INSERT INTO nlx_bag_info (sleutel,waarde)
+        VALUES ('schema_creatie', to_char(current_timestamp, 'DD-Mon-IYYY HH24:MI:SS'));
+
+-- Systeem tabellen
+-- Actie log, handig om fouten en timings te analyseren
+-- en iha voortgang op afstand te monitoren
+DROP TABLE IF EXISTS nlx_bag_log;
+CREATE TABLE nlx_bag_log (
+  gid serial,
+  tijdstempel timestamp default current_timestamp,
+  actie character varying (25),
+  bestand text default 'n.v.t.',
+  bericht text default 'geen',
+  error boolean default false
+);
+
+INSERT INTO nlx_bag_log (actie) VALUES ('schema aangemaakt');
 
 -- Relatie tabellen
 -- Verblijfsobject kan meerdere gebruiksdoelen hebben.
@@ -234,6 +244,7 @@ CREATE TABLE verblijfsobject (
 -- werkt niet met PG schema
 -- SELECT AddGeometryColumn('public', 'verblijfsobject', 'geopunt', 28992, 'POINT', 3);
 -- SELECT AddGeometryColumn('public', 'verblijfsobject', 'geovlak', 28992, 'POLYGON', 3);
+-- UPDATE verblijfsobject SET geopunt = ST_Force_3D(ST_Centroid(geovlak)) WHERE geopunt is  null and geovlak is not null;
 
 DROP TABLE IF EXISTS pand CASCADE;
 DROP TYPE IF EXISTS pandStatus;
@@ -260,6 +271,8 @@ CREATE TABLE pand (
   PRIMARY KEY (gid)
 
 ) WITH (OIDS=true);
+-- UPDATE pand SET geom_valid = ST_IsValid(geovlak);
+
 -- werkt niet met PG schema
 -- SELECT AddGeometryColumn('public', 'pand', 'geovlak', 28992, 'POLYGON', 3);
 

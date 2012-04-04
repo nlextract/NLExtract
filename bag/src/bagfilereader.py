@@ -21,6 +21,7 @@ import os
 from etree import etree
 import csv
 from logging import Log
+from postgresdb import Database
 
 try:
   from cStringIO import StringIO
@@ -51,7 +52,7 @@ class BAGFileReader:
             zipfilename = os.path.basename(self.file).split('.')
             ext = zipfilename[1]
             if ext == 'xml':
-                xml = self.parseXML(self.file)
+                xml = self.parseXML(self.file, zipfilename)
                 self.processXML(zipfilename[0],xml)
             if ext == 'csv':
                 fileobject = open(self.file, "rb")
@@ -70,14 +71,15 @@ class BAGFileReader:
                         ext = zipfilename[1]
                         if ext == 'xml':
                             Log.log.info("==> XML File: " + each)
-                            xml = self.parseXML(_file)
-                            self.processXML(zipfilename[0],xml)
+                            xml = self.parseXML(_file, zipfilename[0] + "." + zipfilename[1])
+                            self.processXML(zipfilename[0] + "." + zipfilename[1], xml)
                         if ext == 'csv':
                             Log.log.info("==> CSV File: " + each)
                             fileobject = open(_file, "rb")
                             self.processCSV(zipfilename[0],fileobject)
 
     def readzipfile(self):
+
         tzip = self.zip
         Log.log.info("readzipfile content=" + str(tzip.namelist()))
         for naam in tzip.namelist():
@@ -85,7 +87,7 @@ class BAGFileReader:
             Log.log.info("readzipfile: " + naam)
             if len(ext) == 2:
                 if ext[1] == 'xml':
-                    xml = self.parseXML(StringIO(tzip.read(naam)))
+                    xml = self.parseXML(StringIO(tzip.read(naam)), naam)
                     self.processXML(naam, xml)
                 elif ext[1] == 'zip':
                     self.readzipstring(StringIO(tzip.read(naam)))
@@ -106,7 +108,7 @@ class BAGFileReader:
             ext = nested.split('.')
             if len(ext) == 2:
                 if ext[1] == 'xml':
-                    xml = self.parseXML(StringIO(tzip.read(nested)))
+                    xml = self.parseXML(StringIO(tzip.read(nested)), str(nested))
                     self.processXML(nested, xml)
                 elif ext[1] == 'csv':
                     Log.log.info(nested)
@@ -118,18 +120,33 @@ class BAGFileReader:
                 else:
                     Log.log.info("Negeer: " + nested)
 
-    def parseXML(self,naam):
+    def parseXML(self, file, naam):
+
         Log.log.startTimer("parseXML")
-        xml = etree.parse(naam)
-        Log.log.endTimer("parseXML")
+        xml = None
+        try:
+            xml = etree.parse(file)
+            bericht = Log.log.endTimer("parseXML")
+            Database().log_actie('xml_parse', naam, bericht)
+        except (Exception), e:
+            bericht = Log.log.error("fout %s in XML parsen, bestand=%s" % (str(e), str(naam) ))
+            Database().log_actie('xml_parse', naam, bericht, True)
         return xml
     
     def processXML(self,naam, xml):
-        Log.log.info("processXML: " + naam)
-        xmldoc = xml.getroot()
-        #de orm bepaalt of het een extract of een mutatie is
-        self.processor.processDOM(xmldoc)
-        #Log.log.info(document)
+        if not xml:
+            Database().log_actie('xml_processing', naam, 'geen xml document', True)
+            return
+
+        try:
+            Log.log.info("processXML: " + naam)
+            xmldoc = xml.getroot()
+            # de processor bepaalt of het een extract of een mutatie is
+            self.processor.processDOM(xmldoc)
+            #Log.log.info(document)
+        except (Exception), e:
+            bericht = Log.log.error("fout %s in DOM processing, bestand=%s" % (str(e), str(naam) ))
+            Database().log_actie('xml_processing', naam, bericht, True)
 
     def processCSV(self,naam, fileobject):
         Log.log.info(naam)
