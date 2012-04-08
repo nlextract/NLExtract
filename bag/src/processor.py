@@ -141,12 +141,12 @@ class Processor:
             return
 
         Log.log.startTimer("dbStart mode = " + mode)
-        bericht = self.dbStoreInsert(mode)
-        Database().log_actie('insert_database', 'idem', bericht)
-
         # Experimenteel: dbStoreCopy() gebruikt COPY ipv INSERT
         # maar moet nog gefinetuned
-        # self.dbStoreCopy(mode)
+        bericht = self.dbStoreCopy(mode)
+        # bericht = self.dbStoreInsert(mode)
+        Database().log_actie('insert_database', 'idem', bericht)
+
 
     def dbStoreInsert(self, mode):
 

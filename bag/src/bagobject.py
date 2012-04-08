@@ -119,8 +119,8 @@ class BAGObject:
             if not w:
                 w = '\\\N'
 
-            if attribuut.naam() == 'geom_valid':
-                w = repr(False)
+            # if attribuut.naam() == 'geom_valid':
+            #   w = repr(False)
 
             if i > 0:
                 buffer.write("~")

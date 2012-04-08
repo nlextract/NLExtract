@@ -14,8 +14,9 @@ __date__ = "Jan 9, 2012 3:46:27 PM$"
  OpenGeoGroep.nl
 """
 from logging import Log
-from etree import tagVolledigeNS, stripschema
+from etree import etree, tagVolledigeNS, stripschema
 import sys
+from osgeo import ogr #apt-get install python-gdal
 
 # Geef de waarde van een textnode in XML
 def getText(nodelist):
@@ -293,6 +294,7 @@ class BAGdateAttribuut(BAGattribuut):
 class BAGgeoAttribuut(BAGattribuut):
     def __init__(self, dimensie, naam, tag):
         self._dimensie = dimensie
+        self._geometrie = None
         BAGattribuut.__init__(self, -1, naam, tag)
 
     # Attribuut dimensie
@@ -300,12 +302,23 @@ class BAGgeoAttribuut(BAGattribuut):
         return self._dimensie
 
     # Geef aan dat het attribuut wel/niet geometrie is.
-
     def isGeometrie(self):
         return True
 
+    # Geometrie validatie
+    def isValide(self):
+        if self._geometrie:
+            return self._geometrie.IsValid()
+        else:
+            return True
+
     # Attribuut waarde. Deze method kan worden overloaded
     def waardeSQL(self):
+        if self._geometrie is not None:
+            # Forceer gespecificeerde coordinaat dimensie
+            self._geometrie.SetCoordinateDimension(self._dimensie)
+            self._waarde = self._geometrie.ExportToWkt()
+
         if self._waarde:
             return 'SRID=28992;' + self._waarde
         else:
@@ -335,38 +348,31 @@ class BAGpoint(BAGgeoAttribuut):
     def soort(self):
         return "POINT"
 
-    def waardeSQL(self):
-        if self._waarde and not self.polygonAttr:
-            return 'SRID=28992;' + self._waarde
-        elif self.polygonAttr:
-            return self.polygonAttr.waardeSQL()
-
-    def waardeSQLTpl(self):
-        if not self.polygonAttr:
-            return 'GeomFromEWKT(%s)'
-        else:
-            return "ST_Force_3D(ST_Centroid(GeomFromEWKT(%s)))"
+    def isValide(self):
+        return True
 
     # Initialisatie vanuit XML
     def leesUitXML(self, xml):
         self.polygonAttr = None
         point = None
         try:
-            geometrie = xml.find('./'+tagVolledigeNS(self._tag, xml.nsmap))
-            point = geometrie.find('./'+tagVolledigeNS("gml:Point", geometrie.nsmap))
-            if point is not None:
-                pos = ','.join([ na.text for na in point.iterfind('./'+tagVolledigeNS("gml:pos", point.nsmap)) ])
-                self._waarde = "POINT(" + pos + ")"
-            else:
-                # Polygoon (wordt later omgezet naar punt)
-                polygon = geometrie.find('./'+tagVolledigeNS("gml:Polygon", geometrie.nsmap))
-                if polygon:
-                    self.polygonAttr = BAGpolygoon(3, self._naam, self._tag)
-                    self.polygonAttr.leesUitXML(xml)
+            xmlGeometrie = xml.find('./'+tagVolledigeNS(self._tag, xml.nsmap))
 
+            if xmlGeometrie is not None:
+                gmlNode = xmlGeometrie.find('./'+tagVolledigeNS("gml:Point", xml.nsmap))
+                if gmlNode is not None:
+                    gmlStr = etree.tostring(gmlNode)
+                    self._geometrie = ogr.CreateGeometryFromGML(str(gmlStr))
+                else:
+                    # Forceer punt uit Polygoon
+                    gmlNode = xmlGeometrie.find('./'+tagVolledigeNS("gml:Polygon", xml.nsmap))
+                    if gmlNode is not None:
+                        gmlStr = etree.tostring(gmlNode)
+                        self._geometrie = ogr.CreateGeometryFromGML(str(gmlStr))
+                        self._geometrie = self._geometrie.Centroid()
         except:
             Log.log.error("ik kan hier echt geen POINT van maken: %s (en zet dit op 0,0,0)" % str(point.text))
-            self._waarde = "POINT(0 0 0)"
+            # self._waarde = "POINT(0 0 0)"
 
 #--------------------------------------------------------------------------------------------------------
 # Class         BAGpolygoon
@@ -380,45 +386,14 @@ class BAGpolygoon(BAGgeoAttribuut):
     def soort(self):
         return "POLYGON"
 
-    # Converteer een posList uit de XML-string naar een WKT-string. De XML-string bevat een opsomming
-    # van coordinaten waarbij alle coordinaten en punten zijn gescheiden door een spatie. In de WKT-string
-    # worden de punten gescheiden door een komma en de coordinaten van een punt gescheiden door een spatie.
-    def _leesXMLposList(self, xml):
-        wktPosList = ""
-        puntTeller = 0
-        for xmlPosList in xml.iterfind('.//'+tagVolledigeNS("gml:LinearRing/gml:posList", xml.nsmap)):
-            for coordinaat in xmlPosList.text.split(" "):
-                if not coordinaat or not coordinaat.strip():
-                    continue
-                puntTeller += 1
-                if puntTeller > self.dimensie():
-                    wktPosList += ","
-                    puntTeller = 1
-                wktPosList += " " + coordinaat.strip()
-        return wktPosList
-
-    # Converteer een polygoon uit de XML-string naar een WKT-string.
-    # Een polygoon bestaat uit een buitenring en 0 of meerdere binnenringen (gaten).
-    def _leesXMLpolygoon(self, xmlPolygoon):
-        xmlExterior = xmlPolygoon.find('./'+tagVolledigeNS("gml:exterior", xmlPolygoon.nsmap))
-        if xmlExterior is not None:
-            wktExterior = "(" + self._leesXMLposList(xmlExterior) + ")"
-        else:
-            wktExterior = ""
-
-        wktInteriors = ""
-        for xmlInterior in xmlPolygoon.iterfind('./'+tagVolledigeNS("gml:interior", xmlPolygoon.nsmap)):
-            wktInteriors += ",(" + self._leesXMLposList(xmlInterior) + ")"
-
-        return "(" + wktExterior + wktInteriors + ")"
-
     # Initialisatie vanuit XML
     def leesUitXML(self, xml):
         xmlGeometrie = xml.find('./'+tagVolledigeNS(self._tag, xml.nsmap))
         if xmlGeometrie is not None:
-            xmlPolygoon = xmlGeometrie.find('./'+tagVolledigeNS("gml:Polygon", xmlGeometrie.nsmap))
-            if xmlPolygoon is not None:
-                self._waarde = "POLYGON" + self._leesXMLpolygoon(xmlPolygoon)
+            gmlNode = xmlGeometrie.find('./'+tagVolledigeNS("gml:Polygon", xmlGeometrie.nsmap))
+            if gmlNode is not None:
+                gmlStr = etree.tostring(gmlNode)
+                self._geometrie = ogr.CreateGeometryFromGML(str(gmlStr))
 
 #--------------------------------------------------------------------------------------------------------
 # Class         BAGmultiPolygoon
@@ -432,83 +407,34 @@ class BAGmultiPolygoon(BAGpolygoon):
 
     # Initialisatie vanuit XML
     def leesUitXML(self, xml):
-        wktGeometrie = ""
+        gmlNode = None
+        # Attribuut vinden, bijv. bag_LVC:woonplaatsGeometrie
         xmlGeometrie = xml.find('./'+tagVolledigeNS(self._tag, xml.nsmap))
-        for xmlPolygoon in xmlGeometrie.iterfind('.//'+tagVolledigeNS("gml:Polygon", xmlGeometrie.nsmap)):
-            if wktGeometrie <> "":
-                wktGeometrie += ","
-            wktGeometrie += self._leesXMLpolygoon(xmlPolygoon)
-        self._waarde = "MULTIPOLYGON(" + wktGeometrie + ")"
+        if xmlGeometrie is not None:
+            # Probeer eerst een MultiSurface te vinden
+            gmlNode = xmlGeometrie.find('./'+tagVolledigeNS("gml:MultiSurfcae", xml.nsmap))
+            if gmlNode is None:
+                # Geen MultiSurface: probeer een Polygon te vinden
+                gmlNode = xmlGeometrie.find('./'+tagVolledigeNS("gml:Polygon", xml.nsmap))
+
+        if gmlNode is not None:
+            gmlStr = etree.tostring(gmlNode)
+            self._geometrie = ogr.CreateGeometryFromGML(str(gmlStr))
+            # Constrain: kolom is altijd multipolygon
+            self._geometrie = ogr.ForceToMultiPolygon(self._geometrie)
 
 #--------------------------------------------------------------------------------------------------------
-# Class         BAGpolygoonOfpunt
-# Afgeleid van  BAGgeoAttribuut
-# Omschrijving  Bevat of een Polygoongeometrie of een punt geometrie
-#               De dimensie (2D of 3D) is variabel.
-#--------------------------------------------------------------------------------------------------------
-class BAGpolygoonOfpunt(BAGgeoAttribuut):
-    # Constructor
-    def __init__(self, parent, naam, tag):
-        self._parent = parent
-        BAGgeoAttribuut.__init__(self, 0, naam, tag)
-
-           # Attribuut waarde. Deze method kan worden overloaded
-    def waardeSQL(self):
-        return  self._geoattr.waardeSQL()
-
-    # Attribuut waarde. Deze method kan worden overloaded
-    def waardeSQLTpl(self):
-        if self._geoattr.soort() == "POLYGON" and self._naam == "geopunt":
-            return 'ST_Centroid(GeomFromEWKT(%s))'
-
-        return self._geoattr.waardeSQLTpl()
-
-    # Initialisatie vanuit XML
-    def leesUitXML(self, xml):
-        xmlGeometrie = xml.find('./'+tagVolledigeNS(self._tag, xml.nsmap))
-        geometrie = xmlGeometrie.find('./'+tagVolledigeNS("gml:Point", xml.nsmap))
-        if geometrie:
-            self._geoattr = BAGpoint(3, self._naam, self._tag)
-        else:
-            geometrie = xml.find('./'+tagVolledigeNS("gml:Polygon", xml.nsmap))
-            if geometrie:
-                self._geoattr = BAGpolygoon(3, self._naam, self._tag)
-
-        if not self._geoattr:
-            Log.log.error("Geen punt of vlak geometrie gevonden")
-            return
-
-        self._geoattr._parentObj = self._parentObj
-        self._geoattr.leesUitXML(xml)
-
-#--------------------------------------------------------------------------------------------------------
-# Class         BAGgeoAttribuut
+# Class         BAGgeometrieValidatie
 # Afgeleid van  BAGattribuut
-# Omschrijving  Bevat een geometrie attribuut
+# Omschrijving  Bevat de validatie waarde (true,false) van een geometrie attribuut
 #--------------------------------------------------------------------------------------------------------
 class BAGgeometrieValidatie(BAGattribuut):
     def __init__(self, naam, naam_geo_attr):
         BAGattribuut.__init__(self, -1, naam, None)
+
+        # Kolom-naam van te valideren geo-attribuut
         self._naam_geo_attr = naam_geo_attr
-        self._geo_attr_waarde = None
 
-    def geoAttrWaardeSQL(self):
-        if self._geo_attr_waarde:
-            return self._geo_attr_waarde
-
-        geo_attr = self._parentObj.attribuut(self._naam_geo_attr)
-        if not geo_attr:
-            return None
-        self._geo_attr_waarde = geo_attr.waardeSQL()
-        return self._geo_attr_waarde
-
-    def waardeSQLTpl(self):
-        geo_attr_waarde = self.geoAttrWaardeSQL()
-        if not geo_attr_waarde:
-            return '%s'
-        else:
-            return 'ST_IsValid(GeomFromEWKT(%s))'
-    
     def sqltype(self):
         return "BOOLEAN"
 
@@ -516,9 +442,13 @@ class BAGgeometrieValidatie(BAGattribuut):
     def leesUitXML(self, xml):
         self._waarde = None
 
-    # Attribuut waarde. Deze method kan worden overloaded
+    # Bepaal validatie-waarde
     def waardeSQL(self):
-        return self.geoAttrWaardeSQL()
+        geo_attr = self._parentObj.attribuut(self._naam_geo_attr)
+        valid = 'TRUE'
+        if geo_attr:
+            valid = str(geo_attr.isValide())
+        return valid
 
     # Attribuut soort
     def soort(self):
