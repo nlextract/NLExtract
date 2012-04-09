@@ -416,12 +416,16 @@ class BAGmultiPolygoon(BAGpolygoon):
             if gmlNode is None:
                 # Geen MultiSurface: probeer een Polygon te vinden
                 gmlNode = xmlGeometrie.find('./'+tagVolledigeNS("gml:Polygon", xml.nsmap))
+                if gmlNode is not None:
+                    gmlStr = etree.tostring(gmlNode)
+                    polygon = ogr.CreateGeometryFromGML(str(gmlStr))
+                    self._geometrie = ogr.Geometry(ogr.wkbMultiPolygon)
+                    self._geometrie.AddGeometryDirectly(polygon)
 
-        if gmlNode is not None:
-            gmlStr = etree.tostring(gmlNode)
-            self._geometrie = ogr.CreateGeometryFromGML(str(gmlStr))
-            # Constrain: kolom is altijd multipolygon
-            self._geometrie = ogr.ForceToMultiPolygon(self._geometrie)
+            else:
+                # MultiSurface
+                gmlStr = etree.tostring(gmlNode)
+                self._geometrie = ogr.CreateGeometryFromGML(str(gmlStr))
 
 #--------------------------------------------------------------------------------------------------------
 # Class         BAGgeometrieValidatie
