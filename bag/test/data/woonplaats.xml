@@ -247,7 +247,7 @@
                      </bag_LVC:tijdvakgeldigheid>
                      <bag_LVC:inOnderzoek>N</bag_LVC:inOnderzoek>
                      <bag_LVC:bron><bagtype:documentdatum>20100614</bagtype:documentdatum>
-                         <bagtype:documentnummer>20100614/10</bagtype:documentnummer>
+                         <bagtype:documentnummer>bag\20100614/10</bagtype:documentnummer>
                      </bag_LVC:bron>
                      <bag_LVC:woonplaatsStatus>Woonplaats aangewezen</bag_LVC:woonplaatsStatus>
                  </bag_LVC:Woonplaats>

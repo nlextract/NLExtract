@@ -123,6 +123,21 @@ class BAGattribuut:
         print "- %-27s: %s" % (self._naam, self._waarde)
 
 #--------------------------------------------------------------------------------------------------------
+# Class BAGstringAttribuut
+# Afgeleid van BAGattribuut
+# Omschrijving Bevat een string waarde
+#--------------------------------------------------------------------------------------------------------
+class BAGstringAttribuut(BAGattribuut):
+
+    # Attribuut waarde. Deze method kan worden overloaded
+    def waarde(self):
+        if self._waarde == '' or self._waarde is None:
+             # Voor string kolommen (default) willen we NULL, geen lege string
+             return None
+
+        return self._waarde.replace("\\", "/")
+
+#--------------------------------------------------------------------------------------------------------
 # Class         BAGenumAttribuut
 # Afgeleid van  BAGattribuut
 # Omschrijving  Bevat een of meerdere waarden binnen een restrictie
