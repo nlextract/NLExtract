@@ -142,14 +142,14 @@ class BAGstringAttribuut(BAGattribuut):
             # Voor string kolommen (default) willen we NULL, geen lege string
             self._waarde = None
         if self._waarde is not None:
-            print "voor:"+ self._waarde
+            # print "voor:"+ self._waarde
             self._waarde = self._waarde.strip()
             # Kan voorkomen dat strings langer zijn in BAG
             # ondanks restrictie vanuit BAG XSD model
             self._waarde = self._waarde[:self._lengte]
 
             self._waarde =  self._waarde.translate(BAGstringAttribuut.translatieTabel);
-            print self._waarde
+            # print self._waarde
 
 #--------------------------------------------------------------------------------------------------------
 # Class         BAGenumAttribuut
