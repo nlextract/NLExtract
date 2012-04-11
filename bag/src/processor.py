@@ -184,12 +184,12 @@ class Processor:
     def dbStoreCopy(self, mode):
         try:
             from cStringIO import StringIO
-            import codecs
             Log.log.info("running with cStringIO")
         except:
             from StringIO import StringIO
             Log.log.info("running with StringIO")
 
+        import codecs
         Log.log.startTimer("dbStart mode = " + mode)
         self.database.verbind()
 
@@ -242,6 +242,7 @@ class Processor:
             buf = buffers[table]
             buf.seek(0)
             self.database.cursor.copy_from(buf, table, sep='~', null='\\\N', columns=columns[table])
+
             buf.close()
 
         self.database.connection.commit()

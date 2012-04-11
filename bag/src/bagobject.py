@@ -124,12 +124,14 @@ class BAGObject:
 
             if i > 0:
                 buffer.write("~")
-
+                # print("~")
             buffer.write(w)
+            # print(w)
             i += 1
 
         self.velden = velden
         buffer.write("\n")
+        # print("\n")
 
         # Optioneel: relatie objecten
         for relatie in self.relaties:

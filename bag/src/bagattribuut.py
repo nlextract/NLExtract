@@ -17,6 +17,7 @@ from logging import Log
 from etree import etree, tagVolledigeNS, stripschema
 import sys
 from osgeo import ogr #apt-get install python-gdal
+from string import maketrans   # Required to call maketrans function.
 
 # Geef de waarde van een textnode in XML
 def getText(nodelist):
@@ -29,7 +30,7 @@ def getText(nodelist):
 
 # Geef de waardes van alle elementen met de gegeven tag binnen de XML (parent).
 def getValues(parent, tag):
-    return [node.text for node in parent.iterfind('./'+tagVolledigeNS(tag, parent.nsmap))]
+    return [node.text for node in parent.iterfind('./' + tagVolledigeNS(tag, parent.nsmap))]
 
 # Geef de waarde van het eerste element met de gegeven tag binnen de XML (parent). Als er geen eerste
 # element gevonden wordt, is het resultaat een lege string.
@@ -73,7 +74,7 @@ class BAGattribuut:
     # Attribuut sqltype. Deze method kan worden overloaded
     def sqltype(self):
         return "VARCHAR(%d)" % self._lengte
-    
+
     # Initialiseer database voor dit type
     def sqlinit(self):
         return ''
@@ -128,14 +129,27 @@ class BAGattribuut:
 # Omschrijving Bevat een string waarde
 #--------------------------------------------------------------------------------------------------------
 class BAGstringAttribuut(BAGattribuut):
+    # Nodig om allerlei nare chanracters te verwijderen die bijv COPY
+    # kunnen beinvloeden
+    inputChars = "\\\n~"
+    outputChars = "/ ."
+    translatieTabel = maketrans(inputChars, outputChars)
 
-    # Attribuut waarde. Deze method kan worden overloaded
-    def waarde(self):
-        if self._waarde == '' or self._waarde is None:
-             # Voor string kolommen (default) willen we NULL, geen lege string
-             return None
+    # Initialisatie vanuit XML
+    def leesUitXML(self, xml):
+        self._waarde = getValue(xml, self._tag)
+        if self._waarde == '':
+            # Voor string kolommen (default) willen we NULL, geen lege string
+            self._waarde = None
+        if self._waarde is not None:
+            print "voor:"+ self._waarde
+            self._waarde = self._waarde.strip()
+            # Kan voorkomen dat strings langer zijn in BAG
+            # ondanks restrictie vanuit BAG XSD model
+            self._waarde = self._waarde[:self._lengte]
 
-        return self._waarde.replace("\\", "/")
+            self._waarde =  self._waarde.translate(BAGstringAttribuut.translatieTabel);
+            print self._waarde
 
 #--------------------------------------------------------------------------------------------------------
 # Class         BAGenumAttribuut
@@ -146,7 +160,7 @@ class BAGenumAttribuut(BAGattribuut):
     # Constructor
     def __init__(self, lijst, naam, tag):
         self._lijst = lijst
-#        self._lengte = len(max(lijst, key=len))
+        #        self._lengte = len(max(lijst, key=len))
         self._lengte = len(lijst)
         self._naam = naam
         self._tag = tag
@@ -158,7 +172,8 @@ class BAGenumAttribuut(BAGattribuut):
 
     # Initialiseer database
     def sqlinit(self):
-        return "DROP TYPE IF EXISTS %s;\nCREATE TYPE %s AS ENUM ('%s');\n" % (self._naam, self._naam, "', '".join(self._lijst))
+        return "DROP TYPE IF EXISTS %s;\nCREATE TYPE %s AS ENUM ('%s');\n" % (
+        self._naam, self._naam, "', '".join(self._lijst))
 
 
 class BAGnumeriekAttribuut(BAGattribuut):
@@ -265,12 +280,11 @@ class BAGdatetimeAttribuut(BAGattribuut):
             # 1999-01-08 04:05:06
             # http://www.postgresql.org/docs/8.3/static/datatype-datetime.html
             if jaar != '2299':
-                self._waarde = '%s%s%s %s%s%s'%(jaar, maand, dag, uur, minuut, seconden)
+                self._waarde = '%s%s%s %s%s%s' % (jaar, maand, dag, uur, minuut, seconden)
             else:
                 self._waarde = None
         else:
             self._waarde = None
-
 
 
 #--------------------------------------------------------------------------------------------------------
@@ -339,7 +353,7 @@ class BAGgeoAttribuut(BAGattribuut):
         else:
             return None
 
-        # Attribuut waarde. Deze method kan worden overloaded
+            # Attribuut waarde. Deze method kan worden overloaded
 
     def waardeSQLTpl(self):
         if self._waarde:
@@ -371,16 +385,16 @@ class BAGpoint(BAGgeoAttribuut):
         self.polygonAttr = None
         point = None
         try:
-            xmlGeometrie = xml.find('./'+tagVolledigeNS(self._tag, xml.nsmap))
+            xmlGeometrie = xml.find('./' + tagVolledigeNS(self._tag, xml.nsmap))
 
             if xmlGeometrie is not None:
-                gmlNode = xmlGeometrie.find('./'+tagVolledigeNS("gml:Point", xml.nsmap))
+                gmlNode = xmlGeometrie.find('./' + tagVolledigeNS("gml:Point", xml.nsmap))
                 if gmlNode is not None:
                     gmlStr = etree.tostring(gmlNode)
                     self._geometrie = ogr.CreateGeometryFromGML(str(gmlStr))
                 else:
                     # Forceer punt uit Polygoon
-                    gmlNode = xmlGeometrie.find('./'+tagVolledigeNS("gml:Polygon", xml.nsmap))
+                    gmlNode = xmlGeometrie.find('./' + tagVolledigeNS("gml:Polygon", xml.nsmap))
                     if gmlNode is not None:
                         gmlStr = etree.tostring(gmlNode)
                         self._geometrie = ogr.CreateGeometryFromGML(str(gmlStr))
@@ -396,16 +410,15 @@ class BAGpoint(BAGgeoAttribuut):
 #               De dimensie (2D of 3D) is variabel.
 #--------------------------------------------------------------------------------------------------------
 class BAGpolygoon(BAGgeoAttribuut):
-
     # Attribuut soort
     def soort(self):
         return "POLYGON"
 
     # Initialisatie vanuit XML
     def leesUitXML(self, xml):
-        xmlGeometrie = xml.find('./'+tagVolledigeNS(self._tag, xml.nsmap))
+        xmlGeometrie = xml.find('./' + tagVolledigeNS(self._tag, xml.nsmap))
         if xmlGeometrie is not None:
-            gmlNode = xmlGeometrie.find('./'+tagVolledigeNS("gml:Polygon", xmlGeometrie.nsmap))
+            gmlNode = xmlGeometrie.find('./' + tagVolledigeNS("gml:Polygon", xmlGeometrie.nsmap))
             if gmlNode is not None:
                 gmlStr = etree.tostring(gmlNode)
                 self._geometrie = ogr.CreateGeometryFromGML(str(gmlStr))
@@ -424,13 +437,13 @@ class BAGmultiPolygoon(BAGpolygoon):
     def leesUitXML(self, xml):
         gmlNode = None
         # Attribuut vinden, bijv. bag_LVC:woonplaatsGeometrie
-        xmlGeometrie = xml.find('./'+tagVolledigeNS(self._tag, xml.nsmap))
+        xmlGeometrie = xml.find('./' + tagVolledigeNS(self._tag, xml.nsmap))
         if xmlGeometrie is not None:
             # Probeer eerst een MultiSurface te vinden
-            gmlNode = xmlGeometrie.find('./'+tagVolledigeNS("gml:MultiSurfcae", xml.nsmap))
+            gmlNode = xmlGeometrie.find('./' + tagVolledigeNS("gml:MultiSurfcae", xml.nsmap))
             if gmlNode is None:
                 # Geen MultiSurface: probeer een Polygon te vinden
-                gmlNode = xmlGeometrie.find('./'+tagVolledigeNS("gml:Polygon", xml.nsmap))
+                gmlNode = xmlGeometrie.find('./' + tagVolledigeNS("gml:Polygon", xml.nsmap))
                 if gmlNode is not None:
                     gmlStr = etree.tostring(gmlNode)
                     polygon = ogr.CreateGeometryFromGML(str(gmlStr))
@@ -530,7 +543,9 @@ class BAGrelatieAttribuut(BAGattribuut):
 
     # Maak insert SQL voor deze relatie
     def maakCopySQL(self):
-        self.velden = ("identificatie","aanduidingrecordinactief","aanduidingrecordcorrectie","begindatumtijdvakgeldigheid", self.naam())
+        self.velden = (
+        "identificatie", "aanduidingrecordinactief", "aanduidingrecordcorrectie", "begindatumtijdvakgeldigheid",
+        self.naam())
         self.sql = ""
         for waarde in self._waarde:
             self.sql += self._parent.attribuut('identificatie').waardeSQL() + "~"
@@ -565,9 +580,9 @@ class BAGrelatieAttribuut(BAGattribuut):
 
         self.sql.append(sql)
         self.inhoud.append((self._parent.attribuut('identificatie').waardeSQL(),
-                             self._parent.attribuut('aanduidingRecordInactief').waardeSQL(),
-                             self._parent.attribuut('aanduidingRecordCorrectie').waardeSQL(),
-                             beginDatum))
+                            self._parent.attribuut('aanduidingRecordInactief').waardeSQL(),
+                            self._parent.attribuut('aanduidingRecordCorrectie').waardeSQL(),
+                            beginDatum))
 
         # Gebruik bestaande INSERT SQL generatie voor de nieuwe relaties en append aan DELETE SQL
         self.maakInsertSQL(True)
@@ -592,7 +607,7 @@ class BAGenumRelatieAttribuut(BAGrelatieAttribuut):
     def __init__(self, parent, relatieNaam, naam, tag, lijst):
         BAGrelatieAttribuut.__init__(self, parent, relatieNaam, len(lijst), naam, tag)
         self._lijst = lijst
-#        self._lengte = len(max(lijst, key=len))
+        #        self._lengte = len(max(lijst, key=len))
         self._lengte = len(lijst)
 
     # Attribuut sqltype. Deze method kan worden overloaded
@@ -601,5 +616,6 @@ class BAGenumRelatieAttribuut(BAGrelatieAttribuut):
 
     # Initialiseer database
     def sqlinit(self):
-        return "DROP TYPE IF EXISTS %s;\nCREATE TYPE %s AS ENUM ('%s');\n" % (self._naam, self._naam, "', '".join(self._lijst))
+        return "DROP TYPE IF EXISTS %s;\nCREATE TYPE %s AS ENUM ('%s');\n" % (
+        self._naam, self._naam, "', '".join(self._lijst))
 
