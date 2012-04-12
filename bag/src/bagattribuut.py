@@ -148,7 +148,10 @@ class BAGstringAttribuut(BAGattribuut):
             # ondanks restrictie vanuit BAG XSD model
             self._waarde = self._waarde[:self._lengte]
 
-            self._waarde =  self._waarde.translate(BAGstringAttribuut.translatieTabel);
+            try:
+                self._waarde =  self._waarde.translate(BAGstringAttribuut.translatieTabel);
+            except:
+                Log.log.warn("Fout in translate: waarde=%s tag=%s id=%s type=%s" % (self._waarde, self._naam, self._parentObj.objectType(), self._parentObj.identificatie()) )
             # print self._waarde
 
 #--------------------------------------------------------------------------------------------------------

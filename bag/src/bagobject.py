@@ -117,12 +117,14 @@ class BAGObject:
             velden.append(attribuut.naam())
             w = attribuut.waardeSQL()
             if not w:
+                # NULL value
                 w = '\\\N'
 
             # if attribuut.naam() == 'geom_valid':
             #   w = repr(False)
 
             if i > 0:
+                # Column separator
                 buffer.write("~")
                 # print("~")
             buffer.write(w)
@@ -130,6 +132,8 @@ class BAGObject:
             i += 1
 
         self.velden = velden
+
+        # End of record separator
         buffer.write("\n")
         # print("\n")
 

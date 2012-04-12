@@ -116,7 +116,7 @@
                     <bag_LVC:inOnderzoek>N</bag_LVC:inOnderzoek>
                     <bag_LVC:bron>
                         <bagtype:documentdatum>20090901</bagtype:documentdatum>
-                        <bagtype:documentnummer>2009090113~/c</bagtype:documentnummer>
+                        <bagtype:documentnummer>2009\090113~/c</bagtype:documentnummer>
                     </bag_LVC:bron>
                 </bag_LVC:Pand>
                 <bag_LVC:Pand>
@@ -207,7 +207,7 @@
                     <bag_LVC:inOnderzoek>N</bag_LVC:inOnderzoek>
                     <bag_LVC:bron>
                         <bagtype:documentdatum>19921208</bagtype:documentdatum>
-                        <bagtype:documentnummer>1992186</bagtype:documentnummer>
+                        <bagtype:documentnummer>15-09-1938-&#191;40</bagtype:documentnummer>
                     </bag_LVC:bron>
                 </bag_LVC:Pand>
                 <bag_LVC:Pand>
