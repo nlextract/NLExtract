@@ -34,7 +34,7 @@ class Log:
         return Log.log.pr("INFO: " + message)
 
     def warn(self, message):
-        return Log.log.pr("WARN:" + message)
+        return Log.log.pr("WARN: " + message)
 
     def error(self, message):
         return Log.log.pr("ERROR: " + message)
