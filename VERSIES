@@ -16,3 +16,19 @@ v1.0.1 - 5.mrt.2012
 - BAG: LATIN1/UTF-8 encoding issues opgelost, nu alle bronnen/doelen UTF-8
 - start met SQL scripts tbv reverse geocoding op Adres tabel
 
+v1.1.0 - april.2012
+Speedup release voor BAG: nu BAG 3x zo snel inlezen als in v1.0.1!
+Voornamelijk door gebruik native XML parsing (via lxml) en database inladen via COPY
+ipv INSERT kan BAG inlezen 3x zo snel als voorheen. Er zijn wel wat externe afhankelijkheden
+bijgekomen:
+- lxml en libxml2 (native XML parser lib)
+- GDAL met Python bindings: Geometrie GML parsen en geometrie validatie/manipulatie (lukt niet in COPY)
+
+Sowieso is GDAL met OGR Python-bindings een goede stap voor volgende versies.
+
+Eerste versie die GitHub Milestones gebruikt. De naam vd Milestone is het versie nummer (hier v1.1.0).
+Zie https://github.com/opengeogroep/NLExtract/issues/milestones?state=closed
+Alle issues die meegenomen zijn vind je hier:
+https://github.com/opengeogroep/NLExtract/issues?milestone=1&state=closed
+
+
