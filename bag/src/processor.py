@@ -143,8 +143,13 @@ class Processor:
         Log.log.startTimer("dbStart mode = " + mode)
         # Experimenteel: dbStoreCopy() gebruikt COPY ipv INSERT
         # maar moet nog gefinetuned
-        bericht = self.dbStoreCopy(mode)
-        # bericht = self.dbStoreInsert(mode)
+        if mode == 'Mutatie':
+            # Voor mutaties voorlopig nog even ouderwetse INSERT/UPDATE
+            # Hier speelt performance ook niet zo'n rol als bij hele BAG inlezen...
+            bericht = self.dbStoreInsert(mode)
+        else:
+            bericht = self.dbStoreCopy(mode)
+
         Database().log_actie('insert_database', 'idem', bericht)
 
 
