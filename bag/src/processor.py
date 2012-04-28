@@ -127,7 +127,7 @@ class Processor:
             extract_datum = node.xpath("//LVC-Extract/StandTechnischeDatum/text()")
             if len(extract_datum) > 0:
                 # Gevonden !
-                extract_datum = extract_datum[0]
+                extract_datum = str(extract_datum[0])
             else:
                 extract_datum = "onbekend"
 
