@@ -16,7 +16,7 @@ v1.0.1 - 5.mrt.2012
 - BAG: LATIN1/UTF-8 encoding issues opgelost, nu alle bronnen/doelen UTF-8
 - start met SQL scripts tbv reverse geocoding op Adres tabel
 
-v1.1.0 - april.2012 - TO BE RELEASED
+v1.1.0 - mei.2012 - TO BE RELEASED
 Speedup release voor BAG: nu BAG 3x zo snel inlezen als in v1.0.1!
 Voornamelijk door gebruik native XML parsing (via lxml) en database inladen via COPY
 ipv INSERT kan BAG inlezen 3x zo snel als voorheen. Er zijn wel wat externe afhankelijkheden

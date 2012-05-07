@@ -58,8 +58,9 @@ bestaande Open Source Geo tools zoals GDAL/OGR (www.gdal.org). Bij voorkeur
 wordt vector data geconverteerd naar PostGIS (en later ook rasterdata naar
 GeoTIFF).
 
-De eerste 3 datasets die gedaan zullen worden zijn BAG, Top10NL en NWB
-(Nationaal Wegen Bestand van Rijkswaterstaat).
+De eerste datasets die gedaan zullen worden zijn BAG, Top10NL, IMGeo/BGT (Grootschalige
+Topografie) en NWB (Nationaal Wegen Bestand van Rijkswaterstaat). Ook zijn er plannen
+om raster datasets te doen zoals TopRaster en "Bonne Bladen" (historische topo-kaarten).
 
 Iedere dataset heeft hieronder een eigen directory met aanwijzingen hoe te
 converteren en te visualiseren.
