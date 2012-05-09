@@ -11,7 +11,12 @@ __date__ = "$Dec 09, 2009 00:00:01 AM$"
  Datum:        29 dec 2011
 """
 
-import psycopg2
+try:
+    import psycopg2
+except ImportError:
+    print("FATAAL: kan package psycopg2 (Python Postgres client) niet vinden")
+    sys.exit(-1)
+
 from logging import Log
 from bagconfig import BAGConfig
 

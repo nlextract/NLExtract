@@ -7,16 +7,20 @@ __date__ = "Jan 9, 2012 3:46:27 PM$"
 
  Auteur:       Just van den Broecke (Matthijs van der Deijl libbagextract.py origineel)
 
- Versie:       1.0
-               - basis versie
- Datum:        9 januari 2012
+ Datum:        9 mei 2012
 
  OpenGeoGroep.nl
 """
 from logging import Log
 from etree import etree, tagVolledigeNS, stripschema
+
 import sys
-from osgeo import ogr #apt-get install python-gdal
+try:
+    from osgeo import ogr #apt-get install python-gdal
+except ImportError:
+    print("FATAAL: GDAL Python bindings zijn niet beschikbaar, installeer bijv met 'apt-get install python-gdal'")
+    sys.exit(-1)
+
 from string import maketrans   # Required to call maketrans function.
 
 # Geef de waarde van een textnode in XML

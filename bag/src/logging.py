@@ -1,11 +1,8 @@
-# To change this template, choose Tools | Templates
-# and open the template in the editor.
-
 __author__="miblon"
 __date__ ="$Jun 13, 2011 11:34:17 AM$"
 
 from time import *
-import sys
+import sys, traceback
 
 # An extremely simple Singleton logger
 class Log:
@@ -37,10 +34,10 @@ class Log:
         return Log.log.pr("WARN: " + message)
 
     def error(self, message):
-        return Log.log.pr("ERROR: " + message)
+        return Log.log.pr("ERROR: " + message + ' ' + Log.log.get_exception_info())
 
     def fatal(self, message):
-        return Log.log.pr("FATAAL: sorry, ik kap ermee want " + message)
+        return Log.log.pr("FATAAL: sorry, kan niet verder: " + message + ' ' + Log.log.get_exception_info())
         sys.exit(-1)
 
     def time(self, message=""):
@@ -54,4 +51,9 @@ class Log:
     # End (global) timer + print seconds passed: useful to time for processing and optimization
     def endTimer(self, message=""):
         return self.info("END: " + message + " tijd=" + str( round( (time() - Log.t1) , 0)) + " sec")
+
+    # Maak gedetailleerde exceptie stack info
+    def get_exception_info(self):
+        exc_type, exc_value, exc_traceback = sys.exc_info()
+        return repr(traceback.format_exception(exc_type, exc_value,exc_traceback))
 
