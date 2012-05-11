@@ -39,42 +39,6 @@ CREATE TABLE nlx_bag_log (
 
 INSERT INTO nlx_bag_log (actie) VALUES ('schema aangemaakt');
 
--- Relatie tabellen
--- Verblijfsobject kan meerdere gebruiksdoelen hebben.
-DROP TABLE IF EXISTS verblijfsobjectpand CASCADE;
-CREATE TABLE verblijfsobjectpand (
-  gid SERIAL,
-  identificatie NUMERIC(16),
-  aanduidingRecordInactief BOOLEAN,
-  aanduidingRecordCorrectie INTEGER,
-  begindatumTijdvakGeldigheid TIMESTAMP WITHOUT TIME ZONE,
-  gerelateerdpand NUMERIC(16),
-  PRIMARY KEY (gid)
-);
-
--- Verblijfsobjecten maken altijd deel uit van een of meerdere panden.
--- Panden hoeven geen verblijfsobjecten te bevatten.
-DROP TABLE IF EXISTS adresseerbaarobjectnevenadres CASCADE;
-CREATE TABLE adresseerbaarobjectnevenadres (
-  gid SERIAL,
-  identificatie NUMERIC(16),
-  aanduidingRecordInactief BOOLEAN,
-  aanduidingRecordCorrectie INTEGER,
-  begindatumTijdvakGeldigheid TIMESTAMP WITHOUT TIME ZONE,
-  nevenadres NUMERIC(16),
-  PRIMARY KEY (gid)
-);
-
-DROP TABLE IF EXISTS verblijfsobjectgebruiksdoel CASCADE;
-CREATE TABLE verblijfsobjectgebruiksdoel (
-  gid SERIAL,
-  identificatie NUMERIC(16),
-  aanduidingRecordInactief BOOLEAN,
-  aanduidingRecordCorrectie INTEGER,
-  begindatumTijdvakGeldigheid TIMESTAMP WITHOUT TIME ZONE,
-  gebruiksdoelverblijfsobject VARCHAR(50) ,
-  PRIMARY KEY (gid)
-);
 
 -- BAG _ruwe import tabellen
 DROP TABLE IF EXISTS woonplaats CASCADE;
@@ -276,19 +240,39 @@ CREATE TABLE pand (
 -- werkt niet met PG schema
 -- SELECT AddGeometryColumn('public', 'pand', 'geovlak', 28992, 'POLYGON', 3);
 
--- <xs:restriction base="xs:string">
---     <xs:enumeration value="woonfunctie"/>
---     <xs:enumeration value="bijeenkomstfunctie"/>
---     <xs:enumeration value="celfunctie"/>
---     <xs:enumeration value="gezondheidszorgfunctie"/>
---     <xs:enumeration value="industriefunctie"/>
---     <xs:enumeration value="kantoorfunctie"/>
---     <xs:enumeration value="logiesfunctie"/>
---     <xs:enumeration value="onderwijsfunctie"/>
---     <xs:enumeration value="sportfunctie"/>
---     <xs:enumeration value="winkelfunctie"/>
---     <xs:enumeration value="overige gebruiksfunctie"/>
--- </xs:restriction>
+
+--
+-- START - Relatie tabellen
+--
+
+-- Verblijfsobject kan meerdere gebruiksdoelen hebben.
+DROP TABLE IF EXISTS verblijfsobjectpand CASCADE;
+CREATE TABLE verblijfsobjectpand (
+  gid SERIAL,
+  identificatie NUMERIC(16),
+  aanduidingRecordInactief BOOLEAN,
+  aanduidingRecordCorrectie INTEGER,
+  begindatumTijdvakGeldigheid TIMESTAMP WITHOUT TIME ZONE,
+  einddatumTijdvakGeldigheid TIMESTAMP WITHOUT TIME ZONE,
+  gerelateerdpand NUMERIC(16),
+  PRIMARY KEY (gid)
+);
+
+-- Verblijfsobjecten maken altijd deel uit van een of meerdere panden.
+-- Panden hoeven geen verblijfsobjecten te bevatten.
+DROP TABLE IF EXISTS adresseerbaarobjectnevenadres CASCADE;
+CREATE TABLE adresseerbaarobjectnevenadres (
+  gid SERIAL,
+  identificatie NUMERIC(16),
+  aanduidingRecordInactief BOOLEAN,
+  aanduidingRecordCorrectie INTEGER,
+  begindatumTijdvakGeldigheid TIMESTAMP WITHOUT TIME ZONE,
+  einddatumTijdvakGeldigheid TIMESTAMP WITHOUT TIME ZONE,
+  nevenadres NUMERIC(16),
+  PRIMARY KEY (gid)
+);
+
+-- Een Verblijfsobject kan meerdere gebruiksdoelen hebben
 DROP TABLE IF EXISTS verblijfsobjectgebruiksdoel CASCADE;
 DROP TYPE IF EXISTS gebruiksdoelVerblijfsobject;
 CREATE TYPE gebruiksdoelVerblijfsobject AS ENUM (
@@ -301,9 +285,14 @@ CREATE TABLE verblijfsobjectgebruiksdoel (
   aanduidingrecordinactief boolean,
   aanduidingrecordcorrectie integer,
   begindatumtijdvakgeldigheid timestamp without time zone,
+  einddatumTijdvakGeldigheid TIMESTAMP WITHOUT TIME ZONE,
   gebruiksdoelverblijfsobject gebruiksdoelVerblijfsobject,
   PRIMARY KEY (gid)
 );
+
+--
+-- END - Relatie tabellen
+--
 
 -- Maak geometrie indexen
 CREATE INDEX ligplaats_geom_idx ON ligplaats USING gist (geovlak);
@@ -330,6 +319,7 @@ CREATE INDEX woonplaats_naam ON woonplaats USING btree (woonplaatsnaam);
 
 -- Indexen relatie tabellen
 CREATE INDEX verblijfsobjectpandkey ON verblijfsobjectpand USING btree (identificatie, aanduidingrecordinactief, aanduidingrecordcorrectie, begindatumtijdvakgeldigheid, gerelateerdpand);
+CREATE INDEX verblijfsobjectpand_pand ON verblijfsobjectpand USING btree (gerelateerdpand);
 CREATE INDEX verblijfsobjectgebruiksdoelkey ON verblijfsobjectgebruiksdoel USING btree (identificatie, aanduidingrecordinactief, aanduidingrecordcorrectie, begindatumtijdvakgeldigheid, gebruiksdoelverblijfsobject);
 CREATE INDEX
         adresseerbaarobjectnevenadreskey ON adresseerbaarobjectnevenadres USING btree (identificatie, aanduidingrecordinactief, aanduidingrecordcorrectie, begindatumtijdvakgeldigheid, nevenadres);

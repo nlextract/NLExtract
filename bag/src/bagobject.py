@@ -493,6 +493,7 @@ class BAGRelatie(BAGObject):
         self.voegToe(BAGbooleanAttribuut("aanduidingRecordInactief", "bag_LVC:aanduidingRecordInactief"))
         self.voegToe(BAGintegerAttribuut("aanduidingRecordCorrectie","bag_LVC:aanduidingRecordCorrectie"))
         self.voegToe(BAGdatetimeAttribuut("begindatumTijdvakGeldigheid","bag_LVC:tijdvakgeldigheid/bagtype:begindatumTijdvakGeldigheid"))
+        self.voegToe(BAGdatetimeAttribuut("einddatumTijdvakGeldigheid","bag_LVC:tijdvakgeldigheid/bagtype:einddatumTijdvakGeldigheid"))
 
         self.relaties = [] 
 

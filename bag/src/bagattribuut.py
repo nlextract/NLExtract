@@ -538,12 +538,13 @@ class BAGrelatieAttribuut(BAGattribuut):
 
         for waarde in self._waarde:
             sql = "INSERT INTO " + self.relatieNaam() + " "
-            sql += "(identificatie,aanduidingrecordinactief,aanduidingrecordcorrectie,begindatumtijdvakgeldigheid,"
-            sql += self.naam() + ") VALUES (%s, %s, %s, %s, %s)"
+            sql += "(identificatie,aanduidingrecordinactief,aanduidingrecordcorrectie,begindatumtijdvakgeldigheid,einddatumtijdvakgeldigheid,"
+            sql += self.naam() + ") VALUES (%s, %s, %s, %s, %s, %s)"
             self.inhoud.append((self._parent.attribuut('identificatie').waardeSQL(),
                                 self._parent.attribuut('aanduidingRecordInactief').waardeSQL(),
                                 self._parent.attribuut('aanduidingRecordCorrectie').waardeSQL(),
                                 self._parent.attribuut('begindatumTijdvakGeldigheid').waardeSQL(),
+                                self._parent.attribuut('einddatumTijdvakGeldigheid').waardeSQL(),
                                 waarde))
 
             self.sql.append(sql)
@@ -551,7 +552,7 @@ class BAGrelatieAttribuut(BAGattribuut):
     # Maak insert SQL voor deze relatie
     def maakCopySQL(self):
         self.velden = (
-        "identificatie", "aanduidingrecordinactief", "aanduidingrecordcorrectie", "begindatumtijdvakgeldigheid",
+        "identificatie", "aanduidingrecordinactief", "aanduidingrecordcorrectie", "begindatumtijdvakgeldigheid","einddatumtijdvakgeldigheid",
         self.naam())
         self.sql = ""
         for waarde in self._waarde:
@@ -559,6 +560,12 @@ class BAGrelatieAttribuut(BAGattribuut):
             self.sql += self._parent.attribuut('aanduidingRecordInactief').waardeSQL() + "~"
             self.sql += self._parent.attribuut('aanduidingRecordCorrectie').waardeSQL() + "~"
             self.sql += self._parent.attribuut('begindatumTijdvakGeldigheid').waardeSQL() + "~"
+
+            # Einddatum kan leeg zijn : TODO vang dit op in waardeSQL()
+            einddatumWaardeSQL = self._parent.attribuut('einddatumTijdvakGeldigheid').waardeSQL()
+            if not einddatumWaardeSQL or einddatumWaardeSQL is '':
+                einddatumWaardeSQL = '\\\N'
+            self.sql += einddatumWaardeSQL  + "~"
 
             if not waarde:
                 waarde = '\\\N'
