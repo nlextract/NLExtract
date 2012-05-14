@@ -31,7 +31,7 @@ Afhankelijkheden:
    apt-get of yum install libxslt1.1
    apt-get of yum install python-lxml
 
- - GDAL (www.gdal.org) met Python bindings voor OGR geometrie-parsing en geometrie-validatie (NLX v1.1.1 en hoger)
+ - GDAL (www.gdal.org) met Python bindings voor OGR geometrie-parsing en geometrie-validatie (NLX v1.1.0 en hoger)
    apt-get of yum install gdal-bin
    apt-get of yum install python-gdal
 
