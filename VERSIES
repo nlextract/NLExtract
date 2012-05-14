@@ -1,7 +1,6 @@
 Dit bestand bevat versie informatie voor NLExtract. Versies en snapshots zijn te downloaden
 via de link: http://www.nlextract.nl/file-cabinet
 
-
 v1.0.0 - 27.feb.2012
 - de allereerste versie !
 - extraheren BAG en Top10NL
@@ -16,19 +15,50 @@ v1.0.1 - 5.mrt.2012
 - BAG: LATIN1/UTF-8 encoding issues opgelost, nu alle bronnen/doelen UTF-8
 - start met SQL scripts tbv reverse geocoding op Adres tabel
 
-v1.1.0 - mei.2012 - TO BE RELEASED
+v1.1.0 - 14.mei.2012
 Speedup release voor BAG: nu BAG 3x zo snel inlezen als in v1.0.1!
 Voornamelijk door gebruik native XML parsing (via lxml) en database inladen via COPY
 ipv INSERT kan BAG inlezen 3x zo snel als voorheen. Er zijn wel wat externe afhankelijkheden
 bijgekomen:
+
 - lxml en libxml2 (native XML parser lib)
 - GDAL met Python bindings: Geometrie GML parsen en geometrie validatie/manipulatie (lukt niet in COPY)
 
-Sowieso is GDAL met OGR Python-bindings een goede stap voor volgende versies.
+Sowieso is GDAL met OGR Python-bindings een goede stap voor volgende NLExtract versies.
 
-Eerste versie die GitHub Milestones gebruikt. De naam vd Milestone is het versie nummer (hier v1.1.0).
+Dit is de eerste versie die GitHub Milestones gebruikt. De naam vd Milestone is het versie nummer (hier v1.1.0).
 Zie https://github.com/opengeogroep/NLExtract/issues/milestones?state=closed
 Alle issues die meegenomen zijn vind je hier:
 https://github.com/opengeogroep/NLExtract/issues?milestone=1&state=closed
+
+Specifieke issues opgelost in v1.1.0
+
+- BAG: vervangen woonplaats-gemeente koppeltabel 6 maart 2012 door 24 april 2012
+- BAG: relaties einddatumtijdvakgeldigheid en actuele VIEWS ontbreken
+- Mutaties: fout by DB COPY
+- BAG escape backslashes in strings voor Postgres COPY
+- gebruik GDAL/OGR Python bindings voor Geometrie parsing/validatie
+- BAG inlezen: gebruik COPY en cStringIO voor grote snelheidswinst
+- Geocoding functionaliteit op basis van BAG
+- adres-tabel.sql DROP ... CASCADE?
+- adres_voor_xy roept zichzelf aan ipv adressen_voor_xy
+- BAG MultiSurface wordt niet goed geparsed met XPath
+- Gewijzigd schema Kadaster CSV woonplaats-gemeente koppeltabel
+- BAG - LATIN1 encoding gebruikt voor UTF-8 prov/gem CSV
+- Poort -P parameter wordt niet geparsed
+- etree (native XML parsing via libxml2)
+- BAG Foutafhandeling en validatie met logging in database
+
+v1.1.1 - PLANNED
+Er is veel werk aan BAG gedaan. Hopelijk kan deze zo een tijd
+mee. Top10NL extractie is daarom wat onderbelicht.
+In v1.1.1 komt Top10NL extractie functionaliteit
+en maken we een begin maken met BGT Extractie. De rest ligt nog open
+afhankelijk van wensen gebruikers.
+
+
+
+
+
 
 
