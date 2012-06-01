@@ -27,6 +27,7 @@ Afhankelijkheden:
 
  - razendsnelle native XML parsing met libxml2/libxslt libraries samen met Python lxml:
    kan meer dan een factor twee in snelheid schelen...
+   Zie http://lxml.de/installation.html
    apt-get of yum install libxml2
    apt-get of yum install libxslt1.1
    apt-get of yum install python-lxml
