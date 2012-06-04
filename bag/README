@@ -13,12 +13,13 @@ bag-extract biedt de volgende functionaliteiten:
 
 Downloaden:
  - download NLExtract
-    via git: git clone http://github.com/opengeogroep/NLExtract.git
-    als .zip via https://github.com/opengeogroep/NLExtract/zipball/master
+    laatste versie op: http://www.nlextract.nl/file-cabinet
+    of snapshot via git: git clone http://github.com/opengeogroep/NLExtract.git
+    en snapshot als .zip: https://github.com/opengeogroep/NLExtract/zipball/master
 
 Afhankelijkheden:
 
- - Python (minimaal versie 2.4.3 getest, beste is 2.7 of hoger voor lxml)
+ - Python: versie 2, minimaal versie 2.4.3, beste is 2.7 of hoger voor lxml, geen Python 3
 
  - optioneel: Python package afhankelijkheden installeren bijv
    apt-get of yum install python-setuptools (voor easy_install commando)
@@ -36,10 +37,10 @@ Afhankelijkheden:
    apt-get of yum install gdal-bin
    apt-get of yum install python-gdal
 
- - installeer de PostgreSQL python bibliotheek psycopg2:
+ - de PostgreSQL python bibliotheek psycopg2:
    sudo easy_install psycopg2
 
- - indien je niet Python 3.0 of hoger hebt installeer Python package "argparse", bijv
+ - Python package "argparse"
    sudo easy_install argparse
 
  - NB als je een proxy gebruikt via http_proxy  doe dan easy_install -E (exporteer huidige environment)
