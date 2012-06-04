@@ -133,30 +133,47 @@ class BAGattribuut:
 # Omschrijving Bevat een string waarde
 #--------------------------------------------------------------------------------------------------------
 class BAGstringAttribuut(BAGattribuut):
-    # Nodig om allerlei nare chanracters te verwijderen die bijv COPY
+    # Nodig om allerlei nare characters te verwijderen die bijv COPY
     # kunnen beinvloeden
-    inputChars = "\\\n~"
-    outputChars = "/ ."
-    translatieTabel = maketrans(inputChars, outputChars)
+    #    inputChars = "\\\n~"
+    #    outputChars = "/ ."
+    # translatieTabel = maketrans(inputChars, outputChars)
+    # Geeft problemen met niet-ASCII range unicode chars!!
+    # dus voorlopig even handmatig
 
     # Initialisatie vanuit XML
     def leesUitXML(self, xml):
-        self._waarde = getValue(xml, self._tag)
-        if self._waarde == '':
+        waarde = getValue(xml, self._tag)
+        if waarde == '':
             # Voor string kolommen (default) willen we NULL, geen lege string
-            self._waarde = None
-        if self._waarde is not None:
+            waarde = None
+        if waarde is not None:
             # print "voor:"+ self._waarde
-            self._waarde = self._waarde.strip()
+            waarde = waarde.strip()
             # Kan voorkomen dat strings langer zijn in BAG
             # ondanks restrictie vanuit BAG XSD model
-            self._waarde = self._waarde[:self._lengte]
+            waarde = waarde[:self._lengte]
 
-            try:
-                self._waarde =  self._waarde.translate(BAGstringAttribuut.translatieTabel);
-            except:
-                Log.log.warn("Fout in translate: waarde=%s tag=%s id=%s type=%s" % (self._waarde, self._naam, self._parentObj.objectType(), self._parentObj.identificatie()) )
-            # print self._waarde
+#            try:
+                # self._waarde =  self._waarde.translate(BAGstringAttribuut.translatieTabel)
+
+            # Zie boven: voorlopig even de \ \n en ~ handmatig vervangen. Komt af en toe   voor.
+            # Niet fraai maar werkt.
+            for char in waarde:
+                if char == '\\':
+                    waarde = waarde.replace('\\', '/')
+                else:
+                    if char == '\n':
+                        waarde = waarde.replace('\n', ' ')
+                    else:
+                        if char == '~':
+                            waarde = waarde.replace('~', '.')
+
+        # Toekennen aan object
+        self._waarde = waarde
+#
+#            except:
+#                Log.log.warn("Fout in translate: waarde=%s tag=%s id=%s type=%s" % (self._waarde, self._naam, self._parentObj.objectType(), self._parentObj.identificatie()) )
 
 #--------------------------------------------------------------------------------------------------------
 # Class         BAGenumAttribuut

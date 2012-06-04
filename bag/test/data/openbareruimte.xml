@@ -463,7 +463,7 @@
                     <bag_LVC:identificatie>0988300000000782</bag_LVC:identificatie>
                     <bag_LVC:aanduidingRecordInactief>N</bag_LVC:aanduidingRecordInactief>
                     <bag_LVC:aanduidingRecordCorrectie>0</bag_LVC:aanduidingRecordCorrectie>
-                    <bag_LVC:openbareRuimteNaam>Tobbersdijk</bag_LVC:openbareRuimteNaam>
+                    <bag_LVC:openbareRuimteNaam>Tobbersdijk~</bag_LVC:openbareRuimteNaam>
                     <bag_LVC:officieel>N</bag_LVC:officieel>
                     <bag_LVC:tijdvakgeldigheid>
                         <bagtype:begindatumTijdvakGeldigheid>2008111800000001</bagtype:begindatumTijdvakGeldigheid>
@@ -472,7 +472,7 @@
                     <bag_LVC:openbareRuimteType>Weg</bag_LVC:openbareRuimteType>
                     <bag_LVC:bron>
                         <bagtype:documentdatum>20081118</bagtype:documentdatum>
-                        <bagtype:documentnummer>WEERT/043603</bagtype:documentnummer>
+                        <bagtype:documentnummer>WEERT\043603</bagtype:documentnummer>
                     </bag_LVC:bron>
                     <bag_LVC:openbareruimteStatus>Naamgeving uitgegeven</bag_LVC:openbareruimteStatus>
                     <bag_LVC:gerelateerdeWoonplaats>
