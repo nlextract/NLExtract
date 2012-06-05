@@ -20,7 +20,13 @@ Downloaden:
 Afhankelijkheden:
 
  - Python: versie 2, minimaal versie 2.4.3, beste is 2.7 of hoger voor lxml, geen Python 3
+ - Python argparse package, voor argument parsing alleen indien Python < 2.7
+ - psycopg2: Python PostgreSQL client bibliotheek. Zie http://initd.org/psycopg
+ - lxml voor razendsnelle native XML parsing, Zie http://lxml.de
+ - GDAL/OGR Python bindings Zie www.gdal.org en http://pypi.python.org/pypi/GDAL 
+   voor Geometrie parsing/validatie en manipulatie
 
+Installatie (Linux)
  - optioneel: Python package afhankelijkheden installeren bijv
    apt-get of yum install python-setuptools (voor easy_install commando)
    apt-get of yum install python-devel (tbv psycopg2 bibliotheek)
@@ -44,6 +50,10 @@ Afhankelijkheden:
    sudo easy_install argparse
 
  - NB als je een proxy gebruikt via http_proxy  doe dan easy_install -E (exporteer huidige environment)
+
+Installatie (Windows)
+ - beschreven door Pim Verver
+   http://groups.google.com/group/nlextract/browse_frm/thread/c02af6012b43767a
 
 Commando:
  - direct via python "python src/bagextract.py"
