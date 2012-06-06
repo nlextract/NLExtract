@@ -464,7 +464,7 @@ class BAGmultiPolygoon(BAGpolygoon):
         xmlGeometrie = xml.find('./' + tagVolledigeNS(self._tag, xml.nsmap))
         if xmlGeometrie is not None:
             # Probeer eerst een MultiSurface te vinden
-            gmlNode = xmlGeometrie.find('./' + tagVolledigeNS("gml:MultiSurfcae", xml.nsmap))
+            gmlNode = xmlGeometrie.find('./' + tagVolledigeNS("gml:MultiSurface", xml.nsmap))
             if gmlNode is None:
                 # Geen MultiSurface: probeer een Polygon te vinden
                 gmlNode = xmlGeometrie.find('./' + tagVolledigeNS("gml:Polygon", xml.nsmap))
@@ -478,6 +478,11 @@ class BAGmultiPolygoon(BAGpolygoon):
                 # MultiSurface
                 gmlStr = etree.tostring(gmlNode)
                 self._geometrie = ogr.CreateGeometryFromGML(str(gmlStr))
+                if self._geometrie is None:
+                     Log.log.warn("Null MultiSurface in BAGmultiPolygoon: tag=%s parent=%s" % (self._tag, self._parentObj.identificatie()))
+
+        if self._geometrie is None:
+            Log.log.warn("Null geometrie in BAGmultiPolygoon: tag=%s identificatie=%s" % (self._tag, self._parentObj.identificatie()))
 
 #--------------------------------------------------------------------------------------------------------
 # Class         BAGgeometrieValidatie
