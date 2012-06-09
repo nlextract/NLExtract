@@ -40,10 +40,14 @@ class Database:
 
     def verbind(self, initdb=False):
         try:
-            self.connection = psycopg2.connect("dbname='%s' user='%s' host='%s' password='%s'" % (self.config.database,
-                                                                                                  self.config.user,
-                                                                                                  self.config.host,
-                                                                                                 self.config.password))
+            # Connect using configured parameters
+            self.connection = psycopg2.connect(
+                        database=self.config.database,
+                        user=self.config.user,
+                        host=self.config.host,
+                        port=self.config.port,
+                        password=self.config.password)
+
             self.cursor = self.connection.cursor()
 
             if initdb:
