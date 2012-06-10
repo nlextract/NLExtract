@@ -14,10 +14,17 @@ from postgresdb import Database
 from logging import Log
 from bagfilereader import BAGFileReader
 from bagconfig import BAGConfig
+from bagobject import VerblijfsObjectPand, AdresseerbaarObjectNevenAdres, VerblijfsObjectGebruiksdoel, Woonplaats, OpenbareRuimte, Nummeraanduiding, Ligplaats, Standplaats, Verblijfsobject, Pand
 
+# Nodig om output naar console/file van strings goed te krijgen
+# http://www.saltycrane.com/blog/2008/11/python-unicodeencodeerror-ascii-codec-cant-encode-character/
+# anders bijv. deze fout: 'ascii' codec can't encode character u'\xbf' in position 42: ordinal not in range(128)
+reload(sys)
+sys.setdefaultencoding( "utf-8" )
 
 class ArgParser(argparse.ArgumentParser):
      def error(self, message):
+        print message
         self.print_help()
         sys.exit(2)
 
@@ -56,6 +63,7 @@ def main():
     parser.add_argument('-W', '--password', metavar='<paswoord>', help='gebruikt dit wachtwoord voor database gebruiker')
     parser.add_argument('-w', '--no-password', action='store_true', help='gebruik geen wachtwoord voor de database verbinding')
     parser.add_argument('-v', '--verbose', action='store_true', help='toon uitgebreide informatie tijdens het verwerken')
+    parser.add_argument('-D', '--dbinitcode', action='store_true', help='createert een lijst met statements om het DB script aan te passen')
 
     # Initialiseer
     args = parser.parse_args()
@@ -84,15 +92,37 @@ def main():
         Log.log.info("Views aanmaken...")
         db_script = os.path.realpath(BAGConfig.config.bagextract_home + '/db/script/bag-view-actueel-bestaand.sql')
         database.file_uitvoeren(db_script)
+    elif args.dbinitcode:
+        # Creates the insert statements from the code, and prints them
+        bagObjecten = []
+        bagObjecten.append(VerblijfsObjectPand())
+        bagObjecten.append(AdresseerbaarObjectNevenAdres())
+        bagObjecten.append(VerblijfsObjectGebruiksdoel())
+
+        bagObjecten.append(Woonplaats())
+        bagObjecten.append(OpenbareRuimte())
+        bagObjecten.append(Nummeraanduiding())
+        bagObjecten.append(Ligplaats())
+        bagObjecten.append(Standplaats())
+        bagObjecten.append(Verblijfsobject())
+        bagObjecten.append(Pand())
+
+        for bagObject in bagObjecten:
+            print bagObject.maakTabel()
+
     elif args.extract:
         # Extracts any data from any source files/dirs/zips/xml/csv etc
+        Database().log_actie('start_extract', args.extract)
         myreader = BAGFileReader(args.extract)
         myreader.process()
+        Database().log_actie('stop_extract', args.extract)
     elif args.query:
         # Voer willekeurig SQL script uit uit
+        Database().log_actie('start_query', args.query)
         database = Database()
 
         database.file_uitvoeren(args.query)
+        Database().log_actie('stop_query', args.query)
     else:
         Log.log.fatal("je geeft een niet-ondersteunde optie. Tip: probeer -h optie")
 

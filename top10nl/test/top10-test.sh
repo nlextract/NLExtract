@@ -10,7 +10,8 @@ TOP10NL_TEST_DATA=$TOP10NL_HOME/test/data
 
 $TOP10NL_BIN/top10-drop-tables.sh
 
-rm $TOP10NL_TEST_DATA/*.split*
+rm $TOP10NL_TEST_DATA/*.split.xml
+rm $TOP10NL_TEST_DATA/*gfs
 
 $TOP10NL_BIN/top10-extract.sh $TOP10NL_TEST_DATA/test.gml
 

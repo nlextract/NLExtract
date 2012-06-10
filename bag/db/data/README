@@ -1,0 +1,21 @@
+In deze directory staat data die gebruikt wordt voor o.a. koppelingen
+van BAG data met bestuurlijke eenheden (gemeenten en provincies).
+
+Deze data wordt zoveel mogelijk actueel gehouden en waar nodig opgeschoond.
+
+- woonplaats-gemeente koppeling
+Komt van Kadaster in de zip file geheten "Woonplaatscodetabel met historie "
+te vinden op http://kadaster.nl/window.html?inhoud=/BAG/
+http://kadaster.nl/bag/docs/BAG_Overzicht_aangesloten_gemeenten.zip
+Dit bestand verandert regelmatig bijv. ivm gemeentelijke herindelingen.
+Als je zelf een nieuwere versie neerzet, zorg dan dat de file encoded is als
+UTF-8 (de oorspronkelijke Kadaster .csv file is in LATIN1).
+In de koppeltabel staat ook historie in de zin dat er begin/einddata van
+zowel woonplaatsen (veld 3/4) als gemeenten (laatste 2 velden) zijn opgenomen.
+daarom kan het in eerste instantie lijken of er dubbeling is.
+
+- gemeente-provincie koppeling
+Komt van CBS en geeft de koppeling gemeente-provincie via de gemeente-code.
+Zie http://www.cbs.nl/nl-NL/menu/methoden/classificaties/overzicht/gemeentelijke-indeling/2012
+Deze zal in de regel minder veranderen.
+

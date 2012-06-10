@@ -11,7 +11,12 @@ __date__ = "$Dec 09, 2009 00:00:01 AM$"
  Datum:        29 dec 2011
 """
 
-import psycopg2
+try:
+    import psycopg2
+except ImportError:
+    print("FATAAL: kan package psycopg2 (Python Postgres client) niet vinden")
+    sys.exit(-1)
+
 from logging import Log
 from bagconfig import BAGConfig
 
@@ -35,17 +40,21 @@ class Database:
 
     def verbind(self, initdb=False):
         try:
-            self.connection = psycopg2.connect("dbname='%s' user='%s' host='%s' password='%s'" % (self.config.database,
-                                                                                                  self.config.user,
-                                                                                                  self.config.host,
-                                                                                                 self.config.password))
+            # Connect using configured parameters
+            self.connection = psycopg2.connect(
+                        database=self.config.database,
+                        user=self.config.user,
+                        host=self.config.host,
+                        port=self.config.port,
+                        password=self.config.password)
+
             self.cursor = self.connection.cursor()
 
             if initdb:
                 self.maak_schema()
 
             self.zet_schema()
-            Log.log.info("verbonden met de database %s" % (self.config.database))
+            Log.log.debug("verbonden met de database %s" % (self.config.database))
         except Exception, e:
             Log.log.fatal("ik kan geen verbinding maken met database '%s'" % (self.config.database))
 
@@ -64,17 +73,33 @@ class Database:
             self.uitvoeren('SET search_path TO %s,public' % self.config.schema)
             self.connection.commit()
 
+    def log_actie(self, actie, bestand="n.v.t", bericht='geen', error=False):
+        sql  = "INSERT INTO nlx_bag_log(actie, bestand, error, bericht) VALUES (%s, %s, %s, %s)"
+        parameters = (actie, bestand, error, bericht)
+        self.tx_uitvoeren(sql, parameters)
+
+    def log_meta(self, sleutel, waarde):
+        sql  = "INSERT INTO nlx_bag_info(sleutel, waarde) VALUES (%s, %s)"
+        parameters = (sleutel, waarde)
+        self.tx_uitvoeren(sql, parameters)
+
     def uitvoeren(self, sql, parameters=None):
         try:
             if parameters:
                 self.cursor.execute(sql, parameters)
             else:
                 self.cursor.execute(sql)
+
+            # Log.log.debug(self.cursor.statusmessage)
         except (Exception), e:
             Log.log.error("fout %s voor query: %s met parameters %s" % (str(e), str(sql), str(parameters))  )
-            return self.cursor.rowcount
+            self.log_actie("uitvoeren_db", "n.v.t", "fout=%s" % str(e), True)
+            raise
+
+        return self.cursor.rowcount
 
     def file_uitvoeren(self, sqlfile):
+        self.e = None
         try:
             Log.log.info("SQL van file = %s uitvoeren..." % sqlfile)
             self.verbind()
@@ -85,4 +110,21 @@ class Database:
             f.close()
             Log.log.info("SQL uitgevoerd OK")
         except (Exception), e:
+            self.e = e
+            self.log_actie("uitvoeren_db_file", "n.v.t", "fout=%s" % str(e), True)
             Log.log.fatal("ik kan dit script niet uitvoeren vanwege deze fout: %s" % (str(e)))
+
+    def tx_uitvoeren(self, sql, parameters=None):
+        self.e = None
+        try:
+            self.verbind()
+            self.uitvoeren(sql, parameters)
+            self.connection.commit()
+            self.connection.close()
+
+            # Log.log.debug(self.cursor.statusmessage)
+        except (Exception), e:
+            self.e = e
+            Log.log.error("fout %s voor tx_uitvoeren: %s met parameters %s" % (str(e), str(sql), str(parameters))  )
+
+        return self.cursor.rowcount

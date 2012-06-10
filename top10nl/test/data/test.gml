@@ -53,11 +53,7 @@
             <nen3610:identificatie>NL.TOP10NL.101447155</nen3610:identificatie>
             <nen3610:objectBeginTijd>2007-06-06T00:00:00</nen3610:objectBeginTijd>
             <nen3610:versieBeginTijd>2007-06-06T00:00:00</nen3610:versieBeginTijd>
-            <nen3610:status
-                    >in gebruik
-            </nen3610:status>
-
-
+            <nen3610:status>in gebruik</nen3610:status>
             <top10nl:typeGebouw>overig</top10nl:typeGebouw>
             <top10nl:hoogteklasse>laagbouw</top10nl:hoogteklasse>
             <top10nl:hoogteniveau>0</top10nl:hoogteniveau>

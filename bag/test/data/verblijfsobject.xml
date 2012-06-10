@@ -176,8 +176,7 @@
                     <bag_LVC:gebruiksdoelVerblijfsobject>woonfunctie</bag_LVC:gebruiksdoelVerblijfsobject>
                     <bag_LVC:gebruiksdoelVerblijfsobject>industriefunctie</bag_LVC:gebruiksdoelVerblijfsobject>
                     <bag_LVC:oppervlakteVerblijfsobject>545</bag_LVC:oppervlakteVerblijfsobject>
-                    <bag_LVC:verblijfsobjectStatus>Verblijfsobject in gebruik (niet ingemeten)
-                    </bag_LVC:verblijfsobjectStatus>
+                    <bag_LVC:verblijfsobjectStatus>Verblijfsobject in gebruik (niet ingemeten)</bag_LVC:verblijfsobjectStatus>
                     <bag_LVC:tijdvakgeldigheid>
                         <bagtype:begindatumTijdvakGeldigheid>2011021500000000</bagtype:begindatumTijdvakGeldigheid>
                     </bag_LVC:tijdvakgeldigheid>

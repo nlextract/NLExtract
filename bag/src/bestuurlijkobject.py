@@ -69,8 +69,12 @@ class GemeenteWoonplaats(BestuurlijkObject):
         # Ingangsdatum nieuwe gemeente;Aansluitdatum;Bijzonderheden;Nieuwe code Gemeente;
         # Gemeente beeindigd per;Behandeld;        Laatste WPL code:;3513
 
+        # Per 24 jan 2012 is de CSV header geworden:
+        # Woonplaats;Woonplaats code;Ingangsdatum WPL;Einddatum WPL
+        #     ;Gemeente;Gemeente code;Ingangsdatum nieuwe gemeente;Gemeente beeindigd per
+        # (8 kolommen)
         # Dirty! Dit kan vast makkelijker, mijn python tekortkoming blijkt hier ;-)
-        emptylist = [None,None,None,None,None,None,None,None,None,None,None,None]
+        emptylist = [None,None,None,None,None,None,None,None]
         record.extend(emptylist)
         # Stel de lengte van het record object in op 12
         if record[0]:
@@ -85,11 +89,11 @@ class GemeenteWoonplaats(BestuurlijkObject):
             self.gemeentenaam = record[4]
             self.gemeentecode = getNumber(record[5])
             self.begindatum_gemeente = getDate(record[6])
-            self.aansluitdatum_gemeente = getDate(record[7])
-            self.bijzonderheden = record[8]
-            self.gemeentecode_nieuw = getNumber(record[9])
-            self.einddatum_gemeente = getDate(record[10])
-            self.behandeld = record[11]
+            self.einddatum_gemeente = getDate(record[7])
+            # self.aansluitdatum_gemeente = getDate(record[7])
+            # self.bijzonderheden = record[8]
+            # self.gemeentecode_nieuw = getNumber(record[9])
+            # self.behandeld = record[11]
 
     def __repr__(self):
        return "<GemeenteWoonplaats('%s','%s', '%s')>" % (self.naam, self.gemeentecode, self.woonplaatscode)
@@ -103,16 +107,11 @@ class GemeenteWoonplaats(BestuurlijkObject):
             gemeentenaam,
             gemeentecode,
             begindatum_gemeente,
-            aansluitdatum_gemeente,
-            bijzonderheden,
-            gemeentecode_nieuw,
-            einddatum_gemeente,
-            behandeld)
-            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"""
+            einddatum_gemeente)
+            VALUES (%s, %s, %s, %s, %s, %s, %s, %s)"""
         self.valuelist = (self.woonplaatsnaam, self.woonplaatscode, self.begindatum_woonplaats,
             self.einddatum_woonplaats,self.gemeentenaam, self.gemeentecode, self.begindatum_gemeente,
-            self.aansluitdatum_gemeente, self.bijzonderheden, self.gemeentecode_nieuw, self.einddatum_gemeente,
-            self.behandeld)
+            self.einddatum_gemeente)
 
 class GemeenteProvincie(BestuurlijkObject):
     """

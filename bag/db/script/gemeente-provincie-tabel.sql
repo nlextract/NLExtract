@@ -11,8 +11,8 @@ drop table if exists gemeente;
 
 create table gemeente as
   select gw.gemeentecode,gw.gemeentenaam,ST_Multi(ST_Union(w.geovlak)) as geovlak
-  from gemeente_woonplaats as gw, woonplaats as w
-  where gw.woonplaatscode = w.identificatie AND w.aanduidingrecordinactief = 'N' AND gw.einddatum_woonplaats IS NULL AND gw.einddatum_gemeente IS NULL
+  from gemeente_woonplaats as gw, woonplaatsactueelbestaand as w
+  where gw.woonplaatscode = w.identificatie AND gw.einddatum_woonplaats IS NULL AND gw.einddatum_gemeente IS NULL
   group by gw.gemeentecode,gw.gemeentenaam;
 
 alter table gemeente add column gid serial;

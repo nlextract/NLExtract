@@ -336,6 +336,51 @@ CREATE VIEW woonplaatsactueelbestaand AS
     AND woonplaats.geom_valid = TRUE
     AND woonplaats.woonplaatsstatus  <> 'Woonplaats ingetrokken';
 
+DROP VIEW IF EXISTS verblijfsobjectpandactueel;
+CREATE VIEW verblijfsobjectpandactueel AS
+    SELECT vbop.gid,
+            vbop.identificatie,
+            vbop.aanduidingrecordinactief,
+            vbop.aanduidingrecordcorrectie,
+            vbop.begindatumtijdvakgeldigheid,
+            vbop.einddatumtijdvakgeldigheid,
+            vbop.gerelateerdpand
+    FROM verblijfsobjectpand as vbop
+  WHERE
+    vbop.begindatumtijdvakgeldigheid <= LOCALTIMESTAMP
+    AND (vbop.einddatumtijdvakgeldigheid is NULL OR vbop.einddatumtijdvakgeldigheid >= LOCALTIMESTAMP)
+    AND vbop.aanduidingrecordinactief = FALSE;
+
+DROP VIEW IF EXISTS adresseerbaarobjectnevenadresactueel;
+CREATE VIEW adresseerbaarobjectnevenadresactueel AS
+    SELECT aon.gid,
+            aon.identificatie,
+            aon.aanduidingrecordinactief,
+            aon.aanduidingrecordcorrectie,
+            aon.begindatumtijdvakgeldigheid,
+            aon.einddatumtijdvakgeldigheid,
+            aon.nevenadres
+    FROM adresseerbaarobjectnevenadres as aon
+  WHERE
+    aon.begindatumtijdvakgeldigheid <= LOCALTIMESTAMP
+    AND (aon.einddatumtijdvakgeldigheid is NULL OR aon.einddatumtijdvakgeldigheid >= LOCALTIMESTAMP)
+    AND aon.aanduidingrecordinactief = FALSE;
+
+DROP VIEW IF EXISTS verblijfsobjectgebruiksdoelactueel;
+CREATE VIEW verblijfsobjectgebruiksdoelactueel AS
+    SELECT vog.gid,
+            vog.identificatie,
+            vog.aanduidingrecordinactief,
+            vog.aanduidingrecordcorrectie,
+            vog.begindatumtijdvakgeldigheid,
+            vog.einddatumtijdvakgeldigheid,
+            vog.gebruiksdoelverblijfsobject
+    FROM verblijfsobjectgebruiksdoel as vog
+  WHERE
+    vog.begindatumtijdvakgeldigheid <= LOCALTIMESTAMP
+    AND (vog.einddatumtijdvakgeldigheid is NULL OR vog.einddatumtijdvakgeldigheid >= LOCALTIMESTAMP)
+    AND vog.aanduidingrecordinactief = FALSE;
+
 ----------------------------------------------------------------------------------
 -- Extra definitie voor GeoServer om om te gaan met VIEWs
 ----------------------------------------------------------------------------------
