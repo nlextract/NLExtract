@@ -49,14 +49,20 @@ Specifieke issues opgelost in v1.1.0
 - etree (native XML parsing via libxml2)
 - BAG Foutafhandeling en validatie met logging in database
 
-v1.1.1 - PLANNED
-Er is veel werk aan BAG gedaan. Hopelijk kan deze zo een tijd
-mee. Top10NL extractie is daarom wat onderbelicht.
-In v1.1.1 komt Top10NL extractie functionaliteit
-en maken we een begin maken met BGT Extractie. De rest ligt nog open
-afhankelijk van wensen gebruikers.
+v1.1.1 - 20.juni.2012
+Vooral bugfixes in BAG-Extract. Top10NL en BGT extractie uitstellen tot v1.1.2
+De gesloten issues zijn hier te vinden:
+https://github.com/opengeogroep/NLExtract/issues?milestone=4&page=1&state=closed
+Samengevat:
+- bugfix waardoor in v1.1.0 multipolygons voor woonplaatsen null waren
+- geovlak toevoegen aan VIEWs voor Verblijfsobject
+- warnings weg voor diacritische chars (unicode probleem)
+- postgresql port parm ignored
 
-
+v1.1.2 - GEPLAND
+- Verbeterde Top10NL extractie functionaliteit
+= BGT Extractie. De rest ligt nog open
+afhankelijk van wensen gebruikers en natuurlijk evetuele bugs.
 
 
 
