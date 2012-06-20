@@ -257,7 +257,8 @@ CREATE VIEW verblijfsobjectactueel AS
             verblijfsobject.oppervlakteverblijfsobject,
             verblijfsobject.begindatumtijdvakgeldigheid,
             verblijfsobject.einddatumtijdvakgeldigheid,
-            verblijfsobject.geopunt
+            verblijfsobject.geopunt,
+            verblijfsobject.geovlak
     FROM verblijfsobject
   WHERE
     verblijfsobject.begindatumtijdvakgeldigheid <= LOCALTIMESTAMP
@@ -281,7 +282,8 @@ CREATE VIEW verblijfsobjectactueelbestaand AS
             verblijfsobject.oppervlakteverblijfsobject,
             verblijfsobject.begindatumtijdvakgeldigheid,
             verblijfsobject.einddatumtijdvakgeldigheid,
-            verblijfsobject.geopunt
+            verblijfsobject.geopunt,
+            verblijfsobject.geovlak
     FROM verblijfsobject
     WHERE
       verblijfsobject.begindatumtijdvakgeldigheid <= LOCALTIMESTAMP
