@@ -33,32 +33,59 @@ CREATE TABLE adres (
 -- Insert (actuele+bestaande) data uit combinatie van BAG tabellen: Verblijfplaats
 INSERT INTO adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeging, postcode, woonplaatsnaam, gemeentenaam,
         provincienaam, typeadresseerbaarobject, adresseerbaarobject, nummeraanduiding, geopunt)
-  SELECT
-	o.openbareruimtenaam,
-	n.huisnummer,
-	n.huisletter,
-	n.huisnummertoevoeging,
-	n.postcode,
-	w.woonplaatsnaam,
-	g.gemeentenaam,
-	p.provincienaam,
+  SELECT o.openbareruimtenaam,
+    n.huisnummer,
+    n.huisletter,
+    n.huisnummertoevoeging,
+    n.postcode,
+-- Wanneer nummeraanduiding een gerelateerdewoonplaats heeft moet die gebruikt worden ipv via openbareruimte!
+-- Zie issue: https://github.com/opengeogroep/NLExtract/issues/54
+    (CASE
+      WHEN wp2.woonplaatsnaam IS NULL THEN w.woonplaatsnaam ELSE wp2.woonplaatsnaam END),
+    (CASE
+       WHEN g2.gemeentenaam IS NULL THEN g.gemeentenaam ELSE g2.gemeentenaam END),
+    (CASE
+       WHEN p2.provincienaam IS NULL THEN  p.provincienaam ELSE  p2.provincienaam END),
     'VBO' as typeadresseerbaarobject,
-	v.identificatie as adresseerbaarobject,
-	n.identificatie as nummeraanduiding,
-	v.geopunt
-FROM
-	(SELECT identificatie,  geopunt, hoofdadres from verblijfsobjectactueelbestaand) v,
-	(SELECT identificatie,  huisnummer, huisletter, huisnummertoevoeging, postcode, gerelateerdeopenbareruimte from nummeraanduidingactueelbestaand) n,
-	(SELECT identificatie,  openbareruimtenaam, gerelateerdewoonplaats from openbareruimteactueelbestaand) o,
-	(SELECT identificatie,  woonplaatsnaam from woonplaatsactueel) w,
-	(SELECT woonplaatscode, gemeentenaam, gemeentecode from gemeente_woonplaats where einddatum_gemeente is null AND einddatum_woonplaats is null) g,
-	(SELECT gemeentecode,   provincienaam from gemeente_provincie) p
-WHERE
-	v.hoofdadres = n.identificatie
-	and n.gerelateerdeopenbareruimte = o.identificatie
-	and o.gerelateerdewoonplaats = w.identificatie
-	and w.identificatie = g.woonplaatscode
-	and g.gemeentecode = p.gemeentecode;
+    v.identificatie as adresseerbaarobject,
+    n.identificatie as nummeraanduiding,
+    v.geopunt
+   FROM verblijfsobjectactueelbestaand v
+    JOIN nummeraanduidingactueelbestaand n
+    ON (n.identificatie = v.hoofdadres)
+    JOIN openbareruimteactueelbestaand o
+    ON (n.gerelateerdeopenbareruimte = o.identificatie)
+    JOIN woonplaatsactueelbestaand w
+    ON (o.gerelateerdewoonplaats = w.identificatie)
+    JOIN gemeente_woonplaats g
+    ON (g.woonplaatscode = w.identificatie
+            AND g.einddatum_gemeente is null AND g.einddatum_woonplaats is null)
+    JOIN gemeente_provincie p
+    ON (g.gemeentecode = p.gemeentecode)
+    -- Wanneer nummeraanduiding een gerelateerdewoonplaats heeft moet die gebruikt worden ipv via openbareruimte!
+    -- Zie issue: https://github.com/opengeogroep/NLExtract/issues/54
+    LEFT OUTER JOIN woonplaatsactueelbestaand wp2
+    ON (n.gerelateerdewoonplaats = wp2.identificatie)
+    LEFT OUTER JOIN gemeente_woonplaats g2
+    ON (g2.woonplaatscode = wp2.identificatie
+            AND g2.einddatum_gemeente is null AND g2.einddatum_woonplaats is null)
+    LEFT OUTER JOIN gemeente_provincie p2
+    ON (g2.gemeentecode = p2.gemeentecode);
+
+      -- 26.06.12 JvdB Vervangen implicit JOINs by real JOINs n.a.v. https://github.com/opengeogroep/NLExtract/issues/54
+       -- FROM
+        -- 	(SELECT identificatie,  geopunt, hoofdadres from verblijfsobjectactueelbestaand) v,
+        -- 	(SELECT identificatie,  huisnummer, huisletter, huisnummertoevoeging, postcode, gerelateerdeopenbareruimte, gerelateerdewoonplaats from nummeraanduidingactueelbestaand) n,
+        -- 	(SELECT identificatie,  openbareruimtenaam, gerelateerdewoonplaats from openbareruimteactueelbestaand) o,
+        -- 	(SELECT identificatie,  woonplaatsnaam from woonplaatsactueel) w,
+        -- 	(SELECT woonplaatscode, gemeentenaam, gemeentecode from gemeente_woonplaats where einddatum_gemeente is null AND einddatum_woonplaats is null) g,
+        -- 	(SELECT gemeentecode,   provincienaam from gemeente_provincie) p
+        -- WHERE
+        -- 	v.hoofdadres = n.identificatie
+        -- 	and n.gerelateerdeopenbareruimte = o.identificatie
+        -- 	and o.gerelateerdewoonplaats = w.identificatie
+        -- 	and w.identificatie = g.woonplaatscode
+        -- 	and g.gemeentecode = p.gemeentecode;
 
 -- Insert (actuele+bestaande) data uit combinatie van BAG tabellen : Ligplaats
 INSERT INTO adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeging, postcode, woonplaatsnaam,
@@ -69,27 +96,56 @@ INSERT INTO adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeg
 	n.huisletter,
 	n.huisnummertoevoeging,
 	n.postcode,
-	w.woonplaatsnaam,
-	g.gemeentenaam,
-	p.provincienaam,
+   -- Wanneer nummeraanduiding een gerelateerdewoonplaats heeft moet die gebruikt worden ipv via openbareruimte!
+   -- Zie issue: https://github.com/opengeogroep/NLExtract/issues/54
+    (CASE
+      WHEN wp2.woonplaatsnaam IS NULL THEN w.woonplaatsnaam ELSE wp2.woonplaatsnaam END),
+    (CASE
+       WHEN g2.gemeentenaam IS NULL THEN g.gemeentenaam ELSE g2.gemeentenaam END),
+    (CASE
+       WHEN p2.provincienaam IS NULL THEN  p.provincienaam ELSE  p2.provincienaam END),
     'LIG' as typeadresseerbaarobject,
 	l.identificatie as adresseerbaarobject,
 	n.identificatie as nummeraanduiding,
     -- Vlak geometrie wordt punt
 	ST_Force_3D(ST_Centroid(l.geovlak))  as geopunt
-FROM
-	(SELECT identificatie,  geovlak, hoofdadres from ligplaatsactueelbestaand) l,
-	(SELECT identificatie,  huisnummer, huisletter, huisnummertoevoeging, postcode, gerelateerdeopenbareruimte from nummeraanduidingactueelbestaand) n,
-	(SELECT identificatie,  openbareruimtenaam, gerelateerdewoonplaats from openbareruimteactueelbestaand) o,
-	(SELECT identificatie,  woonplaatsnaam from woonplaatsactueel) w,
-	(SELECT woonplaatscode, gemeentenaam, gemeentecode from gemeente_woonplaats where einddatum_gemeente is null AND einddatum_woonplaats is null) g,
-	(SELECT gemeentecode,   provincienaam from gemeente_provincie) p
-WHERE
-	l.hoofdadres = n.identificatie
-	and n.gerelateerdeopenbareruimte = o.identificatie
-	and o.gerelateerdewoonplaats = w.identificatie
-	and w.identificatie = g.woonplaatscode
-	and g.gemeentecode = p.gemeentecode;
+  FROM ligplaatsactueelbestaand l
+   JOIN nummeraanduidingactueelbestaand n
+   ON (n.identificatie = l.hoofdadres)
+   JOIN openbareruimteactueelbestaand o
+   ON (n.gerelateerdeopenbareruimte = o.identificatie)
+   JOIN woonplaatsactueelbestaand w
+   ON (o.gerelateerdewoonplaats = w.identificatie)
+   JOIN gemeente_woonplaats g
+   ON (g.woonplaatscode = w.identificatie
+           AND g.einddatum_gemeente is null AND g.einddatum_woonplaats is null)
+   JOIN gemeente_provincie p
+   ON (g.gemeentecode = p.gemeentecode)
+   -- Wanneer nummeraanduiding een gerelateerdewoonplaats heeft moet die gebruikt worden ipv via openbareruimte!
+   -- Zie issue: https://github.com/opengeogroep/NLExtract/issues/54
+   LEFT OUTER JOIN woonplaatsactueelbestaand wp2
+   ON (n.gerelateerdewoonplaats = wp2.identificatie)
+   LEFT OUTER JOIN gemeente_woonplaats g2
+   ON (g2.woonplaatscode = wp2.identificatie
+           AND g2.einddatum_gemeente is null AND g2.einddatum_woonplaats is null)
+   LEFT OUTER JOIN gemeente_provincie p2
+   ON (g2.gemeentecode = p2.gemeentecode);
+
+
+ -- 26.06.12 JvdB Vervangen implicit JOINs by real JOINs n.a.v. https://github.com/opengeogroep/NLExtract/issues/54
+ -- FROM
+-- 	(SELECT identificatie,  geovlak, hoofdadres from ligplaatsactueelbestaand) l,
+-- 	(SELECT identificatie,  huisnummer, huisletter, huisnummertoevoeging, postcode, gerelateerdeopenbareruimte from nummeraanduidingactueelbestaand) n,
+-- 	(SELECT identificatie,  openbareruimtenaam, gerelateerdewoonplaats from openbareruimteactueelbestaand) o,
+-- 	(SELECT identificatie,  woonplaatsnaam from woonplaatsactueel) w,
+-- 	(SELECT woonplaatscode, gemeentenaam, gemeentecode from gemeente_woonplaats where einddatum_gemeente is null AND einddatum_woonplaats is null) g,
+-- 	(SELECT gemeentecode,   provincienaam from gemeente_provincie) p
+-- WHERE
+-- 	l.hoofdadres = n.identificatie
+-- 	and n.gerelateerdeopenbareruimte = o.identificatie
+-- 	and o.gerelateerdewoonplaats = w.identificatie
+-- 	and w.identificatie = g.woonplaatscode
+-- 	and g.gemeentecode = p.gemeentecode;
 
 -- Insert data uit combinatie van BAG tabellen : Standplaats
 INSERT INTO adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeging, postcode, woonplaatsnaam,
@@ -100,27 +156,54 @@ INSERT INTO adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeg
 	n.huisletter,
 	n.huisnummertoevoeging,
 	n.postcode,
-	w.woonplaatsnaam,
-	g.gemeentenaam,
-	p.provincienaam,
+   -- Wanneer nummeraanduiding een gerelateerdewoonplaats heeft moet die gebruikt worden ipv via openbareruimte!
+   -- Zie issue: https://github.com/opengeogroep/NLExtract/issues/54
+    (CASE
+     WHEN wp2.woonplaatsnaam IS NULL THEN w.woonplaatsnaam ELSE wp2.woonplaatsnaam END),
+    (CASE
+      WHEN g2.gemeentenaam IS NULL THEN g.gemeentenaam ELSE g2.gemeentenaam END),
+    (CASE
+      WHEN p2.provincienaam IS NULL THEN  p.provincienaam ELSE  p2.provincienaam END),
     'STA' as typeadresseerbaarobject,
-	l.identificatie as adresseerbaarobject,
+	s.identificatie as adresseerbaarobject,
 	n.identificatie as nummeraanduiding,
     -- Vlak geometrie wordt punt
-	ST_Force_3D(ST_Centroid(l.geovlak)) as geopunt
-FROM
-	(SELECT identificatie,  geovlak, hoofdadres from standplaatsactueelbestaand) l,
-	(SELECT identificatie,  huisnummer, huisletter, huisnummertoevoeging, postcode, gerelateerdeopenbareruimte from nummeraanduidingactueelbestaand) n,
-	(SELECT identificatie,  openbareruimtenaam, gerelateerdewoonplaats from openbareruimteactueelbestaand) o,
-	(SELECT identificatie,  woonplaatsnaam from woonplaatsactueel) w,
-	(SELECT woonplaatscode, gemeentenaam, gemeentecode from gemeente_woonplaats where einddatum_gemeente is null AND einddatum_woonplaats is null) g,
-	(SELECT gemeentecode,   provincienaam from gemeente_provincie) p
-WHERE
-	l.hoofdadres = n.identificatie
-	and n.gerelateerdeopenbareruimte = o.identificatie
-	and o.gerelateerdewoonplaats = w.identificatie
-	and w.identificatie = g.woonplaatscode
-	and g.gemeentecode = p.gemeentecode;
+	ST_Force_3D(ST_Centroid(s.geovlak)) as geopunt
+  FROM standplaatsactueelbestaand s
+   JOIN nummeraanduidingactueelbestaand n
+   ON (n.identificatie = s.hoofdadres)
+   JOIN openbareruimteactueelbestaand o
+   ON (n.gerelateerdeopenbareruimte = o.identificatie)
+   JOIN woonplaatsactueelbestaand w
+   ON (o.gerelateerdewoonplaats = w.identificatie)
+   JOIN gemeente_woonplaats g
+   ON (g.woonplaatscode = w.identificatie
+           AND g.einddatum_gemeente is null AND g.einddatum_woonplaats is null)
+   JOIN gemeente_provincie p
+   ON (g.gemeentecode = p.gemeentecode)
+   -- Wanneer nummeraanduiding een gerelateerdewoonplaats heeft moet die gebruikt worden ipv via openbareruimte!
+   -- Zie issue: https://github.com/opengeogroep/NLExtract/issues/54
+   LEFT OUTER JOIN woonplaatsactueelbestaand wp2
+   ON (n.gerelateerdewoonplaats = wp2.identificatie)
+   LEFT OUTER JOIN gemeente_woonplaats g2
+   ON (g2.woonplaatscode = wp2.identificatie
+           AND g2.einddatum_gemeente is null AND g2.einddatum_woonplaats is null)
+   LEFT OUTER JOIN gemeente_provincie p2
+   ON (g2.gemeentecode = p2.gemeentecode);
+
+-- FROM
+-- 	(SELECT identificatie,  geovlak, hoofdadres from standplaatsactueelbestaand) l,
+-- 	(SELECT identificatie,  huisnummer, huisletter, huisnummertoevoeging, postcode, gerelateerdeopenbareruimte from nummeraanduidingactueelbestaand) n,
+-- 	(SELECT identificatie,  openbareruimtenaam, gerelateerdewoonplaats from openbareruimteactueelbestaand) o,
+-- 	(SELECT identificatie,  woonplaatsnaam from woonplaatsactueel) w,
+-- 	(SELECT woonplaatscode, gemeentenaam, gemeentecode from gemeente_woonplaats where einddatum_gemeente is null AND einddatum_woonplaats is null) g,
+-- 	(SELECT gemeentecode,   provincienaam from gemeente_provincie) p
+-- WHERE
+-- 	l.hoofdadres = n.identificatie
+-- 	and n.gerelateerdeopenbareruimte = o.identificatie
+-- 	and o.gerelateerdewoonplaats = w.identificatie
+-- 	and w.identificatie = g.woonplaatscode
+-- 	and g.gemeentecode = p.gemeentecode;
 
 -- Maak indexen aan na inserten (betere performance)
 CREATE INDEX adres_geom_idx ON adres USING gist (geopunt);
