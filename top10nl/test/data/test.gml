@@ -537,7 +537,10 @@
             <nen3610:versieBeginTijd>2011-08-25T00:00:00</nen3610:versieBeginTijd>
 
 
-            <top10nl:naam xml:lang="nl">Veere</top10nl:naam>
+            <!-- NB: in Top10NL data is de Nederlandse naam gelijk aan de Friese naam, maar voor de test is het onderscheid belangrijk -->
+            <top10nl:naam xml:lang="nl">Tietjerksteradeel</top10nl:naam>
+            <top10nl:naam xml:lang="fy">Tytsjerksteradiel</top10nl:naam>
+
 
 
             <top10nl:typeRegistratiefGebied>gemeente
