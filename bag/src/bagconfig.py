@@ -46,7 +46,10 @@ class BAGConfig:
             self.host     = configdict.defaults()['host']
             self.user     = configdict.defaults()['user']
             self.password = configdict.defaults()['password']
-            self.port = configdict.defaults()['port']
+            # Optional port config with default
+            self.port = 5432
+            if configdict.has_option(None, 'port'):
+                self.port = configdict.defaults()['port']
 
         except:
             Log.log.fatal(" de inhoud van configuratiebestand " + str(config_file) + " is niet volledig.")
