@@ -2610,14 +2610,14 @@
       <Width>250</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>naamNL</Name>
-      <ElementPath>naamNL</ElementPath>
+      <Name>straatnaamNL</Name>
+      <ElementPath>straatnaamNL</ElementPath>
       <Type>String</Type>
       <Width>250</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>naamFries</Name>
-      <ElementPath>naamFries</ElementPath>
+      <Name>straatnaamFries</Name>
+      <ElementPath>straatnaamFries</ElementPath>
       <Type>String</Type>
       <Width>250</Width>
     </PropertyDefn>
@@ -2813,14 +2813,14 @@
       <Width>250</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>naamNL</Name>
-      <ElementPath>naamNL</ElementPath>
+      <Name>straatnaamNL</Name>
+      <ElementPath>straatnaamNL</ElementPath>
       <Type>String</Type>
       <Width>250</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>naamFries</Name>
-      <ElementPath>naamFries</ElementPath>
+      <Name>straatnaamFries</Name>
+      <ElementPath>straatnaamFries</ElementPath>
       <Type>String</Type>
       <Width>250</Width>
     </PropertyDefn>
@@ -3022,14 +3022,14 @@
       <Width>250</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>naamNL</Name>
-      <ElementPath>naamNL</ElementPath>
+      <Name>straatnaamNL</Name>
+      <ElementPath>straatnaamNL</ElementPath>
       <Type>String</Type>
       <Width>250</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>naamFries</Name>
-      <ElementPath>naamFries</ElementPath>
+      <Name>straatnaamFries</Name>
+      <ElementPath>straatnaamFries</ElementPath>
       <Type>String</Type>
       <Width>250</Width>
     </PropertyDefn>
@@ -3225,14 +3225,14 @@
       <Width>250</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>naamNL</Name>
-      <ElementPath>naamNL</ElementPath>
+      <Name>straatnaamNL</Name>
+      <ElementPath>straatnaamNL</ElementPath>
       <Type>String</Type>
       <Width>250</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>naamFries</Name>
-      <ElementPath>naamFries</ElementPath>
+      <Name>straatnaamFries</Name>
+      <ElementPath>straatnaamFries</ElementPath>
       <Type>String</Type>
       <Width>250</Width>
     </PropertyDefn>
@@ -3428,14 +3428,14 @@
       <Width>250</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>naamNL</Name>
-      <ElementPath>naamNL</ElementPath>
+      <Name>straatnaamNL</Name>
+      <ElementPath>straatnaamNL</ElementPath>
       <Type>String</Type>
       <Width>250</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>naamFries</Name>
-      <ElementPath>naamFries</ElementPath>
+      <Name>straatnaamFries</Name>
+      <ElementPath>straatnaamFries</ElementPath>
       <Type>String</Type>
       <Width>250</Width>
     </PropertyDefn>
