@@ -2,6 +2,8 @@
   <GMLFeatureClass>
     <Name>FunctioneelGebied_Punt</Name>
     <ElementPath>FunctioneelGebied_Punt</ElementPath>
+    <GeometryType>1</GeometryType>
+    <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
       <ExtentXMin>10000</ExtentXMin>
       <ExtentXMax>280000</ExtentXMax>
@@ -92,6 +94,8 @@
   <GMLFeatureClass>
     <Name>FunctioneelGebied_Vlak</Name>
     <ElementPath>FunctioneelGebied_Vlak</ElementPath>
+    <GeometryType>3</GeometryType>
+    <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
       <ExtentXMin>10000</ExtentXMin>
       <ExtentXMax>280000</ExtentXMax>
@@ -182,6 +186,8 @@
   <GMLFeatureClass>
     <Name>Gebouw_Vlak</Name>
     <ElementPath>Gebouw_Vlak</ElementPath>
+    <GeometryType>3</GeometryType>
+    <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
       <ExtentXMin>10000</ExtentXMin>
       <ExtentXMax>280000</ExtentXMax>
@@ -289,6 +295,8 @@
   <GMLFeatureClass>
     <Name>GeografischGebied_Punt</Name>
     <ElementPath>GeografischGebied_Punt</ElementPath>
+    <GeometryType>1</GeometryType>
+    <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
       <ExtentXMin>10000</ExtentXMin>
       <ExtentXMax>280000</ExtentXMax>
@@ -385,6 +393,8 @@
   <GMLFeatureClass>
     <Name>GeografischGebied_Vlak</Name>
     <ElementPath>GeografischGebied_Vlak</ElementPath>
+    <GeometryType>3</GeometryType>
+    <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
       <ExtentXMin>10000</ExtentXMin>
       <ExtentXMax>280000</ExtentXMax>
@@ -481,6 +491,8 @@
   <GMLFeatureClass>
     <Name>HoogteOfDiepte_Punt</Name>
     <ElementPath>HoogteOfDiepte_Punt</ElementPath>
+    <GeometryType>1</GeometryType>
+    <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
       <ExtentXMin>10000</ExtentXMin>
       <ExtentXMax>280000</ExtentXMax>
@@ -595,6 +607,8 @@
   <GMLFeatureClass>
     <Name>HoogteverschilHZ_Lijn</Name>
     <ElementPath>HoogteverschilHZ_Lijn</ElementPath>
+    <GeometryType>2</GeometryType>
+    <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
       <ExtentXMin>10000</ExtentXMin>
       <ExtentXMax>280000</ExtentXMax>
@@ -709,6 +723,8 @@
   <GMLFeatureClass>
     <Name>HoogteverschilLZ_Lijn</Name>
     <ElementPath>HoogteverschilLZ_Lijn</ElementPath>
+    <GeometryType>2</GeometryType>
+    <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
       <ExtentXMin>10000</ExtentXMin>
       <ExtentXMax>280000</ExtentXMax>
@@ -823,6 +839,8 @@
   <GMLFeatureClass>
     <Name>Inrichtingselement_Lijn</Name>
     <ElementPath>Inrichtingselement_Lijn</ElementPath>
+    <GeometryType>2</GeometryType>
+    <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
       <ExtentXMin>10000</ExtentXMin>
       <ExtentXMax>280000</ExtentXMax>
@@ -930,6 +948,8 @@
   <GMLFeatureClass>
     <Name>Inrichtingselement_Punt</Name>
     <ElementPath>Inrichtingselement_Punt</ElementPath>
+    <GeometryType>1</GeometryType>
+    <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
       <ExtentXMin>10000</ExtentXMin>
       <ExtentXMax>280000</ExtentXMax>
@@ -1037,6 +1057,8 @@
   <GMLFeatureClass>
     <Name>IsoHoogte_Lijn</Name>
     <ElementPath>IsoHoogte_Lijn</ElementPath>
+    <GeometryType>2</GeometryType>
+    <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
       <ExtentXMin>10000</ExtentXMin>
       <ExtentXMax>280000</ExtentXMax>
@@ -1151,6 +1173,8 @@
   <GMLFeatureClass>
     <Name>KadeOfWal_Lijn</Name>
     <ElementPath>KadeOfWal_Lijn</ElementPath>
+    <GeometryType>2</GeometryType>
+    <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
       <ExtentXMin>10000</ExtentXMin>
       <ExtentXMax>280000</ExtentXMax>
@@ -1265,6 +1289,8 @@
   <GMLFeatureClass>
     <Name>OverigReliëf_Lijn</Name>
     <ElementPath>OverigReliëf_Lijn</ElementPath>
+    <GeometryType>2</GeometryType>
+    <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
       <ExtentXMin>10000</ExtentXMin>
       <ExtentXMax>280000</ExtentXMax>
@@ -1379,6 +1405,8 @@
   <GMLFeatureClass>
     <Name>OverigReliëf_Punt</Name>
     <ElementPath>OverigReliëf_Punt</ElementPath>
+    <GeometryType>1</GeometryType>
+    <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
       <ExtentXMin>10000</ExtentXMin>
       <ExtentXMax>280000</ExtentXMax>
@@ -1493,6 +1521,8 @@
   <GMLFeatureClass>
     <Name>RegistratiefGebied_Punt</Name>
     <ElementPath>RegistratiefGebied_Punt</ElementPath>
+    <GeometryType>1</GeometryType>
+    <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
       <ExtentXMin>10000</ExtentXMin>
       <ExtentXMax>280000</ExtentXMax>
@@ -1589,6 +1619,8 @@
   <GMLFeatureClass>
     <Name>RegistratiefGebied_Vlak</Name>
     <ElementPath>RegistratiefGebied_Vlak</ElementPath>
+    <GeometryType>3</GeometryType>
+    <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
       <ExtentXMin>10000</ExtentXMin>
       <ExtentXMax>280000</ExtentXMax>
@@ -1685,6 +1717,8 @@
   <GMLFeatureClass>
     <Name>Spoorbaandeel_Lijn</Name>
     <ElementPath>Spoorbaandeel_Lijn</ElementPath>
+    <GeometryType>2</GeometryType>
+    <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
       <ExtentXMin>10000</ExtentXMin>
       <ExtentXMax>280000</ExtentXMax>
@@ -1834,6 +1868,8 @@
   <GMLFeatureClass>
     <Name>Spoorbaandeel_Punt</Name>
     <ElementPath>Spoorbaandeel_Punt</ElementPath>
+    <GeometryType>1</GeometryType>
+    <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
       <ExtentXMin>10000</ExtentXMin>
       <ExtentXMax>280000</ExtentXMax>
@@ -1983,6 +2019,8 @@
   <GMLFeatureClass>
     <Name>Terrein_Vlak</Name>
     <ElementPath>Terrein_Vlak</ElementPath>
+    <GeometryType>3</GeometryType>
+    <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
       <ExtentXMin>10000</ExtentXMin>
       <ExtentXMax>280000</ExtentXMax>
@@ -2090,6 +2128,8 @@
   <GMLFeatureClass>
     <Name>Waterdeel_Lijn</Name>
     <ElementPath>Waterdeel_Lijn</ElementPath>
+    <GeometryType>2</GeometryType>
+    <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
       <ExtentXMin>10000</ExtentXMin>
       <ExtentXMax>280000</ExtentXMax>
@@ -2251,6 +2291,8 @@
   <GMLFeatureClass>
     <Name>Waterdeel_Punt</Name>
     <ElementPath>Waterdeel_Punt</ElementPath>
+    <GeometryType>1</GeometryType>
+    <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
       <ExtentXMin>10000</ExtentXMin>
       <ExtentXMax>280000</ExtentXMax>
@@ -2412,6 +2454,8 @@
   <GMLFeatureClass>
     <Name>Waterdeel_Vlak</Name>
     <ElementPath>Waterdeel_Vlak</ElementPath>
+    <GeometryType>3</GeometryType>
+    <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
       <ExtentXMin>10000</ExtentXMin>
       <ExtentXMax>280000</ExtentXMax>
@@ -2573,6 +2617,8 @@
   <GMLFeatureClass>
     <Name>Wegdeel_HartLijn</Name>
     <ElementPath>Wegdeel_HartLijn</ElementPath>
+    <GeometryType>2</GeometryType>
+    <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
       <ExtentXMin>10000</ExtentXMin>
       <ExtentXMax>280000</ExtentXMax>
@@ -2776,6 +2822,8 @@
   <GMLFeatureClass>
     <Name>Wegdeel_HartPunt</Name>
     <ElementPath>Wegdeel_HartPunt</ElementPath>
+    <GeometryType>1</GeometryType>
+    <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
       <ExtentXMin>10000</ExtentXMin>
       <ExtentXMax>280000</ExtentXMax>
@@ -2985,6 +3033,8 @@
   <GMLFeatureClass>
     <Name>Wegdeel_Lijn</Name>
     <ElementPath>Wegdeel_Lijn</ElementPath>
+    <GeometryType>2</GeometryType>
+    <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
       <ExtentXMin>10000</ExtentXMin>
       <ExtentXMax>280000</ExtentXMax>
@@ -3188,6 +3238,8 @@
   <GMLFeatureClass>
     <Name>Wegdeel_Punt</Name>
     <ElementPath>Wegdeel_Punt</ElementPath>
+    <GeometryType>1</GeometryType>
+    <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
       <ExtentXMin>10000</ExtentXMin>
       <ExtentXMax>280000</ExtentXMax>
@@ -3391,6 +3443,8 @@
   <GMLFeatureClass>
     <Name>Wegdeel_Vlak</Name>
     <ElementPath>Wegdeel_Vlak</ElementPath>
+    <GeometryType>3</GeometryType>
+    <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
       <ExtentXMin>10000</ExtentXMin>
       <ExtentXMax>280000</ExtentXMax>
