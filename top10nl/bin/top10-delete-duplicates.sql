@@ -1,4 +1,4 @@
--- Auteur: F. Steggink
+-- Auteur: Frank Steggink
 -- Doel: script om dubbele records te verwijderen, middels een hulptabel
 
 drop table if exists blah;
