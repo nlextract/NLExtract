@@ -333,6 +333,13 @@ simpelweg doorgeggeven.
         <!-- Copieer alle nen3610:* attributen. -->
         <xsl:copy-of select="nen3610:*"/>
 
+        <!-- Hernoem het attribuut typeReliëf naar typeRelief -->
+        <xsl:for-each select="top10nl:typeReliëf">
+            <typeRelief>
+                <xsl:value-of select="text()"/>
+            </typeRelief>
+        </xsl:for-each>
+
         <!-- Splits namen en straatnamen uit in Nederlands en Fries -->
         <xsl:for-each select="top10nl:naam[@xml:lang='nl']">
             <naamNL>
@@ -360,7 +367,7 @@ simpelweg doorgeggeven.
 
         <!-- Copieer alle top10:* attributen, behalve de geometrieen en de namen. -->
         <xsl:copy-of
-                select="top10nl:*[not(self::top10nl:geometrieVlak)][not(self::top10nl:geometrieLijn)][not(self::top10nl:geometriePunt)][not(self::top10nl:hartLijn)][not(self::top10nl:hartPunt)][not(self::top10nl:hogeZijde)][not(self::top10nl:lageZijde)][not(self::top10nl:naam)][not(self::top10nl:straatnaam)]"/>
+                select="top10nl:*[not(self::top10nl:geometrieVlak)][not(self::top10nl:geometrieLijn)][not(self::top10nl:geometriePunt)][not(self::top10nl:hartLijn)][not(self::top10nl:hartPunt)][not(self::top10nl:hogeZijde)][not(self::top10nl:lageZijde)][not(self::top10nl:naam)][not(self::top10nl:straatnaam)][not(self::top10nl:typeReliëf)]"/>
     </xsl:template>
 
     <!-- Copieer alle elementen van object behalve geometrieen en voeg 1 enkele geometrie aan eind toe. -->

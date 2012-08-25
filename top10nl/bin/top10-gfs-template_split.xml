@@ -542,10 +542,10 @@
       <Width>250</Width>
     </PropertyDefn>
     <!-- Einde properties nen3610:GeoObjectType -->
-    <!-- Begin properties top10nl:ReliëfType -->
+    <!-- Begin properties top10nl:ReliefType -->
     <PropertyDefn>
-      <Name>typeReliëf</Name>
-      <ElementPath>typeReliëf</ElementPath>
+      <Name>typeRelief</Name>
+      <ElementPath>typeRelief</ElementPath>
       <Type>String</Type>
       <Width>250</Width>
     </PropertyDefn>
@@ -571,7 +571,7 @@
       <ElementPath>hoogteniveau</ElementPath>
       <Type>Integer</Type>
     </PropertyDefn>
-    <!-- Einde properties top10nl:ReliëfType -->
+    <!-- Einde properties top10nl:ReliefType -->
     <!-- Begin properties top10nl:Top10Object -->
     <PropertyDefn>
       <Name>brontype</Name>
@@ -658,10 +658,10 @@
       <Width>250</Width>
     </PropertyDefn>
     <!-- Einde properties nen3610:GeoObjectType -->
-    <!-- Begin properties top10nl:ReliëfType -->
+    <!-- Begin properties top10nl:ReliefType -->
     <PropertyDefn>
-      <Name>typeReliëf</Name>
-      <ElementPath>typeReliëf</ElementPath>
+      <Name>typeRelief</Name>
+      <ElementPath>typeRelief</ElementPath>
       <Type>String</Type>
       <Width>250</Width>
     </PropertyDefn>
@@ -687,7 +687,7 @@
       <ElementPath>hoogteniveau</ElementPath>
       <Type>Integer</Type>
     </PropertyDefn>
-    <!-- Einde properties top10nl:ReliëfType -->
+    <!-- Einde properties top10nl:ReliefType -->
     <!-- Begin properties top10nl:Top10Object -->
     <PropertyDefn>
       <Name>brontype</Name>
@@ -774,10 +774,10 @@
       <Width>250</Width>
     </PropertyDefn>
     <!-- Einde properties nen3610:GeoObjectType -->
-    <!-- Begin properties top10nl:ReliëfType -->
+    <!-- Begin properties top10nl:ReliefType -->
     <PropertyDefn>
-      <Name>typeReliëf</Name>
-      <ElementPath>typeReliëf</ElementPath>
+      <Name>typeRelief</Name>
+      <ElementPath>typeRelief</ElementPath>
       <Type>String</Type>
       <Width>250</Width>
     </PropertyDefn>
@@ -803,7 +803,7 @@
       <ElementPath>hoogteniveau</ElementPath>
       <Type>Integer</Type>
     </PropertyDefn>
-    <!-- Einde properties top10nl:ReliëfType -->
+    <!-- Einde properties top10nl:ReliefType -->
     <!-- Begin properties top10nl:Top10Object -->
     <PropertyDefn>
       <Name>brontype</Name>
@@ -1108,10 +1108,10 @@
       <Width>250</Width>
     </PropertyDefn>
     <!-- Einde properties nen3610:GeoObjectType -->
-    <!-- Begin properties top10nl:ReliëfType -->
+    <!-- Begin properties top10nl:ReliefType -->
     <PropertyDefn>
-      <Name>typeReliëf</Name>
-      <ElementPath>typeReliëf</ElementPath>
+      <Name>typeRelief</Name>
+      <ElementPath>typeRelief</ElementPath>
       <Type>String</Type>
       <Width>250</Width>
     </PropertyDefn>
@@ -1137,7 +1137,7 @@
       <ElementPath>hoogteniveau</ElementPath>
       <Type>Integer</Type>
     </PropertyDefn>
-    <!-- Einde properties top10nl:ReliëfType -->
+    <!-- Einde properties top10nl:ReliefType -->
     <!-- Begin properties top10nl:Top10Object -->
     <PropertyDefn>
       <Name>brontype</Name>
@@ -1224,10 +1224,10 @@
       <Width>250</Width>
     </PropertyDefn>
     <!-- Einde properties nen3610:GeoObjectType -->
-    <!-- Begin properties top10nl:ReliëfType -->
+    <!-- Begin properties top10nl:ReliefType -->
     <PropertyDefn>
-      <Name>typeReliëf</Name>
-      <ElementPath>typeReliëf</ElementPath>
+      <Name>typeRelief</Name>
+      <ElementPath>typeRelief</ElementPath>
       <Type>String</Type>
       <Width>250</Width>
     </PropertyDefn>
@@ -1253,7 +1253,7 @@
       <ElementPath>hoogteniveau</ElementPath>
       <Type>Integer</Type>
     </PropertyDefn>
-    <!-- Einde properties top10nl:ReliëfType -->
+    <!-- Einde properties top10nl:ReliefType -->
     <!-- Begin properties top10nl:Top10Object -->
     <PropertyDefn>
       <Name>brontype</Name>
@@ -1340,10 +1340,10 @@
       <Width>250</Width>
     </PropertyDefn>
     <!-- Einde properties nen3610:GeoObjectType -->
-    <!-- Begin properties top10nl:ReliëfType -->
+    <!-- Begin properties top10nl:ReliefType -->
     <PropertyDefn>
-      <Name>typeReliëf</Name>
-      <ElementPath>typeReliëf</ElementPath>
+      <Name>typeRelief</Name>
+      <ElementPath>typeRelief</ElementPath>
       <Type>String</Type>
       <Width>250</Width>
     </PropertyDefn>
@@ -1369,7 +1369,7 @@
       <ElementPath>hoogteniveau</ElementPath>
       <Type>Integer</Type>
     </PropertyDefn>
-    <!-- Einde properties top10nl:ReliëfType -->
+    <!-- Einde properties top10nl:ReliefType -->
     <!-- Begin properties top10nl:Top10Object -->
     <PropertyDefn>
       <Name>brontype</Name>
@@ -1456,10 +1456,10 @@
       <Width>250</Width>
     </PropertyDefn>
     <!-- Einde properties nen3610:GeoObjectType -->
-    <!-- Begin properties top10nl:ReliëfType -->
+    <!-- Begin properties top10nl:ReliefType -->
     <PropertyDefn>
-      <Name>typeReliëf</Name>
-      <ElementPath>typeReliëf</ElementPath>
+      <Name>typeRelief</Name>
+      <ElementPath>typeRelief</ElementPath>
       <Type>String</Type>
       <Width>250</Width>
     </PropertyDefn>
@@ -1485,7 +1485,7 @@
       <ElementPath>hoogteniveau</ElementPath>
       <Type>Integer</Type>
     </PropertyDefn>
-    <!-- Einde properties top10nl:ReliëfType -->
+    <!-- Einde properties top10nl:ReliefType -->
     <!-- Begin properties top10nl:Top10Object -->
     <PropertyDefn>
       <Name>brontype</Name>
