@@ -63,14 +63,14 @@ create table blah as select ogc_fid, identificatie from kadeofwal_lijn where ide
 delete from kadeofwal_lijn where ogc_fid in (select ogc_fid from blah where ogc_fid not in (select min(ogc_fid) from blah group by identificatie));
 drop table if exists blah;
 
---overigreliëf_lijn
-create table blah as select ogc_fid, identificatie from "overigreliëf_lijn" where identificatie in (select identificatie from (select identificatie, count(*) as aantal from "overigreliëf_lijn" group by identificatie order by identificatie) as x where aantal>1);
-delete from "overigreliëf_lijn" where ogc_fid in (select ogc_fid from blah where ogc_fid not in (select min(ogc_fid) from blah group by identificatie));
+--overigrelief_lijn
+create table blah as select ogc_fid, identificatie from overigrelief_lijn where identificatie in (select identificatie from (select identificatie, count(*) as aantal from overigrelief_lijn group by identificatie order by identificatie) as x where aantal>1);
+delete from overigrelief_lijn where ogc_fid in (select ogc_fid from blah where ogc_fid not in (select min(ogc_fid) from blah group by identificatie));
 drop table if exists blah;
 
---overigreliëf_punt
-create table blah as select ogc_fid, identificatie from "overigreliëf_punt" where identificatie in (select identificatie from (select identificatie, count(*) as aantal from "overigreliëf_punt" group by identificatie order by identificatie) as x where aantal>1);
-delete from "overigreliëf_punt" where ogc_fid in (select ogc_fid from blah where ogc_fid not in (select min(ogc_fid) from blah group by identificatie));
+--overigrelief_punt
+create table blah as select ogc_fid, identificatie from overigrelief_punt where identificatie in (select identificatie from (select identificatie, count(*) as aantal from overigrelief_punt group by identificatie order by identificatie) as x where aantal>1);
+delete from overigrelief_punt where ogc_fid in (select ogc_fid from blah where ogc_fid not in (select min(ogc_fid) from blah group by identificatie));
 drop table if exists blah;
 
 --registratiefgebied_punt

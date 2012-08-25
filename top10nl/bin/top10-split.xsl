@@ -52,22 +52,22 @@ simpelweg doorgeggeven.
     <!--
     Top10 Feature Types en hun geometrie-attributen
 
-    Wegdeel  geometrieVlak geometrieLijn geometriePunt hartLijn hartPunt
-    Waterdeel geometrieVlak geometrieLijn  geometriePunt
-    Spoorbaandeel  geometrieLijn  geometriePunt
-    Gebouw  geometrieVlak     (OK)
-    Terrein  geometrieVlak    (OK)
+    Wegdeel:            geometrieVlak geometrieLijn geometriePunt hartLijn hartPunt
+    Waterdeel:          geometrieVlak geometrieLijn geometriePunt
+    Spoorbaandeel:                    geometrieLijn geometriePunt
+    Gebouw:             geometrieVlak
+    Terrein:            geometrieVlak
+    Inrichtingselement:               geometrieLijn geometriePunt
 
-    FunctioneelGebied  geometrieVlak  labelPunt
-    GeografischGebied   geometrieVlak labelPunt
-    Inrichtingselement geometrieLijn  geometriePunt
-    RegistratiefGebied geometrieVlak  labelPunt
+    FunctioneelGebied:  geometrieVlak labelPunt
+    GeografischGebied:  geometrieVlak labelPunt
+    RegistratiefGebied: geometrieVlak labelPunt
 
-    IsoHoogte  geometrieLijn    (OK)
-    KadeOfWal  geometrieLijn    (OK)
-    Hoogteverschil   hogeZijde    (Lijn) Lijn lageZijde  (Lijn)
-    OverigRelief    geometrieLijn     geometriePunt
-    HoogteOfDieptePunt  geometriePunt (OK)
+    IsoHoogte:          geometrieLijn
+    KadeOfWal:          geometrieLijn
+    Hoogteverschil:                                 hogeZijde (Lijn) lageZijde (Lijn)
+    OverigReliëf:       geometrieLijn geometriePunt
+    HoogteOfDieptePunt:               geometriePunt
     -->
     <xsl:template match="gml:featureMembers">
         <!-- START Multiple geom features: split into separate feature types, one for each geom type -->
@@ -208,18 +208,18 @@ simpelweg doorgeggeven.
         </xsl:if>
     </xsl:template>
 
-    <!-- Splits OverigRelief: heeft geometrieLijn en geometriePunt -->
+    <!-- Splits OverigReliëf: heeft geometrieLijn en geometriePunt -->
     <xsl:template name="SplitsOverigRelief">
         <xsl:if test="top10nl:geometrieLijn != ''">
             <xsl:call-template name="CopyWithSingleGeometry">
-                <xsl:with-param name="objectType">OverigReliëf_Lijn</xsl:with-param>
+                <xsl:with-param name="objectType">OverigRelief_Lijn</xsl:with-param>
                 <xsl:with-param name="geometrie" select="top10nl:geometrieLijn"/>
             </xsl:call-template>
         </xsl:if>
 
         <xsl:if test="top10nl:geometriePunt != ''">
             <xsl:call-template name="CopyWithSingleGeometry">
-                <xsl:with-param name="objectType">OverigReliëf_Punt</xsl:with-param>
+                <xsl:with-param name="objectType">OverigRelief_Punt</xsl:with-param>
                 <xsl:with-param name="geometrie" select="top10nl:geometriePunt"/>
             </xsl:call-template>
         </xsl:if>
@@ -333,6 +333,13 @@ simpelweg doorgeggeven.
         <!-- Copieer alle nen3610:* attributen. -->
         <xsl:copy-of select="nen3610:*"/>
 
+        <!-- Hernoem het attribuut typeReliëf naar typeRelief -->
+        <xsl:for-each select="top10nl:typeReliëf">
+            <typeRelief>
+                <xsl:value-of select="text()"/>
+            </typeRelief>
+        </xsl:for-each>
+
         <!-- Splits namen en straatnamen uit in Nederlands en Fries -->
         <xsl:for-each select="top10nl:naam[@xml:lang='nl']">
             <naamNL>
@@ -360,7 +367,7 @@ simpelweg doorgeggeven.
 
         <!-- Copieer alle top10:* attributen, behalve de geometrieen en de namen. -->
         <xsl:copy-of
-                select="top10nl:*[not(self::top10nl:geometrieVlak)][not(self::top10nl:geometrieLijn)][not(self::top10nl:geometriePunt)][not(self::top10nl:hartLijn)][not(self::top10nl:hartPunt)][not(self::top10nl:hogeZijde)][not(self::top10nl:lageZijde)][not(self::top10nl:naam)][not(self::top10nl:straatnaam)]"/>
+                select="top10nl:*[not(self::top10nl:geometrieVlak)][not(self::top10nl:geometrieLijn)][not(self::top10nl:geometriePunt)][not(self::top10nl:hartLijn)][not(self::top10nl:hartPunt)][not(self::top10nl:hogeZijde)][not(self::top10nl:lageZijde)][not(self::top10nl:naam)][not(self::top10nl:straatnaam)][not(self::top10nl:typeReliëf)]"/>
     </xsl:template>
 
     <!-- Copieer alle elementen van object behalve geometrieen en voeg 1 enkele geometrie aan eind toe. -->

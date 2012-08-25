@@ -34,7 +34,6 @@
 # * Mogelijk om settings file mee te geven via command-line
 
 # TODO:
-# * E-trema vervangen in overigrelief-tabellen, vanwege encoding-issues
 # * GML-bestanden in bestandslijst zijn relatief tov bestandslijst
 # * Lees root element wannabe-GML-bestanden om te bepalen of ze door moeten gaan
 # * Locale settings Windows
@@ -42,6 +41,8 @@
 # * XSLT-transformatie versnellen. De huidige verise is veel minder snel dan transformatie met XML
 #   Starlet (die op Windows niet de grootste bladen aankan).
 # * Splitsen optioneel maken
+# * Met Top10NL 1.1.1 kan heel Nederland in een keer geleverd worden. Het moet mogelijk zijn om een
+#   bounding box aan te geven om het te importeren gebied te beperken.
 
 # Ideeen:
 # * Output naar batch file (bat / sh) -> lost afhankelijk van Python niet op door trans script
