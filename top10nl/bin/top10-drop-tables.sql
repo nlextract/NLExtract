@@ -1,3 +1,6 @@
+-- Auteur: Frank Steggink
+-- Doel: script om Top10NL tabellen te verwijderen.
+-- Zowel de originele als de opgesplitste tabellen worden hiermee verwijderd.
 
 DROP TABLE IF EXISTS	functioneelgebied;
 DROP TABLE IF EXISTS 	functioneelgebied_punt;

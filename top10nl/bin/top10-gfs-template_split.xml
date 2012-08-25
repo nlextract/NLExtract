@@ -2655,18 +2655,6 @@
       <Type>String</Type>
       <Width>250</Width>
     </PropertyDefn>
-    <PropertyDefn>
-      <Name>straatnaamNL</Name>
-      <ElementPath>straatnaamNL</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
-    </PropertyDefn>
-    <PropertyDefn>
-      <Name>straatnaamFries</Name>
-      <ElementPath>straatnaamFries</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
-    </PropertyDefn>
     <!-- Einde properties nen3610:GeoObjectType -->
     <PropertyDefn>
       <Name>typeWeg</Name>
@@ -2722,8 +2710,14 @@
       <Type>Integer</Type>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>straatnaam</Name>
-      <ElementPath>straatnaam</ElementPath>
+      <Name>straatnaamNL</Name>
+      <ElementPath>straatnaamNL</ElementPath>
+      <Type>String</Type>
+      <Width>250</Width>
+    </PropertyDefn>
+    <PropertyDefn>
+      <Name>straatnaamFries</Name>
+      <ElementPath>straatnaamFries</ElementPath>
       <Type>String</Type>
       <Width>250</Width>
     </PropertyDefn>
@@ -2857,18 +2851,6 @@
     <PropertyDefn>
       <Name>status</Name>
       <ElementPath>status</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
-    </PropertyDefn>
-    <PropertyDefn>
-      <Name>straatnaamNL</Name>
-      <ElementPath>straatnaamNL</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
-    </PropertyDefn>
-    <PropertyDefn>
-      <Name>straatnaamFries</Name>
-      <ElementPath>straatnaamFries</ElementPath>
       <Type>String</Type>
       <Width>250</Width>
     </PropertyDefn>
@@ -3071,18 +3053,6 @@
       <Type>String</Type>
       <Width>250</Width>
     </PropertyDefn>
-    <PropertyDefn>
-      <Name>straatnaamNL</Name>
-      <ElementPath>straatnaamNL</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
-    </PropertyDefn>
-    <PropertyDefn>
-      <Name>straatnaamFries</Name>
-      <ElementPath>straatnaamFries</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
-    </PropertyDefn>
     <!-- Einde properties nen3610:GeoObjectType -->
     <PropertyDefn>
       <Name>typeWeg</Name>
@@ -3138,8 +3108,14 @@
       <Type>Integer</Type>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>straatnaam</Name>
-      <ElementPath>straatnaam</ElementPath>
+      <Name>straatnaamNL</Name>
+      <ElementPath>straatnaamNL</ElementPath>
+      <Type>String</Type>
+      <Width>250</Width>
+    </PropertyDefn>
+    <PropertyDefn>
+      <Name>straatnaamFries</Name>
+      <ElementPath>straatnaamFries</ElementPath>
       <Type>String</Type>
       <Width>250</Width>
     </PropertyDefn>
@@ -3276,18 +3252,6 @@
       <Type>String</Type>
       <Width>250</Width>
     </PropertyDefn>
-    <PropertyDefn>
-      <Name>straatnaamNL</Name>
-      <ElementPath>straatnaamNL</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
-    </PropertyDefn>
-    <PropertyDefn>
-      <Name>straatnaamFries</Name>
-      <ElementPath>straatnaamFries</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
-    </PropertyDefn>
     <!-- Einde properties nen3610:GeoObjectType -->
     <PropertyDefn>
       <Name>typeWeg</Name>
@@ -3343,8 +3307,14 @@
       <Type>Integer</Type>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>straatnaam</Name>
-      <ElementPath>straatnaam</ElementPath>
+      <Name>straatnaamNL</Name>
+      <ElementPath>straatnaamNL</ElementPath>
+      <Type>String</Type>
+      <Width>250</Width>
+    </PropertyDefn>
+    <PropertyDefn>
+      <Name>straatnaamFries</Name>
+      <ElementPath>straatnaamFries</ElementPath>
       <Type>String</Type>
       <Width>250</Width>
     </PropertyDefn>
@@ -3481,18 +3451,6 @@
       <Type>String</Type>
       <Width>250</Width>
     </PropertyDefn>
-    <PropertyDefn>
-      <Name>straatnaamNL</Name>
-      <ElementPath>straatnaamNL</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
-    </PropertyDefn>
-    <PropertyDefn>
-      <Name>straatnaamFries</Name>
-      <ElementPath>straatnaamFries</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
-    </PropertyDefn>
     <!-- Einde properties nen3610:GeoObjectType -->
     <PropertyDefn>
       <Name>typeWeg</Name>
@@ -3548,8 +3506,14 @@
       <Type>Integer</Type>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>straatnaam</Name>
-      <ElementPath>straatnaam</ElementPath>
+      <Name>straatnaamNL</Name>
+      <ElementPath>straatnaamNL</ElementPath>
+      <Type>String</Type>
+      <Width>250</Width>
+    </PropertyDefn>
+    <PropertyDefn>
+      <Name>straatnaamFries</Name>
+      <ElementPath>straatnaamFries</ElementPath>
       <Type>String</Type>
       <Width>250</Width>
     </PropertyDefn>
