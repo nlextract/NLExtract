@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 #
-# Auteur: F. Steggink
+# Auteur: Frank Steggink
 # Doel: Opknippen en transformeren GML-bestanden
 
 # Imports
@@ -12,8 +12,8 @@ from lxml import etree
 from time import localtime, strftime
 
 # Constantes
-NS={'gml':'http://www.opengis.net/gml'}
-MAX_FEATURES=40000   # 50000 features/bestand kan er al voor zorgen dat de XSLT-transformatie mislukt
+NS = {'gml':'http://www.opengis.net/gml'}
+MAX_FEATURES = 40000   # 50000 features/bestand kan er al voor zorgen dat de XSLT-transformatie mislukt
 
 # Argumenten
 argparser = argparse.ArgumentParser(
@@ -38,16 +38,16 @@ if not os.path.exists(args.DIR):
 	print 'De opgegeven directory is niet aangetroffen!'
 	sys.exit(1)
 
-print 'Begintijd:', strftime('%a, %d %b %Y %H:%M:%S', localtime())
+print 'Begintijd top10-trans:', strftime('%a, %d %b %Y %H:%M:%S', localtime())
 
 # Bepaal de base name
 gmlBaseName = os.path.splitext(os.path.basename(args.GML))[0]
 print 'Inlezen bestand %s...' % gmlBaseName
 
 # Open het XSLT-bestand
-xsltF=open(args.XSLT, 'r')
-xsltDoc=etree.parse(xsltF)
-xslt=etree.XSLT(xsltDoc)
+xsltF = open(args.XSLT, 'r')
+xsltDoc = etree.parse(xsltF)
+xslt = etree.XSLT(xsltDoc)
 xsltF.close()
 
 # Open het GML bestand; verwijder hierbij nodes met alleen whitespace
@@ -57,7 +57,7 @@ gmlDoc=etree.parse(gmlF, parser)
 gmlF.close()
 
 featureMembers = gmlDoc.xpath('gml:featureMembers', namespaces=NS)[0]
-features=featureMembers.xpath('*', namespaces=NS)
+features = featureMembers.xpath('*', namespaces=NS)
 print 'Aantal features in bestand %s: %d' % (gmlBaseName, len(features))
 
 # Maak een tijdelijk element aan om de features in op te slaan. De features worden hierbij verplaatst.
@@ -93,4 +93,4 @@ while len(features) > 0:
 	features=root.xpath('*')
 	idx+=1
 
-print 'Eindtijd:', strftime('%a, %d %b %Y %H:%M:%S', localtime())
+print 'Eindtijd top10-trans:', strftime('%a, %d %b %Y %H:%M:%S', localtime())
