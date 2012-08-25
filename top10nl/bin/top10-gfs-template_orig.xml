@@ -760,7 +760,7 @@
     <!-- Einde properties top10nl:Top10Object -->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>OverigReliëf</Name>
+    <Name>OverigRelief</Name>
     <ElementPath>OverigReliëf</ElementPath>
     <DatasetSpecificInfo>
       <ExtentXMin>10000</ExtentXMin>

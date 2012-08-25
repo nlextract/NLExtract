@@ -34,7 +34,6 @@
 # * Mogelijk om settings file mee te geven via command-line
 
 # TODO:
-# * E-trema vervangen in overigrelief-tabellen, vanwege encoding-issues
 # * GML-bestanden in bestandslijst zijn relatief tov bestandslijst
 # * Lees root element wannabe-GML-bestanden om te bepalen of ze door moeten gaan
 # * Locale settings Windows

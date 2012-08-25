@@ -1287,8 +1287,8 @@
     <!-- Einde properties top10nl:Top10Object -->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>OverigReliëf_Lijn</Name>
-    <ElementPath>OverigReliëf_Lijn</ElementPath>
+    <Name>OverigRelief_Lijn</Name>
+    <ElementPath>OverigRelief_Lijn</ElementPath>
     <GeometryType>2</GeometryType>
     <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
@@ -1403,8 +1403,8 @@
     <!-- Einde properties top10nl:Top10Object -->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>OverigReliëf_Punt</Name>
-    <ElementPath>OverigReliëf_Punt</ElementPath>
+    <Name>OverigRelief_Punt</Name>
+    <ElementPath>OverigRelief_Punt</ElementPath>
     <GeometryType>1</GeometryType>
     <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
