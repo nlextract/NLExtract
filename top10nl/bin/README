@@ -12,6 +12,10 @@ Dependencies
 * GDAL 1.9.1: http://www.gdal.org/index.html
 * lxml: http://lxml.de/installation.html
 
+In Python 2.6:
+* argparse module: http://pypi.python.org/pypi/argparse
+  Je het gemakkelijkst argparse.py in de directory Python26\Lib\ droppen
+
 Aanroep
 -------
 usage: top10-extract.py [-h] [--ini SETTINGS_INI] --dir DIR [--pre PRE_SQL]
