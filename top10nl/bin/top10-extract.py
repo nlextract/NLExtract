@@ -35,7 +35,6 @@
 
 # TODO:
 # * Locale settings Windows
-# * Ondersteuning Top10NL 1.1.1
 # * XSLT-transformatie versnellen. De huidige verise is veel minder snel dan transformatie met XML
 #   Starlet (die op Windows niet de grootste bladen aankan).
 # * Splitsen optioneel maken
