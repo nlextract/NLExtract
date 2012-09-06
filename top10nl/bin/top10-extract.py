@@ -21,7 +21,7 @@
 
 # Aanroepen:
 # * met 1 GML-bestand
-# * met bestand met GML-bestanden
+# * met bestandslijst(en) met GML-bestanden
 # * met meerdere GML-bestanden via wildcard
 # * met directory
 # NB: ook als er meerdere bestanden via de command line aangegeven kunnen worden, kunnen deze
@@ -34,7 +34,6 @@
 # * Mogelijk om settings file mee te geven via command-line
 
 # TODO:
-# * GML-bestanden in bestandslijst zijn relatief tov bestandslijst
 # * Lees root element wannabe-GML-bestanden om te bepalen of ze door moeten gaan
 # * Locale settings Windows
 # * Ondersteuning Top10NL 1.1.1
@@ -193,9 +192,11 @@ def evaluate_file(list, check):
 
         # Behandel opgegeven check-bestand als bestandslijst
         with open(check) as f:
+            dirname = os.path.dirname(check)
             for line in f:
-                # TODO: pad is relatief t.o.v. lijst!
-                check_file(list, line)
+                # Het pad is relatief t.o.v. de lijst
+                filename = os.path.join(dirname, line.rstrip('\r\n'))
+                check_file(list, filename)
 
         return
 
@@ -218,8 +219,8 @@ def check_file(list, file):
     #print 'File to check:', file
 
     #if not os.path.exists(file):
-    #	print 'Het opgegeven GML-bestand of bestandslijst `%s` is niet aangetroffen' % file
-    #	sys.exit(1)
+    #    print 'Het opgegeven GML-bestand of bestandslijst `%s` is niet aangetroffen' % file
+    #    sys.exit(1)
 
     file_ext = os.path.splitext(file)
     ext = file_ext[1].lower()
