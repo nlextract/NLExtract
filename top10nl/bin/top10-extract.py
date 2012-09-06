@@ -75,8 +75,14 @@ FORMAT_POSTGRESQL = 'PostgreSQL'
 SCRIPT_HOME = ''
 
 GML_HEADER_SIZE = 1000
+
+# Top10NL namespaces
 NS_V1_0 = 'http://www.kadaster.nl/top10nl'
 NS_V1_1_1 = 'http://www.kadaster.nl/schemas/top10nl/v20120116'
+
+# Top10NL versies (numeriek)
+V1_0 = 10000
+V1_1_1 = 10101
 
 # Global variables
 config = None
@@ -191,8 +197,7 @@ def evaluate_file(list, check):
         ext = file_ext[1].lower()
         if ext == ".gml" or ext == ".xml":
             # Behandel opgegeven check-bestand als GML-bestand
-            if not check in list:
-                list.append(check)
+            check_file_version(list, check)
             return
 
         # Behandel opgegeven check-bestand als bestandslijst
@@ -231,18 +236,27 @@ def check_file(list, file):
     ext = file_ext[1].lower()
 
     if ext == ".gml" or ext == ".xml":
-        # Controleer of er een Top10NL namespace wordt gebruikt
-        f = open(file)
-        header = f.read(GML_HEADER_SIZE)
-        f.close()
-
-        if header.find(NS_V1_0) != -1 or header.find(NS_V1_1_1) != -1:
-            # Behandel bestand als GML-bestand
-            if not file in list:
-                list.append(file)
+        check_file_version(list, file)
 
     return
 
+
+def check_file_version(list, file):
+    # Controleer of er een Top10NL namespace wordt gebruikt
+    f = open(file)
+    header = f.read(GML_HEADER_SIZE)
+    f.close()
+
+    if header.find(NS_V1_0) != -1:
+        # Behandel bestand als Top10NL 1.0-bestand
+        if not file in list:
+            list.append((V1_0, file))
+    elif header.find(NS_V1_1_1) != -1:
+        # Behandel bestand als Top10NL 1.1.1-bestand
+        if not file in list:
+            list.append((V1_1_1, file))
+
+    return
 
 def main():
     global config, pg_conn
@@ -321,10 +335,14 @@ def main():
     validate_gml()
 
     # * Opsplitsen en transformeren GML
-    xsl = os.path.realpath(os.path.join(SCRIPT_HOME, 'top10-split.xsl'))
+    xsl1_0 = os.path.realpath(os.path.join(SCRIPT_HOME, 'top10-split.xsl'))
+    xsl1_1_1 = os.path.realpath(os.path.join(SCRIPT_HOME, 'top10-split_v1_1_1.xsl'))
 #    py = os.path.realpath(os.path.join(SCRIPT_HOME, 'top10-trans.py'))
-    for file in list:
-        trans_gml(file, xsl, args.dir)
+    for tuple in list:
+        if tuple[0] == V1_0:
+            trans_gml(tuple[1], xsl1_0, args.dir)
+        elif tuple[0] == V1_1_1:
+            trans_gml(tuple[1], xsl1_1_1, args.dir)
 
     # * Laden data met OGR
     file_list = glob.glob(os.path.join(args.dir, '*.[gxGX][mM][lL]'))
