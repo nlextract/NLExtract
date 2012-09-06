@@ -34,7 +34,6 @@
 # * Mogelijk om settings file mee te geven via command-line
 
 # TODO:
-# * Lees root element wannabe-GML-bestanden om te bepalen of ze door moeten gaan
 # * Locale settings Windows
 # * Ondersteuning Top10NL 1.1.1
 # * XSLT-transformatie versnellen. De huidige verise is veel minder snel dan transformatie met XML
@@ -48,8 +47,10 @@
 # * Meerdere settings overriden via command-line parameters
 
 # GML-versies:
-# * Top10NL 1.0
-# * Top10NL 1.1.1 (vanaf sept. '12)
+# Een GML-bestand wordt als Top10NL bestand beschouwd wanneer het een van de volgende namespaces
+# gebruikt voor een namespace prefix. Dit moet gebeuren binnen de eerste 1000 bytes van het bestand.
+# * Top10NL 1.0: http://www.kadaster.nl/top10nl
+# * Top10NL 1.1.1: http://www.kadaster.nl/schemas/top10nl/v20120116 (vanaf sept. '12)
 
 # Imports
 import ConfigParser
@@ -72,6 +73,10 @@ SECTION_OGR_OPTIONS = 'OGROptions'
 SECTION_POSTGIS = 'PostGIS'
 FORMAT_POSTGRESQL = 'PostgreSQL'
 SCRIPT_HOME = ''
+
+GML_HEADER_SIZE = 1000
+NS_V1_0 = 'http://www.kadaster.nl/top10nl'
+NS_V1_1_1 = 'http://www.kadaster.nl/schemas/top10nl/v20120116'
 
 # Global variables
 config = None
@@ -226,9 +231,15 @@ def check_file(list, file):
     ext = file_ext[1].lower()
 
     if ext == ".gml" or ext == ".xml":
-        # Behandel bestand als GML-bestand
-        if not file in list:
-            list.append(file)
+        # Controleer of er een Top10NL namespace wordt gebruikt
+        f = open(file)
+        header = f.read(GML_HEADER_SIZE)
+        f.close()
+
+        if header.find(NS_V1_0) != -1 or header.find(NS_V1_1_1) != -1:
+            # Behandel bestand als GML-bestand
+            if not file in list:
+                list.append(file)
 
     return
 
