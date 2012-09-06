@@ -25,7 +25,10 @@ simpelweg doorgeggeven.
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:xalan="http://xml.apache.org/xalan" exclude-result-prefixes="xalan"
                 xmlns:top10nl="http://www.kadaster.nl/schemas/top10nl/v20120116"
-                xmlns:gml="http://www.opengis.net/gml">
+                xmlns:gml="http://www.opengis.net/gml"
+                xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                xmlns:smil20="http://www.w3.org/2001/SMIL20/"
+                xmlns:smil20lang="http://www.w3.org/2001/SMIL20/Language">
     <xsl:output method="xml" version="1.0" encoding="utf-8" indent="yes"/>
     <xsl:strip-space elements="*"/>
 
@@ -36,7 +39,7 @@ simpelweg doorgeggeven.
                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                 xmlns:xlink="http://www.w3.org/1999/xlink"
                 xmlns:top10nl="http://www.kadaster.nl/schemas/top10nl/v20120116"
-                xsi:schemaLocation="http://www.kadaster.nl/top10nl TOP10NL_1_1_1.xsd"
+                xsi:schemaLocation="http://www.kadaster.nl/schemas/top10nl/v20120116 TOP10NL_1_1_1.xsd"
                 gml:id="uuidf074ae61-93b9-448a-b1db-289fd15e8752"
                 >
             <xsl:apply-templates/>
