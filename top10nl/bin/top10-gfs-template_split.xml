@@ -90,6 +90,18 @@
       <Width>250</Width>
     </PropertyDefn>
     <!-- Einde properties top10nl:Top10Object -->
+    <!-- Begin nieuwe attributen versie 1.1.1 -->
+    <PropertyDefn>
+      <Name>visualisatiecode</Name>
+      <ElementPath>visualisatieCode</ElementPath>
+      <Type>Integer</Type>
+    </PropertyDefn>
+    <PropertyDefn>
+      <Name>tdncode</Name>
+      <ElementPath>tdnCode</ElementPath>
+      <Type>Integer</Type>
+    </PropertyDefn>
+    <!-- Einde nieuwe attributen versie 1.1.1 -->
   </GMLFeatureClass>
   <GMLFeatureClass>
     <Name>FunctioneelGebied_Vlak</Name>
@@ -182,6 +194,18 @@
       <Width>250</Width>
     </PropertyDefn>
     <!-- Einde properties top10nl:Top10Object -->
+    <!-- Begin nieuwe attributen versie 1.1.1 -->
+    <PropertyDefn>
+      <Name>visualisatiecode</Name>
+      <ElementPath>visualisatieCode</ElementPath>
+      <Type>Integer</Type>
+    </PropertyDefn>
+    <PropertyDefn>
+      <Name>tdncode</Name>
+      <ElementPath>tdnCode</ElementPath>
+      <Type>Integer</Type>
+    </PropertyDefn>
+    <!-- Einde nieuwe attributen versie 1.1.1 -->
   </GMLFeatureClass>
   <GMLFeatureClass>
     <Name>Gebouw_Vlak</Name>
@@ -291,6 +315,18 @@
       <Width>250</Width>
     </PropertyDefn>
     <!-- Einde properties top10nl:Top10Object -->
+    <!-- Begin nieuwe attributen versie 1.1.1 -->
+    <PropertyDefn>
+      <Name>visualisatiecode</Name>
+      <ElementPath>visualisatieCode</ElementPath>
+      <Type>Integer</Type>
+    </PropertyDefn>
+    <PropertyDefn>
+      <Name>tdncode</Name>
+      <ElementPath>tdnCode</ElementPath>
+      <Type>Integer</Type>
+    </PropertyDefn>
+    <!-- Einde nieuwe attributen versie 1.1.1 -->
   </GMLFeatureClass>
   <GMLFeatureClass>
     <Name>GeografischGebied_Punt</Name>
@@ -389,6 +425,18 @@
       <Width>250</Width>
     </PropertyDefn>
     <!-- Einde properties top10nl:Top10Object -->
+    <!-- Begin nieuwe attributen versie 1.1.1 -->
+    <PropertyDefn>
+      <Name>visualisatiecode</Name>
+      <ElementPath>visualisatieCode</ElementPath>
+      <Type>Integer</Type>
+    </PropertyDefn>
+    <PropertyDefn>
+      <Name>tdncode</Name>
+      <ElementPath>tdnCode</ElementPath>
+      <Type>Integer</Type>
+    </PropertyDefn>
+    <!-- Einde nieuwe attributen versie 1.1.1 -->
   </GMLFeatureClass>
   <GMLFeatureClass>
     <Name>GeografischGebied_Vlak</Name>
@@ -487,6 +535,18 @@
       <Width>250</Width>
     </PropertyDefn>
     <!-- Einde properties top10nl:Top10Object -->
+    <!-- Begin nieuwe attributen versie 1.1.1 -->
+    <PropertyDefn>
+      <Name>visualisatiecode</Name>
+      <ElementPath>visualisatieCode</ElementPath>
+      <Type>Integer</Type>
+    </PropertyDefn>
+    <PropertyDefn>
+      <Name>tdncode</Name>
+      <ElementPath>tdnCode</ElementPath>
+      <Type>Integer</Type>
+    </PropertyDefn>
+    <!-- Einde nieuwe attributen versie 1.1.1 -->
   </GMLFeatureClass>
   <GMLFeatureClass>
     <Name>HoogteOfDiepte_Punt</Name>
@@ -603,6 +663,18 @@
       <Width>250</Width>
     </PropertyDefn>
     <!-- Einde properties top10nl:Top10Object -->
+    <!-- Begin nieuwe attributen versie 1.1.1 -->
+    <PropertyDefn>
+      <Name>visualisatiecode</Name>
+      <ElementPath>visualisatieCode</ElementPath>
+      <Type>Integer</Type>
+    </PropertyDefn>
+    <PropertyDefn>
+      <Name>tdncode</Name>
+      <ElementPath>tdnCode</ElementPath>
+      <Type>Integer</Type>
+    </PropertyDefn>
+    <!-- Einde nieuwe attributen versie 1.1.1 -->
   </GMLFeatureClass>
   <GMLFeatureClass>
     <Name>HoogteverschilHZ_Lijn</Name>
@@ -719,6 +791,18 @@
       <Width>250</Width>
     </PropertyDefn>
     <!-- Einde properties top10nl:Top10Object -->
+    <!-- Begin nieuwe attributen versie 1.1.1 -->
+    <PropertyDefn>
+      <Name>visualisatiecode</Name>
+      <ElementPath>visualisatieCode</ElementPath>
+      <Type>Integer</Type>
+    </PropertyDefn>
+    <PropertyDefn>
+      <Name>tdncode</Name>
+      <ElementPath>tdnCode</ElementPath>
+      <Type>Integer</Type>
+    </PropertyDefn>
+    <!-- Einde nieuwe attributen versie 1.1.1 -->
   </GMLFeatureClass>
   <GMLFeatureClass>
     <Name>HoogteverschilLZ_Lijn</Name>
@@ -835,6 +919,18 @@
       <Width>250</Width>
     </PropertyDefn>
     <!-- Einde properties top10nl:Top10Object -->
+    <!-- Begin nieuwe attributen versie 1.1.1 -->
+    <PropertyDefn>
+      <Name>visualisatiecode</Name>
+      <ElementPath>visualisatieCode</ElementPath>
+      <Type>Integer</Type>
+    </PropertyDefn>
+    <PropertyDefn>
+      <Name>tdncode</Name>
+      <ElementPath>tdnCode</ElementPath>
+      <Type>Integer</Type>
+    </PropertyDefn>
+    <!-- Einde nieuwe attributen versie 1.1.1 -->
   </GMLFeatureClass>
   <GMLFeatureClass>
     <Name>Inrichtingselement_Lijn</Name>
@@ -944,6 +1040,18 @@
       <Width>250</Width>
     </PropertyDefn>
     <!-- Einde properties top10nl:Top10Object -->
+    <!-- Begin nieuwe attributen versie 1.1.1 -->
+    <PropertyDefn>
+      <Name>visualisatiecode</Name>
+      <ElementPath>visualisatieCode</ElementPath>
+      <Type>Integer</Type>
+    </PropertyDefn>
+    <PropertyDefn>
+      <Name>tdncode</Name>
+      <ElementPath>tdnCode</ElementPath>
+      <Type>Integer</Type>
+    </PropertyDefn>
+    <!-- Einde nieuwe attributen versie 1.1.1 -->
   </GMLFeatureClass>
   <GMLFeatureClass>
     <Name>Inrichtingselement_Punt</Name>
@@ -1053,6 +1161,18 @@
       <Width>250</Width>
     </PropertyDefn>
     <!-- Einde properties top10nl:Top10Object -->
+    <!-- Begin nieuwe attributen versie 1.1.1 -->
+    <PropertyDefn>
+      <Name>visualisatiecode</Name>
+      <ElementPath>visualisatieCode</ElementPath>
+      <Type>Integer</Type>
+    </PropertyDefn>
+    <PropertyDefn>
+      <Name>tdncode</Name>
+      <ElementPath>tdnCode</ElementPath>
+      <Type>Integer</Type>
+    </PropertyDefn>
+    <!-- Einde nieuwe attributen versie 1.1.1 -->
   </GMLFeatureClass>
   <GMLFeatureClass>
     <Name>IsoHoogte_Lijn</Name>
@@ -1169,6 +1289,18 @@
       <Width>250</Width>
     </PropertyDefn>
     <!-- Einde properties top10nl:Top10Object -->
+    <!-- Begin nieuwe attributen versie 1.1.1 -->
+    <PropertyDefn>
+      <Name>visualisatiecode</Name>
+      <ElementPath>visualisatieCode</ElementPath>
+      <Type>Integer</Type>
+    </PropertyDefn>
+    <PropertyDefn>
+      <Name>tdncode</Name>
+      <ElementPath>tdnCode</ElementPath>
+      <Type>Integer</Type>
+    </PropertyDefn>
+    <!-- Einde nieuwe attributen versie 1.1.1 -->
   </GMLFeatureClass>
   <GMLFeatureClass>
     <Name>KadeOfWal_Lijn</Name>
@@ -1285,6 +1417,18 @@
       <Width>250</Width>
     </PropertyDefn>
     <!-- Einde properties top10nl:Top10Object -->
+    <!-- Begin nieuwe attributen versie 1.1.1 -->
+    <PropertyDefn>
+      <Name>visualisatiecode</Name>
+      <ElementPath>visualisatieCode</ElementPath>
+      <Type>Integer</Type>
+    </PropertyDefn>
+    <PropertyDefn>
+      <Name>tdncode</Name>
+      <ElementPath>tdnCode</ElementPath>
+      <Type>Integer</Type>
+    </PropertyDefn>
+    <!-- Einde nieuwe attributen versie 1.1.1 -->
   </GMLFeatureClass>
   <GMLFeatureClass>
     <Name>OverigRelief_Lijn</Name>
@@ -1401,6 +1545,18 @@
       <Width>250</Width>
     </PropertyDefn>
     <!-- Einde properties top10nl:Top10Object -->
+    <!-- Begin nieuwe attributen versie 1.1.1 -->
+    <PropertyDefn>
+      <Name>visualisatiecode</Name>
+      <ElementPath>visualisatieCode</ElementPath>
+      <Type>Integer</Type>
+    </PropertyDefn>
+    <PropertyDefn>
+      <Name>tdncode</Name>
+      <ElementPath>tdnCode</ElementPath>
+      <Type>Integer</Type>
+    </PropertyDefn>
+    <!-- Einde nieuwe attributen versie 1.1.1 -->
   </GMLFeatureClass>
   <GMLFeatureClass>
     <Name>OverigRelief_Punt</Name>
@@ -1517,6 +1673,18 @@
       <Width>250</Width>
     </PropertyDefn>
     <!-- Einde properties top10nl:Top10Object -->
+    <!-- Begin nieuwe attributen versie 1.1.1 -->
+    <PropertyDefn>
+      <Name>visualisatiecode</Name>
+      <ElementPath>visualisatieCode</ElementPath>
+      <Type>Integer</Type>
+    </PropertyDefn>
+    <PropertyDefn>
+      <Name>tdncode</Name>
+      <ElementPath>tdnCode</ElementPath>
+      <Type>Integer</Type>
+    </PropertyDefn>
+    <!-- Einde nieuwe attributen versie 1.1.1 -->
   </GMLFeatureClass>
   <GMLFeatureClass>
     <Name>RegistratiefGebied_Punt</Name>
@@ -1615,6 +1783,18 @@
       <Width>250</Width>
     </PropertyDefn>
     <!-- Einde properties top10nl:Top10Object -->
+    <!-- Begin nieuwe attributen versie 1.1.1 -->
+    <PropertyDefn>
+      <Name>visualisatiecode</Name>
+      <ElementPath>visualisatieCode</ElementPath>
+      <Type>Integer</Type>
+    </PropertyDefn>
+    <PropertyDefn>
+      <Name>tdncode</Name>
+      <ElementPath>tdnCode</ElementPath>
+      <Type>Integer</Type>
+    </PropertyDefn>
+    <!-- Einde nieuwe attributen versie 1.1.1 -->
   </GMLFeatureClass>
   <GMLFeatureClass>
     <Name>RegistratiefGebied_Vlak</Name>
@@ -1713,6 +1893,18 @@
       <Width>250</Width>
     </PropertyDefn>
     <!-- Einde properties top10nl:Top10Object -->
+    <!-- Begin nieuwe attributen versie 1.1.1 -->
+    <PropertyDefn>
+      <Name>visualisatiecode</Name>
+      <ElementPath>visualisatieCode</ElementPath>
+      <Type>Integer</Type>
+    </PropertyDefn>
+    <PropertyDefn>
+      <Name>tdncode</Name>
+      <ElementPath>tdnCode</ElementPath>
+      <Type>Integer</Type>
+    </PropertyDefn>
+    <!-- Einde nieuwe attributen versie 1.1.1 -->
   </GMLFeatureClass>
   <GMLFeatureClass>
     <Name>Spoorbaandeel_Lijn</Name>
@@ -1864,6 +2056,18 @@
       <Width>250</Width>
     </PropertyDefn>
     <!-- Einde properties top10nl:Top10Object -->
+    <!-- Begin nieuwe attributen versie 1.1.1 -->
+    <PropertyDefn>
+      <Name>visualisatiecode</Name>
+      <ElementPath>visualisatieCode</ElementPath>
+      <Type>Integer</Type>
+    </PropertyDefn>
+    <PropertyDefn>
+      <Name>tdncode</Name>
+      <ElementPath>tdnCode</ElementPath>
+      <Type>Integer</Type>
+    </PropertyDefn>
+    <!-- Einde nieuwe attributen versie 1.1.1 -->
   </GMLFeatureClass>
   <GMLFeatureClass>
     <Name>Spoorbaandeel_Punt</Name>
@@ -2015,6 +2219,18 @@
       <Width>250</Width>
     </PropertyDefn>
     <!-- Einde properties top10nl:Top10Object -->
+    <!-- Begin nieuwe attributen versie 1.1.1 -->
+    <PropertyDefn>
+      <Name>visualisatiecode</Name>
+      <ElementPath>visualisatieCode</ElementPath>
+      <Type>Integer</Type>
+    </PropertyDefn>
+    <PropertyDefn>
+      <Name>tdncode</Name>
+      <ElementPath>tdnCode</ElementPath>
+      <Type>Integer</Type>
+    </PropertyDefn>
+    <!-- Einde nieuwe attributen versie 1.1.1 -->
   </GMLFeatureClass>
   <GMLFeatureClass>
     <Name>Terrein_Vlak</Name>
@@ -2124,6 +2340,18 @@
       <Width>250</Width>
     </PropertyDefn>
     <!-- Einde properties top10nl:Top10Object -->
+    <!-- Begin nieuwe attributen versie 1.1.1 -->
+    <PropertyDefn>
+      <Name>visualisatiecode</Name>
+      <ElementPath>visualisatieCode</ElementPath>
+      <Type>Integer</Type>
+    </PropertyDefn>
+    <PropertyDefn>
+      <Name>tdncode</Name>
+      <ElementPath>tdnCode</ElementPath>
+      <Type>Integer</Type>
+    </PropertyDefn>
+    <!-- Einde nieuwe attributen versie 1.1.1 -->
   </GMLFeatureClass>
   <GMLFeatureClass>
     <Name>Waterdeel_Lijn</Name>
@@ -2287,6 +2515,18 @@
       <Width>250</Width>
     </PropertyDefn>
     <!-- Einde properties top10nl:Top10Object -->
+    <!-- Begin nieuwe attributen versie 1.1.1 -->
+    <PropertyDefn>
+      <Name>visualisatiecode</Name>
+      <ElementPath>visualisatieCode</ElementPath>
+      <Type>Integer</Type>
+    </PropertyDefn>
+    <PropertyDefn>
+      <Name>tdncode</Name>
+      <ElementPath>tdnCode</ElementPath>
+      <Type>Integer</Type>
+    </PropertyDefn>
+    <!-- Einde nieuwe attributen versie 1.1.1 -->
   </GMLFeatureClass>
   <GMLFeatureClass>
     <Name>Waterdeel_Punt</Name>
@@ -2450,6 +2690,18 @@
       <Width>250</Width>
     </PropertyDefn>
     <!-- Einde properties top10nl:Top10Object -->
+    <!-- Begin nieuwe attributen versie 1.1.1 -->
+    <PropertyDefn>
+      <Name>visualisatiecode</Name>
+      <ElementPath>visualisatieCode</ElementPath>
+      <Type>Integer</Type>
+    </PropertyDefn>
+    <PropertyDefn>
+      <Name>tdncode</Name>
+      <ElementPath>tdnCode</ElementPath>
+      <Type>Integer</Type>
+    </PropertyDefn>
+    <!-- Einde nieuwe attributen versie 1.1.1 -->
   </GMLFeatureClass>
   <GMLFeatureClass>
     <Name>Waterdeel_Vlak</Name>
@@ -2613,6 +2865,18 @@
       <Width>250</Width>
     </PropertyDefn>
     <!-- Einde properties top10nl:Top10Object -->
+    <!-- Begin nieuwe attributen versie 1.1.1 -->
+    <PropertyDefn>
+      <Name>visualisatiecode</Name>
+      <ElementPath>visualisatieCode</ElementPath>
+      <Type>Integer</Type>
+    </PropertyDefn>
+    <PropertyDefn>
+      <Name>tdncode</Name>
+      <ElementPath>tdnCode</ElementPath>
+      <Type>Integer</Type>
+    </PropertyDefn>
+    <!-- Einde nieuwe attributen versie 1.1.1 -->
   </GMLFeatureClass>
   <GMLFeatureClass>
     <Name>Wegdeel_HartLijn</Name>
@@ -2812,6 +3076,18 @@
       <Width>250</Width>
     </PropertyDefn>
     <!-- Einde properties top10nl:Top10Object -->
+    <!-- Begin nieuwe attributen versie 1.1.1 -->
+    <PropertyDefn>
+      <Name>visualisatiecode</Name>
+      <ElementPath>visualisatieCode</ElementPath>
+      <Type>Integer</Type>
+    </PropertyDefn>
+    <PropertyDefn>
+      <Name>tdncode</Name>
+      <ElementPath>tdnCode</ElementPath>
+      <Type>Integer</Type>
+    </PropertyDefn>
+    <!-- Einde nieuwe attributen versie 1.1.1 -->
   </GMLFeatureClass>
   <GMLFeatureClass>
     <Name>Wegdeel_HartPunt</Name>
@@ -3011,6 +3287,18 @@
       <Width>250</Width>
     </PropertyDefn>
     <!-- Einde properties top10nl:Top10Object -->
+    <!-- Begin nieuwe attributen versie 1.1.1 -->
+    <PropertyDefn>
+      <Name>visualisatiecode</Name>
+      <ElementPath>visualisatieCode</ElementPath>
+      <Type>Integer</Type>
+    </PropertyDefn>
+    <PropertyDefn>
+      <Name>tdncode</Name>
+      <ElementPath>tdnCode</ElementPath>
+      <Type>Integer</Type>
+    </PropertyDefn>
+    <!-- Einde nieuwe attributen versie 1.1.1 -->
   </GMLFeatureClass>
   <GMLFeatureClass>
     <Name>Wegdeel_Lijn</Name>
@@ -3210,6 +3498,18 @@
       <Width>250</Width>
     </PropertyDefn>
     <!-- Einde properties top10nl:Top10Object -->
+    <!-- Begin nieuwe attributen versie 1.1.1 -->
+    <PropertyDefn>
+      <Name>visualisatiecode</Name>
+      <ElementPath>visualisatieCode</ElementPath>
+      <Type>Integer</Type>
+    </PropertyDefn>
+    <PropertyDefn>
+      <Name>tdncode</Name>
+      <ElementPath>tdnCode</ElementPath>
+      <Type>Integer</Type>
+    </PropertyDefn>
+    <!-- Einde nieuwe attributen versie 1.1.1 -->
   </GMLFeatureClass>
   <GMLFeatureClass>
     <Name>Wegdeel_Punt</Name>
@@ -3409,6 +3709,18 @@
       <Width>250</Width>
     </PropertyDefn>
     <!-- Einde properties top10nl:Top10Object -->
+    <!-- Begin nieuwe attributen versie 1.1.1 -->
+    <PropertyDefn>
+      <Name>visualisatiecode</Name>
+      <ElementPath>visualisatieCode</ElementPath>
+      <Type>Integer</Type>
+    </PropertyDefn>
+    <PropertyDefn>
+      <Name>tdncode</Name>
+      <ElementPath>tdnCode</ElementPath>
+      <Type>Integer</Type>
+    </PropertyDefn>
+    <!-- Einde nieuwe attributen versie 1.1.1 -->
   </GMLFeatureClass>
   <GMLFeatureClass>
     <Name>Wegdeel_Vlak</Name>
@@ -3608,5 +3920,17 @@
       <Width>250</Width>
     </PropertyDefn>
     <!-- Einde properties top10nl:Top10Object -->
+    <!-- Begin nieuwe attributen versie 1.1.1 -->
+    <PropertyDefn>
+      <Name>visualisatiecode</Name>
+      <ElementPath>visualisatieCode</ElementPath>
+      <Type>Integer</Type>
+    </PropertyDefn>
+    <PropertyDefn>
+      <Name>tdncode</Name>
+      <ElementPath>tdnCode</ElementPath>
+      <Type>Integer</Type>
+    </PropertyDefn>
+    <!-- Einde nieuwe attributen versie 1.1.1 -->
   </GMLFeatureClass>
 </GMLFeatureClassList>

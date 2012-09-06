@@ -21,7 +21,7 @@
 
 # Aanroepen:
 # * met 1 GML-bestand
-# * met bestand met GML-bestanden
+# * met bestandslijst(en) met GML-bestanden
 # * met meerdere GML-bestanden via wildcard
 # * met directory
 # NB: ook als er meerdere bestanden via de command line aangegeven kunnen worden, kunnen deze
@@ -34,23 +34,20 @@
 # * Mogelijk om settings file mee te geven via command-line
 
 # TODO:
-# * GML-bestanden in bestandslijst zijn relatief tov bestandslijst
-# * Lees root element wannabe-GML-bestanden om te bepalen of ze door moeten gaan
 # * Locale settings Windows
-# * Ondersteuning Top10NL 1.1.1
 # * XSLT-transformatie versnellen. De huidige verise is veel minder snel dan transformatie met XML
 #   Starlet (die op Windows niet de grootste bladen aankan).
 # * Splitsen optioneel maken
-# * Met Top10NL 1.1.1 kan heel Nederland in een keer geleverd worden. Het moet mogelijk zijn om een
-#   bounding box aan te geven om het te importeren gebied te beperken.
 
 # Ideeen:
 # * Output naar batch file (bat / sh) -> lost afhankelijk van Python niet op door trans script
 # * Meerdere settings overriden via command-line parameters
 
 # GML-versies:
-# * Top10NL 1.0
-# * Top10NL 1.1.1 (vanaf sept. '12)
+# Een GML-bestand wordt als Top10NL bestand beschouwd wanneer het een van de volgende namespaces
+# gebruikt voor een namespace prefix. Dit moet gebeuren binnen de eerste 1000 bytes van het bestand.
+# * Top10NL 1.0: http://www.kadaster.nl/top10nl
+# * Top10NL 1.1.1: http://www.kadaster.nl/schemas/top10nl/v20120116 (vanaf sept. '12)
 
 # Imports
 import ConfigParser
@@ -73,6 +70,16 @@ SECTION_OGR_OPTIONS = 'OGROptions'
 SECTION_POSTGIS = 'PostGIS'
 FORMAT_POSTGRESQL = 'PostgreSQL'
 SCRIPT_HOME = ''
+
+GML_HEADER_SIZE = 1000
+
+# Top10NL namespaces
+NS_V1_0 = 'http://www.kadaster.nl/top10nl'
+NS_V1_1_1 = 'http://www.kadaster.nl/schemas/top10nl/v20120116'
+
+# Top10NL versies (numeriek)
+V1_0 = 10000
+V1_1_1 = 10101
 
 # Global variables
 config = None
@@ -141,7 +148,7 @@ def get_ogr_setting(setting):
         return None
 
 
-def load_data(gml, gfs_template):
+def load_data(gml, gfs_template, spatial_filter):
     # Kopieer / overschrijf GFS bestand
     file_ext = os.path.splitext(gml)
     shutil.copy(gfs_template, file_ext[0] + '.gfs')
@@ -164,8 +171,13 @@ def load_data(gml, gfs_template):
         ogr_out_options = get_ogr_setting('OGR_OUT_OPTIONS')
     #print ogr_out_options
 
+    # Spatial filter
+    ogr_spatial_filter = ''
+    if spatial_filter != None:
+        ogr_spatial_filter = '-spat %f %f %f %f' % (spatial_filter[0], spatial_filter[1], spatial_filter[2], spatial_filter[3])
+
     # Voer ogr2ogr uit
-    cmd = 'ogr2ogr %s -f %s "%s" %s %s %s -a_srs %s %s -s_srs %s %s' % (
+    cmd = 'ogr2ogr %s -f %s "%s" %s %s %s -a_srs %s %s -s_srs %s %s %s' % (
     get_ogr_setting('OGR_OVERWRITE_OR_APPEND'),
     get_ogr_setting('OGR_OUT_FORMAT'),
     ogr_out_options,
@@ -175,6 +187,7 @@ def load_data(gml, gfs_template):
     get_ogr_setting('OGR_ASRS'),
     t_srs,
     get_ogr_setting('OGR_SSRS'),
+    ogr_spatial_filter,
     gml
     )
     execute_cmd(cmd)
@@ -187,15 +200,16 @@ def evaluate_file(list, check):
         ext = file_ext[1].lower()
         if ext == ".gml" or ext == ".xml":
             # Behandel opgegeven check-bestand als GML-bestand
-            if not check in list:
-                list.append(check)
+            check_file_version(list, check)
             return
 
         # Behandel opgegeven check-bestand als bestandslijst
         with open(check) as f:
+            dirname = os.path.dirname(check)
             for line in f:
-                # TODO: pad is relatief t.o.v. lijst!
-                check_file(list, line)
+                # Het pad is relatief t.o.v. de lijst
+                filename = os.path.realpath(os.path.join(dirname, line.rstrip('\r\n')))
+                check_file(list, filename)
 
         return
 
@@ -218,19 +232,34 @@ def check_file(list, file):
     #print 'File to check:', file
 
     #if not os.path.exists(file):
-    #	print 'Het opgegeven GML-bestand of bestandslijst `%s` is niet aangetroffen' % file
-    #	sys.exit(1)
+    #    print 'Het opgegeven GML-bestand of bestandslijst `%s` is niet aangetroffen' % file
+    #    sys.exit(1)
 
     file_ext = os.path.splitext(file)
     ext = file_ext[1].lower()
 
     if ext == ".gml" or ext == ".xml":
-        # Behandel bestand als GML-bestand
-        if not file in list:
-            list.append(file)
+        check_file_version(list, file)
 
     return
 
+
+def check_file_version(list, file):
+    # Controleer of er een Top10NL namespace wordt gebruikt
+    f = open(file)
+    header = f.read(GML_HEADER_SIZE)
+    f.close()
+
+    if header.find(NS_V1_0) != -1:
+        # Behandel bestand als Top10NL 1.0-bestand
+        if not file in list:
+            list.append((V1_0, file))
+    elif header.find(NS_V1_1_1) != -1:
+        # Behandel bestand als Top10NL 1.1.1-bestand
+        if not file in list:
+            list.append((V1_1_1, file))
+
+    return
 
 def main():
     global config, pg_conn
@@ -241,9 +270,10 @@ def main():
     argparser = argparse.ArgumentParser(description='Verwerk een of meerdere GML-bestanden')
     argparser.add_argument('gml', type=str, help='het GML-bestand of de lijst met GML-bestanden', metavar='GML', nargs='+')
     argparser.add_argument('--dir', type=str, help='lokatie getransformeerde bestanden', dest='dir', required=True)
-    argparser.add_argument('--ini', type=str, help='het settings-bestand', dest='settings_ini',default=DEFAULT_SETTINGS_INI)
+    argparser.add_argument('--ini', type=str, help='het settings-bestand', dest='settings_ini', default=DEFAULT_SETTINGS_INI)
     argparser.add_argument('--pre', type=str, help='SQL-script vooraf', dest='pre_sql')
     argparser.add_argument('--post', type=str, help='SQL-script achteraf', dest='post_sql')
+    argparser.add_argument('--spat', type=float, help='spatial filter', dest='spat', nargs=4, metavar=('xmin', 'ymin', 'xmax', 'ymax'))
     argparser.add_argument('--PG_PASSWORD', type=str, help='wachtwoord voor PostgreSQL', dest='pg_pass')
     args = argparser.parse_args()
 
@@ -252,6 +282,7 @@ def main():
     #print 'GML:', args.gml
     #print 'Ini:', args.settings_ini
     #print 'PG-Password:', args.pg_pass
+    #print 'Spatial filter:', args.spat
 
     ### Controle argumenten
     # Check geldigheid dir
@@ -309,16 +340,20 @@ def main():
     validate_gml()
 
     # * Opsplitsen en transformeren GML
-    xsl = os.path.realpath(os.path.join(SCRIPT_HOME, 'top10-split.xsl'))
+    xsl1_0 = os.path.realpath(os.path.join(SCRIPT_HOME, 'top10-split.xsl'))
+    xsl1_1_1 = os.path.realpath(os.path.join(SCRIPT_HOME, 'top10-split_v1_1_1.xsl'))
 #    py = os.path.realpath(os.path.join(SCRIPT_HOME, 'top10-trans.py'))
-    for file in list:
-        trans_gml(file, xsl, args.dir)
+    for tuple in list:
+        if tuple[0] == V1_0:
+            trans_gml(tuple[1], xsl1_0, args.dir)
+        elif tuple[0] == V1_1_1:
+            trans_gml(tuple[1], xsl1_1_1, args.dir)
 
     # * Laden data met OGR
     file_list = glob.glob(os.path.join(args.dir, '*.[gxGX][mM][lL]'))
     gfs_template = os.path.realpath(os.path.join(SCRIPT_HOME, 'top10-gfs-template_split.xml'))
     for file in file_list:
-        load_data(file, gfs_template)
+        load_data(file, gfs_template, args.spat)
 
     # * Verwijderen duplicate data
     sql = os.path.realpath(os.path.join(SCRIPT_HOME, 'top10-delete-duplicates.sql'))

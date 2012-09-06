@@ -13,7 +13,8 @@ from time import localtime, strftime
 
 
 # Constantes
-NS = {'gml':'http://www.opengis.net/gml'}
+GML_NS = 'http://www.opengis.net/gml'
+NS = {'gml': GML_NS}
 MAX_FEATURES = 40000   # 50000 features/bestand kan er al voor zorgen dat de XSLT-transformatie mislukt
 
 def transform(gml_file, xslt_file, out_dir, max_features = MAX_FEATURES):
@@ -36,14 +37,19 @@ def transform(gml_file, xslt_file, out_dir, max_features = MAX_FEATURES):
     gmlDoc=etree.parse(gmlF, parser)
     gmlF.close()
 
-    featureMembers = gmlDoc.xpath('gml:featureMembers', namespaces=NS)[0]
-    features = featureMembers.xpath('*', namespaces=NS)
+    features = gmlDoc.xpath('gml:featureMembers/* | gml:featureMember/*', namespaces=NS)
     print 'Aantal features in bestand %s: %d' % (gml_file, len(features))
 
     # Maak een tijdelijk element aan om de features in op te slaan. De features worden hierbij verplaatst.
     root = etree.Element('root')
     for feature in features:
         root.append(feature)
+
+    # Verwijder gml:featureMembers / gml:featureMember elementen en vervang dit door een gml:featureMembers element
+    featureMemberElems = gmlDoc.xpath('gml:featureMembers | gml:featureMember', namespaces=NS)
+    for elem in featureMemberElems:
+        gmlDoc.getroot().remove(elem)
+    etree.SubElement(gmlDoc.getroot(), etree.QName(GML_NS, 'featureMembers'))
 
     # Verwerk de features
     idx=0   # teller
