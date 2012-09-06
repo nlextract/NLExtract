@@ -38,8 +38,6 @@
 # * XSLT-transformatie versnellen. De huidige verise is veel minder snel dan transformatie met XML
 #   Starlet (die op Windows niet de grootste bladen aankan).
 # * Splitsen optioneel maken
-# * Met Top10NL 1.1.1 kan heel Nederland in een keer geleverd worden. Het moet mogelijk zijn om een
-#   bounding box aan te geven om het te importeren gebied te beperken.
 
 # Ideeen:
 # * Output naar batch file (bat / sh) -> lost afhankelijk van Python niet op door trans script
@@ -150,7 +148,7 @@ def get_ogr_setting(setting):
         return None
 
 
-def load_data(gml, gfs_template):
+def load_data(gml, gfs_template, spatial_filter):
     # Kopieer / overschrijf GFS bestand
     file_ext = os.path.splitext(gml)
     shutil.copy(gfs_template, file_ext[0] + '.gfs')
@@ -173,8 +171,13 @@ def load_data(gml, gfs_template):
         ogr_out_options = get_ogr_setting('OGR_OUT_OPTIONS')
     #print ogr_out_options
 
+    # Spatial filter
+    ogr_spatial_filter = ''
+    if spatial_filter != None:
+        ogr_spatial_filter = '-spat %f %f %f %f' % (spatial_filter[0], spatial_filter[1], spatial_filter[2], spatial_filter[3])
+
     # Voer ogr2ogr uit
-    cmd = 'ogr2ogr %s -f %s "%s" %s %s %s -a_srs %s %s -s_srs %s %s' % (
+    cmd = 'ogr2ogr %s -f %s "%s" %s %s %s -a_srs %s %s -s_srs %s %s %s' % (
     get_ogr_setting('OGR_OVERWRITE_OR_APPEND'),
     get_ogr_setting('OGR_OUT_FORMAT'),
     ogr_out_options,
@@ -184,6 +187,7 @@ def load_data(gml, gfs_template):
     get_ogr_setting('OGR_ASRS'),
     t_srs,
     get_ogr_setting('OGR_SSRS'),
+    ogr_spatial_filter,
     gml
     )
     execute_cmd(cmd)
@@ -266,9 +270,10 @@ def main():
     argparser = argparse.ArgumentParser(description='Verwerk een of meerdere GML-bestanden')
     argparser.add_argument('gml', type=str, help='het GML-bestand of de lijst met GML-bestanden', metavar='GML', nargs='+')
     argparser.add_argument('--dir', type=str, help='lokatie getransformeerde bestanden', dest='dir', required=True)
-    argparser.add_argument('--ini', type=str, help='het settings-bestand', dest='settings_ini',default=DEFAULT_SETTINGS_INI)
+    argparser.add_argument('--ini', type=str, help='het settings-bestand', dest='settings_ini', default=DEFAULT_SETTINGS_INI)
     argparser.add_argument('--pre', type=str, help='SQL-script vooraf', dest='pre_sql')
     argparser.add_argument('--post', type=str, help='SQL-script achteraf', dest='post_sql')
+    argparser.add_argument('--spat', type=float, help='spatial filter', dest='spat', nargs=4, metavar=('xmin', 'ymin', 'xmax', 'ymax'))
     argparser.add_argument('--PG_PASSWORD', type=str, help='wachtwoord voor PostgreSQL', dest='pg_pass')
     args = argparser.parse_args()
 
@@ -277,6 +282,7 @@ def main():
     #print 'GML:', args.gml
     #print 'Ini:', args.settings_ini
     #print 'PG-Password:', args.pg_pass
+    #print 'Spatial filter:', args.spat
 
     ### Controle argumenten
     # Check geldigheid dir
@@ -347,7 +353,7 @@ def main():
     file_list = glob.glob(os.path.join(args.dir, '*.[gxGX][mM][lL]'))
     gfs_template = os.path.realpath(os.path.join(SCRIPT_HOME, 'top10-gfs-template_split.xml'))
     for file in file_list:
-        load_data(file, gfs_template)
+        load_data(file, gfs_template, args.spat)
 
     # * Verwijderen duplicate data
     sql = os.path.realpath(os.path.join(SCRIPT_HOME, 'top10-delete-duplicates.sql'))
