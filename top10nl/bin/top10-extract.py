@@ -195,7 +195,7 @@ def evaluate_file(list, check):
             dirname = os.path.dirname(check)
             for line in f:
                 # Het pad is relatief t.o.v. de lijst
-                filename = os.path.join(dirname, line.rstrip('\r\n'))
+                filename = os.path.realpath(os.path.join(dirname, line.rstrip('\r\n')))
                 check_file(list, filename)
 
         return
