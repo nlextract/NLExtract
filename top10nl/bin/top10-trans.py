@@ -37,7 +37,15 @@ def transform(gml_file, xslt_file, out_dir, max_features = MAX_FEATURES):
     gmlDoc=etree.parse(gmlF, parser)
     gmlF.close()
 
-    features = gmlDoc.xpath('gml:featureMembers/* | gml:featureMember/*', namespaces=NS)
+    # Bepaal de features in het bestand en verwijder gml:featureMembers / gml:featureMember elementen
+    features = []
+    for elem in gmlDoc.getroot():
+        tag = elem.tag.rsplit('}', 1)[-1]
+        print tag
+        if tag=='featureMembers' or tag=='featureMember':
+            features.extend(list(elem))
+        gmlDoc.getroot().remove(elem)
+
     print 'Aantal features in bestand %s: %d' % (gml_file, len(features))
 
     # Maak een tijdelijk element aan om de features in op te slaan. De features worden hierbij verplaatst.
@@ -45,10 +53,8 @@ def transform(gml_file, xslt_file, out_dir, max_features = MAX_FEATURES):
     for feature in features:
         root.append(feature)
 
-    # Verwijder gml:featureMembers / gml:featureMember elementen en vervang dit door een gml:featureMembers element
-    featureMemberElems = gmlDoc.xpath('gml:featureMembers | gml:featureMember', namespaces=NS)
-    for elem in featureMemberElems:
-        gmlDoc.getroot().remove(elem)
+    # Vervang het verwijderde featureMembers element of de verwijderde featureMember elementen door een
+    # nieuw featureMembers element
     etree.SubElement(gmlDoc.getroot(), etree.QName(GML_NS, 'featureMembers'))
 
     # Verwerk de features
