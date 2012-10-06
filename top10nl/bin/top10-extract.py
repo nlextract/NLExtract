@@ -196,8 +196,8 @@ def load_data(gml, gfs_template, spatial_filter):
     )
     execute_cmd(cmd)
     
-    # Prevent the layer creation options being passed with any following runs, so the warning that
-    # these options are being ignored is no longer shown.
+    # Voorkom dat de layer creation options bij de volgende run wordt meegegeven, zodat de
+    # waarschuwing dat deze opties genegeerd worden niet langer wordt getoond.
     first_load = False
 
 
