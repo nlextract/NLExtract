@@ -64,7 +64,7 @@ from time import localtime, strftime
 
 # Constantes
 SETTINGS_INI = 'top10-settings.ini'
-MAX_SPLIT_FEATURES = 40000
+MAX_SPLIT_FEATURES = 30000
 
 SECTION_OGR_OPTIONS = 'OGROptions'
 SECTION_POSTGIS = 'PostGIS'
@@ -126,13 +126,13 @@ def validate_gml():
 def trans_gml(gml, xsl, dir):
     # Opknippen en transformeren GML-bestand
 
-#    cmd = 'python %s --max_features %d %s %s %s' % (py, MAX_SPLIT_FEATURES, gml, xsl, dir)
-#    print cmd
-#    execute_cmd(cmd)
+    trans_path = os.path.realpath(os.path.join(SCRIPT_HOME, 'top10-trans.py'))
+    cmd = 'python %s --max_features %d %s %s %s' % (trans_path, MAX_SPLIT_FEATURES, gml, xsl, dir)
+    execute_cmd(cmd)
 
     # TODO hernoem de file top10-trans.py andres kunnen we niet importeren
-    top10_trans = __import__('top10-trans')
-    top10_trans.transform(gml, xsl, dir, MAX_SPLIT_FEATURES)
+    #top10_trans = __import__('top10-trans')
+    #top10_trans.transform(gml, xsl, dir, MAX_SPLIT_FEATURES)
 
 def get_postgis_setting(setting):
     if config.has_option(SECTION_POSTGIS, setting):

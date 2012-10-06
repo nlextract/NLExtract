@@ -6,16 +6,25 @@
 # Imports
 import argparse
 import os.path
+import subprocess
 import sys
+import time
 from copy import deepcopy
 from lxml import etree
 from time import localtime, strftime
 
-
 # Constantes
 GML_NS = 'http://www.opengis.net/gml'
 NS = {'gml': GML_NS}
-MAX_FEATURES = 40000   # 50000 features/bestand kan er al voor zorgen dat de XSLT-transformatie mislukt
+MAX_FEATURES = 30000
+
+def execute_cmd(cmd):
+    use_shell = True
+    if os.name == 'nt':
+        use_shell = False
+        
+    print cmd
+    subprocess.call(cmd, shell=use_shell)
 
 def transform(gml_file, xslt_file, out_dir, max_features = MAX_FEATURES):
     print 'Begintijd top10-trans:', strftime('%a, %d %b %Y %H:%M:%S', localtime())
@@ -24,24 +33,18 @@ def transform(gml_file, xslt_file, out_dir, max_features = MAX_FEATURES):
     gmlBaseName = os.path.splitext(os.path.basename(gml_file))[0]
     print 'GML bestand=%s baseName=%s out_dir=%s' % (gml_file, gmlBaseName,out_dir)
 
-    # Open het XSLT-bestand
-    xsltF = open(xslt_file, 'r')
-    xsltDoc = etree.parse(xsltF)
-    xslt = etree.XSLT(xsltDoc)
-    xsltF.close()
-
     # Open het GML bestand; verwijder hierbij nodes met alleen whitespace
     print 'Inlezen GML bestand %s...' % gml_file
-    parser = etree.XMLParser(remove_blank_text=True)
-    gmlF=open(gml_file, 'r')
-    gmlDoc=etree.parse(gmlF, parser)
+    parser = etree.XMLParser(remove_blank_text=True, ns_clean=True)
+    gmlF = open(gml_file, 'r')
+    gmlDoc = etree.parse(gmlF, parser)
     gmlF.close()
 
     # Bepaal de features in het bestand en verwijder gml:featureMembers / gml:featureMember elementen
     features = []
     for elem in gmlDoc.getroot():
         tag = elem.tag.rsplit('}', 1)[-1]
-        if tag=='featureMembers' or tag=='featureMember':
+        if tag == 'featureMembers' or tag == 'featureMember':
             features.extend(list(elem))
         gmlDoc.getroot().remove(elem)
 
@@ -57,10 +60,10 @@ def transform(gml_file, xslt_file, out_dir, max_features = MAX_FEATURES):
     etree.SubElement(gmlDoc.getroot(), etree.QName(GML_NS, 'featureMembers'))
 
     # Verwerk de features
-    idx=0   # teller
-    gmlTemplate=gmlDoc
-    fileNameTemplate=os.path.join(out_dir, '%s_%%02d.gml' % gmlBaseName)
-    features=root.xpath('*')
+    idx = 0   # teller
+    gmlTemplate = gmlDoc
+    fileNameTemplate = os.path.join(out_dir, '%s_%%02d.gml' % gmlBaseName)
+    features = root.xpath('*')
 
     while len(features) > 0:
         # Kloon de GML template en verplaats een deel van de features er naar toe
@@ -70,19 +73,20 @@ def transform(gml_file, xslt_file, out_dir, max_features = MAX_FEATURES):
         for feature in features[0:max_features]:
             featureMembers.append(feature)
 
-        # Voer gelijk de transformatie uit
-        resultDoc=xslt(gmlDoc)
-
         # Sla het nieuwe GML bestand op
         fileName = fileNameTemplate % idx
         o = open(fileName, 'w')
-        o.write(etree.tostring(resultDoc, pretty_print=True, xml_declaration=True, encoding='UTF-8'))
+        o.write(etree.tostring(gmlDoc, pretty_print=True, xml_declaration=True, encoding='UTF-8'))
         o.flush()
         o.close()
+        
+        # Voer XSLT-transformatie uit
+        cmd = 'python top10-trans2.py %s %s' % (fileName, xslt_file)
+        execute_cmd(cmd)
 
         # Voor volgende iteratie
         features=root.xpath('*')
-        idx+=1
+        idx += 1
 
     print 'Eindtijd top10-trans:', strftime('%a, %d %b %Y %H:%M:%S', localtime())
 
