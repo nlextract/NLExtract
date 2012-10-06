@@ -125,8 +125,8 @@ def validate_gml():
 
 
 def trans_gml(gml, xsl, dir):
-    # Opknippen en transformeren GML-bestand
 
+    # Opknippen en transformeren GML-bestand
     trans_path = os.path.realpath(os.path.join(SCRIPT_HOME, 'top10-trans.py'))
     cmd = 'python %s --max_features %d %s %s %s' % (trans_path, MAX_SPLIT_FEATURES, gml, xsl, dir)
     execute_cmd(cmd)
@@ -136,6 +136,7 @@ def trans_gml(gml, xsl, dir):
     #top10_trans.transform(gml, xsl, dir, MAX_SPLIT_FEATURES)
 
 def get_postgis_setting(setting):
+
     if config.has_option(SECTION_POSTGIS, setting):
         return config.get(SECTION_POSTGIS, setting)
     else:
@@ -143,6 +144,7 @@ def get_postgis_setting(setting):
 
 
 def get_ogr_setting(setting):
+
     if config.has_option(SECTION_OGR_OPTIONS, setting):
         return config.get(SECTION_OGR_OPTIONS, setting)
     else:
@@ -163,8 +165,6 @@ def load_data(gml, gfs_template, spatial_filter):
         t_srs = '-t_srs' + get_ogr_setting('OGR_TSRS')
 
     # PG connectie
-    #print get_ogr_setting('OGR_OUT_FORMAT')
-    #print get_ogr_setting('OGR_OUT_OPTIONS')
     if get_ogr_setting('OGR_OUT_FORMAT') == FORMAT_POSTGRESQL and get_ogr_setting('OGR_OUT_OPTIONS') is None:
         # Bepaal de connectie string voor PostgreSQL
         ogr_out_options = 'PG:dbname=%s host=%s port=%s user=%s password=%s' % (
@@ -173,7 +173,6 @@ def load_data(gml, gfs_template, spatial_filter):
     else:
         # Gebruik de bestaande opties
         ogr_out_options = get_ogr_setting('OGR_OUT_OPTIONS')
-    #print ogr_out_options
 
     # Spatial filter
     ogr_spatial_filter = ''
@@ -228,8 +227,6 @@ def evaluate_file(list, check):
         # Behandel opgegeven check-bestand als bestandslijst
         file_list = glob.glob(check)
 
-    #print 'File list:', file_list
-
     for file in file_list:
         check_file(list, file)
 
@@ -237,12 +234,6 @@ def evaluate_file(list, check):
 
 
 def check_file(list, file):
-    #print 'File to check:', file
-
-    #if not os.path.exists(file):
-    #    print 'Het opgegeven GML-bestand of bestandslijst `%s` is niet aangetroffen' % file
-    #    sys.exit(1)
-
     file_ext = os.path.splitext(file)
     ext = file_ext[1].lower()
 
@@ -287,11 +278,6 @@ def main():
 
     print 'Begintijd top10-extract:', strftime('%a, %d %b %Y %H:%M:%S', localtime())
 
-    #print 'GML:', args.gml
-    #print 'Ini:', args.settings_ini
-    #print 'PG-Password:', args.pg_pass
-    #print 'Spatial filter:', args.spat
-
     ### Controle argumenten
     # Check geldigheid dir
     if not os.path.isdir(args.dir):
@@ -304,7 +290,7 @@ def main():
         sys.exit(1)
 
     ### Uitlezenc onfiguratie
-    # Read settings
+    # Lees settings
     config = ConfigParser.SafeConfigParser()
     config.read(args.settings_ini)
 
@@ -330,8 +316,6 @@ def main():
     for file in args.gml:
         evaluate_file(list, file)
 
-    #print 'GML files:', list
-    #print len(list)
     if len(list) == 0:
         print 'Er zijn geen GML-bestanden aangetroffen om in te lezen'
         sys.exit(1)
@@ -350,7 +334,6 @@ def main():
     # * Opsplitsen en transformeren GML
     xsl1_0 = os.path.realpath(os.path.join(SCRIPT_HOME, 'top10-split.xsl'))
     xsl1_1_1 = os.path.realpath(os.path.join(SCRIPT_HOME, 'top10-split_v1_1_1.xsl'))
-#    py = os.path.realpath(os.path.join(SCRIPT_HOME, 'top10-trans.py'))
     for tuple in list:
         if tuple[0] == V1_0:
             trans_gml(tuple[1], xsl1_0, args.dir)
