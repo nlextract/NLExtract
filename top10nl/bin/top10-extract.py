@@ -84,6 +84,7 @@ V1_1_1 = 10101
 # Global variables
 config = None
 pg_conn = None
+first_load = True
 
 # Exit handlers
 def on_exit():
@@ -149,6 +150,9 @@ def get_ogr_setting(setting):
 
 
 def load_data(gml, gfs_template, spatial_filter):
+
+    global first_load
+    
     # Kopieer / overschrijf GFS bestand
     file_ext = os.path.splitext(gml)
     shutil.copy(gfs_template, file_ext[0] + '.gfs')
@@ -183,7 +187,7 @@ def load_data(gml, gfs_template, spatial_filter):
     ogr_out_options,
     get_ogr_setting('OGR_GT'),
     get_ogr_setting('OGR_OPT_MULTIATTR'),
-    get_ogr_setting('OGR_LCO'),
+    get_ogr_setting('OGR_LCO') if first_load else "",
     get_ogr_setting('OGR_ASRS'),
     t_srs,
     get_ogr_setting('OGR_SSRS'),
@@ -191,6 +195,10 @@ def load_data(gml, gfs_template, spatial_filter):
     gml
     )
     execute_cmd(cmd)
+    
+    # Prevent the layer creation options being passed with any following runs, so the warning that
+    # these options are being ignored is no longer shown.
+    first_load = False
 
 
 def evaluate_file(list, check):
