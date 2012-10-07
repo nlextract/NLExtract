@@ -289,7 +289,7 @@ def main():
         print 'Op de opgegeven lokatie `%s` is geen INI-bestand aangetroffen' % args.settings_ini
         sys.exit(1)
 
-    ### Uitlezenc onfiguratie
+    ### Uitlezen configuratie
     # Lees settings
     config = ConfigParser.SafeConfigParser()
     config.read(args.settings_ini)
