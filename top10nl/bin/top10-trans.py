@@ -18,6 +18,8 @@ GML_NS = 'http://www.opengis.net/gml'
 NS = {'gml': GML_NS}
 MAX_FEATURES = 30000
 
+SCRIPT_HOME = ''
+
 def execute_cmd(cmd):
     use_shell = True
     if os.name == 'nt':
@@ -65,6 +67,8 @@ def transform(gml_file, xslt_file, out_dir, max_features = MAX_FEATURES):
     fileNameTemplate = os.path.join(out_dir, '%s_%%02d.gml' % gmlBaseName)
     features = root.xpath('*')
 
+    trans2_path = os.path.realpath(os.path.join(SCRIPT_HOME, 'top10-trans2.py'))
+
     while len(features) > 0:
         # Kloon de GML template en verplaats een deel van de features er naar toe
         print 'Iteratie %d: %d te verwerken features' % (idx, len(features[0:max_features]))
@@ -81,7 +85,7 @@ def transform(gml_file, xslt_file, out_dir, max_features = MAX_FEATURES):
         o.close()
         
         # Voer XSLT-transformatie uit
-        cmd = 'python top10-trans2.py %s %s' % (fileName, xslt_file)
+        cmd = 'python %s %s %s' % (trans2_path, fileName, xslt_file)
         execute_cmd(cmd)
 
         # Voor volgende iteratie
@@ -91,6 +95,9 @@ def transform(gml_file, xslt_file, out_dir, max_features = MAX_FEATURES):
     print 'Eindtijd top10-trans:', strftime('%a, %d %b %Y %H:%M:%S', localtime())
 
 def main():
+    global SCRIPT_HOME
+
+    SCRIPT_HOME = os.path.dirname(os.path.realpath(sys.argv[0]))
 
     # Argumenten
     argparser = argparse.ArgumentParser(

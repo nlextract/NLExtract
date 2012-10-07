@@ -261,9 +261,9 @@ def check_file_version(list, file):
     return
 
 def main():
-    global config, pg_conn
+    global config, pg_conn, SCRIPT_HOME
 
-    SCRIPT_HOME = os.path.realpath(os.path.dirname(sys.argv[0]))
+    SCRIPT_HOME = os.path.dirname(os.path.realpath(sys.argv[0]))
     DEFAULT_SETTINGS_INI = os.path.realpath(os.path.join(SCRIPT_HOME, SETTINGS_INI))
 
     argparser = argparse.ArgumentParser(description='Verwerk een of meerdere GML-bestanden')
