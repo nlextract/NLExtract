@@ -43,7 +43,7 @@ def transform(gml_file, xslt_file, out_dir, max_features = MAX_FEATURES):
     # Bepaal de features in het bestand en verwijder gml:featureMembers / gml:featureMember elementen
     features = []
     for elem in gmlDoc.getroot():
-        tag = elem.tag.rsplit('}', 1)[-1]
+        tag = str(elem.tag).rsplit('}', 1)[-1]
         if tag == 'featureMembers' or tag == 'featureMember':
             features.extend(list(elem))
         gmlDoc.getroot().remove(elem)
