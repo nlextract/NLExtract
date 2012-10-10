@@ -12,7 +12,7 @@ import sys
 import os
 
 from ConfigParser import ConfigParser
-from logging import Log
+from log import Log
 
 class BAGConfig:
    # Singleton: sole static instance of Log to have a single Log object

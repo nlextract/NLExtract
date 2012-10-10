@@ -20,7 +20,7 @@ from processor import Processor
 import os
 from etree import etree
 import csv
-from logging import Log
+from log import Log
 from postgresdb import Database
 
 try:

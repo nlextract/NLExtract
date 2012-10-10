@@ -6,22 +6,21 @@
 NLExtract Documentatie
 ======================
 
-Contents:
+Inhoud:
 
 .. toctree::
    :maxdepth: 2
 
-  .. automodule:: bagextract
-   :members:
-
-  .. automodule:: processor
-   :members:
+   algemeen.rst
+   bagextract.rst
+   top10extract.rst
+   contact.rst
+   links.rst
 
 
 Indices and tables
 ==================
 
 * :ref:`genindex`
-* :ref:`modindex`
 * :ref:`search`
 

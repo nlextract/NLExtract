@@ -11,7 +11,7 @@ __date__ = "Jan 9, 2012 3:46:27 PM$"
 
  OpenGeoGroep.nl
 """
-from logging import Log
+from log import Log
 from etree import etree, tagVolledigeNS, stripschema
 
 import sys

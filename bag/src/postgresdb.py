@@ -17,7 +17,7 @@ except ImportError:
     print("FATAAL: kan package psycopg2 (Python Postgres client) niet vinden")
     sys.exit(-1)
 
-from logging import Log
+from log import Log
 from bagconfig import BAGConfig
 
 class Database:

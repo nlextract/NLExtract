@@ -11,7 +11,7 @@ import argparse #apt-get install python-argparse
 import sys
 import os
 from postgresdb import Database
-from logging import Log
+from log import Log
 from bagfilereader import BAGFileReader
 from bagconfig import BAGConfig
 from bagobject import VerblijfsObjectPand, AdresseerbaarObjectNevenAdres, VerblijfsObjectGebruiksdoel, Woonplaats, OpenbareRuimte, Nummeraanduiding, Ligplaats, Standplaats, Verblijfsobject, Pand

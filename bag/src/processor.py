@@ -18,7 +18,7 @@ __date__ = "$Jun 14, 2011 11:11:01 AM$"
 from bagobject import BAGObjectFabriek
 from bestuurlijkobject import BestuurlijkObjectFabriek
 from postgresdb import Database
-from logging import Log
+from log import Log
 from etree import etree,stripschema,stripNS
 
 class Processor:

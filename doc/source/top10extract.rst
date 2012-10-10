@@ -1,4 +1,14 @@
-NLExtract/Top10NL - Extractie en visualisatie van Top10NL
+.. _top10extract:
+
+
+************
+top10extract
+************
+
+Hieronder staat de handleiding voor het gebruik van de tools om top10NL te extraheren.
+
+Handleiding top10-extract
+=========================
 
 Algemeen
 --------
@@ -21,14 +31,34 @@ In eerste instantie converteren/laden we de GML naar PostGIS. Dit gebeurt met de
 ogr2ogr. Echter er zijn 2 belangrijke zaken die dit lastig maken:
 
 - meerdere geometrieen per object, bijv een Waterdeel GML element kan een lijn en een vlak bevatten
-- meerdere voorkomens van een attribuut (attribute multiplicity), bijv. een Wegdeel GML element
-kan meerdere element-attributen genaamd "nwegNummer" bevatten
+- meerdere voorkomens van een attribuut (attribute multiplicity), bijv. een Wegdeel GML element kan meerdere element-attributen genaamd "nwegNummer" bevatten
 
 Om het eerste probleem op te lossen worden middels een XSLT script (bin/top10-split-geom.xsl) de GML
 elementen uitgesplitst naar geometrie, zodat ieder element een enkele geometrie bevat. Bijvoorbeeld
 Wegdeel kent maar liefst 5 geometrie attributen. Dit wordt opgesplitst naar Wegdeel_Lijn, Wegdeel_Vlak etc.
 Een nieuw GML bestand wordt hiermee opgebouwd. Vervolgens wordt via ogr2ogr dit uitgesplitste GML bestand
 in PostGIS geladen.
+
+Top10NL Downloaden
+------------------
+
+Uiteraard heb je Top10NL brondata nodig. Deze kun je via http://kadaster.nl/top10nl vinden, maar
+we hebben ook een directe download link beschikbaar met dank aan OpenStreetMap-NL, zie:
+http://mirror.openstreetmap.nl/kadaster/Top10NL_v1_1_1
+
+``NB  heel belangrijk is om de laatste versie van Top10NL te gebruiken: v1.1.1.`` Deze wordt geleverd met ingang van
+september 2012. In bijv. PDOK zijn momenteel (okt 2012) nog oudere versies van Top10NL.
+
+top10-extract downloaden
+------------------------
+
+Vind altijd de laatste versie op: http://www.nlextract.nl/file-cabinet
+
+Omdat NLExtract voortdurend in ontwikkeling is kun je ook de actuele broncode, een `snapshot`, downloaden
+en op dezelfde manier gebruiken als een versie:
+
+- snapshot via git: git clone http://github.com/opengeogroep/NLExtract.git
+- snapshot als .zip: https://github.com/opengeogroep/NLExtract/zipball/master
 
 Installatie
 -----------
@@ -48,32 +78,30 @@ Testen
 ------
 Het beste is eerst te testen als volgt:
 
-- pas bin/top10-settings.sh aan voor je lokale situatie
-- maak een lege database aan met PostGIS  template bijv. "top10nl" (createdb -T postgis)
-- in test/ directory executeer ./top10-test.sh
+- pas `bin/top10-settings.ini` aan voor je lokale situatie
+- maak een lege database aan met PostGIS  template bijv. ``top10nl`` (createdb -T postgis)
+- in de ``top10nl/test`` directory executeer ``./top10-test.sh`` of ``./top10-test.cmd``
 
 Hoe te gebruiken ?
 ------------------
-Onder bin/ staan shell-scripts om de conversies (ook wel ETL, Extract Transform Load geheten)  te doen.
+Onder bin/ staan Python-scripts om de conversies (ook wel ETL, Extract Transform Load geheten)  te doen.
 
-==> pas eerst bin/top10-settings.sh aan m.n. voor je lokale database en ogr2ogr opties !!  <==
+``pas eerst bin/top10-settings.ini aan m.n. voor je lokale database en ogr2ogr opties``
 
-top10-extract.sh <file of directory> - converteert 1 enkele GML file of hele directory met GML files naar PostGIS
+top10-extract.py <file of directory> - converteert 1 enkele GML file of hele directory met GML files naar PostGIS
 
-top10-extract.sh roept 2 hulp-scripts aan:
-top10-split.sh - geometrieen uitsplitsen en
-top10-ogr2ogr.sh - via ogr2ogr GML in PostGIS laden
+top10-trans.py is een hulp script dat aangeroepen wordt door top10-extract.py
 
 Valideren
 ---------
 
 Sommige Top10NL files van Kadaster blijken invalide GML syntax te bevatten.
 
-top10-validate.sh <Top10NL GML file> - valideer input GML
+top10-validate.py <Top10NL GML file> - valideer input GML
 
 Voorbeeld:
 
-top10-validate.sh  06_west.gml
+top10-validate.py  06_west.gml
 
 geeft output:
 
@@ -86,6 +114,8 @@ geeft output:
 Top10NL Versies
 ---------------
 
-Sinds september 2012 is er een nieuwe versie van Top
+Sinds september 2012 is er een nieuwe versie van Top10NL, versie 1.1.1. Gebruik altijd deze. Na NLExtract v1.1.2
+zullen we de oude Top10NL versie niet meer ondersteunen.
+
 
 
