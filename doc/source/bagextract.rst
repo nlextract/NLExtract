@@ -1,11 +1,11 @@
 .. _bagextract:
 
 
-**********
-bagextract
-**********
+***********
+bag-extract
+***********
 
-Hieronder staat de handleiding voor het gebruik van de BAGExtract tools.
+Hieronder staat de handleiding voor het gebruik van de tools voor de BAG.
 
 Handleiding bag-extract
 =======================

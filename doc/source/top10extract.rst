@@ -1,9 +1,9 @@
 .. _top10extract:
 
 
-************
-top10extract
-************
+*************
+top10-extract
+*************
 
 Hieronder staat de handleiding voor het gebruik van de tools om top10NL te extraheren.
 
@@ -12,7 +12,7 @@ Handleiding top10-extract
 
 Algemeen
 --------
-NLExtract/Top10NL, kortweg Top10Extract bevat tools de Top10NL geleverd door Het Kadaster (GML)
+NLExtract/Top10NL, kortweg top10-extract bevat tools om de Top10NL bronbestanden zoals geleverd door Het Kadaster (GML)
 om te zetten naar hanteerbare formaten zoals PostGIS. Tevens bevat Top10Extract visualisatie-bestanden
 (onder style map) voor QGIS en SLDs om kaarten te maken.
 
@@ -60,19 +60,26 @@ en op dezelfde manier gebruiken als een versie:
 - snapshot via git: git clone http://github.com/opengeogroep/NLExtract.git
 - snapshot als .zip: https://github.com/opengeogroep/NLExtract/zipball/master
 
+Afhankelijkheden
+----------------
+
+De volgende software dient aanwezig te zijn om top10-extract te draaien.
+
+ - Python 2.6 of hoger (niet Python 3!)
+ - Python argparse package, voor argument parsing alleen indien Python < 2.7
+ - PostGIS: PostgreSQL database server met PostGIS : http://postgis.refractions.net
+ - psycopg2: Python PostgreSQL client bibliotheek. Zie http://initd.org/psycopg
+ - lxml voor razendsnelle native XML parsing, Zie http://lxml.de
+ - libxml2 en libxslt bibliotheken
+ - GDAL/OGR v1.8.1 minimaal (voor ogr2ogr) http://www.gdal.org
+ - GDAL/OGR Python bindings zijn (voorlopig) `niet` nodig
+
 Installatie
 -----------
 NLExtract maakt i.h.a. gebruik van Python voor alle scripts.
 
-Vereist:
-- Python 2.6 of hoger (niet Python 3!)
-- lxml
-- libxml2 en libxslt bibliotheken
-- GDAL/OGR v1.8.1 minimaal (voor ogr2ogr) http://www.gdal.org
-
 Ubuntu/Debian
 apt-get install gdal-bin
-apt-get install xmlstarlet (of apt-get install xsltproc)
 
 Testen
 ------

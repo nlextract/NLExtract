@@ -6,6 +6,8 @@
 NLExtract Documentatie
 ======================
 
+De laatste versie van deze documentatie vind je steeds op http://nlextract.readthedocs.org
+
 Inhoud:
 
 .. toctree::
@@ -16,7 +18,6 @@ Inhoud:
    top10extract.rst
    contact.rst
    links.rst
-
 
 Indices and tables
 ==================
