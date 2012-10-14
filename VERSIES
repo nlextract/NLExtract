@@ -87,6 +87,8 @@ ONGEPLAND
 - AHN
 - Bonne Bladen (historische kaarten)
 - Linked Data
+- Top10NL naar Oracle,
+- gebruik SETL als algemeen ETL framework: https://github.com/justb4/setl
 
 De rest ligt nog open afhankelijk van wensen gebruikers en natuurlijk evetuele bugs.
 
