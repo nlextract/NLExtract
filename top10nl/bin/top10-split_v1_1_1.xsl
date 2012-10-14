@@ -71,7 +71,7 @@ simpelweg doorgeggeven.
     OverigReliëf:       geometrieLijn geometriePunt
     HoogteOfDieptePunt:               geometriePunt
     -->
-    <xsl:template match="gml:featureMembers">
+    <xsl:template match="gml:featureMembers ">
         <!-- START Multiple geom features: split into separate feature types, one for each geom type -->
         <xsl:for-each select="top10nl:Waterdeel">
             <xsl:call-template name="SplitsWaterdeel"/>

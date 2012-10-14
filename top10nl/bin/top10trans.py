@@ -29,7 +29,7 @@ def execute_cmd(cmd):
     subprocess.call(cmd, shell=use_shell)
 
 def transform(gml_file, xslt_file, out_dir, max_features = MAX_FEATURES):
-    print 'Begintijd top10-trans:', strftime('%a, %d %b %Y %H:%M:%S', localtime())
+    print 'Begintijd top10trans:', strftime('%a, %d %b %Y %H:%M:%S', localtime())
 
     # Bepaal de base name
     gmlBaseName = os.path.splitext(os.path.basename(gml_file))[0]
@@ -67,7 +67,7 @@ def transform(gml_file, xslt_file, out_dir, max_features = MAX_FEATURES):
     fileNameTemplate = os.path.join(out_dir, '%s_%%02d.gml' % gmlBaseName)
     features = root.xpath('*')
 
-    trans2_path = os.path.realpath(os.path.join(SCRIPT_HOME, 'top10-trans2.py'))
+    trans2_path = os.path.realpath(os.path.join(SCRIPT_HOME, 'top10trans2.py'))
 
     while len(features) > 0:
         # Kloon de GML template en verplaats een deel van de features er naar toe
@@ -92,7 +92,7 @@ def transform(gml_file, xslt_file, out_dir, max_features = MAX_FEATURES):
         features=root.xpath('*')
         idx += 1
 
-    print 'Eindtijd top10-trans:', strftime('%a, %d %b %Y %H:%M:%S', localtime())
+    print 'Eindtijd top10trans:', strftime('%a, %d %b %Y %H:%M:%S', localtime())
 
 def main():
     global SCRIPT_HOME

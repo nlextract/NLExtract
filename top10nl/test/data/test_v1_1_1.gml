@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><!--Created by GO Publisher Agent 2.1.2 Build 28125 from 2012-03-22 11:26--><!--Snowflake Software Ltd. (http://www.snowflakesoftware.com)--><gml:FeatureCollection xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:top10nl="http://www.kadaster.nl/schemas/top10nl/v20120116" xmlns:gml="http://www.opengis.net/gml" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:smil20="http://www.w3.org/2001/SMIL20/" xmlns:smil20lang="http://www.w3.org/2001/SMIL20/Language" xsi:schemaLocation="http://www.kadaster.nl/schemas/top10nl/v20120116 http://www.kadaster.nl/schemas/top10nl/v20120116/TOP10NL_1_1_1.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--Created by GO Publisher Agent 2.1.2 Build 28125 from 2012-03-22 11:26--><!--Snowflake Software Ltd. (http://www.snowflakesoftware.com)--><gml:FeatureCollection xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:top10nl="http://www.kadaster.nl/schemas/top10nl/v20120116" xmlns:gml="http://www.opengis.net/gml" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:smil20="http://www.w3.org/2001/SMIL20/" xmlns:smil20lang="http://www.w3.org/2001/SMIL20/Language" xsi:schemaLocation="http://www.kadaster.nl/schemas/top10nl/v20120116 http://www.kadaster.nl/schemas/top10nl/v20120116/TOP10NL_1_1_1.xsd">
   <gml:boundedBy>
     <gml:Envelope srsName="urn:ogc:def:crs:EPSG::28992">
       <gml:lowerCorner>43662.62 406692.0</gml:lowerCorner>

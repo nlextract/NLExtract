@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml" xmlns:top10nl="http://www.kadaster.nl/schemas/top10nl/v20120116" targetNamespace="http://www.kadaster.nl/schemas/top10nl/v20120116" elementFormDefault="qualified" version="1.1.1">
 	<annotation>
 		<documentation>TOP10NL versie 1.1.1. Geen NEN3610.xsd import meer. Wel toevoeging van attributen visualisatiecode en tdnCode. Ten opzichte van versie 1.1 is alleen het type van attr. nummer aangepast.  </documentation>

@@ -13,5 +13,5 @@ TOP10NL_TEST_TMP=$TOP10NL_HOME/test/tmp
 /bin/rm -rf $TOP10NL_TEST_TMP
 mkdir $TOP10NL_TEST_TMP
 
-python $TOP10NL_BIN/top10-extract.py $TOP10NL_TEST_DATA/test.gml --dir $TOP10NL_TEST_TMP
+python $TOP10NL_BIN/top10extract.py $TOP10NL_TEST_DATA/test.gml --dir $TOP10NL_TEST_TMP
 

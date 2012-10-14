@@ -16,8 +16,8 @@
 # Dependencies:
 # * Settings: settings.ini
 # * GFS template: top10-gfs-template_split.xml
-# * Transformatie-script (Python): top10-trans.py
-# * Opsplits-stylesheet (XSLT): top10-split.xslt
+# * Transformatie-script (Python): top10trans.py
+# * Opsplits-stylesheet (XSLT): top10-split.xsl
 
 # Aanroepen:
 # * met 1 GML-bestand
@@ -127,13 +127,13 @@ def validate_gml():
 def trans_gml(gml, xsl, dir):
 
     # Opknippen en transformeren GML-bestand
-    trans_path = os.path.realpath(os.path.join(SCRIPT_HOME, 'top10-trans.py'))
+    trans_path = os.path.realpath(os.path.join(SCRIPT_HOME, 'top10trans.py'))
     cmd = 'python %s --max_features %d %s %s %s' % (trans_path, MAX_SPLIT_FEATURES, gml, xsl, dir)
     execute_cmd(cmd)
 
-    # TODO hernoem de file top10-trans.py andres kunnen we niet importeren
-    #top10_trans = __import__('top10-trans')
-    #top10_trans.transform(gml, xsl, dir, MAX_SPLIT_FEATURES)
+    # alternatief:
+    # top10_trans = __import__('top10trans')
+    # top10_trans.transform(gml, xsl, dir, MAX_SPLIT_FEATURES)
 
 def get_postgis_setting(setting):
 
@@ -193,6 +193,7 @@ def load_data(gml, gfs_template, spatial_filter):
     ogr_spatial_filter,
     gml
     )
+    print cmd
     execute_cmd(cmd)
     
     # Voorkom dat de layer creation options bij de volgende run wordt meegegeven, zodat de
