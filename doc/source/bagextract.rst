@@ -2,102 +2,110 @@
 
 
 ***********
-bag-extract
+Bag-extract
 ***********
 
 Hieronder staat de handleiding voor het gebruik van de tools voor de BAG.
 
-Handleiding bag-extract
+Handleiding Bag-extract
 =======================
 
-bag-extract is onderdeel van de NLExtract tools voor het inlezen en verrijken van Kadaster BAG
+Bag-extract is onderdeel van de NLExtract tools voor het inlezen en verrijken van Kadaster BAG
 (Basisregistratie Adressen en Gebouwen) GML leveringen in (voorlopig) een Postgres/Postgis database.
 
 BAG Downloaden
 --------------
 
 De BAG Leveringsbestanden (totaal plm 1.2 GB .zip) worden iedere maand ververst en zijn te downloaden via deze
-link: http://geodata.nationaalgeoregister.nl/inspireadressen/atom/inspireadressen.xml (Atom feed).
+PDOK link: http://geodata.nationaalgeoregister.nl/inspireadressen/atom/inspireadressen.xml (Atom feed).
 Als je wilt testen met een kleiner bestand kun je via http://www.nlextract.nl/file-cabinet
 ook de "BAG Amstelveen" (5.6 MB) downloaden.
 
-Wat doet bag-extract ?
+Wat doet Bag-extract ?
 ----------------------
 
-bag-extract biedt de volgende functionaliteiten:
- - Laden van een Kadaster BAG Extract vanuit Kadaster (.zip GML) levering
- - Toepassen van Kadaster BAG mutaties vanuit Kadaster (.zip GML) levering
- - Verrijken BAG met gemeenten en provincies
- - Verrijken: tabel met volledige "ACN-achtige" adressen genereren
- - Geocoderen: afgeleide tabellen en functies
- - Stijlen (SLDs) om de ingelezen BAG data te visualiseren via een WMS
- - Validatie van input vlak geometrie
- - Database VIEWs om bagobjecten te selecteren die actueel, bestaand en valide geometrie hebben
+Bag-extract biedt de volgende functionaliteiten:
 
-bag-extract downloaden
+- Laden van een Kadaster BAG Extract vanuit Kadaster (.zip GML) levering
+- Toepassen van Kadaster BAG mutaties vanuit Kadaster (.zip GML) levering
+- Verrijken BAG met gemeenten en provincies
+- Verrijken: tabel met volledige "ACN-achtige" adressen genereren
+- Geocoderen: afgeleide tabellen en functies
+- Stijlen (SLDs) om de ingelezen BAG data te visualiseren via een WMS
+- Validatie van input vlak geometrie
+- Database VIEWs om bagobjecten te selecteren die actueel, bestaand en valide geometrie hebben
+
+Bag-extract downloaden
 ----------------------
 
- - download NLExtract
-    laatste versie op: http://www.nlextract.nl/file-cabinet
-    of snapshot via git: git clone http://github.com/opengeogroep/NLExtract.git
-    en snapshot als .zip: https://github.com/opengeogroep/NLExtract/zipball/master
+- download NLExtract, zie laatste versie op: http://www.nlextract.nl/file-cabinet
+- of snapshot (huidige repo versie) via git: git clone http://github.com/opengeogroep/NLExtract.git
+- of snapshot als .zip: https://github.com/opengeogroep/NLExtract/zipball/master
 
 Afhankelijkheden
 ----------------
 
- - Python: versie 2, minimaal versie 2.4.3, beste is 2.7 of hoger voor lxml, geen Python 3
- - Python argparse package, voor argument parsing alleen indien Python < 2.7
- - psycopg2: Python PostgreSQL client bibliotheek. Zie http://initd.org/psycopg
- - lxml voor razendsnelle native XML parsing, Zie http://lxml.de
- - GDAL/OGR Python bindings Zie www.gdal.org en http://pypi.python.org/pypi/GDAL
-   voor Geometrie parsing/validatie en manipulatie
+- Python: versie 2, minimaal versie 2.4.3, beste is 2.7 of hoger voor lxml, geen Python 3
+- Python argparse package, voor argument parsing alleen indien Python < 2.7
+- psycopg2: Python PostgreSQL client bibliotheek. Zie http://initd.org/psycopg
+- lxml voor razendsnelle native XML parsing, Zie http://lxml.de
+- GDAL/OGR Python bindings Zie www.gdal.org en http://pypi.python.org/pypi/GDAL voor Geometrie parsing/validatie en manipulatie
 
 Installatie (Linux)
 -------------------
 
- - optioneel: Python package afhankelijkheden installeren bijv
+- optioneel: Python package afhankelijkheden installeren bijv
+  ::
+
    apt-get of yum install python-setuptools (voor easy_install commando)
    apt-get of yum install python-devel (tbv psycopg2 bibliotheek)
    apt-get of yum install postgresql-devel (tbv psycopg2 bibliotheek)
 
- - razendsnelle native XML parsing met libxml2/libxslt libraries samen met Python lxml:
-   kan meer dan een factor twee in snelheid schelen...
-   Zie http://lxml.de/installation.html
+- razendsnelle native XML parsing met libxml2/libxslt libraries samen met Python lxml:
+  kan meer dan een factor twee in snelheid schelen...
+  Zie http://lxml.de/installation.html
+  ::
+
    apt-get of yum install libxml2
    apt-get of yum install libxslt1.1
    apt-get of yum install python-lxml
 
- - GDAL (www.gdal.org) met Python bindings voor OGR geometrie-parsing en geometrie-validatie (NLX v1.1.0 en hoger)
+- GDAL (www.gdal.org) met Python bindings voor OGR geometrie-parsing en geometrie-validatie (NLX v1.1.0 en hoger)
+  ::
+
    apt-get of yum install gdal-bin
    apt-get of yum install python-gdal
 
- - de PostgreSQL python bibliotheek psycopg2:
+- de PostgreSQL python bibliotheek psycopg2
+  ::
+
    sudo easy_install psycopg2
 
- - Python package "argparse"
+- Python package "argparse"
+  ::
+
    sudo easy_install argparse
 
- - NB als je een proxy gebruikt via http_proxy  doe dan easy_install -E (exporteer huidige environment)
+- NB als je een proxy gebruikt via http_proxy  doe dan easy_install -E (exporteer huidige environment)
 
 Installatie (Windows)
 ---------------------
 
- - beschreven door Pim Verver
-   http://groups.google.com/group/nlextract/browse_frm/thread/c02af6012b43767a
+- beschreven door Pim Verver http://groups.google.com/group/nlextract/browse_frm/thread/c02af6012b43767a
 
 Commando:
 ---------
 
- - direct via python "python src/bagextract.py"
- - of (Unix,Linux,Mac) via shell script: "bin/bag-extract.sh"
- - Windows: voorlopig alleen via "python src/bagextract.py"
+- direct via python "python src/bagextract.py"
+- of (Unix,Linux,Mac) via shell script: "bin/Bag-extract.sh"
+- Windows: voorlopig alleen via "python src/bagextract.py"
 
  Alle commando's werken onafhankelijk van de plek (directory) waar ze aangeroepen worden
 
 Instellingen:
 -------------
 
- - extract.conf
+- extract.conf
 	Configuratiebestand dat nodig is bij het uitvoeren van de programma's.
 	Dit bestand bevat de volgende instellingen:
 	- database naam van de Postgres database
@@ -117,7 +125,7 @@ Voorbeelden:
 
 	python src/bagextract.py -h
 	of
-	bin/bag-extract.sh -h
+	bin/Bag-extract.sh -h
 
 	Alle commando's kunnen via Python of shell .sh script uitgevoerd vanaf elke directory.
 
@@ -125,7 +133,7 @@ Voorbeelden:
 
 	python bagextract.py -c
 	of
-	bag-extract.sh -c
+	Bag-extract.sh -c
 
 2. Importeer een extract in de database (-e):
 

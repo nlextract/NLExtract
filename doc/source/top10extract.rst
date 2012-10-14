@@ -46,8 +46,8 @@ Vind altijd de laatste versie op: http://www.nlextract.nl/file-cabinet
 Omdat NLExtract voortdurend in ontwikkeling is kun je ook de actuele broncode, een `snapshot`, downloaden
 en op dezelfde manier gebruiken als een versie:
 
-  * snapshot via git: git clone http://github.com/opengeogroep/NLExtract.git
-  * snapshot als .zip: https://github.com/opengeogroep/NLExtract/zipball/master
+- snapshot via git: git clone http://github.com/opengeogroep/NLExtract.git
+- snapshot als .zip: https://github.com/opengeogroep/NLExtract/zipball/master
 
 Ontwerp
 -------
@@ -55,8 +55,8 @@ Ontwerp
 In eerste instantie converteren/laden we de GML naar PostGIS. Dit gebeurt met de GDAL/OGR tool
 ogr2ogr. Echter er zijn 2 belangrijke zaken die dit lastig maken:
 
-  * meerdere geometrie‘n per object, bijv een Waterdeel GML element kan een lijn en een vlak bevatten
-  * meerdere voorkomens van een attribuut (attribute multiplicity), bijv. een Wegdeel GML element kan meerdere element-attributen genaamd "nwegNummer" bevatten
+- meerdere geometrie‘n per object, bijv een Waterdeel GML element kan een lijn en een vlak bevatten
+- meerdere voorkomens van een attribuut (attribute multiplicity), bijv. een Wegdeel GML element kan meerdere element-attributen genaamd "nwegNummer" bevatten
 
 Om het eerste probleem op te lossen worden middels een XSLT script (bin/top10-split.xsl) de GML
 elementen uitgesplitst naar geometrie, zodat ieder element een enkele geometrie bevat. Bijvoorbeeld
@@ -98,11 +98,37 @@ De bovengenoemde afhankelijkheden hebben ieder hun eigen handleiding voor
 installatie op desbetreffend platform. Raadpleeg deze als eerste.
 Hieronder een aantal tips en bijzonderheden pet platform.
 
-Ubuntu/Debian
-~~~~~~~~~~~~~
+Linux
+~~~~~
 
-Gebruik Ubuntu GIS: https://wiki.ubuntu.com/UbuntuGIS
+Gebruik onder Ubuntu altijd `Ubuntu GIS`: https://wiki.ubuntu.com/UbuntuGIS
 om de laatste versies van veel packages, met name GDAL en PostGIS 1.x te verkrijgen!
+
+- optioneel: Python package afhankelijkheden installeren bijv
+  ::
+
+   apt-get of yum install python-setuptools (voor easy_install commando)
+   apt-get of yum install python-devel (tbv psycopg2 bibliotheek)
+   apt-get of yum install postgresql-devel (tbv psycopg2 bibliotheek)
+
+- lxml
+  ::
+
+   apt-get of yum install libxml2
+   apt-get of yum install libxslt1.1
+   apt-get of yum install python-lxml
+
+- GDAL
+  ::
+
+   apt-get of yum install gdal-bin
+
+- Python package "argparse" (alleen vor Python < 2.7)
+  ::
+
+   sudo easy_install argparse
+
+- NB als je een proxy gebruikt via http_proxy  doe dan easy_install -E (exporteer huidige environment)
 
 Windows
 ~~~~~~~
@@ -114,8 +140,27 @@ chcp 1252.
 
 In Python 2.6:
 
-* argparse module: http://pypi.python.org/pypi/argparse
+- argparse module: http://pypi.python.org/pypi/argparse
   Het gemakkelijkst is om argparse.py in de directory Python26\Lib\ te droppen
+
+Mac OSX
+~~~~~~~
+
+- Python, 2.6.1 of hoger, liefst 2.7+,
+
+- Python package "argparse" (alleen vor Python < 2.7)
+  ::
+
+    sudo easy_install argparse
+
+- libxml2 en libxslt: via MacPorts:  http://www.macports.org/
+
+- lxml
+  ::
+
+    sudo easy_install lxml
+
+- GDAL: KyngChaos (MacPorts GDAL-versie is vaak outdated) : http://www.kyngchaos.com/software/index Download en install `GDAL Framework`.
 
 Aanroep
 -------
@@ -129,10 +174,14 @@ De aanroep van Top10-extract is op alle systemen hetzelfde, namelijk via Python 
 Verwerk een of meerdere GML-bestanden
 
 positional arguments:
+::
+
   GML                   het GML-bestand of de lijst of directory met GML-bestanden
 
 
 optional arguments:
+::
+
   -h, --help            show this help message and exit
   --ini SETTINGS_INI    het settings-bestand
   --dir DIR             lokatie getransformeerde bestanden
@@ -142,10 +191,10 @@ optional arguments:
 
 Het GML-bestand of de GML-bestanden kunnen op meerdere manieren worden meegegeven:
 
-  * met 1 GML-bestand
-  * met bestand met GML-bestanden
-  * met meerdere GML-bestanden via wildcard
-  * met directory
+- met 1 GML-bestand
+- met bestand met GML-bestanden
+- met meerdere GML-bestanden via wildcard
+- met directory
 
 NB: ook als er meerdere bestanden via de command line aangegeven kunnen worden, kunnen deze
 wildcards bevatten. Een bestand wordt als GML-bestand beschouwd, indien deze de extensie GML of
@@ -156,9 +205,9 @@ Na download moet je dus eerst de .zip file uitpakken.
 
 Toepassen settings:
 
-  * Definitie in settings-file (top10-settings.ini)
-  * Mogelijk om settings te overriden via command-line parameters (alleen voor wachtwoorden)
-  * Mogelijk om settings file mee te geven via command-line
+- Definitie in settings-file (top10-settings.ini)
+- Mogelijk om settings te overriden via command-line parameters (alleen voor wachtwoorden)
+- Mogelijk om settings file mee te geven via command-line
 
 Testen
 ------
