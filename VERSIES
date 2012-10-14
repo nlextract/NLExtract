@@ -60,8 +60,23 @@ Samengevat:
 - postgresql port parm ignored
 
 v1.1.2 - GEPLAND
-- Verbeterde Top10NL extractie functionaliteit
-= BGT Extractie. De rest ligt nog open
+De issues (werk-items) zijn hier te vinden:
+https://github.com/opengeogroep/NLExtract/issues?milestone=5&state=closed
+
+Algemeen
+- begin gemaakt documentatie op http://nlextract.readthedocs.org
+
+Top10NL Extract
+- alle scripts in Python (ipv shell en .cmd)
+- ondersteun nieuwste versie Top10NL 1.1.1
+
+
+ONGEPLAND
+- BGT Extractie
+- AHN
+- Bonne Bladen (historische kaarten)
+
+De rest ligt nog open
 afhankelijk van wensen gebruikers en natuurlijk evetuele bugs.
 
 
