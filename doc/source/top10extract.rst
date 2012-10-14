@@ -160,7 +160,7 @@ Mac OSX
 
     sudo easy_install lxml
 
-- GDAL: KyngChaos (MacPorts GDAL-versie is vaak outdated) : http://www.kyngchaos.com/software/index Download en install `GDAL Framework`.
+- GDAL: KyngChaos (MacPorts GDAL-versie is vaak outdated) : http://www.kyngchaos.com/software/index Download en install `GDAL Complete`.
 
 Aanroep
 -------

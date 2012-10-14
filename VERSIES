@@ -60,24 +60,35 @@ Samengevat:
 - postgresql port parm ignored
 
 v1.1.2 - GEPLAND
-De issues (werk-items) zijn hier te vinden:
+De issues (werk-items) voor deze release zijn hier te vinden:
 https://github.com/opengeogroep/NLExtract/issues?milestone=5&state=closed
 
 Algemeen
 - begin gemaakt documentatie op http://nlextract.readthedocs.org
 
+BAG Extract
+- bag-extract.sh werkt niet wanneer aangeroepen via symbolic link (patch) bag-extract
+- Einddatum gemeente wordt niet verwerkt bag-extract
+- adres script: gebruik woonplaatsnaam uit nummeraanduiding indien aanwezig bag-extract
+- probe_geometry_columns niet meer in PostGIS2?
+
 Top10NL Extract
 - alle scripts in Python (ipv shell en .cmd)
 - ondersteun nieuwste versie Top10NL 1.1.1
-
+- Voeg XML validator toe voor Top10NL v1.1.1 top10-extract
+- Top10NL: verwijder dashes '-' uit Python .py file namen top10-extract
+- Top10NL: voeg test data en tests toe voor Top10NL versie 1.1.1 top10-extract
+- Top10NL: Er worden geen GFS-bestanden bij verwerking van de september-levering bag-extract
+- Vervanging e-trema door normale 'e' in Overigrelief top10-extract
+- Opsplitsen naam / straatnaam kolommen in Nederland en Fries top10-extract
 
 ONGEPLAND
 - BGT Extractie
 - AHN
 - Bonne Bladen (historische kaarten)
+- Linked Data
 
-De rest ligt nog open
-afhankelijk van wensen gebruikers en natuurlijk evetuele bugs.
+De rest ligt nog open afhankelijk van wensen gebruikers en natuurlijk evetuele bugs.
 
 
 
