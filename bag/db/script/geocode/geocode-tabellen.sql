@@ -385,5 +385,6 @@ FROM
 
 CREATE INDEX geo_provincie_geopunt_idx ON geo_provincie USING gist (geopunt);
 
-select probe_geometry_columns();
+-- Vult de geometry_columns alleen bij PostGIS 1.x versies (dus niet in 2.x+)
+select case when cast(substring(postgis_lib_version()  from 1 for 1) as numeric) < 2 then probe_geometry_columns() end;
 

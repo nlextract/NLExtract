@@ -207,7 +207,9 @@ INSERT INTO adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeg
 
 -- Maak indexen aan na inserten (betere performance)
 CREATE INDEX adres_geom_idx ON adres USING gist (geopunt);
-select probe_geometry_columns();
+
+-- Vult de geometry_columns alleen bij PostGIS 1.x versies (dus niet in 2.x+)
+select case when cast(substring(postgis_lib_version()  from 1 for 1) as numeric) < 2 then probe_geometry_columns() end;
 
 DROP SEQUENCE IF EXISTS adres_gid_seq;
 CREATE SEQUENCE adres_gid_seq;

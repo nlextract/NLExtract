@@ -359,4 +359,5 @@ CREATE TABLE gemeente_provincie (
   PRIMARY KEY (gid)
 );
 
+-- Vult de geometry_columns alleen bij PostGIS 1.x versies (dus niet in 2.x+)
 select probe_geometry_columns();
