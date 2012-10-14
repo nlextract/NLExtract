@@ -1,0 +1,14 @@
+Hieronder staat algemene informatie en XML schema's (XSDs) voor Top10NL.
+Documentatie voor het gebruik van NLExtract vind je via
+http://nlextract.nl of direct op http://nlextract.readthedocs.org
+
+Let op: Top10NL kent momenteel (okt 2012) 2 versies:
+
+1.0 - leveringen voor september 2012
+1.1.1 - (huidig) leveringen van sept 2012 en later
+
+We gaan voorlopig uit van versie 1.1.1.
+Deze info vind je ook bij Kadaster: http://kadaster.nl/top10nl
+
+Onder de directory 1.0 staat documentatie voor versie 1.0
+
