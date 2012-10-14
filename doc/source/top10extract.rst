@@ -67,19 +67,24 @@ De volgende software dient aanwezig te zijn om top10-extract te draaien.
 
  - Python 2.6 of hoger (niet Python 3!)
  - Python argparse package, voor argument parsing alleen indien Python < 2.7
- - PostGIS: PostgreSQL database server met PostGIS : http://postgis.refractions.net
- - psycopg2: Python PostgreSQL client bibliotheek. Zie http://initd.org/psycopg
+ - PostGIS: PostgreSQL database server met PostGIS 1.x en 2.x : http://postgis.refractions.net
  - lxml voor razendsnelle native XML parsing, Zie http://lxml.de
  - libxml2 en libxslt bibliotheken
  - GDAL/OGR v1.8.1 minimaal (voor ogr2ogr) http://www.gdal.org
- - GDAL/OGR Python bindings zijn (voorlopig) `niet` nodig
+ - NB: GDAL/OGR Python bindings zijn (voorlopig) `niet` nodig
 
 Installatie
 -----------
 NLExtract maakt i.h.a. gebruik van Python voor alle scripts.
 
+
 Ubuntu/Debian
-apt-get install gdal-bin
+~~~~~~~~~~~~~
+
+Gebruik Ubuntu GIS: https://wiki.ubuntu.com/UbuntuGIS
+om de laatste versies van veel packages, met name GDAL en PostGIS 1.x te verkrijgen!
+
+    apt-get install gdal-bin
 
 Testen
 ------
@@ -95,28 +100,18 @@ Onder bin/ staan Python-scripts om de conversies (ook wel ETL, Extract Transform
 
 ``pas eerst bin/top10-settings.ini aan m.n. voor je lokale database en ogr2ogr opties``
 
-top10-extract.py <file of directory> - converteert 1 enkele GML file of hele directory met GML files naar PostGIS
+top10extract.py <file of directory> --dir <temp_dir> - converteert 1 enkele GML file of hele directory met GML files naar PostGIS
+--dir is de tijdelijke directory waarin tussenbestanden worden opgeslagen.
 
-top10-trans.py is een hulp script dat aangeroepen wordt door top10-extract.py
+top10trans.py is een hulp script dat aangeroepen wordt door top10extract.py
 
 Valideren
 ---------
 
-Sommige Top10NL files van Kadaster blijken invalide GML syntax te bevatten.
+Sommige Top10NL files van Kadaster kunnen soms invalide GML syntax bevatten.
+Valideren van een GML bestand (tegen Top10NL 1.1.1 schema):
 
-top10-validate.py <Top10NL GML file> - valideer input GML
-
-Voorbeeld:
-
-top10-validate.py  06_west.gml
-
-geeft output:
-
-   06_west.gml:65535: element geometrieLijn: Schemas validity error :
-   Element '{http://www.kadaster.nl/top10nl}geometrieLijn': This element is not expected.
-   06_west.gml - invalid
-
-(Top10NL versie van 11.nov.2011)
+top10validate.py <Top10NL GML file> - valideer input GML
 
 Top10NL Versies
 ---------------
