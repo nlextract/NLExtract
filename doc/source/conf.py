@@ -183,7 +183,7 @@ latex_elements = {
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
-  ('index', 'NLExtract.tex', u'NLExtract Documentation',
+  ('index', 'NLExtract.tex', u'NLExtract Documentatie',
    u'NLExtract Team', 'manual'),
 ]
 
@@ -213,7 +213,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    ('index', 'nlextract', u'NLExtract Documentation',
+    ('index', 'nlextract', u'NLExtract Documentatie',
      [u'NLExtract Team'], 1)
 ]
 
@@ -227,8 +227,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-  ('index', 'NLExtract', u'NLExtract Documentation',
-   u'NLExtract Team', 'NLExtract', 'One line description of project.',
+  ('index', 'NLExtract', u'NLExtract Documentatie',
+   u'NLExtract Team', 'NLExtract', 'Extraheren en visualiseren Nederlandse Open geo-datasets.',
    'Miscellaneous'),
 ]
 
