@@ -7,6 +7,8 @@ NLExtract Documentatie
 ======================
 
 De laatste versie van deze documentatie vind je steeds op http://nlextract.readthedocs.org
+Je kunt dit document in verschillende formaten downloaden zoals in `PDF <https://media.readthedocs.org/pdf/nlextract/latest/nlextract.pdf>`_.
+Zie https://readthedocs.org/projects/nlextract/downloads.
 
 Inhoud:
 
