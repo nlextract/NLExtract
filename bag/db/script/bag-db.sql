@@ -1,4 +1,4 @@
--- Tabellen voor BAGExtract+
+-- Tabellen voor BAG-Extract
 -- Min of meer 1-1 met BAG model dus niet geoptimaliseerd
 -- Te gebruiken als basis tabellen om specifieke tabellen
 -- aan te maken via bijvoorbeeld views of SQL selecties.
@@ -18,9 +18,9 @@ CREATE TABLE nlx_bag_info (
 );
 
 INSERT INTO nlx_bag_info (sleutel,waarde)
-        VALUES ('schema_versie', '1.0.3');
+        VALUES ('schema_versie', '1.0.4');
 INSERT INTO nlx_bag_info (sleutel,waarde)
-        VALUES ('software_versie', '1.1.2rc');
+        VALUES ('software_versie', '1.1.2');
 INSERT INTO nlx_bag_info (sleutel,waarde)
         VALUES ('schema_creatie', to_char(current_timestamp, 'DD-Mon-IYYY HH24:MI:SS'));
 
@@ -360,4 +360,4 @@ CREATE TABLE gemeente_provincie (
 );
 
 -- Vult de geometry_columns alleen bij PostGIS 1.x versies (dus niet in 2.x+)
-select probe_geometry_columns();
+select case when cast(substring(postgis_lib_version()  from 1 for 1) as numeric) < 2 then probe_geometry_columns() end;

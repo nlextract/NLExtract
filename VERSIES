@@ -59,7 +59,7 @@ Samengevat:
 - warnings weg voor diacritische chars (unicode probleem)
 - postgresql port parm ignored
 
-v1.1.2 - GEPLAND
+v1.1.2 - 16.okt.2012
 De issues (werk-items) voor deze release zijn hier te vinden:
 https://github.com/opengeogroep/NLExtract/issues?milestone=5&state=closed
 
@@ -71,6 +71,7 @@ BAG Extract
 - Einddatum gemeente wordt niet verwerkt bag-extract
 - adres script: gebruik woonplaatsnaam uit nummeraanduiding indien aanwezig bag-extract
 - probe_geometry_columns niet meer in PostGIS2?
+- woonplaats-gemeente koppeltabel .csv naar versie van 10 aug 2012
 
 Top10NL Extract
 - alle scripts in Python (ipv shell en .cmd)
