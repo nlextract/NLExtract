@@ -50,7 +50,11 @@ class Processor:
     def processDOM(self, node):
         self.bagObjecten = []
         mode = "Onbekend"
-        if stripschema(node.tag) == 'BAG-Extract-Deelbestand-LVC':
+        doc_tag = stripschema(node.tag)
+
+        # 'BAG-Extract-Deelbestand-LVC': standaard BAG Element, VBO etc
+        # 'BAG-GWR-Deelbestand-LVC': Koppeltabel Gemeente-Woonplaats-Relatie (alleen in BAG na plm aug 2012)
+        if doc_tag == 'BAG-Extract-Deelbestand-LVC' or doc_tag == 'BAG-GWR-Deelbestand-LVC':
             mode = 'Nieuw'
             #firstchild moet zijn 'antwoord'
             for childNode in node:
@@ -62,16 +66,36 @@ class Processor:
                             # TODO: Is het een idee om vraag als object ook af te
                             # handelen en op te slaan
                             vraag = child
+                            if doc_tag == 'BAG-GWR-Deelbestand-LVC':
+                                # Noteer ook de standdatum van de gemeente_woonplaats koppel tabel
+                                # zodat we weten welke datum/versie is gebruikt...
+                                # Probeer BAG extract datum uit XML te vinden
+                                vraag = stripNS(vraag)
+
+                                gwr_datum = vraag.xpath("StandTechnischeDatum/text()")
+                                if len(gwr_datum) > 0:
+                                    # Gevonden !
+                                    gwr_datum = str(gwr_datum[0])
+                                else:
+                                    gwr_datum = "onbekend"
+
+                                # Opslaan (evt vervangen) als meta info
+                                self.database.log_meta("gem_woonplaats_rel_datum", gwr_datum)
                         elif stripschema(child.tag) == "producten":
                             producten = child
                             Log.log.startTimer("objCreate")
                             for productnode in producten:
-                                if stripschema(productnode.tag) == 'LVC-product':
+                                product_tag = stripschema(productnode.tag)
+                                if product_tag == 'LVC-product' or product_tag == 'GemeenteWoonplaatsRelatieProduct':
                                     self.bagObjecten = BAGObjectFabriek.bof.BAGObjectArrayBijXML(productnode)
+                                    if product_tag == 'GemeenteWoonplaatsRelatieProduct':
+                                        # Altijd de vorige weggooien
+                                        Database().log_actie('truncate_table', 'gemeente_woonplaats', 'altijd eerst leeg maken')
+                                        Database().tx_uitvoeren('truncate gemeente_woonplaats')
                             bericht = Log.log.endTimer("objCreate - objs=" + str(len(self.bagObjecten)))
                             Database().log_actie('create_objects', 'idem', bericht)
 
-        elif stripschema(node.tag) == 'BAG-Mutaties-Deelbestand-LVC':
+        elif doc_tag == 'BAG-Mutaties-Deelbestand-LVC':
             mode = 'Mutatie'
             #firstchild moet zijn 'antwoord'
             for childNode in node:
@@ -110,7 +134,7 @@ class Processor:
                             bericht = Log.log.endTimer("objCreate (mutaties) - objs=" + str(len(self.bagObjecten)))
                             Database().log_actie('create_objects', 'idem', bericht)
 
-        elif stripschema(node.tag) == 'BAG-Extract-Levering':
+        elif doc_tag == 'BAG-Extract-Levering':
             # Meta data: info over levering
 
             # Sla hele file op
@@ -133,9 +157,8 @@ class Processor:
 
             # Opslaan als meta info
             self.database.log_meta("extract_datum", extract_datum)
-
         else:
-            bericht = Log.log.info("Niet-verwerkbare XML node: " + stripschema(node.tag))
+            bericht = Log.log.info("Niet-verwerkbare XML node: " + doc_tag)
             Database().log_actie('n.v.t', 'n.v.t', bericht)
 
             return

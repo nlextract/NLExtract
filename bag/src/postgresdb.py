@@ -78,7 +78,11 @@ class Database:
         parameters = (actie, bestand, error, bericht)
         self.tx_uitvoeren(sql, parameters)
 
-    def log_meta(self, sleutel, waarde):
+    def log_meta(self, sleutel, waarde, replace=True):
+        if replace:
+            sql  = "DELETE FROM nlx_bag_info WHERE sleutel = '%s'" % sleutel
+            self.tx_uitvoeren(sql)
+
         sql  = "INSERT INTO nlx_bag_info(sleutel, waarde) VALUES (%s, %s)"
         parameters = (sleutel, waarde)
         self.tx_uitvoeren(sql, parameters)

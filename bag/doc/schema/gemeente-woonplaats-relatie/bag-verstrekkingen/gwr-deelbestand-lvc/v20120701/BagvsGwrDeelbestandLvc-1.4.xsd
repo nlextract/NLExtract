@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2010 (http://www.altova.com) by Kadaster (Kadaster) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:selectie-extract="http://www.kadaster.nl/schemas/bag-verstrekkingen/extract-selecties/v20110901" xmlns:gwr-bestand="http://www.kadaster.nl/schemas/bag-verstrekkingen/gwr-deelbestand-lvc/v20120701" xmlns:gwr-product="http://www.kadaster.nl/schemas/bag-verstrekkingen/gwr-producten-lvc/v20120701" targetNamespace="http://www.kadaster.nl/schemas/bag-verstrekkingen/gwr-deelbestand-lvc/v20120701" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.4">
+	<xs:import namespace="http://www.kadaster.nl/schemas/bag-verstrekkingen/extract-selecties/v20110901" schemaLocation="../../extract-selecties/v20110901/BagvsExtractSelecties-0.8.xsd"/>
+	<xs:import namespace="http://www.kadaster.nl/schemas/bag-verstrekkingen/gwr-producten-lvc/v20120701" schemaLocation="../../gwr-producten-lvc/v20120701/BagvsGemeenteWoonplaatsRelatieProduct-0.8.xsd"/>
+	<xs:element name="BAG-GWR-Deelbestand-LVC">
+		<xs:complexType>
+			<xs:annotation>
+				<xs:documentation> BAG-Verstrekking met produkt-data</xs:documentation>
+			</xs:annotation>
+			<xs:sequence>
+				<xs:element name="antwoord">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="vraag">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:annotation>
+											<xs:documentation>Specifieke selectie gegevens die gebruikt zijn bij het samenstellen van het product. Het gebied is vooraf geselecteerd, voor het gemeente-woonplaats relatie product is het betreffende gebied altijd geheel Nederland. </xs:documentation>
+										</xs:annotation>
+										<xs:element ref="selectie-extract:StandTechnischeDatum"/>
+										<xs:element ref="selectie-extract:StandDatumVanaf" minOccurs="0"/>
+										<xs:element ref="selectie-extract:StandPeildatum" minOccurs="0"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="producten">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element ref="gwr-product:GemeenteWoonplaatsRelatieProduct"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

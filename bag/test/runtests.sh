@@ -44,4 +44,9 @@ $BAG_EXTRACT -v -q $DB_DIR/script/gemeente-provincie-tabel.sql
 # Maak een "ACN-achtig" adres met alles erin
 $BAG_EXTRACT -v -q $DB_DIR/script/adres-tabel.sql
 
+# Geocode tabellen  en functies
+$BAG_EXTRACT -v -q $DB_DIR/script/geocode/geocode-tabellen.sql
+$BAG_EXTRACT -v -q $DB_DIR/script/geocode/geocode-functies.sql
+$BAG_EXTRACT -v -q $TEST_DIR/geocode/geocode-functies-test.sql
+
 

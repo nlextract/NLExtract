@@ -18,9 +18,9 @@ CREATE TABLE nlx_bag_info (
 );
 
 INSERT INTO nlx_bag_info (sleutel,waarde)
-        VALUES ('schema_versie', '1.0.4');
+        VALUES ('schema_versie', '1.1.0');
 INSERT INTO nlx_bag_info (sleutel,waarde)
-        VALUES ('software_versie', '1.1.2');
+        VALUES ('software_versie', '1.1.3rc1');
 INSERT INTO nlx_bag_info (sleutel,waarde)
         VALUES ('schema_creatie', to_char(current_timestamp, 'DD-Mon-IYYY HH24:MI:SS'));
 
@@ -329,25 +329,22 @@ CREATE INDEX
 -- Woonplaats;Woonplaats code;Ingangsdatum WPL;Einddatum WPL;Gemeente;Gemeente code;
 --     Ingangsdatum nieuwe gemeente;Gemeente beeindigd per
 DROP TABLE IF EXISTS gemeente_woonplaats CASCADE;
+DROP TYPE IF EXISTS gemeenteWoonplaatsStatus;
+CREATE TYPE gemeenteWoonplaatsStatus AS ENUM (
+'voorlopig','definitief'
+);
 CREATE TABLE gemeente_woonplaats (
   gid serial,
-  woonplaatsnaam character varying(80),
+  begindatumtijdvakgeldigheid TIMESTAMP WITHOUT TIME ZONE,
+  einddatumtijdvakgeldigheid TIMESTAMP WITHOUT TIME ZONE,
   woonplaatscode numeric(4),
-  begindatum_woonplaats date,
-  einddatum_woonplaats date,
-  gemeentenaam character varying(80),
   gemeentecode numeric(4),
-  begindatum_gemeente date,
---  aansluitdatum_gemeente date,
---  bijzonderheden text,
---  gemeentecode_nieuw numeric(4),
-  einddatum_gemeente date,
---  behandeld character varying(1),
+  status gemeenteWoonplaatsStatus,
   PRIMARY KEY (gid)
 );
 
 CREATE INDEX gem_wpl_woonplaatscode_idx ON gemeente_woonplaats USING btree (woonplaatscode);
-CREATE INDEX gem_wpl_woonplaatscode_datum_idx ON gemeente_woonplaats USING btree (woonplaatscode,einddatum_woonplaats);
+CREATE INDEX gem_wpl_gemeentecode_datum_idx ON gemeente_woonplaats USING btree (gemeentecode);
 
 DROP TABLE IF EXISTS gemeente_provincie CASCADE;
 CREATE TABLE gemeente_provincie (

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2010 (http://www.altova.com) by Kadaster (Kadaster) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:gwr_gemeente="http://www.kadaster.nl/schemas/bag-gwr-model/gemeente/v20120701" xmlns:bagtype="http://www.kadaster.nl/schemas/imbag/imbag-types/v20110901" targetNamespace="http://www.kadaster.nl/schemas/bag-gwr-model/gemeente/v20120701" elementFormDefault="qualified" attributeFormDefault="unqualified" version="0.1">
+	<xs:import namespace="http://www.kadaster.nl/schemas/imbag/imbag-types/v20110901" schemaLocation="../../../imbag/imbag-types/v20110901/BagvsImbagOnderdelen-0.8.xsd"/>
+	<xs:annotation>
+		<xs:documentation>Dit model is een hulpschema voor het product "gemeente-woonplaats relatie", zoals geleverd door de LVBAG. Gemeentes worden beheerd door de beheerder van de landelijke tabel voor gemeenten. Deze gegevens worden gebruikt binnen de LVBAG, maar worden hier niet (actueel) beheerd. </xs:documentation>
+	</xs:annotation>
+	<xs:simpleType name="Gemeentecode">
+		<xs:annotation>
+			<xs:documentation>Een code ter identificatie van een GEMEENTE met formaat AN4. De gemeente code wordt beheerd door Agentschap Basisadministratie Persoonsgegevens en Reisdocumenten (BPR). Deze wordt beschikbaar gesteld via tabel 33. </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="([0-9]){4}"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

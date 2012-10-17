@@ -48,7 +48,7 @@ INSERT INTO geo_adres (straatnaam, huisnummer, huisletter, toevoeging, postcode,
 	n.huisnummertoevoeging,
 	n.postcode,
 	w.woonplaatsnaam,
-	g.gemeentenaam,
+	p.gemeentenaam,
 	p.provincienaam,
 	v.geopunt
 FROM
@@ -56,8 +56,8 @@ FROM
 	(SELECT identificatie,  huisnummer, huisletter, huisnummertoevoeging, postcode, gerelateerdeopenbareruimte from nummeraanduidingactueelbestaand) n,
 	(SELECT identificatie,  openbareruimtenaam, gerelateerdewoonplaats from openbareruimteactueelbestaand) o,
 	(SELECT identificatie,  woonplaatsnaam from woonplaatsactueel) w,
-	(SELECT woonplaatscode, gemeentenaam, gemeentecode from gemeente_woonplaats where einddatum_gemeente is null AND einddatum_woonplaats is null) g,
-	(SELECT gemeentecode,   provincienaam from gemeente_provincie) p
+	(SELECT woonplaatscode, gemeentecode from gemeente_woonplaatsactueelbestaand) g,
+	(SELECT gemeentenaam, gemeentecode,   provincienaam from gemeente_provincie) p
 WHERE
 	v.hoofdadres = n.identificatie
 	and n.gerelateerdeopenbareruimte = o.identificatie
@@ -74,7 +74,7 @@ INSERT INTO geo_adres (straatnaam, huisnummer, huisletter, toevoeging, postcode,
 	n.huisnummertoevoeging,
 	n.postcode,
 	w.woonplaatsnaam,
-	g.gemeentenaam,
+	p.gemeentenaam,
 	p.provincienaam,
     -- Vlak geometrie wordt punt
 	ST_Force_3D(ST_Centroid(l.geovlak))  as geopunt
@@ -83,8 +83,8 @@ FROM
 	(SELECT identificatie,  huisnummer, huisletter, huisnummertoevoeging, postcode, gerelateerdeopenbareruimte from nummeraanduidingactueelbestaand) n,
 	(SELECT identificatie,  openbareruimtenaam, gerelateerdewoonplaats from openbareruimteactueelbestaand) o,
 	(SELECT identificatie,  woonplaatsnaam from woonplaatsactueel) w,
-	(SELECT woonplaatscode, gemeentenaam, gemeentecode from gemeente_woonplaats where einddatum_gemeente is null AND einddatum_woonplaats is null) g,
-	(SELECT gemeentecode,   provincienaam from gemeente_provincie) p
+	(SELECT woonplaatscode, gemeentecode from gemeente_woonplaatsactueelbestaand) g,
+	(SELECT gemeentenaam, gemeentecode,   provincienaam from gemeente_provincie) p
 WHERE
 	l.hoofdadres = n.identificatie
 	and n.gerelateerdeopenbareruimte = o.identificatie
@@ -101,7 +101,7 @@ INSERT INTO geo_adres (straatnaam, huisnummer, huisletter, toevoeging, postcode,
 	n.huisnummertoevoeging,
 	n.postcode,
 	w.woonplaatsnaam,
-	g.gemeentenaam,
+	p.gemeentenaam,
 	p.provincienaam,
     -- Vlak geometrie wordt punt
 	ST_Force_3D(ST_Centroid(l.geovlak)) as geopunt
@@ -110,8 +110,8 @@ FROM
 	(SELECT identificatie,  huisnummer, huisletter, huisnummertoevoeging, postcode, gerelateerdeopenbareruimte from nummeraanduidingactueelbestaand) n,
 	(SELECT identificatie,  openbareruimtenaam, gerelateerdewoonplaats from openbareruimteactueelbestaand) o,
 	(SELECT identificatie,  woonplaatsnaam from woonplaatsactueel) w,
-	(SELECT woonplaatscode, gemeentenaam, gemeentecode from gemeente_woonplaats where einddatum_gemeente is null AND einddatum_woonplaats is null) g,
-	(SELECT gemeentecode,   provincienaam from gemeente_provincie) p
+	(SELECT woonplaatscode, gemeentecode from gemeente_woonplaatsactueelbestaand) g,
+	(SELECT gemeentenaam, gemeentecode,   provincienaam from gemeente_provincie) p
 WHERE
 	l.hoofdadres = n.identificatie
 	and n.gerelateerdeopenbareruimte = o.identificatie
@@ -315,13 +315,13 @@ CREATE TABLE geo_woonplaats (
 INSERT INTO geo_woonplaats (provincie, gemeente, woonplaats, geopunt)
   SELECT
 	p.provincienaam as provincie,
-	g.gemeentenaam as gemeente,
+	p.gemeentenaam as gemeente,
 	w.woonplaatsnaam as woonplaats,
 	ST_Force_2D(ST_Centroid(w.geovlak)) as geopunt
 FROM
 	(SELECT identificatie, woonplaatsnaam, geovlak from woonplaatsactueel) w,
-	(SELECT woonplaatscode, gemeentecode, gemeentenaam from gemeente_woonplaats where einddatum_gemeente is null AND einddatum_woonplaats is null) g,
-	(SELECT gemeentecode, provincienaam from gemeente_provincie) p
+	(SELECT woonplaatscode, gemeentecode from gemeente_woonplaatsactueelbestaand) g,
+	(SELECT  gemeentenaam, gemeentecode, provincienaam from gemeente_provincie) p
 WHERE
 	w.identificatie = g.woonplaatscode
 	and g.gemeentecode = p.gemeentecode;

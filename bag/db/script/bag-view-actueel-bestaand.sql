@@ -383,6 +383,20 @@ CREATE VIEW verblijfsobjectgebruiksdoelactueel AS
     AND (vog.einddatumtijdvakgeldigheid is NULL OR vog.einddatumtijdvakgeldigheid >= LOCALTIMESTAMP)
     AND vog.aanduidingrecordinactief = FALSE;
 
+DROP VIEW IF EXISTS gemeente_woonplaatsactueelbestaand;
+CREATE VIEW gemeente_woonplaatsactueelbestaand AS
+    SELECT  gw.gid,
+            gw.begindatumtijdvakgeldigheid,
+            gw.einddatumtijdvakgeldigheid,
+            gw.woonplaatscode,
+            gw.gemeentecode,
+            gw.status
+    FROM gemeente_woonplaats as gw
+  WHERE
+    gw.begindatumtijdvakgeldigheid <= LOCALTIMESTAMP
+    AND (gw.einddatumtijdvakgeldigheid is NULL OR gw.einddatumtijdvakgeldigheid >= LOCALTIMESTAMP)
+    AND gw.status = 'definitief';
+
 ----------------------------------------------------------------------------------
 -- Extra definitie voor GeoServer om om te gaan met VIEWs
 ----------------------------------------------------------------------------------

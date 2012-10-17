@@ -1,0 +1,27 @@
+Release notes LVBAG
+Datum: 20120719 
+Inhoud: schema's behorende bij het Gemeente Woonplaats relatie product van de LVBAG 
+        root schema: BagvsGwrDeelbestandLvc-1.4.xsd met namespace versie v20120701
+ 
+Toelichting: 
+- een volledige set schema's voor het product GWR 
+- de set bevat nieuwe schema's en hergebruikt een aantal schema's van BAG Extract
+
+
+Voor documentatie toelichting zie Koppelvlak document Informatieproducten GWR.pdf (versie n.t.b.)
+- http://www.kadaster.nl/window.html?inhoud=/bag/
+	- documentatie 
+		- http://www.kadaster.nl/BAG/docs/Informatieproducten GWR.pdf
+
+Changelog: 
+- namespaces gelijk gemaakt aan directory voor publicatie op www.kadaster.nl/schemas 
+	www.kadaster.nl/schemas/bag-gwr-model/gemeente/v20120701
+	www.kadaster.nl/schemas/bag-gwr-model/lvc/v20120701
+	www.kadaster.nl/schemas/imbag/imbag-types/v20110901
+	www.kadaster.nl/schemas/bag-verstrekkingen/extract-selecties/v20110901
+	www.kadaster.nl/schemas/bag-verstrekkingen/gwr-deelbestand-lvc/v20120701
+	www.kadaster.nl/schemas/bag-verstrekkingen/gwr-producten-lvc/v20120701
+
+HIERMEE KOMT DE EERDERE PUBLICATIE TE VERVALLEN. 
+	Deze is te herkennen aan: Zip bevat 20120619 releasenotes.txt
+	

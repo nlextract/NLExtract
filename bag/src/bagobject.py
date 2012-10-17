@@ -393,6 +393,38 @@ class Pand(BAGObject):
     def heeftGeometrie(self):
         return True
 
+#--------------------------------------------------------------------------------------------------------
+# Class         GemeenteWoonplaatsRelatie
+# Afgeleid van  BAGObject
+# Omschrijving  Class voor koppeling Gemeente code naar Woonplaats code
+#<gwr_LVC:GemeenteWoonplaatsRelatie>
+# <gwr_LVC:tijdvakgeldigheid>
+#   <bagtype:begindatumTijdvakGeldigheid>2010100800000000</bagtype:begindatumTijdvakGeldigheid>
+# </gwr_LVC:tijdvakgeldigheid>
+#<gwr_LVC:gerelateerdeWoonplaats>
+#<gwr_LVC:identificatie>2236</gwr_LVC:identificatie>
+#</gwr_LVC:gerelateerdeWoonplaats>
+#<gwr_LVC:gerelateerdeGemeente>
+#<gwr_LVC:identificatie>0007</gwr_LVC:identificatie>
+#</gwr_LVC:gerelateerdeGemeente>
+#<gwr_LVC:status>definitief</gwr_LVC:status>
+#</gwr_LVC:GemeenteWoonplaatsRelatie>
+#
+#--------------------------------------------------------------------------------------------------------
+class GemeenteWoonplaatsRelatie(BAGObject):
+    statusEnum = ['voorlopig', 'definitief']
+    def __init__(self):
+        BAGObject.__init__(self, "gwr_LVC:GemeenteWoonplaatsRelatie", "gemeente_woonplaats", "GWR")
+        self.attributen = {}
+        self.attributen_volgorde = []
+        self.voegToe(BAGdatetimeAttribuut("begindatumtijdvakgeldigheid","gwr_LVC:tijdvakgeldigheid/bagtype:begindatumTijdvakGeldigheid"))
+        self.voegToe(BAGdatetimeAttribuut("einddatumtijdvakgeldigheid","gwr_LVC:tijdvakgeldigheid/bagtype:einddatumTijdvakGeldigheid"))
+        self.voegToe(BAGnumeriekAttribuut(4, "woonplaatscode", "gwr_LVC:gerelateerdeWoonplaats/gwr_LVC:identificatie"))
+        self.voegToe(BAGnumeriekAttribuut(4, "gemeentecode", "gwr_LVC:gerelateerdeGemeente/gwr_LVC:identificatie"))
+        self.voegToe(BAGenumAttribuut(GemeenteWoonplaatsRelatie.statusEnum, "status", "gwr_LVC:status"))
+
+    def heeftGeometrie(self):
+        return False
 
 # An extremely simple Singleton Factory for BAGObjects
 class BAGObjectFabriek:
@@ -421,6 +453,8 @@ class BAGObjectFabriek:
             return Verblijfsobject()
         if objectType.upper() == "PND":
             return Pand()
+        if objectType.upper() == "GWR":
+            return GemeenteWoonplaatsRelatie()
         return None
 
     #--------------------------------------------------------------------------------------------------------
@@ -450,20 +484,24 @@ class BAGObjectFabriek:
 
     # Creeer een BAGObject uit een DOM node
     def BAGObjectBijXML(self, node):
-        if stripschema(node.tag) == 'Ligplaats':
+        tag = stripschema(node.tag)
+        
+        if tag == 'Ligplaats':
             bagObject = Ligplaats()
-        elif stripschema(node.tag) == 'Woonplaats':
+        elif tag == 'Woonplaats':
             bagObject = Woonplaats()
-        elif stripschema(node.tag) == 'Verblijfsobject':
+        elif tag == 'Verblijfsobject':
             bagObject = Verblijfsobject()
-        elif stripschema(node.tag) == 'OpenbareRuimte':
+        elif tag == 'OpenbareRuimte':
             bagObject = OpenbareRuimte()
-        elif stripschema(node.tag) == 'Nummeraanduiding':
+        elif tag == 'Nummeraanduiding':
             bagObject = Nummeraanduiding()
-        elif stripschema(node.tag) == 'Standplaats':
+        elif tag == 'Standplaats':
             bagObject = Standplaats()
-        elif stripschema(node.tag) == 'Pand':
+        elif tag == 'Pand':
             bagObject = Pand()
+        elif tag == 'GemeenteWoonplaatsRelatie':
+            bagObject = GemeenteWoonplaatsRelatie()
         else:
             return
 
