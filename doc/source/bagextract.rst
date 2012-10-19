@@ -129,8 +129,7 @@ Onder de manier die  Just, een van de NLExtract ontwikkelaars gebruikt. (NLExtra
 
 - Postgres client psycopg2
   ::
-
-  sudo python easy_install psycopg2
+    sudo python easy_install psycopg2
 
 Commando:
 ---------
