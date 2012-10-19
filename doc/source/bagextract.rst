@@ -49,6 +49,7 @@ Afhankelijkheden
 - Python argparse package, voor argument parsing alleen indien Python < 2.7
 - psycopg2: Python PostgreSQL client bibliotheek. Zie http://initd.org/psycopg
 - lxml voor razendsnelle native XML parsing, Zie http://lxml.de
+- GDAL/OGR tools en bibliotheek voor geodata manipulatie. Minimaal 1.8.1. Zie http://gdal.org
 - GDAL/OGR Python bindings Zie www.gdal.org en http://pypi.python.org/pypi/GDAL voor Geometrie parsing/validatie en manipulatie
 
 Installatie (Linux)
@@ -92,6 +93,44 @@ Installatie (Windows)
 ---------------------
 
 - beschreven door Pim Verver http://groups.google.com/group/nlextract/browse_frm/thread/c02af6012b43767a
+
+Installatie (Mac OSX)
+---------------------
+
+Voor Mac OSX zijn meerdere mogelijkheden. Hieronder wordt uitgegaan van MacPorts http://www.macports.org, een Unix package
+manager waarmee je gemakkelijk tools en bibliotheken en hun afhankelijkheden  kunt installeren.
+MacPorts is sowieso aan te bevelen als je meerdere Unix/Linux tools gaat gebruiken. Python is al aanwezig
+op de Mac en is bruikbaar, de versie van Python kan afhankelijk zijn van je OSX versie. Probeer te vermijden om Python
+te installeren  tenzij je precies weet wat je doet. Ook het `easy_install` Python programma zou al aanwezig moeten
+zijn. Al het onderstaande doe je in de Terminal.
+
+Onder de manier die  Just, een van de NLExtract ontwikkelaars gebruikt. (NLExtract werkt dus op de Mac!).
+
+- Python, 2.6.1 of hoger, liefst 2.7+.  2.6.1 Mac-versie werkt.
+
+- Python package "argparse" installeren (alleen nodig voor Python < 2.7)
+  ::
+
+    sudo easy_install argparse
+
+- libxml2 en libxslt: via MacPorts:
+  ::
+    sudo port install libxml2
+    sudo port install libxslt
+
+- lxml
+  ::
+
+    sudo easy_install lxml
+
+- GDAL: KyngChaos (indien MacPorts GDAL-versie < 1.8.1 is) : http://www.kyngchaos.com/software/index Download en install `GDAL Complete`.
+
+- GDAL-Python bindings (zijn mogelijk al via GDAL beschikbaar?)
+
+- Postgres client psycopg2
+  ::
+
+  sudo python easy_install psycopg2
 
 Commando:
 ---------
