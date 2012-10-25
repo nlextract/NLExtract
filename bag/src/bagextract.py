@@ -12,9 +12,8 @@ import sys
 import os
 from postgresdb import Database
 from log import Log
-from bagfilereader import BAGFileReader
 from bagconfig import BAGConfig
-from bagobject import VerblijfsObjectPand, AdresseerbaarObjectNevenAdres, VerblijfsObjectGebruiksdoel, Woonplaats, OpenbareRuimte, Nummeraanduiding, Ligplaats, Standplaats, Verblijfsobject, Pand
+
 
 # Nodig om output naar console/file van strings goed te krijgen
 # http://www.saltycrane.com/blog/2008/11/python-unicodeencodeerror-ascii-codec-cant-encode-character/
@@ -24,9 +23,49 @@ sys.setdefaultencoding( "utf-8" )
 
 class ArgParser(argparse.ArgumentParser):
      def error(self, message):
-        print message
+        print (message)
         self.print_help()
         sys.exit(2)
+        
+## {{{ http://code.activestate.com/recipes/541096/ (r1)
+def confirm(prompt=None, resp=False):
+    """prompt voor ja of nee reactie. 
+
+    'resp' bevat de default waarde wanneer een gebruiker een ENTER geeft
+
+    >>> confirm(prompt='Create Directory?', resp=True)
+    Create Directory? [y]|n: 
+    True
+    >>> confirm(prompt='Create Directory?', resp=False)
+    Create Directory? [n]|y: 
+    False
+    >>> confirm(prompt='Create Directory?', resp=False)
+    Create Directory? [n]|y: y
+    True
+
+    """
+    
+    if prompt is None:
+        prompt = 'Bevestig'
+
+    if resp:
+        prompt = '%s ([%s]/%s): ' % (prompt, 'J', 'n')
+    else:
+        prompt = '%s ([%s]/%s): ' % (prompt, 'N', 'j')
+        
+    while True:
+        ans = raw_input(prompt)
+        if not ans:
+            return resp
+        if ans not in ['j', 'J', 'n', 'N']:
+            print 'Geef j of n.'
+            continue
+        if ans == 'j' or ans == 'J':
+            return True
+        if ans == 'n' or ans == 'N':
+            return False
+## end of http://code.activestate.com/recipes/541096/ }}}
+
 
 def main():
     """
@@ -67,6 +106,7 @@ def main():
 
     # Initialiseer
     args = parser.parse_args()
+    
     # Initialize singleton Log object so we can use one global instance
     Log(args)
 
@@ -76,23 +116,32 @@ def main():
     # Database
     database = Database()
 
-    # Print start time
-    Log.log.time("Start")
-
     if args.dbinit:
-        # Dumps all tables and recreates them
-        db_script = os.path.realpath(BAGConfig.config.bagextract_home + '/db/script/bag-db.sql')
-        Log.log.info("alle database tabellen weggooien en opnieuw aanmaken...")
-        database.initialiseer(db_script)
+        if confirm('Waarschuwing! met dit commando worden database tabellen opnieuw aangemaakt. Doorgaan?', False):
+            # Print start time
+            Log.log.time("Start")
+            # Dumps all tables and recreates them
+            db_script = os.path.realpath(BAGConfig.config.bagextract_home + '/db/script/bag-db.sql')
+            Log.log.info("alle database tabellen weggooien en opnieuw aanmaken...")
+            try:
+                database.initialiseer(db_script)
+            except Exception as e:
+                Log.log.fatal("Kan geen verbinding maken met de database")
+                sys.exit()
+            Log.log.info("Initieele data (bijv. gemeenten/provincies) inlezen...")
+            myreader = BAGFileReader(BAGConfig.config.bagextract_home + '/db/data')
+            myreader.process()
+            Log.log.info("Views aanmaken...")
+            db_script = os.path.realpath(BAGConfig.config.bagextract_home + '/db/script/bag-view-actueel-bestaand.sql')
+            database.file_uitvoeren(db_script)
+            # Print end time
+            Log.log.time("End")
+        else:
+            exit()
 
-        Log.log.info("Initieele data (bijv. gemeenten/provincies) inlezen...")
-        myreader = BAGFileReader(BAGConfig.config.bagextract_home + '/db/data')
-        myreader.process()
-
-        Log.log.info("Views aanmaken...")
-        db_script = os.path.realpath(BAGConfig.config.bagextract_home + '/db/script/bag-view-actueel-bestaand.sql')
-        database.file_uitvoeren(db_script)
     elif args.dbinitcode:
+        # Print start time
+        Log.log.time("Start")
         # Creates the insert statements from the code, and prints them
         bagObjecten = []
         bagObjecten.append(VerblijfsObjectPand())
@@ -108,26 +157,37 @@ def main():
         bagObjecten.append(Pand())
 
         for bagObject in bagObjecten:
-            print bagObject.maakTabel()
+            print (bagObject.maakTabel())
+        # Print end time
+        Log.log.time("End")
 
     elif args.extract:
+        from bagfilereader import BAGFileReader
+        from bagobject import VerblijfsObjectPand, AdresseerbaarObjectNevenAdres, VerblijfsObjectGebruiksdoel, Woonplaats, OpenbareRuimte, Nummeraanduiding, Ligplaats, Standplaats, Verblijfsobject, Pand
+        # Print start time
+        Log.log.time("Start")
         # Extracts any data from any source files/dirs/zips/xml/csv etc
         Database().log_actie('start_extract', args.extract)
         myreader = BAGFileReader(args.extract)
         myreader.process()
         Database().log_actie('stop_extract', args.extract)
+        # Print end time
+        Log.log.time("End")
+
     elif args.query:
+        # Print start time
+        Log.log.time("Start")
         # Voer willekeurig SQL script uit uit
         Database().log_actie('start_query', args.query)
         database = Database()
 
         database.file_uitvoeren(args.query)
         Database().log_actie('stop_query', args.query)
-    else:
-        Log.log.fatal("je geeft een niet-ondersteunde optie. Tip: probeer -h optie")
+        # Print end time
+        Log.log.time("End")
 
-    # Print end time
-    Log.log.time("End")
+    else:
+        parser.error("Command line parameters niet herkend")
     sys.exit()
 
 

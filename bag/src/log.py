@@ -19,7 +19,7 @@ class Log:
         Log.log = self
 
     def pr(self, message):
-        print message
+        print (message)
         sys.stdout.flush()
         return message
 
@@ -34,10 +34,16 @@ class Log:
         return Log.log.pr("WARN: " + message)
 
     def error(self, message):
-        return Log.log.pr("ERROR: " + message + ' ' + Log.log.get_exception_info())
+        if self.args.verbose:
+            return Log.log.pr("ERROR: " + message + ' ' + Log.log.get_exception_info())
+        else:
+            return Log.log.pr("ERROR: " + message)
 
     def fatal(self, message):
-        return Log.log.pr("FATAAL: sorry, kan niet verder: " + message + ' ' + Log.log.get_exception_info())
+        if self.args.verbose:
+            return Log.log.pr("FATAL: " + message + ' ' + Log.log.get_exception_info())
+        else:
+            return Log.log.pr("FATAL: " + message)
         sys.exit(-1)
 
     def time(self, message=""):

@@ -10,12 +10,10 @@ __date__ = "$Dec 09, 2009 00:00:01 AM$"
                - Deze database klasse is vanaf heden specifiek voor postgres/postgis
  Datum:        29 dec 2011
 """
-
 try:
     import psycopg2
 except ImportError:
-    print("FATAAL: kan package psycopg2 (Python Postgres client) niet vinden")
-    sys.exit(-1)
+    raise
 
 from log import Log
 from bagconfig import BAGConfig
@@ -35,7 +33,7 @@ class Database:
             self.cursor.execute(script)
             self.connection.commit()
             Log.log.info('script is uitgevoerd')
-        except psycopg2.DatabaseError, e:
+        except psycopg2.DatabaseError as e:
             Log.log.fatal("ik krijg deze fout '%s' uit het bestand '%s'" % (str(e), str(bestand)))
 
     def verbind(self, initdb=False):
@@ -55,8 +53,8 @@ class Database:
 
             self.zet_schema()
             Log.log.debug("verbonden met de database %s" % (self.config.database))
-        except Exception, e:
-            Log.log.fatal("ik kan geen verbinding maken met database '%s'" % (self.config.database))
+        except Exception as e:
+            raise (e)
 
     def maak_schema(self):
         # Public schema: no further action required
@@ -95,7 +93,7 @@ class Database:
                 self.cursor.execute(sql)
 
             # Log.log.debug(self.cursor.statusmessage)
-        except (Exception), e:
+        except (Exception, e):
             Log.log.error("fout %s voor query: %s met parameters %s" % (str(e), str(sql), str(parameters))  )
             self.log_actie("uitvoeren_db", "n.v.t", "fout=%s" % str(e), True)
             raise
@@ -113,7 +111,7 @@ class Database:
             self.connection.commit()
             f.close()
             Log.log.info("SQL uitgevoerd OK")
-        except (Exception), e:
+        except (Exception, e):
             self.e = e
             self.log_actie("uitvoeren_db_file", "n.v.t", "fout=%s" % str(e), True)
             Log.log.fatal("ik kan dit script niet uitvoeren vanwege deze fout: %s" % (str(e)))
@@ -127,7 +125,7 @@ class Database:
             self.connection.close()
 
             # Log.log.debug(self.cursor.statusmessage)
-        except (Exception), e:
+        except (Exception, e):
             self.e = e
             Log.log.error("fout %s voor tx_uitvoeren: %s met parameters %s" % (str(e), str(sql), str(parameters))  )
 
