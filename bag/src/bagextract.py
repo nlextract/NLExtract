@@ -129,6 +129,8 @@ def main():
                 Log.log.fatal("Kan geen verbinding maken met de database")
                 sys.exit()
             Log.log.info("Initieele data (bijv. gemeenten/provincies) inlezen...")
+            from bagfilereader import BAGFileReader
+            # from bagobject import VerblijfsObjectPand, AdresseerbaarObjectNevenAdres, VerblijfsObjectGebruiksdoel, Woonplaats, OpenbareRuimte, Nummeraanduiding, Ligplaats, Standplaats, Verblijfsobject, Pand
             myreader = BAGFileReader(BAGConfig.config.bagextract_home + '/db/data')
             myreader.process()
             Log.log.info("Views aanmaken...")
