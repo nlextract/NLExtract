@@ -25,6 +25,7 @@ CREATE TABLE adres (
     adresseerbaarobject numeric(16,0),
     nummeraanduiding numeric(16,0),
     geopunt geometry,
+    textsearchable_adres tsvector,
     CONSTRAINT enforce_dims_punt CHECK ((st_ndims(geopunt) = 3)),
     CONSTRAINT enforce_geotype_punt CHECK (((geometrytype(geopunt) = 'POINT'::text) OR (geopunt IS NULL))),
     CONSTRAINT enforce_srid_punt CHECK ((st_srid(geopunt) = 28992))
@@ -199,8 +200,14 @@ INSERT INTO adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeg
 -- 	and w.identificatie = g.woonplaatscode
 -- 	and g.gemeentecode = p.gemeentecode;
 
+-- Vul de text vector kolom voor full text search
+UPDATE adres set textsearchable_adres = to_tsvector(openbareruimtenaam||' '||huisnummer||' '||trim(coalesce(huisletter,'')||' '||coalesce(huisnummertoevoeging,''))||' '||woonplaatsnaam);
+
 -- Maak indexen aan na inserten (betere performance)
 CREATE INDEX adres_geom_idx ON adres USING gist (geopunt);
+CREATE INDEX adres_adreseerbaarobject ON adres USING btree (adresseerbaarobject );
+CREATE INDEX adres_nummeraanduiding ON adres USING btree (nummeraanduiding );
+CREATE INDEX adresvol_idx ON adres USING gin (textsearchable_adres );
 
 -- Vult de geometry_columns alleen bij PostGIS 1.x versies (dus niet in 2.x+)
 select case when cast(substring(postgis_lib_version()  from 1 for 1) as numeric) < 2 then probe_geometry_columns() end;
