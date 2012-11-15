@@ -335,7 +335,7 @@ simpelweg doorgeggeven.
 
         <!-- Copieer alle top10:* attributen, behalve de geometrieen. -->
         <xsl:copy-of
-                select="top10nl:*[not(self::top10nl:geometrieVlak)][not(self::top10nl:geometrieLijn)][not(self::top10nl:geometriePunt)][not(self::top10nl:hartLijn)][not(self::top10nl:hartPunt)][not(self::top10nl:hogeZijde)][not(self::top10nl:lageZijde)]"/>
+                select="top10nl:*[not(self::top10nl:geometrieVlak)][not(self::top10nl:geometrieLijn)][not(self::top10nl:geometriePunt)][not(self::top10nl:hartLijn)][not(self::top10nl:hartPunt)][not(self::top10nl:labelPunt)][not(self::top10nl:hogeZijde)][not(self::top10nl:lageZijde)]"/>
     </xsl:template>
 
     <!-- Copieer alle elementen van object behalve geometrieen en voeg 1 enkele geometrie aan eind toe. -->
