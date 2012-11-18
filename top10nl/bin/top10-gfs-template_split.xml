@@ -43,14 +43,12 @@
     <PropertyDefn>
       <Name>naamNL</Name>
       <ElementPath>naamNL</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>naamFries</Name>
       <ElementPath>naamFries</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <!-- Einde properties nen3610:GeoObjectType -->
     <PropertyDefn>
@@ -147,14 +145,12 @@
     <PropertyDefn>
       <Name>naamNL</Name>
       <ElementPath>naamNL</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>naamFries</Name>
       <ElementPath>naamFries</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <!-- Einde properties nen3610:GeoObjectType -->
     <PropertyDefn>
@@ -251,21 +247,18 @@
     <PropertyDefn>
       <Name>naamNL</Name>
       <ElementPath>naamNL</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>naamFries</Name>
       <ElementPath>naamFries</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <!-- Einde properties nen3610:GeoObjectType -->
     <PropertyDefn>
       <Name>typeGebouw</Name>
       <ElementPath>typeGebouw</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>hoogteklasse</Name>
@@ -372,14 +365,12 @@
     <PropertyDefn>
       <Name>naamNL</Name>
       <ElementPath>naamNL</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>naamFries</Name>
       <ElementPath>naamFries</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <!-- Einde properties nen3610:GeoObjectType -->
     <PropertyDefn>
@@ -482,14 +473,12 @@
     <PropertyDefn>
       <Name>naamNL</Name>
       <ElementPath>naamNL</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>naamFries</Name>
       <ElementPath>naamFries</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <!-- Einde properties nen3610:GeoObjectType -->
     <PropertyDefn>
@@ -592,14 +581,12 @@
     <PropertyDefn>
       <Name>naamNL</Name>
       <ElementPath>naamNL</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>naamFries</Name>
       <ElementPath>naamFries</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <!-- Einde properties nen3610:GeoObjectType -->
     <!-- Begin properties top10nl:ReliefType -->
@@ -720,14 +707,12 @@
     <PropertyDefn>
       <Name>naamNL</Name>
       <ElementPath>naamNL</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>naamFries</Name>
       <ElementPath>naamFries</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <!-- Einde properties nen3610:GeoObjectType -->
     <!-- Begin properties top10nl:ReliefType -->
@@ -848,14 +833,12 @@
     <PropertyDefn>
       <Name>naamNL</Name>
       <ElementPath>naamNL</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>naamFries</Name>
       <ElementPath>naamFries</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <!-- Einde properties nen3610:GeoObjectType -->
     <!-- Begin properties top10nl:ReliefType -->
@@ -976,14 +959,12 @@
     <PropertyDefn>
       <Name>naamNL</Name>
       <ElementPath>naamNL</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>naamFries</Name>
       <ElementPath>naamFries</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <!-- Einde properties nen3610:GeoObjectType -->
     <PropertyDefn>
@@ -1002,7 +983,7 @@
       <!-- Top10NL property nog niet aangetroffen -->
       <Name>nummer</Name>
       <ElementPath>nummer</ElementPath>
-      <Type>Real</Type>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>hoogteniveau</Name>
@@ -1097,14 +1078,12 @@
     <PropertyDefn>
       <Name>naamNL</Name>
       <ElementPath>naamNL</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>naamFries</Name>
       <ElementPath>naamFries</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <!-- Einde properties nen3610:GeoObjectType -->
     <PropertyDefn>
@@ -1123,7 +1102,7 @@
       <!-- Top10NL property nog niet aangetroffen -->
       <Name>nummer</Name>
       <ElementPath>nummer</ElementPath>
-      <Type>Real</Type>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>hoogteniveau</Name>
@@ -1218,14 +1197,12 @@
     <PropertyDefn>
       <Name>naamNL</Name>
       <ElementPath>naamNL</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>naamFries</Name>
       <ElementPath>naamFries</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <!-- Einde properties nen3610:GeoObjectType -->
     <!-- Begin properties top10nl:ReliefType -->
@@ -1346,14 +1323,12 @@
     <PropertyDefn>
       <Name>naamNL</Name>
       <ElementPath>naamNL</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>naamFries</Name>
       <ElementPath>naamFries</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <!-- Einde properties nen3610:GeoObjectType -->
     <!-- Begin properties top10nl:ReliefType -->
@@ -1474,14 +1449,12 @@
     <PropertyDefn>
       <Name>naamNL</Name>
       <ElementPath>naamNL</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>naamFries</Name>
       <ElementPath>naamFries</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <!-- Einde properties nen3610:GeoObjectType -->
     <!-- Begin properties top10nl:ReliefType -->
@@ -1602,14 +1575,12 @@
     <PropertyDefn>
       <Name>naamNL</Name>
       <ElementPath>naamNL</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>naamFries</Name>
       <ElementPath>naamFries</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <!-- Einde properties nen3610:GeoObjectType -->
     <!-- Begin properties top10nl:ReliefType -->
@@ -1730,14 +1701,12 @@
     <PropertyDefn>
       <Name>naamNL</Name>
       <ElementPath>naamNL</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>naamFries</Name>
       <ElementPath>naamFries</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <!-- Einde properties nen3610:GeoObjectType -->
     <PropertyDefn>
@@ -1750,7 +1719,7 @@
       <!-- Top10NL property nog niet aangetroffen -->
       <Name>nummer</Name>
       <ElementPath>nummer</ElementPath>
-      <Type>Integer</Type>
+      <Type>IntegerList</Type>
     </PropertyDefn>
     <!-- Begin properties top10nl:Top10Object -->
     <PropertyDefn>
@@ -1840,14 +1809,12 @@
     <PropertyDefn>
       <Name>naamNL</Name>
       <ElementPath>naamNL</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>naamFries</Name>
       <ElementPath>naamFries</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <!-- Einde properties nen3610:GeoObjectType -->
     <PropertyDefn>
@@ -1860,7 +1827,7 @@
       <!-- Top10NL property nog niet aangetroffen -->
       <Name>nummer</Name>
       <ElementPath>nummer</ElementPath>
-      <Type>Integer</Type>
+      <Type>IntegerList</Type>
     </PropertyDefn>
     <!-- Begin properties top10nl:Top10Object -->
     <PropertyDefn>
@@ -1950,14 +1917,12 @@
     <PropertyDefn>
       <Name>naamNL</Name>
       <ElementPath>naamNL</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>naamFries</Name>
       <ElementPath>naamFries</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <!-- Einde properties nen3610:GeoObjectType -->
     <PropertyDefn>
@@ -1975,8 +1940,7 @@
     <PropertyDefn>
       <Name>fysiekVoorkomen</Name>
       <ElementPath>fysiekVoorkomen</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>spoorbreedte</Name>
@@ -2004,21 +1968,18 @@
     <PropertyDefn>
       <Name>brugnaam</Name>
       <ElementPath>brugnaam</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>tunnelnaam</Name>
       <ElementPath>tunnelnaam</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <!-- Top10NL property nog niet aangetroffen -->
       <Name>baanvaknaam</Name>
       <ElementPath>baanvaknaam</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>hoogteniveau</Name>
@@ -2113,14 +2074,12 @@
     <PropertyDefn>
       <Name>naamNL</Name>
       <ElementPath>naamNL</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>naamFries</Name>
       <ElementPath>naamFries</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <!-- Einde properties nen3610:GeoObjectType -->
     <PropertyDefn>
@@ -2138,8 +2097,7 @@
     <PropertyDefn>
       <Name>fysiekVoorkomen</Name>
       <ElementPath>fysiekVoorkomen</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>spoorbreedte</Name>
@@ -2167,21 +2125,18 @@
     <PropertyDefn>
       <Name>brugnaam</Name>
       <ElementPath>brugnaam</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>tunnelnaam</Name>
       <ElementPath>tunnelnaam</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <!-- Top10NL property nog niet aangetroffen -->
       <Name>baanvaknaam</Name>
       <ElementPath>baanvaknaam</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>hoogteniveau</Name>
@@ -2276,14 +2231,12 @@
     <PropertyDefn>
       <Name>naamNL</Name>
       <ElementPath>naamNL</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>naamFries</Name>
       <ElementPath>naamFries</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <!-- Einde properties nen3610:GeoObjectType -->
     <PropertyDefn>
@@ -2295,14 +2248,12 @@
     <PropertyDefn>
       <Name>fysiekVoorkomen</Name>
       <ElementPath>fysiekVoorkomen</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>voorkomen</Name>
       <ElementPath>voorkomen</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>hoogteniveau</Name>
@@ -2397,14 +2348,12 @@
     <PropertyDefn>
       <Name>naamNL</Name>
       <ElementPath>naamNL</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>naamFries</Name>
       <ElementPath>naamFries</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <!-- Einde properties nen3610:GeoObjectType -->
     <PropertyDefn>
@@ -2440,8 +2389,7 @@
     <PropertyDefn>
       <Name>fysiekVoorkomen</Name>
       <ElementPath>fysiekVoorkomen</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>functie</Name>
@@ -2572,14 +2520,12 @@
     <PropertyDefn>
       <Name>naamNL</Name>
       <ElementPath>naamNL</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>naamFries</Name>
       <ElementPath>naamFries</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <!-- Einde properties nen3610:GeoObjectType -->
     <PropertyDefn>
@@ -2615,8 +2561,7 @@
     <PropertyDefn>
       <Name>fysiekVoorkomen</Name>
       <ElementPath>fysiekVoorkomen</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>functie</Name>
@@ -2747,14 +2692,12 @@
     <PropertyDefn>
       <Name>naamNL</Name>
       <ElementPath>naamNL</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>naamFries</Name>
       <ElementPath>naamFries</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <!-- Einde properties nen3610:GeoObjectType -->
     <PropertyDefn>
@@ -2790,8 +2733,7 @@
     <PropertyDefn>
       <Name>fysiekVoorkomen</Name>
       <ElementPath>fysiekVoorkomen</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>functie</Name>
@@ -2923,8 +2865,7 @@
     <PropertyDefn>
       <Name>typeWeg</Name>
       <ElementPath>typeWeg</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>typeInfrastructuurWegdeel</Name>
@@ -2935,14 +2876,12 @@
     <PropertyDefn>
       <Name>hoofdverkeersgebruik</Name>
       <ElementPath>hoofdverkeersgebruik</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>fysiekVoorkomen</Name>
       <ElementPath>fysiekVoorkomen</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>verhardingsbreedteklasse</Name>
@@ -2976,38 +2915,32 @@
     <PropertyDefn>
       <Name>straatnaamNL</Name>
       <ElementPath>straatnaamNL</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>straatnaamFries</Name>
       <ElementPath>straatnaamFries</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>aWegnummer</Name>
       <ElementPath>aWegnummer</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>nWegnummer</Name>
       <ElementPath>nWegnummer</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>eWegnummer</Name>
       <ElementPath>eWegnummer</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>sWegnummer</Name>
       <ElementPath>sWegnummer</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>afritnummer</Name>
@@ -3019,26 +2952,22 @@
       <!-- Top10NL property nog niet aangetroffen -->
       <Name>afritnaam</Name>
       <ElementPath>afritnaam</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>knooppuntnaam</Name>
       <ElementPath>knooppuntnaam</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>brugnaam</Name>
       <ElementPath>brugnaam</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>tunnelnaam</Name>
       <ElementPath>tunnelnaam</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>hoogteniveau</Name>
@@ -3134,8 +3063,7 @@
     <PropertyDefn>
       <Name>typeWeg</Name>
       <ElementPath>typeWeg</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>typeInfrastructuurWegdeel</Name>
@@ -3146,14 +3074,12 @@
     <PropertyDefn>
       <Name>hoofdverkeersgebruik</Name>
       <ElementPath>hoofdverkeersgebruik</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>fysiekVoorkomen</Name>
       <ElementPath>fysiekVoorkomen</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>verhardingsbreedteklasse</Name>
@@ -3187,38 +3113,32 @@
     <PropertyDefn>
       <Name>straatnaamNL</Name>
       <ElementPath>straatnaamNL</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>straatnaamFries</Name>
       <ElementPath>straatnaamFries</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>aWegnummer</Name>
       <ElementPath>aWegnummer</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>nWegnummer</Name>
       <ElementPath>nWegnummer</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>eWegnummer</Name>
       <ElementPath>eWegnummer</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>sWegnummer</Name>
       <ElementPath>sWegnummer</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>afritnummer</Name>
@@ -3230,26 +3150,22 @@
       <!-- Top10NL property nog niet aangetroffen -->
       <Name>afritnaam</Name>
       <ElementPath>afritnaam</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>knooppuntnaam</Name>
       <ElementPath>knooppuntnaam</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>brugnaam</Name>
       <ElementPath>brugnaam</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>tunnelnaam</Name>
       <ElementPath>tunnelnaam</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>hoogteniveau</Name>
@@ -3345,8 +3261,7 @@
     <PropertyDefn>
       <Name>typeWeg</Name>
       <ElementPath>typeWeg</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>typeInfrastructuurWegdeel</Name>
@@ -3357,14 +3272,12 @@
     <PropertyDefn>
       <Name>hoofdverkeersgebruik</Name>
       <ElementPath>hoofdverkeersgebruik</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>fysiekVoorkomen</Name>
       <ElementPath>fysiekVoorkomen</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>verhardingsbreedteklasse</Name>
@@ -3398,38 +3311,32 @@
     <PropertyDefn>
       <Name>straatnaamNL</Name>
       <ElementPath>straatnaamNL</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>straatnaamFries</Name>
       <ElementPath>straatnaamFries</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>aWegnummer</Name>
       <ElementPath>aWegnummer</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>nWegnummer</Name>
       <ElementPath>nWegnummer</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>eWegnummer</Name>
       <ElementPath>eWegnummer</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>sWegnummer</Name>
       <ElementPath>sWegnummer</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>afritnummer</Name>
@@ -3441,26 +3348,22 @@
       <!-- Top10NL property nog niet aangetroffen -->
       <Name>afritnaam</Name>
       <ElementPath>afritnaam</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>knooppuntnaam</Name>
       <ElementPath>knooppuntnaam</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>brugnaam</Name>
       <ElementPath>brugnaam</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>tunnelnaam</Name>
       <ElementPath>tunnelnaam</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>hoogteniveau</Name>
@@ -3556,8 +3459,7 @@
     <PropertyDefn>
       <Name>typeWeg</Name>
       <ElementPath>typeWeg</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>typeInfrastructuurWegdeel</Name>
@@ -3568,14 +3470,12 @@
     <PropertyDefn>
       <Name>hoofdverkeersgebruik</Name>
       <ElementPath>hoofdverkeersgebruik</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>fysiekVoorkomen</Name>
       <ElementPath>fysiekVoorkomen</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>verhardingsbreedteklasse</Name>
@@ -3609,38 +3509,32 @@
     <PropertyDefn>
       <Name>straatnaamNL</Name>
       <ElementPath>straatnaamNL</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>straatnaamFries</Name>
       <ElementPath>straatnaamFries</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>aWegnummer</Name>
       <ElementPath>aWegnummer</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>nWegnummer</Name>
       <ElementPath>nWegnummer</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>eWegnummer</Name>
       <ElementPath>eWegnummer</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>sWegnummer</Name>
       <ElementPath>sWegnummer</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>afritnummer</Name>
@@ -3652,26 +3546,22 @@
       <!-- Top10NL property nog niet aangetroffen -->
       <Name>afritnaam</Name>
       <ElementPath>afritnaam</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>knooppuntnaam</Name>
       <ElementPath>knooppuntnaam</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>brugnaam</Name>
       <ElementPath>brugnaam</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>tunnelnaam</Name>
       <ElementPath>tunnelnaam</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>hoogteniveau</Name>
@@ -3767,8 +3657,7 @@
     <PropertyDefn>
       <Name>typeWeg</Name>
       <ElementPath>typeWeg</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>typeInfrastructuurWegdeel</Name>
@@ -3779,14 +3668,12 @@
     <PropertyDefn>
       <Name>hoofdverkeersgebruik</Name>
       <ElementPath>hoofdverkeersgebruik</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>fysiekVoorkomen</Name>
       <ElementPath>fysiekVoorkomen</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>verhardingsbreedteklasse</Name>
@@ -3820,38 +3707,32 @@
     <PropertyDefn>
       <Name>straatnaamNL</Name>
       <ElementPath>straatnaamNL</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>straatnaamFries</Name>
       <ElementPath>straatnaamFries</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>aWegnummer</Name>
       <ElementPath>aWegnummer</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>nWegnummer</Name>
       <ElementPath>nWegnummer</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>eWegnummer</Name>
       <ElementPath>eWegnummer</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>sWegnummer</Name>
       <ElementPath>sWegnummer</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>afritnummer</Name>
@@ -3863,26 +3744,22 @@
       <!-- Top10NL property nog niet aangetroffen -->
       <Name>afritnaam</Name>
       <ElementPath>afritnaam</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>knooppuntnaam</Name>
       <ElementPath>knooppuntnaam</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>brugnaam</Name>
       <ElementPath>brugnaam</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>tunnelnaam</Name>
       <ElementPath>tunnelnaam</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>hoogteniveau</Name>
