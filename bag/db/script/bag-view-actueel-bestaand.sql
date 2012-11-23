@@ -457,6 +457,3 @@ VALUES (current_schema(), 'pandactueel', 'gid', null, null, null);
 
 INSERT INTO gt_pk_metadata(table_schema, table_name, pk_column, pk_column_idx, pk_policy, pk_sequence)
 VALUES (current_schema(), 'pandactueelbestaand', 'gid', null, null, null);
-
--- Vult de geometry_columns alleen bij PostGIS 1.x versies (dus niet in 2.x+)
-select case when cast(substring(postgis_lib_version()  from 1 for 1) as numeric) < 2 then probe_geometry_columns() end;

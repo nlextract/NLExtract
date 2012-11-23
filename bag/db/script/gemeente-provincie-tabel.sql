@@ -40,6 +40,3 @@ ALTER TABLE ONLY provincie ADD CONSTRAINT provincie_pkey PRIMARY KEY (gid);
 
 CREATE INDEX provincie_geom_idx ON provincie USING gist (geovlak);
 CREATE INDEX provincie_naam ON provincie USING btree (provincienaam);
-
--- Vult de geometry_columns alleen bij PostGIS 1.x versies (dus niet in 2.x+)
-select case when cast(substring(postgis_lib_version()  from 1 for 1) as numeric) < 2 then probe_geometry_columns() end;
