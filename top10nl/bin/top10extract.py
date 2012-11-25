@@ -151,7 +151,7 @@ def get_ogr_setting(setting):
         return None
 
 
-def load_data(gml, gfs_template, spatial_filter):
+def load_data(gml, gfs_template, spatial_filter, multi):
 
     global first_load
     
@@ -178,6 +178,16 @@ def load_data(gml, gfs_template, spatial_filter):
     ogr_spatial_filter = ''
     if spatial_filter != None:
         ogr_spatial_filter = '-spat %f %f %f %f' % (spatial_filter[0], spatial_filter[1], spatial_filter[2], spatial_filter[3])
+    
+    # Omgaan met multi-attributen
+    if multi == 'eerste':
+        ogr_opt_multiattr = '-splitlistfields -maxsubfields 1'
+    elif multi == 'meerdere':
+        ogr_opt_multiattr = '-splitlistfields'
+    elif multi == 'stringlist':
+        ogr_opt_multiattr = '-fieldTypeToString StringList'
+    elif multi == 'array':
+        ogr_opt_multiattr = ''
 
     # Voer ogr2ogr uit
     cmd = 'ogr2ogr %s -f %s "%s" %s %s %s -a_srs %s %s -s_srs %s %s %s' % (
@@ -185,7 +195,7 @@ def load_data(gml, gfs_template, spatial_filter):
     get_ogr_setting('OGR_OUT_FORMAT'),
     ogr_out_options,
     get_ogr_setting('OGR_GT'),
-    get_ogr_setting('OGR_OPT_MULTIATTR'),
+    ogr_opt_multiattr,
     get_ogr_setting('OGR_LCO') if first_load else "",
     get_ogr_setting('OGR_ASRS'),
     t_srs,
@@ -193,7 +203,6 @@ def load_data(gml, gfs_template, spatial_filter):
     ogr_spatial_filter,
     gml
     )
-    print cmd
     execute_cmd(cmd)
     
     # Voorkom dat de layer creation options bij de volgende run wordt meegegeven, zodat de
@@ -274,6 +283,7 @@ def main():
     argparser.add_argument('--pre', type=str, help='SQL-script vooraf', dest='pre_sql')
     argparser.add_argument('--post', type=str, help='SQL-script achteraf', dest='post_sql')
     argparser.add_argument('--spat', type=float, help='spatial filter', dest='spat', nargs=4, metavar=('xmin', 'ymin', 'xmax', 'ymax'))
+    argparser.add_argument('--multi', type=str, help='multi-attributen (default: eerste)', choices=['eerste','meerdere','stringlist','array'], dest='multi', default='eerste')
     argparser.add_argument('--PG_PASSWORD', type=str, help='wachtwoord voor PostgreSQL', dest='pg_pass')
     args = argparser.parse_args()
 
@@ -345,7 +355,7 @@ def main():
     file_list = glob.glob(os.path.join(args.dir, '*.[gxGX][mM][lL]'))
     gfs_template = os.path.realpath(os.path.join(SCRIPT_HOME, 'top10-gfs-template_split.xml'))
     for file in file_list:
-        load_data(file, gfs_template, args.spat)
+        load_data(file, gfs_template, args.spat, args.multi)
 
     # * Verwijderen duplicate data
     sql = os.path.realpath(os.path.join(SCRIPT_HOME, 'top10-delete-duplicates.sql'))
