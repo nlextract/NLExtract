@@ -41,5 +41,18 @@ ALTER TABLE ONLY provincie ADD CONSTRAINT provincie_pkey PRIMARY KEY (gid);
 CREATE INDEX provincie_geom_idx ON provincie USING gist (geovlak);
 CREATE INDEX provincie_naam ON provincie USING btree (provincienaam);
 
+CREATE OR REPLACE FUNCTION pg_temp.add_function_probe_geometry_columns() RETURNS void AS $$
+BEGIN
+  IF postgis_lib_version() >= '2' THEN
+    CREATE OR REPLACE FUNCTION public.probe_geometry_columns() RETURNS varchar AS
+      'BEGIN RETURN NULL; END;' LANGUAGE plpgsql;
+  END IF;
+END;
+$$ LANGUAGE plpgsql;
+-- SELECT pg_temp.add_function_probe_geometry_columns();
+SELECT public.probe_geometry_columns();
+
 -- Vult de geometry_columns alleen bij PostGIS 1.x versies (dus niet in 2.x+)
-select case when cast(substring(postgis_lib_version()  from 1 for 1) as numeric) < 2 then probe_geometry_columns() end;
+-- Creeer de (no-op) functie probe_geometry_columns() voor PostGIS versies >= 2
+-- Werkt niet in PostGIS 2!
+-- select case when cast(substring(postgis_lib_version()  from 1 for 1) as numeric) < 2 then probe_geometry_columns() end;
