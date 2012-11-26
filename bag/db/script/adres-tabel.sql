@@ -202,21 +202,9 @@ INSERT INTO adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeg
 -- Maak indexen aan na inserten (betere performance)
 CREATE INDEX adres_geom_idx ON adres USING gist (geopunt);
 
-CREATE OR REPLACE FUNCTION pg_temp.add_function_probe_geometry_columns() RETURNS void AS $$
-BEGIN
-  IF postgis_lib_version() >= '2' THEN
-    CREATE OR REPLACE FUNCTION public.probe_geometry_columns() RETURNS varchar AS
-      'BEGIN RETURN NULL; END;' LANGUAGE plpgsql;
-  END IF;
-END;
-$$ LANGUAGE plpgsql;
--- SELECT pg_temp.add_function_probe_geometry_columns();
+-- Populeert public.geometry_columns
+-- Dummy voor PostGIS 2+
 SELECT public.probe_geometry_columns();
-
--- Vult de geometry_columns alleen bij PostGIS 1.x versies (dus niet in 2.x+)
--- Creeer de (no-op) functie probe_geometry_columns() voor PostGIS versies >= 2
--- Werkt niet in PostGIS 2!
--- select case when cast(substring(postgis_lib_version()  from 1 for 1) as numeric) < 2 then probe_geometry_columns() end;
 
 DROP SEQUENCE IF EXISTS adres_gid_seq;
 CREATE SEQUENCE adres_gid_seq;
