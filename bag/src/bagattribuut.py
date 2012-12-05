@@ -330,7 +330,7 @@ class BAGdateAttribuut(BAGattribuut):
     # Initialisatie vanuit XML
     def leesUitXML(self, xml):
         self._waarde = getValue(xml, self._tag)
-        if self._waarde == '':
+        if self._waarde != '':
             jaar = self._waarde[0:4]
 
             if jaar == '2299':
