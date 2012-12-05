@@ -62,6 +62,13 @@ Installatie (Linux)
    apt-get of yum install python-devel (tbv psycopg2 bibliotheek)
    apt-get of yum install postgresql-devel (tbv psycopg2 bibliotheek)
 
+- Onder Ubuntu zijn dat de volgende packages
+  ::
+
+   sudo apt-get install python-setuptools
+   sudo apt-get install python-dev
+   sudo apt-get install libpq-dev
+
 - razendsnelle native XML parsing met libxml2/libxslt libraries samen met Python lxml:
   kan meer dan een factor twee in snelheid schelen...
   Zie http://lxml.de/installation.html
