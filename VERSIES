@@ -83,6 +83,22 @@ Top10NL Extract
 - Vervanging e-trema door normale 'e' in Overigrelief top10-extract
 - Opsplitsen naam / straatnaam kolommen in Nederland en Fries top10-extract
 
+v1.1.3 - 13.dec.2012
+Aantal bugfixes op 1.1.2 en verbeteringen in het algemeen.
+Zie milestone issues die in deze release zitten:
+https://github.com/opengeogroep/NLExtract/issues?milestone=6&state=closed
+
+Onder andere:
+
+Features
+- Gebruik gemeente-woonplaats koppeltabel uit BAG Levering ipv .csv bag-extract
+- Adressen met full text index - fuzzy zoeken in tabel "adres" met PostgreSQL tsvector
+
+Bugs opgelost
+- BAG documentdatum is altijd null door typefout in bagattribuut.py  (bug)
+- probe_geometry_columns niet aanroepen indien PostGIS 2.x
+
+
 ONGEPLAND
 - BGT Extractie
 - AHN

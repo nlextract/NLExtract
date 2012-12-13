@@ -87,7 +87,7 @@ De volgende software dient aanwezig te zijn om Top10-extract te draaien.
  - PostGIS: PostgreSQL database server met PostGIS 1.x en 2.x : http://postgis.refractions.net
  - lxml voor razendsnelle native XML parsing, Zie http://lxml.de/installation.html
  - libxml2 en libxslt bibliotheken  (worden door lxml gebruikt)
- - GDAL/OGR v1.8.1 minimaal (voor ogr2ogr) http://www.gdal.org
+ - GDAL/OGR v1.8.1 of hoger (voor ogr2ogr) http://www.gdal.org
  - NB: GDAL/OGR Python bindings zijn (voorlopig) `niet` nodig
 
 Installatie
@@ -161,6 +161,12 @@ Mac OSX
     sudo easy_install lxml
 
 - GDAL: KyngChaos (MacPorts GDAL-versie is vaak outdated) : http://www.kyngchaos.com/software/index Download en install `GDAL Complete`.
+  Om te zorgen dat de GDAL commando's, met name `ogr2ogr` kunnen worden gevonden, kun je het volgende
+  wijzigen in `/etc/profile`, die standaard Shell settings in het Terminal window bepaalt:
+  ::
+
+  export PATH=/Library/Frameworks/GDAL.framework/Versions/Current/Programs:$PATH
+
 
 Aanroep
 -------

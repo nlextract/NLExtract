@@ -12,6 +12,5 @@ TOP10NL_TEST_TMP=$TOP10NL_HOME/test/tmp
 # Temp dir voor gesplitste GML files and .gfs bestanden
 /bin/rm -rf $TOP10NL_TEST_TMP
 mkdir $TOP10NL_TEST_TMP
-
 python $TOP10NL_BIN/top10extract.py $TOP10NL_TEST_DATA/test.gml --dir $TOP10NL_TEST_TMP
 
