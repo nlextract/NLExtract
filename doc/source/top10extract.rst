@@ -174,6 +174,7 @@ Aanroep
 De aanroep van Top10-extract is op alle systemen hetzelfde, namelijk via Python ::
 
     usage: top10extract.py [-h] [--ini SETTINGS_INI] --dir DIR [--pre PRE_SQL]
+    					[--multi MULTI_ATTR] [--spat BBOX]
                         [--post POST_SQL] [--PG_PASSWORD PG_PASS]
                         GML [GML ...]
 
@@ -185,14 +186,16 @@ positional arguments:
   GML                   het GML-bestand of de lijst of directory met GML-bestanden
 
 
-optional arguments:
+optionele argumenten:
 ::
 
-  -h, --help            show this help message and exit
+  -h, --help            help bericht tonen en exit
   --ini SETTINGS_INI    het settings-bestand
   --dir DIR             lokatie getransformeerde bestanden
   --pre PRE_SQL         SQL-script vooraf
   --post POST_SQL       SQL-script achteraf
+  --spat BBOX           spatial filter, uitsnede van gebied, BBOX: xmin, ymin, xmax, ymax
+  --multi MULTI_ATTR    hoe omgaan met meerdere attribuutwaarden, MULTI_ATTR: 'eerste' (default),'meerdere','stringlist','array'
   --PG_PASSWORD PG_PASS wachtwoord voor PostgreSQL
 
 Het GML-bestand of de GML-bestanden kunnen op meerdere manieren worden meegegeven:
@@ -214,6 +217,18 @@ Toepassen settings:
 - Definitie in settings-file (top10-settings.ini)
 - Mogelijk om settings te overriden via command-line parameters (alleen voor wachtwoorden)
 - Mogelijk om settings file mee te geven via command-line
+
+Het optionele argument --multi MULTI_ATTR specificeert hoe Top10-extract om moet gaan wanneer er meerdere attribuutwaarden
+toegekent zijn aan een object, bijvoorbeeld meerdere wegnummers aan een Wegdeel. Hierbij zijn 4 mogelijke opties, (tussen haakjes de ``GDAL ogr2ogr``
+opties die hieruit gegenereerd worde).
+
+- 'eerste': gebruik de eerstvoorkomende attribuutwaarde, dit is de default (``ogr2ogr: -splitlistfields -maxsubfields 1``)
+- 'meerdere' : maak meerdere kolommen aan bijv straatnaamNL1, straatnaamNL2 etc  (``ogr2ogr: -splitlistfields``)
+- 'stringlist': gebruik alle waarden, encodeer als stringlijst in kolom, bijv ``(2:N242,N243)`` (``ogr2ogr: -fieldTypeToString StringList``)
+- 'array': gebruik alle waarden, encodeer als PostgreSQL array-type kolom (``ogr2ogr: geen optie``)
+
+Van belang te vermelden is dat in Top10NL 1.1.1 er sprake van prioritering, dwz bij meerdere waarden is de eerste waarde
+de belangrijkste waarde.
 
 Testen
 ------
