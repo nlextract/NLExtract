@@ -165,8 +165,17 @@ Mac OSX
   wijzigen in `/etc/profile`, die standaard Shell settings in het Terminal window bepaalt:
   ::
 
-  export PATH=/Library/Frameworks/GDAL.framework/Versions/Current/Programs:$PATH
+    export PATH=/Library/Frameworks/GDAL.framework/Versions/Current/Programs:$PATH
 
+Inrichting database
+-------------------
+
+Maak een nieuwe database aan o.b.v. de door PostGIS meegeleverde template-database. Maak in deze database onder de gewenste gebruiker een nieuw schema met de naam 'nlextract' aan:
+::
+
+    create schema nlextract;
+
+Dit schema is ervoor bedoeld om (tijdelijke) tabellen, functies, etc. van NLExtract / Top10NL in op te slaan. Hierdoor wordt voorkomen dat door de scripts objecten worden aangemaakt met dezelfde naam als bestaande objecten.
 
 Aanroep
 -------
@@ -174,17 +183,16 @@ Aanroep
 De aanroep van Top10-extract is op alle systemen hetzelfde, namelijk via Python ::
 
     usage: top10extract.py [-h] [--ini SETTINGS_INI] --dir DIR [--pre PRE_SQL]
-    					[--multi MULTI_ATTR] [--spat BBOX]
+                        [--multi MULTI_ATTR] [--spat BBOX]
                         [--post POST_SQL] [--PG_PASSWORD PG_PASS]
                         GML [GML ...]
 
 Verwerk een of meerdere GML-bestanden
 
-positional arguments:
+positionele argumenten:
 ::
 
   GML                   het GML-bestand of de lijst of directory met GML-bestanden
-
 
 optionele argumenten:
 ::

@@ -35,7 +35,7 @@
 
 # TODO:
 # * Locale settings Windows
-# * XSLT-transformatie versnellen. De huidige verise is veel minder snel dan transformatie met XML
+# * XSLT-transformatie versnellen. De huidige versie is veel minder snel dan transformatie met XML
 #   Starlet (die op Windows niet de grootste bladen aankan).
 # * Splitsen optioneel maken
 
@@ -84,6 +84,7 @@ V1_1_1 = 10101
 # Global variables
 config = None
 pg_conn = None
+pg_schema = 'public'
 first_load = True
 
 # Exit handlers
@@ -114,7 +115,7 @@ def execute_sql(sql):
         print 'Het opgegeven SQL-script `%s` is niet aangetroffen' % sql
         sys.exit(1)
 
-    cmd = 'psql -f %s %s' % (sql, pg_conn)
+    cmd = 'psql -v schema=%s -f %s %s' % (pg_schema, sql, pg_conn)
     execute_cmd(cmd)
 
     return
@@ -167,9 +168,9 @@ def load_data(gml, gfs_template, spatial_filter, multi):
     # PG connectie
     if get_ogr_setting('OGR_OUT_FORMAT') == FORMAT_POSTGRESQL and get_ogr_setting('OGR_OUT_OPTIONS') is None:
         # Bepaal de connectie string voor PostgreSQL
-        ogr_out_options = 'PG:dbname=%s host=%s port=%s user=%s password=%s' % (
+        ogr_out_options = 'PG:dbname=%s host=%s port=%s user=%s password=%s active_schema=%s' % (
         get_postgis_setting('PG_DB'), get_postgis_setting('PG_HOST'), get_postgis_setting('PG_PORT'),
-        get_postgis_setting('PG_USER'), os.environ['PGPASSWORD'])
+        get_postgis_setting('PG_USER'), os.environ['PGPASSWORD'], pg_schema)
     else:
         # Gebruik de bestaande opties
         ogr_out_options = get_ogr_setting('OGR_OUT_OPTIONS')
@@ -191,17 +192,17 @@ def load_data(gml, gfs_template, spatial_filter, multi):
 
     # Voer ogr2ogr uit
     cmd = 'ogr2ogr %s -f %s "%s" %s %s %s -a_srs %s %s -s_srs %s %s %s' % (
-    get_ogr_setting('OGR_OVERWRITE_OR_APPEND'),
-    get_ogr_setting('OGR_OUT_FORMAT'),
-    ogr_out_options,
-    get_ogr_setting('OGR_GT'),
-    ogr_opt_multiattr,
-    get_ogr_setting('OGR_LCO') if first_load else "",
-    get_ogr_setting('OGR_ASRS'),
-    t_srs,
-    get_ogr_setting('OGR_SSRS'),
-    ogr_spatial_filter,
-    gml
+        get_ogr_setting('OGR_OVERWRITE_OR_APPEND'),
+        get_ogr_setting('OGR_OUT_FORMAT'),
+        ogr_out_options,
+        get_ogr_setting('OGR_GT'),
+        ogr_opt_multiattr,
+        get_ogr_setting('OGR_LCO') if first_load else "",
+        get_ogr_setting('OGR_ASRS'),
+        t_srs,
+        get_ogr_setting('OGR_SSRS'),
+        ogr_spatial_filter,
+        gml
     )
     execute_cmd(cmd)
     
@@ -271,7 +272,7 @@ def check_file_version(list, file):
     return
 
 def main():
-    global config, pg_conn, SCRIPT_HOME
+    global config, pg_conn, pg_schema, SCRIPT_HOME
 
     SCRIPT_HOME = os.path.dirname(os.path.realpath(sys.argv[0]))
     DEFAULT_SETTINGS_INI = os.path.realpath(os.path.join(SCRIPT_HOME, SETTINGS_INI))
@@ -318,8 +319,12 @@ def main():
 
     # Stel string samen voor PostgreSQL connectie op command line
     pg_conn = '-h %s -p %s -U %s -d %s' % (
-    get_postgis_setting('PG_HOST'), get_postgis_setting('PG_PORT'),
-    get_postgis_setting('PG_USER'), get_postgis_setting('PG_DB'))
+        get_postgis_setting('PG_HOST'), get_postgis_setting('PG_PORT'),
+        get_postgis_setting('PG_USER'), get_postgis_setting('PG_DB'))
+        
+    # Stel het schema in
+    if get_postgis_setting('PG_SCHEMA') is not None:
+        pg_schema = get_postgis_setting('PG_SCHEMA')
 
     ### Bepalen GML bestanden
     # Stel lijst samen van alle in te lezen GML-bestanden

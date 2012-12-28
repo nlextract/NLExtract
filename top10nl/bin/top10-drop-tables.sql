@@ -2,12 +2,15 @@
 -- Doel: script om Top10NL tabellen te verwijderen.
 -- Zowel de originele als de opgesplitste tabellen worden hiermee verwijderd.
 
+\i cf_checkandsetschema.sql
+SELECT nlextract.checkandsetschema(:'schema');
+
 DROP TABLE IF EXISTS	functioneelgebied;
-DROP TABLE IF EXISTS 	functioneelgebied_punt;
-DROP TABLE IF EXISTS 	functioneelgebied_vlak;
+DROP TABLE IF EXISTS	functioneelgebied_punt;
+DROP TABLE IF EXISTS	functioneelgebied_vlak;
 
 DROP TABLE IF EXISTS	gebouw;
-DROP TABLE IF EXISTS 	gebouw_vlak;
+DROP TABLE IF EXISTS	gebouw_vlak;
 
 DROP TABLE IF EXISTS	geografischgebied;
 DROP TABLE IF EXISTS	geografischgebied_punt;
@@ -51,11 +54,11 @@ DROP TABLE IF EXISTS	waterdeel_punt;
 DROP TABLE IF EXISTS	waterdeel_vlak;
 
 DROP TABLE IF EXISTS	wegdeel;
-DROP TABLE IF EXISTS 	wegdeel_hartlijn;
-DROP TABLE IF EXISTS 	wegdeel_hartpunt;
-DROP TABLE IF EXISTS 	wegdeel_lijn;
-DROP TABLE IF EXISTS 	wegdeel_punt;
-DROP TABLE IF EXISTS 	wegdeel_vlak;
+DROP TABLE IF EXISTS	wegdeel_hartlijn;
+DROP TABLE IF EXISTS	wegdeel_hartpunt;
+DROP TABLE IF EXISTS	wegdeel_lijn;
+DROP TABLE IF EXISTS	wegdeel_punt;
+DROP TABLE IF EXISTS	wegdeel_vlak;
 
-DELETE FROM geometry_columns;
+\i df_checkandsetschema.sql
 
