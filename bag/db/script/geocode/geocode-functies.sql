@@ -44,7 +44,7 @@ CREATE OR REPLACE FUNCTION _nlx_expandoverlap_metric(a geometry, b geometry, max
 $BODY$
 BEGIN
     FOR i IN 0..maxslice LOOP
-        IF expand(a,maxe*i/maxslice) && b THEN
+        IF st_expand(a,maxe*i/maxslice) && b THEN
             RETURN i;
         END IF;
     END LOOP;
@@ -70,7 +70,7 @@ DECLARE
 BEGIN
     ncollected := 0; it := 0;
     WHILE ncollected < numnn AND it <= maxslices LOOP
-        strsql := 'SELECT currentit.' || sgid2field || ', distance(ref.geom, currentit.' || sgeom2field || ') as dist FROM ' || lookupset || '  as currentit, (SELECT geometry(''' || CAST(geom1 As text) || ''') As geom) As ref WHERE ' || swhere || ' AND distance(ref.geom, currentit.' || sgeom2field || ') <= ' || CAST(distguess As varchar(200)) || ' AND expand(ref.geom, ' || CAST(distguess*it/maxslices As varchar(100)) ||  ') && currentit.' || sgeom2field || ' AND _nlx_expandoverlap_metric(ref.geom, currentit.' || sgeom2field || ', ' || CAST(distguess As varchar(200)) || ', ' || CAST(maxslices As varchar(200)) || ') = ' || CAST(it As varchar(100)) || ' ORDER BY distance(ref.geom, currentit.' || sgeom2field || ') LIMIT ' ||
+        strsql := 'SELECT currentit.' || sgid2field || ', st_distance(ref.geom, currentit.' || sgeom2field || ') as dist FROM ' || lookupset || '  as currentit, (SELECT geometry(''' || CAST(geom1 As text) || ''') As geom) As ref WHERE ' || swhere || ' AND st_distance(ref.geom, currentit.' || sgeom2field || ') <= ' || CAST(distguess As varchar(200)) || ' AND st_expand(ref.geom, ' || CAST(distguess*it/maxslices As varchar(100)) ||  ') && currentit.' || sgeom2field || ' AND _nlx_expandoverlap_metric(ref.geom, currentit.' || sgeom2field || ', ' || CAST(distguess As varchar(200)) || ', ' || CAST(maxslices As varchar(200)) || ') = ' || CAST(it As varchar(100)) || ' ORDER BY st_distance(ref.geom, currentit.' || sgeom2field || ') LIMIT ' ||
         CAST((numnn - ncollected) As varchar(200));
         --RAISE NOTICE 'sql: %', strsql;
         FOR rec in EXECUTE (strsql) LOOP
