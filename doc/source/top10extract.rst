@@ -55,12 +55,12 @@ Ontwerp
 In eerste instantie converteren/laden we de GML naar PostGIS. Dit gebeurt met de GDAL/OGR tool
 ogr2ogr. Echter er zijn 2 belangrijke zaken die dit lastig maken:
 
-- meerdere geometrie‘n per object, bijv een Waterdeel GML element kan een lijn en een vlak bevatten
-- meerdere voorkomens van een attribuut (attribute multiplicity), bijv. een Wegdeel GML element kan meerdere element-attributen genaamd "nwegNummer" bevatten
+- meerdere geometrieÃ«n per object, bijv een Waterdeel GML element kan een lijn en een vlak bevatten
+- meerdere voorkomens van een attribuut (attribute multiplicity), bijv. een Wegdeel GML element kan meerdere element-attributen genaamd "nWegnummer" bevatten
 
-Om het eerste probleem op te lossen worden middels een XSLT script (bin/top10-split.xsl) de GML
+Om het eerste probleem op te lossen worden middels een XSLT script (bin/top10-split_v1_1_1.xsl) de GML
 elementen uitgesplitst naar geometrie, zodat ieder element een enkele geometrie bevat. Bijvoorbeeld
-Wegdeel kent maar liefst 5 geometrie attributen. Dit wordt opgesplitst naar Wegdeel_Lijn, Wegdeel_Vlak etc.
+Wegdeel kent maar liefst 5 geometrie-attributen. Dit wordt opgesplitst naar Wegdeel_Lijn, Wegdeel_Vlak etc.
 Een nieuw GML bestand wordt hiermee opgebouwd. Vervolgens wordt via ogr2ogr dit uitgesplitste GML bestand
 in PostGIS geladen.
 
@@ -72,7 +72,7 @@ voor Top10-extract roepen `native` tools aan:
 * GDAL/OGR `ogr2ogr`
 
 De reden is vooral snelheid. Top10NL kan niet door `ogr2ogr` direct verwerkt worden.
-Met name dienen objecten als `Wegdelen` die meerdere geometrie‘n bevatten
+Met name dienen objecten als `Wegdelen` die meerdere geometrieÃ«n bevatten
 uitgesplitst te worden over objecten die een enkele geometrie bevatten, bijv. `Wegdeel_Hartlijn`
 en `Wegdeel_Vlak`. Het uitsplitsen gaat met XSLT. De uitgesplitste bestanden worden tijdens
 verwerken tijdelijk opgeslagen.
@@ -84,7 +84,7 @@ De volgende software dient aanwezig te zijn om Top10-extract te draaien.
 
  - Python 2.6 of hoger (niet Python 3!)
  - Python argparse package, voor argument parsing alleen indien Python < 2.7
- - PostGIS: PostgreSQL database server met PostGIS 1.x en 2.x : http://postgis.refractions.net
+ - PostGIS: PostgreSQL database server met PostGIS 1.x of 2.x : http://postgis.refractions.net
  - lxml voor razendsnelle native XML parsing, Zie http://lxml.de/installation.html
  - libxml2 en libxslt bibliotheken  (worden door lxml gebruikt)
  - GDAL/OGR v1.8.1 of hoger (voor ogr2ogr) http://www.gdal.org
@@ -96,7 +96,7 @@ Installatie
 Top10-extract werkt op de drie voornaamste platformen: Windows, Mac OSX, Linux.
 De bovengenoemde afhankelijkheden hebben ieder hun eigen handleiding voor
 installatie op desbetreffend platform. Raadpleeg deze als eerste.
-Hieronder een aantal tips en bijzonderheden pet platform.
+Hieronder een aantal tips en bijzonderheden per platform.
 
 Linux
 ~~~~~
@@ -104,7 +104,7 @@ Linux
 Gebruik onder Ubuntu altijd `Ubuntu GIS`: https://wiki.ubuntu.com/UbuntuGIS
 om de laatste versies van veel packages, met name GDAL en PostGIS 1.x te verkrijgen!
 
-- optioneel: Python package afhankelijkheden installeren bijv
+- optioneel: Python package afhankelijkheden installeren bijv.
   ::
 
    apt-get of yum install python-setuptools (voor easy_install commando)
@@ -123,7 +123,7 @@ om de laatste versies van veel packages, met name GDAL en PostGIS 1.x te verkrij
 
    apt-get of yum install gdal-bin
 
-- Python package "argparse" (alleen vor Python < 2.7)
+- Python package "argparse" (alleen voor Python < 2.7)
   ::
 
    sudo easy_install argparse
@@ -136,19 +136,19 @@ Windows
 De Python scripts zijn ontwikkeld en getest op Windows 7 met Python 2.7.2.
 
 Let op: wanneer je Windows gebruikt en je wilt op de command line met PostgreSQL connecten, gebruik
-chcp 1252.
+``chcp 1252``.
 
 In Python 2.6:
 
 - argparse module: http://pypi.python.org/pypi/argparse
-  Het gemakkelijkst is om argparse.py in de directory Python26\Lib\ te droppen
+  Het gemakkelijkst is om argparse.py in de directory Python26\\Lib\\ te droppen
 
 Mac OSX
 ~~~~~~~
 
 - Python, 2.6.1 of hoger, liefst 2.7+,
 
-- Python package "argparse" (alleen vor Python < 2.7)
+- Python package "argparse" (alleen voor Python < 2.7)
   ::
 
     sudo easy_install argparse
@@ -180,8 +180,6 @@ De aanroep van Top10-extract is op alle systemen hetzelfde, namelijk via Python 
                        [--pg_schema PG_SCHEMA] [--pg_user PG_USER]
                        [--pg_password PG_PASS]
                        GML [GML ...]
-
-Verwerk een of meerdere GML-bestanden
 
 positionele argumenten:
 ::
@@ -217,13 +215,13 @@ NB: ook als er meerdere bestanden via de command line aangegeven kunnen worden, 
 wildcards bevatten. Een bestand wordt als GML-bestand beschouwd, indien deze de extensie GML of
 XML heeft, anders wordt het als een GML-bestandslijst gezien.
 
-Het beste kun je de `TOP10NL_GML_50D_Blokken-` bestanden gebruiken (vanwege mogelijke geheugen-issues).
+Het beste kun je de `TOP10NL_GML_50D_Blokken`-bestanden gebruiken (vanwege mogelijke geheugen-issues).
 Na download moet je dus eerst de .zip file uitpakken.
 
 Toepassen settings:
 
 - Definitie in settings-file (top10-settings.ini)
-- Mogelijk om settings te overriden via command-line parameters (alleen voor wachtwoorden)
+- Mogelijk om settings te overriden via command-line parameters (alleen de PostgreSQL-settings)
 - Mogelijk om settings file mee te geven via command-line
 
 Het optionele argument --multi MULTI_ATTR specificeert hoe Top10-extract om moet gaan wanneer er meerdere attribuutwaarden
@@ -235,14 +233,14 @@ opties die hieruit gegenereerd worde).
 - 'stringlist': gebruik alle waarden, encodeer als stringlijst in kolom, bijv ``(2:N242,N243)`` (``ogr2ogr: -fieldTypeToString StringList``)
 - 'array': gebruik alle waarden, encodeer als PostgreSQL array-type kolom (``ogr2ogr: geen optie``)
 
-Van belang te vermelden is dat in Top10NL 1.1.1 er sprake van prioritering, dwz bij meerdere waarden is de eerste waarde
+Van belang te vermelden is dat in Top10NL 1.1.1 er sprake van prioritering, d.w.z. bij meerdere waarden is de eerste waarde
 de belangrijkste waarde.
 
 Testen
 ------
-Het beste is eerst je installatie te testen als volgt:
+Het beste is om eerst je installatie te testen als volgt:
 
- * pas `bin/top10-settings.ini` aan voor je lokale situatie
+ * pas ``bin/top10-settings.ini`` aan voor je lokale situatie
  * maak een lege database aan met PostGIS  template bijv. ``top10nl`` (createdb -T postgis)
  * in de ``top10nl/test`` directory executeer ``./top10-test.sh`` of ``./top10-test.cmd``
 
