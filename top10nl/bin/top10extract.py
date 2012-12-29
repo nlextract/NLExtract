@@ -64,6 +64,7 @@ from time import localtime, strftime
 
 # Constantes
 SETTINGS_INI = 'top10-settings.ini'
+GFS_TEMPLATE = 'top10-gfs-template_split.xml'
 MAX_SPLIT_FEATURES = 30000
 
 SECTION_OGR_OPTIONS = 'OGROptions'
@@ -276,15 +277,17 @@ def main():
 
     SCRIPT_HOME = os.path.dirname(os.path.realpath(sys.argv[0]))
     DEFAULT_SETTINGS_INI = os.path.realpath(os.path.join(SCRIPT_HOME, SETTINGS_INI))
+    DEFAULT_GFS_TEMPLATE = os.path.realpath(os.path.join(SCRIPT_HOME, GFS_TEMPLATE))
 
     argparser = argparse.ArgumentParser(description='Verwerk een of meerdere GML-bestanden')
     argparser.add_argument('gml', type=str, help='het GML-bestand of de lijst met GML-bestanden', metavar='GML', nargs='+')
     argparser.add_argument('--dir', type=str, help='lokatie getransformeerde bestanden', dest='dir', required=True)
-    argparser.add_argument('--ini', type=str, help='het settings-bestand', dest='settings_ini', default=DEFAULT_SETTINGS_INI)
+    argparser.add_argument('--ini', type=str, help='het settings-bestand (default: %s)' % SETTINGS_INI, dest='settings_ini', default=DEFAULT_SETTINGS_INI)
     argparser.add_argument('--pre', type=str, help='SQL-script vooraf', dest='pre_sql')
     argparser.add_argument('--post', type=str, help='SQL-script achteraf', dest='post_sql')
     argparser.add_argument('--spat', type=float, help='spatial filter', dest='spat', nargs=4, metavar=('xmin', 'ymin', 'xmax', 'ymax'))
     argparser.add_argument('--multi', type=str, help='multi-attributen (default: eerste)', choices=['eerste','meerdere','stringlist','array'], dest='multi', default='eerste')
+    argparser.add_argument('--gfs', type=str, help='GFS template-bestand (default: %s)' % GFS_TEMPLATE, dest='gfs_template', default=DEFAULT_GFS_TEMPLATE)
     argparser.add_argument('--PG_PASSWORD', type=str, help='wachtwoord voor PostgreSQL', dest='pg_pass')
     args = argparser.parse_args()
 
@@ -299,6 +302,11 @@ def main():
     # Check geldigheid settings file
     if not os.path.isfile(args.settings_ini):
         print 'Op de opgegeven lokatie `%s` is geen INI-bestand aangetroffen' % args.settings_ini
+        sys.exit(1)
+    
+    # Check geldigheid gfs template
+    if not os.path.isfile(args.gfs_template):
+        print 'Op de opgegeven lokatie `%s` is geen GFS template-bestand aangetroffen' % args.gfs_template
         sys.exit(1)
 
     ### Uitlezen configuratie
@@ -362,9 +370,8 @@ def main():
 
     # * Laden data met OGR
     file_list = glob.glob(os.path.join(args.dir, '*.[gxGX][mM][lL]'))
-    gfs_template = os.path.realpath(os.path.join(SCRIPT_HOME, 'top10-gfs-template_split.xml'))
     for file in file_list:
-        load_data(file, gfs_template, args.spat, args.multi)
+        load_data(file, args.gfs_template, args.spat, args.multi)
 
     # * Verwijderen duplicate data
     sql = os.path.realpath(os.path.join(SCRIPT_HOME, 'top10-delete-duplicates.sql'))

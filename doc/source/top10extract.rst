@@ -172,10 +172,11 @@ Aanroep
 
 De aanroep van Top10-extract is op alle systemen hetzelfde, namelijk via Python ::
 
-    usage: top10extract.py [-h] [--ini SETTINGS_INI] --dir DIR [--pre PRE_SQL]
-                        [--multi MULTI_ATTR] [--spat BBOX]
-                        [--post POST_SQL] [--PG_PASSWORD PG_PASS]
-                        GML [GML ...]
+    usage: top10extract.py [-h] --dir DIR [--ini SETTINGS_INI] [--pre PRE_SQL]
+                       [--post POST_SQL] [--spat xmin ymin xmax ymax]
+                       [--multi {eerste,meerdere,stringlist,array}]
+                       [--gfs GFS_TEMPLATE] [--PG_PASSWORD PG_PASS]
+                       GML [GML ...]
 
 Verwerk een of meerdere GML-bestanden
 
@@ -188,12 +189,13 @@ optionele argumenten:
 ::
 
   -h, --help            help bericht tonen en exit
-  --ini SETTINGS_INI    het settings-bestand
   --dir DIR             lokatie getransformeerde bestanden
+  --ini SETTINGS_INI    het settings-bestand (default: top10-settings.ini)
   --pre PRE_SQL         SQL-script vooraf
   --post POST_SQL       SQL-script achteraf
   --spat BBOX           spatial filter, uitsnede van gebied, BBOX: xmin, ymin, xmax, ymax
   --multi MULTI_ATTR    hoe omgaan met meerdere attribuutwaarden, MULTI_ATTR: 'eerste' (default),'meerdere','stringlist','array'
+  --gfs GFS_TEMPLATE    GFS template-bestand (default: top10-gfs-template_split.xml)
   --PG_PASSWORD PG_PASS wachtwoord voor PostgreSQL
 
 Het GML-bestand of de GML-bestanden kunnen op meerdere manieren worden meegegeven:
