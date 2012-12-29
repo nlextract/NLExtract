@@ -53,4 +53,6 @@ SELECT _nlx_dedup_data('wegdeel_lijn');
 SELECT _nlx_dedup_data('wegdeel_punt');
 SELECT _nlx_dedup_data('wegdeel_vlak');
 
+DROP FUNCTION _nlx_dedup_data(tablename VARCHAR);
+
 SET search_path="$user",public
