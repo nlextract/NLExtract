@@ -1,10 +1,9 @@
-CREATE OR REPLACE FUNCTION nlextract.checkandsetschema(schemaname VARCHAR)
+CREATE OR REPLACE FUNCTION _nlx_createschema(schemaname VARCHAR)
 RETURNS void AS
 $$
 BEGIN
 
     IF schemaname = 'public' THEN
-        SET search_path TO public;
         RETURN;
     END IF;
 
@@ -17,8 +16,10 @@ BEGIN
         EXECUTE FORMAT('CREATE SCHEMA %I;', $1);
     END IF;
 
-    EXECUTE FORMAT('SET search_path TO %I,public;', $1);
-
 END;
 $$
 LANGUAGE plpgsql;
+
+SELECT _nlx_createschema(:'schema');
+
+DROP FUNCTION _nlx_createschema(schemaname VARCHAR);

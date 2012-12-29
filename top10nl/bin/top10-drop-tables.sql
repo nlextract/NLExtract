@@ -2,8 +2,7 @@
 -- Doel: script om Top10NL tabellen te verwijderen.
 -- Zowel de originele als de opgesplitste tabellen worden hiermee verwijderd.
 
-\i cf_checkandsetschema.sql
-SELECT nlextract.checkandsetschema(:'schema');
+SET search_path=:schema,public;
 
 DROP TABLE IF EXISTS	functioneelgebied;
 DROP TABLE IF EXISTS	functioneelgebied_punt;
@@ -60,5 +59,4 @@ DROP TABLE IF EXISTS	wegdeel_lijn;
 DROP TABLE IF EXISTS	wegdeel_punt;
 DROP TABLE IF EXISTS	wegdeel_vlak;
 
-\i df_checkandsetschema.sql
-
+SET search_path="$user",public

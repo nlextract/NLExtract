@@ -335,8 +335,12 @@ def main():
     if len(list) == 0:
         print 'Er zijn geen GML-bestanden aangetroffen om in te lezen'
         sys.exit(1)
-
+        
     ### Uitvoering
+    # Aanmaken schema (indien niet bestaand)
+    sql = os.path.realpath(os.path.join(SCRIPT_HOME, 'top10-create-schema.sql'))
+    execute_sql(sql)
+
     # * Scripts vooraf
     execute_sql(args.pre_sql)
 
