@@ -158,9 +158,9 @@ def load_data(gml):
     # PG connectie
     if settings.ogr_out_format() == FORMAT_POSTGRESQL and settings.ogr_out_options() is None:
         # Bepaal de connectie string voor PostgreSQL
-        ogr_out_options = 'PG:dbname=%s host=%s port=%s user=%s password=%s active_schema=%s' % (
+        ogr_out_options = 'PG:dbname=%s host=%s port=%s user=%s active_schema=%s' % (
         settings.pg_db(), settings.pg_host(), settings.pg_port(),
-        settings.pg_user(), os.environ['PGPASSWORD'], settings.pg_schema())
+        settings.pg_user(), settings.pg_schema())
     else:
         # Gebruik de bestaande opties
         ogr_out_options = settings.ogr_out_options()
