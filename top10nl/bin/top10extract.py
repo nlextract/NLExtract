@@ -50,7 +50,6 @@
 # * Top10NL 1.1.1: http://www.kadaster.nl/schemas/top10nl/v20120116 (vanaf sept. '12)
 
 # Imports
-import ConfigParser
 import argparse
 import atexit
 import glob
@@ -62,13 +61,13 @@ import sys
 
 from time import localtime, strftime
 
+from settingsprovider import SettingsProvider
+
 # Constantes
 SETTINGS_INI = 'top10-settings.ini'
 GFS_TEMPLATE = 'top10-gfs-template_split.xml'
 MAX_SPLIT_FEATURES = 30000
 
-SECTION_OGR_OPTIONS = 'OGROptions'
-SECTION_POSTGIS = 'PostGIS'
 FORMAT_POSTGRESQL = 'PostgreSQL'
 SCRIPT_HOME = ''
 
@@ -83,10 +82,8 @@ V1_0 = 10000
 V1_1_1 = 10101
 
 # Global variables
-config = None
-pg_conn = None
-pg_schema = 'public'
 first_load = True
+settings = None
 
 # Exit handlers
 def on_exit():
@@ -100,6 +97,8 @@ def on_exit():
 
 atexit.register(on_exit)
 
+
+# Voert het meegegeven commando uit
 def execute_cmd(cmd):
     use_shell = True
     if os.name == 'nt':
@@ -108,6 +107,8 @@ def execute_cmd(cmd):
     print cmd
     subprocess.call(cmd, shell=use_shell)
 
+
+# Voert het meegegeven SQL-bestand uit
 def execute_sql(sql):
     if sql is None:
         return
@@ -116,20 +117,22 @@ def execute_sql(sql):
         print 'Het opgegeven SQL-script `%s` is niet aangetroffen' % sql
         sys.exit(1)
 
-    cmd = 'psql -v schema=%s -f %s %s' % (pg_schema, sql, pg_conn)
+    cmd = 'psql -v schema=%s -f %s %s' % (settings.pg_schema(), sql, settings.pg_conn())
     execute_cmd(cmd)
 
     return
 
 
+# Valideert GML-bestanden volgens de Top10NL schema's
 def validate_gml():
     pass
 
 
+# Transformeert het GML-bestand met de stylesheet en schrijft het resultaat weg
 def trans_gml(gml, xsl, dir):
 
     # Opknippen en transformeren GML-bestand
-    trans_path = os.path.realpath(os.path.join(SCRIPT_HOME, 'top10trans.py'))
+    trans_path = abspath('top10trans.py')
     cmd = 'python %s --max_features %d %s %s %s' % (trans_path, MAX_SPLIT_FEATURES, gml, xsl, dir)
     execute_cmd(cmd)
 
@@ -137,71 +140,47 @@ def trans_gml(gml, xsl, dir):
     # top10_trans = __import__('top10trans')
     # top10_trans.transform(gml, xsl, dir, MAX_SPLIT_FEATURES)
 
-def get_postgis_setting(setting):
 
-    if config.has_option(SECTION_POSTGIS, setting):
-        return config.get(SECTION_POSTGIS, setting)
-    else:
-        return None
-
-
-def get_ogr_setting(setting):
-
-    if config.has_option(SECTION_OGR_OPTIONS, setting):
-        return config.get(SECTION_OGR_OPTIONS, setting)
-    else:
-        return None
-
-
-def load_data(gml, gfs_template, spatial_filter, multi):
+# Laadt de data met OGR2OGR
+def load_data(gml):
 
     global first_load
     
     # Kopieer / overschrijf GFS bestand
     file_ext = os.path.splitext(gml)
-    shutil.copy(gfs_template, file_ext[0] + '.gfs')
+    shutil.copy(settings.gfs_template(), file_ext[0] + '.gfs')
 
     # Transformeren?
     t_srs = ''
-    if get_ogr_setting('OGR_TSRS') != '':
-        t_srs = '-t_srs' + get_ogr_setting('OGR_TSRS')
+    if settings.ogr_tsrs() != '':
+        t_srs = '-t_srs' + settings.ogr_tsrs()
 
     # PG connectie
-    if get_ogr_setting('OGR_OUT_FORMAT') == FORMAT_POSTGRESQL and get_ogr_setting('OGR_OUT_OPTIONS') is None:
+    if settings.ogr_out_format() == FORMAT_POSTGRESQL and settings.ogr_out_options() is None:
         # Bepaal de connectie string voor PostgreSQL
         ogr_out_options = 'PG:dbname=%s host=%s port=%s user=%s password=%s active_schema=%s' % (
-        get_postgis_setting('PG_DB'), get_postgis_setting('PG_HOST'), get_postgis_setting('PG_PORT'),
-        get_postgis_setting('PG_USER'), os.environ['PGPASSWORD'], pg_schema)
+        settings.pg_db(), settings.pg_host(), settings.pg_port(),
+        settings.pg_user(), os.environ['PGPASSWORD'], settings.pg_schema())
     else:
         # Gebruik de bestaande opties
-        ogr_out_options = get_ogr_setting('OGR_OUT_OPTIONS')
+        ogr_out_options = settings.ogr_out_options()
 
     # Spatial filter
     ogr_spatial_filter = ''
-    if spatial_filter != None:
-        ogr_spatial_filter = '-spat %f %f %f %f' % (spatial_filter[0], spatial_filter[1], spatial_filter[2], spatial_filter[3])
+    if settings.spatial_filter() != None:
+        ogr_spatial_filter = '-spat %f %f %f %f' % (settings.spatial_filter()[0], settings.spatial_filter()[1], settings.spatial_filter()[2], settings.spatial_filter()[3])
     
-    # Omgaan met multi-attributen
-    if multi == 'eerste':
-        ogr_opt_multiattr = '-splitlistfields -maxsubfields 1'
-    elif multi == 'meerdere':
-        ogr_opt_multiattr = '-splitlistfields'
-    elif multi == 'stringlist':
-        ogr_opt_multiattr = '-fieldTypeToString StringList'
-    elif multi == 'array':
-        ogr_opt_multiattr = ''
-
     # Voer ogr2ogr uit
     cmd = 'ogr2ogr %s -f %s "%s" %s %s %s -a_srs %s %s -s_srs %s %s %s' % (
-        get_ogr_setting('OGR_OVERWRITE_OR_APPEND'),
-        get_ogr_setting('OGR_OUT_FORMAT'),
+        settings.ogr_overwrite_or_append(),
+        settings.ogr_out_format(),
         ogr_out_options,
-        get_ogr_setting('OGR_GT'),
-        ogr_opt_multiattr,
-        get_ogr_setting('OGR_LCO') if first_load else "",
-        get_ogr_setting('OGR_ASRS'),
+        settings.ogr_gt(),
+        settings.ogr_opt_multiattr(),
+        settings.ogr_lco() if first_load else "",
+        settings.ogr_asrs(),
         t_srs,
-        get_ogr_setting('OGR_SSRS'),
+        settings.ogr_ssrs(),
         ogr_spatial_filter,
         gml
     )
@@ -212,6 +191,8 @@ def load_data(gml, gfs_template, spatial_filter, multi):
     first_load = False
 
 
+# Controleert een bestand, bestandslijst of directory en voegt het resultaat met de geldige
+# Top10NL-bestanden toe aan de meegegeven lijst
 def evaluate_file(list, check):
     if os.path.isfile(check):
         # Controleer of het gevonden bestand een GML-bestand is of een bestandslijst
@@ -245,6 +226,7 @@ def evaluate_file(list, check):
     return
 
 
+# Controleert of een bestand een geldig Top10NL GML-bestand is
 def check_file(list, file):
     file_ext = os.path.splitext(file)
     ext = file_ext[1].lower()
@@ -255,6 +237,7 @@ def check_file(list, file):
     return
 
 
+# Bepaalt de Top10NL versie van een GML-bestand
 def check_file_version(list, file):
     # Controleer of er een Top10NL namespace wordt gebruikt
     f = open(file)
@@ -272,115 +255,109 @@ def check_file_version(list, file):
 
     return
 
-def main():
-    global config, pg_conn, pg_schema, SCRIPT_HOME
 
-    SCRIPT_HOME = os.path.dirname(os.path.realpath(sys.argv[0]))
-    DEFAULT_SETTINGS_INI = os.path.realpath(os.path.join(SCRIPT_HOME, SETTINGS_INI))
-    DEFAULT_GFS_TEMPLATE = os.path.realpath(os.path.join(SCRIPT_HOME, GFS_TEMPLATE))
+# Maakt een absoluut pad voor een relatief pad (t.o.v. SCRIPT_HOME)
+def abspath(relpath):
+    return os.path.realpath(os.path.join(SCRIPT_HOME, relpath))
 
-    argparser = argparse.ArgumentParser(description='Verwerk een of meerdere GML-bestanden')
-    argparser.add_argument('gml', type=str, help='het GML-bestand of de lijst met GML-bestanden', metavar='GML', nargs='+')
-    argparser.add_argument('--dir', type=str, help='lokatie getransformeerde bestanden', dest='dir', required=True)
-    argparser.add_argument('--ini', type=str, help='het settings-bestand (default: %s)' % SETTINGS_INI, dest='settings_ini', default=DEFAULT_SETTINGS_INI)
-    argparser.add_argument('--pre', type=str, help='SQL-script vooraf', dest='pre_sql')
-    argparser.add_argument('--post', type=str, help='SQL-script achteraf', dest='post_sql')
-    argparser.add_argument('--spat', type=float, help='spatial filter', dest='spat', nargs=4, metavar=('xmin', 'ymin', 'xmax', 'ymax'))
-    argparser.add_argument('--multi', type=str, help='multi-attributen (default: eerste)', choices=['eerste','meerdere','stringlist','array'], dest='multi', default='eerste')
-    argparser.add_argument('--gfs', type=str, help='GFS template-bestand (default: %s)' % GFS_TEMPLATE, dest='gfs_template', default=DEFAULT_GFS_TEMPLATE)
-    argparser.add_argument('--PG_PASSWORD', type=str, help='wachtwoord voor PostgreSQL', dest='pg_pass')
-    args = argparser.parse_args()
 
-    print 'Begintijd top10-extract:', strftime('%a, %d %b %Y %H:%M:%S', localtime())
-
-    ### Controle argumenten
-    # Check geldigheid dir
-    if not os.path.isdir(args.dir):
-        print 'De opgegeven lokatie `%s` is geen geldige directory' % args.dir
-        sys.exit(1)
-
-    # Check geldigheid settings file
-    if not os.path.isfile(args.settings_ini):
-        print 'Op de opgegeven lokatie `%s` is geen INI-bestand aangetroffen' % args.settings_ini
-        sys.exit(1)
-    
-    # Check geldigheid gfs template
-    if not os.path.isfile(args.gfs_template):
-        print 'Op de opgegeven lokatie `%s` is geen GFS template-bestand aangetroffen' % args.gfs_template
-        sys.exit(1)
-
-    ### Uitlezen configuratie
-    # Lees settings
-    config = ConfigParser.SafeConfigParser()
-    config.read(args.settings_ini)
-
-    # Zet password in environment variabele
-    if not 'PGPASSWORD' in os.environ:
-        if args.pg_pass is not None:
-            os.environ['PGPASSWORD'] = args.pg_pass
-        elif get_postgis_setting('PG_PASSWORD') is not None:
-            os.environ['PGPASSWORD'] = get_postgis_setting('PG_PASSWORD')
-
-    # Stel client encoding in
-    if get_postgis_setting('PG_CLIENTENCODING') is not None:
-        os.environ['PGCLIENTENCODING'] = get_postgis_setting('PG_CLIENTENCODING')
-
-    # Stel string samen voor PostgreSQL connectie op command line
-    pg_conn = '-h %s -p %s -U %s -d %s' % (
-        get_postgis_setting('PG_HOST'), get_postgis_setting('PG_PORT'),
-        get_postgis_setting('PG_USER'), get_postgis_setting('PG_DB'))
-        
-    # Stel het schema in
-    if get_postgis_setting('PG_SCHEMA') is not None:
-        pg_schema = get_postgis_setting('PG_SCHEMA')
-
-    ### Bepalen GML bestanden
-    # Stel lijst samen van alle in te lezen GML-bestanden
+# Verwerkt de data volgens het ETL-principe: extract, transform, load
+def process(gml):
+    ### Extract fase
+    # * Stel lijst samen van alle in te lezen GML-bestanden
     list = []
-    for file in args.gml:
+    for file in gml:
         evaluate_file(list, file)
 
     if len(list) == 0:
         print 'Er zijn geen GML-bestanden aangetroffen om in te lezen'
         sys.exit(1)
         
-    ### Uitvoering
-    # Aanmaken schema (indien niet bestaand)
-    sql = os.path.realpath(os.path.join(SCRIPT_HOME, 'top10-create-schema.sql'))
-    execute_sql(sql)
-
-    # * Scripts vooraf
-    execute_sql(args.pre_sql)
-
-    # * Droppen tabellen
-    sql = os.path.realpath(os.path.join(SCRIPT_HOME, 'top10-drop-tables.sql'))
-    execute_sql(sql)
-
     # * Validatie GML (optioneel)
     validate_gml()
 
+    ### Transform fase
     # * Opsplitsen en transformeren GML
-    xsl1_0 = os.path.realpath(os.path.join(SCRIPT_HOME, 'top10-split.xsl'))
-    xsl1_1_1 = os.path.realpath(os.path.join(SCRIPT_HOME, 'top10-split_v1_1_1.xsl'))
+    xsl1_0 = abspath('top10-split.xsl')
+    xsl1_1_1 = abspath('top10-split_v1_1_1.xsl')
     for tuple in list:
         if tuple[0] == V1_0:
-            trans_gml(tuple[1], xsl1_0, args.dir)
+            trans_gml(tuple[1], xsl1_0, settings.split_dir())
         elif tuple[0] == V1_1_1:
-            trans_gml(tuple[1], xsl1_1_1, args.dir)
+            trans_gml(tuple[1], xsl1_1_1, settings.split_dir())
+
+    ### Load fase
+    # * Aanmaken schema (indien niet bestaand)
+    sql = abspath('top10-create-schema.sql')
+    execute_sql(sql)
+
+    # * Scripts vooraf
+    execute_sql(settings.pre_sql())
+
+    # * Droppen tabellen
+    sql = abspath('top10-drop-tables.sql')
+    execute_sql(sql)
 
     # * Laden data met OGR
-    file_list = glob.glob(os.path.join(args.dir, '*.[gxGX][mM][lL]'))
+    file_list = glob.glob(os.path.join(settings.split_dir(), '*.[gxGX][mM][lL]'))
     for file in file_list:
-        load_data(file, args.gfs_template, args.spat, args.multi)
+        load_data(file)
 
     # * Verwijderen duplicate data
-    sql = os.path.realpath(os.path.join(SCRIPT_HOME, 'top10-delete-duplicates.sql'))
+    sql = abspath('top10-delete-duplicates.sql')
     execute_sql(sql)
 
     # * Scripts achteraf
-    execute_sql(args.post_sql)
+    execute_sql(settings.post_sql())
 
     # Reset password in environment variabele in exit handler on_exit
+
+    
+def main():
+    global SCRIPT_HOME, settings
+
+    # Default-waarden
+    SCRIPT_HOME = os.path.dirname(os.path.realpath(sys.argv[0]))
+    DEFAULT_SETTINGS_INI = abspath(SETTINGS_INI)
+    DEFAULT_GFS_TEMPLATE = abspath(GFS_TEMPLATE)
+
+    # Samenstellen command line parameters
+    argparser = argparse.ArgumentParser(description='Verwerk een of meerdere GML-bestanden')
+    argparser.add_argument('gml', type=str, help='het GML-bestand of de lijst met GML-bestanden', metavar='GML', nargs='+')
+    argparser.add_argument('--dir',   type=str,   help='lokatie getransformeerde bestanden', dest='dir', required=True)
+    argparser.add_argument('--ini',   type=str,   help='het settings-bestand (default: %s)' % SETTINGS_INI, dest='settings_ini', default=DEFAULT_SETTINGS_INI)
+    argparser.add_argument('--pre',   type=str,   help='SQL-script vooraf', dest='pre_sql')
+    argparser.add_argument('--post',  type=str,   help='SQL-script achteraf', dest='post_sql')
+    argparser.add_argument('--spat',  type=float, help='spatial filter', dest='spat', nargs=4, metavar=('xmin', 'ymin', 'xmax', 'ymax'))
+    argparser.add_argument('--multi', type=str,   help='multi-attributen (default: eerste)', choices=['eerste','meerdere','stringlist','array'], dest='multi', default='eerste')
+    argparser.add_argument('--gfs',   type=str,   help='GFS template-bestand (default: %s)' % GFS_TEMPLATE, dest='gfs_template', default=DEFAULT_GFS_TEMPLATE)
+    
+    # Database verbindingsparameters
+    # NB: geen defaults, deze komen uit de settings file
+    argparser.add_argument('--pg_host',     type=str, help='PostgreSQL server host', dest='pg_host')
+    argparser.add_argument('--pg_port',     type=int, help='PostgreSQL server poort', dest='pg_port')
+    argparser.add_argument('--pg_db',       type=str, help='PostgreSQL database', dest='pg_db')
+    argparser.add_argument('--pg_schema',   type=str, help='PostgreSQL schema', dest='pg_schema')
+    argparser.add_argument('--pg_user',     type=str, help='PostgreSQL gebruikersnaam', dest='pg_user')
+    argparser.add_argument('--pg_password', type=str, help='PostgreSQL wachtwoord', dest='pg_pass')
+    args = argparser.parse_args()
+
+    print 'Begintijd top10-extract:', strftime('%a, %d %b %Y %H:%M:%S', localtime())
+
+    ### Uitlezen configuratie
+    # Lees settings
+    settings = SettingsProvider(args)
+
+    # Zet password in environment variabele
+    if not 'PGPASSWORD' in os.environ:
+        os.environ['PGPASSWORD'] = settings.pg_pass()
+
+    # Stel client encoding in
+    if settings.pg_clientencoding() is not None:
+        os.environ['PGCLIENTENCODING'] = settings.pg_clientencoding()
+
+    ### Verwerken data
+    process(args.gml)
 
     print 'Eindtijd top10-extract:', strftime('%a, %d %b %Y %H:%M:%S', localtime())
 
