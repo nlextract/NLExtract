@@ -12,9 +12,9 @@ DECLARE
     rowcount INTEGER;
 BEGIN
 
-    EXECUTE FORMAT('CREATE TABLE _nlx_temp AS SELECT ogc_fid, identificatie FROM %I WHERE identificatie IN (SELECT identificatie FROM (SELECT identificatie, COUNT(*) AS aantal FROM %I GROUP BY identificatie ORDER BY identificatie) AS x WHERE aantal>1);', tablename, tablename);
+    EXECUTE 'CREATE TABLE _nlx_temp AS SELECT ogc_fid, identificatie FROM ' || tablename || ' WHERE identificatie IN (SELECT identificatie FROM (SELECT identificatie, COUNT(*) AS aantal FROM ' || tablename || ' GROUP BY identificatie ORDER BY identificatie) AS x WHERE aantal>1);';
 
-    EXECUTE FORMAT('DELETE FROM %I WHERE ogc_fid IN (SELECT ogc_fid FROM _nlx_temp WHERE ogc_fid NOT IN (SELECT MIN(ogc_fid) FROM _nlx_temp GROUP BY identificatie));', tablename);
+    EXECUTE 'DELETE FROM ' || tablename || ' WHERE ogc_fid IN (SELECT ogc_fid FROM _nlx_temp WHERE ogc_fid NOT IN (SELECT MIN(ogc_fid) FROM _nlx_temp GROUP BY identificatie));';
     GET DIAGNOSTICS rowcount = ROW_COUNT;
 
     DROP TABLE IF EXISTS _nlx_temp;

@@ -13,7 +13,7 @@ BEGIN
         WHERE schema_name = $1
     )
     THEN
-        EXECUTE FORMAT('CREATE SCHEMA %I;', $1);
+        EXECUTE 'CREATE SCHEMA ' || $1 || ';';
     END IF;
 
 END;
