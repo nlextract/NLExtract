@@ -13,7 +13,10 @@ Handleiding Top10-extract
 Algemeen
 --------
 
-NLExtract/Top10NL, kortweg Top10-extract bevat tools om de Top10NL bronbestanden zoals geleverd door Het Kadaster (GML)
+Top10NL is onderdeel van de Kadaster Basisregistratie Topografie (BRT). Vind algemene info
+over Top10NL op http://www.kadaster.nl/web/artikel/productartikel/TOP10NL.htm.
+
+NLExtract/Top10NL, kortweg Top10-Extract bevat tools om de Top10NL bronbestanden zoals geleverd door Het Kadaster (GML)
 om te zetten naar hanteerbare formaten zoals PostGIS. Tevens bevat Top10-extract visualisatie-bestanden
 (onder de map `style/` ) voor QGIS en SLDs om kaarten te maken. (NB deze zijn nu nog gebaseerd op Top10NL 1.0!).
 
@@ -31,14 +34,14 @@ Er zijn 14 typen Top10NL objecten. Zie ook de Top10NL structuur-beschrijving in
 Top10NL Downloaden
 ------------------
 
-Uiteraard heb je Top10NL brondata nodig. Deze kun je via http://kadaster.nl/top10nl vinden, maar
-we hebben ook een directe download link beschikbaar met dank aan OpenStreetMap-NL, zie:
+Top10NL brondata in GML kun je via `PDOK Top10NL Downloads <https://www.pdok.nl/nl/producten/pdok-downloads/basis-registratie-topografie/topnl/top10nl-downloads>`_ downloaden, maar
+ook via OpenStreetMap-NL, zie:
 http://mirror.openstreetmap.nl/kadaster/Top10NL_v1_1_1
 
 `NB  heel belangrijk is om de laatste versie van Top10NL te gebruiken: v1.1.1.` Deze wordt geleverd met ingang van
 september 2012. In bijv. PDOK zijn momenteel (okt 2012) nog oudere versies van Top10NL.
 
-Top10-extract downloaden
+Top10-Extract downloaden
 ------------------------
 
 Vind altijd de laatste versie op: http://www.nlextract.nl/file-cabinet
