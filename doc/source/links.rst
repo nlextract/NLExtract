@@ -12,3 +12,4 @@ Hieronder links naar relevante zaken rond het project.
 .. [GeoServer] GeoServer, http://geoserver.org
 .. [INSPIRE] INSPIRE, http://inspire.ec.europa.eu/
 .. [PostGIS] PostGIS/PostgreSQL, http://postgis.refractions.net
+.. [PDOK] PDOK Loket, http://pdok.nl

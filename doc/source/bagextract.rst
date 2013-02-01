@@ -121,7 +121,7 @@ Installatie (Windows)
 	C:\BAGExtract\scripts
 	C:\BAGExtract\db
 
-en kopieer de scripts en db folders van NLEXTRACT.zip naar deze folders.
+en kopieer de scripts en db folders van NLExtract.zip naar deze folders.
 
 13. Vul in de extract.conf file de gegevens van je server, de onder punt 11 aangemaakte database, de onder punt 11 aangemaakte gebruiker en bijbehorend wachtwoord. Standaard maken de scripts gebruik van deze gegevens.
 NB: De extract.conf file staat onder NL Extract (subfolder bag).
