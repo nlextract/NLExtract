@@ -1,3 +1,5 @@
+BONNE_DATA_DST_DIR=${BONNE_DATA_HOME}/friesland
+
 # Test: converteer files voor frieslan
 ./bonnetrans.sh b074-1931.png
 ./bonnetrans.sh b075-1930.png

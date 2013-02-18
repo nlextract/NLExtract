@@ -67,10 +67,12 @@ function createGeoTiff() {
 
     # Roteren: laat zwarte randen verdwijnen (met dank aan Frank Steggink)
     # -define +dither -map $src_png is om colormap te behouden (anders wordt ie RGB en bestand 3x groter)
-    convert $src_png -set tiff:software "NLExtract" -set tiff:timestamp "`date`" -brightness-contrast ${BRIGHTNESS_CONTRAST} -affine ${AFFINE} -transform -crop ${CROP} -define +dither -map $src_png $tmp_png
+#    convert $src_png -set tiff:software "NLExtract" -set tiff:timestamp "`date`" -brightness-contrast ${BRIGHTNESS_CONTRAST} -affine ${AFFINE} -transform -crop ${CROP} -define +dither -map $src_png $tmp_png
+    convert $src_png -set tiff:software "NLExtract" -set tiff:timestamp "`date`" -brightness-contrast ${BRIGHTNESS_CONTRAST} -define +dither -map $src_png $tmp_png
 
     # Maak GeoTIFF van PNG met juiste georeferentie
 	gdal_translate -of GTiff -a_ullr $nw $se -co TILED=YES -a_srs EPSG:28992 $tmp_png $dst_tif
+    python gdalsetnull.py $dst_tif 0
 
 	# Alternatief met GCPs en gdal_warp
 	# Upper Left  (    0.0,    0.0)
@@ -78,6 +80,7 @@ function createGeoTiff() {
 	#Upper Right ( 4000.0,    0.0)
 	#Lower Right ( 4000.0, 2500.0)
 	#Center      ( 2000.0, 1250.0)
+	# http://support.mapbox.com/discussions/tilemill/1777-geotiff-with-alpha-channel-for-a-mask
 	# translate then warp: http://lists.maptools.org/pipermail/fwtools/2009-July/001619.html
 #	gcps="-gcp 0 0 $nwx $nwy -gcp 4000 0 $nex $ney -gcp 0 2500 $swx $swy -gcp 4000 2500 $sex $sey"
 #	gdal_translate -of GTiff $gcps -co TILED=YES -a_srs EPSG:28992 $tmp_png $tmp_tif
