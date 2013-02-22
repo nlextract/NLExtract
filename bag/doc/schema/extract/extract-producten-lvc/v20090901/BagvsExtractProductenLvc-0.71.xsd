@@ -2,7 +2,7 @@
 <!-- edited with XMLSpy v2010 (http://www.altova.com) by Kadaster (Kadaster) -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:product_LVC="http://www.kadaster.nl/schemas/bag-verstrekkingen/extract-producten-lvc/v20090901" xmlns:bag_LVC="http://www.kadaster.nl/schemas/imbag/lvc/v20090901" xmlns:bagtype="http://www.kadaster.nl/schemas/imbag/imbag-types/v20090901" targetNamespace="http://www.kadaster.nl/schemas/bag-verstrekkingen/extract-producten-lvc/v20090901" elementFormDefault="qualified" attributeFormDefault="unqualified" version="0.7">
 	<xs:import namespace="http://www.kadaster.nl/schemas/imbag/imbag-types/v20090901" schemaLocation="../../../imbag/imbag-types/v20090901/BagvsImbagOnderdelen-0.7.xsd"/>
-	<xs:import namespace="http://www.kadaster.nl/schemas/imbag/lvc/v20090901" schemaLocation="../../../imbag/lvc/v20090901/BagvsImbagLvc-0.71.xsd"/>
+	<xs:import namespace="http://www.kadaster.nl/schemas/imbag/lvc/v20090901" schemaLocation="../../../imbag/lvc-gml/v20090901/BagvsImbagLvc-0.71.xsd"/>
 	<xs:complexType name="_product" abstract="1">
 		<xs:sequence>
 			<xs:element name="productcode" type="xs:string" minOccurs="0"/>

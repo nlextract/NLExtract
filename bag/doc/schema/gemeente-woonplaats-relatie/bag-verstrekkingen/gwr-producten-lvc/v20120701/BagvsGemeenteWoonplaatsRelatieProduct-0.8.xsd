@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2010 (http://www.altova.com) by Kadaster (Kadaster) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:gwr-product="http://www.kadaster.nl/schemas/bag-verstrekkingen/gwr-producten-lvc/v20120701" xmlns:gwr_LVC="http://www.kadaster.nl/schemas/bag-gwr-model/lvc/v20120701" xmlns:gwr_gemeente="http://www.kadaster.nl/schemas/bag-gwr-model/gemeente/v20120701" targetNamespace="http://www.kadaster.nl/schemas/bag-verstrekkingen/gwr-producten-lvc/v20120701" elementFormDefault="qualified" attributeFormDefault="unqualified" version="0.8">
+	<xs:import namespace="http://www.kadaster.nl/schemas/bag-gwr-model/lvc/v20120701" schemaLocation="../../../bag-gwr-model/lvc/v20120701/BagvsGemeenteWoonplaatsRelatieLvc-0.8.xsd"/>
+	<xs:import namespace="http://www.kadaster.nl/schemas/bag-gwr-model/gemeente/v20120701" schemaLocation="../../../bag-gwr-model/gemeente/v20120701/BagvsGwrGemeente-0.1.xsd"/>
+	<xs:annotation>
+		<xs:documentation>Dit schema definieert een het product Gemeente Woonplaats Relatie. Dit product bestaat uit de koppeling tussen woonplaats uit de LVBAG en de gemeente waarbinnen de woonplaats in een bepaalde periode (tijdvak) ligt. </xs:documentation>
+	</xs:annotation>
+	<xs:element name="GemeenteWoonplaatsRelatieProduct" type="gwr-product:GemeenteWoonplaatsRelatieProductType">
+		<xs:annotation>
+			<xs:documentation>Onderdeel van het product BAG Compact, te weten een adres, samengesteld uit BAG  gegevens, zonder GML. </xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="GemeenteWoonplaatsRelatieProductType">
+		<xs:sequence>
+			<xs:element ref="gwr_LVC:GemeenteWoonplaatsRelatie" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

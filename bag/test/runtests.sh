@@ -4,8 +4,18 @@
 #
 
 # Plaatsbepaling
-BE_HOME_DIR=`dirname $0`/..
+#BE_HOME_DIR=`dirname $0`/..
+#BE_HOME_DIR=`(cd "$BE_HOME_DIR"; pwd)`
+# Bepaal waar we zijn zodat we kunnen uitvoeren vanaf elke directory
+# werkt ook met symlinks dankzij gidema.
+if [ -h "$0" ] ; then
+  BE_HOME_DIR=`readlink "$0"`
+  BE_HOME_DIR=`dirname "$BE_HOME_DIR"`/..
+else
+  BE_HOME_DIR=`dirname $0`/..
+fi
 BE_HOME_DIR=`(cd "$BE_HOME_DIR"; pwd)`
+
 TEST_DIR=$BE_HOME_DIR/test
 DATA_DIR=$TEST_DIR/data
 DATA_DUBBEL_DIR=$TEST_DIR/datadubbel
@@ -33,5 +43,10 @@ $BAG_EXTRACT -v -q $DB_DIR/script/gemeente-provincie-tabel.sql
 
 # Maak een "ACN-achtig" adres met alles erin
 $BAG_EXTRACT -v -q $DB_DIR/script/adres-tabel.sql
+
+# Geocode tabellen  en functies
+$BAG_EXTRACT -v -q $DB_DIR/script/geocode/geocode-tabellen.sql
+$BAG_EXTRACT -v -q $DB_DIR/script/geocode/geocode-functies.sql
+$BAG_EXTRACT -v -q $TEST_DIR/geocode/geocode-functies-test.sql
 
 

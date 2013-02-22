@@ -86,7 +86,8 @@
                     <bag_LVC:inOnderzoek>N</bag_LVC:inOnderzoek>
                     <bag_LVC:bron>
                         <bagtype:documentdatum>20090901</bagtype:documentdatum>
-                        <bagtype:documentnummer>2009090113/c</bagtype:documentnummer>
+                        <bagtype:documentnummer>192/1973
+                                192/1973</bagtype:documentnummer>
                     </bag_LVC:bron>
                 </bag_LVC:Pand>
                 <bag_LVC:Pand>
@@ -115,7 +116,7 @@
                     <bag_LVC:inOnderzoek>N</bag_LVC:inOnderzoek>
                     <bag_LVC:bron>
                         <bagtype:documentdatum>20090901</bagtype:documentdatum>
-                        <bagtype:documentnummer>2009090113/c</bagtype:documentnummer>
+                        <bagtype:documentnummer>2009\090113~/c</bagtype:documentnummer>
                     </bag_LVC:bron>
                 </bag_LVC:Pand>
                 <bag_LVC:Pand>
@@ -206,7 +207,7 @@
                     <bag_LVC:inOnderzoek>N</bag_LVC:inOnderzoek>
                     <bag_LVC:bron>
                         <bagtype:documentdatum>19921208</bagtype:documentdatum>
-                        <bagtype:documentnummer>1992186</bagtype:documentnummer>
+                        <bagtype:documentnummer>15-09-1938-&#191;40</bagtype:documentnummer>
                     </bag_LVC:bron>
                 </bag_LVC:Pand>
                 <bag_LVC:Pand>
@@ -523,6 +524,36 @@
                     <bag_LVC:bron>
                         <bagtype:documentdatum>20000307</bagtype:documentdatum>
                         <bagtype:documentnummer>1999291</bagtype:documentnummer>
+                    </bag_LVC:bron>
+                </bag_LVC:Pand>
+
+                <bag_LVC:Pand>
+                    <bag_LVC:identificatie>1895100000002619</bag_LVC:identificatie>
+                    <bag_LVC:aanduidingRecordInactief>N</bag_LVC:aanduidingRecordInactief>
+                    <bag_LVC:aanduidingRecordCorrectie>0</bag_LVC:aanduidingRecordCorrectie>
+                    <bag_LVC:officieel>N</bag_LVC:officieel>
+                    <bag_LVC:pandGeometrie>
+                        <gml:Polygon srsName="urn:ogc:def:crs:EPSG::28992">
+                            <gml:exterior>
+                                <gml:LinearRing>
+                                    <gml:posList srsDimension="3" count="5">264467.309 573490.064 0.0 264462.289
+                                        573488.974 0.0
+                                        264462.843 573486.421 0.0 264467.86 573487.51 0.0 264467.309 573490.064 0.0
+                                    </gml:posList>
+                                </gml:LinearRing>
+                            </gml:exterior>
+                        </gml:Polygon>
+                    </bag_LVC:pandGeometrie>
+                    <bag_LVC:bouwjaar>1973</bag_LVC:bouwjaar>
+                    <bag_LVC:pandstatus>Pand in gebruik (niet ingemeten)</bag_LVC:pandstatus>
+                    <bag_LVC:tijdvakgeldigheid>
+                        <bagtype:begindatumTijdvakGeldigheid>1973112600000000</bagtype:begindatumTijdvakGeldigheid>
+                    </bag_LVC:tijdvakgeldigheid>
+                    <bag_LVC:inOnderzoek>N</bag_LVC:inOnderzoek>
+                    <bag_LVC:bron>
+                        <bagtype:documentdatum>19731126</bagtype:documentdatum>
+                        <bagtype:documentnummer>192/1973
+                               192/1973</bagtype:documentnummer>
                     </bag_LVC:bron>
                 </bag_LVC:Pand>
             </product_LVC:LVC-product>

@@ -2,6 +2,8 @@
   <GMLFeatureClass>
     <Name>FunctioneelGebied_Punt</Name>
     <ElementPath>FunctioneelGebied_Punt</ElementPath>
+    <GeometryType>1</GeometryType>
+    <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
       <ExtentXMin>10000</ExtentXMin>
       <ExtentXMax>280000</ExtentXMax>
@@ -39,8 +41,14 @@
       <Width>250</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>naam</Name>
-      <ElementPath>naam</ElementPath>
+      <Name>naamNL</Name>
+      <ElementPath>naamNL</ElementPath>
+      <Type>String</Type>
+      <Width>250</Width>
+    </PropertyDefn>
+    <PropertyDefn>
+      <Name>naamFries</Name>
+      <ElementPath>naamFries</ElementPath>
       <Type>String</Type>
       <Width>250</Width>
     </PropertyDefn>
@@ -82,10 +90,24 @@
       <Width>250</Width>
     </PropertyDefn>
     <!-- Einde properties top10nl:Top10Object -->
+    <!-- Begin nieuwe attributen versie 1.1.1 -->
+    <PropertyDefn>
+      <Name>visualisatiecode</Name>
+      <ElementPath>visualisatieCode</ElementPath>
+      <Type>Integer</Type>
+    </PropertyDefn>
+    <PropertyDefn>
+      <Name>tdncode</Name>
+      <ElementPath>tdnCode</ElementPath>
+      <Type>Integer</Type>
+    </PropertyDefn>
+    <!-- Einde nieuwe attributen versie 1.1.1 -->
   </GMLFeatureClass>
   <GMLFeatureClass>
     <Name>FunctioneelGebied_Vlak</Name>
     <ElementPath>FunctioneelGebied_Vlak</ElementPath>
+    <GeometryType>3</GeometryType>
+    <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
       <ExtentXMin>10000</ExtentXMin>
       <ExtentXMax>280000</ExtentXMax>
@@ -123,8 +145,14 @@
       <Width>250</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>naam</Name>
-      <ElementPath>naam</ElementPath>
+      <Name>naamNL</Name>
+      <ElementPath>naamNL</ElementPath>
+      <Type>String</Type>
+      <Width>250</Width>
+    </PropertyDefn>
+    <PropertyDefn>
+      <Name>naamFries</Name>
+      <ElementPath>naamFries</ElementPath>
       <Type>String</Type>
       <Width>250</Width>
     </PropertyDefn>
@@ -166,10 +194,24 @@
       <Width>250</Width>
     </PropertyDefn>
     <!-- Einde properties top10nl:Top10Object -->
+    <!-- Begin nieuwe attributen versie 1.1.1 -->
+    <PropertyDefn>
+      <Name>visualisatiecode</Name>
+      <ElementPath>visualisatieCode</ElementPath>
+      <Type>Integer</Type>
+    </PropertyDefn>
+    <PropertyDefn>
+      <Name>tdncode</Name>
+      <ElementPath>tdnCode</ElementPath>
+      <Type>Integer</Type>
+    </PropertyDefn>
+    <!-- Einde nieuwe attributen versie 1.1.1 -->
   </GMLFeatureClass>
   <GMLFeatureClass>
     <Name>Gebouw_Vlak</Name>
     <ElementPath>Gebouw_Vlak</ElementPath>
+    <GeometryType>3</GeometryType>
+    <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
       <ExtentXMin>10000</ExtentXMin>
       <ExtentXMax>280000</ExtentXMax>
@@ -207,8 +249,14 @@
       <Width>250</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>naam</Name>
-      <ElementPath>naam</ElementPath>
+      <Name>naamNL</Name>
+      <ElementPath>naamNL</ElementPath>
+      <Type>String</Type>
+      <Width>250</Width>
+    </PropertyDefn>
+    <PropertyDefn>
+      <Name>naamFries</Name>
+      <ElementPath>naamFries</ElementPath>
       <Type>String</Type>
       <Width>250</Width>
     </PropertyDefn>
@@ -216,8 +264,7 @@
     <PropertyDefn>
       <Name>typeGebouw</Name>
       <ElementPath>typeGebouw</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>hoogteklasse</Name>
@@ -267,10 +314,24 @@
       <Width>250</Width>
     </PropertyDefn>
     <!-- Einde properties top10nl:Top10Object -->
+    <!-- Begin nieuwe attributen versie 1.1.1 -->
+    <PropertyDefn>
+      <Name>visualisatiecode</Name>
+      <ElementPath>visualisatieCode</ElementPath>
+      <Type>Integer</Type>
+    </PropertyDefn>
+    <PropertyDefn>
+      <Name>tdncode</Name>
+      <ElementPath>tdnCode</ElementPath>
+      <Type>Integer</Type>
+    </PropertyDefn>
+    <!-- Einde nieuwe attributen versie 1.1.1 -->
   </GMLFeatureClass>
   <GMLFeatureClass>
     <Name>GeografischGebied_Punt</Name>
     <ElementPath>GeografischGebied_Punt</ElementPath>
+    <GeometryType>1</GeometryType>
+    <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
       <ExtentXMin>10000</ExtentXMin>
       <ExtentXMax>280000</ExtentXMax>
@@ -308,8 +369,14 @@
       <Width>250</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>naam</Name>
-      <ElementPath>naam</ElementPath>
+      <Name>naamNL</Name>
+      <ElementPath>naamNL</ElementPath>
+      <Type>String</Type>
+      <Width>250</Width>
+    </PropertyDefn>
+    <PropertyDefn>
+      <Name>naamFries</Name>
+      <ElementPath>naamFries</ElementPath>
       <Type>String</Type>
       <Width>250</Width>
     </PropertyDefn>
@@ -357,10 +424,24 @@
       <Width>250</Width>
     </PropertyDefn>
     <!-- Einde properties top10nl:Top10Object -->
+    <!-- Begin nieuwe attributen versie 1.1.1 -->
+    <PropertyDefn>
+      <Name>visualisatiecode</Name>
+      <ElementPath>visualisatieCode</ElementPath>
+      <Type>Integer</Type>
+    </PropertyDefn>
+    <PropertyDefn>
+      <Name>tdncode</Name>
+      <ElementPath>tdnCode</ElementPath>
+      <Type>Integer</Type>
+    </PropertyDefn>
+    <!-- Einde nieuwe attributen versie 1.1.1 -->
   </GMLFeatureClass>
   <GMLFeatureClass>
     <Name>GeografischGebied_Vlak</Name>
     <ElementPath>GeografischGebied_Vlak</ElementPath>
+    <GeometryType>3</GeometryType>
+    <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
       <ExtentXMin>10000</ExtentXMin>
       <ExtentXMax>280000</ExtentXMax>
@@ -398,8 +479,14 @@
       <Width>250</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>naam</Name>
-      <ElementPath>naam</ElementPath>
+      <Name>naamNL</Name>
+      <ElementPath>naamNL</ElementPath>
+      <Type>String</Type>
+      <Width>250</Width>
+    </PropertyDefn>
+    <PropertyDefn>
+      <Name>naamFries</Name>
+      <ElementPath>naamFries</ElementPath>
       <Type>String</Type>
       <Width>250</Width>
     </PropertyDefn>
@@ -447,10 +534,24 @@
       <Width>250</Width>
     </PropertyDefn>
     <!-- Einde properties top10nl:Top10Object -->
+    <!-- Begin nieuwe attributen versie 1.1.1 -->
+    <PropertyDefn>
+      <Name>visualisatiecode</Name>
+      <ElementPath>visualisatieCode</ElementPath>
+      <Type>Integer</Type>
+    </PropertyDefn>
+    <PropertyDefn>
+      <Name>tdncode</Name>
+      <ElementPath>tdnCode</ElementPath>
+      <Type>Integer</Type>
+    </PropertyDefn>
+    <!-- Einde nieuwe attributen versie 1.1.1 -->
   </GMLFeatureClass>
   <GMLFeatureClass>
     <Name>HoogteOfDiepte_Punt</Name>
     <ElementPath>HoogteOfDiepte_Punt</ElementPath>
+    <GeometryType>1</GeometryType>
+    <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
       <ExtentXMin>10000</ExtentXMin>
       <ExtentXMax>280000</ExtentXMax>
@@ -488,16 +589,22 @@
       <Width>250</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>naam</Name>
-      <ElementPath>naam</ElementPath>
+      <Name>naamNL</Name>
+      <ElementPath>naamNL</ElementPath>
+      <Type>String</Type>
+      <Width>250</Width>
+    </PropertyDefn>
+    <PropertyDefn>
+      <Name>naamFries</Name>
+      <ElementPath>naamFries</ElementPath>
       <Type>String</Type>
       <Width>250</Width>
     </PropertyDefn>
     <!-- Einde properties nen3610:GeoObjectType -->
-    <!-- Begin properties top10nl:ReliëfType -->
+    <!-- Begin properties top10nl:ReliefType -->
     <PropertyDefn>
-      <Name>typeReliëf</Name>
-      <ElementPath>typeReliëf</ElementPath>
+      <Name>typeRelief</Name>
+      <ElementPath>typeRelief</ElementPath>
       <Type>String</Type>
       <Width>250</Width>
     </PropertyDefn>
@@ -523,7 +630,7 @@
       <ElementPath>hoogteniveau</ElementPath>
       <Type>Integer</Type>
     </PropertyDefn>
-    <!-- Einde properties top10nl:ReliëfType -->
+    <!-- Einde properties top10nl:ReliefType -->
     <!-- Begin properties top10nl:Top10Object -->
     <PropertyDefn>
       <Name>brontype</Name>
@@ -555,10 +662,24 @@
       <Width>250</Width>
     </PropertyDefn>
     <!-- Einde properties top10nl:Top10Object -->
+    <!-- Begin nieuwe attributen versie 1.1.1 -->
+    <PropertyDefn>
+      <Name>visualisatiecode</Name>
+      <ElementPath>visualisatieCode</ElementPath>
+      <Type>Integer</Type>
+    </PropertyDefn>
+    <PropertyDefn>
+      <Name>tdncode</Name>
+      <ElementPath>tdnCode</ElementPath>
+      <Type>Integer</Type>
+    </PropertyDefn>
+    <!-- Einde nieuwe attributen versie 1.1.1 -->
   </GMLFeatureClass>
   <GMLFeatureClass>
     <Name>HoogteverschilHZ_Lijn</Name>
     <ElementPath>HoogteverschilHZ_Lijn</ElementPath>
+    <GeometryType>2</GeometryType>
+    <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
       <ExtentXMin>10000</ExtentXMin>
       <ExtentXMax>280000</ExtentXMax>
@@ -596,16 +717,22 @@
       <Width>250</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>naam</Name>
-      <ElementPath>naam</ElementPath>
+      <Name>naamNL</Name>
+      <ElementPath>naamNL</ElementPath>
+      <Type>String</Type>
+      <Width>250</Width>
+    </PropertyDefn>
+    <PropertyDefn>
+      <Name>naamFries</Name>
+      <ElementPath>naamFries</ElementPath>
       <Type>String</Type>
       <Width>250</Width>
     </PropertyDefn>
     <!-- Einde properties nen3610:GeoObjectType -->
-    <!-- Begin properties top10nl:ReliëfType -->
+    <!-- Begin properties top10nl:ReliefType -->
     <PropertyDefn>
-      <Name>typeReliëf</Name>
-      <ElementPath>typeReliëf</ElementPath>
+      <Name>typeRelief</Name>
+      <ElementPath>typeRelief</ElementPath>
       <Type>String</Type>
       <Width>250</Width>
     </PropertyDefn>
@@ -631,7 +758,7 @@
       <ElementPath>hoogteniveau</ElementPath>
       <Type>Integer</Type>
     </PropertyDefn>
-    <!-- Einde properties top10nl:ReliëfType -->
+    <!-- Einde properties top10nl:ReliefType -->
     <!-- Begin properties top10nl:Top10Object -->
     <PropertyDefn>
       <Name>brontype</Name>
@@ -663,10 +790,24 @@
       <Width>250</Width>
     </PropertyDefn>
     <!-- Einde properties top10nl:Top10Object -->
+    <!-- Begin nieuwe attributen versie 1.1.1 -->
+    <PropertyDefn>
+      <Name>visualisatiecode</Name>
+      <ElementPath>visualisatieCode</ElementPath>
+      <Type>Integer</Type>
+    </PropertyDefn>
+    <PropertyDefn>
+      <Name>tdncode</Name>
+      <ElementPath>tdnCode</ElementPath>
+      <Type>Integer</Type>
+    </PropertyDefn>
+    <!-- Einde nieuwe attributen versie 1.1.1 -->
   </GMLFeatureClass>
   <GMLFeatureClass>
     <Name>HoogteverschilLZ_Lijn</Name>
     <ElementPath>HoogteverschilLZ_Lijn</ElementPath>
+    <GeometryType>2</GeometryType>
+    <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
       <ExtentXMin>10000</ExtentXMin>
       <ExtentXMax>280000</ExtentXMax>
@@ -704,16 +845,22 @@
       <Width>250</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>naam</Name>
-      <ElementPath>naam</ElementPath>
+      <Name>naamNL</Name>
+      <ElementPath>naamNL</ElementPath>
+      <Type>String</Type>
+      <Width>250</Width>
+    </PropertyDefn>
+    <PropertyDefn>
+      <Name>naamFries</Name>
+      <ElementPath>naamFries</ElementPath>
       <Type>String</Type>
       <Width>250</Width>
     </PropertyDefn>
     <!-- Einde properties nen3610:GeoObjectType -->
-    <!-- Begin properties top10nl:ReliëfType -->
+    <!-- Begin properties top10nl:ReliefType -->
     <PropertyDefn>
-      <Name>typeReliëf</Name>
-      <ElementPath>typeReliëf</ElementPath>
+      <Name>typeRelief</Name>
+      <ElementPath>typeRelief</ElementPath>
       <Type>String</Type>
       <Width>250</Width>
     </PropertyDefn>
@@ -739,7 +886,7 @@
       <ElementPath>hoogteniveau</ElementPath>
       <Type>Integer</Type>
     </PropertyDefn>
-    <!-- Einde properties top10nl:ReliëfType -->
+    <!-- Einde properties top10nl:ReliefType -->
     <!-- Begin properties top10nl:Top10Object -->
     <PropertyDefn>
       <Name>brontype</Name>
@@ -771,10 +918,24 @@
       <Width>250</Width>
     </PropertyDefn>
     <!-- Einde properties top10nl:Top10Object -->
+    <!-- Begin nieuwe attributen versie 1.1.1 -->
+    <PropertyDefn>
+      <Name>visualisatiecode</Name>
+      <ElementPath>visualisatieCode</ElementPath>
+      <Type>Integer</Type>
+    </PropertyDefn>
+    <PropertyDefn>
+      <Name>tdncode</Name>
+      <ElementPath>tdnCode</ElementPath>
+      <Type>Integer</Type>
+    </PropertyDefn>
+    <!-- Einde nieuwe attributen versie 1.1.1 -->
   </GMLFeatureClass>
   <GMLFeatureClass>
     <Name>Inrichtingselement_Lijn</Name>
     <ElementPath>Inrichtingselement_Lijn</ElementPath>
+    <GeometryType>2</GeometryType>
+    <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
       <ExtentXMin>10000</ExtentXMin>
       <ExtentXMax>280000</ExtentXMax>
@@ -812,8 +973,14 @@
       <Width>250</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>naam</Name>
-      <ElementPath>naam</ElementPath>
+      <Name>naamNL</Name>
+      <ElementPath>naamNL</ElementPath>
+      <Type>String</Type>
+      <Width>250</Width>
+    </PropertyDefn>
+    <PropertyDefn>
+      <Name>naamFries</Name>
+      <ElementPath>naamFries</ElementPath>
       <Type>String</Type>
       <Width>250</Width>
     </PropertyDefn>
@@ -834,7 +1001,7 @@
       <!-- Top10NL property nog niet aangetroffen -->
       <Name>nummer</Name>
       <ElementPath>nummer</ElementPath>
-      <Type>Real</Type>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>hoogteniveau</Name>
@@ -872,10 +1039,24 @@
       <Width>250</Width>
     </PropertyDefn>
     <!-- Einde properties top10nl:Top10Object -->
+    <!-- Begin nieuwe attributen versie 1.1.1 -->
+    <PropertyDefn>
+      <Name>visualisatiecode</Name>
+      <ElementPath>visualisatieCode</ElementPath>
+      <Type>Integer</Type>
+    </PropertyDefn>
+    <PropertyDefn>
+      <Name>tdncode</Name>
+      <ElementPath>tdnCode</ElementPath>
+      <Type>Integer</Type>
+    </PropertyDefn>
+    <!-- Einde nieuwe attributen versie 1.1.1 -->
   </GMLFeatureClass>
   <GMLFeatureClass>
     <Name>Inrichtingselement_Punt</Name>
     <ElementPath>Inrichtingselement_Punt</ElementPath>
+    <GeometryType>1</GeometryType>
+    <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
       <ExtentXMin>10000</ExtentXMin>
       <ExtentXMax>280000</ExtentXMax>
@@ -913,8 +1094,14 @@
       <Width>250</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>naam</Name>
-      <ElementPath>naam</ElementPath>
+      <Name>naamNL</Name>
+      <ElementPath>naamNL</ElementPath>
+      <Type>String</Type>
+      <Width>250</Width>
+    </PropertyDefn>
+    <PropertyDefn>
+      <Name>naamFries</Name>
+      <ElementPath>naamFries</ElementPath>
       <Type>String</Type>
       <Width>250</Width>
     </PropertyDefn>
@@ -935,7 +1122,7 @@
       <!-- Top10NL property nog niet aangetroffen -->
       <Name>nummer</Name>
       <ElementPath>nummer</ElementPath>
-      <Type>Real</Type>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>hoogteniveau</Name>
@@ -973,10 +1160,24 @@
       <Width>250</Width>
     </PropertyDefn>
     <!-- Einde properties top10nl:Top10Object -->
+    <!-- Begin nieuwe attributen versie 1.1.1 -->
+    <PropertyDefn>
+      <Name>visualisatiecode</Name>
+      <ElementPath>visualisatieCode</ElementPath>
+      <Type>Integer</Type>
+    </PropertyDefn>
+    <PropertyDefn>
+      <Name>tdncode</Name>
+      <ElementPath>tdnCode</ElementPath>
+      <Type>Integer</Type>
+    </PropertyDefn>
+    <!-- Einde nieuwe attributen versie 1.1.1 -->
   </GMLFeatureClass>
   <GMLFeatureClass>
     <Name>IsoHoogte_Lijn</Name>
     <ElementPath>IsoHoogte_Lijn</ElementPath>
+    <GeometryType>2</GeometryType>
+    <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
       <ExtentXMin>10000</ExtentXMin>
       <ExtentXMax>280000</ExtentXMax>
@@ -1014,16 +1215,22 @@
       <Width>250</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>naam</Name>
-      <ElementPath>naam</ElementPath>
+      <Name>naamNL</Name>
+      <ElementPath>naamNL</ElementPath>
+      <Type>String</Type>
+      <Width>250</Width>
+    </PropertyDefn>
+    <PropertyDefn>
+      <Name>naamFries</Name>
+      <ElementPath>naamFries</ElementPath>
       <Type>String</Type>
       <Width>250</Width>
     </PropertyDefn>
     <!-- Einde properties nen3610:GeoObjectType -->
-    <!-- Begin properties top10nl:ReliëfType -->
+    <!-- Begin properties top10nl:ReliefType -->
     <PropertyDefn>
-      <Name>typeReliëf</Name>
-      <ElementPath>typeReliëf</ElementPath>
+      <Name>typeRelief</Name>
+      <ElementPath>typeRelief</ElementPath>
       <Type>String</Type>
       <Width>250</Width>
     </PropertyDefn>
@@ -1049,7 +1256,7 @@
       <ElementPath>hoogteniveau</ElementPath>
       <Type>Integer</Type>
     </PropertyDefn>
-    <!-- Einde properties top10nl:ReliëfType -->
+    <!-- Einde properties top10nl:ReliefType -->
     <!-- Begin properties top10nl:Top10Object -->
     <PropertyDefn>
       <Name>brontype</Name>
@@ -1081,10 +1288,24 @@
       <Width>250</Width>
     </PropertyDefn>
     <!-- Einde properties top10nl:Top10Object -->
+    <!-- Begin nieuwe attributen versie 1.1.1 -->
+    <PropertyDefn>
+      <Name>visualisatiecode</Name>
+      <ElementPath>visualisatieCode</ElementPath>
+      <Type>Integer</Type>
+    </PropertyDefn>
+    <PropertyDefn>
+      <Name>tdncode</Name>
+      <ElementPath>tdnCode</ElementPath>
+      <Type>Integer</Type>
+    </PropertyDefn>
+    <!-- Einde nieuwe attributen versie 1.1.1 -->
   </GMLFeatureClass>
   <GMLFeatureClass>
     <Name>KadeOfWal_Lijn</Name>
     <ElementPath>KadeOfWal_Lijn</ElementPath>
+    <GeometryType>2</GeometryType>
+    <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
       <ExtentXMin>10000</ExtentXMin>
       <ExtentXMax>280000</ExtentXMax>
@@ -1122,16 +1343,22 @@
       <Width>250</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>naam</Name>
-      <ElementPath>naam</ElementPath>
+      <Name>naamNL</Name>
+      <ElementPath>naamNL</ElementPath>
+      <Type>String</Type>
+      <Width>250</Width>
+    </PropertyDefn>
+    <PropertyDefn>
+      <Name>naamFries</Name>
+      <ElementPath>naamFries</ElementPath>
       <Type>String</Type>
       <Width>250</Width>
     </PropertyDefn>
     <!-- Einde properties nen3610:GeoObjectType -->
-    <!-- Begin properties top10nl:ReliëfType -->
+    <!-- Begin properties top10nl:ReliefType -->
     <PropertyDefn>
-      <Name>typeReliëf</Name>
-      <ElementPath>typeReliëf</ElementPath>
+      <Name>typeRelief</Name>
+      <ElementPath>typeRelief</ElementPath>
       <Type>String</Type>
       <Width>250</Width>
     </PropertyDefn>
@@ -1157,7 +1384,7 @@
       <ElementPath>hoogteniveau</ElementPath>
       <Type>Integer</Type>
     </PropertyDefn>
-    <!-- Einde properties top10nl:ReliëfType -->
+    <!-- Einde properties top10nl:ReliefType -->
     <!-- Begin properties top10nl:Top10Object -->
     <PropertyDefn>
       <Name>brontype</Name>
@@ -1189,10 +1416,24 @@
       <Width>250</Width>
     </PropertyDefn>
     <!-- Einde properties top10nl:Top10Object -->
+    <!-- Begin nieuwe attributen versie 1.1.1 -->
+    <PropertyDefn>
+      <Name>visualisatiecode</Name>
+      <ElementPath>visualisatieCode</ElementPath>
+      <Type>Integer</Type>
+    </PropertyDefn>
+    <PropertyDefn>
+      <Name>tdncode</Name>
+      <ElementPath>tdnCode</ElementPath>
+      <Type>Integer</Type>
+    </PropertyDefn>
+    <!-- Einde nieuwe attributen versie 1.1.1 -->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>OverigReliëf_Lijn</Name>
-    <ElementPath>OverigReliëf_Lijn</ElementPath>
+    <Name>OverigRelief_Lijn</Name>
+    <ElementPath>OverigRelief_Lijn</ElementPath>
+    <GeometryType>2</GeometryType>
+    <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
       <ExtentXMin>10000</ExtentXMin>
       <ExtentXMax>280000</ExtentXMax>
@@ -1230,16 +1471,22 @@
       <Width>250</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>naam</Name>
-      <ElementPath>naam</ElementPath>
+      <Name>naamNL</Name>
+      <ElementPath>naamNL</ElementPath>
+      <Type>String</Type>
+      <Width>250</Width>
+    </PropertyDefn>
+    <PropertyDefn>
+      <Name>naamFries</Name>
+      <ElementPath>naamFries</ElementPath>
       <Type>String</Type>
       <Width>250</Width>
     </PropertyDefn>
     <!-- Einde properties nen3610:GeoObjectType -->
-    <!-- Begin properties top10nl:ReliëfType -->
+    <!-- Begin properties top10nl:ReliefType -->
     <PropertyDefn>
-      <Name>typeReliëf</Name>
-      <ElementPath>typeReliëf</ElementPath>
+      <Name>typeRelief</Name>
+      <ElementPath>typeRelief</ElementPath>
       <Type>String</Type>
       <Width>250</Width>
     </PropertyDefn>
@@ -1265,7 +1512,7 @@
       <ElementPath>hoogteniveau</ElementPath>
       <Type>Integer</Type>
     </PropertyDefn>
-    <!-- Einde properties top10nl:ReliëfType -->
+    <!-- Einde properties top10nl:ReliefType -->
     <!-- Begin properties top10nl:Top10Object -->
     <PropertyDefn>
       <Name>brontype</Name>
@@ -1297,10 +1544,24 @@
       <Width>250</Width>
     </PropertyDefn>
     <!-- Einde properties top10nl:Top10Object -->
+    <!-- Begin nieuwe attributen versie 1.1.1 -->
+    <PropertyDefn>
+      <Name>visualisatiecode</Name>
+      <ElementPath>visualisatieCode</ElementPath>
+      <Type>Integer</Type>
+    </PropertyDefn>
+    <PropertyDefn>
+      <Name>tdncode</Name>
+      <ElementPath>tdnCode</ElementPath>
+      <Type>Integer</Type>
+    </PropertyDefn>
+    <!-- Einde nieuwe attributen versie 1.1.1 -->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>OverigReliëf_Punt</Name>
-    <ElementPath>OverigReliëf_Punt</ElementPath>
+    <Name>OverigRelief_Punt</Name>
+    <ElementPath>OverigRelief_Punt</ElementPath>
+    <GeometryType>1</GeometryType>
+    <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
       <ExtentXMin>10000</ExtentXMin>
       <ExtentXMax>280000</ExtentXMax>
@@ -1338,16 +1599,22 @@
       <Width>250</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>naam</Name>
-      <ElementPath>naam</ElementPath>
+      <Name>naamNL</Name>
+      <ElementPath>naamNL</ElementPath>
+      <Type>String</Type>
+      <Width>250</Width>
+    </PropertyDefn>
+    <PropertyDefn>
+      <Name>naamFries</Name>
+      <ElementPath>naamFries</ElementPath>
       <Type>String</Type>
       <Width>250</Width>
     </PropertyDefn>
     <!-- Einde properties nen3610:GeoObjectType -->
-    <!-- Begin properties top10nl:ReliëfType -->
+    <!-- Begin properties top10nl:ReliefType -->
     <PropertyDefn>
-      <Name>typeReliëf</Name>
-      <ElementPath>typeReliëf</ElementPath>
+      <Name>typeRelief</Name>
+      <ElementPath>typeRelief</ElementPath>
       <Type>String</Type>
       <Width>250</Width>
     </PropertyDefn>
@@ -1373,7 +1640,7 @@
       <ElementPath>hoogteniveau</ElementPath>
       <Type>Integer</Type>
     </PropertyDefn>
-    <!-- Einde properties top10nl:ReliëfType -->
+    <!-- Einde properties top10nl:ReliefType -->
     <!-- Begin properties top10nl:Top10Object -->
     <PropertyDefn>
       <Name>brontype</Name>
@@ -1405,10 +1672,24 @@
       <Width>250</Width>
     </PropertyDefn>
     <!-- Einde properties top10nl:Top10Object -->
+    <!-- Begin nieuwe attributen versie 1.1.1 -->
+    <PropertyDefn>
+      <Name>visualisatiecode</Name>
+      <ElementPath>visualisatieCode</ElementPath>
+      <Type>Integer</Type>
+    </PropertyDefn>
+    <PropertyDefn>
+      <Name>tdncode</Name>
+      <ElementPath>tdnCode</ElementPath>
+      <Type>Integer</Type>
+    </PropertyDefn>
+    <!-- Einde nieuwe attributen versie 1.1.1 -->
   </GMLFeatureClass>
   <GMLFeatureClass>
     <Name>RegistratiefGebied_Punt</Name>
     <ElementPath>RegistratiefGebied_Punt</ElementPath>
+    <GeometryType>1</GeometryType>
+    <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
       <ExtentXMin>10000</ExtentXMin>
       <ExtentXMax>280000</ExtentXMax>
@@ -1446,8 +1727,14 @@
       <Width>250</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>naam</Name>
-      <ElementPath>naam</ElementPath>
+      <Name>naamNL</Name>
+      <ElementPath>naamNL</ElementPath>
+      <Type>String</Type>
+      <Width>250</Width>
+    </PropertyDefn>
+    <PropertyDefn>
+      <Name>naamFries</Name>
+      <ElementPath>naamFries</ElementPath>
       <Type>String</Type>
       <Width>250</Width>
     </PropertyDefn>
@@ -1462,7 +1749,7 @@
       <!-- Top10NL property nog niet aangetroffen -->
       <Name>nummer</Name>
       <ElementPath>nummer</ElementPath>
-      <Type>Integer</Type>
+      <Type>IntegerList</Type>
     </PropertyDefn>
     <!-- Begin properties top10nl:Top10Object -->
     <PropertyDefn>
@@ -1495,10 +1782,24 @@
       <Width>250</Width>
     </PropertyDefn>
     <!-- Einde properties top10nl:Top10Object -->
+    <!-- Begin nieuwe attributen versie 1.1.1 -->
+    <PropertyDefn>
+      <Name>visualisatiecode</Name>
+      <ElementPath>visualisatieCode</ElementPath>
+      <Type>Integer</Type>
+    </PropertyDefn>
+    <PropertyDefn>
+      <Name>tdncode</Name>
+      <ElementPath>tdnCode</ElementPath>
+      <Type>Integer</Type>
+    </PropertyDefn>
+    <!-- Einde nieuwe attributen versie 1.1.1 -->
   </GMLFeatureClass>
   <GMLFeatureClass>
     <Name>RegistratiefGebied_Vlak</Name>
     <ElementPath>RegistratiefGebied_Vlak</ElementPath>
+    <GeometryType>3</GeometryType>
+    <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
       <ExtentXMin>10000</ExtentXMin>
       <ExtentXMax>280000</ExtentXMax>
@@ -1536,8 +1837,14 @@
       <Width>250</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>naam</Name>
-      <ElementPath>naam</ElementPath>
+      <Name>naamNL</Name>
+      <ElementPath>naamNL</ElementPath>
+      <Type>String</Type>
+      <Width>250</Width>
+    </PropertyDefn>
+    <PropertyDefn>
+      <Name>naamFries</Name>
+      <ElementPath>naamFries</ElementPath>
       <Type>String</Type>
       <Width>250</Width>
     </PropertyDefn>
@@ -1552,7 +1859,7 @@
       <!-- Top10NL property nog niet aangetroffen -->
       <Name>nummer</Name>
       <ElementPath>nummer</ElementPath>
-      <Type>Integer</Type>
+      <Type>IntegerList</Type>
     </PropertyDefn>
     <!-- Begin properties top10nl:Top10Object -->
     <PropertyDefn>
@@ -1585,10 +1892,24 @@
       <Width>250</Width>
     </PropertyDefn>
     <!-- Einde properties top10nl:Top10Object -->
+    <!-- Begin nieuwe attributen versie 1.1.1 -->
+    <PropertyDefn>
+      <Name>visualisatiecode</Name>
+      <ElementPath>visualisatieCode</ElementPath>
+      <Type>Integer</Type>
+    </PropertyDefn>
+    <PropertyDefn>
+      <Name>tdncode</Name>
+      <ElementPath>tdnCode</ElementPath>
+      <Type>Integer</Type>
+    </PropertyDefn>
+    <!-- Einde nieuwe attributen versie 1.1.1 -->
   </GMLFeatureClass>
   <GMLFeatureClass>
     <Name>Spoorbaandeel_Lijn</Name>
     <ElementPath>Spoorbaandeel_Lijn</ElementPath>
+    <GeometryType>2</GeometryType>
+    <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
       <ExtentXMin>10000</ExtentXMin>
       <ExtentXMax>280000</ExtentXMax>
@@ -1626,8 +1947,14 @@
       <Width>250</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>naam</Name>
-      <ElementPath>naam</ElementPath>
+      <Name>naamNL</Name>
+      <ElementPath>naamNL</ElementPath>
+      <Type>String</Type>
+      <Width>250</Width>
+    </PropertyDefn>
+    <PropertyDefn>
+      <Name>naamFries</Name>
+      <ElementPath>naamFries</ElementPath>
       <Type>String</Type>
       <Width>250</Width>
     </PropertyDefn>
@@ -1647,8 +1974,7 @@
     <PropertyDefn>
       <Name>fysiekVoorkomen</Name>
       <ElementPath>fysiekVoorkomen</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>spoorbreedte</Name>
@@ -1728,10 +2054,24 @@
       <Width>250</Width>
     </PropertyDefn>
     <!-- Einde properties top10nl:Top10Object -->
+    <!-- Begin nieuwe attributen versie 1.1.1 -->
+    <PropertyDefn>
+      <Name>visualisatiecode</Name>
+      <ElementPath>visualisatieCode</ElementPath>
+      <Type>Integer</Type>
+    </PropertyDefn>
+    <PropertyDefn>
+      <Name>tdncode</Name>
+      <ElementPath>tdnCode</ElementPath>
+      <Type>Integer</Type>
+    </PropertyDefn>
+    <!-- Einde nieuwe attributen versie 1.1.1 -->
   </GMLFeatureClass>
   <GMLFeatureClass>
     <Name>Spoorbaandeel_Punt</Name>
     <ElementPath>Spoorbaandeel_Punt</ElementPath>
+    <GeometryType>1</GeometryType>
+    <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
       <ExtentXMin>10000</ExtentXMin>
       <ExtentXMax>280000</ExtentXMax>
@@ -1769,8 +2109,14 @@
       <Width>250</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>naam</Name>
-      <ElementPath>naam</ElementPath>
+      <Name>naamNL</Name>
+      <ElementPath>naamNL</ElementPath>
+      <Type>String</Type>
+      <Width>250</Width>
+    </PropertyDefn>
+    <PropertyDefn>
+      <Name>naamFries</Name>
+      <ElementPath>naamFries</ElementPath>
       <Type>String</Type>
       <Width>250</Width>
     </PropertyDefn>
@@ -1790,8 +2136,7 @@
     <PropertyDefn>
       <Name>fysiekVoorkomen</Name>
       <ElementPath>fysiekVoorkomen</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>spoorbreedte</Name>
@@ -1871,10 +2216,24 @@
       <Width>250</Width>
     </PropertyDefn>
     <!-- Einde properties top10nl:Top10Object -->
+    <!-- Begin nieuwe attributen versie 1.1.1 -->
+    <PropertyDefn>
+      <Name>visualisatiecode</Name>
+      <ElementPath>visualisatieCode</ElementPath>
+      <Type>Integer</Type>
+    </PropertyDefn>
+    <PropertyDefn>
+      <Name>tdncode</Name>
+      <ElementPath>tdnCode</ElementPath>
+      <Type>Integer</Type>
+    </PropertyDefn>
+    <!-- Einde nieuwe attributen versie 1.1.1 -->
   </GMLFeatureClass>
   <GMLFeatureClass>
     <Name>Terrein_Vlak</Name>
     <ElementPath>Terrein_Vlak</ElementPath>
+    <GeometryType>3</GeometryType>
+    <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
       <ExtentXMin>10000</ExtentXMin>
       <ExtentXMax>280000</ExtentXMax>
@@ -1912,8 +2271,14 @@
       <Width>250</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>naam</Name>
-      <ElementPath>naam</ElementPath>
+      <Name>naamNL</Name>
+      <ElementPath>naamNL</ElementPath>
+      <Type>String</Type>
+      <Width>250</Width>
+    </PropertyDefn>
+    <PropertyDefn>
+      <Name>naamFries</Name>
+      <ElementPath>naamFries</ElementPath>
       <Type>String</Type>
       <Width>250</Width>
     </PropertyDefn>
@@ -1927,14 +2292,12 @@
     <PropertyDefn>
       <Name>fysiekVoorkomen</Name>
       <ElementPath>fysiekVoorkomen</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>voorkomen</Name>
       <ElementPath>voorkomen</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>hoogteniveau</Name>
@@ -1972,10 +2335,24 @@
       <Width>250</Width>
     </PropertyDefn>
     <!-- Einde properties top10nl:Top10Object -->
+    <!-- Begin nieuwe attributen versie 1.1.1 -->
+    <PropertyDefn>
+      <Name>visualisatiecode</Name>
+      <ElementPath>visualisatieCode</ElementPath>
+      <Type>Integer</Type>
+    </PropertyDefn>
+    <PropertyDefn>
+      <Name>tdncode</Name>
+      <ElementPath>tdnCode</ElementPath>
+      <Type>Integer</Type>
+    </PropertyDefn>
+    <!-- Einde nieuwe attributen versie 1.1.1 -->
   </GMLFeatureClass>
   <GMLFeatureClass>
     <Name>Waterdeel_Lijn</Name>
     <ElementPath>Waterdeel_Lijn</ElementPath>
+    <GeometryType>2</GeometryType>
+    <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
       <ExtentXMin>10000</ExtentXMin>
       <ExtentXMax>280000</ExtentXMax>
@@ -2013,8 +2390,14 @@
       <Width>250</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>naam</Name>
-      <ElementPath>naam</ElementPath>
+      <Name>naamNL</Name>
+      <ElementPath>naamNL</ElementPath>
+      <Type>String</Type>
+      <Width>250</Width>
+    </PropertyDefn>
+    <PropertyDefn>
+      <Name>naamFries</Name>
+      <ElementPath>naamFries</ElementPath>
       <Type>String</Type>
       <Width>250</Width>
     </PropertyDefn>
@@ -2052,8 +2435,7 @@
     <PropertyDefn>
       <Name>fysiekVoorkomen</Name>
       <ElementPath>fysiekVoorkomen</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>functie</Name>
@@ -2127,10 +2509,24 @@
       <Width>250</Width>
     </PropertyDefn>
     <!-- Einde properties top10nl:Top10Object -->
+    <!-- Begin nieuwe attributen versie 1.1.1 -->
+    <PropertyDefn>
+      <Name>visualisatiecode</Name>
+      <ElementPath>visualisatieCode</ElementPath>
+      <Type>Integer</Type>
+    </PropertyDefn>
+    <PropertyDefn>
+      <Name>tdncode</Name>
+      <ElementPath>tdnCode</ElementPath>
+      <Type>Integer</Type>
+    </PropertyDefn>
+    <!-- Einde nieuwe attributen versie 1.1.1 -->
   </GMLFeatureClass>
   <GMLFeatureClass>
     <Name>Waterdeel_Punt</Name>
     <ElementPath>Waterdeel_Punt</ElementPath>
+    <GeometryType>1</GeometryType>
+    <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
       <ExtentXMin>10000</ExtentXMin>
       <ExtentXMax>280000</ExtentXMax>
@@ -2168,8 +2564,14 @@
       <Width>250</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>naam</Name>
-      <ElementPath>naam</ElementPath>
+      <Name>naamNL</Name>
+      <ElementPath>naamNL</ElementPath>
+      <Type>String</Type>
+      <Width>250</Width>
+    </PropertyDefn>
+    <PropertyDefn>
+      <Name>naamFries</Name>
+      <ElementPath>naamFries</ElementPath>
       <Type>String</Type>
       <Width>250</Width>
     </PropertyDefn>
@@ -2207,8 +2609,7 @@
     <PropertyDefn>
       <Name>fysiekVoorkomen</Name>
       <ElementPath>fysiekVoorkomen</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>functie</Name>
@@ -2282,10 +2683,24 @@
       <Width>250</Width>
     </PropertyDefn>
     <!-- Einde properties top10nl:Top10Object -->
+    <!-- Begin nieuwe attributen versie 1.1.1 -->
+    <PropertyDefn>
+      <Name>visualisatiecode</Name>
+      <ElementPath>visualisatieCode</ElementPath>
+      <Type>Integer</Type>
+    </PropertyDefn>
+    <PropertyDefn>
+      <Name>tdncode</Name>
+      <ElementPath>tdnCode</ElementPath>
+      <Type>Integer</Type>
+    </PropertyDefn>
+    <!-- Einde nieuwe attributen versie 1.1.1 -->
   </GMLFeatureClass>
   <GMLFeatureClass>
     <Name>Waterdeel_Vlak</Name>
     <ElementPath>Waterdeel_Vlak</ElementPath>
+    <GeometryType>3</GeometryType>
+    <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
       <ExtentXMin>10000</ExtentXMin>
       <ExtentXMax>280000</ExtentXMax>
@@ -2323,8 +2738,14 @@
       <Width>250</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>naam</Name>
-      <ElementPath>naam</ElementPath>
+      <Name>naamNL</Name>
+      <ElementPath>naamNL</ElementPath>
+      <Type>String</Type>
+      <Width>250</Width>
+    </PropertyDefn>
+    <PropertyDefn>
+      <Name>naamFries</Name>
+      <ElementPath>naamFries</ElementPath>
       <Type>String</Type>
       <Width>250</Width>
     </PropertyDefn>
@@ -2362,8 +2783,7 @@
     <PropertyDefn>
       <Name>fysiekVoorkomen</Name>
       <ElementPath>fysiekVoorkomen</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>functie</Name>
@@ -2437,10 +2857,24 @@
       <Width>250</Width>
     </PropertyDefn>
     <!-- Einde properties top10nl:Top10Object -->
+    <!-- Begin nieuwe attributen versie 1.1.1 -->
+    <PropertyDefn>
+      <Name>visualisatiecode</Name>
+      <ElementPath>visualisatieCode</ElementPath>
+      <Type>Integer</Type>
+    </PropertyDefn>
+    <PropertyDefn>
+      <Name>tdncode</Name>
+      <ElementPath>tdnCode</ElementPath>
+      <Type>Integer</Type>
+    </PropertyDefn>
+    <!-- Einde nieuwe attributen versie 1.1.1 -->
   </GMLFeatureClass>
   <GMLFeatureClass>
     <Name>Wegdeel_HartLijn</Name>
     <ElementPath>Wegdeel_HartLijn</ElementPath>
+    <GeometryType>2</GeometryType>
+    <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
       <ExtentXMin>10000</ExtentXMin>
       <ExtentXMax>280000</ExtentXMax>
@@ -2477,18 +2911,11 @@
       <Type>String</Type>
       <Width>250</Width>
     </PropertyDefn>
-    <PropertyDefn>
-      <Name>naam</Name>
-      <ElementPath>naam</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
-    </PropertyDefn>
     <!-- Einde properties nen3610:GeoObjectType -->
     <PropertyDefn>
       <Name>typeWeg</Name>
       <ElementPath>typeWeg</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>typeInfrastructuurWegdeel</Name>
@@ -2499,14 +2926,12 @@
     <PropertyDefn>
       <Name>hoofdverkeersgebruik</Name>
       <ElementPath>hoofdverkeersgebruik</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>fysiekVoorkomen</Name>
       <ElementPath>fysiekVoorkomen</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>verhardingsbreedteklasse</Name>
@@ -2538,34 +2963,36 @@
       <Type>Integer</Type>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>straatnaam</Name>
-      <ElementPath>straatnaam</ElementPath>
+      <Name>straatnaamNL</Name>
+      <ElementPath>straatnaamNL</ElementPath>
+      <Type>String</Type>
+      <Width>250</Width>
+    </PropertyDefn>
+    <PropertyDefn>
+      <Name>straatnaamFries</Name>
+      <ElementPath>straatnaamFries</ElementPath>
       <Type>String</Type>
       <Width>250</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>aWegnummer</Name>
       <ElementPath>aWegnummer</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>nWegnummer</Name>
       <ElementPath>nWegnummer</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>eWegnummer</Name>
       <ElementPath>eWegnummer</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>sWegnummer</Name>
       <ElementPath>sWegnummer</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>afritnummer</Name>
@@ -2634,10 +3061,24 @@
       <Width>250</Width>
     </PropertyDefn>
     <!-- Einde properties top10nl:Top10Object -->
+    <!-- Begin nieuwe attributen versie 1.1.1 -->
+    <PropertyDefn>
+      <Name>visualisatiecode</Name>
+      <ElementPath>visualisatieCode</ElementPath>
+      <Type>Integer</Type>
+    </PropertyDefn>
+    <PropertyDefn>
+      <Name>tdncode</Name>
+      <ElementPath>tdnCode</ElementPath>
+      <Type>Integer</Type>
+    </PropertyDefn>
+    <!-- Einde nieuwe attributen versie 1.1.1 -->
   </GMLFeatureClass>
   <GMLFeatureClass>
     <Name>Wegdeel_HartPunt</Name>
     <ElementPath>Wegdeel_HartPunt</ElementPath>
+    <GeometryType>1</GeometryType>
+    <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
       <ExtentXMin>10000</ExtentXMin>
       <ExtentXMax>280000</ExtentXMax>
@@ -2674,18 +3115,11 @@
       <Type>String</Type>
       <Width>250</Width>
     </PropertyDefn>
-    <PropertyDefn>
-      <Name>naam</Name>
-      <ElementPath>naam</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
-    </PropertyDefn>
     <!-- Einde properties nen3610:GeoObjectType -->
     <PropertyDefn>
       <Name>typeWeg</Name>
       <ElementPath>typeWeg</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>typeInfrastructuurWegdeel</Name>
@@ -2696,14 +3130,12 @@
     <PropertyDefn>
       <Name>hoofdverkeersgebruik</Name>
       <ElementPath>hoofdverkeersgebruik</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>fysiekVoorkomen</Name>
       <ElementPath>fysiekVoorkomen</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>verhardingsbreedteklasse</Name>
@@ -2735,34 +3167,36 @@
       <Type>Integer</Type>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>straatnaam</Name>
-      <ElementPath>straatnaam</ElementPath>
+      <Name>straatnaamNL</Name>
+      <ElementPath>straatnaamNL</ElementPath>
+      <Type>String</Type>
+      <Width>250</Width>
+    </PropertyDefn>
+    <PropertyDefn>
+      <Name>straatnaamFries</Name>
+      <ElementPath>straatnaamFries</ElementPath>
       <Type>String</Type>
       <Width>250</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>aWegnummer</Name>
       <ElementPath>aWegnummer</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>nWegnummer</Name>
       <ElementPath>nWegnummer</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>eWegnummer</Name>
       <ElementPath>eWegnummer</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>sWegnummer</Name>
       <ElementPath>sWegnummer</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>afritnummer</Name>
@@ -2831,10 +3265,24 @@
       <Width>250</Width>
     </PropertyDefn>
     <!-- Einde properties top10nl:Top10Object -->
+    <!-- Begin nieuwe attributen versie 1.1.1 -->
+    <PropertyDefn>
+      <Name>visualisatiecode</Name>
+      <ElementPath>visualisatieCode</ElementPath>
+      <Type>Integer</Type>
+    </PropertyDefn>
+    <PropertyDefn>
+      <Name>tdncode</Name>
+      <ElementPath>tdnCode</ElementPath>
+      <Type>Integer</Type>
+    </PropertyDefn>
+    <!-- Einde nieuwe attributen versie 1.1.1 -->
   </GMLFeatureClass>
   <GMLFeatureClass>
     <Name>Wegdeel_Lijn</Name>
     <ElementPath>Wegdeel_Lijn</ElementPath>
+    <GeometryType>2</GeometryType>
+    <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
       <ExtentXMin>10000</ExtentXMin>
       <ExtentXMax>280000</ExtentXMax>
@@ -2871,18 +3319,11 @@
       <Type>String</Type>
       <Width>250</Width>
     </PropertyDefn>
-    <PropertyDefn>
-      <Name>naam</Name>
-      <ElementPath>naam</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
-    </PropertyDefn>
     <!-- Einde properties nen3610:GeoObjectType -->
     <PropertyDefn>
       <Name>typeWeg</Name>
       <ElementPath>typeWeg</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>typeInfrastructuurWegdeel</Name>
@@ -2893,14 +3334,12 @@
     <PropertyDefn>
       <Name>hoofdverkeersgebruik</Name>
       <ElementPath>hoofdverkeersgebruik</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>fysiekVoorkomen</Name>
       <ElementPath>fysiekVoorkomen</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>verhardingsbreedteklasse</Name>
@@ -2932,34 +3371,36 @@
       <Type>Integer</Type>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>straatnaam</Name>
-      <ElementPath>straatnaam</ElementPath>
+      <Name>straatnaamNL</Name>
+      <ElementPath>straatnaamNL</ElementPath>
+      <Type>String</Type>
+      <Width>250</Width>
+    </PropertyDefn>
+    <PropertyDefn>
+      <Name>straatnaamFries</Name>
+      <ElementPath>straatnaamFries</ElementPath>
       <Type>String</Type>
       <Width>250</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>aWegnummer</Name>
       <ElementPath>aWegnummer</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>nWegnummer</Name>
       <ElementPath>nWegnummer</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>eWegnummer</Name>
       <ElementPath>eWegnummer</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>sWegnummer</Name>
       <ElementPath>sWegnummer</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>afritnummer</Name>
@@ -3028,10 +3469,24 @@
       <Width>250</Width>
     </PropertyDefn>
     <!-- Einde properties top10nl:Top10Object -->
+    <!-- Begin nieuwe attributen versie 1.1.1 -->
+    <PropertyDefn>
+      <Name>visualisatiecode</Name>
+      <ElementPath>visualisatieCode</ElementPath>
+      <Type>Integer</Type>
+    </PropertyDefn>
+    <PropertyDefn>
+      <Name>tdncode</Name>
+      <ElementPath>tdnCode</ElementPath>
+      <Type>Integer</Type>
+    </PropertyDefn>
+    <!-- Einde nieuwe attributen versie 1.1.1 -->
   </GMLFeatureClass>
   <GMLFeatureClass>
     <Name>Wegdeel_Punt</Name>
     <ElementPath>Wegdeel_Punt</ElementPath>
+    <GeometryType>1</GeometryType>
+    <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
       <ExtentXMin>10000</ExtentXMin>
       <ExtentXMax>280000</ExtentXMax>
@@ -3068,18 +3523,11 @@
       <Type>String</Type>
       <Width>250</Width>
     </PropertyDefn>
-    <PropertyDefn>
-      <Name>naam</Name>
-      <ElementPath>naam</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
-    </PropertyDefn>
     <!-- Einde properties nen3610:GeoObjectType -->
     <PropertyDefn>
       <Name>typeWeg</Name>
       <ElementPath>typeWeg</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>typeInfrastructuurWegdeel</Name>
@@ -3090,14 +3538,12 @@
     <PropertyDefn>
       <Name>hoofdverkeersgebruik</Name>
       <ElementPath>hoofdverkeersgebruik</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>fysiekVoorkomen</Name>
       <ElementPath>fysiekVoorkomen</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>verhardingsbreedteklasse</Name>
@@ -3129,34 +3575,36 @@
       <Type>Integer</Type>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>straatnaam</Name>
-      <ElementPath>straatnaam</ElementPath>
+      <Name>straatnaamNL</Name>
+      <ElementPath>straatnaamNL</ElementPath>
+      <Type>String</Type>
+      <Width>250</Width>
+    </PropertyDefn>
+    <PropertyDefn>
+      <Name>straatnaamFries</Name>
+      <ElementPath>straatnaamFries</ElementPath>
       <Type>String</Type>
       <Width>250</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>aWegnummer</Name>
       <ElementPath>aWegnummer</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>nWegnummer</Name>
       <ElementPath>nWegnummer</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>eWegnummer</Name>
       <ElementPath>eWegnummer</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>sWegnummer</Name>
       <ElementPath>sWegnummer</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>afritnummer</Name>
@@ -3225,10 +3673,24 @@
       <Width>250</Width>
     </PropertyDefn>
     <!-- Einde properties top10nl:Top10Object -->
+    <!-- Begin nieuwe attributen versie 1.1.1 -->
+    <PropertyDefn>
+      <Name>visualisatiecode</Name>
+      <ElementPath>visualisatieCode</ElementPath>
+      <Type>Integer</Type>
+    </PropertyDefn>
+    <PropertyDefn>
+      <Name>tdncode</Name>
+      <ElementPath>tdnCode</ElementPath>
+      <Type>Integer</Type>
+    </PropertyDefn>
+    <!-- Einde nieuwe attributen versie 1.1.1 -->
   </GMLFeatureClass>
   <GMLFeatureClass>
     <Name>Wegdeel_Vlak</Name>
     <ElementPath>Wegdeel_Vlak</ElementPath>
+    <GeometryType>3</GeometryType>
+    <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
       <ExtentXMin>10000</ExtentXMin>
       <ExtentXMax>280000</ExtentXMax>
@@ -3265,18 +3727,11 @@
       <Type>String</Type>
       <Width>250</Width>
     </PropertyDefn>
-    <PropertyDefn>
-      <Name>naam</Name>
-      <ElementPath>naam</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
-    </PropertyDefn>
     <!-- Einde properties nen3610:GeoObjectType -->
     <PropertyDefn>
       <Name>typeWeg</Name>
       <ElementPath>typeWeg</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>typeInfrastructuurWegdeel</Name>
@@ -3287,14 +3742,12 @@
     <PropertyDefn>
       <Name>hoofdverkeersgebruik</Name>
       <ElementPath>hoofdverkeersgebruik</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>fysiekVoorkomen</Name>
       <ElementPath>fysiekVoorkomen</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>verhardingsbreedteklasse</Name>
@@ -3326,34 +3779,36 @@
       <Type>Integer</Type>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>straatnaam</Name>
-      <ElementPath>straatnaam</ElementPath>
+      <Name>straatnaamNL</Name>
+      <ElementPath>straatnaamNL</ElementPath>
+      <Type>String</Type>
+      <Width>250</Width>
+    </PropertyDefn>
+    <PropertyDefn>
+      <Name>straatnaamFries</Name>
+      <ElementPath>straatnaamFries</ElementPath>
       <Type>String</Type>
       <Width>250</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>aWegnummer</Name>
       <ElementPath>aWegnummer</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>nWegnummer</Name>
       <ElementPath>nWegnummer</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>eWegnummer</Name>
       <ElementPath>eWegnummer</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>sWegnummer</Name>
       <ElementPath>sWegnummer</ElementPath>
-      <Type>String</Type>
-      <Width>250</Width>
+      <Type>StringList</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>afritnummer</Name>
@@ -3422,5 +3877,17 @@
       <Width>250</Width>
     </PropertyDefn>
     <!-- Einde properties top10nl:Top10Object -->
+    <!-- Begin nieuwe attributen versie 1.1.1 -->
+    <PropertyDefn>
+      <Name>visualisatiecode</Name>
+      <ElementPath>visualisatieCode</ElementPath>
+      <Type>Integer</Type>
+    </PropertyDefn>
+    <PropertyDefn>
+      <Name>tdncode</Name>
+      <ElementPath>tdnCode</ElementPath>
+      <Type>Integer</Type>
+    </PropertyDefn>
+    <!-- Einde nieuwe attributen versie 1.1.1 -->
   </GMLFeatureClass>
 </GMLFeatureClassList>

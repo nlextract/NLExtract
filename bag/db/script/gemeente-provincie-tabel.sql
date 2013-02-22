@@ -10,10 +10,10 @@
 drop table if exists gemeente;
 
 create table gemeente as
-  select gw.gemeentecode,gw.gemeentenaam,ST_Multi(ST_Union(w.geovlak)) as geovlak
-  from gemeente_woonplaats as gw, woonplaatsactueelbestaand as w
-  where gw.woonplaatscode = w.identificatie AND gw.einddatum_woonplaats IS NULL AND gw.einddatum_gemeente IS NULL
-  group by gw.gemeentecode,gw.gemeentenaam;
+  select gw.gemeentecode,gp.gemeentenaam,ST_Multi(ST_Union(w.geovlak)) as geovlak
+  from gemeente_woonplaatsactueelbestaand as gw, woonplaatsactueelbestaand as w, gemeente_provincie as gp
+  where gw.woonplaatscode = w.identificatie and gw.gemeentecode = gp.gemeentecode
+  group by gw.gemeentecode,gp.gemeentenaam;
 
 alter table gemeente add column gid serial;
 
@@ -41,4 +41,6 @@ ALTER TABLE ONLY provincie ADD CONSTRAINT provincie_pkey PRIMARY KEY (gid);
 CREATE INDEX provincie_geom_idx ON provincie USING gist (geovlak);
 CREATE INDEX provincie_naam ON provincie USING btree (provincienaam);
 
-select probe_geometry_columns();
+-- Populeert public.geometry_columns
+-- Dummy voor PostGIS 2+
+SELECT public.probe_geometry_columns();

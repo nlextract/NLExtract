@@ -1,7 +1,6 @@
 Dit bestand bevat versie informatie voor NLExtract. Versies en snapshots zijn te downloaden
 via de link: http://www.nlextract.nl/file-cabinet
 
-
 v1.0.0 - 27.feb.2012
 - de allereerste versie !
 - extraheren BAG en Top10NL
@@ -15,4 +14,102 @@ v1.0.1 - 5.mrt.2012
 - BAG nieuwste (24jan2012) kadaster-woonplaats-gemeente koppeltabel
 - BAG: LATIN1/UTF-8 encoding issues opgelost, nu alle bronnen/doelen UTF-8
 - start met SQL scripts tbv reverse geocoding op Adres tabel
+
+v1.1.0 - 14.mei.2012
+Speedup release voor BAG: nu BAG 3x zo snel inlezen als in v1.0.1!
+Voornamelijk door gebruik native XML parsing (via lxml) en database inladen via COPY
+ipv INSERT kan BAG inlezen 3x zo snel als voorheen. Er zijn wel wat externe afhankelijkheden
+bijgekomen:
+
+- lxml en libxml2 (native XML parser lib)
+- GDAL met Python bindings: Geometrie GML parsen en geometrie validatie/manipulatie (lukt niet in COPY)
+
+Sowieso is GDAL met OGR Python-bindings een goede stap voor volgende NLExtract versies.
+
+Dit is de eerste versie die GitHub Milestones gebruikt. De naam vd Milestone is het versie nummer (hier v1.1.0).
+Zie https://github.com/opengeogroep/NLExtract/issues/milestones?state=closed
+Alle issues die meegenomen zijn vind je hier:
+https://github.com/opengeogroep/NLExtract/issues?milestone=1&state=closed
+
+Specifieke issues opgelost in v1.1.0
+
+- BAG: vervangen woonplaats-gemeente koppeltabel 6 maart 2012 door 24 april 2012
+- BAG: relaties einddatumtijdvakgeldigheid en actuele VIEWS ontbreken
+- Mutaties: fout by DB COPY
+- BAG escape backslashes in strings voor Postgres COPY
+- gebruik GDAL/OGR Python bindings voor Geometrie parsing/validatie
+- BAG inlezen: gebruik COPY en cStringIO voor grote snelheidswinst
+- Geocoding functionaliteit op basis van BAG
+- adres-tabel.sql DROP ... CASCADE?
+- adres_voor_xy roept zichzelf aan ipv adressen_voor_xy
+- BAG MultiSurface wordt niet goed geparsed met XPath
+- Gewijzigd schema Kadaster CSV woonplaats-gemeente koppeltabel
+- BAG - LATIN1 encoding gebruikt voor UTF-8 prov/gem CSV
+- Poort -P parameter wordt niet geparsed
+- etree (native XML parsing via libxml2)
+- BAG Foutafhandeling en validatie met logging in database
+
+v1.1.1 - 20.juni.2012
+Vooral bugfixes in BAG-Extract. Top10NL en BGT extractie uitstellen tot v1.1.2
+De gesloten issues zijn hier te vinden:
+https://github.com/opengeogroep/NLExtract/issues?milestone=4&page=1&state=closed
+Samengevat:
+- bugfix waardoor in v1.1.0 multipolygons voor woonplaatsen null waren
+- geovlak toevoegen aan VIEWs voor Verblijfsobject
+- warnings weg voor diacritische chars (unicode probleem)
+- postgresql port parm ignored
+
+v1.1.2 - 16.okt.2012
+De issues (werk-items) voor deze release zijn hier te vinden:
+https://github.com/opengeogroep/NLExtract/issues?milestone=5&state=closed
+
+Algemeen
+- begin gemaakt documentatie op http://nlextract.readthedocs.org
+
+BAG Extract
+- bag-extract.sh werkt niet wanneer aangeroepen via symbolic link (patch) bag-extract
+- Einddatum gemeente wordt niet verwerkt bag-extract
+- adres script: gebruik woonplaatsnaam uit nummeraanduiding indien aanwezig bag-extract
+- probe_geometry_columns niet meer in PostGIS2?
+- woonplaats-gemeente koppeltabel .csv naar versie van 10 aug 2012
+
+Top10NL Extract
+- alle scripts in Python (ipv shell en .cmd)
+- ondersteun nieuwste versie Top10NL 1.1.1
+- Voeg XML validator toe voor Top10NL v1.1.1 top10-extract
+- Top10NL: verwijder dashes '-' uit Python .py file namen top10-extract
+- Top10NL: voeg test data en tests toe voor Top10NL versie 1.1.1 top10-extract
+- Top10NL: Er worden geen GFS-bestanden bij verwerking van de september-levering bag-extract
+- Vervanging e-trema door normale 'e' in Overigrelief top10-extract
+- Opsplitsen naam / straatnaam kolommen in Nederland en Fries top10-extract
+
+v1.1.3 - 13.dec.2012
+Aantal bugfixes op 1.1.2 en verbeteringen in het algemeen.
+Zie milestone issues die in deze release zitten:
+https://github.com/opengeogroep/NLExtract/issues?milestone=6&state=closed
+
+Onder andere:
+
+Features
+- Gebruik gemeente-woonplaats koppeltabel uit BAG Levering ipv .csv bag-extract
+- Adressen met full text index - fuzzy zoeken in tabel "adres" met PostgreSQL tsvector
+
+Bugs opgelost
+- BAG documentdatum is altijd null door typefout in bagattribuut.py  (bug)
+- probe_geometry_columns niet aanroepen indien PostGIS 2.x
+
+
+ONGEPLAND
+- BGT Extractie
+- AHN
+- Bonne Bladen (historische kaarten)
+- Linked Data
+- Top10NL naar Oracle,
+- gebruik SETL als algemeen ETL framework: https://github.com/justb4/setl
+
+De rest ligt nog open afhankelijk van wensen gebruikers en natuurlijk evetuele bugs.
+
+
+
+
 

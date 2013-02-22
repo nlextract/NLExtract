@@ -7,11 +7,10 @@ TOP10NL_HOME=`dirname $0`/..
 TOP10NL_HOME=`(cd "$TOP10NL_HOME"; pwd)`
 TOP10NL_BIN=$TOP10NL_HOME/bin
 TOP10NL_TEST_DATA=$TOP10NL_HOME/test/data
+TOP10NL_TEST_TMP=$TOP10NL_HOME/test/tmp
 
-$TOP10NL_BIN/top10-drop-tables.sh
-
-rm $TOP10NL_TEST_DATA/*.split.xml
-rm $TOP10NL_TEST_DATA/*gfs
-
-$TOP10NL_BIN/top10-extract.sh $TOP10NL_TEST_DATA/test.gml
+# Temp dir voor gesplitste GML files and .gfs bestanden
+/bin/rm -rf $TOP10NL_TEST_TMP
+mkdir $TOP10NL_TEST_TMP
+python $TOP10NL_BIN/top10extract.py $TOP10NL_TEST_DATA/test.gml --dir $TOP10NL_TEST_TMP
 

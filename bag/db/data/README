@@ -12,7 +12,44 @@ Als je zelf een nieuwere versie neerzet, zorg dan dat de file encoded is als
 UTF-8 (de oorspronkelijke Kadaster .csv file is in LATIN1).
 In de koppeltabel staat ook historie in de zin dat er begin/einddata van
 zowel woonplaatsen (veld 3/4) als gemeenten (laatste 2 velden) zijn opgenomen.
-daarom kan het in eerste instantie lijken of er dubbeling is.
+daarom kan het in eerste instantie lijken of er dubbeling is. NB de CSV gaat eruit, zie voldgende bericht.
+
+- bericht van Kadaster t.b.v. woonplaats-gemeente koppeling
+"In release 2012/1, die op 22 juni 2012 is geïmplementeerd, is onder andere gerealiseerd dat de gemeente-woonplaats-relatie
+meegeleverd wordt in een bestand op xml formaat bij de levering van BAG extract en BAG compact.
+Dit bestand voorziet u van actuele gegevens op basis waarvan de relatie tussen de woonplaatscode
+en de gemeentecode gelegd kan worden. Dit bestand is ook opgenomen op onze website:
+http://www.kadaster.nl/BAG/docs/Gemeente-woonplaats-relatietabel.zip.
+Het bestand zal regelmatig worden geactualiseerd. Het leveren van het bestand op xml
+formaat brengt met zich mee dat deze, handmatig bijgehouden, tabel na verloop van tijd
+verwijderd zal worden van onze website.
+Wij adviseren u daarom het verwerken van BAG extract en BAG compact zo in te richten dat
+u met het nieuwe bestand uit de voeten kunt.
+Wij verwachten dat deze tabel tot oktober 2012 op onze website zal staan."
+
+Note JvdB: alleen staan in die .xml niet de gemeente en woonplaatsnamen, alleen numerieke
+koppelingen bijv.
+
+<gwr_LVC:GemeenteWoonplaatsRelatie>
+<gwr_LVC:tijdvakgeldigheid>
+<bagtype:begindatumTijdvakGeldigheid>2010102000000000</bagtype:begindatumTijdvakGeldigheid>
+<bagtype:einddatumTijdvakGeldigheid>2010102100000000</bagtype:einddatumTijdvakGeldigheid>
+</gwr_LVC:tijdvakgeldigheid>
+<gwr_LVC:gerelateerdeWoonplaats>
+<gwr_LVC:identificatie>3386</gwr_LVC:identificatie>
+</gwr_LVC:gerelateerdeWoonplaats>
+<gwr_LVC:gerelateerdeGemeente>
+<gwr_LVC:identificatie>0003</gwr_LVC:identificatie>
+</gwr_LVC:gerelateerdeGemeente>
+<gwr_LVC:status>definitief</gwr_LVC:status>
+</gwr_LVC:GemeenteWoonplaatsRelatie>
+
+
+terwijl in de CSV staat
+Appingedam;3386;;;Appingedam;0003;;
+
+We gaan wel de XML gebruiken zodat de .csv overbodig wordt:
+https://github.com/opengeogroep/NLExtract/issues/82
 
 - gemeente-provincie koppeling
 Komt van CBS en geeft de koppeling gemeente-provincie via de gemeente-code.

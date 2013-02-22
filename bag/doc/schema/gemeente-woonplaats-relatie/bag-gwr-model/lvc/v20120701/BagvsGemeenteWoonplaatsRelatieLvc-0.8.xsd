@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2010 (http://www.altova.com) by Kadaster (Kadaster) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:gwr_LVC="http://www.kadaster.nl/schemas/bag-gwr-model/lvc/v20120701" xmlns:bagtype="http://www.kadaster.nl/schemas/imbag/imbag-types/v20110901" xmlns:gwr_gemeente="http://www.kadaster.nl/schemas/bag-gwr-model/gemeente/v20120701" targetNamespace="http://www.kadaster.nl/schemas/bag-gwr-model/lvc/v20120701" elementFormDefault="qualified" attributeFormDefault="unqualified" version="0.8">
+	<xs:import namespace="http://www.kadaster.nl/schemas/imbag/imbag-types/v20110901" schemaLocation="../../../imbag/imbag-types/v20110901/BagvsImbagOnderdelen-0.8.xsd"/>
+	<xs:import namespace="http://www.kadaster.nl/schemas/bag-gwr-model/gemeente/v20120701" schemaLocation="../../gemeente/v20120701/BagvsGwrGemeente-0.1.xsd"/>
+	<xs:annotation>
+		<xs:documentation>Dit model is een mini informatiemodel van alleen de gemeente-woonplaats relatie. Deze relatie wordt als object (een geobjectiveerde relatie met een eigen historie) door de lvbag onderhouden, om gemeentes met woonplaatsen te koppelen. Gemeentes worden niet beheerd door de lvbag. Woonplaatsen worden beheerd in de bag en door de lvbag verstrekt. </xs:documentation>
+	</xs:annotation>
+	<xs:element name="GemeenteWoonplaatsRelatie" type="gwr_LVC:GemeenteWoonplaatsRelatie"/>
+	<xs:complexType name="GemeenteWoonplaatsRelatie">
+		<xs:annotation>
+			<xs:documentation>De GEMEENTEWOONPLAATSRELATIE is een geobjectiveerde relatie met een eigen historie, bedoeld om relatie bij te houden, zonder dat er nieuwe versies van een Woonplaats ontstaan wanneer de relatie in de tijd veranderd. De identificatie van de gemeente (gemeentecode) en de identiciatie van de woonplaats (woonplaatscode) worden binnen de LVBAG gebruikt in de 'gemeente woonplaats relatie' als koppelgegeven tussen Gemeente en Woonplaats. </xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="tijdvakgeldigheid" type="bagtype:Tijdvakgeldigheid">
+				<xs:annotation>
+					<xs:documentation>De periode waarin de gegevens, die worden bijgehouden over de relatie tussen een gemeente en een woonplaats, geldig zijn.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="gerelateerdeWoonplaats">
+				<xs:annotation>
+					<xs:documentation>De unieke identificatie van het gerelateerde woonplaats object, zoals aanwezig in de BAG</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="identificatie" type="bagtype:Woonplaatscode"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="gerelateerdeGemeente">
+				<xs:annotation>
+					<xs:documentation>De unieke identificatie van het gerelateerde gemeente object, zoals aanwezig in de BRP</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="identificatie" type="gwr_gemeente:Gemeentecode"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="status" type="gwr_LVC:Status"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="Status">
+		<xs:annotation>
+			<xs:documentation>Een aanduiding van alle waarden die de status van de gemeente woonplaats relatie kan aannemen. De status geeft de levenscyclus van het object weer. De toegestande c.q. gebruikte waardes zijn te vinden in het document waarin het informatieproduct is gedefinieerd.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+</xs:schema>

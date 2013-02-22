@@ -1,4 +1,4 @@
--- Tabellen voor BAGExtract+
+-- Tabellen voor BAG-Extract
 -- Min of meer 1-1 met BAG model dus niet geoptimaliseerd
 -- Te gebruiken als basis tabellen om specifieke tabellen
 -- aan te maken via bijvoorbeeld views of SQL selecties.
@@ -7,64 +7,38 @@
 -- TODO optimaliseren !!
 
 -- Systeem tabellen
-DROP TABLE IF EXISTS bagextractpluslog;
-/*
--- Niet meer loggen in de database
-CREATE TABLE bagextractpluslog (
-    datum date,
-    actie character varying(1000),
-    bestand character varying(1000),
-    logfile character varying(1000)
-);
-*/
-
-DROP TABLE IF EXISTS bagextractinfo;
-CREATE TABLE bagextractinfo (
+-- Meta informatie, handig om te weten, wat en wanneer is ingelezen
+-- bagextract.py zal bijv leverings info en BAG leverings datum inserten
+DROP TABLE IF EXISTS nlx_bag_info;
+CREATE TABLE nlx_bag_info (
   gid serial,
+  tijdstempel timestamp default current_timestamp,
   sleutel character varying (25),
-  waarde character varying (100)
-);
-INSERT INTO bagextractinfo (sleutel,waarde)
-        VALUES ('schema_versie', '1.0.3');
-INSERT INTO bagextractinfo (sleutel,waarde)
-        VALUES ('software_versie', '1.1.0');
-
--- Relatie tabellen
--- Verblijfsobject kan meerdere gebruiksdoelen hebben.
-DROP TABLE IF EXISTS verblijfsobjectpand CASCADE;
-CREATE TABLE verblijfsobjectpand (
-  gid SERIAL,
-  identificatie NUMERIC(16),
-  aanduidingRecordInactief BOOLEAN,
-  aanduidingRecordCorrectie INTEGER,
-  begindatumTijdvakGeldigheid TIMESTAMP WITHOUT TIME ZONE,
-  gerelateerdpand NUMERIC(16),
-  PRIMARY KEY (gid)
+  waarde text
 );
 
--- Verblijfsobjecten maken altijd deel uit van een of meerdere panden.
--- Panden hoeven geen verblijfsobjecten te bevatten.
-DROP TABLE IF EXISTS adresseerbaarobjectnevenadres CASCADE;
-CREATE TABLE adresseerbaarobjectnevenadres (
-  gid SERIAL,
-  identificatie NUMERIC(16),
-  aanduidingRecordInactief BOOLEAN,
-  aanduidingRecordCorrectie INTEGER,
-  begindatumTijdvakGeldigheid TIMESTAMP WITHOUT TIME ZONE,
-  nevenadres NUMERIC(16),
-  PRIMARY KEY (gid)
+INSERT INTO nlx_bag_info (sleutel,waarde)
+        VALUES ('schema_versie', '1.1.0');
+INSERT INTO nlx_bag_info (sleutel,waarde)
+        VALUES ('software_versie', '1.1.3');
+INSERT INTO nlx_bag_info (sleutel,waarde)
+        VALUES ('schema_creatie', to_char(current_timestamp, 'DD-Mon-IYYY HH24:MI:SS'));
+
+-- Systeem tabellen
+-- Actie log, handig om fouten en timings te analyseren
+-- en iha voortgang op afstand te monitoren
+DROP TABLE IF EXISTS nlx_bag_log;
+CREATE TABLE nlx_bag_log (
+  gid serial,
+  tijdstempel timestamp default current_timestamp,
+  actie character varying (25),
+  bestand text default 'n.v.t.',
+  bericht text default 'geen',
+  error boolean default false
 );
 
-DROP TABLE IF EXISTS verblijfsobjectgebruiksdoel CASCADE;
-CREATE TABLE verblijfsobjectgebruiksdoel (
-  gid SERIAL,
-  identificatie NUMERIC(16),
-  aanduidingRecordInactief BOOLEAN,
-  aanduidingRecordCorrectie INTEGER,
-  begindatumTijdvakGeldigheid TIMESTAMP WITHOUT TIME ZONE,
-  gebruiksdoelverblijfsobject VARCHAR(50) ,
-  PRIMARY KEY (gid)
-);
+INSERT INTO nlx_bag_log (actie) VALUES ('schema aangemaakt');
+
 
 -- BAG _ruwe import tabellen
 DROP TABLE IF EXISTS woonplaats CASCADE;
@@ -234,6 +208,7 @@ CREATE TABLE verblijfsobject (
 -- werkt niet met PG schema
 -- SELECT AddGeometryColumn('public', 'verblijfsobject', 'geopunt', 28992, 'POINT', 3);
 -- SELECT AddGeometryColumn('public', 'verblijfsobject', 'geovlak', 28992, 'POLYGON', 3);
+-- UPDATE verblijfsobject SET geopunt = ST_Force_3D(ST_Centroid(geovlak)) WHERE geopunt is  null and geovlak is not null;
 
 DROP TABLE IF EXISTS pand CASCADE;
 DROP TYPE IF EXISTS pandStatus;
@@ -260,22 +235,44 @@ CREATE TABLE pand (
   PRIMARY KEY (gid)
 
 ) WITH (OIDS=true);
+-- UPDATE pand SET geom_valid = ST_IsValid(geovlak);
+
 -- werkt niet met PG schema
 -- SELECT AddGeometryColumn('public', 'pand', 'geovlak', 28992, 'POLYGON', 3);
 
--- <xs:restriction base="xs:string">
---     <xs:enumeration value="woonfunctie"/>
---     <xs:enumeration value="bijeenkomstfunctie"/>
---     <xs:enumeration value="celfunctie"/>
---     <xs:enumeration value="gezondheidszorgfunctie"/>
---     <xs:enumeration value="industriefunctie"/>
---     <xs:enumeration value="kantoorfunctie"/>
---     <xs:enumeration value="logiesfunctie"/>
---     <xs:enumeration value="onderwijsfunctie"/>
---     <xs:enumeration value="sportfunctie"/>
---     <xs:enumeration value="winkelfunctie"/>
---     <xs:enumeration value="overige gebruiksfunctie"/>
--- </xs:restriction>
+
+--
+-- START - Relatie tabellen
+--
+
+-- Verblijfsobject kan meerdere gebruiksdoelen hebben.
+DROP TABLE IF EXISTS verblijfsobjectpand CASCADE;
+CREATE TABLE verblijfsobjectpand (
+  gid SERIAL,
+  identificatie NUMERIC(16),
+  aanduidingRecordInactief BOOLEAN,
+  aanduidingRecordCorrectie INTEGER,
+  begindatumTijdvakGeldigheid TIMESTAMP WITHOUT TIME ZONE,
+  einddatumTijdvakGeldigheid TIMESTAMP WITHOUT TIME ZONE,
+  gerelateerdpand NUMERIC(16),
+  PRIMARY KEY (gid)
+);
+
+-- Verblijfsobjecten maken altijd deel uit van een of meerdere panden.
+-- Panden hoeven geen verblijfsobjecten te bevatten.
+DROP TABLE IF EXISTS adresseerbaarobjectnevenadres CASCADE;
+CREATE TABLE adresseerbaarobjectnevenadres (
+  gid SERIAL,
+  identificatie NUMERIC(16),
+  aanduidingRecordInactief BOOLEAN,
+  aanduidingRecordCorrectie INTEGER,
+  begindatumTijdvakGeldigheid TIMESTAMP WITHOUT TIME ZONE,
+  einddatumTijdvakGeldigheid TIMESTAMP WITHOUT TIME ZONE,
+  nevenadres NUMERIC(16),
+  PRIMARY KEY (gid)
+);
+
+-- Een Verblijfsobject kan meerdere gebruiksdoelen hebben
 DROP TABLE IF EXISTS verblijfsobjectgebruiksdoel CASCADE;
 DROP TYPE IF EXISTS gebruiksdoelVerblijfsobject;
 CREATE TYPE gebruiksdoelVerblijfsobject AS ENUM (
@@ -288,9 +285,14 @@ CREATE TABLE verblijfsobjectgebruiksdoel (
   aanduidingrecordinactief boolean,
   aanduidingrecordcorrectie integer,
   begindatumtijdvakgeldigheid timestamp without time zone,
+  einddatumTijdvakGeldigheid TIMESTAMP WITHOUT TIME ZONE,
   gebruiksdoelverblijfsobject gebruiksdoelVerblijfsobject,
   PRIMARY KEY (gid)
 );
+
+--
+-- END - Relatie tabellen
+--
 
 -- Maak geometrie indexen
 CREATE INDEX ligplaats_geom_idx ON ligplaats USING gist (geovlak);
@@ -317,6 +319,7 @@ CREATE INDEX woonplaats_naam ON woonplaats USING btree (woonplaatsnaam);
 
 -- Indexen relatie tabellen
 CREATE INDEX verblijfsobjectpandkey ON verblijfsobjectpand USING btree (identificatie, aanduidingrecordinactief, aanduidingrecordcorrectie, begindatumtijdvakgeldigheid, gerelateerdpand);
+CREATE INDEX verblijfsobjectpand_pand ON verblijfsobjectpand USING btree (gerelateerdpand);
 CREATE INDEX verblijfsobjectgebruiksdoelkey ON verblijfsobjectgebruiksdoel USING btree (identificatie, aanduidingrecordinactief, aanduidingrecordcorrectie, begindatumtijdvakgeldigheid, gebruiksdoelverblijfsobject);
 CREATE INDEX
         adresseerbaarobjectnevenadreskey ON adresseerbaarobjectnevenadres USING btree (identificatie, aanduidingrecordinactief, aanduidingrecordcorrectie, begindatumtijdvakgeldigheid, nevenadres);
@@ -326,25 +329,22 @@ CREATE INDEX
 -- Woonplaats;Woonplaats code;Ingangsdatum WPL;Einddatum WPL;Gemeente;Gemeente code;
 --     Ingangsdatum nieuwe gemeente;Gemeente beeindigd per
 DROP TABLE IF EXISTS gemeente_woonplaats CASCADE;
+DROP TYPE IF EXISTS gemeenteWoonplaatsStatus;
+CREATE TYPE gemeenteWoonplaatsStatus AS ENUM (
+'voorlopig','definitief'
+);
 CREATE TABLE gemeente_woonplaats (
   gid serial,
-  woonplaatsnaam character varying(80),
+  begindatumtijdvakgeldigheid TIMESTAMP WITHOUT TIME ZONE,
+  einddatumtijdvakgeldigheid TIMESTAMP WITHOUT TIME ZONE,
   woonplaatscode numeric(4),
-  begindatum_woonplaats date,
-  einddatum_woonplaats date,
-  gemeentenaam character varying(80),
   gemeentecode numeric(4),
-  begindatum_gemeente date,
---  aansluitdatum_gemeente date,
---  bijzonderheden text,
---  gemeentecode_nieuw numeric(4),
-  einddatum_gemeente date,
---  behandeld character varying(1),
+  status gemeenteWoonplaatsStatus,
   PRIMARY KEY (gid)
 );
 
 CREATE INDEX gem_wpl_woonplaatscode_idx ON gemeente_woonplaats USING btree (woonplaatscode);
-CREATE INDEX gem_wpl_woonplaatscode_datum_idx ON gemeente_woonplaats USING btree (woonplaatscode,einddatum_woonplaats);
+CREATE INDEX gem_wpl_gemeentecode_datum_idx ON gemeente_woonplaats USING btree (gemeentecode);
 
 DROP TABLE IF EXISTS gemeente_provincie CASCADE;
 CREATE TABLE gemeente_provincie (
@@ -356,4 +356,18 @@ CREATE TABLE gemeente_provincie (
   PRIMARY KEY (gid)
 );
 
-select probe_geometry_columns();
+-- Functie om lege probe_geometry_columns() functie aan te maken voor PostGIS 2+
+-- probe_geometry_columns() is namelijk niet aanwezig in PostGIS 2+.
+CREATE OR REPLACE FUNCTION public._nlx_add_fn_probe_geometry_columns() RETURNS void AS $$
+BEGIN
+  IF postgis_lib_version() >= '2' THEN
+    CREATE OR REPLACE FUNCTION public.probe_geometry_columns() RETURNS varchar AS
+      'BEGIN RETURN NULL; END;' LANGUAGE plpgsql;
+  END IF;
+END;
+$$ LANGUAGE plpgsql;
+SELECT public._nlx_add_fn_probe_geometry_columns();
+
+-- Populeert public.geometry_columns
+-- Dummy voor PostGIS 2+
+SELECT public.probe_geometry_columns();

@@ -257,7 +257,8 @@ CREATE VIEW verblijfsobjectactueel AS
             verblijfsobject.oppervlakteverblijfsobject,
             verblijfsobject.begindatumtijdvakgeldigheid,
             verblijfsobject.einddatumtijdvakgeldigheid,
-            verblijfsobject.geopunt
+            verblijfsobject.geopunt,
+            verblijfsobject.geovlak
     FROM verblijfsobject
   WHERE
     verblijfsobject.begindatumtijdvakgeldigheid <= LOCALTIMESTAMP
@@ -281,7 +282,8 @@ CREATE VIEW verblijfsobjectactueelbestaand AS
             verblijfsobject.oppervlakteverblijfsobject,
             verblijfsobject.begindatumtijdvakgeldigheid,
             verblijfsobject.einddatumtijdvakgeldigheid,
-            verblijfsobject.geopunt
+            verblijfsobject.geopunt,
+            verblijfsobject.geovlak
     FROM verblijfsobject
     WHERE
       verblijfsobject.begindatumtijdvakgeldigheid <= LOCALTIMESTAMP
@@ -335,6 +337,65 @@ CREATE VIEW woonplaatsactueelbestaand AS
     AND woonplaats.aanduidingrecordinactief = FALSE
     AND woonplaats.geom_valid = TRUE
     AND woonplaats.woonplaatsstatus  <> 'Woonplaats ingetrokken';
+
+DROP VIEW IF EXISTS verblijfsobjectpandactueel;
+CREATE VIEW verblijfsobjectpandactueel AS
+    SELECT vbop.gid,
+            vbop.identificatie,
+            vbop.aanduidingrecordinactief,
+            vbop.aanduidingrecordcorrectie,
+            vbop.begindatumtijdvakgeldigheid,
+            vbop.einddatumtijdvakgeldigheid,
+            vbop.gerelateerdpand
+    FROM verblijfsobjectpand as vbop
+  WHERE
+    vbop.begindatumtijdvakgeldigheid <= LOCALTIMESTAMP
+    AND (vbop.einddatumtijdvakgeldigheid is NULL OR vbop.einddatumtijdvakgeldigheid >= LOCALTIMESTAMP)
+    AND vbop.aanduidingrecordinactief = FALSE;
+
+DROP VIEW IF EXISTS adresseerbaarobjectnevenadresactueel;
+CREATE VIEW adresseerbaarobjectnevenadresactueel AS
+    SELECT aon.gid,
+            aon.identificatie,
+            aon.aanduidingrecordinactief,
+            aon.aanduidingrecordcorrectie,
+            aon.begindatumtijdvakgeldigheid,
+            aon.einddatumtijdvakgeldigheid,
+            aon.nevenadres
+    FROM adresseerbaarobjectnevenadres as aon
+  WHERE
+    aon.begindatumtijdvakgeldigheid <= LOCALTIMESTAMP
+    AND (aon.einddatumtijdvakgeldigheid is NULL OR aon.einddatumtijdvakgeldigheid >= LOCALTIMESTAMP)
+    AND aon.aanduidingrecordinactief = FALSE;
+
+DROP VIEW IF EXISTS verblijfsobjectgebruiksdoelactueel;
+CREATE VIEW verblijfsobjectgebruiksdoelactueel AS
+    SELECT vog.gid,
+            vog.identificatie,
+            vog.aanduidingrecordinactief,
+            vog.aanduidingrecordcorrectie,
+            vog.begindatumtijdvakgeldigheid,
+            vog.einddatumtijdvakgeldigheid,
+            vog.gebruiksdoelverblijfsobject
+    FROM verblijfsobjectgebruiksdoel as vog
+  WHERE
+    vog.begindatumtijdvakgeldigheid <= LOCALTIMESTAMP
+    AND (vog.einddatumtijdvakgeldigheid is NULL OR vog.einddatumtijdvakgeldigheid >= LOCALTIMESTAMP)
+    AND vog.aanduidingrecordinactief = FALSE;
+
+DROP VIEW IF EXISTS gemeente_woonplaatsactueelbestaand;
+CREATE VIEW gemeente_woonplaatsactueelbestaand AS
+    SELECT  gw.gid,
+            gw.begindatumtijdvakgeldigheid,
+            gw.einddatumtijdvakgeldigheid,
+            gw.woonplaatscode,
+            gw.gemeentecode,
+            gw.status
+    FROM gemeente_woonplaats as gw
+  WHERE
+    gw.begindatumtijdvakgeldigheid <= LOCALTIMESTAMP
+    AND (gw.einddatumtijdvakgeldigheid is NULL OR gw.einddatumtijdvakgeldigheid >= LOCALTIMESTAMP)
+    AND gw.status = 'definitief';
 
 ----------------------------------------------------------------------------------
 -- Extra definitie voor GeoServer om om te gaan met VIEWs
@@ -397,4 +458,6 @@ VALUES (current_schema(), 'pandactueel', 'gid', null, null, null);
 INSERT INTO gt_pk_metadata(table_schema, table_name, pk_column, pk_column_idx, pk_policy, pk_sequence)
 VALUES (current_schema(), 'pandactueelbestaand', 'gid', null, null, null);
 
-select probe_geometry_columns();
+-- Populeert public.geometry_columns
+-- Dummy voor PostGIS 2+
+SELECT public.probe_geometry_columns();

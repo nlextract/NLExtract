@@ -5,7 +5,13 @@
 #
 
 # Bepaal waar we zijn zodat we kunnen uitvoeren vanaf elke directory
-BASEDIR=`dirname $0`/..
+# werkt ook met symlinks dankzij gidema.
+if [ -h "$0" ] ; then
+  BASEDIR=`readlink "$0"`
+  BASEDIR=`dirname "$BASEDIR"`/..
+else
+  BASEDIR=`dirname $0`/..
+fi
 BASEDIR=`(cd "$BASEDIR"; pwd)`
 
 PY_SCRIPT=$BASEDIR/src/bagextract.py

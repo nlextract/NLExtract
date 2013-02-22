@@ -1,0 +1,8 @@
+Readme Top10NL verwerkingsscripts
+=================================
+
+Hier staan de scripts die je moet aanroepen om Top10NL GML
+naar PostGIS te converteren.
+
+Documentatie voor deze scripts
+vind je op: http://nlextract.readthedocs.org

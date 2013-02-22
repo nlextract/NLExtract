@@ -45,33 +45,33 @@ simpelweg doorgeggeven.
     </xsl:template>
 
     <!-- Copy extent van hele FeatureCollection -->
-     <xsl:template match="gml:boundedBy">
+    <xsl:template match="gml:boundedBy">
         <xsl:copy-of select="."/>
     </xsl:template>
 
     <!--
     Top10 Feature Types en hun geometrie-attributen
 
-    Wegdeel  geometrieVlak geometrieLijn geometriePunt hartLijn hartPunt
-    Waterdeel geometrieVlak geometrieLijn  geometriePunt
-    Spoorbaandeel  geometrieLijn  geometriePunt
-    Gebouw  geometrieVlak     (OK)
-    Terrein  geometrieVlak    (OK)
+    Wegdeel:            geometrieVlak geometrieLijn geometriePunt hartLijn hartPunt
+    Waterdeel:          geometrieVlak geometrieLijn geometriePunt
+    Spoorbaandeel:                    geometrieLijn geometriePunt
+    Gebouw:             geometrieVlak
+    Terrein:            geometrieVlak
+    Inrichtingselement:               geometrieLijn geometriePunt
 
-    FunctioneelGebied  geometrieVlak  labelPunt
-    GeografischGebied   geometrieVlak labelPunt
-    Inrichtingselement geometrieLijn  geometriePunt
-    RegistratiefGebied geometrieVlak  labelPunt
+    FunctioneelGebied:  geometrieVlak labelPunt
+    GeografischGebied:  geometrieVlak labelPunt
+    RegistratiefGebied: geometrieVlak labelPunt
 
-    IsoHoogte  geometrieLijn    (OK)
-    KadeOfWal  geometrieLijn    (OK)
-    Hoogteverschil   hogeZijde	(Lijn) Lijn lageZijde  (Lijn)
-    OverigRelief    geometrieLijn	 geometriePunt
-    HoogteOfDieptePunt  geometriePunt (OK)
+    IsoHoogte:          geometrieLijn
+    KadeOfWal:          geometrieLijn
+    Hoogteverschil:                                 hogeZijde (Lijn) lageZijde (Lijn)
+    OverigReliëf:       geometrieLijn geometriePunt
+    HoogteOfDieptePunt:               geometriePunt
     -->
     <xsl:template match="gml:featureMembers">
         <!-- START Multiple geom features: split into separate feature types, one for each geom type -->
-         <xsl:for-each select="top10nl:Waterdeel">
+        <xsl:for-each select="top10nl:Waterdeel">
             <xsl:call-template name="SplitsWaterdeel"/>
         </xsl:for-each>
 
@@ -84,42 +84,41 @@ simpelweg doorgeggeven.
         </xsl:for-each>
 
         <xsl:for-each select="top10nl:FunctioneelGebied">
-             <xsl:call-template name="SplitsFunctioneelGebied"/>
-         </xsl:for-each>
+            <xsl:call-template name="SplitsFunctioneelGebied"/>
+        </xsl:for-each>
 
         <xsl:for-each select="top10nl:GeografischGebied">
-             <xsl:call-template name="SplitsGeografischGebied"/>
-         </xsl:for-each>
+            <xsl:call-template name="SplitsGeografischGebied"/>
+        </xsl:for-each>
 
         <xsl:for-each select="top10nl:Inrichtingselement">
-              <xsl:call-template name="SplitsInrichtingselement"/>
-          </xsl:for-each>
-
+            <xsl:call-template name="SplitsInrichtingselement"/>
+        </xsl:for-each>
 
         <xsl:for-each select="top10nl:RegistratiefGebied">
-             <xsl:call-template name="SplitsRegistratiefGebied"/>
-         </xsl:for-each>
+            <xsl:call-template name="SplitsRegistratiefGebied"/>
+        </xsl:for-each>
 
         <xsl:for-each select="top10nl:OverigReliëf">
-                <xsl:call-template name="SplitsOverigRelief"/>
-            </xsl:for-each>
+            <xsl:call-template name="SplitsOverigRelief"/>
+        </xsl:for-each>
 
         <xsl:for-each select="top10nl:Hoogteverschil">
-               <xsl:call-template name="SplitsHoogteverschil"/>
-           </xsl:for-each>
+            <xsl:call-template name="SplitsHoogteverschil"/>
+        </xsl:for-each>
 
         <!-- START Single geom features: just copy all -->
         <xsl:for-each select="top10nl:Gebouw">
-             <xsl:call-template name="CopyAll">
-                 <xsl:with-param name="objectType">Gebouw_Vlak</xsl:with-param>
-             </xsl:call-template>
-         </xsl:for-each>
+            <xsl:call-template name="CopyAll">
+                <xsl:with-param name="objectType">Gebouw_Vlak</xsl:with-param>
+            </xsl:call-template>
+        </xsl:for-each>
 
-         <xsl:for-each select="top10nl:Terrein">
-             <xsl:call-template name="CopyAll">
-                 <xsl:with-param name="objectType">Terrein_Vlak</xsl:with-param>
-             </xsl:call-template>
-         </xsl:for-each>
+        <xsl:for-each select="top10nl:Terrein">
+            <xsl:call-template name="CopyAll">
+                <xsl:with-param name="objectType">Terrein_Vlak</xsl:with-param>
+            </xsl:call-template>
+        </xsl:for-each>
 
         <xsl:for-each select="top10nl:IsoHoogte">
             <xsl:call-template name="CopyAll">
@@ -134,116 +133,116 @@ simpelweg doorgeggeven.
         </xsl:for-each>
 
         <xsl:for-each select="top10nl:KadeOfWal">
-             <xsl:call-template name="CopyAll">
-                 <xsl:with-param name="objectType">KadeOfWal_Lijn</xsl:with-param>
-             </xsl:call-template>
-         </xsl:for-each>
+            <xsl:call-template name="CopyAll">
+                <xsl:with-param name="objectType">KadeOfWal_Lijn</xsl:with-param>
+            </xsl:call-template>
+        </xsl:for-each>
 
     </xsl:template>
 
-    <!--  Splits FunctioneelGebied heeft geometrieVlak en  abelPunt -->
+    <!-- Splits FunctioneelGebied: heeft geometrieVlak en labelPunt -->
     <xsl:template name="SplitsFunctioneelGebied">
-         <xsl:if test="top10nl:geometrieVlak != ''">
-             <xsl:call-template name="CopyWithSingleGeometry">
-                 <xsl:with-param name="objectType">FunctioneelGebied_Vlak</xsl:with-param>
-                 <xsl:with-param name="geometrie" select="top10nl:geometrieVlak"/>
-             </xsl:call-template>
-         </xsl:if>
+        <xsl:if test="top10nl:geometrieVlak != ''">
+            <xsl:call-template name="CopyWithSingleGeometry">
+                <xsl:with-param name="objectType">FunctioneelGebied_Vlak</xsl:with-param>
+                <xsl:with-param name="geometrie" select="top10nl:geometrieVlak"/>
+            </xsl:call-template>
+        </xsl:if>
 
-         <xsl:if test="top10nl:labelPunt != ''">
-             <xsl:call-template name="CopyWithSingleGeometry">
-                 <xsl:with-param name="objectType">FunctioneelGebied_Punt</xsl:with-param>
-                 <xsl:with-param name="geometrie" select="top10nl:labelPunt"/>
-             </xsl:call-template>
-         </xsl:if>
-     </xsl:template>
+        <xsl:if test="top10nl:labelPunt != ''">
+            <xsl:call-template name="CopyWithSingleGeometry">
+                <xsl:with-param name="objectType">FunctioneelGebied_Punt</xsl:with-param>
+                <xsl:with-param name="geometrie" select="top10nl:labelPunt"/>
+            </xsl:call-template>
+        </xsl:if>
+    </xsl:template>
 
-    <!--  Splits GeografischGebied heeft geometrieVlak en labelPunt -->
-     <xsl:template name="SplitsGeografischGebied">
-          <xsl:if test="top10nl:geometrieVlak != ''">
-              <xsl:call-template name="CopyWithSingleGeometry">
-                  <xsl:with-param name="objectType">GeografischGebied_Vlak</xsl:with-param>
-                  <xsl:with-param name="geometrie" select="top10nl:geometrieVlak"/>
-              </xsl:call-template>
-          </xsl:if>
+    <!-- Splits GeografischGebied: heeft geometrieVlak en labelPunt -->
+    <xsl:template name="SplitsGeografischGebied">
+        <xsl:if test="top10nl:geometrieVlak != ''">
+            <xsl:call-template name="CopyWithSingleGeometry">
+                <xsl:with-param name="objectType">GeografischGebied_Vlak</xsl:with-param>
+                <xsl:with-param name="geometrie" select="top10nl:geometrieVlak"/>
+            </xsl:call-template>
+        </xsl:if>
 
-          <xsl:if test="top10nl:labelPunt != ''">
-              <xsl:call-template name="CopyWithSingleGeometry">
-                  <xsl:with-param name="objectType">GeografischGebied_Punt</xsl:with-param>
-                  <xsl:with-param name="geometrie" select="top10nl:labelPunt"/>
-              </xsl:call-template>
-          </xsl:if>
-      </xsl:template>
+        <xsl:if test="top10nl:labelPunt != ''">
+            <xsl:call-template name="CopyWithSingleGeometry">
+                <xsl:with-param name="objectType">GeografischGebied_Punt</xsl:with-param>
+                <xsl:with-param name="geometrie" select="top10nl:labelPunt"/>
+            </xsl:call-template>
+        </xsl:if>
+    </xsl:template>
 
-    <!--  Splits Hoogteverschil heeft hogeZijde	(Lijn) en lageZijde (Lijn) -->
-      <xsl:template name="SplitsHoogteverschil">
-           <xsl:if test="top10nl:hogeZijde != ''">
-               <xsl:call-template name="CopyWithSingleGeometry">
-                   <xsl:with-param name="objectType">HoogteverschilHZ_Lijn</xsl:with-param>
-                   <xsl:with-param name="geometrie" select="top10nl:hogeZijde"/>
-               </xsl:call-template>
-           </xsl:if>
+    <!-- Splits Hoogteverschil: heeft hogeZijde    (Lijn) en lageZijde (Lijn) -->
+    <xsl:template name="SplitsHoogteverschil">
+        <xsl:if test="top10nl:hogeZijde != ''">
+            <xsl:call-template name="CopyWithSingleGeometry">
+                <xsl:with-param name="objectType">HoogteverschilHZ_Lijn</xsl:with-param>
+                <xsl:with-param name="geometrie" select="top10nl:hogeZijde"/>
+            </xsl:call-template>
+        </xsl:if>
 
-           <xsl:if test="top10nl:lageZijde != ''">
-               <xsl:call-template name="CopyWithSingleGeometry">
-                   <xsl:with-param name="objectType">HoogteverschilLZ_Lijn</xsl:with-param>
-                   <xsl:with-param name="geometrie" select="top10nl:lageZijde"/>
-               </xsl:call-template>
-           </xsl:if>
-       </xsl:template>
+        <xsl:if test="top10nl:lageZijde != ''">
+            <xsl:call-template name="CopyWithSingleGeometry">
+                <xsl:with-param name="objectType">HoogteverschilLZ_Lijn</xsl:with-param>
+                <xsl:with-param name="geometrie" select="top10nl:lageZijde"/>
+            </xsl:call-template>
+        </xsl:if>
+    </xsl:template>
 
-    <!--  Splits Inrichtingselement heeft geometrieLijn en geometriePunt -->
-     <xsl:template name="SplitsInrichtingselement">
-          <xsl:if test="top10nl:geometrieLijn != ''">
-              <xsl:call-template name="CopyWithSingleGeometry">
-                  <xsl:with-param name="objectType">Inrichtingselement_Lijn</xsl:with-param>
-                  <xsl:with-param name="geometrie" select="top10nl:geometrieLijn"/>
-              </xsl:call-template>
-          </xsl:if>
+    <!-- Splits Inrichtingselement: heeft geometrieLijn en geometriePunt -->
+    <xsl:template name="SplitsInrichtingselement">
+        <xsl:if test="top10nl:geometrieLijn != ''">
+            <xsl:call-template name="CopyWithSingleGeometry">
+                <xsl:with-param name="objectType">Inrichtingselement_Lijn</xsl:with-param>
+                <xsl:with-param name="geometrie" select="top10nl:geometrieLijn"/>
+            </xsl:call-template>
+        </xsl:if>
 
-          <xsl:if test="top10nl:geometriePunt != ''">
-              <xsl:call-template name="CopyWithSingleGeometry">
-                  <xsl:with-param name="objectType">Inrichtingselement_Punt</xsl:with-param>
-                  <xsl:with-param name="geometrie" select="top10nl:geometriePunt"/>
-              </xsl:call-template>
-          </xsl:if>
-      </xsl:template>
+        <xsl:if test="top10nl:geometriePunt != ''">
+            <xsl:call-template name="CopyWithSingleGeometry">
+                <xsl:with-param name="objectType">Inrichtingselement_Punt</xsl:with-param>
+                <xsl:with-param name="geometrie" select="top10nl:geometriePunt"/>
+            </xsl:call-template>
+        </xsl:if>
+    </xsl:template>
 
-    <!--  Splits OverigRelief heeft geometrieLijn en geometriePunt -->
-     <xsl:template name="SplitsOverigRelief">
-          <xsl:if test="top10nl:geometrieLijn != ''">
-              <xsl:call-template name="CopyWithSingleGeometry">
-                  <xsl:with-param name="objectType">OverigReliëf_Lijn</xsl:with-param>
-                  <xsl:with-param name="geometrie" select="top10nl:geometrieLijn"/>
-              </xsl:call-template>
-          </xsl:if>
+    <!-- Splits OverigReliëf: heeft geometrieLijn en geometriePunt -->
+    <xsl:template name="SplitsOverigRelief">
+        <xsl:if test="top10nl:geometrieLijn != ''">
+            <xsl:call-template name="CopyWithSingleGeometry">
+                <xsl:with-param name="objectType">OverigRelief_Lijn</xsl:with-param>
+                <xsl:with-param name="geometrie" select="top10nl:geometrieLijn"/>
+            </xsl:call-template>
+        </xsl:if>
 
-          <xsl:if test="top10nl:geometriePunt != ''">
-              <xsl:call-template name="CopyWithSingleGeometry">
-                  <xsl:with-param name="objectType">OverigReliëf_Punt</xsl:with-param>
-                  <xsl:with-param name="geometrie" select="top10nl:geometriePunt"/>
-              </xsl:call-template>
-          </xsl:if>
-      </xsl:template>
+        <xsl:if test="top10nl:geometriePunt != ''">
+            <xsl:call-template name="CopyWithSingleGeometry">
+                <xsl:with-param name="objectType">OverigRelief_Punt</xsl:with-param>
+                <xsl:with-param name="geometrie" select="top10nl:geometriePunt"/>
+            </xsl:call-template>
+        </xsl:if>
+    </xsl:template>
 
-    <!--  Splits GeografischGebied heeft geometrieVlak en labelPunt -->
-     <xsl:template name="SplitsRegistratiefGebied">
-          <xsl:if test="top10nl:geometrieVlak != ''">
-              <xsl:call-template name="CopyWithSingleGeometry">
-                  <xsl:with-param name="objectType">RegistratiefGebied_Vlak</xsl:with-param>
-                  <xsl:with-param name="geometrie" select="top10nl:geometrieVlak"/>
-              </xsl:call-template>
-          </xsl:if>
+    <!-- Splits GeografischGebied: heeft geometrieVlak en labelPunt -->
+    <xsl:template name="SplitsRegistratiefGebied">
+        <xsl:if test="top10nl:geometrieVlak != ''">
+            <xsl:call-template name="CopyWithSingleGeometry">
+                <xsl:with-param name="objectType">RegistratiefGebied_Vlak</xsl:with-param>
+                <xsl:with-param name="geometrie" select="top10nl:geometrieVlak"/>
+            </xsl:call-template>
+        </xsl:if>
 
-          <xsl:if test="top10nl:labelPunt != ''">
-              <xsl:call-template name="CopyWithSingleGeometry">
-                  <xsl:with-param name="objectType">RegistratiefGebied_Punt</xsl:with-param>
-                  <xsl:with-param name="geometrie" select="top10nl:labelPunt"/>
-              </xsl:call-template>
-          </xsl:if>
-      </xsl:template>
-    
-    <!-- Spoorbaandeel geometrieLijn geometriePunt -->
+        <xsl:if test="top10nl:labelPunt != ''">
+            <xsl:call-template name="CopyWithSingleGeometry">
+                <xsl:with-param name="objectType">RegistratiefGebied_Punt</xsl:with-param>
+                <xsl:with-param name="geometrie" select="top10nl:labelPunt"/>
+            </xsl:call-template>
+        </xsl:if>
+    </xsl:template>
+
+    <!-- Splits Spoorbaandeel: heeft geometrieLijn en geometriePunt -->
     <xsl:template name="SplitsSpoorbaandeel">
         <xsl:if test="top10nl:geometriePunt != ''">
             <xsl:call-template name="CopyWithSingleGeometry">
@@ -261,7 +260,7 @@ simpelweg doorgeggeven.
 
     </xsl:template>
 
-    <!-- Waterdeel geometrieVlak geometrieLijn  geometriePunt -->
+    <!-- Splits Waterdeel: heeft geometrieVlak, geometrieLijn en geometriePunt -->
     <xsl:template name="SplitsWaterdeel">
         <xsl:if test="top10nl:geometrieVlak != ''">
             <xsl:call-template name="CopyWithSingleGeometry">
@@ -286,7 +285,7 @@ simpelweg doorgeggeven.
 
     </xsl:template>
 
-    <!-- Wegdeel geometrieVlak geometrieLijn geometriePunt hartLijn hartPunt -->
+    <!-- Splits Wegdeel, heeft geometrieVlak, geometrieLijn, geometriePunt, hartLijn en hartPunt -->
     <xsl:template name="SplitsWegdeel">
         <xsl:if test="top10nl:geometrieVlak != ''">
             <xsl:call-template name="CopyWithSingleGeometry">
@@ -319,7 +318,7 @@ simpelweg doorgeggeven.
 
         <xsl:if test="top10nl:hartPunt != ''">
             <xsl:call-template name="CopyWithSingleGeometry">
-                <xsl:with-param name="objectType" >Wegdeel_HartPunt</xsl:with-param>
+                <xsl:with-param name="objectType">Wegdeel_HartPunt</xsl:with-param>
                 <xsl:with-param name="geometrie" select="top10nl:hartPunt"/>
             </xsl:call-template>
         </xsl:if>
@@ -332,11 +331,43 @@ simpelweg doorgeggeven.
             <xsl:value-of select='substring(nen3610:identificatie, 12,19)'/>
         </fid>
         <!-- Copieer alle nen3610:* attributen. -->
-         <xsl:copy-of select="nen3610:*"/>
+        <xsl:copy-of select="nen3610:*"/>
 
-        <!-- Copieer alle top10:* attributen  behalve de geometrieen. -->
+        <!-- Hernoem het attribuut typeReliëf naar typeRelief -->
+        <xsl:for-each select="top10nl:typeReliëf">
+            <typeRelief>
+                <xsl:value-of select="text()"/>
+            </typeRelief>
+        </xsl:for-each>
+
+        <!-- Splits namen en straatnamen uit in Nederlands en Fries -->
+        <xsl:for-each select="top10nl:naam[@xml:lang='nl']">
+            <naamNL>
+                <xsl:value-of select="text()"/>
+            </naamNL>
+        </xsl:for-each>
+
+        <xsl:for-each select="top10nl:naam[@xml:lang='fy']">
+            <naamFries>
+                <xsl:value-of select="text()"/>
+            </naamFries>
+        </xsl:for-each>
+
+        <xsl:for-each select="top10nl:straatnaam[@xml:lang='nl']">
+            <straatnaamNL>
+                <xsl:value-of select="text()"/>
+            </straatnaamNL>
+        </xsl:for-each>
+
+        <xsl:for-each select="top10nl:straatnaam[@xml:lang='fy']">
+            <straatnaamFries>
+                <xsl:value-of select="text()"/>
+            </straatnaamFries>
+        </xsl:for-each>
+
+        <!-- Copieer alle top10:* attributen, behalve de geometrieen en de namen. -->
         <xsl:copy-of
-                select="top10nl:*[not(self::top10nl:geometrieVlak)][not(self::top10nl:geometrieLijn)][not(self::top10nl:geometriePunt)][not(self::top10nl:hartLijn)][not(self::top10nl:hartPunt)][not(self::top10nl:hogeZijde)][not(self::top10nl:lageZijde)]"/>
+                select="top10nl:*[not(self::top10nl:geometrieVlak)][not(self::top10nl:geometrieLijn)][not(self::top10nl:geometriePunt)][not(self::top10nl:hartLijn)][not(self::top10nl:hartPunt)][not(self::top10nl:hogeZijde)][not(self::top10nl:lageZijde)][not(self::top10nl:naam)][not(self::top10nl:straatnaam)][not(self::top10nl:typeReliëf)]"/>
     </xsl:template>
 
     <!-- Copieer alle elementen van object behalve geometrieen en voeg 1 enkele geometrie aan eind toe. -->
@@ -356,10 +387,11 @@ simpelweg doorgeggeven.
         <xsl:param name="objectType"/>
         <gml:featureMember>
             <xsl:element name="{$objectType}">
-                <fid>
-                    <xsl:value-of select='substring(nen3610:identificatie, 12,19)'/>
-                </fid>
-                <xsl:copy-of select="*"/>
+                <!-- Kopieer alle niet-geometrie properties -->
+                <xsl:call-template name="CopyNonGeoProps"/>
+                
+                <!-- Kopieer geometrie property -->
+                <xsl:copy-of select="top10nl:geometrieVlak|top10nl:geometrieLijn|top10nl:geometriePunt"/>
             </xsl:element>
         </gml:featureMember>
     </xsl:template>

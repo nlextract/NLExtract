@@ -27,7 +27,7 @@ __date__ = "Dec 21, 2011 3:46:27 PM$"
 """
 
 from bagattribuut import *
-from logging import Log
+from log import Log
 from etree import stripschema
 
 #--------------------------------------------------------------------------------------------------------
@@ -47,7 +47,7 @@ class BAGObject:
         self.voegToe(BAGbooleanAttribuut("inOnderzoek", "bag_LVC:inOnderzoek"))
         self.voegToe(BAGdatetimeAttribuut("begindatumTijdvakGeldigheid","bag_LVC:tijdvakgeldigheid/bagtype:begindatumTijdvakGeldigheid"))
         self.voegToe(BAGdatetimeAttribuut("einddatumTijdvakGeldigheid","bag_LVC:tijdvakgeldigheid/bagtype:einddatumTijdvakGeldigheid"))
-        self.voegToe(BAGattribuut(20, "documentnummer", "bag_LVC:bron/bagtype:documentnummer"))
+        self.voegToe(BAGstringAttribuut(20, "documentnummer", "bag_LVC:bron/bagtype:documentnummer"))
         self.voegToe(BAGdateAttribuut("documentdatum", "bag_LVC:bron/bagtype:documentdatum"))
 
         self.relaties = []
@@ -107,6 +107,39 @@ class BAGObject:
             attribuut.schrijf()
         for relatie in self.relaties:
              relatie.schrijf()
+
+    # Genereer SQL voor een COPY.
+    def maakCopySQL(self, buffer):
+        velden = []
+        i = 0
+        for attribuut in self.attributen_volgorde:
+
+            velden.append(attribuut.naam())
+            w = attribuut.waardeSQL()
+            if not w:
+                # NULL value
+                w = '\\\N'
+
+            # if attribuut.naam() == 'geom_valid':
+            #   w = repr(False)
+
+            if i > 0:
+                # Column separator
+                buffer.write("~")
+                # print("~")
+            buffer.write(w)
+            # print(w)
+            i += 1
+
+        self.velden = velden
+
+        # End of record separator
+        buffer.write("\n")
+        # print("\n")
+
+        # Optioneel: relatie objecten
+        for relatie in self.relaties:
+            relatie.maakCopySQL()
 
     # Genereer SQL voor een INSERT (als prepared statement).
     def maakInsertSQL(self):
@@ -198,7 +231,7 @@ class Woonplaats(BAGObject):
     woonplaatsStatusTypes = ['Woonplaats aangewezen', 'Woonplaats ingetrokken']
     def __init__(self):
         BAGObject.__init__(self, "bag_LVC:Woonplaats", "woonplaats", "WPL")
-        self.voegToe(BAGattribuut(80, "woonplaatsNaam", "bag_LVC:woonplaatsNaam"))
+        self.voegToe(BAGstringAttribuut(80, "woonplaatsNaam", "bag_LVC:woonplaatsNaam"))
         self.voegToe(BAGenumAttribuut(Woonplaats.woonplaatsStatusTypes, "woonplaatsStatus", "bag_LVC:woonplaatsStatus"))
         self.voegToe(BAGmultiPolygoon(2, "geovlak", "bag_LVC:woonplaatsGeometrie"))
         self.voegToe(BAGgeometrieValidatie("geom_valid", "geovlak"))
@@ -216,7 +249,7 @@ class OpenbareRuimte(BAGObject):
     openbareRuimteStatusTypes = ['Naamgeving uitgegeven', 'Naamgeving ingetrokken']
     def __init__(self):
         BAGObject.__init__(self, "bag_LVC:OpenbareRuimte", "openbareruimte", "OPR")
-        self.voegToe(BAGattribuut(80, "openbareRuimteNaam", "bag_LVC:openbareRuimteNaam"))
+        self.voegToe(BAGstringAttribuut(80, "openbareRuimteNaam", "bag_LVC:openbareRuimteNaam"))
         self.voegToe(BAGenumAttribuut(OpenbareRuimte.openbareRuimteStatusTypes, "openbareRuimteStatus", "bag_LVC:openbareruimteStatus"))
         self.voegToe(BAGenumAttribuut(OpenbareRuimte.openbareRuimteTypes, "openbareRuimteType","bag_LVC:openbareRuimteType"))
         self.voegToe(BAGnumeriekAttribuut(16, "gerelateerdeWoonplaats",
@@ -360,6 +393,38 @@ class Pand(BAGObject):
     def heeftGeometrie(self):
         return True
 
+#--------------------------------------------------------------------------------------------------------
+# Class         GemeenteWoonplaatsRelatie
+# Afgeleid van  BAGObject
+# Omschrijving  Class voor koppeling Gemeente code naar Woonplaats code
+#<gwr_LVC:GemeenteWoonplaatsRelatie>
+# <gwr_LVC:tijdvakgeldigheid>
+#   <bagtype:begindatumTijdvakGeldigheid>2010100800000000</bagtype:begindatumTijdvakGeldigheid>
+# </gwr_LVC:tijdvakgeldigheid>
+#<gwr_LVC:gerelateerdeWoonplaats>
+#<gwr_LVC:identificatie>2236</gwr_LVC:identificatie>
+#</gwr_LVC:gerelateerdeWoonplaats>
+#<gwr_LVC:gerelateerdeGemeente>
+#<gwr_LVC:identificatie>0007</gwr_LVC:identificatie>
+#</gwr_LVC:gerelateerdeGemeente>
+#<gwr_LVC:status>definitief</gwr_LVC:status>
+#</gwr_LVC:GemeenteWoonplaatsRelatie>
+#
+#--------------------------------------------------------------------------------------------------------
+class GemeenteWoonplaatsRelatie(BAGObject):
+    statusEnum = ['voorlopig', 'definitief']
+    def __init__(self):
+        BAGObject.__init__(self, "gwr_LVC:GemeenteWoonplaatsRelatie", "gemeente_woonplaats", "GWR")
+        self.attributen = {}
+        self.attributen_volgorde = []
+        self.voegToe(BAGdatetimeAttribuut("begindatumtijdvakgeldigheid","gwr_LVC:tijdvakgeldigheid/bagtype:begindatumTijdvakGeldigheid"))
+        self.voegToe(BAGdatetimeAttribuut("einddatumtijdvakgeldigheid","gwr_LVC:tijdvakgeldigheid/bagtype:einddatumTijdvakGeldigheid"))
+        self.voegToe(BAGnumeriekAttribuut(4, "woonplaatscode", "gwr_LVC:gerelateerdeWoonplaats/gwr_LVC:identificatie"))
+        self.voegToe(BAGnumeriekAttribuut(4, "gemeentecode", "gwr_LVC:gerelateerdeGemeente/gwr_LVC:identificatie"))
+        self.voegToe(BAGenumAttribuut(GemeenteWoonplaatsRelatie.statusEnum, "status", "gwr_LVC:status"))
+
+    def heeftGeometrie(self):
+        return False
 
 # An extremely simple Singleton Factory for BAGObjects
 class BAGObjectFabriek:
@@ -388,6 +453,8 @@ class BAGObjectFabriek:
             return Verblijfsobject()
         if objectType.upper() == "PND":
             return Pand()
+        if objectType.upper() == "GWR":
+            return GemeenteWoonplaatsRelatie()
         return None
 
     #--------------------------------------------------------------------------------------------------------
@@ -417,20 +484,24 @@ class BAGObjectFabriek:
 
     # Creeer een BAGObject uit een DOM node
     def BAGObjectBijXML(self, node):
-        if stripschema(node.tag) == 'Ligplaats':
+        tag = stripschema(node.tag)
+        
+        if tag == 'Ligplaats':
             bagObject = Ligplaats()
-        elif stripschema(node.tag) == 'Woonplaats':
+        elif tag == 'Woonplaats':
             bagObject = Woonplaats()
-        elif stripschema(node.tag) == 'Verblijfsobject':
+        elif tag == 'Verblijfsobject':
             bagObject = Verblijfsobject()
-        elif stripschema(node.tag) == 'OpenbareRuimte':
+        elif tag == 'OpenbareRuimte':
             bagObject = OpenbareRuimte()
-        elif stripschema(node.tag) == 'Nummeraanduiding':
+        elif tag == 'Nummeraanduiding':
             bagObject = Nummeraanduiding()
-        elif stripschema(node.tag) == 'Standplaats':
+        elif tag == 'Standplaats':
             bagObject = Standplaats()
-        elif stripschema(node.tag) == 'Pand':
+        elif tag == 'Pand':
             bagObject = Pand()
+        elif tag == 'GemeenteWoonplaatsRelatie':
+            bagObject = GemeenteWoonplaatsRelatie()
         else:
             return
 
@@ -460,6 +531,7 @@ class BAGRelatie(BAGObject):
         self.voegToe(BAGbooleanAttribuut("aanduidingRecordInactief", "bag_LVC:aanduidingRecordInactief"))
         self.voegToe(BAGintegerAttribuut("aanduidingRecordCorrectie","bag_LVC:aanduidingRecordCorrectie"))
         self.voegToe(BAGdatetimeAttribuut("begindatumTijdvakGeldigheid","bag_LVC:tijdvakgeldigheid/bagtype:begindatumTijdvakGeldigheid"))
+        self.voegToe(BAGdatetimeAttribuut("einddatumTijdvakGeldigheid","bag_LVC:tijdvakgeldigheid/bagtype:einddatumTijdvakGeldigheid"))
 
         self.relaties = [] 
 
