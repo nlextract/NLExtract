@@ -11,4 +11,6 @@ BONNE_DATA_DST_DIR=${BONNE_DATA_HOME}/tiff
 # Tijdsperiode files
 BONNE_DATA_PERIOD_DIR=${BONNE_DATA_HOME}/tiffperiod
 
+# Mask image om randen transparant te maken
+BONNE_MASK_IMG=${BONNE_DATA_HOME}/bonnemask.png
 

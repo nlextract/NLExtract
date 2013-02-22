@@ -25,3 +25,7 @@ CROP=4000x2500+18
 # tbv gdaladdo Pyramid
 # TODO: mogelijk alignen met NL Tiling schema?
 GDAL_OVERVIEW_LEVELS="2 4 8 16 32 64 128"
+
+# Per-host settings
+SETTINGS_SCRIPT="settings-`hostname`.sh"
+. $SETTINGS_SCRIPT

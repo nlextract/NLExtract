@@ -15,8 +15,6 @@
 # .png van de Bonnebladen
 SETTINGS_SCRIPT="settings.sh"
 . $SETTINGS_SCRIPT
-SETTINGS_SCRIPT="settings-`hostname`.sh"
-. $SETTINGS_SCRIPT
 
 fileName=$1
 
@@ -68,11 +66,13 @@ function createGeoTiff() {
     # Roteren: laat zwarte randen verdwijnen (met dank aan Frank Steggink)
     # -define +dither -map $src_png is om colormap te behouden (anders wordt ie RGB en bestand 3x groter)
 #    convert $src_png -set tiff:software "NLExtract" -set tiff:timestamp "`date`" -brightness-contrast ${BRIGHTNESS_CONTRAST} -affine ${AFFINE} -transform -crop ${CROP} -define +dither -map $src_png $tmp_png
-    convert $src_png -set tiff:software "NLExtract" -set tiff:timestamp "`date`" -brightness-contrast ${BRIGHTNESS_CONTRAST} -define +dither -map $src_png $tmp_png
+#    convert $src_png -set tiff:software "NLExtract" -set tiff:timestamp "`date`" -brightness-contrast ${BRIGHTNESS_CONTRAST} -define +dither -map $src_png $tmp_png
+	composite -gravity center ${BONNE_MASK_IMG} $src_png $tmp_png
+    convert $tmp_png -set tiff:software "NLExtract" -set tiff:timestamp "`date`"  $tmp_tif
 
     # Maak GeoTIFF van PNG met juiste georeferentie
-	gdal_translate -of GTiff -a_ullr $nw $se -co TILED=YES -a_srs EPSG:28992 $tmp_png $dst_tif
-    python gdalsetnull.py $dst_tif 0
+	gdal_translate  -expand rgb -of GTiff -a_ullr $nw $se -co TILED=YES -a_srs EPSG:28992  $tmp_tif $dst_tif
+    python gdalsetnull.py $dst_tif 207 61 254
 
 	# Alternatief met GCPs en gdal_warp
 	# Upper Left  (    0.0,    0.0)
@@ -89,7 +89,7 @@ function createGeoTiff() {
     # Maak overview (pyramid)
     gdaladdo -r average $dst_tif  ${GDAL_OVERVIEW_LEVELS}
 
-	/bin/rm $tmp_png
+#	/bin/rm $tmp_png
     echo "END CONVERT $srcname"
 }
 

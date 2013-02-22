@@ -9,8 +9,6 @@
 # .png van de Bonnebladen
 SETTINGS_SCRIPT="settings.sh"
 . $SETTINGS_SCRIPT
-SETTINGS_SCRIPT="settings-`hostname`.sh"
-. $SETTINGS_SCRIPT
 
 /bin/rm -rf ${BONNE_DATA_DST_DIR}
 mkdir ${BONNE_DATA_DST_DIR}
