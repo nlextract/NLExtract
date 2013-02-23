@@ -9,9 +9,6 @@
 # .png van de Bonnebladen
 SETTINGS_SCRIPT="settings.sh"
 . $SETTINGS_SCRIPT
-SETTINGS_SCRIPT="settings-`hostname`.sh"
-. $SETTINGS_SCRIPT
-
 
 yearStart=$1
 yearEnd=$2
@@ -42,5 +39,5 @@ do
         yearEnd=$(( $yearEnd - 1 ))
    done
 
-done <bonnefiles-numbers.txt
+done <../data/bonnefiles-numbers.txt
 

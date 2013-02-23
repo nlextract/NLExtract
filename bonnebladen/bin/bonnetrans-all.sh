@@ -17,5 +17,5 @@ while read fileName
 do
   ./bonnetrans.sh $fileName
 
-done <bonnefiles.txt
+done <../data/bonnefiles.txt
 
