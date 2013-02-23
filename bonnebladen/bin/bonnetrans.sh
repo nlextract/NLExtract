@@ -93,7 +93,7 @@ function createGeoTiff() {
      echo "gdaladdo"
    gdaladdo -r average $dst_tif  ${GDAL_OVERVIEW_LEVELS}
 
-#	/bin/rm $tmp_png
+	/bin/rm $tmp_png $tmp_tif
     echo "END CONVERT $srcname"
 }
 
