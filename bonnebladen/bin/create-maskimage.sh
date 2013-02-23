@@ -17,7 +17,7 @@ SETTINGS_SCRIPT="settings.sh"
 . $SETTINGS_SCRIPT
 
 # Maak mask file met alleen de "zwarte randen"
-convert -size 4019x2527 xc:none -fill '#CF3DFE' \
+convert -colorspace sRGB -size 4019x2527 xc:none -fill ${BONNE_MASK_COLOR} \
     -draw 'polygon 0,0 0,2466 17,0' \
     -draw 'polygon 106,0 4018,26 4018,0' \
     -draw 'polygon 4018,115 4001 2526 4018,2526' \

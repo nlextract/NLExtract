@@ -26,6 +26,10 @@ CROP=4000x2500+18
 # TODO: mogelijk alignen met NL Tiling schema?
 GDAL_OVERVIEW_LEVELS="2 4 8 16 32 64 128"
 
+# Mask image om randen transparant te maken
+BONNE_MASK_COLOR='#FEFEFE'
+BONNE_MASK_IMG=../data/bonnemask.png
+
 # Per-host settings
 SETTINGS_SCRIPT="settings-`hostname`.sh"
 . $SETTINGS_SCRIPT
