@@ -70,12 +70,12 @@ function createGeoTiff() {
     echo "Overlay mask"
 	composite -gravity center ${BONNE_MASK_IMG} $src_png $tmp_png
     echo "Tiff convert"
-    convert -colorspace sRGB $tmp_png -set tiff:software "NLExtract" -set tiff:timestamp "`date`"  $tmp_png $tmp_tif
+    convert -brightness-contrast ${BRIGHTNESS_CONTRAST} -colorspace sRGB $tmp_png -set tiff:software "NLExtract" -set tiff:timestamp "`date`"  $tmp_png $tmp_tif
 
     # Maak GeoTIFF van PNG met juiste georeferentie
     echo "gdal_translate"
 	gdal_translate -of GTiff -a_ullr $nw $se -co TILED=YES -a_srs EPSG:28992  $tmp_tif $dst_tif
-    python gdalsetnull.py $dst_tif 254 254 254
+    python gdalsetnull.py $dst_tif 255 255 255
 
 	# Alternatief met GCPs en gdal_warp
 	# Upper Left  (    0.0,    0.0)

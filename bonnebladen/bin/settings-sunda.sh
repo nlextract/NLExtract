@@ -7,7 +7,7 @@ BONNE_DATA_HOME=/Users/just/geodata/bonne
 # Bron bladen directory
 BONNE_DATA_SRC_DIR=${BONNE_DATA_HOME}/src
 # Getransformeerde bladen directory
-BONNE_DATA_DST_DIR=${BONNE_DATA_HOME}/tiff
+BONNE_DATA_DST_DIR=${BONNE_DATA_HOME}/friesland-trans
 # Tijdsperiode files
 BONNE_DATA_PERIOD_DIR=${BONNE_DATA_HOME}/tiffperiod
 
