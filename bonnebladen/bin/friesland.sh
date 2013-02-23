@@ -7,9 +7,9 @@
 
 SETTINGS_SCRIPT="settings.sh"
 . $SETTINGS_SCRIPT
-mv ${BONNE_DATA_HOME}/b074-1931.tif ${BONNE_DATA_HOME}/friesland-trans
-mv ${BONNE_DATA_HOME}/b075-1930.tif ${BONNE_DATA_HOME}/friesland-trans
-mv ${BONNE_DATA_HOME}/b091-1932.tif ${BONNE_DATA_HOME}/friesland-trans
-mv ${BONNE_DATA_HOME}/b092-1928.tif ${BONNE_DATA_HOME}/friesland-trans
+mv ${BONNE_DATA_DST_DIR}/b074-1931.tif ${BONNE_DATA_HOME}/friesland-trans
+mv ${BONNE_DATA_DST_DIR}/b075-1930.tif ${BONNE_DATA_HOME}/friesland-trans
+mv ${BONNE_DATA_DST_DIR}/b091-1932.tif ${BONNE_DATA_HOME}/friesland-trans
+mv ${BONNE_DATA_DST_DIR}/b092-1928.tif ${BONNE_DATA_HOME}/friesland-trans
 
 
