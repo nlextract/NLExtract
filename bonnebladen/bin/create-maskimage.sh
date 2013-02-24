@@ -20,6 +20,6 @@ SETTINGS_SCRIPT="settings.sh"
 convert -colorspace sRGB -size 4019x2527 xc:none -fill ${BONNE_MASK_COLOR} \
     -draw 'polygon 0,0 0,2466 17,0' \
     -draw 'polygon 106,0 4018,26 4018,0' \
-    -draw 'polygon 4018,115 4001 2526 4018,2526' \
-    -draw 'polygon 3865,2526 0,2500 0,2526' \
+    -draw 'polygon 4018,27 4000,2526 4018,2526' \
+    -draw 'polygon 3999,2526 0,2500 0,2526' \
     ${BONNE_MASK_IMG}
