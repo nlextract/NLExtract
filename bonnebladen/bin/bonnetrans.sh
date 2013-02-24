@@ -68,7 +68,7 @@ function createGeoTiff() {
 
     # Combineer mask file met origineel zodat randen uniforme kleur (bijv. wit) hebben
     echo "Masker voor randen: composite"
-	composite -gravity center ${BONNE_MASK_IMG} $src_png $tmp_png
+	composite -gravity center $src_png ${BONNE_MASK_IMG} $tmp_png
 
 	# TIFF aanmaken, sRGB van maken (ivm GeoTIFF transparantie later), helderheid omhoog, tags zetten.
     echo "Maak TIFF aan, helderheid omhoog: convert"
@@ -85,7 +85,7 @@ function createGeoTiff() {
 	echo "Maak overview met gdaladdo"
     gdaladdo -r average $dst_tif  ${GDAL_OVERVIEW_LEVELS}
 
-    # Tijdenlijke bestanden weggooien
+    # Tijdelijke bestanden weggooien
 	/bin/rm $tmp_png $tmp_tif
 
     echo "END CONVERT $srcname"
