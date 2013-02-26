@@ -5,7 +5,7 @@
 # Author: Just van den Broecke
 #
 
-SETTINGS_SCRIPT="settings-`hostname`.sh"
+SETTINGS_SCRIPT="settings.sh"
 . $SETTINGS_SCRIPT
 
 
@@ -53,5 +53,5 @@ do
 
    echo "END CHECKING $line"
 
-done <bonnecoords.csv
+done <../data/bonnecoords.csv
 
