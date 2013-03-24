@@ -53,6 +53,9 @@ https://github.com/opengeogroep/NLExtract/issues/82
 
 - gemeente-provincie koppeling
 Komt van CBS en geeft de koppeling gemeente-provincie via de gemeente-code.
-Zie http://www.cbs.nl/nl-NL/menu/methoden/classificaties/overzicht/gemeentelijke-indeling/2012
+Zie
+http://www.cbs.nl/nl-NL/menu/methoden/classificaties/overzicht/gemeentelijke-indeling/<jaar>  bijvoorbeeld
+http://www.cbs.nl/nl-NL/menu/methoden/classificaties/overzicht/gemeentelijke-indeling/2013/
 Deze zal in de regel minder veranderen.
+
 
