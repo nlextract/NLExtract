@@ -130,7 +130,7 @@ class SettingsProvider:
             return self._get_postgis_setting('PG_PASSWORD')
     
     def pg_conn(self):
-        return '-h %s -p %s -U %s -d %s' % (self.pg_host(), self.pg_port(), self.pg_user(), self.pg_pass())
+        return '-h %s -p %s -U %s -d %s' % (self.pg_host(), self.pg_port(), self.pg_user(), self.pg_db())
     
     def pg_clientencoding(self):
         # ini
