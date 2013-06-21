@@ -15,4 +15,4 @@ set TOP10NL_TEST_TMP=%TOP10NL_HOME%\test\tmp
 rmdir /s /q %TOP10NL_TEST_TMP%
 mkdir %TOP10NL_TEST_TMP%
 
-%PYTHON_26%\python %TOP10NL_BIN%\top10extract.py %TOP10NL_TEST_DATA%\test.gml --dir %TOP10NL_TEST_TMP%
+%PYTHON_26%\python %TOP10NL_BIN%\top10extract.py --pg_schema test %TOP10NL_TEST_DATA%\test.gml --dir %TOP10NL_TEST_TMP%

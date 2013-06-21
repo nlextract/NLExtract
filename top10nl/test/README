@@ -7,7 +7,10 @@ Om de scripts te draaien moet je een PostgreSQL database hebben
 aangemaakt met een PostGIS template (zie PostGIS documentatie).
 
 Pas evt het bestand ../bin/top10-settings.ini aan voor de database
-connectie gegevens.
+connectie gegevens. Binnen de scripts wordt het PostgreSQL schema genaamd 'test'
+opgegeven. Dit schema wordt aangemaakt indien deze nog niet bestaat en
+leeg gemaakt (tables verwijderd indien wel). Je kunt altijd het schema
+'test' weer weggooien.
 
 Op Linux/Mac draai je het script:
 

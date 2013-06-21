@@ -103,7 +103,7 @@ def execute_cmd(cmd):
     use_shell = True
     if os.name == 'nt':
         use_shell = False
-        
+
     print cmd
     subprocess.call(cmd, shell=use_shell)
 
@@ -117,7 +117,7 @@ def execute_sql(sql):
         print 'Het opgegeven SQL-script `%s` is niet aangetroffen' % sql
         sys.exit(1)
 
-    cmd = 'psql -v schema=\'%s\' -f %s %s' % (settings.pg_schema(), sql, settings.pg_conn())
+    cmd = "psql -v schema=\\'%s\\' -f %s %s" % (settings.pg_schema(), sql, settings.pg_conn())
     execute_cmd(cmd)
 
     return
@@ -145,7 +145,7 @@ def trans_gml(gml, xsl, dir):
 def load_data(gml):
 
     global first_load
-    
+
     # Kopieer / overschrijf GFS bestand
     file_ext = os.path.splitext(gml)
     shutil.copy(settings.gfs_template(), file_ext[0] + '.gfs')
@@ -169,7 +169,7 @@ def load_data(gml):
     ogr_spatial_filter = ''
     if settings.spatial_filter() != None:
         ogr_spatial_filter = '-spat %f %f %f %f' % (settings.spatial_filter()[0], settings.spatial_filter()[1], settings.spatial_filter()[2], settings.spatial_filter()[3])
-    
+
     # Voer ogr2ogr uit
     cmd = 'ogr2ogr %s -f %s "%s" %s %s %s -a_srs %s %s -s_srs %s %s %s' % (
         settings.ogr_overwrite_or_append(),
@@ -185,7 +185,7 @@ def load_data(gml):
         gml
     )
     execute_cmd(cmd)
-    
+
     # Voorkom dat de layer creation options bij de volgende run wordt meegegeven, zodat de
     # waarschuwing dat deze opties genegeerd worden niet langer wordt getoond.
     first_load = False
@@ -272,7 +272,7 @@ def process(gml):
     if len(list) == 0:
         print 'Er zijn geen GML-bestanden aangetroffen om in te lezen'
         sys.exit(1)
-        
+
     # * Validatie GML (optioneel)
     validate_gml()
 
