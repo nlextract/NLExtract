@@ -62,10 +62,10 @@ Dit is de Python PostgreSQL driver. Deze zit niet in Portable GIS dus dient apar
 
 Deze key ::
 
-    ``[HKEY_LOCAL_MACHINE\SOFTWARE\Python\PythonCore\2.7]
-    "InstallPath"="C:\usbgis\apps\Python27\App"``
+    [HKEY_LOCAL_MACHINE\SOFTWARE\Python\PythonCore\2.7]
+    "InstallPath"="C:\usbgis\apps\Python27\App"
 
-- daarna ging install goed, daarna kan registry key worden weggegooid
+- daarna ging install goed, daarna kan evt registry key worden weggegooid
 
 PostgreSQL/PostGIS
 ------------------
@@ -118,7 +118,7 @@ Test data laden voor BAG ::
 
 Als je geen foutmeldingen hebt, kun je ook in PGAdmin III zien dat er records toegevoegd zijn bijv. tabel verblijfsobject.
 
-Vervolgens Top10Nl Extract testen ::
+Vervolgens Top10NL Extract testen ::
 
    cd C:\Users\just\project\nlextract\git\top10nl\test
    top10-test.cmd
@@ -128,7 +128,7 @@ Mogelijk foutmeldingen:
 - dat ``psql`` niet gevonden kan worden vanuit ``subprocess.py``. We moeten ``psql`` aan het Path environment variable toevoegen, net als eerder Python. Voeg aan Path toe:  ``C:\usbgis\apps\postgresql\bin``.
 - altijd Command DOS prompt herstarten na verandering Path environment var.
 - Uiteraard dient de database 'top10nl' met zelfde owner naam gemaakt te zijn (zie boven).
-- melding over pg_hba.conf. Verander localhost naar 127.0.0.1 in config ``..\bin\top10-settings.ini``
+- melding over ``pg_hba.conf``. Verander localhost naar 127.0.0.1 in config ``..\bin\top10-settings.ini``
 - melding over ogr2ogr fout: voeg GDAL binaries toe aan Path: ``;C:\usbgis\apps\ms4w\tools\gdal-ogr``
 - voeg GDAL DLL toe aan Path: ``;C:\usbgis\apps\ms4w\Apache\cgi-bin``
 - zet GDAL_DATA environment (User) variabele:  ``C:\usbgis\apps\ms4w\gdaldata``
