@@ -6,7 +6,7 @@ NLExtract op Windows met Portable GIS
 *************************************
 
 
-Dit is een Windows (7) install voor NLExtract gebruikmakend van `Portable GIS<http://www.archaeogeek.com/portable-gis.html>`_.
+Dit is een Windows (7) install voor NLExtract gebruikmakend van `Portable GIS <http://www.archaeogeek.com/portable-gis.html>`_.
 Uitgevoerd door Just van den Broecke, op een Asus netbook met Windows 7.
 Zowel voor BAG als Top10NL Extract.
 
