@@ -146,6 +146,8 @@ In Python 2.6:
 - argparse module: http://pypi.python.org/pypi/argparse
   Het gemakkelijkst is om argparse.py in de directory Python26\\Lib\\ te droppen
 
+- Nieuw: `beschrijving installatie en run door Just (23 juni 2013) met behulp van Portable GIS <windows-usbgis.html>`_
+
 Mac OSX
 ~~~~~~~
 

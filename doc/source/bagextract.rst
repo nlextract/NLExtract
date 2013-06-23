@@ -99,7 +99,10 @@ Installatie (Linux)
 Installatie (Windows)
 ---------------------
 
-- beschreven door Pim Verver http://groups.google.com/group/nlextract/browse_frm/thread/c02af6012b43767a
+Er zijn een aantal mogelijkheden gebaseerd op bijdragen van gebruikers en een van de developers (Just).
+
+- Nieuw: `beschrijving door Just (23 juni 2013) met behulp van Portable GIS <windows-usbgis.html>`_
+- beschrijving door Pim Verver http://groups.google.com/group/nlextract/browse_frm/thread/c02af6012b43767a
 - hieronder een installatie met PostgreSQL 9 en PostGIS 2.0, beschreven door Reinier Sterkenburg (met dank) en wat aanvullingen van Just:
 
 #. Installeer Postgresql 9.2 64 bits van http://www.enterprisedb.com/products-services-training/pgdownload#windows
@@ -157,7 +160,7 @@ de tabel nlx_bag_info.
 
      python bagextract.py -v -q ../db/script/gemeente-provincie-tabel.sql
 
-16. Optioneel: Verrijken: aanmaken tabel met volledige ÒACN-achtigeÓ adressen uit BAG + gemeente + provincie tabellen (kan lang duren op gehele BAG, lijkt sneller te gaan via ÒpsqlÓ Postgres commando).
+16. Optioneel: Verrijken: aanmaken tabel met volledige ï¿½ACN-achtigeï¿½ adressen uit BAG + gemeente + provincie tabellen (kan lang duren op gehele BAG, lijkt sneller te gaan via ï¿½psqlï¿½ Postgres commando).
 ::
 
      "c:\Program Files\PostgreSQL\9.2\bin\psql" -d bag -U postgres < ../db/script/adres-tabel.sql
