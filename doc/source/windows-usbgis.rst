@@ -47,7 +47,7 @@ Portable GIS
 - uitpakken en installeren kan redelijk lang duren....
 - Python configureren door de Environment Variable ``Path`` uit te breiden. Zie ook: http://www.itechtalk.com/thread3595.html
 - Doe ``Edit System Variable`` voor Path en voeg de string ``;C:\usbgis\apps\python27\App`` aan einde toe
-- open een DOS/Command window en typ ```python``. Als het goed is opent de Python interpreter.
+- open een DOS/Command window en typ ``python``. Als het goed is opent de Python interpreter.
 - sluit Python af met ``ctrl-Z return``
 
 Psycopg2
@@ -132,7 +132,7 @@ Mogelijk foutmeldingen:
 - melding over ogr2ogr fout: voeg GDAL binaries toe aan Path: ``;C:\usbgis\apps\ms4w\tools\gdal-ogr``
 - voeg GDAL DLL toe aan Path: ``;C:\usbgis\apps\ms4w\Apache\cgi-bin``
 - zet GDAL_DATA environment (User) variabele:  ``C:\usbgis\apps\ms4w\gdaldata``
-- werken met schema's werkt niet haal ``--pg_schema test`` weg uit ``top10-test.cmd``
+- werken met schema's werkt mogelijk nog niet: haal ``--pg_schema test`` weg uit ``top10-test.cmd``
 
 
 
