@@ -117,7 +117,7 @@ def execute_sql(sql):
         print 'Het opgegeven SQL-script `%s` is niet aangetroffen' % sql
         sys.exit(1)
 
-    cmd = "psql -v schema=\\'%s\\' -f %s %s" % (settings.pg_schema(), sql, settings.pg_conn())
+    cmd = "psql -v schema='%s' -f %s %s" % (settings.pg_schema(), sql, settings.pg_conn())
     execute_cmd(cmd)
 
     return
