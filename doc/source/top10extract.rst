@@ -38,6 +38,16 @@ Top10NL brondata in GML kun je via `PDOK Top10NL Downloads <https://www.pdok.nl/
 ook via OpenStreetMap-NL, zie:
 http://mirror.openstreetmap.nl/kadaster/Top10NL_v1_1_1
 
+Er zijn twee download varianten: de "GML File Chunks" en "50D Kaartbladen". De eerste is de totale verzameling opgesplitst
+in 300MB GML Files, de tweede bevat de GML bestanden per kaartblad. Download de Kaartbladen alleen als je bijv. een enkel
+gebied wilt inlezen of om te testen.
+
+Als je heel Nederland wilt inlezen kun je het beste
+de "GML File Chunks" gebruiken. De directe link is http://geodata.nationaalgeoregister.nl/top10nl/extract/chunkdata/actueel/gml/top10nl_gml_filechunks.zip.
+
+Voor de Kaartbladen is dat: http://geodata.nationaalgeoregister.nl/top10nl/extract/kaartbladtotaal/actueel/gml/top10nl.zip.
+
+
 `NB  heel belangrijk is om de laatste versie van Top10NL te gebruiken: v1.1.1.` Deze wordt geleverd met ingang van
 september 2012. In bijv. PDOK zijn momenteel (okt 2012) nog oudere versies van Top10NL.
 
@@ -50,7 +60,7 @@ Omdat NLExtract voortdurend in ontwikkeling is kun je ook de actuele broncode, e
 en op dezelfde manier gebruiken als een versie:
 
 - snapshot via git: git clone http://github.com/opengeogroep/NLExtract.git
-- snapshot als .zip: https://github.com/opengeogroep/NLExtract/zipball/master
+- snapshot als .zip: https://github.com/opengeogroep/NLExtract/archive/master.zip
 
 Ontwerp
 -------
@@ -220,7 +230,7 @@ NB: ook als er meerdere bestanden via de command line aangegeven kunnen worden, 
 wildcards bevatten. Een bestand wordt als GML-bestand beschouwd, indien deze de extensie GML of
 XML heeft, anders wordt het als een GML-bestandslijst gezien.
 
-Het beste kun je de `TOP10NL_GML_50D_Blokken`-bestanden gebruiken (vanwege mogelijke geheugen-issues).
+Het beste kun je de `GML_Filechunks`-bestanden gebruiken (vanwege mogelijke geheugen-issues en duplicaten).
 Na download moet je dus eerst de .zip file uitpakken.
 
 Toepassen settings:
