@@ -122,6 +122,16 @@ def execute_sql(sql):
 
     return
 
+# Voert het meegegeven SQL-string uit
+def execute_sql_str(sql):
+    if sql is None:
+        return
+
+    cmd = 'psql -c "%s" %s' % (sql, settings.pg_conn())
+    execute_cmd(cmd)
+
+    return
+
 
 # Valideert GML-bestanden volgens de Top10NL schema's
 def validate_gml():
@@ -287,9 +297,20 @@ def process(gml):
             trans_gml(tuple[1], xsl1_1_1, settings.split_dir())
 
     ### Load fase
-    # * Aanmaken schema (indien niet bestaand)
+
+    # * Aanmaken schema (indien niet bestaand en niet public)
+
+    # eerst functie aanmaken
     sql = abspath('top10-create-schema.sql')
     execute_sql(sql)
+
+    # functie uitvoeren met schema naam
+    sql = 'SELECT _nlx_createschema(\'%s\')' % (settings.pg_schema())
+    execute_sql_str(sql)
+
+    # functie droppen
+    sql = 'DROP FUNCTION _nlx_createschema(schemaname VARCHAR)'
+    execute_sql_str(sql)
 
     # * Scripts vooraf
     execute_sql(settings.pre_sql())
