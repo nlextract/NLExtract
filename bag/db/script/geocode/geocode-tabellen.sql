@@ -340,9 +340,9 @@ CREATE TABLE geo_gemeente (
     id serial,
     geopunt geometry,
     PRIMARY KEY (id),
-    CONSTRAINT enforce_dims_geopunt CHECK ((public.ndims(geopunt) = 2)),
+    CONSTRAINT enforce_dims_geopunt CHECK ((public.st_ndims(geopunt) = 2)),
     CONSTRAINT enforce_geotype_geopunt CHECK (((public.geometrytype(geopunt) = 'POINT'::text) OR (geopunt IS NULL))),
-    CONSTRAINT enforce_srid_geopunt CHECK ((public.srid(geopunt) = 28992))
+    CONSTRAINT enforce_srid_geopunt CHECK ((public.st_srid(geopunt) = 28992))
 );
 
 
@@ -370,9 +370,9 @@ CREATE TABLE geo_provincie (
     id serial,
     geopunt geometry,
     PRIMARY KEY (id),
-    CONSTRAINT enforce_dims_geopunt CHECK ((public.ndims(geopunt) = 2)),
+    CONSTRAINT enforce_dims_geopunt CHECK ((public.st_ndims(geopunt) = 2)),
     CONSTRAINT enforce_geotype_geopunt CHECK (((public.geometrytype(geopunt) = 'POINT'::text) OR (geopunt IS NULL))),
-    CONSTRAINT enforce_srid_geopunt CHECK ((public.srid(geopunt) = 28992))
+    CONSTRAINT enforce_srid_geopunt CHECK ((public.st_srid(geopunt) = 28992))
 );
 
 -- Insert (actuele+bestaande) data uit combinatie van BAG tabellen: Verblijfplaats
