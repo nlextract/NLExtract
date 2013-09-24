@@ -271,11 +271,14 @@ CREATE INDEX geo_straatnaam_straatnaamidx ON geo_straatnaam USING btree (straatn
 CREATE INDEX geo_straatnaam_gemeente_idx ON geo_straatnaam USING btree (gemeente);
 CREATE INDEX geo_straatnaam_woonplaats_idx ON geo_straatnaam USING btree (woonplaats);
 
-update geo_straatnaam
-  set geopunt =
+UPDATE geo_straatnaam
+  SET geopunt =
           (SELECT geopunt
-            from geo_postcode6
-            where straatnaam = geo_straatnaam.straatnaam
+            FROM geo_postcode6
+            WHERE straatnaam = geo_straatnaam.straatnaam 
+	    AND woonplaats = geo_straatnaam.woonplaats
+		AND gemeente = geo_straatnaam.gemeente
+		AND provincie = geo_straatnaam.provincie
                   limit 1);
 
 -- CREATE INDEX geo_straatnaam_sdx1 on geo_straatnaam  USING GIST (geom);
