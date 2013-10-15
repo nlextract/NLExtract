@@ -35,6 +35,7 @@ class BAGFileReader:
         self.processor = Processor()
         self.fileCount = 0
         self.recordCount = 0
+        self.database = Database()
 
     def process(self):
         Log.log.info("process file=" + self.file)

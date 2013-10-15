@@ -22,6 +22,7 @@ class Database:
     def __init__(self):
         # Lees de configuratie uit globaal BAGConfig object
         self.config = BAGConfig.config
+        self.connection = None
 
     def initialiseer(self, bestand):
         Log.log.info('Probeer te verbinden...')
@@ -31,12 +32,16 @@ class Database:
         try:
             script = open(bestand, 'r').read()
             self.cursor.execute(script)
-            self.connection.commit()
+            self.commit(True)
             Log.log.info('script is uitgevoerd')
         except psycopg2.DatabaseError as e:
             Log.log.fatal("ik krijg deze fout '%s' uit het bestand '%s'" % (str(e), str(bestand)))
 
     def verbind(self, initdb=False):
+        if self.connection and self.connection.closed == 0:
+            Log.log.debug("reusing db connection")
+            return
+
         try:
             # Connect using configured parameters
             self.connection = psycopg2.connect(
@@ -52,7 +57,7 @@ class Database:
                 self.maak_schema()
 
             self.zet_schema()
-            Log.log.debug("verbonden met de database %s" % (self.config.database))
+            Log.log.debug("verbonden met de database '%s', schema '%s', connId=%d" % (self.config.database, self.config.schema, self.connection.fileno()))
         except Exception as e:
             raise (e)
 
@@ -62,14 +67,14 @@ class Database:
             # A specific schema is required create it and set the search path
             self.uitvoeren('''DROP SCHEMA IF EXISTS %s CASCADE;''' % self.config.schema)
             self.uitvoeren('''CREATE SCHEMA %s;''' % self.config.schema)
-            self.connection.commit()
+            self.commit()
 
     def zet_schema(self):
         # Non-public schema set search path
         if self.config.schema != 'public':
             # Always set search path to our schema
             self.uitvoeren('SET search_path TO %s,public' % self.config.schema)
-            self.connection.commit()
+            # self.connection.close()
 
     def log_actie(self, actie, bestand="n.v.t", bericht='geen', error=False):
         sql  = "INSERT INTO nlx_bag_log(actie, bestand, error, bericht) VALUES (%s, %s, %s, %s)"
@@ -81,7 +86,7 @@ class Database:
             sql  = "DELETE FROM nlx_bag_info WHERE sleutel = '%s'" % sleutel
             self.tx_uitvoeren(sql)
 
-        sql  = "INSERT INTO nlx_bag_info(sleutel, waarde) VALUES (%s, %s)"
+        sql = "INSERT INTO nlx_bag_info(sleutel, waarde) VALUES (%s, %s)"
         parameters = (sleutel, waarde)
         self.tx_uitvoeren(sql, parameters)
 
@@ -108,7 +113,7 @@ class Database:
             f = open(sqlfile, 'r')
             sql = f.read()
             self.uitvoeren(sql)
-            self.connection.commit()
+            self.commit(True)
             f.close()
             Log.log.info("SQL uitgevoerd OK")
         except Exception as e:
@@ -121,12 +126,34 @@ class Database:
         try:
             self.verbind()
             self.uitvoeren(sql, parameters)
-            self.connection.commit()
-            self.connection.close()
+            self.commit()
 
             # Log.log.debug(self.cursor.statusmessage)
         except Exception as e:
             self.e = e
-            Log.log.error("fout %s voor tx_uitvoeren: %s met parameters %s" % (str(e), str(sql), str(parameters))  )
+            Log.log.error("fout %s voor tx_uitvoeren: %s met parameters %s" % (str(e), str(sql), str(parameters)))
+            self.close()
 
         return self.cursor.rowcount
+
+    def commit(self, close=False):
+        try:
+            self.connection.commit()
+            Log.log.debug("database commit ok connId=%d" % self.connection.fileno())
+        except Exception as e:
+            self.e = e
+            Log.log.error("fout in commit aktie: %s" % str(e))
+        finally:
+            if close:
+                self.close()
+
+    def close(self):
+        try:
+            connId = self.connection.fileno()
+            self.connection.close()
+            Log.log.debug("database connectie %d gesloten" % connId)
+        except Exception as e:
+            Log.log.error("fout in close aktie: %s" % str(e))
+        finally:
+            self.cursor = None
+            self.connection = None

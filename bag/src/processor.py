@@ -45,7 +45,7 @@ class Processor:
         for object in objecten:
             object.insert()
             self.database.uitvoeren(object.sql, object.valuelist)
-        self.database.connection.commit()
+        self.database.commit()
 
     def processDOM(self, node):
         self.bagObjecten = []
@@ -90,10 +90,10 @@ class Processor:
                                     self.bagObjecten = BAGObjectFabriek.bof.BAGObjectArrayBijXML(productnode)
                                     if product_tag == 'GemeenteWoonplaatsRelatieProduct':
                                         # Altijd de vorige weggooien
-                                        Database().log_actie('truncate_table', 'gemeente_woonplaats', 'altijd eerst leeg maken')
-                                        Database().tx_uitvoeren('truncate gemeente_woonplaats')
+                                        self.database.log_actie('truncate_table', 'gemeente_woonplaats', 'altijd eerst leeg maken')
+                                        self.database.tx_uitvoeren('truncate gemeente_woonplaats')
                             bericht = Log.log.endTimer("objCreate - objs=" + str(len(self.bagObjecten)))
-                            Database().log_actie('create_objects', 'idem', bericht)
+                            self.database.log_actie('create_objects', 'idem', bericht)
 
         elif doc_tag == 'BAG-Mutaties-Deelbestand-LVC':
             mode = 'Mutatie'
@@ -203,7 +203,8 @@ class Processor:
                     i += 1
                     rels += 1
 
-        self.database.connection.commit()
+        self.database.commit()
+
         bericht = Log.log.endTimer("dbEnd - nieuw=" + str(len(self.bagObjecten) - wijzigingen) + " gewijzigd=" + str(wijzigingen) + " rels=" + str(rels))
         Log.log.info("------")
         return bericht
@@ -273,7 +274,8 @@ class Processor:
 
             buf.close()
 
-        self.database.connection.commit()
+        self.database.commit(True)
+
         bericht = Log.log.endTimer("dbEnd - nieuw=" + str(len(self.bagObjecten) - wijzigingen) + " gewijzigd=" + str(wijzigingen) + " rels=" + str(rels))
         Log.log.info("------")
         return bericht
