@@ -200,14 +200,222 @@ INSERT INTO adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeg
 -- 	and w.identificatie = g.woonplaatscode
 -- 	and g.gemeentecode = p.gemeentecode;
 
+WITH n AS (
+    SELECT
+        identificatie,
+        huisnummer,
+        huisletter,
+        huisnummertoevoeging,
+        gerelateerdeopenbareruimte,
+        postcode,
+        gerelateerdewoonplaats
+    FROM
+        nummeraanduidingactueelbestaand
+    WHERE
+        typeadresseerbaarobject = 'Verblijfsobject'
+) INSERT INTO adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeging, postcode, woonplaatsnaam, gemeentenaam, provincienaam, typeadresseerbaarobject, adresseerbaarobject, nummeraanduiding, geopunt)
+  SELECT
+    o.openbareruimtenaam,
+    n.huisnummer,
+    n.huisletter,
+    n.huisnummertoevoeging,
+    n.postcode,
+    COALESCE(wp2.woonplaatsnaam,w.woonplaatsnaam),
+    COALESCE(p2.gemeentenaam,p.gemeentenaam),
+    COALESCE(p2.provincienaam,p.provincienaam),
+    'VBO' as typeadresseerbaarobject,
+    an.identificatie as adresseerbaarobject,
+    n.identificatie as nummeraanduiding,
+    v.geopunt
+FROM
+    adresseerbaarobjectnevenadresactueel an
+JOIN
+    n
+ON
+    (an.nevenadres = n.identificatie)
+JOIN
+    verblijfsobjectactueelbestaand v
+ON
+    (an.identificatie = v.identificatie)
+JOIN
+    openbareruimteactueelbestaand o
+ON
+    (n.gerelateerdeopenbareruimte = o.identificatie)
+JOIN
+    woonplaatsactueelbestaand w
+ON
+    (o.gerelateerdewoonplaats = w.identificatie)
+JOIN
+    gemeente_woonplaatsactueelbestaand g
+ON
+    (g.woonplaatscode = w.identificatie)
+JOIN
+    gemeente_provincie p
+ON
+    (g.gemeentecode = p.gemeentecode)
+    -- Wanneer nummeraanduiding een gerelateerdewoonplaats heeft moet die gebruikt worden ipv via openbareruimte!
+    -- Zie issue: https://github.com/opengeogroep/NLExtract/issues/54
+LEFT OUTER JOIN
+    woonplaatsactueelbestaand wp2
+ON
+    (n.gerelateerdewoonplaats = wp2.identificatie)
+LEFT OUTER JOIN
+    gemeente_woonplaatsactueelbestaand g2
+ON
+    (g2.woonplaatscode = wp2.identificatie)
+LEFT OUTER JOIN
+    gemeente_provincie p2
+ON
+    (g2.gemeentecode = p2.gemeentecode);
+
+WITH n AS (
+    SELECT
+        identificatie,
+        huisnummer,
+        huisletter,
+        huisnummertoevoeging,
+        gerelateerdeopenbareruimte,
+        postcode,
+        gerelateerdewoonplaats
+    FROM
+        nummeraanduidingactueelbestaand
+    WHERE
+        typeadresseerbaarobject = 'Ligplaats'
+) INSERT INTO adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeging, postcode, woonplaatsnaam, gemeentenaam, provincienaam, typeadresseerbaarobject, adresseerbaarobject, nummeraanduiding, geopunt)
+  SELECT
+    o.openbareruimtenaam,
+    n.huisnummer,
+    n.huisletter,
+    n.huisnummertoevoeging,
+    n.postcode,
+    COALESCE(wp2.woonplaatsnaam,w.woonplaatsnaam),
+    COALESCE(p2.gemeentenaam,p.gemeentenaam),
+    COALESCE(p2.provincienaam,p.provincienaam),
+    'LIG' as typeadresseerbaarobject,
+    an.identificatie as adresseerbaarobject,
+    n.identificatie as nummeraanduiding,
+    ST_Force_3D(ST_Centroid(l.geovlak))  as geopunt
+FROM
+    adresseerbaarobjectnevenadresactueel an
+JOIN
+    n
+ON
+    (an.nevenadres = n.identificatie)
+JOIN
+    ligplaatsactueelbestaand l
+ON
+    (an.identificatie = l.identificatie)
+JOIN
+    openbareruimteactueelbestaand o
+ON
+    (n.gerelateerdeopenbareruimte = o.identificatie)
+JOIN
+    woonplaatsactueelbestaand w
+ON
+    (o.gerelateerdewoonplaats = w.identificatie)
+JOIN
+    gemeente_woonplaatsactueelbestaand g
+ON
+    (g.woonplaatscode = w.identificatie)
+JOIN
+    gemeente_provincie p
+ON
+    (g.gemeentecode = p.gemeentecode)
+    -- Wanneer nummeraanduiding een gerelateerdewoonplaats heeft moet die gebruikt worden ipv via openbareruimte!
+    -- Zie issue: https://github.com/opengeogroep/NLExtract/issues/54
+LEFT OUTER JOIN
+    woonplaatsactueelbestaand wp2
+ON
+    (n.gerelateerdewoonplaats = wp2.identificatie)
+LEFT OUTER JOIN
+    gemeente_woonplaatsactueelbestaand g2
+ON
+    (g2.woonplaatscode = wp2.identificatie)
+LEFT OUTER JOIN
+    gemeente_provincie p2
+ON
+    (g2.gemeentecode = p2.gemeentecode);
+
+
+WITH n AS (
+    SELECT
+        identificatie,
+        huisnummer,
+        huisletter,
+        huisnummertoevoeging,
+        gerelateerdeopenbareruimte,
+        postcode,
+        gerelateerdewoonplaats
+    FROM
+        nummeraanduidingactueelbestaand
+    WHERE
+        typeadresseerbaarobject = 'Standplaats'
+) INSERT INTO adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeging, postcode, woonplaatsnaam, gemeentenaam, provincienaam, typeadresseerbaarobject, adresseerbaarobject, nummeraanduiding, geopunt)
+ SELECT
+    o.openbareruimtenaam,
+    n.huisnummer,
+    n.huisletter,
+    n.huisnummertoevoeging,
+    n.postcode,
+    COALESCE(wp2.woonplaatsnaam,w.woonplaatsnaam),
+    COALESCE(p2.gemeentenaam,p.gemeentenaam),
+    COALESCE(p2.provincienaam,p.provincienaam),
+    'STA' as typeadresseerbaarobject,
+    an.identificatie as adresseerbaarobject,
+    n.identificatie as nummeraanduiding,
+  	ST_Force_3D(ST_Centroid(s.geovlak)) as geopunt
+FROM
+    adresseerbaarobjectnevenadresactueel an
+JOIN
+    n
+ON
+    (an.nevenadres = n.identificatie)
+JOIN
+    standplaatsactueelbestaand s
+ON
+    (an.identificatie = s.identificatie)
+JOIN
+    openbareruimteactueelbestaand o
+ON
+    (n.gerelateerdeopenbareruimte = o.identificatie)
+JOIN
+    woonplaatsactueelbestaand w
+ON
+    (o.gerelateerdewoonplaats = w.identificatie)
+JOIN
+    gemeente_woonplaatsactueelbestaand g
+ON
+    (g.woonplaatscode = w.identificatie)
+JOIN
+    gemeente_provincie p
+ON
+    (g.gemeentecode = p.gemeentecode)
+    -- Wanneer nummeraanduiding een gerelateerdewoonplaats heeft moet die gebruikt worden ipv via openbareruimte!
+    -- Zie issue: https://github.com/opengeogroep/NLExtract/issues/54
+LEFT OUTER JOIN
+    woonplaatsactueelbestaand wp2
+ON
+    (n.gerelateerdewoonplaats = wp2.identificatie)
+LEFT OUTER JOIN
+    gemeente_woonplaatsactueelbestaand g2
+ON
+    (g2.woonplaatscode = wp2.identificatie)
+LEFT OUTER JOIN
+    gemeente_provincie p2
+ON
+    (g2.gemeentecode = p2.gemeentecode);
+
+
+
+
 -- Vul de text vector kolom voor full text search
 UPDATE adres set textsearchable_adres = to_tsvector(openbareruimtenaam||' '||huisnummer||' '||trim(coalesce(huisletter,'')||' '||coalesce(huisnummertoevoeging,''))||' '||woonplaatsnaam);
 
 -- Maak indexen aan na inserten (betere performance)
 CREATE INDEX adres_geom_idx ON adres USING gist (geopunt);
-CREATE INDEX adres_adreseerbaarobject ON adres USING btree (adresseerbaarobject );
-CREATE INDEX adres_nummeraanduiding ON adres USING btree (nummeraanduiding );
-CREATE INDEX adresvol_idx ON adres USING gin (textsearchable_adres );
+CREATE INDEX adres_adreseerbaarobject ON adres USING btree (adresseerbaarobject);
+CREATE INDEX adres_nummeraanduiding ON adres USING btree (nummeraanduiding);
+CREATE INDEX adresvol_idx ON adres USING gin (textsearchable_adres);
 
 -- Populeert public.geometry_columns
 -- Dummy voor PostGIS 2+
