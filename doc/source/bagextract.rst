@@ -271,7 +271,7 @@ Voorbeelden:
 
 4. Verrijken: aanmaken tabel met volledige "ACN-achtige" adressen uit BAG + gemeente + provincie tabellen
    (kan lang duren op gehele BAG, lijkt sneller te gaan via "psql" Postgres commando).
-   NB Doe altijd eerst stappen 1-2, stap 3 is niet strict noodzakelijk.
+   NB Doe altijd eerst stappen 1-3!                           .
 
 	 psql -d bag < ../db/script/adres-tabel.sql
 
