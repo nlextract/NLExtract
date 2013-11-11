@@ -120,9 +120,9 @@ Er zijn een aantal mogelijkheden gebaseerd op bijdragen van gebruikers en een va
 12. Maak een folder structuur voor NLEXTRACT aan, bv
 ::
 
-	C:\BAGExtract\ (bevat extract.conf)
-	C:\BAGExtract\scripts
-	C:\BAGExtract\db
+    C:\BAGExtract\ (bevat extract.conf)
+    C:\BAGExtract\scripts
+    C:\BAGExtract\db
 
 en kopieer de scripts en db folders van NLExtract.zip naar deze folders.
 
@@ -141,7 +141,7 @@ NB: De extract.conf file staat onder NL Extract (subfolder bag).
 Initialiseer de database:
 ::
 
-	python bagextract.py  -H localhost -d bag -U postgres -W admin -c -v
+    python bagextract.py  -H localhost -d bag -U postgres -W admin -c -v
 
 In deze stap (-c) wordt de database leeg gemaakt en de DB scripts: bag-db.sql, bag-view-actueel-bestaand.sql uitgevoerd en alle data onder db\\data ingelezen: Gemeente-woonplaats-relatietabel.zip
 en cbs-gemeentenperprovincie-2012.csv. NB: de parameters -H, -d, -U en -W kunnen achterwege blijven als die in de extract.conf file staan ingevuld.
@@ -149,7 +149,7 @@ en cbs-gemeentenperprovincie-2012.csv. NB: de parameters -H, -d, -U en -W kunnen
 14.   Importeer BAG data met:
 ::
 
-	python bagextract.py -v -e PAD_NAAR_XML_FILE_OF_DIRECTORY_OF_ZIP_BESTAND
+    python bagextract.py -v -e PAD_NAAR_XML_FILE_OF_DIRECTORY_OF_ZIP_BESTAND
 
 PAD_NAAR_XML_FILE_OF_DIRECTORY_OF_ZIP_BESTAND is bij voorkeur het gehele BAG .zip download bestand, bijv. DNLDLXAE02-0000673060-0096000265-08042012.zip of de hoofddirectory wanneer deze zip wordt uitgepakt.
 Het is belangrijk om dit zo te doen omdat NLExtract allerlei meta-bestanden ook inleest, bijv. een nieuwere woonplaats-gemeente koppel tabel (dan onder db/data) en meta info voor
@@ -224,13 +224,13 @@ Instellingen:
 -------------
 
 - extract.conf
-	Configuratiebestand dat nodig is bij het uitvoeren van de programma's.
-	Dit bestand bevat de volgende instellingen:
-	- database naam van de Postgres database
-	- schema   [optioneel] schemanaam of schema search path waar de tabellen worden aangemaakt (default "public")
-	- host     host waar de Postgres database draait
-	- user     user voor toegang tot de Postgres database
-	- password password van de user voor toegang tot de Postgres database
+    Configuratiebestand dat nodig is bij het uitvoeren van de programma's.
+    Dit bestand bevat de volgende instellingen:
+    - database naam van de Postgres database
+    - schema   [optioneel] schemanaam of schema search path waar de tabellen worden aangemaakt (default "public")
+    - host     host waar de Postgres database draait
+    - user     user voor toegang tot de Postgres database
+    - password password van de user voor toegang tot de Postgres database
 
     Deze  settings kunnen via commandline opties of via -f <mijn conf file> overuled worden, bijv.
     bagextract.py -H localhost -d bag -U postgres -W postgres -c
@@ -241,51 +241,51 @@ Voorbeelden:
 
 0. Help en opties:
 
-	python src/bagextract.py -h
-	of
-	bin/Bag-extract.sh -h
+    python src/bagextract.py -h
+    of
+    bin/Bag-extract.sh -h
 
-	Alle commando's kunnen via Python of shell .sh script uitgevoerd vanaf elke directory.
+    Alle commando's kunnen via Python of shell .sh script uitgevoerd vanaf elke directory.
 
-1. Initialiseer de database en vul/verrijk met referentie-koppeldata (gemeenten/provincies) (-c):
+1. Initialiseer de database en vul/verrijk met referentie-koppeldata (gemeenten/provincies) (-c)::
 
-	python bagextract.py -c
-	of
-	Bag-extract.sh -c
+    python bagextract.py -c
+    of
+    Bag-extract.sh -c
 
-2. Importeer een extract in de database (-e):
+2. Importeer een extract in de database (-e)::
 
-	python bagextract.py -e 9999STA01052011-000002.xml
-	python bagextract.py -e 9999STA01052011.zip
+    python bagextract.py -e 9999STA01052011-000002.xml
+    python bagextract.py -e 9999STA01052011.zip
 
-	-e werkt op directory, file of .zip inclusief mutatie-bestanden
+    -e werkt op directory, file of .zip inclusief mutatie-bestanden
 
 
 3. Verrijken: genereren gemeente + provincie tabellen met geometrie uit woonplaatsen aggregeren
-	NB Doe altijd eerst stappen 1-2 anders blijft de tabel "gemeente" leeg. !
+    NB Doe altijd eerst stappen 1-2 anders blijft de tabel "gemeente" leeg. !  ::
 
-	 python bagextract.py -v -q ../db/script/gemeente-provincie-tabel.sql
+     python bagextract.py -v -q ../db/script/gemeente-provincie-tabel.sql
 
-	Met de -q (query) optie kan elk SQL bestand worden uitgevoerd
+    Met de -q (query) optie kan elk SQL bestand worden uitgevoerd
 
 
 4. Verrijken: aanmaken tabel met volledige "ACN-achtige" adressen uit BAG + gemeente + provincie tabellen
    (kan lang duren op gehele BAG, lijkt sneller te gaan via "psql" Postgres commando).
-   NB Doe altijd eerst stappen 1-3!                           .
+   NB Doe altijd eerst stappen 1-3! ::
 
-	 psql -d bag < ../db/script/adres-tabel.sql
+     psql -d bag < ../db/script/adres-tabel.sql
 
    Gebruik het psql commando "set search_path to <your schema>,public; "
    als je de adres-tabel in een expliciet Postgres schema wilt. Bijv ::
 
-		# set search_path to bag,public;
-		# \i /opt/nlextract/git/bag/db/script/adres-tabel.sql
+        # set search_path to bag,public;
+        # \i /opt/nlextract/git/bag/db/script/adres-tabel.sql
 
 5. Geocoding : zie tabellen en functies onder db/script/geocode
-	De BAG is niet standaard geschikt om geocoding op uit te voeren.
-	Daartoe dienen eerst afgeleide tabellen te worden aangemaakt
-	en hulp functies voor met name "reverse geocoding" (vind adres
-	voor x,y coordinaten).
+    De BAG is niet standaard geschikt om geocoding op uit te voeren.
+    Daartoe dienen eerst afgeleide tabellen te worden aangemaakt
+    en hulp functies voor met name "reverse geocoding" (vind adres
+    voor x,y coordinaten).
 
 Issues:
 -------
