@@ -276,7 +276,18 @@ class BAGbooleanAttribuut(BAGattribuut):
 #--------------------------------------------------------------------------------------------------------
 # Class BAGdatetimeAttribuut
 # Afgeleid van BAGattribuut
-# Omschrijving Bevat een waarheid attribuut
+# Omschrijving Bevat een DatumTijd attribuut
+#         <xs:simpleType name="DatumTijd">
+#        		<xs:annotation>
+#        			<xs:documentation>formaat JJJJMMDDUUMMSSmm</xs:documentation>
+#        		</xs:annotation>
+#        		<xs:restriction base="xs:token">
+#        			<xs:minLength value="8"/>
+#        			<xs:maxLength value="16"/>
+#        			<xs:pattern value="[0-2][0-9][0-9][0-9][0-1][0-9][0-3][0-9][0-2][0-9][0-5][0-9][0-5][0-9][0-9][0-9]"/>
+#        		</xs:restriction>
+#        	</xs:simpleType>
+#
 #--------------------------------------------------------------------------------------------------------
 class BAGdatetimeAttribuut(BAGattribuut):
     # Constructor
@@ -293,18 +304,27 @@ class BAGdatetimeAttribuut(BAGattribuut):
     def leesUitXML(self, xml):
         self._waarde = getValue(xml, self._tag)
         if self._waarde != '':
+            length = len(self._waarde)
             jaar = self._waarde[0:4]
             maand = self._waarde[4:6]
             dag = self._waarde[6:8]
-            uur = self._waarde[8:10]
-            minuut = self._waarde[10:12]
-            seconden = self._waarde[12:14]
-            # msec = self._waarde[14:16]
 
-            # 1999-01-08 04:05:06
+            uur = minuut = seconden = secfract = '00'
+            if length > 8:
+                uur = self._waarde[8:10]
+                minuut = self._waarde[10:12]
+                seconden = self._waarde[12:14]
+                if length >= 16:
+                    # 17.nov.2013: JvdB, deze werd voorheen nooit meegenomen
+                    # Laatste twee zijn 100e-en van seconden, ISO8601 gebruikt fracties van seconden
+                    # dus komt overeen (ISO 8601 en BAG gebruiken geen milliseconden!!)
+                    # Zie ook: http://en.wikipedia.org/wiki/ISO_8601
+                    secfract = self._waarde[14:16]
+            # 1999-01-08 04:05:06.78 (ISO8601 notatie)
             # http://www.postgresql.org/docs/8.3/static/datatype-datetime.html
             if jaar != '2299':
-                self._waarde = '%s%s%s %s%s%s' % (jaar, maand, dag, uur, minuut, seconden)
+                # conversie naar ISO8601 notatie,
+                self._waarde = '%s-%s-%s %s:%s:%s.%s' % (jaar, maand, dag, uur, minuut, seconden, secfract)
             else:
                 self._waarde = None
         else:
