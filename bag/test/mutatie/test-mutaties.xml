@@ -48,7 +48,7 @@ Specifieke wijzigingen op de objecten onder test/data (de mutatie bestanden van 
                          <bag_LVC:officieel>N</bag_LVC:officieel>
                          <bag_LVC:verblijfsobjectGeometrie>
                              <gml:Point srsName="urn:ogc:def:crs:EPSG::28992">
-                                 <gml:pos>252767.348 593745.504 0.0</gml:pos>
+                                 <gml:pos>155000.0 463000.0 0.0</gml:pos>
                              </gml:Point>
                          </bag_LVC:verblijfsobjectGeometrie>
                          <bag_LVC:gebruiksdoelVerblijfsobject>woonfunctie</bag_LVC:gebruiksdoelVerblijfsobject>
@@ -81,7 +81,7 @@ Specifieke wijzigingen op de objecten onder test/data (de mutatie bestanden van 
                          <bag_LVC:officieel>N</bag_LVC:officieel>
                          <bag_LVC:verblijfsobjectGeometrie>
                              <gml:Point srsName="urn:ogc:def:crs:EPSG::28992">
-                                 <gml:pos>252767.348 593745.504 0.0</gml:pos>
+                                 <gml:pos>155000.0 463000.0 0.0</gml:pos>
                              </gml:Point>
                          </bag_LVC:verblijfsobjectGeometrie>
                          <bag_LVC:gebruiksdoelVerblijfsobject>woonfunctie</bag_LVC:gebruiksdoelVerblijfsobject>

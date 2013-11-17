@@ -51,7 +51,7 @@
                     <bag_LVC:bouwjaar>1991</bag_LVC:bouwjaar>
                     <bag_LVC:pandstatus>Pand in gebruik</bag_LVC:pandstatus>
                     <bag_LVC:tijdvakgeldigheid>
-                        <bagtype:begindatumTijdvakGeldigheid>2010072000000000</bagtype:begindatumTijdvakGeldigheid>
+                        <bagtype:begindatumTijdvakGeldigheid>2010072000000099</bagtype:begindatumTijdvakGeldigheid>
                     </bag_LVC:tijdvakgeldigheid>
                     <bag_LVC:inOnderzoek>N</bag_LVC:inOnderzoek>
                     <bag_LVC:bron>
@@ -81,7 +81,7 @@
                     <bag_LVC:bouwjaar>1974</bag_LVC:bouwjaar>
                     <bag_LVC:pandstatus>Pand in gebruik</bag_LVC:pandstatus>
                     <bag_LVC:tijdvakgeldigheid>
-                        <bagtype:begindatumTijdvakGeldigheid>2009090100000000</bagtype:begindatumTijdvakGeldigheid>
+                        <bagtype:begindatumTijdvakGeldigheid>2009090100000010</bagtype:begindatumTijdvakGeldigheid>
                     </bag_LVC:tijdvakgeldigheid>
                     <bag_LVC:inOnderzoek>N</bag_LVC:inOnderzoek>
                     <bag_LVC:bron>

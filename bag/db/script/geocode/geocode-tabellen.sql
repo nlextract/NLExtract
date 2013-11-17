@@ -119,6 +119,92 @@ WHERE
 	and w.identificatie = g.woonplaatscode
 	and g.gemeentecode = p.gemeentecode;
 
+-- Insert (actuele+bestaande) data uit combinatie van BAG tabellen: Nevenadressen voor Verblijfplaats
+INSERT INTO geo_adres (straatnaam, huisnummer, huisletter, toevoeging, postcode, woonplaats, gemeente, provincie, geopunt)
+  SELECT
+	o.openbareruimtenaam,
+	n.huisnummer,
+	n.huisletter,
+	n.huisnummertoevoeging,
+	n.postcode,
+	w.woonplaatsnaam,
+	p.gemeentenaam,
+	p.provincienaam,
+	v.geopunt
+FROM
+  (SELECT identificatie,  nevenadres from adresseerbaarobjectnevenadresactueel) aon,
+	(SELECT identificatie,  geopunt, hoofdadres from verblijfsobjectactueelbestaand) v,
+	(SELECT identificatie,  huisnummer, huisletter, huisnummertoevoeging, postcode, gerelateerdeopenbareruimte from nummeraanduidingactueelbestaand) n,
+	(SELECT identificatie,  openbareruimtenaam, gerelateerdewoonplaats from openbareruimteactueelbestaand) o,
+	(SELECT identificatie,  woonplaatsnaam from woonplaatsactueel) w,
+	(SELECT woonplaatscode, gemeentecode from gemeente_woonplaatsactueelbestaand) g,
+	(SELECT gemeentenaam, gemeentecode,   provincienaam from gemeente_provincie) p
+WHERE
+  aon.nevenadres = n.identificatie
+	and aon.identificatie = v.identificatie
+	and n.gerelateerdeopenbareruimte = o.identificatie
+	and o.gerelateerdewoonplaats = w.identificatie
+	and w.identificatie = g.woonplaatscode
+	and g.gemeentecode = p.gemeentecode;
+
+-- Insert (actuele+bestaande) data uit combinatie van BAG tabellen: Nevenadressen voor Ligplaats
+INSERT INTO geo_adres (straatnaam, huisnummer, huisletter, toevoeging, postcode, woonplaats, gemeente, provincie, geopunt)
+  SELECT
+	o.openbareruimtenaam,
+	n.huisnummer,
+	n.huisletter,
+	n.huisnummertoevoeging,
+	n.postcode,
+	w.woonplaatsnaam,
+	p.gemeentenaam,
+	p.provincienaam,
+    -- Vlak geometrie wordt punt
+	ST_Force_3D(ST_Centroid(l.geovlak))  as geopunt
+FROM
+  (SELECT identificatie,  nevenadres from adresseerbaarobjectnevenadresactueel) aon,
+  (SELECT identificatie,  geovlak, hoofdadres from ligplaatsactueelbestaand) l,
+	(SELECT identificatie,  huisnummer, huisletter, huisnummertoevoeging, postcode, gerelateerdeopenbareruimte from nummeraanduidingactueelbestaand) n,
+	(SELECT identificatie,  openbareruimtenaam, gerelateerdewoonplaats from openbareruimteactueelbestaand) o,
+	(SELECT identificatie,  woonplaatsnaam from woonplaatsactueel) w,
+	(SELECT woonplaatscode, gemeentecode from gemeente_woonplaatsactueelbestaand) g,
+	(SELECT gemeentenaam, gemeentecode,   provincienaam from gemeente_provincie) p
+WHERE
+  aon.nevenadres = n.identificatie
+	and aon.identificatie = l.identificatie
+	and n.gerelateerdeopenbareruimte = o.identificatie
+	and o.gerelateerdewoonplaats = w.identificatie
+	and w.identificatie = g.woonplaatscode
+	and g.gemeentecode = p.gemeentecode;
+
+-- Insert (actuele+bestaande) data uit combinatie van BAG tabellen: Nevenadressen voor Standplaats
+INSERT INTO geo_adres (straatnaam, huisnummer, huisletter, toevoeging, postcode, woonplaats, gemeente, provincie, geopunt)
+  SELECT
+	o.openbareruimtenaam,
+	n.huisnummer,
+	n.huisletter,
+	n.huisnummertoevoeging,
+	n.postcode,
+	w.woonplaatsnaam,
+	p.gemeentenaam,
+	p.provincienaam,
+  -- Vlak geometrie wordt punt
+	ST_Force_3D(ST_Centroid(s.geovlak))  as geopunt
+FROM
+  (SELECT identificatie,  nevenadres from adresseerbaarobjectnevenadresactueel) aon,
+  (SELECT identificatie,  geovlak, hoofdadres from standplaatsactueelbestaand) s,
+	(SELECT identificatie,  huisnummer, huisletter, huisnummertoevoeging, postcode, gerelateerdeopenbareruimte from nummeraanduidingactueelbestaand) n,
+	(SELECT identificatie,  openbareruimtenaam, gerelateerdewoonplaats from openbareruimteactueelbestaand) o,
+	(SELECT identificatie,  woonplaatsnaam from woonplaatsactueel) w,
+	(SELECT woonplaatscode, gemeentecode from gemeente_woonplaatsactueelbestaand) g,
+	(SELECT gemeentenaam, gemeentecode,   provincienaam from gemeente_provincie) p
+WHERE
+  aon.nevenadres = n.identificatie
+	and aon.identificatie = s.identificatie
+	and n.gerelateerdeopenbareruimte = o.identificatie
+	and o.gerelateerdewoonplaats = w.identificatie
+	and w.identificatie = g.woonplaatscode
+	and g.gemeentecode = p.gemeentecode;
+
 -- Maak indexen aan na inserten (betere performance)
 CREATE INDEX geo_adres_geom_idx ON geo_adres USING gist (geopunt);
 

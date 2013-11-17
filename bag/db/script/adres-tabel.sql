@@ -200,20 +200,23 @@ INSERT INTO adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeg
 -- 	and w.identificatie = g.woonplaatscode
 -- 	and g.gemeentecode = p.gemeentecode;
 
-WITH n AS (
-    SELECT
-        identificatie,
-        huisnummer,
-        huisletter,
-        huisnummertoevoeging,
-        gerelateerdeopenbareruimte,
-        postcode,
-        gerelateerdewoonplaats
-    FROM
-        nummeraanduidingactueelbestaand
-    WHERE
-        typeadresseerbaarobject = 'Verblijfsobject'
-) INSERT INTO adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeging, postcode, woonplaatsnaam, gemeentenaam, provincienaam, typeadresseerbaarobject, adresseerbaarobject, nummeraanduiding, geopunt)
+-- START NEVENADRESSEN
+--
+-- WITH n AS (
+--     SELECT
+--         identificatie,
+--         huisnummer,
+--         huisletter,
+--         huisnummertoevoeging,
+--         gerelateerdeopenbareruimte,
+--         postcode,
+--         gerelateerdewoonplaats
+--     FROM
+--         nummeraanduidingactueelbestaand
+--     WHERE
+--         typeadresseerbaarobject = 'Verblijfsobject'
+-- )
+INSERT INTO adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeging, postcode, woonplaatsnaam, gemeentenaam, provincienaam, typeadresseerbaarobject, adresseerbaarobject, nummeraanduiding, geopunt)
   SELECT
     o.openbareruimtenaam,
     n.huisnummer,
@@ -230,7 +233,7 @@ WITH n AS (
 FROM
     adresseerbaarobjectnevenadresactueel an
 JOIN
-    n
+    nummeraanduidingactueelbestaand n
 ON
     (an.nevenadres = n.identificatie)
 JOIN
@@ -268,20 +271,21 @@ LEFT OUTER JOIN
 ON
     (g2.gemeentecode = p2.gemeentecode);
 
-WITH n AS (
-    SELECT
-        identificatie,
-        huisnummer,
-        huisletter,
-        huisnummertoevoeging,
-        gerelateerdeopenbareruimte,
-        postcode,
-        gerelateerdewoonplaats
-    FROM
-        nummeraanduidingactueelbestaand
-    WHERE
-        typeadresseerbaarobject = 'Ligplaats'
-) INSERT INTO adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeging, postcode, woonplaatsnaam, gemeentenaam, provincienaam, typeadresseerbaarobject, adresseerbaarobject, nummeraanduiding, geopunt)
+-- WITH n AS (
+--     SELECT
+--         identificatie,
+--         huisnummer,
+--         huisletter,
+--         huisnummertoevoeging,
+--         gerelateerdeopenbareruimte,
+--         postcode,
+--         gerelateerdewoonplaats
+--     FROM
+--         nummeraanduidingactueelbestaand
+--     WHERE
+--         typeadresseerbaarobject = 'Ligplaats'
+-- )
+INSERT INTO adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeging, postcode, woonplaatsnaam, gemeentenaam, provincienaam, typeadresseerbaarobject, adresseerbaarobject, nummeraanduiding, geopunt)
   SELECT
     o.openbareruimtenaam,
     n.huisnummer,
@@ -298,9 +302,9 @@ WITH n AS (
 FROM
     adresseerbaarobjectnevenadresactueel an
 JOIN
-    n
+    nummeraanduidingactueelbestaand n
 ON
-    (an.nevenadres = n.identificatie)
+    (an.nevenadres = n.identificatie AND n.typeadresseerbaarobject = 'Ligplaats')
 JOIN
     ligplaatsactueelbestaand l
 ON
@@ -337,20 +341,21 @@ ON
     (g2.gemeentecode = p2.gemeentecode);
 
 
-WITH n AS (
-    SELECT
-        identificatie,
-        huisnummer,
-        huisletter,
-        huisnummertoevoeging,
-        gerelateerdeopenbareruimte,
-        postcode,
-        gerelateerdewoonplaats
-    FROM
-        nummeraanduidingactueelbestaand
-    WHERE
-        typeadresseerbaarobject = 'Standplaats'
-) INSERT INTO adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeging, postcode, woonplaatsnaam, gemeentenaam, provincienaam, typeadresseerbaarobject, adresseerbaarobject, nummeraanduiding, geopunt)
+-- WITH n AS (
+--     SELECT
+--         identificatie,
+--         huisnummer,
+--         huisletter,
+--         huisnummertoevoeging,
+--         gerelateerdeopenbareruimte,
+--         postcode,
+--         gerelateerdewoonplaats
+--     FROM
+--         nummeraanduidingactueelbestaand
+--     WHERE
+--         typeadresseerbaarobject = 'Standplaats'
+-- )
+INSERT INTO adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeging, postcode, woonplaatsnaam, gemeentenaam, provincienaam, typeadresseerbaarobject, adresseerbaarobject, nummeraanduiding, geopunt)
  SELECT
     o.openbareruimtenaam,
     n.huisnummer,
@@ -367,9 +372,9 @@ WITH n AS (
 FROM
     adresseerbaarobjectnevenadresactueel an
 JOIN
-    n
+    nummeraanduidingactueelbestaand n
 ON
-    (an.nevenadres = n.identificatie)
+    (an.nevenadres = n.identificatie AND n.typeadresseerbaarobject = 'Standplaats')
 JOIN
     standplaatsactueelbestaand s
 ON
@@ -405,6 +410,7 @@ LEFT OUTER JOIN
 ON
     (g2.gemeentecode = p2.gemeentecode);
 
+-- EINDE NEVENADRESSEN
 
 
 

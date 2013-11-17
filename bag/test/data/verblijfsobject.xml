@@ -40,7 +40,8 @@
                     <bag_LVC:officieel>N</bag_LVC:officieel>
                     <bag_LVC:verblijfsobjectGeometrie>
                         <gml:Point srsName="urn:ogc:def:crs:EPSG::28992">
-                            <gml:pos>252767.348 593745.504 0.0</gml:pos>
+                            <gml:pos>155000.0 463000.0 0.0</gml:pos>
+                            <!--<gml:pos>252767.348 593745.504 0.0</gml:pos>-->
                         </gml:Point>
                     </bag_LVC:verblijfsobjectGeometrie>
                     <bag_LVC:gebruiksdoelVerblijfsobject>woonfunctie</bag_LVC:gebruiksdoelVerblijfsobject>
@@ -52,7 +53,7 @@
                     <bag_LVC:inOnderzoek>N</bag_LVC:inOnderzoek>
                     <bag_LVC:bron>
                         <bagtype:documentdatum>20100720</bagtype:documentdatum>
-                        <bagtype:documentnummer>FB 2010/PANDEN001</bagtype:documentnummer>
+                        <bagtype:documentnummer>FB 2010/PANDEN002</bagtype:documentnummer>
                     </bag_LVC:bron>
                     <bag_LVC:gerelateerdPand>
 
@@ -468,8 +469,9 @@
                 <bag_LVC:Verblijfsobject>
                     <bag_LVC:gerelateerdeAdressen>
                         <bag_LVC:hoofdadres>
-                            <bag_LVC:identificatie>0007200000004212</bag_LVC:identificatie>
+                            <bag_LVC:identificatie>0010200000101404</bag_LVC:identificatie>
                         </bag_LVC:hoofdadres>
+                        <bag_LVC:nevenadres><bag_LVC:identificatie>0010200000101403</bag_LVC:identificatie></bag_LVC:nevenadres>
                     </bag_LVC:gerelateerdeAdressen>
                     <bag_LVC:identificatie>0007010000004212</bag_LVC:identificatie>
                     <bag_LVC:aanduidingRecordInactief>N</bag_LVC:aanduidingRecordInactief>
@@ -492,7 +494,7 @@
                         <bagtype:documentnummer>199179</bagtype:documentnummer>
                     </bag_LVC:bron>
                     <bag_LVC:gerelateerdPand>
-                        <bag_LVC:identificatie>0007100000000606</bag_LVC:identificatie>
+                        <bag_LVC:identificatie>1895100000002619</bag_LVC:identificatie>
                     </bag_LVC:gerelateerdPand>
                 </bag_LVC:Verblijfsobject>
             </product_LVC:LVC-product>

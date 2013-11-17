@@ -251,7 +251,7 @@ Voorbeelden:
 
     python bagextract.py -c
     of
-    Bag-extract.sh -c
+    bag-extract.sh -c
 
 2. Importeer een extract in de database (-e)::
 
