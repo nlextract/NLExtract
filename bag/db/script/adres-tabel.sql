@@ -24,6 +24,7 @@ CREATE TABLE adres (
     typeadresseerbaarobject character varying(3),
     adresseerbaarobject numeric(16,0),
     nummeraanduiding numeric(16,0),
+    nevenadres BOOLEAN DEFAULT FALSE,
     geopunt geometry,
     textsearchable_adres tsvector,
     CONSTRAINT enforce_dims_punt CHECK ((st_ndims(geopunt) = 3)),
@@ -200,7 +201,10 @@ INSERT INTO adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeg
 -- 	and w.identificatie = g.woonplaatscode
 -- 	and g.gemeentecode = p.gemeentecode;
 
+--
 -- START NEVENADRESSEN
+--
+
 --
 -- WITH n AS (
 --     SELECT
@@ -216,7 +220,7 @@ INSERT INTO adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeg
 --     WHERE
 --         typeadresseerbaarobject = 'Verblijfsobject'
 -- )
-INSERT INTO adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeging, postcode, woonplaatsnaam, gemeentenaam, provincienaam, typeadresseerbaarobject, adresseerbaarobject, nummeraanduiding, geopunt)
+INSERT INTO adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeging, postcode, woonplaatsnaam, gemeentenaam, provincienaam, typeadresseerbaarobject, adresseerbaarobject, nummeraanduiding, nevenadres, geopunt)
   SELECT
     o.openbareruimtenaam,
     n.huisnummer,
@@ -229,6 +233,7 @@ INSERT INTO adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeg
     'VBO' as typeadresseerbaarobject,
     an.identificatie as adresseerbaarobject,
     n.identificatie as nummeraanduiding,
+    TRUE,
     v.geopunt
 FROM
     adresseerbaarobjectnevenadresactueel an
@@ -285,7 +290,7 @@ ON
 --     WHERE
 --         typeadresseerbaarobject = 'Ligplaats'
 -- )
-INSERT INTO adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeging, postcode, woonplaatsnaam, gemeentenaam, provincienaam, typeadresseerbaarobject, adresseerbaarobject, nummeraanduiding, geopunt)
+INSERT INTO adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeging, postcode, woonplaatsnaam, gemeentenaam, provincienaam, typeadresseerbaarobject, adresseerbaarobject, nummeraanduiding, nevenadres, geopunt)
   SELECT
     o.openbareruimtenaam,
     n.huisnummer,
@@ -298,6 +303,7 @@ INSERT INTO adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeg
     'LIG' as typeadresseerbaarobject,
     an.identificatie as adresseerbaarobject,
     n.identificatie as nummeraanduiding,
+    TRUE,
     ST_Force_3D(ST_Centroid(l.geovlak))  as geopunt
 FROM
     adresseerbaarobjectnevenadresactueel an
@@ -355,7 +361,7 @@ ON
 --     WHERE
 --         typeadresseerbaarobject = 'Standplaats'
 -- )
-INSERT INTO adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeging, postcode, woonplaatsnaam, gemeentenaam, provincienaam, typeadresseerbaarobject, adresseerbaarobject, nummeraanduiding, geopunt)
+INSERT INTO adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeging, postcode, woonplaatsnaam, gemeentenaam, provincienaam, typeadresseerbaarobject, adresseerbaarobject, nummeraanduiding, nevenadres, geopunt)
  SELECT
     o.openbareruimtenaam,
     n.huisnummer,
@@ -368,6 +374,7 @@ INSERT INTO adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeg
     'STA' as typeadresseerbaarobject,
     an.identificatie as adresseerbaarobject,
     n.identificatie as nummeraanduiding,
+    TRUE,
   	ST_Force_3D(ST_Centroid(s.geovlak)) as geopunt
 FROM
     adresseerbaarobjectnevenadresactueel an
