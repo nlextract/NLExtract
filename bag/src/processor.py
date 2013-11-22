@@ -24,31 +24,36 @@ from etree import etree,stripschema,stripNS
 class Processor:
     def __init__(self):
         self.database = Database()
+        self.naam = 'onbekend'
 
-    def processCSV(self, csvreader):
+    def processCSV(self, csvreader, naam='onbekend'):
         objecten = []
         cols = csvreader.next()
         for record in csvreader:
             if record[0]:
-                object = BestuurlijkObjectFabriek(cols, record)
+                obj = BestuurlijkObjectFabriek(cols, record)
                 if object:
-                    objecten.append(object)
+                    objecten.append(obj)
                 else:
                     Log.log.warn("Geen object gevonden voor " + str(record))
 
         # Verwerk het bestand, lees gemeente_woonplaatsen in de database
-        Log.log.info("Insert objectCount=" + str(len(objecten)))
+        bericht = "Insert objectCount=" + str(len(objecten))
+        Log.log.info(bericht)
         self.database.verbind()
 
         # We gaan er even vanuit dat de encoding van de CSVs UTF-8 is
         self.database.connection.set_client_encoding('UTF8')
-        for object in objecten:
-            object.insert()
-            self.database.uitvoeren(object.sql, object.valuelist)
+        for obj in objecten:
+            obj.insert()
+            self.database.uitvoeren(obj.sql, obj.valuelist)
         self.database.commit()
+        Database().log_actie('insert_database', naam, bericht)
 
-    def processDOM(self, node):
+    def processDOM(self, node, naam='onbekend'):
         self.bagObjecten = []
+        self.naam = naam
+
         mode = "Onbekend"
         doc_tag = stripschema(node.tag)
 
@@ -93,7 +98,7 @@ class Processor:
                                         self.database.log_actie('truncate_table', 'gemeente_woonplaats', 'altijd eerst leeg maken')
                                         self.database.tx_uitvoeren('truncate gemeente_woonplaats')
                             bericht = Log.log.endTimer("objCreate - objs=" + str(len(self.bagObjecten)))
-                            self.database.log_actie('create_objects', 'idem', bericht)
+                            self.database.log_actie('create_objects', self.naam, bericht)
 
         elif doc_tag == 'BAG-Mutaties-Deelbestand-LVC':
             mode = 'Mutatie'
@@ -132,7 +137,7 @@ class Processor:
                                                     nieuwObj = None
 
                             bericht = Log.log.endTimer("objCreate (mutaties) - objs=" + str(len(self.bagObjecten)))
-                            Database().log_actie('create_objects', 'idem', bericht)
+                            Database().log_actie('create_objects', self.naam, bericht)
 
         elif doc_tag == 'BAG-Extract-Levering':
             # Meta data: info over levering
@@ -157,9 +162,10 @@ class Processor:
 
             # Opslaan als meta info
             self.database.log_meta("extract_datum", extract_datum)
+            Database().log_actie('n.v.t', self.naam, 'verwerken Leverings doc')
         else:
             bericht = Log.log.info("Niet-verwerkbare XML node: " + doc_tag)
-            Database().log_actie('n.v.t', 'n.v.t', bericht)
+            Database().log_actie('n.v.t', self.naam, bericht)
 
             return
 
@@ -173,7 +179,7 @@ class Processor:
         else:
             bericht = self.dbStoreCopy(mode)
 
-        Database().log_actie('insert_database', 'idem', bericht)
+        Database().log_actie('insert_database', self.naam, bericht)
 
 
     def dbStoreInsert(self, mode):

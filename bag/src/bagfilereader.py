@@ -134,7 +134,7 @@ class BAGFileReader:
             Database().log_actie('xml_parse', naam, bericht, True)
         return xml
     
-    def processXML(self,naam, xml):
+    def processXML(self, naam, xml):
         if not xml:
             Database().log_actie('xml_processing', naam, 'geen xml document', True)
             return
@@ -143,7 +143,7 @@ class BAGFileReader:
             Log.log.info("processXML: " + naam)
             xmldoc = xml.getroot()
             # de processor bepaalt of het een extract of een mutatie is
-            self.processor.processDOM(xmldoc)
+            self.processor.processDOM(xmldoc, naam)
             #Log.log.info(document)
         except (Exception), e:
             bericht = Log.log.error("fout %s in DOM processing, bestand=%s" % (str(e), str(naam) ))
@@ -155,5 +155,5 @@ class BAGFileReader:
         # Maak er gemeente_woonplaats objecten van overeenkomstig de nieuwe
         # tabel woonplaats_gemeente
         myReader = csv.reader(fileobject, delimiter=';', quoting=csv.QUOTE_NONE)
-        self.processor.processCSV(myReader)
+        self.processor.processCSV(myReader, naam)
         

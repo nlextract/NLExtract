@@ -37,7 +37,7 @@ CREATE TABLE nlx_bag_log (
   error boolean default false
 );
 
-INSERT INTO nlx_bag_log (actie) VALUES ('schema aangemaakt');
+INSERT INTO nlx_bag_log (actie, bestand) VALUES ('schema aangemaakt', 'bag-db.sql');
 
 
 -- BAG _ruwe import tabellen
