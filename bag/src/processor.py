@@ -32,7 +32,7 @@ class Processor:
         for record in csvreader:
             if record[0]:
                 obj = BestuurlijkObjectFabriek(cols, record)
-                if object:
+                if obj:
                     objecten.append(obj)
                 else:
                     Log.log.warn("Geen object gevonden voor " + str(record))
