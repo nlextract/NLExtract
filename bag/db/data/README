@@ -58,4 +58,14 @@ http://www.cbs.nl/nl-NL/menu/methoden/classificaties/overzicht/gemeentelijke-ind
 http://www.cbs.nl/nl-NL/menu/methoden/classificaties/overzicht/gemeentelijke-indeling/2013/
 Deze zal in de regel minder veranderen.
 
+NB Per 1 januari 2014 wordt de nieuwe gemeentelijke indeling actief.
+De gemeentes Boskoop en Rijnwoude komen te vervallen en worden opgenomen in gemeente Alphen aan den Rijn.
+De gemeentes Gaasterlân-Sleat, Lemsterland en Skarsterlân vormen vanaf 1 januari 2014 
+samen de nieuwe gemeente De Friese Meren.
+
+Gemeente Boarnsterhim word opgedeeld tussen Leeuwarden, Súdwest-Fryslân, Heerenveen en De Friese Meren.
+
+De gemeente-provincie koppeling CSV file is momenteel voor 2013. Er ligt een "pull request"
+klaar https://github.com/opengeogroep/NLExtract/pull/109 die op 1.1.14 zal worden gedaan. 
+Met dank aan @sebastic.
 
