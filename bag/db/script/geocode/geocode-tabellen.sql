@@ -247,8 +247,6 @@ ALTER TABLE geo_postcode6 ADD CONSTRAINT enforce_geotype_punt CHECK (
         ((geometrytype(geopunt) = 'POINT'::text) OR (geopunt IS NULL)));
 ALTER TABLE geo_postcode6 ADD CONSTRAINT enforce_srid_punt CHECK ((st_srid(geopunt) = 28992));
 
-DROP INDEX IF EXISTS geo_postcode6_temp_idx;
-CREATE INDEX geo_postcode6_temp_idx on geo_adres  USING BTREE (postcode);
 CREATE INDEX geo_postcode6_postcode_idx ON geo_postcode6 USING btree (postcode);
 CREATE INDEX geo_postcode6_woonplaats_idx ON geo_postcode6 USING btree (woonplaats);
 CREATE INDEX geo_postcode6_gemeente_idx ON geo_postcode6 USING btree (gemeente);
