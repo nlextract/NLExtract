@@ -814,6 +814,9 @@
       </top10nl:hartLijn>
       <top10nl:hoofdverkeersgebruik>gemengd verkeer</top10nl:hoofdverkeersgebruik>
       <top10nl:hoogteniveau>0</top10nl:hoogteniveau>
+        <!-- multi attribuut voorbeeld -->
+        <top10nl:nWegnummer>N242</top10nl:nWegnummer>
+        <top10nl:nWegnummer>N243</top10nl:nWegnummer>
       <top10nl:status>in gebruik</top10nl:status>
       <top10nl:typeInfrastructuurWegdeel>verbinding</top10nl:typeInfrastructuurWegdeel>
       <top10nl:typeWeg>straat</top10nl:typeWeg>
