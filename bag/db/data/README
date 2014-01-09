@@ -65,7 +65,7 @@ samen de nieuwe gemeente De Friese Meren.
 
 Gemeente Boarnsterhim word opgedeeld tussen Leeuwarden, Súdwest-Fryslân, Heerenveen en De Friese Meren.
 
-De gemeente-provincie koppeling CSV file is momenteel voor 2013. Er ligt een "pull request"
-klaar https://github.com/opengeogroep/NLExtract/pull/109 die op 1.1.14 zal worden gedaan. 
+De gemeente-provincie koppeling CSV file was tot 9/1/2014 voor 2013. Via een "pull request"
+ https://github.com/opengeogroep/NLExtract/pull/109 is per  9.1.14 de koppeling voor 2014 beschikbaar. 
 Met dank aan @sebastic.
 
