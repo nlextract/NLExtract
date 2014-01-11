@@ -29,6 +29,14 @@ Transformeren houdt in:
 - meer contrast in kaarten
 - PNG naar GeoTiff
 
+WMS Maken met GeoServer
+- converteren met bonnetrans.sh (zie boven)
+- gebruik ImageMosaic plugin (standaard GeoServer)
+- maak Store aan
+- maak Layer aan
+- maak InputTransparentColor FFFFFF ; dit zorgt voor verdijnen van witte randen
+
+
 
 
 
