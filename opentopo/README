@@ -1,0 +1,37 @@
+door: Just van den Broecke
+
+OpenTopo kaarten worden gemaakt door Jan Willem van Aalst door Open Datasets (OSM, Top10NL, BAG etc)
+te combineren in een verfijnde cartografie. Via
+de website www.opentopo.nl worden deze beschikbaar gesteld.
+NB GeoTIFFs bestaan ook en zullen tzt ook beschikbaar gesteld worden.
+
+Drukwerkresolutie is 400 pix/km (280dpi) en wordt kosteloos geleverd in TIF formaat. Wel op aanvraag
+gezien de grootte van de bestanden.  Neem hiervoor contact op met de maker:
+Jan Willem van Aalst: geo@imergis.nl
+
+"Open Topografie biedt gedetailleerde actuele kaartbladen waarin het beste uit open geodata bronnen is gecombineerd.
+ kaartbladen zijn vrij te gebruiken onder de CC SA3 licentie. De huidige release (2014-Q1) toont de wegen per 15-dec-2013.
+ Klik op een hokje op de overzichtskaart om een kaartblad te downloaden als jpg en lokaal op te slaan.
+De bladindeling volgt die van de Basisregistratie Topografie van het Kadaster. Deze kaartbladen zijn niet bedoeld als
+vervanging voor de Top25raster kaartbladen."
+
+Hieronder wat hulpmiddelen voor OpenTopo.
+Bijvoorbeeld om deze kaarten in een WMS te serveren:
+
+Kaarten ophalen
+ - bin/get-all-jpeg.sh
+
+Kaarten georefereren en bewerken met bin/topotrans.sh
+- plaats world files 300px/m in zelfde dir als .jpg's
+- JPEGs naar GeoTIFF (via gdal_translate)
+- intern tilen GeoTIFFs
+- GeoTIFF overviews genereren
+- evt indexeren met gdaltindex (maar GeoServer ImageMosaic kan dat ook)
+
+Serveren (GeoServer)
+- GeoTIFFs in voor GeoServer schrijfbare dir plaatsen
+- Bron toevoegen "ImageMosaic"
+- laag aanmaken
+
+Zie voorbeeld plaatje onder doc.
+
