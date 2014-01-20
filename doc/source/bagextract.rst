@@ -46,7 +46,7 @@ Afhankelijkheden
 ----------------
 
 - PostgreSQL: relationele database, minimaal versie 8.3, optimaal is versie 9.1, zie http://www.postgresql.org
-- PostGIS: spatial extensie PostgreSQL, bijv. opslag geodata, minimaalveris 1.5, optimaal is versie 2.x, zie http://postgis.org
+- PostGIS: spatial extensie PostgreSQL, bijv. opslag geodata, minimaal versie 1.5, optimaal is versie 2.x, zie http://postgis.org
 - Python: versie 2, minimaal versie 2.4.3, beste is 2.7 of hoger voor lxml, geen Python 3
 - Python argparse package, voor argument parsing alleen indien Python < 2.7
 - psycopg2: Python PostgreSQL client bibliotheek. Zie http://initd.org/psycopg
@@ -98,7 +98,7 @@ Installatie (Linux)
     host    all             all             ::1/128                 md5
 
 
-    # PostGIS en template opzetten. Ook dit nodig om Postgis extension aan te maken.    ::
+    # PostGIS en template opzetten. Ook dit nodig om Postgis extension aan te maken.
     $ apt-get -s install postgresql-9.1-postgis-2.1
 
     # Anders krijg je op ``CREATE EXTENSION postgis`` dit ::

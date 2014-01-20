@@ -42,6 +42,7 @@ Portable GIS
 ------------
 
 - download .exe via http://www.archaeogeek.com/portable-gis.html, plm 500 MB uitgepakt is het 1.5 GB, dus zorg dat je voldoende ruimte hebt
+- de allerlaatste versies (20 jan 2014+) bevatten ook ``psycopg2``, de PostgreSQL database driver
 - klik de ``portablegis_setup_v3.exe``, installeer op default plek ``C:\usbgis``
 - het Portable GIS control paneel vind je in ``C:\portablegis.exe``. Hiermee kun je bijv. PostgreSQL starten/stoppen.
 - uitpakken en installeren kan redelijk lang duren....
@@ -53,7 +54,10 @@ Portable GIS
 Psycopg2
 --------
 
-Dit is de Python PostgreSQL driver. Deze zit niet in Portable GIS dus dient apart geinstalleerd te worden.
+Dit is de Python PostgreSQL driver. Deze zit al in nieuwere Portable GIS (2014+) versies. Expliciet
+installeren hoeft dus niet meer! Mocht dat ooit nodig zijn, dan als volgt:
+
+*NB onderstaande is dus alleen nodig met, oudere, pre-2014 versies van Portable GIS!*
 
 - download v2.5 voor Python 2.7 hier http://www.stickpeople.com/projects/python/win-psycopg/index.html
 - installeren
