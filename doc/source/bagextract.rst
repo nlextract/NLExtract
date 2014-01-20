@@ -63,8 +63,7 @@ Installatie (Linux)
     add-apt-repository ppa:ubuntugis/ubuntugis-unstable
     apt-get update
 
-- Ubuntu: PostgreSQL+PostGIS . PostgreSQL is een OS relationele database (RDBMS). PostGIS is een extentie die
-van PostgreSQL een ruimtelijke (spatial) database maakt. Installatie PostgreSQL 9.1 + PostGIS 2.1 ::
+- Ubuntu: PostgreSQL+PostGIS . PostgreSQL is een OS relationele database (RDBMS). PostGIS is een extentie die van PostgreSQL een ruimtelijke (spatial) database maakt. Installatie PostgreSQL 9.1 + PostGIS 2.1 ::
 
     $ apt-get install postgis postgresql-9.1 postgresql-contrib
 
