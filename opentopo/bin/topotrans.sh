@@ -14,10 +14,10 @@ dst_dir=$2
 
 for src_tif in `ls -1 $src_dir/*.tif`
 do
-    dst_tif=$src_dir/p`basename $src_tif|cut -d'.' -f1`.tif
-    echo $src_tif to $dst_tif
+    # tussenfile: even in source dir aanmaken, later moven naar dst (anders vreemde foutmeldingen GDAL
+    dst_tif=$dst_dir/p`basename $src_tif|cut -d'.' -f1`.tif
 
-    echo "START  CONVERT $src_tif"
+    echo "START  CONVERT $src_tif to $dst_tif"
     # Builds a VRT. A VRT is basically just a XML file saying what all the source tif files are.
     # gdalbuildvrt -srcnodata 255 -vrtnodata 255 -a_srs EPSG:28992 -input_file_list tiff_list.txt %THIS_DIR%.vrt
 
@@ -33,7 +33,8 @@ do
     # gdal_translate -b 1 -b 2 -b 3 -of GTiff -co TILED=YES -co COMPRESS=NONE -co alpha=yes -co PHOTOMETRIC=RGB -co BLOCKXSIZE=512 -co BLOCKYSIZE=512 -a_srs EPSG:28992  $src_tif $dst_tif
 
     # NIEUW met JPEG compressie en alleen 1e 3 banden meenemen....
-    gdal_translate -b 1 -b 2 -b 3 -of GTiff -co TILED=YES -co COMPRESS=JPEG -co JPEG_QUALITY=90 -co alpha=yes -co PHOTOMETRIC=YCBCR -co BLOCKXSIZE=512 -co BLOCKYSIZE=512 -a_srs EPSG:28992  $src_tif $dst_tif
+    # Refs: http://words.mixedbredie.net/archives/2024
+    gdal_translate -b 1 -b 2 -b 3 -of GTiff -co TILED=YES -co PROFILE=Geotiff -co COMPRESS=JPEG -co JPEG_QUALITY=95 -co PHOTOMETRIC=YCBCR -co BLOCKXSIZE=512 -co BLOCKYSIZE=512 -a_srs EPSG:28992  $src_tif $dst_tif
 
     # Maak overview (pyramid)
     echo "Maak overview met gdaladdo"
@@ -45,9 +46,11 @@ do
     #    gdaladdo %THIS_DIR%.tif -r average --config COMPRESS_OVERVIEW JPEG
     #    --config JPEG_QUALITY_OVERVIEW 60 --config INTERLEAVE_OVERVIEW PIXEL
     #      --config PHOTOMETRIC_OVERVIEW YCBCR 2 4 8 16 32 64 128 256 512
-    gdaladdo -r average --config COMPRESS_OVERVIEW JPEG --config PHOTOMETRIC_OVERVIEW YCBCR --config JPEG_QUALITY_OVERVIEW 80 --config INTERLEAVE_OVERVIEW PIXEL $dst_tif  2 4 8 16 32
+    gdaladdo -r gauss --config COMPRESS_OVERVIEW JPEG --config PHOTOMETRIC_OVERVIEW YCBCR --config JPEG_QUALITY_OVERVIEW 90 --config INTERLEAVE_OVERVIEW PIXEL $dst_tif  2 4 8 16 32
     
-    mv $dst_tif $dst_dir
     echo "END CONVERT $src_tif"
 
 done
+
+echo "Maak index aan met gdaltindex"
+gdaltindex opentopo.shp $dst_dir/*.tif
