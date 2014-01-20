@@ -45,6 +45,8 @@ Bag-extract downloaden
 Afhankelijkheden
 ----------------
 
+- PostgreSQL: relationele database, minimaal versie 8.3, optimaal is versie 9.1, zie http://www.postgresql.org
+- PostGIS: spatial extensie PostgreSQL, bijv. opslag geodata, minimaalveris 1.5, optimaal is versie 2.x, zie http://postgis.org
 - Python: versie 2, minimaal versie 2.4.3, beste is 2.7 of hoger voor lxml, geen Python 3
 - Python argparse package, voor argument parsing alleen indien Python < 2.7
 - psycopg2: Python PostgreSQL client bibliotheek. Zie http://initd.org/psycopg
@@ -54,6 +56,65 @@ Afhankelijkheden
 
 Installatie (Linux)
 -------------------
+
+- Ubuntu: beste is om eerst UbuntuGIS PPA aan je package repo toe te voegen, voor laatste versie Geo-tools als GDAL en PostGIS. ::
+
+    apt-get install python-software-properties
+    add-apt-repository ppa:ubuntugis/ubuntugis-unstable
+    apt-get update
+
+- Ubuntu: PostgreSQL+PostGIS . PostgreSQL is een OS relationele database (RDBMS). PostGIS is een extentie die
+van PostgreSQL een ruimtelijke (spatial) database maakt. Installatie PostgreSQL 9.1 + PostGIS 2.1 ::
+
+    $ apt-get install postgis postgresql-9.1 postgresql-contrib
+
+    # Server Instrumentation, met admin pack.
+    $ sudo -u postgres psql
+    psql (9.1.10)
+    Type "help" for help.
+
+    postgres=# CREATE EXTENSION adminpack;
+    CREATE EXTENSION
+
+    # Installatie controleren met ::
+
+    $ psql -h localhost -U postgres template1
+
+    $ pg_lsclusters
+    Ver Cluster Port Status Owner    Data directory               Log file
+    9.1 main    5432 online postgres /var/lib/postgresql/9.1/main /var/log/postgresql/postgresql-9.1-main.log
+
+    # Enablen locale connecties in ``/etc/postgresql/9.1/main/pg_hba.conf``.
+
+    # Database administrative login by Unix domain socket
+    local   all             postgres                                md5
+
+    # TYPE  DATABASE        USER            ADDRESS                 METHOD
+
+    # "local" is for Unix domain socket connections only
+    local   all             all                                     md5
+    # IPv4 local connections:
+    host    all             all             127.0.0.1/32            md5
+    # IPv6 local connections:
+    host    all             all             ::1/128                 md5
+
+
+    # PostGIS en template opzetten. Ook dit nodig om Postgis extension aan te maken.    ::
+    $ apt-get -s install postgresql-9.1-postgis-2.1
+
+    # Anders krijg je op ``CREATE EXTENSION postgis`` dit ::
+
+    # ERROR: could not open extension control file "/usr/share/postgresql/9.1/extension/postgis.control": No such file or directory
+
+    # Template DB``postgis2`` opzetten. ::
+
+    $ su postgres
+    createdb postgis2
+    psql -h localhost postgis2
+    postgis2=# CREATE EXTENSION postgis;
+    # CREATE EXTENSION
+    postgis2=# CREATE EXTENSION postgis_topology;
+    # CREATE EXTENSION
 
 - optioneel: Python package afhankelijkheden installeren bijv
   ::
