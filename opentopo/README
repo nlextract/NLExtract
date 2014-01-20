@@ -5,7 +5,7 @@ te combineren in een verfijnde cartografie. Via
 de website www.opentopo.nl worden deze beschikbaar gesteld.
 NB GeoTIFFs bestaan ook en zullen tzt ook beschikbaar gesteld worden.
 
-Drukwerkresolutie is 400 pix/km (280dpi) en wordt kosteloos geleverd in TIF formaat. Wel op aanvraag
+Drukwerkresolutie is GeoTIFFs 400 pix/km (280dpi) en wordt kosteloos geleverd in TIF formaat. Wel op aanvraag
 gezien de grootte van de bestanden.  Neem hiervoor contact op met de maker:
 Jan Willem van Aalst: geo@imergis.nl
 
@@ -21,12 +21,12 @@ http://www.gigapan.com/gigapans/142199
 Hieronder wat hulpmiddelen voor OpenTopo.
 Bijvoorbeeld om deze kaarten in een WMS te serveren:
 
-Kaarten ophalen
+Kaarten ophalen (JPEGs, 300px/km)
  - bin/get-all-jpeg.sh
 
-Kaarten georefereren en bewerken met bin/topotrans.sh
-- plaats world files 300px/m in zelfde dir als .jpg's
-- JPEGs naar GeoTIFF (via gdal_translate)
+Kaarten georefereren, alleen GeoTIFF, en bewerken met bin/topotrans.sh
+- gebruik: topotrans.sh <bron_dir> <doel_dir>
+- plaatst world files 400px/m in zelfde dir als .tiff files
 - intern tilen GeoTIFFs
 - GeoTIFF overviews genereren
 - evt indexeren met gdaltindex (maar GeoServer ImageMosaic kan dat ook)

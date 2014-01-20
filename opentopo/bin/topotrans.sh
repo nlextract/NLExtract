@@ -1,10 +1,13 @@
 #!/bin/bash
 #
-# Transformeer en bewerk OpenTopo JPEGs naar GeoTiffs.
+# Transformeer en bewerk OpenTopo Tiffs naar geoptimaliseerde GeoTiffs.
+#
+# Voorbeeld: bron Tiffs en world files in directory 'src', lege directory 'dst'
+# NB World files 400 pix/km voor bron Tiffs moeten wel in de bron dir staan!!
+# topotrans.sh src dst
 #
 # Auteur: Just van den Broecke
 
-# NB World files moeten wel in de bron dir staan!!
 
 #
 # $1 bron directory
@@ -14,7 +17,7 @@ dst_dir=$2
 
 for src_tif in `ls -1 $src_dir/*.tif`
 do
-    # tussenfile: even in source dir aanmaken, later moven naar dst (anders vreemde foutmeldingen GDAL
+    # Doel file
     dst_tif=$dst_dir/p`basename $src_tif|cut -d'.' -f1`.tif
 
     echo "START  CONVERT $src_tif to $dst_tif"
