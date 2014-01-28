@@ -24,7 +24,11 @@ CROP=4000x2500+18
 
 # tbv gdaladdo Pyramid
 # TODO: mogelijk alignen met NL Tiling schema?
-GDAL_OVERVIEW_LEVELS="2 4 8 16 32 64 128"
+# number of pyramids = log(pixelsize of image) / log(2) - log (pixelsize of tile) / log(2).
+# Plaatje is typisch 4018, 2527 neem grootste
+# log(4200) / log(2) - log (512) / log(2) = 3.036 = ~4
+
+GDAL_OVERVIEW_LEVELS="2 4 8 16"
 
 # Mask image om randen transparant te maken
 BONNE_MASK_COLOR='#FFFFFF'
