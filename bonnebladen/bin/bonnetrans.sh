@@ -10,10 +10,14 @@
 # voorbeeld:
 # bonnetrans.sh b027-1932.png
 
+# Bepaal onze home/bin dir
+BIN_DIR=`dirname $0`/..
+BIN_DIR=`(cd "$BIN_DIR"; pwd)`
+DATA_DIR=${BIN_DIR}/..
 
 # In de settings file per host, staat de locatie van de bron
 # .png van de Bonnebladen
-SETTINGS_SCRIPT="settings.sh"
+SETTINGS_SCRIPT="${BIN_DIR}/settings.sh"
 . $SETTINGS_SCRIPT
 
 fileName=$1
@@ -25,7 +29,7 @@ jaar=`echo $fileName | cut -d'-' -f2 | cut -d'.' -f1`
 srcname=`echo $fileName | cut -d'.' -f1`
 
 # Haal de georeferentie coordinaten uit de .csv
-line=`grep "^[ ]*${bladnr}" ../data/bonnecoords.csv`
+line=`grep "^[ ]*${bladnr}" ${DATA_DIR}/bonnecoords.csv`
 # echo $line
 
 nwx=`echo $line | cut -d' ' -f2`
@@ -76,8 +80,8 @@ function createGeoTiff() {
 
     # Maak GeoTIFF van TIFF met juiste georeferentie uit CSV, en internal tiling
     echo "gdal_translate"
-	# gdal_translate -of GTiff -a_ullr $nw $se -co TILED=YES -a_srs EPSG:28992  $tmp_tif $dst_tif
-    gdal_translate -b 1 -b 2 -b 3 -of GTiff -a_ullr $nw $se -co TILED=YES -co PROFILE=Geotiff -co COMPRESS=JPEG -co JPEG_QUALITY=95 -co PHOTOMETRIC=YCBCR -co BLOCKXSIZE=512 -co BLOCKYSIZE=512 -a_srs EPSG:28992  $tmp_tif $dst_tif
+	gdal_translate -of GTiff -a_ullr $nw $se -co TILED=YES -a_srs EPSG:28992  $tmp_tif $dst_tif
+    # gdal_translate -b 1 -b 2 -b 3 -of GTiff -a_ullr $nw $se -co TILED=YES -co PROFILE=Geotiff -co COMPRESS=JPEG -co JPEG_QUALITY=95 -co PHOTOMETRIC=YCBCR -co BLOCKXSIZE=512 -co BLOCKYSIZE=512 -a_srs EPSG:28992  $tmp_tif $dst_tif
 
 	# Zet nodata op wit (niet duidelijk of dit zin heeft....)
     python gdalsetnull.py $dst_tif 255 255 255
@@ -90,8 +94,8 @@ function createGeoTiff() {
     #    gdaladdo %THIS_DIR%.tif -r average --config COMPRESS_OVERVIEW JPEG
     #    --config JPEG_QUALITY_OVERVIEW 60 --config INTERLEAVE_OVERVIEW PIXEL
     #      --config PHOTOMETRIC_OVERVIEW YCBCR 2 4 8 16 32 64 128 256 512
-    # gdaladdo -r average $dst_tif  ${GDAL_OVERVIEW_LEVELS}
-    gdaladdo -r gauss --config COMPRESS_OVERVIEW JPEG --config PHOTOMETRIC_OVERVIEW YCBCR --config JPEG_QUALITY_OVERVIEW 95 --config INTERLEAVE_OVERVIEW PIXEL $dst_tif  ${GDAL_OVERVIEW_LEVELS}
+    gdaladdo -r average $dst_tif  ${GDAL_OVERVIEW_LEVELS}
+    # gdaladdo -r gauss --config COMPRESS_OVERVIEW JPEG --config PHOTOMETRIC_OVERVIEW YCBCR --config JPEG_QUALITY_OVERVIEW 95 --config INTERLEAVE_OVERVIEW PIXEL $dst_tif  ${GDAL_OVERVIEW_LEVELS}
 
     # Tijdelijke bestanden weggooien
 	/bin/rm $tmp_png $tmp_tif

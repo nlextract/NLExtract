@@ -10,10 +10,15 @@
 # voorbeeld:
 # bonnetrans.sh b027-1932.png
 
+# Bepaal onze home/bin dir
+HOME_DIR=`dirname $0`/..
+HOME_DIR=`(cd "$HOME_DIR"; pwd)`
+DATA_DIR=${HOME_DIR}/data
+BIN_DIR=${HOME_DIR}/bin
 
 # In de settings file per host, staat de locatie van de bron
 # .png van de Bonnebladen
-SETTINGS_SCRIPT="settings.sh"
+SETTINGS_SCRIPT="${BIN_DIR}/settings.sh"
 . $SETTINGS_SCRIPT
 
 fileName=$1
@@ -25,7 +30,7 @@ jaar=`echo $fileName | cut -d'-' -f2 | cut -d'.' -f1`
 srcname=`echo $fileName | cut -d'.' -f1`
 
 # Haal de georeferentie coordinaten uit de .csv
-line=`grep "^[ ]*${bladnr}" ../data/bonnecoords.csv`
+line=`grep "^[ ]*${bladnr}" ${DATA_DIR}/bonnecoords.csv`
 # echo $line
 
 nwx=`echo $line | cut -d' ' -f2`
@@ -40,7 +45,7 @@ sey=`echo $line | cut -d' ' -f9`
 # Complete paden naar diverse bestanden
 src=${BONNE_DATA_SRC_DIR}/${fileName}
 tmp_tif=${BONNE_DATA_DST_DIR}/${srcname}.tmp.tif
-tmp_png=${BONNE_DATA_DST_DIR}/${srcname}.tmp.png
+# tmp_png=${BONNE_DATA_DST_DIR}/${srcname}.tmp.png
 dst=${BONNE_DATA_DST_DIR}/${srcname}.tif
 
 
@@ -54,10 +59,9 @@ function createGeoTiff() {
 	dst_tif=$2
 
  	# Upper Left Lower Right BBOX (vanuit CSV)
-    nw="$nwx $nwy"
-    se="$sex $sey"
-    nw="$nwx $nwy"
-    se="$sex $sey"
+    nw="$swx $nwy"
+    se="$nex $sey"
+    ullr="$nw $se"
 
 	# Sanity check
     if [ -z "$swx" ] || [ -z "$nwy" ] || [ -z "$nex" ] || [ -z "$sey" ]
@@ -66,24 +70,16 @@ function createGeoTiff() {
         return 0
     fi
 
-    echo "START CONVERT $srcname : nw=[$nw] se=[$se]"
-
-    # Combineer mask file met origineel zodat randen uniforme kleur (bijv. wit) hebben
-    # echo "Masker voor randen: composite"
-	# composite -gravity center ${BONNE_MASK_IMG} $src_png $tmp_png
-    convert $src_png  -affine 0.999975,-0.007002,0.007002,0.999975 -transform -crop 4000x2500+18 $tmp_png
+    echo "START CONVERT $srcname : ullr=[$ullr] src_png=$src_png"
 
 	# TIFF aanmaken, sRGB van maken (ivm GeoTIFF transparantie later), helderheid omhoog, tags zetten.
-    echo "Maak TIFF aan, helderheid omhoog: convert"
-    convert -brightness-contrast ${BRIGHTNESS_CONTRAST} -colorspace sRGB $tmp_png -set tiff:software "NLExtract" -set tiff:timestamp "`date`"  $tmp_png $tmp_tif
+    echo "Maak TIFF aan, helderheid omhoog: convert to $tmp_tif"
+    convert -brightness-contrast ${BRIGHTNESS_CONTRAST} -colorspace sRGB $src_png -set tiff:software "NLExtract" -set tiff:timestamp "`date`"  $src_png $tmp_tif
 
     # Maak GeoTIFF van TIFF met juiste georeferentie uit CSV, en internal tiling
     echo "gdal_translate"
 	# gdal_translate -of GTiff -a_ullr $nw $se -co TILED=YES -a_srs EPSG:28992  $tmp_tif $dst_tif
-    gdal_translate -b 1 -b 2 -b 3 -of GTiff -a_ullr $nw $se -co TILED=YES -co PROFILE=Geotiff -co COMPRESS=JPEG -co JPEG_QUALITY=95 -co PHOTOMETRIC=YCBCR -co BLOCKXSIZE=512 -co BLOCKYSIZE=512 -a_srs EPSG:28992  $tmp_tif $dst_tif
-
-	# Zet nodata op wit (niet duidelijk of dit zin heeft....)
-    # python gdalsetnull.py $dst_tif 255 255 255
+    gdal_translate -b 1 -b 2 -b 3 -of GTiff -a_ullr $ullr -co TILED=YES -co PROFILE=Geotiff -co COMPRESS=JPEG -co JPEG_QUALITY=95 -co PHOTOMETRIC=YCBCR -co BLOCKXSIZE=512 -co BLOCKYSIZE=512 -a_srs EPSG:28992  $tmp_tif $dst_tif
 
     # Maak overview (pyramid)
 	echo "Maak overview met gdaladdo"
@@ -93,15 +89,16 @@ function createGeoTiff() {
     #    gdaladdo %THIS_DIR%.tif -r average --config COMPRESS_OVERVIEW JPEG
     #    --config JPEG_QUALITY_OVERVIEW 60 --config INTERLEAVE_OVERVIEW PIXEL
     #      --config PHOTOMETRIC_OVERVIEW YCBCR 2 4 8 16 32 64 128 256 512
-    # gdaladdo -r average $dst_tif  ${GDAL_OVERVIEW_LEVELS}
-    gdaladdo -r gauss --config COMPRESS_OVERVIEW JPEG --config PHOTOMETRIC_OVERVIEW YCBCR --config JPEG_QUALITY_OVERVIEW 95 --config INTERLEAVE_OVERVIEW PIXEL $dst_tif  ${GDAL_OVERVIEW_LEVELS}
+    gdaladdo -r average $dst_tif  ${GDAL_OVERVIEW_LEVELS}
+    # gdaladdo -r gauss --config COMPRESS_OVERVIEW JPEG --config PHOTOMETRIC_OVERVIEW YCBCR --config JPEG_QUALITY_OVERVIEW 95 --config INTERLEAVE_OVERVIEW PIXEL $dst_tif  ${GDAL_OVERVIEW_LEVELS}
 
     # Tijdelijke bestanden weggooien
-	/bin/rm $tmp_png $tmp_tif
+	/bin/rm $tmp_tif
 
     echo "END CONVERT $srcname"
 }
 
+echo "src=$src"
 if [ -e $src ]
 then
     createGeoTiff $src $dst

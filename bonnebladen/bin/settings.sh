@@ -1,4 +1,9 @@
 # Settings voor bonnetrans.sh script
+# Bepaal onze home/bin dir
+HOME_DIR=`dirname $0`/..
+HOME_DIR=`(cd "$HOME_DIR"; pwd)`
+DATA_DIR=${HOME_DIR}/data
+BIN_DIR=${HOME_DIR}/bin
 
 # Maakt plaatje lichter en scherper
 # Zie http://www.imagemagick.org/script/command-line-options.php#brightness-contrast
@@ -35,5 +40,5 @@ BONNE_MASK_COLOR='#FFFFFF'
 BONNE_MASK_IMG=../data/bonnemask.png
 
 # Per-host settings
-SETTINGS_SCRIPT="settings-`hostname`.sh"
+SETTINGS_SCRIPT="${BIN_DIR}/settings-`hostname`.sh"
 . $SETTINGS_SCRIPT
