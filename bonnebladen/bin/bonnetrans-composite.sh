@@ -89,8 +89,8 @@ function createGeoTiff() {
     #    gdaladdo %THIS_DIR%.tif -r average --config COMPRESS_OVERVIEW JPEG
     #    --config JPEG_QUALITY_OVERVIEW 60 --config INTERLEAVE_OVERVIEW PIXEL
     #      --config PHOTOMETRIC_OVERVIEW YCBCR 2 4 8 16 32 64 128 256 512
-    gdaladdo -r average $dst_tif  ${GDAL_OVERVIEW_LEVELS}
-    # gdaladdo -r gauss --config COMPRESS_OVERVIEW JPEG --config PHOTOMETRIC_OVERVIEW YCBCR --config JPEG_QUALITY_OVERVIEW 95 --config INTERLEAVE_OVERVIEW PIXEL $dst_tif  ${GDAL_OVERVIEW_LEVELS}
+    # gdaladdo -r average $dst_tif  ${GDAL_OVERVIEW_LEVELS}
+    gdaladdo -r gauss --config COMPRESS_OVERVIEW JPEG --config PHOTOMETRIC_OVERVIEW YCBCR --config JPEG_QUALITY_OVERVIEW 95 --config INTERLEAVE_OVERVIEW PIXEL $dst_tif  ${GDAL_OVERVIEW_LEVELS}
 
     # Tijdelijke bestanden weggooien
 	/bin/rm $tmp_tif
