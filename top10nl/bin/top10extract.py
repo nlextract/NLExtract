@@ -163,7 +163,7 @@ def load_data(gml):
     # Transformeren?
     t_srs = ''
     if settings.ogr_tsrs() != '':
-        t_srs = '-t_srs' + settings.ogr_tsrs()
+        t_srs = '-t_srs ' + settings.ogr_tsrs()
 
     # PG connectie
     if settings.ogr_out_format() == FORMAT_POSTGRESQL and settings.ogr_out_options() is None:
