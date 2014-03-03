@@ -77,7 +77,7 @@ INSERT INTO geo_adres (straatnaam, huisnummer, huisletter, toevoeging, postcode,
 	p.gemeentenaam,
 	p.provincienaam,
     -- Vlak geometrie wordt punt
-	ST_Force_3D(ST_Centroid(l.geovlak))  as geopunt
+	ST_Force3D(ST_Centroid(l.geovlak))  as geopunt
 FROM
 	(SELECT identificatie,  geovlak, hoofdadres from ligplaatsactueelbestaand) l,
 	(SELECT identificatie,  huisnummer, huisletter, huisnummertoevoeging, postcode, gerelateerdeopenbareruimte from nummeraanduidingactueelbestaand) n,
@@ -104,7 +104,7 @@ INSERT INTO geo_adres (straatnaam, huisnummer, huisletter, toevoeging, postcode,
 	p.gemeentenaam,
 	p.provincienaam,
     -- Vlak geometrie wordt punt
-	ST_Force_3D(ST_Centroid(l.geovlak)) as geopunt
+	ST_Force3D(ST_Centroid(l.geovlak)) as geopunt
 FROM
 	(SELECT identificatie,  geovlak, hoofdadres from standplaatsactueelbestaand) l,
 	(SELECT identificatie,  huisnummer, huisletter, huisnummertoevoeging, postcode, gerelateerdeopenbareruimte from nummeraanduidingactueelbestaand) n,
@@ -159,7 +159,7 @@ INSERT INTO geo_adres (straatnaam, huisnummer, huisletter, toevoeging, postcode,
 	p.gemeentenaam,
 	p.provincienaam,
     -- Vlak geometrie wordt punt
-	ST_Force_3D(ST_Centroid(l.geovlak))  as geopunt
+	ST_Force3D(ST_Centroid(l.geovlak))  as geopunt
 FROM
   (SELECT identificatie,  nevenadres from adresseerbaarobjectnevenadresactueel) aon,
   (SELECT identificatie,  geovlak, hoofdadres from ligplaatsactueelbestaand) l,
@@ -188,7 +188,7 @@ INSERT INTO geo_adres (straatnaam, huisnummer, huisletter, toevoeging, postcode,
 	p.gemeentenaam,
 	p.provincienaam,
   -- Vlak geometrie wordt punt
-	ST_Force_3D(ST_Centroid(s.geovlak))  as geopunt
+	ST_Force3D(ST_Centroid(s.geovlak))  as geopunt
 FROM
   (SELECT identificatie,  nevenadres from adresseerbaarobjectnevenadresactueel) aon,
   (SELECT identificatie,  geovlak, hoofdadres from standplaatsactueelbestaand) s,
