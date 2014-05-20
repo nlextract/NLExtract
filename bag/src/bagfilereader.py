@@ -83,7 +83,7 @@ class BAGFileReader:
 
         tzip = self.zip
         namelist = sorted(tzip.namelist())
-        Log.log.info("readzipfile content=" + str(list))
+        Log.log.info("readzipfile content=" + str(namelist))
         for naam in namelist:
             ext = naam.split('.')
             Log.log.info("readzipfile: " + naam)
