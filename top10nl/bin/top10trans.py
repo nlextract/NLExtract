@@ -24,7 +24,7 @@ def execute_cmd(cmd):
     use_shell = True
     if os.name == 'nt':
         use_shell = False
-        
+
     print cmd
     subprocess.call(cmd, shell=use_shell)
 
@@ -70,6 +70,7 @@ def transform(gml_file, xslt_file, out_dir, max_features = MAX_FEATURES):
     trans2_path = os.path.realpath(os.path.join(SCRIPT_HOME, 'top10trans2.py'))
 
     while len(features) > 0:
+        os.system('free -mo')
         # Kloon de GML template en verplaats een deel van de features er naar toe
         print 'Iteratie %d: %d te verwerken features' % (idx, len(features[0:max_features]))
         gmlDoc = deepcopy(gmlTemplate)
@@ -83,7 +84,7 @@ def transform(gml_file, xslt_file, out_dir, max_features = MAX_FEATURES):
         o.write(etree.tostring(gmlDoc, pretty_print=True, xml_declaration=True, encoding='UTF-8'))
         o.flush()
         o.close()
-        
+
         # Voer XSLT-transformatie uit
         cmd = 'python %s %s %s' % (trans2_path, fileName, xslt_file)
         execute_cmd(cmd)
