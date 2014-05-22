@@ -70,9 +70,9 @@ def transform(gml_file, xslt_file, out_dir, max_features = MAX_FEATURES):
     trans2_path = os.path.realpath(os.path.join(SCRIPT_HOME, 'top10trans2.py'))
 
     while len(features) > 0:
-        os.system('free -mo')
         # Kloon de GML template en verplaats een deel van de features er naar toe
         print 'Iteratie %d: %d te verwerken features' % (idx, len(features[0:max_features]))
+        os.system('free -mo')
         gmlDoc = deepcopy(gmlTemplate)
         featureMembers = gmlDoc.xpath('gml:featureMembers', namespaces=NS)[0]
         for feature in features[0:max_features]:
