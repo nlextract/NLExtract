@@ -80,6 +80,10 @@ class SettingsProvider:
         # cmd
         return self._args.gfs_template
 
+    def max_split_features(self):
+        # cmd
+        return self._args.max_split_features
+
     def pg_host(self):
         # cmd, ini
         if self._args.pg_host is not None:

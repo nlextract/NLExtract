@@ -145,12 +145,12 @@ def trans_gml(gml, xsl, dir):
 
     # Opknippen en transformeren GML-bestand
     trans_path = abspath('top10trans.py')
-    cmd = 'python %s --max_features %d %s %s %s' % (trans_path, MAX_SPLIT_FEATURES, gml, xsl, dir)
+    cmd = 'python %s --max_features %d %s %s %s' % (trans_path, settings.max_split_features(), gml, xsl, dir)
     execute_cmd(cmd)
 
     # alternatief:
     # top10_trans = __import__('top10trans')
-    # top10_trans.transform(gml, xsl, dir, MAX_SPLIT_FEATURES)
+    # top10_trans.transform(gml, xsl, dir, settings.max_split_features())
 
 
 # Laadt de data met OGR2OGR
@@ -354,6 +354,7 @@ def main():
     argparser.add_argument('--spat',  type=float, help='spatial filter', dest='spat', nargs=4, metavar=('xmin', 'ymin', 'xmax', 'ymax'))
     argparser.add_argument('--multi', type=str,   help='multi-attributen (default: eerste)', choices=['eerste','meerdere','stringlist','array'], dest='multi', default='eerste')
     argparser.add_argument('--gfs',   type=str,   help='GFS template-bestand (default: %s)' % GFS_TEMPLATE, dest='gfs_template', default=DEFAULT_GFS_TEMPLATE)
+    argparser.add_argument('--max_split_features', type=int, help='Max aantal features per XML transformatie', dest='max_split_features', default=MAX_SPLIT_FEATURES)
 
     # Database verbindingsparameters
     # NB: geen defaults, deze komen uit de settings file
