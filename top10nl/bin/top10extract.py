@@ -148,8 +148,6 @@ def trans_gml(gml, xsl, dir):
     cmd = 'python %s --max_features %d %s %s %s' % (trans_path, settings.max_split_features(), gml, xsl, dir)
     if settings.skip_existing():
         cmd = cmd + ' --skip_existing'
-    print "memory voordat het command gerund wordt:"
-    os.system('free -m')
     execute_cmd(cmd)
 
     # alternatief:
