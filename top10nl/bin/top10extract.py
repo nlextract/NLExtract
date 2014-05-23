@@ -147,7 +147,7 @@ def trans_gml(gml, xsl, dir):
     trans_path = abspath('top10trans.py')
     cmd = 'python %s --max_features %d %s %s %s' % (trans_path, settings.max_split_features(), gml, xsl, dir)
     print "memory voordat het command gerund wordt:"
-    os.system('free -mo')
+    os.system('free -m')
     execute_cmd(cmd)
 
     # alternatief:
