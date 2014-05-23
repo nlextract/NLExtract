@@ -84,6 +84,10 @@ class SettingsProvider:
         # cmd
         return self._args.max_split_features
 
+    def skip_existing(self):
+        # cmd
+        return self._args.skip_existing
+
     def pg_host(self):
         # cmd, ini
         if self._args.pg_host is not None:
