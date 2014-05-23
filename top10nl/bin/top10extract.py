@@ -146,6 +146,8 @@ def trans_gml(gml, xsl, dir):
     # Opknippen en transformeren GML-bestand
     trans_path = abspath('top10trans.py')
     cmd = 'python %s --max_features %d %s %s %s' % (trans_path, settings.max_split_features(), gml, xsl, dir)
+    if settings.skip_existing():
+        cmd = cmd + ' --skip_existing'
     print "memory voordat het command gerund wordt:"
     os.system('free -m')
     execute_cmd(cmd)
@@ -357,6 +359,7 @@ def main():
     argparser.add_argument('--multi', type=str,   help='multi-attributen (default: eerste)', choices=['eerste','meerdere','stringlist','array'], dest='multi', default='eerste')
     argparser.add_argument('--gfs',   type=str,   help='GFS template-bestand (default: %s)' % GFS_TEMPLATE, dest='gfs_template', default=DEFAULT_GFS_TEMPLATE)
     argparser.add_argument('--max_split_features', type=int, help='Max aantal features per XML transformatie', dest='max_split_features', default=MAX_SPLIT_FEATURES)
+    argparser.add_argument('--skip_existing', dest='skipExisting', default=False, action='store_true', help='overschrijf al geconverteerde bestanden niet')
 
     # Database verbindingsparameters
     # NB: geen defaults, deze komen uit de settings file
