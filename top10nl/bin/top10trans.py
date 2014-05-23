@@ -28,13 +28,19 @@ def execute_cmd(cmd):
     print cmd
     subprocess.call(cmd, shell=use_shell)
 
-def transform(gml_file, xslt_file, out_dir, max_features = MAX_FEATURES):
-    print 'Begintijd top10trans:', strftime('%a, %d %b %Y %H:%M:%S', localtime())
-
+def transform(gml_file, xslt_file, out_dir, skip_existing, max_features = MAX_FEATURES):
     # Bepaal de base name
     gmlBaseName = os.path.splitext(os.path.basename(gml_file))[0]
     print 'GML bestand=%s baseName=%s out_dir=%s' % (gml_file, gmlBaseName,out_dir)
+    fileNameTemplate = os.path.join(out_dir, '%s_%%02d.gml' % gmlBaseName)
+    if skip_existing:
+        if os.path.exists(fileNameTemplate % 0):
+            # Aanname: de eerste is kennelijk goed weggeschreven, dan is de
+            # rest ook wel OK.
+            print "Het is al geconverteerd en we hoeven bestaande bestanden niet te overschrijven."
+            return
 
+    print 'Begintijd top10trans:', strftime('%a, %d %b %Y %H:%M:%S', localtime())
     # Open het GML bestand; verwijder hierbij nodes met alleen whitespace
     print 'Inlezen GML bestand %s...' % gml_file
     parser = etree.XMLParser(remove_blank_text=True, ns_clean=True)
@@ -64,7 +70,6 @@ def transform(gml_file, xslt_file, out_dir, max_features = MAX_FEATURES):
     # Verwerk de features
     idx = 0   # teller
     gmlTemplate = gmlDoc
-    fileNameTemplate = os.path.join(out_dir, '%s_%%02d.gml' % gmlBaseName)
     features = root.xpath('*')
 
     trans2_path = os.path.realpath(os.path.join(SCRIPT_HOME, 'top10trans2.py'))
@@ -108,6 +113,7 @@ def main():
     argparser.add_argument('XSLT', type=str, help='het XSLT-bestand')
     argparser.add_argument('DIR', type=str, help='locatie opgesplitste bestanden')
     argparser.add_argument('--max_features', dest='maxFeatures', default=MAX_FEATURES, type=int, help='features per bestand, default: %d' % MAX_FEATURES)
+    argparser.add_argument('--skip_existing', dest='skipExisting', default=False, action='store_true', help='overschrijf al geconverteerde bestanden niet')
     args = argparser.parse_args()
 
     # Controleer paden
@@ -123,7 +129,7 @@ def main():
         print 'De opgegeven directory is niet aangetroffen!'
         sys.exit(1)
 
-    transform(args.GML, args.XSLT, args.DIR, args.maxFeatures)
+    transform(args.GML, args.XSLT, args.DIR, args.skipExisting, args.maxFeatures)
 
 if __name__ == "__main__":
     main()
