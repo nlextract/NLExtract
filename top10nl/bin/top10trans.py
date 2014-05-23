@@ -4,14 +4,14 @@
 # Doel: Opknippen en transformeren GML-bestanden
 
 # Imports
+from copy import deepcopy
+from time import localtime, strftime
 import argparse
 import os.path
 import subprocess
 import sys
-import time
-from copy import deepcopy
+
 from lxml import etree
-from time import localtime, strftime
 
 # Constantes
 GML_NS = 'http://www.opengis.net/gml'
