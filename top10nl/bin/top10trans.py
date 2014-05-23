@@ -77,7 +77,6 @@ def transform(gml_file, xslt_file, out_dir, skip_existing, max_features = MAX_FE
     while len(features) > 0:
         # Kloon de GML template en verplaats een deel van de features er naar toe
         print 'Iteratie %d: %d te verwerken features' % (idx, len(features[0:max_features]))
-        os.system('free -m')
         gmlDoc = deepcopy(gmlTemplate)
         featureMembers = gmlDoc.xpath('gml:featureMembers', namespaces=NS)[0]
         for feature in features[0:max_features]:
