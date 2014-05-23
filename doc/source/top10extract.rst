@@ -185,39 +185,47 @@ Mac OSX
 Aanroep
 -------
 
-De aanroep van Top10-extract is op alle systemen hetzelfde, namelijk via Python ::
+De aanroep van Top10-extract is op alle systemen hetzelfde, namelijk via Python::
 
     usage: top10extract.py [-h] --dir DIR [--ini SETTINGS_INI] [--pre PRE_SQL]
                        [--post POST_SQL] [--spat xmin ymin xmax ymax]
                        [--multi {eerste,meerdere,stringlist,array}]
-                       [--gfs GFS_TEMPLATE] [--pg_host PG_HOST]
+                       [--gfs GFS_TEMPLATE]
+                       [--max_split_features MAX_SPLIT_FEATURES]
+                       [--skip_existing] [--pg_host PG_HOST]
                        [--pg_port PG_PORT] [--pg_db PG_DB]
                        [--pg_schema PG_SCHEMA] [--pg_user PG_USER]
                        [--pg_password PG_PASS]
                        GML [GML ...]
 
-positionele argumenten:
-::
+positionele argumenten::
 
   GML                   het GML-bestand of de lijst of directory met GML-bestanden
 
-optionele argumenten:
-::
+optionele argumenten::
 
   -h, --help            help bericht tonen en exit
   --dir DIR             lokatie getransformeerde bestanden
   --ini SETTINGS_INI    het settings-bestand (default: top10-settings.ini)
   --pre PRE_SQL         SQL-script vooraf
   --post POST_SQL       SQL-script achteraf
-  --spat BBOX           spatial filter, uitsnede van gebied, BBOX: xmin, ymin, xmax, ymax
-  --multi MULTI_ATTR    hoe omgaan met meerdere attribuutwaarden, MULTI_ATTR: 'eerste' (default),'meerdere','stringlist','array'
-  --gfs GFS_TEMPLATE    GFS template-bestand (default: top10-gfs-template_split.xml)
+  --spat xmin ymin xmax ymax
+                        spatial filter
+  --multi {eerste,meerdere,stringlist,array}
+                        multi-attributen (default: eerste)
+  --gfs GFS_TEMPLATE    GFS template-bestand (default: top10-gfs-
+                        template_split.xml)
+  --max_split_features MAX_SPLIT_FEATURES
+                        Max aantal features per XML transformatie
+  --skip_existing       overschrijf al geconverteerde bestanden niet
   --pg_host PG_HOST     PostgreSQL server host
   --pg_port PG_PORT     PostgreSQL server poort
   --pg_db PG_DB         PostgreSQL database
-  --pg_schema PG_SCHEMA PostgreSQL schema
+  --pg_schema PG_SCHEMA
+                        PostgreSQL schema
   --pg_user PG_USER     PostgreSQL gebruikersnaam
-  --pg_password PG_PASS PostgreSQL wachtwoord
+  --pg_password PG_PASS
+                        PostgreSQL wachtwoord
 
 Het GML-bestand of de GML-bestanden kunnen op meerdere manieren worden meegegeven:
 
@@ -251,6 +259,23 @@ opties die hieruit gegenereerd worde).
 Van belang te vermelden is dat in Top10NL 1.1.1 er sprake van prioritering, d.w.z. bij meerdere waarden is de eerste waarde
 de belangrijkste waarde.
 
+De directory die met ``--dir`` wordt meegegeven wordt gebruikt om bestanden
+tussendoor op te slaan: eerst wordt de informatie uit de bronbestanden omgezet
+en gefiltert en in die directory neergezet. Daarna worden ze overgezet naar de
+database.
+
+- Mocht het geheugengebruik een probleem zijn, dan kan het een oplossing zijn
+  met ``--max_split_features`` een kleiner aantal features in de tussendoor
+  opgeslagen bestanden te zetten. Standaard is het 30000, dus probeer dan
+  bijvoorbeeld ``--max_split_features 10000``.
+
+- Als er iets triviaals mis gaat bij het importeren in de database
+  (bijvoorbeeld door een typfout in het wachtwoord) is het vervelend als de
+  hele eerste import-stap opnieuw uitgevoerd moet worden. Met
+  ``--skip_existing`` worden de al omgezette en gefilterde bronbestanden niet
+  opnieuw verwerkt.
+
+
 Testen
 ------
 Het beste is om eerst je installatie te testen als volgt:
@@ -272,6 +297,3 @@ Top10NL Versies
 
 Sinds september 2012 is er een nieuwe versie van Top10NL, versie 1.1.1. Gebruik altijd deze. Na NLExtract v1.1.2
 zullen we de oude Top10NL versie niet meer ondersteunen.
-
-
-

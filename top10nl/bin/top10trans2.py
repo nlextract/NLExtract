@@ -1,15 +1,16 @@
 #!/usr/bin/env python
 #
 # Auteur: Frank Steggink
-# Doel: Transformeren een enkel GML-bestand
+# Doel: Transformeer een enkel GML-bestand
 
 # Imports
 import argparse
 import os.path
+import sys
+
 from lxml import etree
 
 def main():
-
     # Argumenten
     argparser = argparse.ArgumentParser(
         description='Transform een GML-bestand',
@@ -38,7 +39,7 @@ def main():
     gmlF = open(args.GML, 'r')
     gmlDoc = etree.parse(gmlF, parser)
     gmlF.close()
-    
+
     # Voer de transformatie uit
     resultDoc = xslt(gmlDoc)
 
