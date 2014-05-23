@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 #
 # Auteur: Frank Steggink
-# Doel: Transformeren een enkel GML-bestand
+# Doel: Transformeer een enkel GML-bestand
 
 # Imports
 import argparse
