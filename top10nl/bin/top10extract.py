@@ -105,7 +105,9 @@ def execute_cmd(cmd):
         use_shell = False
 
     print cmd
-    subprocess.call(cmd, shell=use_shell)
+    error_code = subprocess.call(cmd, shell=use_shell)
+    if error_code:
+        sys.exit("Command failed: %s" % cmd)
 
 
 # Voert het meegegeven SQL-bestand uit
@@ -143,12 +145,14 @@ def trans_gml(gml, xsl, dir):
 
     # Opknippen en transformeren GML-bestand
     trans_path = abspath('top10trans.py')
-    cmd = 'python %s --max_features %d %s %s %s' % (trans_path, MAX_SPLIT_FEATURES, gml, xsl, dir)
+    cmd = 'python %s --max_features %d %s %s %s' % (trans_path, settings.max_split_features(), gml, xsl, dir)
+    if settings.skip_existing():
+        cmd = cmd + ' --skip_existing'
     execute_cmd(cmd)
 
     # alternatief:
     # top10_trans = __import__('top10trans')
-    # top10_trans.transform(gml, xsl, dir, MAX_SPLIT_FEATURES)
+    # top10_trans.transform(gml, xsl, dir, settings.max_split_features())
 
 
 # Laadt de data met OGR2OGR
@@ -333,7 +337,7 @@ def process(gml):
 
     # Reset password in environment variabele in exit handler on_exit
 
-    
+
 def main():
     global SCRIPT_HOME, settings
 
@@ -352,7 +356,9 @@ def main():
     argparser.add_argument('--spat',  type=float, help='spatial filter', dest='spat', nargs=4, metavar=('xmin', 'ymin', 'xmax', 'ymax'))
     argparser.add_argument('--multi', type=str,   help='multi-attributen (default: eerste)', choices=['eerste','meerdere','stringlist','array'], dest='multi', default='eerste')
     argparser.add_argument('--gfs',   type=str,   help='GFS template-bestand (default: %s)' % GFS_TEMPLATE, dest='gfs_template', default=DEFAULT_GFS_TEMPLATE)
-    
+    argparser.add_argument('--max_split_features', type=int, help='Max aantal features per XML transformatie', dest='max_split_features', default=MAX_SPLIT_FEATURES)
+    argparser.add_argument('--skip_existing', dest='skip_existing', default=False, action='store_true', help='overschrijf al geconverteerde bestanden niet')
+
     # Database verbindingsparameters
     # NB: geen defaults, deze komen uit de settings file
     argparser.add_argument('--pg_host',     type=str, help='PostgreSQL server host', dest='pg_host')

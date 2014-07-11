@@ -60,7 +60,7 @@ class BAGFileReader:
                 self.processCSV(zipfilename[0], fileobject)
 
     def readDir(self):
-        for each in os.listdir(self.file):
+        for each in sorted( os.listdir(self.file) ):
             _file = os.path.join(self.file, each)
             if zipfile.is_zipfile(_file):
                 self.zip = zipfile.ZipFile(_file, "r")
@@ -82,8 +82,9 @@ class BAGFileReader:
     def readzipfile(self):
 
         tzip = self.zip
-        Log.log.info("readzipfile content=" + str(tzip.namelist()))
-        for naam in tzip.namelist():
+        namelist = sorted(tzip.namelist())
+        Log.log.info("readzipfile content=" + str(namelist))
+        for naam in namelist:
             ext = naam.split('.')
             Log.log.info("readzipfile: " + naam)
             if len(ext) == 2:
@@ -104,7 +105,9 @@ class BAGFileReader:
         tzip = zipfile.ZipFile(naam, "r")
         # Log.log.info("readzipstring naam=" + tzip.getinfo().filename)
 
-        for nested in tzip.namelist():
+        namelist = sorted(tzip.namelist())
+
+        for nested in namelist:
             Log.log.info("readzipstring: " + nested)
             ext = nested.split('.')
             if len(ext) == 2:
