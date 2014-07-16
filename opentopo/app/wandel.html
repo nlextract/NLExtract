@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OpenTopo - Hiking App - Leaflet</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+    <link rel="stylesheet" href="leaflet-gps-1.0.0/leaflet-gps.min.css" />
+
+    <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+    <!-- by https://github.com/stefanocudini/leaflet-gps  -->
+    <script src="leaflet-gps-1.0.0/leaflet-gps.min.js"></script>
+
+    <!-- by https://github.com/vogdb/Leaflet.ActiveLayers -->
+    <!--<script src="leaflet-active-layers/leaflet.active-layers.min.js"></script>-->
+
+    <!-- by https://github.com/vogdb/SelectLayersControl  -->
+    <!--<script src="leaflet-select-layers/leaflet.select-layers.min.js"></script>-->
+    <!--<script src="leaflet-select-layers/SelectLayers.js"></script>-->
+
+    <style>
+    html, body {
+        height: 100%;
+        padding: 0;
+        margin: 0;
+    }
+    #map {
+        width: 100%;
+        height: 100%;
+    }
+    </style>
+</head>
+<body>
+<div id="map"></div>
+<script>
+
+    // Layer defs
+    var opentopo = L.tileLayer(
+            'http://ws.nlextract.nl/gwc/service/tms/1.0.0/opentopo@EPSG:900913@png/{z}/{x}/{y}.png', {
+        tms: true,
+        maxZoom: 18,
+        continuousWorld: true,
+        detectRetina: false,
+        attribution: 'CC by <a href="http://www.opentopo.nl">OpenTopo</a>'
+    });
+
+    var eu = L.tileLayer(
+            'http://4umaps.eu/{z}/{x}/{y}.png', {
+         tms: false,
+         maxZoom: 16,
+         continuousWorld: true,
+         detectRetina: false,
+         attribution: '<a href="http://4umaps.eu">4umaps.eu</a>'
+     });
+
+    var bonne1900 = L.tileLayer(
+             'http://gis.opentraces.org/gwc/service/tms/1.0.0/bonne1900@EPSG:900913@png/{z}/{x}/{y}.png', {
+         tms: true,
+         maxZoom: 18,
+         continuousWorld: true,
+         detectRetina: false,
+         attribution: '<a href="http://www.kadaster.nl">Bonne</a>'
+     });
+
+    var ign = L.tileLayer(
+             'http://gis.opentraces.org/mp/tms/1.0.0/igntopo_EPSG900913/{z}/{x}/{y}.png', {
+         tms: true,
+         maxZoom: 18,
+         continuousWorld: true,
+         detectRetina: false,
+         attribution: '<a href="http://www.ign.fr">IGN France</a>'
+     });
+
+
+    var trentino = L.tileLayer(
+            'http://www.webmapp.it/maps/trentino/TNTILES/{z}/{x}/{y}.png', {
+         tms: false,
+         maxZoom: 16,
+         continuousWorld: true,
+         detectRetina: false,
+         attribution: '<a href="http://www.webmapp.it">Trentino (It)</a>'
+     });
+
+    // Overlay layers
+    var lonvia = L.tileLayer(
+            'http://tile.waymarkedtrails.org/hiking/{z}/{x}/{y}.png', {
+         tms: false,
+         maxZoom: 16,
+         continuousWorld: true,
+         detectRetina: false,
+         attribution: '<a href="http://hiking.waymarkedtrails.org">hiking.waymarkedtrails.org</a>'
+     });
+
+//    var clouds = L.tileLayer('http://{s}.tile.openweathermap.org/map/clouds/{z}/{x}/{y}.png', {
+//        attribution: 'Map data &copy; <a href="http://openweathermap.org">OpenWeatherMap</a>'
+//        , opacity: 0.5
+//    });
+//    var wind = L.tileLayer('http://{s}.tile.openweathermap.org/map/wind/{z}/{x}/{y}.png', {
+//        attribution: 'Map data &copy; <a href="http://openweathermap.org">OpenWeatherMap</a>'
+//        , opacity: 0.5
+//    });
+//    var temperature = L.tileLayer('http://{s}.tile.openweathermap.org/map/temp/{z}/{x}/{y}.png', {
+//        attribution: 'Map data &copy; <a href="http://openweathermap.org">OpenWeatherMap</a>'
+//        , opacity: 0.5
+//    });
+
+    // grouping the layers
+    var baseLayers = {
+        "OSM-TopoMap (EU)": eu,
+        "Trentino (IT)": trentino,
+//        "IGN Topo (FR)": ign,
+//        "Dutch Historic 1900 (NL)": bonne1900,
+        "OpenTopo (NL)": opentopo
+    };
+
+    var overlayLayers = {
+        "OSM Hiking Trails": lonvia
+//        "Clouds": clouds,
+//        "Wind": wind,
+//        "Temperature": temperature
+    };
+
+    // Create the map
+    var map = L.map('map', {
+        center: new L.LatLng(52.312, 5.6),
+        zoom: 9,
+        layers: [opentopo,lonvia]
+    });
+
+    L.control.layers(baseLayers, overlayLayers).addTo(map);
+    //var selCtrl = L.control.selectLayers(baseLayers, overlayLayers).addTo(map);
+
+    // Add controls to the map
+   	map.addControl( new L.Control.Gps({style: {radius: 25, weight:4, color: '#f0c', fill: true, opacity:0.8} }) );
+
+
+</script>
+</body>
+</html>
+

@@ -37,7 +37,8 @@ do
 
     # NIEUW met JPEG compressie en alleen 1e 3 banden meenemen....
     # Refs: http://words.mixedbredie.net/archives/2024
-    gdal_translate -b 1 -b 2 -b 3 -of GTiff -co TILED=YES -co PROFILE=Geotiff -co COMPRESS=JPEG -co JPEG_QUALITY=95 -co PHOTOMETRIC=YCBCR -co BLOCKXSIZE=512 -co BLOCKYSIZE=512 -a_srs EPSG:28992  $src_tif $dst_tif
+    gdal_translate -b 1 -b 2 -b 3 -of GTiff -co TILED=YES -co PROFILE=Geotiff -co COMPRESS=JPEG -co JPEG_QUALITY=95 \
+            -co PHOTOMETRIC=YCBCR -co BLOCKXSIZE=512 -co BLOCKYSIZE=512 -a_srs EPSG:28992  $src_tif $dst_tif
 
     # Maak overview (pyramid)
     echo "Maak overview met gdaladdo"
