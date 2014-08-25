@@ -353,7 +353,7 @@
                     <MaxScaleDenominator>10000</MaxScaleDenominator>
                     <TextSymbolizer>
                         <Label>
-                            <ogc:PropertyName>straatnaam</ogc:PropertyName>
+                            <ogc:PropertyName>straatnaamnl</ogc:PropertyName>
                         </Label>
                         <Font>
                             <CssParameter name="font-family">
