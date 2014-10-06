@@ -1,43 +1,43 @@
 #!/usr/bin/env python
 #
-    # Generate a directory of worldfiles from a CSV file
-    # See http://en.wikipedia.org/wiki/World_file for Wolrdfiles
-    # The CSV files have been generated and adapted from the
-    # master file: ../doc/opentoponl_bladen.ods made by Frank Steggink.
-    # Each line in the CSV contains georeference data of the raster image
-    # For example
-    # "Blad","MinX","MinY","MaxX","MaxY","Width","Height",,"ResX","ResY"
-    # "400-32W.tif",140000,450000,160000,475000,8000,10000,,2.5,2.5
-    #
-    # These values are sufficient to generate a Worldfile to be used for
-    # georeferencing each Tiff. See http://en.wikipedia.org/wiki/World_file
-    # for the World file format.
-    #
-    # Gotcha's
-    # 1. coordinates in Dutch RD/EPSG:28992 have their y descending towards the south
-    # 2. the upper left corner is thus MinX, MaxY
-    # 3. pixel size and UL corner adaption:
-    #    the upper left corner needs to be in the middle of the upper left pixel
-    #    so right in the middle of a square of ResX, ResY size
-    #    the original UL needs to be adapted with a 0.5 pixel size in X and -0.5 in Y
-    #
-    # See also https://github.com/opengeogroep/NLExtract/issues/123
-    # Example:
-    #  Upper left coord (from CSV):
-    #  130000,625000
-    #  Resolutie:
-    #  1000m/800pix=1.25m/pix
-    #  1 pixel=1.25m
-    #  Halve pixel: 0.625m
-    #
-    # Dan wordt worldfile entry:
-    # 1.25       # pixel size in the x-direction in map units/pixel
-    # 0.0        # rotation about y-axis
-    # 0.0        # rotation about x-axis
-    # -1.25      # pixel size in the y-direction in map units
-    # 130000.625 # x-coordinate of the center of the upper left pixel
-    # 624999.375 # y-coordinate of the center of the upper left pixel
-    #
+# Generate a directory of worldfiles from a CSV file
+# See http://en.wikipedia.org/wiki/World_file for Wolrdfiles
+# The CSV files have been generated and adapted from the
+# master file: ../doc/opentoponl_bladen.ods made by Frank Steggink.
+# Each line in the CSV contains georeference data of the raster image
+# For example
+# "Blad","MinX","MinY","MaxX","MaxY","Width","Height",,"ResX","ResY"
+# "400-32W.tif",140000,450000,160000,475000,8000,10000,,2.5,2.5
+#
+# These values are sufficient to generate a Worldfile to be used for
+# georeferencing each Tiff. See http://en.wikipedia.org/wiki/World_file
+# for the World file format.
+#
+# Gotcha's
+# 1. coordinates in Dutch RD/EPSG:28992 have their y descending towards the south
+# 2. the upper left corner is thus MinX, MaxY
+# 3. pixel size and UL corner adaption:
+#    the upper left corner needs to be in the middle of the upper left pixel
+#    so right in the middle of a square of ResX, ResY size
+#    the original UL needs to be adapted with a 0.5 pixel size in X and -0.5 in Y
+#
+# See also https://github.com/opengeogroep/NLExtract/issues/123
+# Example:
+#  Upper left coord (from CSV):
+#  130000,625000
+#  Resolutie:
+#  1000m/800pix=1.25m/pix
+#  1 pixel=1.25m
+#  Halve pixel: 0.625m
+#
+# Dan wordt worldfile entry:
+# 1.25       # pixel size in the x-direction in map units/pixel
+# 0.0        # rotation about y-axis
+# 0.0        # rotation about x-axis
+# -1.25      # pixel size in the y-direction in map units
+# 130000.625 # x-coordinate of the center of the upper left pixel
+# 624999.375 # y-coordinate of the center of the upper left pixel
+#
 # Author: Just van den Broecke
 # v1 - okt 6, 2014 - first version
 #
