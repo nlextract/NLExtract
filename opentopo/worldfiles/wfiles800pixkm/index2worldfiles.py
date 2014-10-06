@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# OBSOLETE, ZIE ../../src/csv2worldfiles.py
 
 __author__ = 'just'
 

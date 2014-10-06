@@ -1,5 +1,6 @@
 #!/usr/bin/env python
-
+# OBSOLETE, ZIE ../../src/csv2worldfiles.py
+#
 __author__ = 'just'
 
 def get_line_contains(f, s):
