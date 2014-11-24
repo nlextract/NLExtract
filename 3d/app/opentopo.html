@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Use correct character set. -->
+    <meta charset="utf-8">
+    <!-- Tell IE to use the latest, best version (or Chrome Frame if pre-IE11). -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <!-- Make the application on mobile take up the full browser screen and disable user scaling. -->
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <title>OpenTopo in CesiumJS</title>
+    <script src="cesium/1.3/Cesium.js"></script>
+    <style>
+        @import url(cesium/1.3/Widgets/widgets.css);
+
+        html, body, #cesiumContainer {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+<div id="cesiumContainer"></div>
+<script>
+    var options = {
+        baseLayerPicker: false,
+        imageryProvider : new Cesium.TileMapServiceImageryProvider({
+                        url: 'http://ws.nlextract.nl/gwc/service/tms/1.0.0/opentopo@EPSG:900913@png',
+                        credit: 'OpenTopo Map bij Imergis/JW van Aalst with data from OpenStreetMap and Dutch Kadaster Top10NL'
+                    })
+//        ,
+//        imageryProvider: new Cesium.TileMapServiceImageryProvider({
+//                url : '//cesiumjs.org/tilesets/imagery/blackmarble',
+//                maximumLevel : 8,
+//                credit : 'Black Marble imagery courtesy NASA Earth Observatory'
+//            })
+    };
+    var viewer = new Cesium.Viewer('cesiumContainer', options);
+    var scene = viewer.scene;
+    var camera = scene.camera;
+
+    var terrainProvider = new Cesium.CesiumTerrainProvider({
+        url: '//cesiumjs.org/tilesets/terrain/smallterrain'
+    });
+    viewer.scene.terrainProvider = terrainProvider;
+
+    var vburgLon = 5.8264;
+    var vburgLat = 50.8646;
+
+    camera.lookAt(Cesium.Cartesian3.fromDegrees(vburgLon, vburgLat-1.0, 50000),
+            Cesium.Cartesian3.fromDegrees(vburgLon, vburgLat, 0), Cesium.Cartesian3.UNIT_Z);
+
+
+    //    var dataSource = new Cesium.GeoJsonDataSource();
+    //    viewer.dataSources.add(dataSource);
+    //    dataSource.loadUrl('SampleData/Valkenburg-gebouw_3D_LOD1-4326.json');
+
+    //    var dataSource = new Cesium.GeoJsonDataSource();
+    //    viewer.dataSources.add(dataSource);
+    //    dataSource.loadUrl('SampleData/valkenburg-terreinVlak_3D_LOD0-wgs84.json');
+
+//    var layers = viewer.scene.imageryLayers;
+//    layers.addImageryProvider(new Cesium.TileMapServiceImageryProvider({
+//                url: 'http://ws.nlextract.nl/gwc/service/tms/1.0.0/opentopo@EPSG:900913@png',
+//                credit: 'OpenTopo Map bij Imergis/JW van Aalst with data from OpenStreetMap and Dutch Kadaster Top10NL'
+//            }));
+//
+
+//    var ellipsoid = Cesium.Ellipsoid.WGS84;
+//    var west = Cesium.Math.toRadians(4);
+//    var south = Cesium.Math.toRadians(52.0);
+//    var east = Cesium.Math.toRadians(6);
+//    var north = Cesium.Math.toRadians(53);
+//
+//    var extent = new Cesium.Rectangle(west, south, east, north);
+
+    //camera.viewRectangle(extent, ellipsoid);
+//
+//    var tiltAngle = 1.2;
+//    var angle = tiltAngle;
+    //camera.look(camera.right, angle);
+
+//    var carto = new Cesium.Cartographic((west + east) / 2,
+//            (north + south) / 2, 100000);
+
+    // camera.position = Cesium.Ellipsoid.WGS84.cartographicToCartesian(carto);
+    //var cameraPos = new Cesium.Cartographic(Cesium.Cartographic.fromDegrees(4,50,10));
+    //camera.setPositionCartographic(carto);
+    //    // camera.moveBackward(100000);
+    //
+    //    camera.tilt = 0.7;
+    //    var dest = Cesium.Cartesian3.fromDegrees(4.9, 52.5, 1.0);
+    //    camera.flyTo(
+    //            {
+    //                destination: dest,
+    //                duration: 8,
+    //                //,
+    //                direction: new Cesium.Cartesian3(-1.0, -1.0, 0.0),
+    // // Cesium.Cartesian3.negate(Cesium.Cartesian3.UNIT_Z, new Cesium.Cartesian3()),
+    //                up: new Cesium.Cartesian3(1.0, 1.0, 100000000)
+    //            }
+    //    );
+    //   camera.lookAt(Cesium.Cartesian3.fromDegrees(4.9, 52, 250000),
+    //                  Cesium.Cartesian3.fromDegrees(4.9, 51, 125000), Cesium.Cartesian3.UNIT_Z);
+</script>
+</body>
+</html>
