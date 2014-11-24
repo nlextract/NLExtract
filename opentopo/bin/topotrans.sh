@@ -18,7 +18,7 @@ dst_dir=$2
 for src_tif in `ls -1 $src_dir/*.tif`
 do
     # Doel file
-    dst_tif=$dst_dir/p`basename $src_tif|cut -d'.' -f1`.tif
+    dst_tif=$dst_dir/`basename $src_tif|cut -d'.' -f1`.tif
 
     echo "START  CONVERT $src_tif to $dst_tif"
     # Builds a VRT. A VRT is basically just a XML file saying what all the source tif files are.
