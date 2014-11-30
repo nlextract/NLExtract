@@ -41,6 +41,7 @@ DEST_DIR_SANITY=`dirname "${TOP10NL_3D_HOME}"`
 mkdir ${TOP10NL_3D_HOME}/geojson  > /dev/null
 mkdir ${TOP10NL_3D_HOME}/geojson/rd  > /dev/null
 mkdir ${TOP10NL_3D_HOME}/geojson/wgs84 > /dev/null
+mkdir ${TOP10NL_3D_HOME}/geojson/3857 > /dev/null
 
 # Voorlopig alleen de 3D lagen
 DRIE_D_LAGEN="terreinpunten wegdeelVlak_3D_LOD0 terreinVlak_3D_LOD0 gebouw_3D_LOD0 waterdeelVlak_3D_LOD0 gebouw_3D_LOD1 brugWater brugWeg TerreinOnder"
@@ -55,4 +56,8 @@ do
 
    # Naar GeoJSON in WGS84
    ogr2ogr -t_srs "EPSG:4326"  -f "GeoJSON" ${TOP10NL_3D_HOME}/geojson/wgs84/valkenburg-${LAAG}-wgs84.json ${TOP10NL_3D_HOME}/Valkenburg.gdb -sql "SELECT * FROM ${LAAG}"
+
+   # Naar GeoJSON in WGS84
+   ogr2ogr -t_srs "EPSG:3857" -s_srs "EPSG:4326" -f "GeoJSON" ${TOP10NL_3D_HOME}/geojson/3857/valkenburg-${LAAG}-3857.json ${TOP10NL_3D_HOME}/geojson/wgs84/valkenburg-${LAAG}-wgs84.json
+
 done
