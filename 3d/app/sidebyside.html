@@ -18,14 +18,17 @@
 
 <div id="map2d" style="width:600px;height:600px;float:left;"></div>
 <div id="map3d" style="width:600px;height:600px;float:left;position:relative;"></div>
+
 <input type="button" value="Enable/disable 3D" onclick="javascript:ol3d.setEnabled(!ol3d.getEnabled())"/><br/>
 <input type="button" value="Tilt at Valkenburg" onclick="javascript:lookAt(5.8264, 50.8646)"/><br/>
 <input type="button" value="Tilt Map Center" onclick="javascript:lookAt()"/><br/>
 <input type="button" value="Add/Remove Buildings" onclick="javascript:addRemoveFeatures('gebouw')"/><br/>
-<input type="button" value="Add/Remove Terrain" onclick="javascript:addRemoveFeatures('terrein')"/><br/>
-<input type="button" value="Add/Remove Water Bridges" onclick="javascript:addRemoveFeatures('brugWater')"/><br/>
-<input type="button" value="Add/Remove Road Bridges" onclick="javascript:addRemoveFeatures('brugWeg')"/><br/>
-<input type="button" value="Help" onclick="javascript:help()"/><br/>
+<input type="button" value="Add/Remove Terrain (TIN)" onclick="javascript:addRemoveFeatures('terrein')"/><br/>
+<input type="button" value="Add/Remove Terrain (Pts)" onclick="javascript:addRemoveFeatures('terreinpunten')"/><br/>
+<input type="button" value="Add/Remove Roads" onclick="javascript:addRemoveFeatures('wegdeelVlak')"/><br/>
+<input type="button" value="Add/Remove Water" onclick="javascript:addRemoveFeatures('waterdeelVlak')"/><br/>
+<input type="button" value="Help" onclick="javascript:help()"/>
+
 
 <script src="ol3-cesium/1.0.0/ol3/ol-debug.js"></script>
 <script src="ol3-cesium/1.0.0/Cesium/Cesium.js"></script>
@@ -43,14 +46,15 @@
         layers: [
             new ol.layer.Tile({
                 source: new ol.source.OSM()
-            }),
-            new ol.layer.Tile({
-                name: 'OpenTopo',
-                source: new ol.source.XYZ({
-                    // http://geowebcache.org/docs/current/services/gmaps.html
-                    url: 'http://ws.nlextract.nl/gwc/service/gmaps?layers=opentopo&x={x}&y={y}&zoom={z}&format=image/png'
-                })
             })
+//            ,
+//            new ol.layer.Tile({
+//                name: 'OpenTopo',
+//                source: new ol.source.XYZ({
+//                    // http://geowebcache.org/docs/current/services/gmaps.html
+//                    url: 'http://ws.nlextract.nl/gwc/service/gmaps?layers=opentopo&x={x}&y={y}&zoom={z}&format=image/png'
+//                })
+//            })
 
 
         ],
@@ -69,9 +73,9 @@
 
     function help() {
         var text = '3D navigation: \nLeftClick-Move: pan\nCtrl-LeftClick-Move: rotate/tilt\nRightClick-Move: zoom in/out';
-
         alert(text);
     }
+
     function lookAt(lon, lat, height) {
         if (!height) {
             height = 1500;
@@ -88,63 +92,79 @@
                 Cesium.Cartesian3.fromDegrees(lon, lat, 0), Cesium.Cartesian3.UNIT_Z);
     }
 
+    var image = new ol.style.Circle({
+        radius: 3,
+        fill: new ol.style.Fill({
+            color: 'rgba(0, 20, 0, 0.2)'
+        }),
+        stroke: new ol.style.Stroke({color: 'green', width: 1})
+    });
+
     var sources = {
         gebouw: {
             vectorSource: null,
             url: 'data/Valkenburg-gebouw_3D_LOD1-3857-s.json',
             style: new ol.style.Style({
-                            stroke: new ol.style.Stroke({
-                                color: 'rgba(102, 0, 0, 0.4)',
-                                width: 1
-                            }),
-                            fill: new ol.style.Fill({
-                                color: 'rgba(153, 0, 0, 0.2)'
-                            })
-                        })
+                stroke: new ol.style.Stroke({
+                    color: 'rgba(102, 0, 0, 1.0)',
+                    width: 2
+                }),
+                fill: new ol.style.Fill({
+                    color: 'rgba(153, 0, 0, 1.0)'
+                })
+            })
         },
         terrein: {
             vectorSource: null,
             url: 'data/Valkenburg-terreinVlak_3D_LOD0-3857-s.json',
             style: new ol.style.Style({
-                            stroke: new ol.style.Stroke({
-                                color: 'rgba(0, 51, 0, 0.4)',
-                                width: 1
-                            }),
-                            fill: new ol.style.Fill({
-                                color: 'rgba(0, 102, 0, 0.2)'
-                            })
-                        })
+                stroke: new ol.style.Stroke({
+                    color: 'rgba(0, 51, 0, 0.4)',
+                    width: 1
+                }),
+                fill: new ol.style.Fill({
+                    color: 'rgba(0, 102, 0, 0.2)'
+                })
+            })
         },
-        brugWater: {
+        terreinpunten: {
             vectorSource: null,
-            url: 'data/valkenburg-brugWater-3857.json',
+            url: 'data/valkenburg-terreinpunten-3857-s.json',
             style: new ol.style.Style({
-                            stroke: new ol.style.Stroke({
-                                color: 'rgba(0, 51, 51, 0.4)',
-                                width: 1
-                            }),
-                            fill: new ol.style.Fill({
-                                color: 'rgba(0, 102, 102, 0.2)'
-                            })
-                        })
+                image: image
+            })
         },
-        brugWeg: {
+        wegdeelVlak: {
             vectorSource: null,
-            url: 'data/valkenburg-brugWeg-3857.json',
+            url: 'data/valkenburg-wegdeelVlak_3D_LOD0-3857-s.json',
             style: new ol.style.Style({
-                            stroke: new ol.style.Stroke({
-                                color: 'rgba(51, 0, 102, 0.4)',
-                                width: 1
-                            }),
-                            fill: new ol.style.Fill({
-                                color: 'rgba(153, 0, 76, 0.2)'
-                            })
-                        })
-        }
+                stroke: new ol.style.Stroke({
+                    color: 'rgba(51, 51, 51, 0.4)',
+                    width: 1
+                }),
+                fill: new ol.style.Fill({
+                    color: 'rgba(153, 153, 153, 0.2)'
+                })
+            })
+        },
 
+        waterdeelVlak: {
+            vectorSource: null,
+            url: 'data/valkenburg-waterdeelVlak_3D_LOD0-3857-s.json',
+            style: new ol.style.Style({
+                stroke: new ol.style.Stroke({
+                    color: 'rgba(0, 0, 102, 0.4)',
+                    width: 1
+                }),
+                fill: new ol.style.Fill({
+                    color: 'rgba(0, 0, 76, 0.2)'
+                })
+            })
+        }
 
     };
 
+    var first = true;
     function onFeaturesLoaded(event) {
         if (event.target.state_ != 'ready') {
             return;
@@ -157,10 +177,14 @@
         });
 
         map2D.getLayers().push(vector);
-        var view = map2D.getView();
-        var extent = source.vectorSource.getExtent();
-        view.fitExtent(extent, map2D.getSize());
-        lookAt();
+
+        if (first === true) {
+            var view = map2D.getView();
+            var extent = source.vectorSource.getExtent();
+            view.fitExtent(extent, map2D.getSize());
+            lookAt();
+            first = false;
+        }
     }
 
     function addRemoveFeatures(type) {
