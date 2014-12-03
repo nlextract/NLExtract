@@ -4,7 +4,7 @@
 
 doc_dir=../doc
 wfiles_dir=../worldfiles
-resos="150 200 300 400 600 800"
+resos="150 200 300 400 600 800 1600"
 
 for reso in $resos; do
    csv_file="${doc_dir}/opentoponl_bladen_${reso}pxkm.csv"
