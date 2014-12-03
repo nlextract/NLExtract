@@ -1,0 +1,35 @@
+Top10NL inlezen met Stetl (www.stetl.org) ETL framework.
+door: Just van den Broecke
+
+Deze map bevat de ETL configuratie en commando om via Stetl
+Top10NL vanuit de bron GML bestanden naar verschillende outputs weg te schrijven.
+Standaard is dit PostGIS, maar omdat output via ogr2ogr verloopt kan dit
+elke output zijn die ogr2ogr ondersteunt, bijv SHP, GeoJSON of GeoPackage.
+
+Om gebruik te maken van Stetl moet de externe GitHub submodule externals/stetl
+aanwezig zijn. Clonen: git clone --recursive ...
+
+Dependencies Stetl installeren:
+http://www.stetl.org/en/latest/install.html
+
+Meer over Stetl: http://stetl.org
+
+Commando:
+
+./etl-top10.sh
+
+Opties zetten:
+maak een eigen lokale file:
+options/options-<jouw host naam>.sh
+
+Stetl configuratie, hoeft niet gewijzigd, alleen indien bijv andere output gewenst:
+etl-top10nl.cfg
+
+Windows
+Nog niet getest!!
+etl-top10nl.cmd
+
+TODO
+command line versie
+GUI
+
