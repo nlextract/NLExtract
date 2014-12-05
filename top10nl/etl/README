@@ -7,7 +7,10 @@ Standaard is dit PostGIS, maar omdat output via ogr2ogr verloopt kan dit
 elke output zijn die ogr2ogr ondersteunt, bijv SHP, GeoJSON of GeoPackage.
 
 Om gebruik te maken van Stetl moet de externe GitHub submodule externals/stetl
-aanwezig zijn. Clonen: git clone --recursive ...
+aanwezig zijn.
+
+Klonen: git clone --recursive https://github.com/opengeogroep/NLExtract.git
+Stetl komt dan mee, hoeft niet apart geinstalleerd, alleen de dependencies.
 
 Dependencies Stetl installeren:
 http://www.stetl.org/en/latest/install.html
