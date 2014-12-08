@@ -7,4 +7,6 @@
 
 . options.sh
 
-python ../../externals/stetl/stetl/main.py -c etl-top10nl.cfg -a "$pg_options temp_dir=temp max_features=$max_features gml_files=$gml_files $multi $spatial_extent"
+STETL_HOME=../../externals/stetl
+export PYTHONPATH=$STETL_HOME:$PYTHONPATH
+python $STETL_HOME/stetl/main.py -c etl-top10nl.cfg -a "$pg_options temp_dir=temp max_features=$max_features gml_files=$gml_files $multi $spatial_extent"
