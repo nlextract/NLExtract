@@ -91,6 +91,7 @@ def main():
     parser = ArgParser(description='bag-extract, commandline tool voor het extraheren en inlezen van BAG bestanden',
         epilog="Configureer de database in extract.conf of geef eigen versie van extract.conf via -f of geef parameters via commando regel expliciet op")
     parser.add_argument('-c', '--dbinit', action='store_true', help='verwijdert (DROP TABLE) alle tabellen en maakt (CREATE TABLE) nieuwe tabellen aan')
+    parser.add_argument('-j', '--ja', action='store_true', help='bevestig alle prompts')
     parser.add_argument('-d', '--database', metavar='<naam>', help='geef naam van de database')
     parser.add_argument('-s', '--schema', metavar='<naam>', help='geef naam van het database schema')
     parser.add_argument('-f', '--config', metavar='<bestand>', help='gebruik dit configuratiebestand i.p.v. extract.conf')
@@ -117,7 +118,7 @@ def main():
     database = Database()
 
     if args.dbinit:
-        if confirm('Waarschuwing! met dit commando worden database tabellen opnieuw aangemaakt. Doorgaan?', False):
+        if args.ja or confirm('Waarschuwing! met dit commando worden database tabellen opnieuw aangemaakt. Doorgaan?', False):
             # Print start time
             Log.log.time("Start")
             # Dumps all tables and recreates them
