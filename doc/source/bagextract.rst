@@ -313,6 +313,11 @@ Voorbeelden:
     of
     bag-extract.sh -c
 
+    # -c vraagt gebruiker interactief voor bevestinging. Met -j (ja-optie) is er geen prompt. Handig voor batch-situaties
+    python bagextract.py -cj
+    of
+    bag-extract.sh -cj
+
 2. Importeer een extract in de database (-e)::
 
     python bagextract.py -e 9999STA01052011-000002.xml

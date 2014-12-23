@@ -23,8 +23,11 @@ MUT_DIR=$TEST_DIR/mutatie
 DB_DIR=$BE_HOME_DIR/db
 BAG_EXTRACT=$BE_HOME_DIR/bin/bag-extract.sh
 
-# DB leeg en schema aanmaken
+# DB leeg en schema aanmaken, met prompt
 $BAG_EXTRACT --dbinit -v
+
+# DB leeg en schema aanmaken, geen prompt (-j of --ja optie)
+$BAG_EXTRACT --dbinit -j -v
 
 # Nieuwe objecten
 $BAG_EXTRACT -v -e $DATA_DIR
