@@ -61,9 +61,17 @@ class CityGmlExporter(ThreeDExporter):
         
 
     # Exporteert de data die de exporter bevat
-    def exportData(self, bbox, crs):
+    def exportData(self, bbox, crs, centerOnOrigin):
         self.root.insert(3, etree.Comment("Aantal gebouwen: %d" % self.root.xpath('count(//bldg:Building)', namespaces=NSMAP2)))
-
+        if centerOnOrigin:
+            self.root.insert(4, etree.Comment("Gebouwen zijn gecentreerd op de oorsprong"))
+            centerX = (bbox[0] + bbox[2]) / 2.0
+            centerY = (bbox[1] + bbox[3]) / 2.0
+            bbox[0] -= centerX
+            bbox[1] -= centerY
+            bbox[2] -= centerX
+            bbox[3] -= centerY
+            
         env = etree.SubElement(self.bnd, GML + "Envelope", srsName="EPSG:%d" % crs)
         etree.SubElement(env, GML + "pos", srsDimension="3").text = "%.3f %.3f %.3f" % (bbox[0], bbox[1], self.min_height)
         etree.SubElement(env, GML + "pos", srsDimension="3").text = "%.3f %.3f %.3f" % (bbox[2], bbox[3], self.max_height)

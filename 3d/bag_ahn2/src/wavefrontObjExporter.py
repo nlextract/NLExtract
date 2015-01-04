@@ -37,12 +37,16 @@ class WavefrontObjExporter(TriangulatingExporter):
 
 
     # Exporteert de data die de exporter bevat
-    def exportData(self, bbox, crs):
+    def exportData(self, bbox, crs, centerOnOrigin):
         print "################################################################################"
         print "# OBJ file gegenereerd d.m.v. NLExtract - bag_ahn2/exportBuildings op " + str(datetime.now()).split(".")[0]
         print "# Gebouwen: o.b.v. BAG"
         print "# Gebouwhoogtes: o.b.v. AHN2"
         print "# Aantal gebouwen: %d" % len(self.buildings)
+        
+        if centerOnOrigin:
+            print "# Gebouwen zijn gecentreerd op de oorsprong"
+        
         print "# Gebied: (%.3f, %.3f) - (%.3f, %.3f)" % (bbox[0], bbox[1], bbox[2], bbox[3])
         print "################################################################################"
 

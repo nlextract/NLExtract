@@ -1,15 +1,16 @@
 Introductie
 -----------
 Met de scripts in deze directory kan data worden geëxporteerd naar verschillende 3D-formaten.
-Een voor de hand liggende combinatie is de BAG en de AHN2
+Een voor de hand liggende combinatie is de BAG en AHN2.
 
 
 Gebruik
 -------
 usage: exportBuildings.py [-h] --format FORMAT --bbox MINX MINY MAXX MAXY
-                          [--pg_host PG_HOST] [--pg_port PG_PORT]
-                          [--pg_db PG_DB] [--pg_schema PG_SCHEMA] --pg_user
-                          PG_USER --pg_password PG_PASS --pg_table PG_TABLE
+                          [--centerOnOrigin] [--pg_host PG_HOST]
+                          [--pg_port PG_PORT] [--pg_db PG_DB]
+                          [--pg_schema PG_SCHEMA] --pg_user PG_USER
+                          --pg_password PG_PASS --pg_table PG_TABLE
                           [--ogr_tsrs OGR_TSRS]
 
 Exporteer gebouwen naar 3D
@@ -19,6 +20,7 @@ optional arguments:
   --format FORMAT       Outputformaat
   --bbox MINX MINY MAXX MAXY
                         Bounding box
+  --centerOnOrigin      Centreer op oorsprong
   --pg_host PG_HOST     PostgreSQL server host (default: localhost)
   --pg_port PG_PORT     PostgreSQL server poort (default: 5432)
   --pg_db PG_DB         PostgreSQL database (default: bag)
@@ -29,7 +31,7 @@ optional arguments:
                         PostgreSQL wachtwoord
   --pg_table PG_TABLE   PostgreSQL tabel
   --ogr_tsrs OGR_TSRS   EPSG-identifer data (default: 28992)
-
+  
 Alle OGR-formaten die 3D ondersteunen, kunnen worden gebruikt, evenals de formaten "Wavefront OBJ" en "CityGML". Het
 Wavefront OBJ-formaat kan worden gebruikt om de gebouwen in 3D-pakketten zoals Maya en Blender te importeren. CityGML is
 toegevoegd, omdat OGR hiervoor geen standaard ondersteuning kent. De gebouwen zullen worden geëxporteerd als prisma's.
@@ -43,7 +45,8 @@ De BAG-pandentabel van NLExtract voldoet indien hier de kolommen min_height en a
 in een view met standaardwaarden). De hoogtedata is in meters.
 
 Het is mogelijk om de gebouwen te herprojecteren naar een ander coördinatenstelsel. Dit is bijv. nodig voor KML en ook
-om GeoJSON-data te kunnen tonen met Cesium. De hoogtedata zal in meters blijven.
+om GeoJSON-data te kunnen tonen met Cesium. De hoogtedata zal in meters blijven. Verder is het mogelijk om gebouwen te
+centreren op de oorsprong wanneer de optie --centerOnOrigin wordt meegegeven. In dit geval heeft herprojectie geen zin.
   
   
 Voorbeelden
@@ -55,7 +58,7 @@ python exportBuildings.py --format "GML" --bbox 154750 462700 155750 463700 --pg
 python exportBuildings.py --format "GeoJSON" --bbox 154750 462700 155750 463700 --pg_user bag --pg_password bag --pg_schema data --pg_table pandmethoogte --ogr_tsrs 4326 > c:\temp\output.json
 
 Let op: de laatste twee worden geherprojecteerd naar WGS84. De eerste twee blijven in RD.
-Deze voorbeelden staan ook in de samples directory
+Deze voorbeelden staan ook in de samples directory.
 
 
 Afhankelijkheden

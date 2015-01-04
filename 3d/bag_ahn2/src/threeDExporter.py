@@ -17,5 +17,5 @@ class ThreeDExporter:
 
     # Exporteert de data die de exporter bevat
     @abstractmethod
-    def exportData(self, bbox, crs):
+    def exportData(self, bbox, crs, centerOnOrigin):
         pass

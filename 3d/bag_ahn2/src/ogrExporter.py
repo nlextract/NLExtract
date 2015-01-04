@@ -81,6 +81,6 @@ class OgrExporter(ThreeDExporter):
         
 
     # Exporteert de data die de exporter bevat
-    def exportData(self, bbox, crs):
+    def exportData(self, bbox, crs, centerOnOrigin):
         pass
        

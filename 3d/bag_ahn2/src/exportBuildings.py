@@ -88,6 +88,18 @@ def checkArgs(args):
     return True
 
     
+def moveToOrigin(poly, centerX, centerY):
+    for r in range(len(poly)):
+        ring = poly[r]
+        for v in range(len(ring)):
+            ring[v][0] -= centerX
+            ring[v][1] -= centerY
+        
+        poly[r] = ring
+        
+    return poly
+    
+    
 # Verwerkt de gebouwen binnen de opgegeven bounding box
 def processBuildings(args):
     exporter = createExporter(args.format, args.ogr_tsrs)
@@ -104,10 +116,16 @@ def processBuildings(args):
     conn = psycopg2.connect(connStr)
     cur = conn.cursor()
     cur.execute(query)
+    
+    centerX = (args.bbox[0] + args.bbox[2]) / 2.0
+    centerY = (args.bbox[1] + args.bbox[3]) / 2.0
 
     for record in cur:
         r = reg(cur, record)
-        poly = wktToPoly(r.geom)        
+        poly = wktToPoly(r.geom)
+        
+        if args.centerOnOrigin:
+            poly = moveToOrigin(poly, centerX, centerY)
         
         if r.min_height > -15 and r.avg_height > -15:        
             exporter.addBuilding(r.identificatie, poly, r.min_height, r.avg_height)
@@ -115,14 +133,15 @@ def processBuildings(args):
     cur.close()
     conn.close()
     
-    exporter.exportData(args.bbox, CRS)
+    exporter.exportData(args.bbox, CRS, args.centerOnOrigin)
     
 
 def main():    
     # Samenstellen command line parameters
     argparser = argparse.ArgumentParser(description='Exporteer gebouwen naar 3D')
-    argparser.add_argument('--format', type=str,   dest='format', help='Outputformaat', required=True)
-    argparser.add_argument('--bbox',   type=float, dest='bbox',   help='Bounding box',  nargs=4, required=True, metavar=('MINX', 'MINY', 'MAXX', 'MAXY'))
+    argparser.add_argument('--format', type=str, dest='format', help='Outputformaat', required=True)
+    argparser.add_argument('--bbox', type=float, dest='bbox', help='Bounding box', nargs=4, required=True, metavar=('MINX', 'MINY', 'MAXX', 'MAXY'))
+    argparser.add_argument('--centerOnOrigin', dest='centerOnOrigin', help='Centreer op oorsprong', action='store_true')
 
     # Database verbindingsparameters
     # TODO: settings file?
@@ -136,6 +155,8 @@ def main():
     
     # OGR parameters
     argparser.add_argument('--ogr_tsrs',    type=int, dest='ogr_tsrs',  default=28992,       help='EPSG-identifer data (default: 28992)')
+
+    argparser.set_defaults(centerOnOrigin=False)
     
     args = argparser.parse_args()
     if not checkArgs(args):
