@@ -52,12 +52,15 @@ class BAGObject:
 
         self.relaties = []
 
+        # Attrs tbv mutatie verwerking
         self.origineelObj = None
+        self.verwerkings_id = None
+
         self._tag = tag
         self._naam = naam
         self._objectType = objectType
 
-   # Geef de XML-tag bij het type BAG-object.
+    # Geef de XML-tag bij het type BAG-object.
     def voegToe(self, attribuut):
         attribuut._parentObj = self
         self.attributen[attribuut.naam()] = attribuut

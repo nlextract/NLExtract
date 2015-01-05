@@ -1,0 +1,793 @@
+<?xml version="1.0" encoding="UTF-8"?><!--Created by GO Publisher Agent 1.4.5-SNAPSHOT Build 25198 from 2011-09-20 12:51--><!--Snowflake Software Ltd. (http://www.snowflakesoftware.co.uk)-->
+<mb:BAG-Mutaties-Deelbestand-LVC xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                 xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                                 xmlns:mb="http://www.kadaster.nl/schemas/bag-verstrekkingen/extract-deelbestand-mutaties-lvc/v20090901"
+                                 xmlns:selecties-extract="http://www.kadaster.nl/schemas/bag-verstrekkingen/extract-selecties/v20090901"
+                                 xmlns:bagtype="http://www.kadaster.nl/schemas/imbag/imbag-types/v20090901"
+                                 xmlns:gml="http://www.opengis.net/gml" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                 xmlns:product_LVC="http://www.kadaster.nl/schemas/bag-verstrekkingen/extract-producten-lvc/v20090901"
+                                 xmlns:bag_LVC="http://www.kadaster.nl/schemas/imbag/lvc/v20090901"
+                                 xmlns:nen5825="http://www.kadaster.nl/schemas/imbag/nen5825/v20090901"
+                                 xsi:schemaLocation="http://www.kadaster.nl/schemas/bag-verstrekkingen/extract-deelbestand-mutaties-lvc/v20090901 http://www.kadaster.nl/schemas/bag-verstrekkingen/extract-deelbestand-mutaties-lvc/v20090901/BagvsExtractDeelbestandMutatieLvc-1.4.xsd">
+    <mb:antwoord>
+        <mb:vraag>
+            <selecties-extract:Gebied-Registratief>
+                <selecties-extract:Gebied-NLD>
+                    <selecties-extract:GebiedIdentificatie>999</selecties-extract:GebiedIdentificatie>
+                    <selecties-extract:GebiedNaam>Nederland</selecties-extract:GebiedNaam>
+                    <selecties-extract:gebiedTypeNederland>1</selecties-extract:gebiedTypeNederland>
+                </selecties-extract:Gebied-NLD>
+            </selecties-extract:Gebied-Registratief>
+            <selecties-extract:Mutatieperiode>
+                <selecties-extract:MutatiedatumVanaf>2014-12-14</selecties-extract:MutatiedatumVanaf>
+                <selecties-extract:MutatiedatumTot>2014-12-15</selecties-extract:MutatiedatumTot>
+            </selecties-extract:Mutatieperiode>
+        </mb:vraag>
+        <mb:producten>
+            <product_LVC:Mutatie-product>
+                <product_LVC:Verwerking>
+                    <product_LVC:TijdstipVerwerking>2014-12-14T15:00:48.070346</product_LVC:TijdstipVerwerking>
+                    <product_LVC:ObjectType>PND</product_LVC:ObjectType>
+                    <product_LVC:VolgnrVerwerking>0</product_LVC:VolgnrVerwerking>
+                </product_LVC:Verwerking>
+                <product_LVC:Nieuw>
+                    <bag_LVC:Pand>
+                        <bag_LVC:identificatie>0498100000003067</bag_LVC:identificatie>
+                        <bag_LVC:aanduidingRecordInactief>N</bag_LVC:aanduidingRecordInactief>
+                        <bag_LVC:aanduidingRecordCorrectie>0</bag_LVC:aanduidingRecordCorrectie>
+                        <bag_LVC:officieel>N</bag_LVC:officieel>
+                        <bag_LVC:pandGeometrie>
+                            <gml:Polygon srsName="urn:ogc:def:crs:EPSG::28992">
+                                <gml:exterior>
+                                    <gml:LinearRing>
+                                        <gml:posList srsDimension="3" count="5">139512.502 516342.934 0.0 139518.71
+                                            516340.203 0.0 139522.184 516348.099 0.0 139515.976 516350.83 0.0 139512.502
+                                            516342.934 0.0
+                                        </gml:posList>
+                                    </gml:LinearRing>
+                                </gml:exterior>
+                            </gml:Polygon>
+                        </bag_LVC:pandGeometrie>
+                        <bag_LVC:bouwjaar>1970</bag_LVC:bouwjaar>
+                        <bag_LVC:pandstatus>Pand in gebruik</bag_LVC:pandstatus>
+                        <bag_LVC:tijdvakgeldigheid>
+                            <bagtype:begindatumTijdvakGeldigheid>2014121100000000</bagtype:begindatumTijdvakGeldigheid>
+                        </bag_LVC:tijdvakgeldigheid>
+                        <bag_LVC:inOnderzoek>N</bag_LVC:inOnderzoek>
+                        <bag_LVC:bron>
+                            <bagtype:documentdatum>20141211</bagtype:documentdatum>
+                            <bagtype:documentnummer>236969</bagtype:documentnummer>
+                        </bag_LVC:bron>
+                    </bag_LVC:Pand>
+                </product_LVC:Nieuw>
+            </product_LVC:Mutatie-product>
+            <product_LVC:Mutatie-product>
+                <product_LVC:Verwerking>
+                    <product_LVC:TijdstipVerwerking>2014-12-14T15:00:48.070346</product_LVC:TijdstipVerwerking>
+                    <product_LVC:ObjectType>PND</product_LVC:ObjectType>
+                    <product_LVC:VolgnrVerwerking>1</product_LVC:VolgnrVerwerking>
+                </product_LVC:Verwerking>
+                <product_LVC:Origineel>
+                    <bag_LVC:Pand>
+                        <bag_LVC:identificatie>0498100000003067</bag_LVC:identificatie>
+                        <bag_LVC:aanduidingRecordInactief>N</bag_LVC:aanduidingRecordInactief>
+                        <bag_LVC:aanduidingRecordCorrectie>0</bag_LVC:aanduidingRecordCorrectie>
+                        <bag_LVC:officieel>N</bag_LVC:officieel>
+                        <bag_LVC:pandGeometrie>
+                            <gml:Polygon srsName="urn:ogc:def:crs:EPSG::28992">
+                                <gml:exterior>
+                                    <gml:LinearRing>
+                                        <gml:posList srsDimension="3" count="5">139512.502 516342.934 0.0 139518.71
+                                            516340.203 0.0 139522.184 516348.099 0.0 139515.976 516350.83 0.0 139512.502
+                                            516342.934 0.0
+                                        </gml:posList>
+                                    </gml:LinearRing>
+                                </gml:exterior>
+                            </gml:Polygon>
+                        </bag_LVC:pandGeometrie>
+                        <bag_LVC:bouwjaar>1970</bag_LVC:bouwjaar>
+                        <bag_LVC:pandstatus>Pand in gebruik</bag_LVC:pandstatus>
+                        <bag_LVC:tijdvakgeldigheid>
+                            <bagtype:begindatumTijdvakGeldigheid>2014111000000000</bagtype:begindatumTijdvakGeldigheid>
+                        </bag_LVC:tijdvakgeldigheid>
+                        <bag_LVC:inOnderzoek>N</bag_LVC:inOnderzoek>
+                        <bag_LVC:bron>
+                            <bagtype:documentdatum>20141110</bagtype:documentdatum>
+                            <bagtype:documentnummer>236969</bagtype:documentnummer>
+                        </bag_LVC:bron>
+                    </bag_LVC:Pand>
+                </product_LVC:Origineel>
+                <product_LVC:Wijziging>
+                    <bag_LVC:Pand>
+                        <bag_LVC:identificatie>0498100000003067</bag_LVC:identificatie>
+                        <bag_LVC:aanduidingRecordInactief>N</bag_LVC:aanduidingRecordInactief>
+                        <bag_LVC:aanduidingRecordCorrectie>0</bag_LVC:aanduidingRecordCorrectie>
+                        <bag_LVC:officieel>N</bag_LVC:officieel>
+                        <bag_LVC:pandGeometrie>
+                            <gml:Polygon srsName="urn:ogc:def:crs:EPSG::28992">
+                                <gml:exterior>
+                                    <gml:LinearRing>
+                                        <gml:posList srsDimension="3" count="5">139512.502 516342.934 0.0 139518.71
+                                            516340.203 0.0 139522.184 516348.099 0.0 139515.976 516350.83 0.0 139512.502
+                                            516342.934 0.0
+                                        </gml:posList>
+                                    </gml:LinearRing>
+                                </gml:exterior>
+                            </gml:Polygon>
+                        </bag_LVC:pandGeometrie>
+                        <bag_LVC:bouwjaar>1970</bag_LVC:bouwjaar>
+                        <bag_LVC:pandstatus>Pand in gebruik</bag_LVC:pandstatus>
+                        <bag_LVC:tijdvakgeldigheid>
+                            <bagtype:begindatumTijdvakGeldigheid>2014111000000000</bagtype:begindatumTijdvakGeldigheid>
+                            <bagtype:einddatumTijdvakGeldigheid>2014121100000000</bagtype:einddatumTijdvakGeldigheid>
+                        </bag_LVC:tijdvakgeldigheid>
+                        <bag_LVC:inOnderzoek>N</bag_LVC:inOnderzoek>
+                        <bag_LVC:bron>
+                            <bagtype:documentdatum>20141110</bagtype:documentdatum>
+                            <bagtype:documentnummer>236969</bagtype:documentnummer>
+                        </bag_LVC:bron>
+                    </bag_LVC:Pand>
+                </product_LVC:Wijziging>
+            </product_LVC:Mutatie-product>
+            <product_LVC:Mutatie-product>
+                <product_LVC:Verwerking>
+                    <product_LVC:TijdstipVerwerking>2014-12-14T15:00:49.188262</product_LVC:TijdstipVerwerking>
+                    <product_LVC:ObjectType>PND</product_LVC:ObjectType>
+                    <product_LVC:VolgnrVerwerking>0</product_LVC:VolgnrVerwerking>
+                </product_LVC:Verwerking>
+                <product_LVC:Nieuw>
+                    <bag_LVC:Pand>
+                        <bag_LVC:identificatie>0498100000001248</bag_LVC:identificatie>
+                        <bag_LVC:aanduidingRecordInactief>N</bag_LVC:aanduidingRecordInactief>
+                        <bag_LVC:aanduidingRecordCorrectie>0</bag_LVC:aanduidingRecordCorrectie>
+                        <bag_LVC:officieel>N</bag_LVC:officieel>
+                        <bag_LVC:pandGeometrie>
+                            <gml:Polygon srsName="urn:ogc:def:crs:EPSG::28992">
+                                <gml:exterior>
+                                    <gml:LinearRing>
+                                        <gml:posList srsDimension="3" count="15">140137.361 518465.658 0.0 140137.548
+                                            518460.628 0.0 140146.524 518460.963 0.0 140146.355 518465.469 0.0
+                                            140149.978 518465.604 0.0 140149.814 518469.981 0.0 140148.338 518469.925
+                                            0.0 140148.15 518474.954 0.0 140144.143 518474.804 0.0 140144.061 518477.014
+                                            0.0 140140.488 518476.881 0.0 140140.663 518472.179 0.0 140141.909
+                                            518472.226 0.0 140142.147 518465.837 0.0 140137.361 518465.658 0.0
+                                        </gml:posList>
+                                    </gml:LinearRing>
+                                </gml:exterior>
+                            </gml:Polygon>
+                        </bag_LVC:pandGeometrie>
+                        <bag_LVC:bouwjaar>1969</bag_LVC:bouwjaar>
+                        <bag_LVC:pandstatus>Pand in gebruik</bag_LVC:pandstatus>
+                        <bag_LVC:tijdvakgeldigheid>
+                            <bagtype:begindatumTijdvakGeldigheid>2014121100000000</bagtype:begindatumTijdvakGeldigheid>
+                        </bag_LVC:tijdvakgeldigheid>
+                        <bag_LVC:inOnderzoek>N</bag_LVC:inOnderzoek>
+                        <bag_LVC:bron>
+                            <bagtype:documentdatum>20141211</bagtype:documentdatum>
+                            <bagtype:documentnummer>71823</bagtype:documentnummer>
+                        </bag_LVC:bron>
+                    </bag_LVC:Pand>
+                </product_LVC:Nieuw>
+            </product_LVC:Mutatie-product>
+            <product_LVC:Mutatie-product>
+                <product_LVC:Verwerking>
+                    <product_LVC:TijdstipVerwerking>2014-12-14T15:00:49.188262</product_LVC:TijdstipVerwerking>
+                    <product_LVC:ObjectType>PND</product_LVC:ObjectType>
+                    <product_LVC:VolgnrVerwerking>1</product_LVC:VolgnrVerwerking>
+                </product_LVC:Verwerking>
+                <product_LVC:Origineel>
+                    <bag_LVC:Pand>
+                        <bag_LVC:identificatie>0498100000001248</bag_LVC:identificatie>
+                        <bag_LVC:aanduidingRecordInactief>N</bag_LVC:aanduidingRecordInactief>
+                        <bag_LVC:aanduidingRecordCorrectie>0</bag_LVC:aanduidingRecordCorrectie>
+                        <bag_LVC:officieel>N</bag_LVC:officieel>
+                        <bag_LVC:pandGeometrie>
+                            <gml:Polygon srsName="urn:ogc:def:crs:EPSG::28992">
+                                <gml:exterior>
+                                    <gml:LinearRing>
+                                        <gml:posList srsDimension="3" count="15">140137.361 518465.658 0.0 140137.548
+                                            518460.628 0.0 140146.524 518460.963 0.0 140146.355 518465.469 0.0
+                                            140149.978 518465.604 0.0 140149.814 518469.981 0.0 140148.338 518469.925
+                                            0.0 140148.15 518474.954 0.0 140144.143 518474.804 0.0 140144.061 518477.014
+                                            0.0 140140.488 518476.881 0.0 140140.663 518472.179 0.0 140141.909
+                                            518472.226 0.0 140142.147 518465.837 0.0 140137.361 518465.658 0.0
+                                        </gml:posList>
+                                    </gml:LinearRing>
+                                </gml:exterior>
+                            </gml:Polygon>
+                        </bag_LVC:pandGeometrie>
+                        <bag_LVC:bouwjaar>1969</bag_LVC:bouwjaar>
+                        <bag_LVC:pandstatus>Pand in gebruik</bag_LVC:pandstatus>
+                        <bag_LVC:tijdvakgeldigheid>
+                            <bagtype:begindatumTijdvakGeldigheid>2012070400000000</bagtype:begindatumTijdvakGeldigheid>
+                        </bag_LVC:tijdvakgeldigheid>
+                        <bag_LVC:inOnderzoek>N</bag_LVC:inOnderzoek>
+                        <bag_LVC:bron>
+                            <bagtype:documentdatum>20120704</bagtype:documentdatum>
+                            <bagtype:documentnummer>172904</bagtype:documentnummer>
+                        </bag_LVC:bron>
+                    </bag_LVC:Pand>
+                </product_LVC:Origineel>
+                <product_LVC:Wijziging>
+                    <bag_LVC:Pand>
+                        <bag_LVC:identificatie>0498100000001248</bag_LVC:identificatie>
+                        <bag_LVC:aanduidingRecordInactief>N</bag_LVC:aanduidingRecordInactief>
+                        <bag_LVC:aanduidingRecordCorrectie>0</bag_LVC:aanduidingRecordCorrectie>
+                        <bag_LVC:officieel>N</bag_LVC:officieel>
+                        <bag_LVC:pandGeometrie>
+                            <gml:Polygon srsName="urn:ogc:def:crs:EPSG::28992">
+                                <gml:exterior>
+                                    <gml:LinearRing>
+                                        <gml:posList srsDimension="3" count="15">140137.361 518465.658 0.0 140137.548
+                                            518460.628 0.0 140146.524 518460.963 0.0 140146.355 518465.469 0.0
+                                            140149.978 518465.604 0.0 140149.814 518469.981 0.0 140148.338 518469.925
+                                            0.0 140148.15 518474.954 0.0 140144.143 518474.804 0.0 140144.061 518477.014
+                                            0.0 140140.488 518476.881 0.0 140140.663 518472.179 0.0 140141.909
+                                            518472.226 0.0 140142.147 518465.837 0.0 140137.361 518465.658 0.0
+                                        </gml:posList>
+                                    </gml:LinearRing>
+                                </gml:exterior>
+                            </gml:Polygon>
+                        </bag_LVC:pandGeometrie>
+                        <bag_LVC:bouwjaar>1969</bag_LVC:bouwjaar>
+                        <bag_LVC:pandstatus>Pand in gebruik</bag_LVC:pandstatus>
+                        <bag_LVC:tijdvakgeldigheid>
+                            <bagtype:begindatumTijdvakGeldigheid>2012070400000000</bagtype:begindatumTijdvakGeldigheid>
+                            <bagtype:einddatumTijdvakGeldigheid>2014121100000000</bagtype:einddatumTijdvakGeldigheid>
+                        </bag_LVC:tijdvakgeldigheid>
+                        <bag_LVC:inOnderzoek>N</bag_LVC:inOnderzoek>
+                        <bag_LVC:bron>
+                            <bagtype:documentdatum>20120704</bagtype:documentdatum>
+                            <bagtype:documentnummer>172904</bagtype:documentnummer>
+                        </bag_LVC:bron>
+                    </bag_LVC:Pand>
+                </product_LVC:Wijziging>
+            </product_LVC:Mutatie-product>
+            <product_LVC:Mutatie-product>
+                <product_LVC:Verwerking>
+                    <product_LVC:TijdstipVerwerking>2014-12-14T16:30:46.023976</product_LVC:TijdstipVerwerking>
+                    <product_LVC:ObjectType>PND</product_LVC:ObjectType>
+                    <product_LVC:VolgnrVerwerking>0</product_LVC:VolgnrVerwerking>
+                </product_LVC:Verwerking>
+                <product_LVC:Nieuw>
+                    <bag_LVC:Pand>
+                        <bag_LVC:identificatie>0612100000030247</bag_LVC:identificatie>
+                        <bag_LVC:aanduidingRecordInactief>N</bag_LVC:aanduidingRecordInactief>
+                        <bag_LVC:aanduidingRecordCorrectie>0</bag_LVC:aanduidingRecordCorrectie>
+                        <bag_LVC:officieel>N</bag_LVC:officieel>
+                        <bag_LVC:pandGeometrie>
+                            <gml:Polygon srsName="urn:ogc:def:crs:EPSG::28992">
+                                <gml:exterior>
+                                    <gml:LinearRing>
+                                        <gml:posList srsDimension="3" count="9">83361.62 427526.688 0.0 83362.327
+                                            427513.181 0.0 83367.729 427513.487 0.0 83367.166 427524.062 0.0 83364.871
+                                            427523.934 0.0 83364.732 427526.591 0.0 83365.154 427526.614 0.0 83365.14
+                                            427526.884 0.0 83361.62 427526.688 0.0
+                                        </gml:posList>
+                                    </gml:LinearRing>
+                                </gml:exterior>
+                            </gml:Polygon>
+                        </bag_LVC:pandGeometrie>
+                        <bag_LVC:bouwjaar>1978</bag_LVC:bouwjaar>
+                        <bag_LVC:pandstatus>Pand in gebruik (niet ingemeten)</bag_LVC:pandstatus>
+                        <bag_LVC:tijdvakgeldigheid>
+                            <bagtype:begindatumTijdvakGeldigheid>2014112500000004</bagtype:begindatumTijdvakGeldigheid>
+                        </bag_LVC:tijdvakgeldigheid>
+                        <bag_LVC:inOnderzoek>N</bag_LVC:inOnderzoek>
+                        <bag_LVC:bron>
+                            <bagtype:documentdatum>20141125</bagtype:documentdatum>
+                            <bagtype:documentnummer>14U0013400</bagtype:documentnummer>
+                        </bag_LVC:bron>
+                    </bag_LVC:Pand>
+                </product_LVC:Nieuw>
+            </product_LVC:Mutatie-product>
+            <product_LVC:Mutatie-product>
+                <product_LVC:Verwerking>
+                    <product_LVC:TijdstipVerwerking>2014-12-14T16:30:46.023976</product_LVC:TijdstipVerwerking>
+                    <product_LVC:ObjectType>PND</product_LVC:ObjectType>
+                    <product_LVC:VolgnrVerwerking>1</product_LVC:VolgnrVerwerking>
+                </product_LVC:Verwerking>
+                <product_LVC:Origineel>
+                    <bag_LVC:Pand>
+                        <bag_LVC:identificatie>0612100000030247</bag_LVC:identificatie>
+                        <bag_LVC:aanduidingRecordInactief>N</bag_LVC:aanduidingRecordInactief>
+                        <bag_LVC:aanduidingRecordCorrectie>0</bag_LVC:aanduidingRecordCorrectie>
+                        <bag_LVC:officieel>N</bag_LVC:officieel>
+                        <bag_LVC:pandGeometrie>
+                            <gml:Polygon srsName="urn:ogc:def:crs:EPSG::28992">
+                                <gml:exterior>
+                                    <gml:LinearRing>
+                                        <gml:posList srsDimension="3" count="11">83361.62 427526.688 0.0 83362.327
+                                            427513.181 0.0 83362.458 427510.675 0.0 83367.912 427510.983 0.0 83367.778
+                                            427513.49 0.0 83367.729 427513.487 0.0 83367.23 427522.866 0.0 83367.166
+                                            427524.062 0.0 83364.228 427523.898 0.0 83364.066 427526.824 0.0 83361.62
+                                            427526.688 0.0
+                                        </gml:posList>
+                                    </gml:LinearRing>
+                                </gml:exterior>
+                            </gml:Polygon>
+                        </bag_LVC:pandGeometrie>
+                        <bag_LVC:bouwjaar>1978</bag_LVC:bouwjaar>
+                        <bag_LVC:pandstatus>Pand in gebruik</bag_LVC:pandstatus>
+                        <bag_LVC:tijdvakgeldigheid>
+                            <bagtype:begindatumTijdvakGeldigheid>1978013100000000</bagtype:begindatumTijdvakGeldigheid>
+                        </bag_LVC:tijdvakgeldigheid>
+                        <bag_LVC:inOnderzoek>N</bag_LVC:inOnderzoek>
+                        <bag_LVC:bron>
+                            <bagtype:documentdatum>19780131</bagtype:documentdatum>
+                            <bagtype:documentnummer>780028</bagtype:documentnummer>
+                        </bag_LVC:bron>
+                    </bag_LVC:Pand>
+                </product_LVC:Origineel>
+                <product_LVC:Wijziging>
+                    <bag_LVC:Pand>
+                        <bag_LVC:identificatie>0612100000030247</bag_LVC:identificatie>
+                        <bag_LVC:aanduidingRecordInactief>N</bag_LVC:aanduidingRecordInactief>
+                        <bag_LVC:aanduidingRecordCorrectie>0</bag_LVC:aanduidingRecordCorrectie>
+                        <bag_LVC:officieel>N</bag_LVC:officieel>
+                        <bag_LVC:pandGeometrie>
+                            <gml:Polygon srsName="urn:ogc:def:crs:EPSG::28992">
+                                <gml:exterior>
+                                    <gml:LinearRing>
+                                        <gml:posList srsDimension="3" count="11">83361.62 427526.688 0.0 83362.327
+                                            427513.181 0.0 83362.458 427510.675 0.0 83367.912 427510.983 0.0 83367.778
+                                            427513.49 0.0 83367.729 427513.487 0.0 83367.23 427522.866 0.0 83367.166
+                                            427524.062 0.0 83364.228 427523.898 0.0 83364.066 427526.824 0.0 83361.62
+                                            427526.688 0.0
+                                        </gml:posList>
+                                    </gml:LinearRing>
+                                </gml:exterior>
+                            </gml:Polygon>
+                        </bag_LVC:pandGeometrie>
+                        <bag_LVC:bouwjaar>1978</bag_LVC:bouwjaar>
+                        <bag_LVC:pandstatus>Pand in gebruik</bag_LVC:pandstatus>
+                        <bag_LVC:tijdvakgeldigheid>
+                            <bagtype:begindatumTijdvakGeldigheid>1978013100000000</bagtype:begindatumTijdvakGeldigheid>
+                            <bagtype:einddatumTijdvakGeldigheid>2014112500000004</bagtype:einddatumTijdvakGeldigheid>
+                        </bag_LVC:tijdvakgeldigheid>
+                        <bag_LVC:inOnderzoek>N</bag_LVC:inOnderzoek>
+                        <bag_LVC:bron>
+                            <bagtype:documentdatum>19780131</bagtype:documentdatum>
+                            <bagtype:documentnummer>780028</bagtype:documentnummer>
+                        </bag_LVC:bron>
+                    </bag_LVC:Pand>
+                </product_LVC:Wijziging>
+            </product_LVC:Mutatie-product>
+            <product_LVC:Mutatie-product>
+                <product_LVC:Verwerking>
+                    <product_LVC:TijdstipVerwerking>2014-12-14T17:00:47.771547</product_LVC:TijdstipVerwerking>
+                    <product_LVC:ObjectType>PND</product_LVC:ObjectType>
+                    <product_LVC:VolgnrVerwerking>0</product_LVC:VolgnrVerwerking>
+                </product_LVC:Verwerking>
+                <product_LVC:Nieuw>
+                    <bag_LVC:Pand>
+                        <bag_LVC:identificatie>0612100000000148</bag_LVC:identificatie>
+                        <bag_LVC:aanduidingRecordInactief>N</bag_LVC:aanduidingRecordInactief>
+                        <bag_LVC:aanduidingRecordCorrectie>0</bag_LVC:aanduidingRecordCorrectie>
+                        <bag_LVC:officieel>N</bag_LVC:officieel>
+                        <bag_LVC:pandGeometrie>
+                            <gml:Polygon srsName="urn:ogc:def:crs:EPSG::28992">
+                                <gml:exterior>
+                                    <gml:LinearRing>
+                                        <gml:posList srsDimension="3" count="9">80969.77 427972.93 0.0 80974.477
+                                            427970.344 0.0 80980.652 427981.586 0.0 80977.931 427983.083 0.0 80977.497
+                                            427982.297 0.0 80975.71 427983.28 0.0 80971.37 427975.42 0.0 80971.19
+                                            427975.52 0.0 80969.77 427972.93 0.0
+                                        </gml:posList>
+                                    </gml:LinearRing>
+                                </gml:exterior>
+                            </gml:Polygon>
+                        </bag_LVC:pandGeometrie>
+                        <bag_LVC:bouwjaar>1985</bag_LVC:bouwjaar>
+                        <bag_LVC:pandstatus>Pand in gebruik (niet ingemeten)</bag_LVC:pandstatus>
+                        <bag_LVC:tijdvakgeldigheid>
+                            <bagtype:begindatumTijdvakGeldigheid>2014112500000003</bagtype:begindatumTijdvakGeldigheid>
+                        </bag_LVC:tijdvakgeldigheid>
+                        <bag_LVC:inOnderzoek>N</bag_LVC:inOnderzoek>
+                        <bag_LVC:bron>
+                            <bagtype:documentdatum>20141125</bagtype:documentdatum>
+                            <bagtype:documentnummer>14U0013415</bagtype:documentnummer>
+                        </bag_LVC:bron>
+                    </bag_LVC:Pand>
+                </product_LVC:Nieuw>
+            </product_LVC:Mutatie-product>
+            <product_LVC:Mutatie-product>
+                <product_LVC:Verwerking>
+                    <product_LVC:TijdstipVerwerking>2014-12-14T17:00:47.771547</product_LVC:TijdstipVerwerking>
+                    <product_LVC:ObjectType>PND</product_LVC:ObjectType>
+                    <product_LVC:VolgnrVerwerking>1</product_LVC:VolgnrVerwerking>
+                </product_LVC:Verwerking>
+                <product_LVC:Origineel>
+                    <bag_LVC:Pand>
+                        <bag_LVC:identificatie>0612100000000148</bag_LVC:identificatie>
+                        <bag_LVC:aanduidingRecordInactief>N</bag_LVC:aanduidingRecordInactief>
+                        <bag_LVC:aanduidingRecordCorrectie>0</bag_LVC:aanduidingRecordCorrectie>
+                        <bag_LVC:officieel>N</bag_LVC:officieel>
+                        <bag_LVC:pandGeometrie>
+                            <gml:Polygon srsName="urn:ogc:def:crs:EPSG::28992">
+                                <gml:exterior>
+                                    <gml:LinearRing>
+                                        <gml:posList srsDimension="3" count="7">80969.77 427972.93 0.0 80974.477
+                                            427970.344 0.0 80980.22 427980.8 0.0 80975.71 427983.28 0.0 80971.37
+                                            427975.42 0.0 80971.19 427975.52 0.0 80969.77 427972.93 0.0
+                                        </gml:posList>
+                                    </gml:LinearRing>
+                                </gml:exterior>
+                            </gml:Polygon>
+                        </bag_LVC:pandGeometrie>
+                        <bag_LVC:bouwjaar>1985</bag_LVC:bouwjaar>
+                        <bag_LVC:pandstatus>Pand in gebruik</bag_LVC:pandstatus>
+                        <bag_LVC:tijdvakgeldigheid>
+                            <bagtype:begindatumTijdvakGeldigheid>1984032100000000</bagtype:begindatumTijdvakGeldigheid>
+                        </bag_LVC:tijdvakgeldigheid>
+                        <bag_LVC:inOnderzoek>N</bag_LVC:inOnderzoek>
+                        <bag_LVC:bron>
+                            <bagtype:documentdatum>19840321</bagtype:documentdatum>
+                            <bagtype:documentnummer>847043</bagtype:documentnummer>
+                        </bag_LVC:bron>
+                    </bag_LVC:Pand>
+                </product_LVC:Origineel>
+                <product_LVC:Wijziging>
+                    <bag_LVC:Pand>
+                        <bag_LVC:identificatie>0612100000000148</bag_LVC:identificatie>
+                        <bag_LVC:aanduidingRecordInactief>N</bag_LVC:aanduidingRecordInactief>
+                        <bag_LVC:aanduidingRecordCorrectie>0</bag_LVC:aanduidingRecordCorrectie>
+                        <bag_LVC:officieel>N</bag_LVC:officieel>
+                        <bag_LVC:pandGeometrie>
+                            <gml:Polygon srsName="urn:ogc:def:crs:EPSG::28992">
+                                <gml:exterior>
+                                    <gml:LinearRing>
+                                        <gml:posList srsDimension="3" count="7">80969.77 427972.93 0.0 80974.477
+                                            427970.344 0.0 80980.22 427980.8 0.0 80975.71 427983.28 0.0 80971.37
+                                            427975.42 0.0 80971.19 427975.52 0.0 80969.77 427972.93 0.0
+                                        </gml:posList>
+                                    </gml:LinearRing>
+                                </gml:exterior>
+                            </gml:Polygon>
+                        </bag_LVC:pandGeometrie>
+                        <bag_LVC:bouwjaar>1985</bag_LVC:bouwjaar>
+                        <bag_LVC:pandstatus>Pand in gebruik</bag_LVC:pandstatus>
+                        <bag_LVC:tijdvakgeldigheid>
+                            <bagtype:begindatumTijdvakGeldigheid>1984032100000000</bagtype:begindatumTijdvakGeldigheid>
+                            <bagtype:einddatumTijdvakGeldigheid>2014112500000003</bagtype:einddatumTijdvakGeldigheid>
+                        </bag_LVC:tijdvakgeldigheid>
+                        <bag_LVC:inOnderzoek>N</bag_LVC:inOnderzoek>
+                        <bag_LVC:bron>
+                            <bagtype:documentdatum>19840321</bagtype:documentdatum>
+                            <bagtype:documentnummer>847043</bagtype:documentnummer>
+                        </bag_LVC:bron>
+                    </bag_LVC:Pand>
+                </product_LVC:Wijziging>
+            </product_LVC:Mutatie-product>
+            <product_LVC:Mutatie-product>
+                <product_LVC:Verwerking>
+                    <product_LVC:TijdstipVerwerking>2014-12-14T17:00:47.849754</product_LVC:TijdstipVerwerking>
+                    <product_LVC:ObjectType>PND</product_LVC:ObjectType>
+                    <product_LVC:VolgnrVerwerking>0</product_LVC:VolgnrVerwerking>
+                </product_LVC:Verwerking>
+                <product_LVC:Nieuw>
+                    <bag_LVC:Pand>
+                        <bag_LVC:identificatie>0612100000017174</bag_LVC:identificatie>
+                        <bag_LVC:aanduidingRecordInactief>N</bag_LVC:aanduidingRecordInactief>
+                        <bag_LVC:aanduidingRecordCorrectie>0</bag_LVC:aanduidingRecordCorrectie>
+                        <bag_LVC:officieel>N</bag_LVC:officieel>
+                        <bag_LVC:pandGeometrie>
+                            <gml:Polygon srsName="urn:ogc:def:crs:EPSG::28992">
+                                <gml:exterior>
+                                    <gml:LinearRing>
+                                        <gml:posList srsDimension="3" count="9">80974.477 427970.344 0.0 80979.18
+                                            427967.76 0.0 80980.59 427970.34 0.0 80980.42 427970.43 0.0 80984.72
+                                            427978.33 0.0 80982.47 427979.565 0.0 80982.72 427980.451 0.0 80980.652
+                                            427981.586 0.0 80974.477 427970.344 0.0
+                                        </gml:posList>
+                                    </gml:LinearRing>
+                                </gml:exterior>
+                            </gml:Polygon>
+                        </bag_LVC:pandGeometrie>
+                        <bag_LVC:bouwjaar>1985</bag_LVC:bouwjaar>
+                        <bag_LVC:pandstatus>Pand in gebruik (niet ingemeten)</bag_LVC:pandstatus>
+                        <bag_LVC:tijdvakgeldigheid>
+                            <bagtype:begindatumTijdvakGeldigheid>2014112500000002</bagtype:begindatumTijdvakGeldigheid>
+                        </bag_LVC:tijdvakgeldigheid>
+                        <bag_LVC:inOnderzoek>N</bag_LVC:inOnderzoek>
+                        <bag_LVC:bron>
+                            <bagtype:documentdatum>20141125</bagtype:documentdatum>
+                            <bagtype:documentnummer>14U0013415</bagtype:documentnummer>
+                        </bag_LVC:bron>
+                    </bag_LVC:Pand>
+                </product_LVC:Nieuw>
+            </product_LVC:Mutatie-product>
+            <product_LVC:Mutatie-product>
+                <product_LVC:Verwerking>
+                    <product_LVC:TijdstipVerwerking>2014-12-14T17:00:47.849754</product_LVC:TijdstipVerwerking>
+                    <product_LVC:ObjectType>PND</product_LVC:ObjectType>
+                    <product_LVC:VolgnrVerwerking>1</product_LVC:VolgnrVerwerking>
+                </product_LVC:Verwerking>
+                <product_LVC:Origineel>
+                    <bag_LVC:Pand>
+                        <bag_LVC:identificatie>0612100000017174</bag_LVC:identificatie>
+                        <bag_LVC:aanduidingRecordInactief>N</bag_LVC:aanduidingRecordInactief>
+                        <bag_LVC:aanduidingRecordCorrectie>0</bag_LVC:aanduidingRecordCorrectie>
+                        <bag_LVC:officieel>N</bag_LVC:officieel>
+                        <bag_LVC:pandGeometrie>
+                            <gml:Polygon srsName="urn:ogc:def:crs:EPSG::28992">
+                                <gml:exterior>
+                                    <gml:LinearRing>
+                                        <gml:posList srsDimension="3" count="7">80979.18 427967.76 0.0 80980.59
+                                            427970.34 0.0 80980.42 427970.43 0.0 80984.72 427978.33 0.0 80980.22
+                                            427980.8 0.0 80974.477 427970.344 0.0 80979.18 427967.76 0.0
+                                        </gml:posList>
+                                    </gml:LinearRing>
+                                </gml:exterior>
+                            </gml:Polygon>
+                        </bag_LVC:pandGeometrie>
+                        <bag_LVC:bouwjaar>1985</bag_LVC:bouwjaar>
+                        <bag_LVC:pandstatus>Pand in gebruik</bag_LVC:pandstatus>
+                        <bag_LVC:tijdvakgeldigheid>
+                            <bagtype:begindatumTijdvakGeldigheid>1984032100000000</bagtype:begindatumTijdvakGeldigheid>
+                        </bag_LVC:tijdvakgeldigheid>
+                        <bag_LVC:inOnderzoek>N</bag_LVC:inOnderzoek>
+                        <bag_LVC:bron>
+                            <bagtype:documentdatum>19840321</bagtype:documentdatum>
+                            <bagtype:documentnummer>847043</bagtype:documentnummer>
+                        </bag_LVC:bron>
+                    </bag_LVC:Pand>
+                </product_LVC:Origineel>
+                <product_LVC:Wijziging>
+                    <bag_LVC:Pand>
+                        <bag_LVC:identificatie>0612100000017174</bag_LVC:identificatie>
+                        <bag_LVC:aanduidingRecordInactief>N</bag_LVC:aanduidingRecordInactief>
+                        <bag_LVC:aanduidingRecordCorrectie>0</bag_LVC:aanduidingRecordCorrectie>
+                        <bag_LVC:officieel>N</bag_LVC:officieel>
+                        <bag_LVC:pandGeometrie>
+                            <gml:Polygon srsName="urn:ogc:def:crs:EPSG::28992">
+                                <gml:exterior>
+                                    <gml:LinearRing>
+                                        <gml:posList srsDimension="3" count="7">80979.18 427967.76 0.0 80980.59
+                                            427970.34 0.0 80980.42 427970.43 0.0 80984.72 427978.33 0.0 80980.22
+                                            427980.8 0.0 80974.477 427970.344 0.0 80979.18 427967.76 0.0
+                                        </gml:posList>
+                                    </gml:LinearRing>
+                                </gml:exterior>
+                            </gml:Polygon>
+                        </bag_LVC:pandGeometrie>
+                        <bag_LVC:bouwjaar>1985</bag_LVC:bouwjaar>
+                        <bag_LVC:pandstatus>Pand in gebruik</bag_LVC:pandstatus>
+                        <bag_LVC:tijdvakgeldigheid>
+                            <bagtype:begindatumTijdvakGeldigheid>1984032100000000</bagtype:begindatumTijdvakGeldigheid>
+                            <bagtype:einddatumTijdvakGeldigheid>2014112500000002</bagtype:einddatumTijdvakGeldigheid>
+                        </bag_LVC:tijdvakgeldigheid>
+                        <bag_LVC:inOnderzoek>N</bag_LVC:inOnderzoek>
+                        <bag_LVC:bron>
+                            <bagtype:documentdatum>19840321</bagtype:documentdatum>
+                            <bagtype:documentnummer>847043</bagtype:documentnummer>
+                        </bag_LVC:bron>
+                    </bag_LVC:Pand>
+                </product_LVC:Wijziging>
+            </product_LVC:Mutatie-product>
+            <product_LVC:Mutatie-product>
+                <product_LVC:Verwerking>
+                    <product_LVC:TijdstipVerwerking>2014-12-14T15:00:48.154131</product_LVC:TijdstipVerwerking>
+                    <product_LVC:ObjectType>VBO</product_LVC:ObjectType>
+                    <product_LVC:VolgnrVerwerking>0</product_LVC:VolgnrVerwerking>
+                </product_LVC:Verwerking>
+                <product_LVC:Nieuw>
+                    <bag_LVC:Verblijfsobject>
+                        <bag_LVC:gerelateerdeAdressen>
+                            <bag_LVC:hoofdadres>
+                                <bag_LVC:identificatie>0498200000005949</bag_LVC:identificatie>
+                            </bag_LVC:hoofdadres>
+                        </bag_LVC:gerelateerdeAdressen>
+                        <bag_LVC:identificatie>0498010000006358</bag_LVC:identificatie>
+                        <bag_LVC:aanduidingRecordInactief>N</bag_LVC:aanduidingRecordInactief>
+                        <bag_LVC:aanduidingRecordCorrectie>0</bag_LVC:aanduidingRecordCorrectie>
+                        <bag_LVC:officieel>N</bag_LVC:officieel>
+                        <bag_LVC:verblijfsobjectGeometrie>
+                            <gml:Point srsName="urn:ogc:def:crs:EPSG::28992">
+                                <gml:pos>137378.868 515112.931 0.0</gml:pos>
+                            </gml:Point>
+                        </bag_LVC:verblijfsobjectGeometrie>
+                        <bag_LVC:gebruiksdoelVerblijfsobject>woonfunctie</bag_LVC:gebruiksdoelVerblijfsobject>
+                        <bag_LVC:oppervlakteVerblijfsobject>80</bag_LVC:oppervlakteVerblijfsobject>
+                        <bag_LVC:verblijfsobjectStatus>Verblijfsobject in gebruik</bag_LVC:verblijfsobjectStatus>
+                        <bag_LVC:tijdvakgeldigheid>
+                            <bagtype:begindatumTijdvakGeldigheid>2014121000000000</bagtype:begindatumTijdvakGeldigheid>
+                        </bag_LVC:tijdvakgeldigheid>
+                        <bag_LVC:inOnderzoek>N</bag_LVC:inOnderzoek>
+                        <bag_LVC:bron>
+                            <bagtype:documentdatum>20141210</bagtype:documentdatum>
+                            <bagtype:documentnummer>235966</bagtype:documentnummer>
+                        </bag_LVC:bron>
+                        <bag_LVC:gerelateerdPand>
+                            <bag_LVC:identificatie>0498100000003142</bag_LVC:identificatie>
+                        </bag_LVC:gerelateerdPand>
+                    </bag_LVC:Verblijfsobject>
+                </product_LVC:Nieuw>
+            </product_LVC:Mutatie-product>
+            <product_LVC:Mutatie-product>
+                <product_LVC:Verwerking>
+                    <product_LVC:TijdstipVerwerking>2014-12-14T15:00:48.154131</product_LVC:TijdstipVerwerking>
+                    <product_LVC:ObjectType>VBO</product_LVC:ObjectType>
+                    <product_LVC:VolgnrVerwerking>1</product_LVC:VolgnrVerwerking>
+                </product_LVC:Verwerking>
+                <product_LVC:Origineel>
+                    <bag_LVC:Verblijfsobject>
+                        <bag_LVC:gerelateerdeAdressen>
+                            <bag_LVC:hoofdadres>
+                                <bag_LVC:identificatie>0498200000005949</bag_LVC:identificatie>
+                            </bag_LVC:hoofdadres>
+                        </bag_LVC:gerelateerdeAdressen>
+                        <bag_LVC:identificatie>0498010000006358</bag_LVC:identificatie>
+                        <bag_LVC:aanduidingRecordInactief>N</bag_LVC:aanduidingRecordInactief>
+                        <bag_LVC:aanduidingRecordCorrectie>0</bag_LVC:aanduidingRecordCorrectie>
+                        <bag_LVC:officieel>N</bag_LVC:officieel>
+                        <bag_LVC:verblijfsobjectGeometrie>
+                            <gml:Point srsName="urn:ogc:def:crs:EPSG::28992">
+                                <gml:pos>137378.868 515112.931 0.0</gml:pos>
+                            </gml:Point>
+                        </bag_LVC:verblijfsobjectGeometrie>
+                        <bag_LVC:gebruiksdoelVerblijfsobject>woonfunctie</bag_LVC:gebruiksdoelVerblijfsobject>
+                        <bag_LVC:oppervlakteVerblijfsobject>80</bag_LVC:oppervlakteVerblijfsobject>
+                        <bag_LVC:verblijfsobjectStatus>Verblijfsobject in gebruik</bag_LVC:verblijfsobjectStatus>
+                        <bag_LVC:tijdvakgeldigheid>
+                            <bagtype:begindatumTijdvakGeldigheid>2010101900000300</bagtype:begindatumTijdvakGeldigheid>
+                        </bag_LVC:tijdvakgeldigheid>
+                        <bag_LVC:inOnderzoek>N</bag_LVC:inOnderzoek>
+                        <bag_LVC:bron>
+                            <bagtype:documentdatum>20101019</bagtype:documentdatum>
+                            <bagtype:documentnummer>83838</bagtype:documentnummer>
+                        </bag_LVC:bron>
+                        <bag_LVC:gerelateerdPand>
+                            <bag_LVC:identificatie>0498100000003142</bag_LVC:identificatie>
+                        </bag_LVC:gerelateerdPand>
+                    </bag_LVC:Verblijfsobject>
+                </product_LVC:Origineel>
+                <product_LVC:Wijziging>
+                    <bag_LVC:Verblijfsobject>
+                        <bag_LVC:gerelateerdeAdressen>
+                            <bag_LVC:hoofdadres>
+                                <bag_LVC:identificatie>0498200000005949</bag_LVC:identificatie>
+                            </bag_LVC:hoofdadres>
+                        </bag_LVC:gerelateerdeAdressen>
+                        <bag_LVC:identificatie>0498010000006358</bag_LVC:identificatie>
+                        <bag_LVC:aanduidingRecordInactief>N</bag_LVC:aanduidingRecordInactief>
+                        <bag_LVC:aanduidingRecordCorrectie>0</bag_LVC:aanduidingRecordCorrectie>
+                        <bag_LVC:officieel>N</bag_LVC:officieel>
+                        <bag_LVC:verblijfsobjectGeometrie>
+                            <gml:Point srsName="urn:ogc:def:crs:EPSG::28992">
+                                <gml:pos>137378.868 515112.931 0.0</gml:pos>
+                            </gml:Point>
+                        </bag_LVC:verblijfsobjectGeometrie>
+                        <bag_LVC:gebruiksdoelVerblijfsobject>woonfunctie</bag_LVC:gebruiksdoelVerblijfsobject>
+                        <bag_LVC:oppervlakteVerblijfsobject>80</bag_LVC:oppervlakteVerblijfsobject>
+                        <bag_LVC:verblijfsobjectStatus>Verblijfsobject in gebruik</bag_LVC:verblijfsobjectStatus>
+                        <bag_LVC:tijdvakgeldigheid>
+                            <bagtype:begindatumTijdvakGeldigheid>2010101900000300</bagtype:begindatumTijdvakGeldigheid>
+                            <bagtype:einddatumTijdvakGeldigheid>2014121000000000</bagtype:einddatumTijdvakGeldigheid>
+                        </bag_LVC:tijdvakgeldigheid>
+                        <bag_LVC:inOnderzoek>N</bag_LVC:inOnderzoek>
+                        <bag_LVC:bron>
+                            <bagtype:documentdatum>20101019</bagtype:documentdatum>
+                            <bagtype:documentnummer>83838</bagtype:documentnummer>
+                        </bag_LVC:bron>
+                        <bag_LVC:gerelateerdPand>
+                            <bag_LVC:identificatie>0498100000003142</bag_LVC:identificatie>
+                        </bag_LVC:gerelateerdPand>
+                    </bag_LVC:Verblijfsobject>
+                </product_LVC:Wijziging>
+            </product_LVC:Mutatie-product>
+            <product_LVC:Mutatie-product>
+                <product_LVC:Verwerking>
+                    <product_LVC:TijdstipVerwerking>2014-12-14T15:00:48.855048</product_LVC:TijdstipVerwerking>
+                    <product_LVC:ObjectType>VBO</product_LVC:ObjectType>
+                    <product_LVC:VolgnrVerwerking>0</product_LVC:VolgnrVerwerking>
+                </product_LVC:Verwerking>
+                <product_LVC:Nieuw>
+                    <bag_LVC:Verblijfsobject>
+                        <bag_LVC:gerelateerdeAdressen>
+                            <bag_LVC:hoofdadres>
+                                <bag_LVC:identificatie>0498200000004984</bag_LVC:identificatie>
+                            </bag_LVC:hoofdadres>
+                        </bag_LVC:gerelateerdeAdressen>
+                        <bag_LVC:identificatie>0498010000001842</bag_LVC:identificatie>
+                        <bag_LVC:aanduidingRecordInactief>N</bag_LVC:aanduidingRecordInactief>
+                        <bag_LVC:aanduidingRecordCorrectie>0</bag_LVC:aanduidingRecordCorrectie>
+                        <bag_LVC:officieel>N</bag_LVC:officieel>
+                        <bag_LVC:verblijfsobjectGeometrie>
+                            <gml:Point srsName="urn:ogc:def:crs:EPSG::28992">
+                                <gml:pos>137246.0 520510.0 0.0</gml:pos>
+                            </gml:Point>
+                        </bag_LVC:verblijfsobjectGeometrie>
+                        <bag_LVC:gebruiksdoelVerblijfsobject>woonfunctie</bag_LVC:gebruiksdoelVerblijfsobject>
+                        <bag_LVC:gebruiksdoelVerblijfsobject>kantoorfunctie</bag_LVC:gebruiksdoelVerblijfsobject>
+                        <bag_LVC:oppervlakteVerblijfsobject>439</bag_LVC:oppervlakteVerblijfsobject>
+                        <bag_LVC:verblijfsobjectStatus>Verblijfsobject in gebruik</bag_LVC:verblijfsobjectStatus>
+                        <bag_LVC:tijdvakgeldigheid>
+                            <bagtype:begindatumTijdvakGeldigheid>2014120900000000</bagtype:begindatumTijdvakGeldigheid>
+                        </bag_LVC:tijdvakgeldigheid>
+                        <bag_LVC:inOnderzoek>N</bag_LVC:inOnderzoek>
+                        <bag_LVC:bron>
+                            <bagtype:documentdatum>20141209</bagtype:documentdatum>
+                            <bagtype:documentnummer>239509</bagtype:documentnummer>
+                        </bag_LVC:bron>
+                        <bag_LVC:gerelateerdPand>
+                            <bag_LVC:identificatie>0498100000010991</bag_LVC:identificatie>
+                        </bag_LVC:gerelateerdPand>
+                    </bag_LVC:Verblijfsobject>
+                </product_LVC:Nieuw>
+            </product_LVC:Mutatie-product>
+            <product_LVC:Mutatie-product>
+                <product_LVC:Verwerking>
+                    <product_LVC:TijdstipVerwerking>2014-12-14T15:00:48.855048</product_LVC:TijdstipVerwerking>
+                    <product_LVC:ObjectType>VBO</product_LVC:ObjectType>
+                    <product_LVC:VolgnrVerwerking>1</product_LVC:VolgnrVerwerking>
+                </product_LVC:Verwerking>
+                <product_LVC:Origineel>
+                    <bag_LVC:Verblijfsobject>
+                        <bag_LVC:gerelateerdeAdressen>
+                            <bag_LVC:hoofdadres>
+                                <bag_LVC:identificatie>0498200000004984</bag_LVC:identificatie>
+                            </bag_LVC:hoofdadres>
+                        </bag_LVC:gerelateerdeAdressen>
+                        <bag_LVC:identificatie>0498010000001842</bag_LVC:identificatie>
+                        <bag_LVC:aanduidingRecordInactief>N</bag_LVC:aanduidingRecordInactief>
+                        <bag_LVC:aanduidingRecordCorrectie>0</bag_LVC:aanduidingRecordCorrectie>
+                        <bag_LVC:officieel>N</bag_LVC:officieel>
+                        <bag_LVC:verblijfsobjectGeometrie>
+                            <gml:Point srsName="urn:ogc:def:crs:EPSG::28992">
+                                <gml:pos>137246.0 520510.0 0.0</gml:pos>
+                            </gml:Point>
+                        </bag_LVC:verblijfsobjectGeometrie>
+                        <bag_LVC:gebruiksdoelVerblijfsobject>woonfunctie</bag_LVC:gebruiksdoelVerblijfsobject>
+                        <bag_LVC:oppervlakteVerblijfsobject>439</bag_LVC:oppervlakteVerblijfsobject>
+                        <bag_LVC:verblijfsobjectStatus>Verblijfsobject in gebruik</bag_LVC:verblijfsobjectStatus>
+                        <bag_LVC:tijdvakgeldigheid>
+                            <bagtype:begindatumTijdvakGeldigheid>1995012400000000</bagtype:begindatumTijdvakGeldigheid>
+                        </bag_LVC:tijdvakgeldigheid>
+                        <bag_LVC:inOnderzoek>N</bag_LVC:inOnderzoek>
+                        <bag_LVC:bron>
+                            <bagtype:documentdatum>19950124</bagtype:documentdatum>
+                            <bagtype:documentnummer>73156</bagtype:documentnummer>
+                        </bag_LVC:bron>
+                        <bag_LVC:gerelateerdPand>
+                            <bag_LVC:identificatie>0498100000010991</bag_LVC:identificatie>
+                        </bag_LVC:gerelateerdPand>
+                    </bag_LVC:Verblijfsobject>
+                </product_LVC:Origineel>
+                <product_LVC:Wijziging>
+                    <bag_LVC:Verblijfsobject>
+                        <bag_LVC:gerelateerdeAdressen>
+                            <bag_LVC:hoofdadres>
+                                <bag_LVC:identificatie>0498200000004984</bag_LVC:identificatie>
+                            </bag_LVC:hoofdadres>
+                        </bag_LVC:gerelateerdeAdressen>
+                        <bag_LVC:identificatie>0498010000001842</bag_LVC:identificatie>
+                        <bag_LVC:aanduidingRecordInactief>N</bag_LVC:aanduidingRecordInactief>
+                        <bag_LVC:aanduidingRecordCorrectie>0</bag_LVC:aanduidingRecordCorrectie>
+                        <bag_LVC:officieel>N</bag_LVC:officieel>
+                        <bag_LVC:verblijfsobjectGeometrie>
+                            <gml:Point srsName="urn:ogc:def:crs:EPSG::28992">
+                                <gml:pos>137246.0 520510.0 0.0</gml:pos>
+                            </gml:Point>
+                        </bag_LVC:verblijfsobjectGeometrie>
+                        <bag_LVC:gebruiksdoelVerblijfsobject>woonfunctie</bag_LVC:gebruiksdoelVerblijfsobject>
+                        <bag_LVC:oppervlakteVerblijfsobject>439</bag_LVC:oppervlakteVerblijfsobject>
+                        <bag_LVC:verblijfsobjectStatus>Verblijfsobject in gebruik</bag_LVC:verblijfsobjectStatus>
+                        <bag_LVC:tijdvakgeldigheid>
+                            <bagtype:begindatumTijdvakGeldigheid>1995012400000000</bagtype:begindatumTijdvakGeldigheid>
+                            <bagtype:einddatumTijdvakGeldigheid>2014120900000000</bagtype:einddatumTijdvakGeldigheid>
+                        </bag_LVC:tijdvakgeldigheid>
+                        <bag_LVC:inOnderzoek>N</bag_LVC:inOnderzoek>
+                        <bag_LVC:bron>
+                            <bagtype:documentdatum>19950124</bagtype:documentdatum>
+                            <bagtype:documentnummer>73156</bagtype:documentnummer>
+                        </bag_LVC:bron>
+                        <bag_LVC:gerelateerdPand>
+                            <bag_LVC:identificatie>0498100000010991</bag_LVC:identificatie>
+                        </bag_LVC:gerelateerdPand>
+                    </bag_LVC:Verblijfsobject>
+                </product_LVC:Wijziging>
+            </product_LVC:Mutatie-product>
+        </mb:producten>
+    </mb:antwoord>
+</mb:BAG-Mutaties-Deelbestand-LVC>

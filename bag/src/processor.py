@@ -102,6 +102,7 @@ class Processor:
 
         elif doc_tag == 'BAG-Mutaties-Deelbestand-LVC':
             mode = 'Mutatie'
+
             #firstchild moet zijn 'antwoord'
             for childNode in node:
                 if stripschema(childNode.tag) == 'antwoord':
@@ -114,27 +115,53 @@ class Processor:
                             for productnode in producten:
                                 if stripschema(productnode.tag) == 'Mutatie-product':
                                     origineelObj = None
-                                    nieuwObj = None
+
+                                    # Gebruik als sorteersleutel (datum+volgnr) tbv volgorde verwerking
+                                    verwerkings_id = ''
+
                                     for mutatienode in productnode:
-                                        if stripschema(mutatienode.tag) == 'Nieuw':
+                                        if stripschema(mutatienode.tag) == 'Verwerking':
+                                            # Verkijgen verwerkings_datum en volgnummer tbv sorteren
+                                            mutatienode = stripNS(mutatienode)
+
+                                            # Maak uniek vewerkings id string uit datum-tijd + volgnr
+                                            verwerkings_tijdstip = str(mutatienode.xpath("TijdstipVerwerking/text()")[0])
+                                            verwerkings_volgnr = str(mutatienode.xpath("VolgnrVerwerking/text()")[0])
+                                            verwerkings_id = verwerkings_tijdstip + '.' + verwerkings_volgnr
+                                            # print('verwerkings_id=%s' % verwerkings_id)
+
+                                        elif stripschema(mutatienode.tag) == 'Nieuw':
                                             # Log.log.info("Nieuw Object")
-                                            self.bagObjecten.extend(
-                                                BAGObjectFabriek.bof.BAGObjectArrayBijXML(mutatienode))
+                                            bag_objs = BAGObjectFabriek.bof.BAGObjectArrayBijXML(mutatienode)
+                                            for bag_obj in bag_objs:
+                                                bag_obj.verwerkings_id = verwerkings_id
+
+                                            self.bagObjecten.extend(bag_objs)
+
                                         elif stripschema(mutatienode.tag) == 'Origineel':
                                             objs = BAGObjectFabriek.bof.BAGObjectArrayBijXML(mutatienode)
                                             if len(objs) > 0:
                                                 origineelObj = objs[0]
+
                                         elif stripschema(mutatienode.tag) == 'Wijziging':
                                             objs = BAGObjectFabriek.bof.BAGObjectArrayBijXML(mutatienode)
 
                                             if len(objs) > 0:
                                                 nieuwObj = objs[0]
                                                 if nieuwObj and origineelObj:
+                                                    nieuwObj.verwerkings_id = verwerkings_id
                                                     nieuwObj.origineelObj = origineelObj
                                                     self.bagObjecten.append(nieuwObj)
                                                     # Log.log.info("Wijziging Object")
                                                     origineelObj = None
-                                                    nieuwObj = None
+
+                            # Zie http://www.pythoncentral.io/how-to-sort-a-list-tuple-or-object-with-sorted-in-python
+                            # Tbv sorteren self.bagObjecten array op verwerkings volgorde
+                            def get_verwerkings_id(bag_obj):
+                                return bag_obj.verwerkings_id
+
+                            # Sorteer te muteren objecten op verwerkings_id
+                            self.bagObjecten = sorted(self.bagObjecten, key=get_verwerkings_id)
 
                             bericht = Log.log.endTimer("objCreate (mutaties) - objs=" + str(len(self.bagObjecten)))
                             Database().log_actie('create_objects', self.naam, bericht)
