@@ -5,7 +5,7 @@
 Bag-extract
 ***********
 
-Hieronder staat de handleiding voor het gebruik van de tools voor de BAG.
+Hieronder staat de handleiding voor het gebruik van de tools voor de BAG, NLExtract-BAG of Bag-extract geheten.
 
 Handleiding Bag-extract
 =======================
@@ -21,19 +21,28 @@ PDOK link: http://geodata.nationaalgeoregister.nl/inspireadressen/atom/inspiread
 Als je wilt testen met een kleiner bestand kun je via http://www.nlextract.nl/file-cabinet
 ook de "BAG Amstelveen" (5.6 MB) downloaden.
 
+BAG PostGIS Dumps Downloaden
+----------------------------
+
+Als je geen zin/tijd hebt om NLExtract-BAG zelf te installeren en te draaien, dan kun je ook direct
+PostGIS database en CSV dumps downloaden vanaf http://data.nlextract.nl/bag. Deze worden maandelijks ververst
+direct na uitkomen nieuwe BAG-levering. Begin 2015 mogelijk ook dagelijks op basis mutatie-bestanden.
+
 Wat doet Bag-extract ?
 ----------------------
 
 Bag-extract biedt de volgende functionaliteiten:
 
 - Laden van een Kadaster BAG Extract vanuit Kadaster (.zip GML) levering
-- Toepassen van Kadaster BAG mutaties vanuit Kadaster (.zip GML) levering
+- Toepassen van Kadaster BAG mutaties vanuit Kadaster (.zip GML) levering (v1.1.5 en hoger)
 - Verrijken BAG met gemeenten en provincies
 - Verrijken: tabel met volledige "ACN-achtige" adressen genereren
 - Geocoderen: afgeleide tabellen en functies
 - Stijlen (SLDs) om de ingelezen BAG data te visualiseren via een WMS
 - Validatie van input vlak geometrie
 - Database VIEWs om bagobjecten te selecteren die actueel, bestaand en valide geometrie hebben
+- Checkpointing: bijhouden welke bestanden reeds verwerkt t.b.v. herstarts en mutatie-verwerking
+- Logging in database zodat gechecked kan worden waar evt fouten zijn en welke bestanden verwerkt
 
 Bag-extract downloaden
 ----------------------

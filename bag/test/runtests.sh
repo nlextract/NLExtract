@@ -39,7 +39,13 @@ $BAG_EXTRACT -v -e $DATA_DUBBEL_DIR
 $BAG_EXTRACT -v -q $DB_DIR/script/ontdubbel.sql
 
 # Mutaties
+echo "START TEST: Mutaties"
 $BAG_EXTRACT -v -e $MUT_DIR
+echo "END TEST: Mutaties"
+
+echo "START TEST: Mutaties : slechts eenmaal verwerken"
+$BAG_EXTRACT -v -e $MUT_DIR
+echo "END TEST: Mutaties : slechts eenmaal verwerken"
 
 # Test verrijking van data met gemeenten+provincies
 $BAG_EXTRACT -v -q $DB_DIR/script/gemeente-provincie-tabel.sql

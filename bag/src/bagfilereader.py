@@ -1,162 +1,127 @@
-__author__ = "Milo van der Linden"
-__date__ = "$Jun 11, 2011 3:46:27 PM$"
-
 """
- Naam:         BAGFileReader.py
  Omschrijving: Inlezen van BAG-gerelateerde files of directories
 
- Auteur:       Milo van der Linden Just van den Broecke
+ Auteurs: Milo van der Linden, Just van den Broecke, Stefan de Konink, rutgerw
 
- Versie:       1.0
-               - basis versie
- Datum:        22 december 2011
-
-
- OpenGeoGroep.nl
+ 6.jan.2014: redundantie verwijderd, bijhouden evt overslaan verwerkte bestanden in DB en meer Pythonic gemaakt (Just)
 """
 
-import zipfile
-from processor import Processor
 import os
-from etree import etree
+import zipfile
 import csv
+from etree import etree
 from log import Log
+from processor import Processor
 from postgresdb import Database
 
 try:
-  from cStringIO import StringIO
+    from cStringIO import StringIO
 except:
-  from StringIO import StringIO
+    from StringIO import StringIO
+
 
 class BAGFileReader:
-    def __init__(self, file):
-        self.file = file
-        self.init = True
+
+    def __init__(self, file_path):
+        self.file_path = file_path
         self.processor = Processor()
-        self.fileCount = 0
-        self.recordCount = 0
         self.database = Database()
 
     def process(self):
-        Log.log.info("process file=" + self.file)
-        if not os.path.exists(self.file):
-            Log.log.fatal("ik kan BAG-bestand of -directory: '" + self.file + "' ech niet vinden")
+        Log.log.info("process: verwerk %s" % self.file_path)
+
+        if not os.path.exists(self.file_path):
+            Log.log.fatal("kan BAG-bestand of -directory: '%s' niet vinden" % self.file_path)
             return
 
-        # TODO: Verwerk een directory
-        if os.path.isdir(self.file) == True:
-            self.readDir()
-        elif zipfile.is_zipfile(self.file):
-            self.zip = zipfile.ZipFile(self.file, "r")
-            self.readzipfile()
+        if os.path.isdir(self.file_path):
+            # Verwerk een directory
+            self.process_dir(self.file_path)
         else:
-            zipfilename = os.path.basename(self.file).split('.')
-            ext = zipfilename[1]
-            if ext == 'xml':
-                xml = self.parseXML(self.file, zipfilename)
-                self.processXML(zipfilename[0],xml)
-            if ext == 'csv':
-                fileobject = open(self.file, "rb")
-                self.processCSV(zipfilename[0], fileobject)
+            # Verwerk een "gewone" file: alleen ZIP, CSV of XML
+            self.process_file(self.file_path)
 
-    def readDir(self):
-        for each in sorted( os.listdir(self.file) ):
-            _file = os.path.join(self.file, each)
-            if zipfile.is_zipfile(_file):
-                self.zip = zipfile.ZipFile(_file, "r")
-                self.readzipfile()
-            else:
-                if os.path.isdir(_file) <> True:
-                    zipfilename = each.split('.')
-                    if len(zipfilename) == 2:
-                        ext = zipfilename[1]
-                        if ext == 'xml':
-                            Log.log.info("==> XML File: " + each)
-                            xml = self.parseXML(_file, zipfilename[0] + "." + zipfilename[1])
-                            self.processXML(zipfilename[0] + "." + zipfilename[1], xml)
-                        if ext == 'csv':
-                            Log.log.info("==> CSV File: " + each)
-                            fileobject = open(_file, "rb")
-                            self.processCSV(zipfilename[0],fileobject)
+    def process_dir(self, file_path):
+        Log.log.info("process_dir: verwerk %s" % file_path)
 
-    def readzipfile(self):
+        # Loop door op naam (datum) gesorteerde bestanden (m.n. i.v.m. mutatie-volgorde)
+        for each in sorted(os.listdir(file_path)):
+            # Volledig pad naar ieder bestand in dir
+            nest_file_path = os.path.join(file_path, each)
 
-        tzip = self.zip
-        namelist = sorted(tzip.namelist())
-        Log.log.info("readzipfile content=" + str(namelist))
-        for naam in namelist:
-            ext = naam.split('.')
-            Log.log.info("readzipfile: " + naam)
-            if len(ext) == 2:
-                if ext[1] == 'xml':
-                    xml = self.parseXML(StringIO(tzip.read(naam)), naam)
-                    self.processXML(naam, xml)
-                elif ext[1] == 'zip':
-                    self.readzipstring(StringIO(tzip.read(naam)))
-                elif ext[1] == 'csv':
-                    Log.log.info(naam)
-                    fileobject = StringIO(tzip.read(naam))
-                    self.processCSV(naam, fileobject)
-                else:
-                    Log.log.info("Negeer: " + naam)
+            # Verwerk alleen file-bestanden (ZIP, CSV, XML)
+            # Subdirectories worden dus niet verwerkt!
+            if not os.path.isdir(nest_file_path):
+                self.process_file(nest_file_path)
 
-    def readzipstring(self,naam):
-        # Log.log.info("readzipstring naam=" + naam)
-        tzip = zipfile.ZipFile(naam, "r")
-        # Log.log.info("readzipstring naam=" + tzip.getinfo().filename)
+    def process_file(self, file_path, file_buf=None):
+        filenaam = os.path.basename(file_path)
+        
+        # Overslaan als bestand al (succesvol) verwerkt is: bijv bij herstart of reeds verwerkte mutaties
+        if self.database.has_log_actie('verwerkt', filenaam, False):
+            Log.log.info("bestand %s is reeds verwerkt ==> overslaan" % filenaam)
+            self.database.log_actie('overgeslagen', filenaam, 'reeds verwerkt', True)
+            return
 
-        namelist = sorted(tzip.namelist())
+        # Verkrijg file-extensie (niet alle files, e.g. README bestand hebben die)
+        ext = None
+        filenaam_arr = filenaam.split('.')
+        if len(filenaam_arr) > 1:
+            ext = filenaam_arr[-1].lower()
 
-        for nested in namelist:
-            Log.log.info("readzipstring: " + nested)
-            ext = nested.split('.')
-            if len(ext) == 2:
-                if ext[1] == 'xml':
-                    xml = self.parseXML(StringIO(tzip.read(nested)), str(nested))
-                    self.processXML(nested, xml)
-                elif ext[1] == 'csv':
-                    Log.log.info(nested)
-                    fileobject = StringIO(tzip.read(nested))
-                    self.processCSV(nested, fileobject)
-                elif ext[1] == 'zip':
-                    Log.log.info(nested)
-                    self.readzipstring(StringIO(tzip.read(nested)))
-                else:
-                    Log.log.info("Negeer: " + nested)
+        # file_buf kan StringIO (stream/buffer) zijn uit zipfile
+        file_resource = file_path
+        if file_buf:
+            file_resource = file_buf
 
-    def parseXML(self, file, naam):
+        # Verwerk naar file-extensie/type
+        if ext == 'xml':
+            self.process_xml(file_resource, filenaam)
+        elif ext == 'csv':
+            self.process_csv(file_resource, filenaam)
+        elif ext == 'zip':
+            self.process_zip(file_resource, filenaam)
+        else:
+            Log.log.info("Negeer bestand: %s" % file_path)
 
-        Log.log.startTimer("parseXML")
-        xml = None
+    def process_xml(self, file_resource, filenaam):
+        Log.log.info("process_xml: verwerk %s " % filenaam)
+
         try:
-            xml = etree.parse(file)
+            # XML doc parsen naar etree object
+            Log.log.startTimer("parseXML")
+            parsed_xml = etree.parse(file_resource)
             bericht = Log.log.endTimer("parseXML")
-            Database().log_actie('xml_parse', naam, bericht)
+            self.database.log_actie('xml_parse', filenaam, bericht)
         except (Exception), e:
-            bericht = Log.log.error("fout %s in XML parsen, bestand=%s" % (str(e), str(naam) ))
-            Database().log_actie('xml_parse', naam, bericht, True)
-        return xml
-    
-    def processXML(self, naam, xml):
-        if not xml:
-            Database().log_actie('xml_processing', naam, 'geen xml document', True)
+            bericht = Log.log.error("fout %s in XML parsen, bestand=%s" % (str(e), filenaam))
+            self.database.log_actie('xml_parse', filenaam, bericht, True)
             return
 
         try:
-            Log.log.info("processXML: " + naam)
-            xmldoc = xml.getroot()
-            # de processor bepaalt of het een extract of een mutatie is
-            self.processor.processDOM(xmldoc, naam)
-            #Log.log.info(document)
+            # Verwerken parsed xml: de Processor bepaalt of het een extract of een mutatie is
+            self.processor.processDOM(parsed_xml.getroot(), filenaam)
+            self.database.log_actie('verwerkt', filenaam, 'verwerkt OK')
         except (Exception), e:
-            bericht = Log.log.error("fout %s in DOM processing, bestand=%s" % (str(e), str(naam) ))
-            Database().log_actie('xml_processing', naam, bericht, True)
+            bericht = Log.log.error("fout %s in XML DOM processing, bestand=%s" % (str(e), filenaam))
+            self.database.log_actie('xml_processing', filenaam, bericht, True)
 
-    def processCSV(self,naam, fileobject):
-        Log.log.info(naam)
-        # TODO: zorg voor de verwerking van het geparste csv bestand
-        # Maak er gemeente_woonplaats objecten van overeenkomstig de nieuwe
-        # tabel woonplaats_gemeente
-        myReader = csv.reader(fileobject, delimiter=';', quoting=csv.QUOTE_NONE)
-        self.processor.processCSV(myReader, naam)
+    def process_csv(self, file_resource, filenaam):
+        Log.log.info("process_csv: verwerk %s " % filenaam)
         
+        file_object = open(file_resource, "rb")
+        csv_reader = csv.reader(file_object, delimiter=';', quoting=csv.QUOTE_NONE)
+        self.processor.processCSV(csv_reader, filenaam)
+        self.database.log_actie('verwerkt', filenaam, 'verwerkt OK')
+
+    def process_zip(self, file_resource, filenaam):
+        Log.log.info("process_zip: verwerk %s " % filenaam)
+
+        zip_file = zipfile.ZipFile(file_resource, "r")
+
+        # Loop door op naam (datum) gesorteerde bestanden (m.n. i.v.m. mutatie-volgorde)
+        for naam in sorted(zip_file.namelist()):
+            self.process_file(naam, StringIO(zip_file.read(naam)))
+
+        self.database.log_actie('verwerkt', filenaam, 'verwerkt OK')
+

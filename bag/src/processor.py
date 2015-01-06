@@ -189,7 +189,7 @@ class Processor:
 
             # Opslaan als meta info
             self.database.log_meta("extract_datum", extract_datum)
-            Database().log_actie('n.v.t', self.naam, 'verwerken Leverings doc')
+            Database().log_actie('verwerkt', self.naam, 'verwerken Leverings doc')
         else:
             bericht = Log.log.info("Niet-verwerkbare XML node: " + doc_tag)
             Database().log_actie('n.v.t', self.naam, bericht)
@@ -207,7 +207,6 @@ class Processor:
             bericht = self.dbStoreCopy(mode)
 
         Database().log_actie('insert_database', self.naam, bericht)
-
 
     def dbStoreInsert(self, mode):
 

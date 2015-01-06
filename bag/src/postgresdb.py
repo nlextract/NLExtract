@@ -76,6 +76,11 @@ class Database:
             self.uitvoeren('SET search_path TO %s,public' % self.config.schema)
             # self.connection.close()
 
+    def has_log_actie(self, actie, bestand="n.v.t", error=False):
+        sql = "SELECT * FROM nlx_bag_log WHERE bestand = %s AND actie = %s AND error = %s"
+        parameters = (bestand, actie, error)
+        return self.tx_uitvoeren(sql, parameters)
+
     def log_actie(self, actie, bestand="n.v.t", bericht='geen', error=False):
         sql  = "INSERT INTO nlx_bag_log(actie, bestand, error, bericht) VALUES (%s, %s, %s, %s)"
         parameters = (actie, bestand, error, bericht)

@@ -1,31 +1,38 @@
 try:
-  from lxml import etree
-  print("running with lxml.etree")
+    from lxml import etree
+
+    print("running with lxml.etree")
 except ImportError:
-  try:
-    # Python 2.5
-    import xml.etree.cElementTree as etree
-    print("running with cElementTree on Python 2.5+")
-  except ImportError:
     try:
-      # Python 2.5
-      import xml.etree.ElementTree as etree
-      print("running with ElementTree on Python 2.5+")
+        # Python 2.5
+        import xml.etree.cElementTree as etree
+
+        print("running with cElementTree on Python 2.5+")
     except ImportError:
-      try:
-        # normal cElementTree install
-        import cElementTree as etree
-        print("running with cElementTree")
-      except ImportError:
         try:
-          # normal ElementTree install
-          import elementtree.ElementTree as etree
-          print("running with ElementTree")
+            # Python 2.5
+            import xml.etree.ElementTree as etree
+
+            print("running with ElementTree on Python 2.5+")
         except ImportError:
-          print("Failed to import ElementTree from any known place")
+            try:
+                # normal cElementTree install
+                import cElementTree as etree
+
+                print("running with cElementTree")
+            except ImportError:
+                try:
+                    # normal ElementTree install
+                    import elementtree.ElementTree as etree
+
+                    print("running with ElementTree")
+                except ImportError:
+                    print("Failed to import ElementTree from any known place")
+
 
 def stripschema(tag):
     return tag.split('}')[-1]
+
 
 def tagVolledigeNS(old, nsmap):
     tags = []
@@ -35,7 +42,7 @@ def tagVolledigeNS(old, nsmap):
     return '/'.join(tags)
 
 # http://wiki.tei-c.org/index.php/Remove-Namespaces.xsl
-xslt_strip_ns='''<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+xslt_strip_ns = '''<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 <xsl:output method="xml" indent="no"/>
 
 <xsl:template match="/|comment()|processing-instruction()">
@@ -58,14 +65,14 @@ xslt_strip_ns='''<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999
 </xsl:stylesheet>
 '''
 
-xslt_doc=False
+xslt_doc = False
 
 # Haal alle Namespaces recursief uit een node
 # Handig om bijv. XPath expressies los te laten
 def stripNS(node):
     global xslt_doc, xslt_strip_ns
     if not xslt_doc:
-        xslt_doc=etree.fromstring(xslt_strip_ns)
+        xslt_doc = etree.fromstring(xslt_strip_ns)
 
-    transform=etree.XSLT(xslt_doc)
+    transform = etree.XSLT(xslt_doc)
     return transform(node)
