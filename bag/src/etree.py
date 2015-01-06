@@ -31,8 +31,12 @@ except ImportError:
 
 
 def stripschema(tag):
-    return tag.split('}')[-1]
-
+    try:
+        # Niet alle tags hebben NS
+        tag = tag.split('}')[-1]
+    except:
+        pass
+    return tag
 
 def tagVolledigeNS(old, nsmap):
     tags = []

@@ -478,6 +478,7 @@
                     <bag_LVC:identificatie>0855300000001319</bag_LVC:identificatie>
                 </bag_LVC:gerelateerdeOpenbareRuimte>
             </bag_LVC:Nummeraanduiding>
+            <!-- commentaar -->
             <bag_LVC:Nummeraanduiding>
                 <bag_LVC:identificatie>0010200000101405</bag_LVC:identificatie>
                 <bag_LVC:aanduidingRecordInactief>N</bag_LVC:aanduidingRecordInactief>

@@ -552,10 +552,42 @@
                     <bag_LVC:inOnderzoek>N</bag_LVC:inOnderzoek>
                     <bag_LVC:bron>
                         <bagtype:documentdatum>19731126</bagtype:documentdatum>
-                        <bagtype:documentnummer>192/1973
-                               192/1973</bagtype:documentnummer>
+                        <bagtype:documentnummer>192/1973 192/1973</bagtype:documentnummer>
                     </bag_LVC:bron>
                 </bag_LVC:Pand>
+
+                <!-- Pand waarop mutatie op pandstatus gedaan wordt van "Bouwvergunning verleend" naar "Bouw gestart". -->
+                <bag_LVC:Pand>
+                    <bag_LVC:identificatie>1901100000021428</bag_LVC:identificatie>
+                    <bag_LVC:aanduidingRecordInactief>N</bag_LVC:aanduidingRecordInactief>
+                    <bag_LVC:aanduidingRecordCorrectie>0</bag_LVC:aanduidingRecordCorrectie>
+                    <bag_LVC:officieel>N</bag_LVC:officieel>
+                    <bag_LVC:pandGeometrie>
+                        <gml:Polygon srsName="urn:ogc:def:crs:EPSG::28992">
+                            <gml:exterior>
+                                <gml:LinearRing>
+                                    <gml:posList srsDimension="3" count="11">112117.553 454594.381 0.0 112121.536
+                                        454606.65 0.0 112115.825 454608.504 0.0 112114.728 454605.128 0.0 112112.065
+                                        454605.992 0.0 112112.337 454606.829 0.0 112112.242 454606.86 0.0 112109.833
+                                        454599.442 0.0 112112.591 454598.546 0.0 112111.841 454596.235 0.0
+                                        112117.553 454594.381 0.0
+                                    </gml:posList>
+                                </gml:LinearRing>
+                            </gml:exterior>
+                        </gml:Polygon>
+                    </bag_LVC:pandGeometrie>
+                    <bag_LVC:bouwjaar>2014</bag_LVC:bouwjaar>
+                    <bag_LVC:pandstatus>Bouwvergunning verleend</bag_LVC:pandstatus>
+                    <bag_LVC:tijdvakgeldigheid>
+                        <bagtype:begindatumTijdvakGeldigheid>2014022100000001</bagtype:begindatumTijdvakGeldigheid>
+                    </bag_LVC:tijdvakgeldigheid>
+                    <bag_LVC:inOnderzoek>N</bag_LVC:inOnderzoek>
+                    <bag_LVC:bron>
+                        <bagtype:documentdatum>20140221</bagtype:documentdatum>
+                        <bagtype:documentnummer>2014029191</bagtype:documentnummer>
+                    </bag_LVC:bron>
+                </bag_LVC:Pand>
+
             </product_LVC:LVC-product>
         </xb:producten>
     </xb:antwoord>
