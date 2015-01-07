@@ -20,6 +20,18 @@ except:
     from StringIO import StringIO
 
 
+def fname_key(filenaam):
+    # tbv sorteren: mutatie bestand: .zip of .xml op datum, voor andere bestanden maakt het niet uit
+    if not filenaam.startswith('9999MUT'):
+        return filenaam
+
+    # Draai datum velden om naar YYYYMMDD, bijv:
+    # 9999MUT14122014-15122014.zip wordt 9999MUT20141214-20141215.zip
+    # 9999MUT02012015-03012015-000002.xml wordt 9999MUT20150102-20150103-000002.xml
+    start_datum = filenaam[11:15] + filenaam[9:11] + filenaam[7:9]
+    eind_datum = filenaam[20:24] + filenaam[18:20] + filenaam[16:18]
+    return filenaam[0:7] + start_datum + '-' + eind_datum + filenaam[24:]
+
 class BAGFileReader:
 
     def __init__(self, file_path):
@@ -45,7 +57,7 @@ class BAGFileReader:
         Log.log.info("process_dir: verwerk %s" % file_path)
 
         # Loop door op naam (datum) gesorteerde bestanden (m.n. i.v.m. mutatie-volgorde)
-        for each in sorted(os.listdir(file_path)):
+        for each in sorted(os.listdir(file_path), key=fname_key):
             # Volledig pad naar ieder bestand in dir
             nest_file_path = os.path.join(file_path, each)
 
@@ -62,6 +74,23 @@ class BAGFileReader:
             Log.log.info("bestand %s is reeds verwerkt ==> overslaan" % filenaam)
             self.database.log_actie('overgeslagen', filenaam, 'reeds verwerkt', True)
             return
+
+        # Mutatie-bestand overslaan indien datum eerder dan stand-datum BAG
+        if filenaam.startswith('9999MUT'):
+
+            # Draai eerste datum veld om naar YYYYMMDD, bijv:
+            # 9999MUT14122014-15122014.zip wordt 20141214
+            # 9999MUT02012015-03012015-000002.xml wordt 20150102
+            mutatie_start_datum = filenaam[11:15] + filenaam[9:11] + filenaam[7:9]
+            mutatie_eind_datum = filenaam[20:24] + filenaam[18:20] + filenaam[16:18]
+
+            # stand datum BAG moet voor of op start-datum mutatie bestand liggen EN
+            # voor mutatie einddatum
+            sql = "SELECT * FROM nlx_bag_info WHERE sleutel = 'extract_datum' AND waarde <= '%s' AND waarde < '%s'" % (mutatie_start_datum, mutatie_eind_datum)
+            if self.database.tx_uitvoeren(sql) != 1:
+                Log.log.info("mutatiebestand %s is van eerdere datum-range dan BAG ==> overslaan" % filenaam)
+                self.database.log_actie('overgeslagen', filenaam, 'mutatie datum-range voor BAG datum', True)
+                return
 
         # Verkrijg file-extensie (niet alle files, e.g. README bestand hebben die)
         ext = None
@@ -120,7 +149,7 @@ class BAGFileReader:
         zip_file = zipfile.ZipFile(file_resource, "r")
 
         # Loop door op naam (datum) gesorteerde bestanden (m.n. i.v.m. mutatie-volgorde)
-        for naam in sorted(zip_file.namelist()):
+        for naam in sorted(zip_file.namelist(), key=fname_key):
             self.process_file(naam, StringIO(zip_file.read(naam)))
 
         self.database.log_actie('verwerkt', filenaam, 'verwerkt OK')

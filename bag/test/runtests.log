@@ -1,5 +1,80 @@
 DEBUG: Configuratiebestand is /Users/just/project/ogg/nlextract/git/bag/extract.conf
-Waarschuwing! met dit commando worden database tabellen opnieuw aangemaakt. Doorgaan? ([N]/j): INFO: Start 2015-01-06 18:06:04
+Waarschuwing! met dit commando worden database tabellen opnieuw aangemaakt. Doorgaan? ([N]/j): INFO: Start 2015-01-07 17:16:38
+INFO: alle database tabellen weggooien en opnieuw aanmaken...
+INFO: Probeer te verbinden...
+DEBUG: verbonden met de database 'bag', schema 'public', connId=5
+INFO: database script uitvoeren...
+DEBUG: database commit ok connId=5
+DEBUG: database connectie 5 gesloten
+INFO: script is uitgevoerd
+INFO: Initieele data (bijv. gemeenten/provincies) inlezen...
+running with lxml.etree
+INFO: process: verwerk /Users/just/project/ogg/nlextract/git/bag/db/data
+INFO: process_dir: verwerk /Users/just/project/ogg/nlextract/git/bag/db/data
+DEBUG: verbonden met de database 'bag', schema 'public', connId=5
+DEBUG: database commit ok connId=5
+INFO: Negeer bestand: /Users/just/project/ogg/nlextract/git/bag/db/data/.DS_Store
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: Negeer bestand: /Users/just/project/ogg/nlextract/git/bag/db/data/2012gemeentennumeriekopgemeentecode.xls
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: Negeer bestand: /Users/just/project/ogg/nlextract/git/bag/db/data/README
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_csv: verwerk cbs-gemeentenperprovincie-2014.csv 
+INFO: Insert objectCount=403
+DEBUG: verbonden met de database 'bag', schema 'public', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: verbonden met de database 'bag', schema 'public', connId=8
+DEBUG: database commit ok connId=8
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_zip: verwerk gem-wpl-relatie-03-lvc-xml-07032014.zip 
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk GEM-WPL-RELATIE-08032014-000001.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+INFO: START: objCreate
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+INFO: END: objCreate - objs=7589 tijd=2.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: running with cStringIO
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=7589 gewijzigd=0 rels=0 tijd=1.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'public', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: Views aanmaken...
+INFO: SQL van file = /Users/just/project/ogg/nlextract/git/bag/db/script/bag-view-actueel-bestaand.sql uitvoeren...
+DEBUG: verbonden met de database 'bag', schema 'public', connId=6
+DEBUG: database commit ok connId=6
+DEBUG: database connectie 6 gesloten
+INFO: SQL uitgevoerd OK
+INFO: End 2015-01-07 17:16:42
+DEBUG: Configuratiebestand is /Users/just/project/ogg/nlextract/git/bag/extract.conf
+INFO: Start 2015-01-07 17:16:42
 INFO: alle database tabellen weggooien en opnieuw aanmaken...
 INFO: Probeer te verbinden...
 DEBUG: verbonden met de database 'bag', schema 'public', connId=5
@@ -72,85 +147,10 @@ DEBUG: verbonden met de database 'bag', schema 'public', connId=6
 DEBUG: database commit ok connId=6
 DEBUG: database connectie 6 gesloten
 INFO: SQL uitgevoerd OK
-INFO: End 2015-01-06 18:06:10
-DEBUG: Configuratiebestand is /Users/just/project/ogg/nlextract/git/bag/extract.conf
-INFO: Start 2015-01-06 18:06:10
-INFO: alle database tabellen weggooien en opnieuw aanmaken...
-INFO: Probeer te verbinden...
-DEBUG: verbonden met de database 'bag', schema 'public', connId=5
-INFO: database script uitvoeren...
-DEBUG: database commit ok connId=5
-DEBUG: database connectie 5 gesloten
-INFO: script is uitgevoerd
-INFO: Initieele data (bijv. gemeenten/provincies) inlezen...
-running with lxml.etree
-INFO: process: verwerk /Users/just/project/ogg/nlextract/git/bag/db/data
-INFO: process_dir: verwerk /Users/just/project/ogg/nlextract/git/bag/db/data
-DEBUG: verbonden met de database 'bag', schema 'public', connId=5
-DEBUG: database commit ok connId=5
-INFO: Negeer bestand: /Users/just/project/ogg/nlextract/git/bag/db/data/.DS_Store
-DEBUG: reusing db connection
-DEBUG: database commit ok connId=5
-INFO: Negeer bestand: /Users/just/project/ogg/nlextract/git/bag/db/data/2012gemeentennumeriekopgemeentecode.xls
-DEBUG: reusing db connection
-DEBUG: database commit ok connId=5
-INFO: Negeer bestand: /Users/just/project/ogg/nlextract/git/bag/db/data/README
-DEBUG: reusing db connection
-DEBUG: database commit ok connId=5
-INFO: process_csv: verwerk cbs-gemeentenperprovincie-2014.csv 
-INFO: Insert objectCount=403
-DEBUG: verbonden met de database 'bag', schema 'public', connId=7
-DEBUG: database commit ok connId=7
-DEBUG: verbonden met de database 'bag', schema 'public', connId=8
-DEBUG: database commit ok connId=8
-DEBUG: reusing db connection
-DEBUG: database commit ok connId=5
-DEBUG: reusing db connection
-DEBUG: database commit ok connId=5
-INFO: process_zip: verwerk gem-wpl-relatie-03-lvc-xml-07032014.zip 
-DEBUG: reusing db connection
-DEBUG: database commit ok connId=5
-INFO: process_xml: verwerk GEM-WPL-RELATIE-08032014-000001.xml 
-INFO: START: parseXML
-INFO: END: parseXML tijd=0.0 sec
-DEBUG: reusing db connection
-DEBUG: database commit ok connId=5
-DEBUG: reusing db connection
-DEBUG: database commit ok connId=7
-DEBUG: reusing db connection
-DEBUG: database commit ok connId=7
-INFO: START: objCreate
-DEBUG: reusing db connection
-DEBUG: database commit ok connId=7
-DEBUG: reusing db connection
-DEBUG: database commit ok connId=7
-INFO: END: objCreate - objs=7589 tijd=3.0 sec
-DEBUG: reusing db connection
-DEBUG: database commit ok connId=7
-INFO: START: dbStart mode = Nieuw
-INFO: running with cStringIO
-INFO: START: dbStart mode = Nieuw
-DEBUG: reusing db connection
-DEBUG: database commit ok connId=7
-DEBUG: database connectie 7 gesloten
-INFO: END: dbEnd - nieuw=7589 gewijzigd=0 rels=0 tijd=0.0 sec
-INFO: ------
-DEBUG: verbonden met de database 'bag', schema 'public', connId=7
-DEBUG: database commit ok connId=7
-DEBUG: reusing db connection
-DEBUG: database commit ok connId=5
-DEBUG: reusing db connection
-DEBUG: database commit ok connId=5
-INFO: Views aanmaken...
-INFO: SQL van file = /Users/just/project/ogg/nlextract/git/bag/db/script/bag-view-actueel-bestaand.sql uitvoeren...
-DEBUG: verbonden met de database 'bag', schema 'public', connId=6
-DEBUG: database commit ok connId=6
-DEBUG: database connectie 6 gesloten
-INFO: SQL uitgevoerd OK
-INFO: End 2015-01-06 18:06:14
+INFO: End 2015-01-07 17:16:47
 DEBUG: Configuratiebestand is /Users/just/project/ogg/nlextract/git/bag/extract.conf
 running with lxml.etree
-INFO: Start 2015-01-06 18:06:15
+INFO: Start 2015-01-07 17:16:47
 DEBUG: verbonden met de database 'bag', schema 'public', connId=5
 DEBUG: database commit ok connId=5
 INFO: process: verwerk /Users/just/project/ogg/nlextract/git/bag/test/data
@@ -205,7 +205,7 @@ DEBUG: verbonden met de database 'bag', schema 'public', connId=6
 DEBUG: database commit ok connId=6
 DEBUG: reusing db connection
 DEBUG: database commit ok connId=6
-/Users/just/project/ogg/nlextract/git/bag/src/etree.py:74: FutureWarning: The behavior of this method will change in future versions. Use specific 'len(elem)' or 'elem is not None' test instead.
+/Users/just/project/ogg/nlextract/git/bag/src/etree.py:78: FutureWarning: The behavior of this method will change in future versions. Use specific 'len(elem)' or 'elem is not None' test instead.
   if not xslt_doc:
 DEBUG: reusing db connection
 DEBUG: database commit ok connId=6
@@ -302,7 +302,7 @@ INFO: END: parseXML tijd=0.0 sec
 DEBUG: reusing db connection
 DEBUG: database commit ok connId=5
 INFO: START: objCreate
-INFO: END: objCreate - objs=18 tijd=0.0 sec
+INFO: END: objCreate - objs=19 tijd=0.0 sec
 DEBUG: verbonden met de database 'bag', schema 'public', connId=6
 DEBUG: database commit ok connId=6
 INFO: START: dbStart mode = Nieuw
@@ -311,7 +311,7 @@ INFO: START: dbStart mode = Nieuw
 DEBUG: reusing db connection
 DEBUG: database commit ok connId=6
 DEBUG: database connectie 6 gesloten
-INFO: END: dbEnd - nieuw=18 gewijzigd=0 rels=0 tijd=0.0 sec
+INFO: END: dbEnd - nieuw=19 gewijzigd=0 rels=0 tijd=0.0 sec
 INFO: ------
 DEBUG: verbonden met de database 'bag', schema 'public', connId=6
 DEBUG: database commit ok connId=6
@@ -388,10 +388,10 @@ DEBUG: reusing db connection
 DEBUG: database commit ok connId=5
 DEBUG: verbonden met de database 'bag', schema 'public', connId=6
 DEBUG: database commit ok connId=6
-INFO: End 2015-01-06 18:06:18
+INFO: End 2015-01-07 17:16:51
 DEBUG: Configuratiebestand is /Users/just/project/ogg/nlextract/git/bag/extract.conf
 running with lxml.etree
-INFO: Start 2015-01-06 18:06:19
+INFO: Start 2015-01-07 17:16:51
 DEBUG: verbonden met de database 'bag', schema 'public', connId=5
 DEBUG: database commit ok connId=5
 INFO: process: verwerk /Users/just/project/ogg/nlextract/git/bag/test/datadubbel
@@ -444,9 +444,9 @@ DEBUG: reusing db connection
 DEBUG: database commit ok connId=5
 DEBUG: verbonden met de database 'bag', schema 'public', connId=6
 DEBUG: database commit ok connId=6
-INFO: End 2015-01-06 18:06:19
+INFO: End 2015-01-07 17:16:51
 DEBUG: Configuratiebestand is /Users/just/project/ogg/nlextract/git/bag/extract.conf
-INFO: Start 2015-01-06 18:06:19
+INFO: Start 2015-01-07 17:16:51
 DEBUG: verbonden met de database 'bag', schema 'public', connId=5
 DEBUG: database commit ok connId=5
 INFO: SQL van file = /Users/just/project/ogg/nlextract/git/bag/db/script/ontdubbel.sql uitvoeren...
@@ -456,18 +456,57 @@ DEBUG: database connectie 5 gesloten
 INFO: SQL uitgevoerd OK
 DEBUG: verbonden met de database 'bag', schema 'public', connId=5
 DEBUG: database commit ok connId=5
-INFO: End 2015-01-06 18:06:19
+INFO: End 2015-01-07 17:16:51
 START TEST: Mutaties
 DEBUG: Configuratiebestand is /Users/just/project/ogg/nlextract/git/bag/extract.conf
 running with lxml.etree
-INFO: Start 2015-01-06 18:06:19
+INFO: Start 2015-01-07 17:16:52
 DEBUG: verbonden met de database 'bag', schema 'public', connId=5
 DEBUG: database commit ok connId=5
 INFO: process: verwerk /Users/just/project/ogg/nlextract/git/bag/test/mutatie
 INFO: process_dir: verwerk /Users/just/project/ogg/nlextract/git/bag/test/mutatie
 DEBUG: verbonden met de database 'bag', schema 'public', connId=5
 DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: mutatiebestand 9999MUT01042011-02042011-000001.xml is van eerdere datum-range dan BAG ==> overslaan
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: mutatiebestand 9999MUT01042011-02042011-000002.xml is van eerdere datum-range dan BAG ==> overslaan
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: mutatiebestand 9999MUT03042011-04042011-000001.xml is van eerdere datum-range dan BAG ==> overslaan
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: mutatiebestand 9999MUT04042011-05042011-000001.xml is van eerdere datum-range dan BAG ==> overslaan
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: mutatiebestand 9999MUT14122014-15122014-000001.xml is van eerdere datum-range dan BAG ==> overslaan
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
 INFO: process_zip: verwerk 9999MUT01012015-02012015.zip 
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
 DEBUG: reusing db connection
 DEBUG: database commit ok connId=5
 INFO: process_xml: verwerk 9999MUT01012015-02012015-000001.xml 
@@ -492,121 +531,21 @@ DEBUG: reusing db connection
 DEBUG: database commit ok connId=5
 DEBUG: reusing db connection
 DEBUG: database commit ok connId=5
-INFO: process_xml: verwerk 9999MUT01042011-02042011-000001.xml 
-INFO: START: parseXML
-INFO: END: parseXML tijd=0.0 sec
-DEBUG: reusing db connection
-DEBUG: database commit ok connId=5
-INFO: START: objCreate (mutaties)
-/Users/just/project/ogg/nlextract/git/bag/src/etree.py:74: FutureWarning: The behavior of this method will change in future versions. Use specific 'len(elem)' or 'elem is not None' test instead.
-  if not xslt_doc:
-INFO: END: objCreate (mutaties) - objs=12 tijd=0.0 sec
-DEBUG: verbonden met de database 'bag', schema 'public', connId=6
-DEBUG: database commit ok connId=6
-INFO: START: dbStart mode = Mutatie
-DEBUG: reusing db connection
-DEBUG: database commit ok connId=7
-INFO: END: dbEnd - nieuw=11 gewijzigd=1 rels=0 tijd=0.0 sec
-INFO: ------
-DEBUG: verbonden met de database 'bag', schema 'public', connId=6
-DEBUG: database commit ok connId=6
-DEBUG: reusing db connection
-DEBUG: database commit ok connId=5
-DEBUG: reusing db connection
-DEBUG: database commit ok connId=5
-INFO: process_xml: verwerk 9999MUT01042011-02042011-000002.xml 
-INFO: START: parseXML
-INFO: END: parseXML tijd=0.0 sec
-DEBUG: reusing db connection
-DEBUG: database commit ok connId=5
-INFO: START: objCreate (mutaties)
-INFO: END: objCreate (mutaties) - objs=1 tijd=0.0 sec
-DEBUG: verbonden met de database 'bag', schema 'public', connId=6
-DEBUG: database commit ok connId=6
-INFO: START: dbStart mode = Mutatie
-DEBUG: reusing db connection
-DEBUG: database commit ok connId=7
-INFO: END: dbEnd - nieuw=1 gewijzigd=0 rels=0 tijd=0.0 sec
-INFO: ------
-DEBUG: verbonden met de database 'bag', schema 'public', connId=6
-DEBUG: database commit ok connId=6
-DEBUG: reusing db connection
-DEBUG: database commit ok connId=5
-DEBUG: reusing db connection
-DEBUG: database commit ok connId=5
-INFO: process_xml: verwerk 9999MUT03042011-04042011-000001.xml 
-INFO: START: parseXML
-INFO: END: parseXML tijd=0.0 sec
-DEBUG: reusing db connection
-DEBUG: database commit ok connId=5
-INFO: START: objCreate (mutaties)
-INFO: END: objCreate (mutaties) - objs=0 tijd=0.0 sec
-DEBUG: verbonden met de database 'bag', schema 'public', connId=6
-DEBUG: database commit ok connId=6
-INFO: START: dbStart mode = Mutatie
-DEBUG: reusing db connection
-DEBUG: database commit ok connId=7
-INFO: END: dbEnd - nieuw=0 gewijzigd=0 rels=0 tijd=0.0 sec
-INFO: ------
-DEBUG: verbonden met de database 'bag', schema 'public', connId=6
-DEBUG: database commit ok connId=6
-DEBUG: reusing db connection
-DEBUG: database commit ok connId=5
-DEBUG: reusing db connection
-DEBUG: database commit ok connId=5
-INFO: process_xml: verwerk 9999MUT04042011-05042011-000001.xml 
-INFO: START: parseXML
-INFO: END: parseXML tijd=0.0 sec
-DEBUG: reusing db connection
-DEBUG: database commit ok connId=5
-INFO: START: objCreate (mutaties)
-INFO: END: objCreate (mutaties) - objs=211 tijd=0.0 sec
-DEBUG: verbonden met de database 'bag', schema 'public', connId=6
-DEBUG: database commit ok connId=6
-INFO: START: dbStart mode = Mutatie
-DEBUG: reusing db connection
-DEBUG: database commit ok connId=7
-INFO: END: dbEnd - nieuw=141 gewijzigd=70 rels=257 tijd=0.0 sec
-INFO: ------
-DEBUG: verbonden met de database 'bag', schema 'public', connId=6
-DEBUG: database commit ok connId=6
-DEBUG: reusing db connection
-DEBUG: database commit ok connId=5
-DEBUG: reusing db connection
-DEBUG: database commit ok connId=5
-INFO: process_xml: verwerk 9999MUT14122014-15122014-000001.xml 
-INFO: START: parseXML
-INFO: END: parseXML tijd=0.0 sec
-DEBUG: reusing db connection
-DEBUG: database commit ok connId=5
-INFO: START: objCreate (mutaties)
-INFO: END: objCreate (mutaties) - objs=14 tijd=0.0 sec
-DEBUG: verbonden met de database 'bag', schema 'public', connId=6
-DEBUG: database commit ok connId=6
-INFO: START: dbStart mode = Mutatie
-DEBUG: reusing db connection
-DEBUG: database commit ok connId=7
-INFO: END: dbEnd - nieuw=7 gewijzigd=7 rels=15 tijd=0.0 sec
-INFO: ------
-DEBUG: verbonden met de database 'bag', schema 'public', connId=6
-DEBUG: database commit ok connId=6
-DEBUG: reusing db connection
-DEBUG: database commit ok connId=5
-DEBUG: reusing db connection
-DEBUG: database commit ok connId=5
 INFO: process_xml: verwerk test-mutaties.xml 
 INFO: START: parseXML
 INFO: END: parseXML tijd=0.0 sec
 DEBUG: reusing db connection
 DEBUG: database commit ok connId=5
 INFO: START: objCreate (mutaties)
-INFO: END: objCreate (mutaties) - objs=3 tijd=0.0 sec
+/Users/just/project/ogg/nlextract/git/bag/src/etree.py:78: FutureWarning: The behavior of this method will change in future versions. Use specific 'len(elem)' or 'elem is not None' test instead.
+  if not xslt_doc:
+INFO: END: objCreate (mutaties) - objs=5 tijd=0.0 sec
 DEBUG: verbonden met de database 'bag', schema 'public', connId=6
 DEBUG: database commit ok connId=6
 INFO: START: dbStart mode = Mutatie
 DEBUG: reusing db connection
 DEBUG: database commit ok connId=7
-INFO: END: dbEnd - nieuw=0 gewijzigd=3 rels=16 tijd=0.0 sec
+INFO: END: dbEnd - nieuw=1 gewijzigd=4 rels=16 tijd=0.0 sec
 INFO: ------
 DEBUG: verbonden met de database 'bag', schema 'public', connId=6
 DEBUG: database commit ok connId=6
@@ -614,44 +553,54 @@ DEBUG: reusing db connection
 DEBUG: database commit ok connId=5
 DEBUG: verbonden met de database 'bag', schema 'public', connId=6
 DEBUG: database commit ok connId=6
-INFO: End 2015-01-06 18:06:20
+INFO: End 2015-01-07 17:16:52
 END TEST: Mutaties
 START TEST: Mutaties : slechts eenmaal verwerken
 DEBUG: Configuratiebestand is /Users/just/project/ogg/nlextract/git/bag/extract.conf
 running with lxml.etree
-INFO: Start 2015-01-06 18:06:20
+INFO: Start 2015-01-07 17:16:52
 DEBUG: verbonden met de database 'bag', schema 'public', connId=5
 DEBUG: database commit ok connId=5
 INFO: process: verwerk /Users/just/project/ogg/nlextract/git/bag/test/mutatie
 INFO: process_dir: verwerk /Users/just/project/ogg/nlextract/git/bag/test/mutatie
 DEBUG: verbonden met de database 'bag', schema 'public', connId=5
 DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: mutatiebestand 9999MUT01042011-02042011-000001.xml is van eerdere datum-range dan BAG ==> overslaan
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: mutatiebestand 9999MUT01042011-02042011-000002.xml is van eerdere datum-range dan BAG ==> overslaan
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: mutatiebestand 9999MUT03042011-04042011-000001.xml is van eerdere datum-range dan BAG ==> overslaan
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: mutatiebestand 9999MUT04042011-05042011-000001.xml is van eerdere datum-range dan BAG ==> overslaan
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: mutatiebestand 9999MUT14122014-15122014-000001.xml is van eerdere datum-range dan BAG ==> overslaan
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
 INFO: bestand 9999MUT01012015-02012015.zip is reeds verwerkt ==> overslaan
-DEBUG: reusing db connection
-DEBUG: database commit ok connId=5
-DEBUG: reusing db connection
-DEBUG: database commit ok connId=5
-INFO: bestand 9999MUT01042011-02042011-000001.xml is reeds verwerkt ==> overslaan
-DEBUG: reusing db connection
-DEBUG: database commit ok connId=5
-DEBUG: reusing db connection
-DEBUG: database commit ok connId=5
-INFO: bestand 9999MUT01042011-02042011-000002.xml is reeds verwerkt ==> overslaan
-DEBUG: reusing db connection
-DEBUG: database commit ok connId=5
-DEBUG: reusing db connection
-DEBUG: database commit ok connId=5
-INFO: bestand 9999MUT03042011-04042011-000001.xml is reeds verwerkt ==> overslaan
-DEBUG: reusing db connection
-DEBUG: database commit ok connId=5
-DEBUG: reusing db connection
-DEBUG: database commit ok connId=5
-INFO: bestand 9999MUT04042011-05042011-000001.xml is reeds verwerkt ==> overslaan
-DEBUG: reusing db connection
-DEBUG: database commit ok connId=5
-DEBUG: reusing db connection
-DEBUG: database commit ok connId=5
-INFO: bestand 9999MUT14122014-15122014-000001.xml is reeds verwerkt ==> overslaan
 DEBUG: reusing db connection
 DEBUG: database commit ok connId=5
 DEBUG: reusing db connection
@@ -661,10 +610,10 @@ DEBUG: reusing db connection
 DEBUG: database commit ok connId=5
 DEBUG: verbonden met de database 'bag', schema 'public', connId=6
 DEBUG: database commit ok connId=6
-INFO: End 2015-01-06 18:06:20
+INFO: End 2015-01-07 17:16:52
 END TEST: Mutaties : slechts eenmaal verwerken
 DEBUG: Configuratiebestand is /Users/just/project/ogg/nlextract/git/bag/extract.conf
-INFO: Start 2015-01-06 18:06:20
+INFO: Start 2015-01-07 17:16:52
 DEBUG: verbonden met de database 'bag', schema 'public', connId=5
 DEBUG: database commit ok connId=5
 INFO: SQL van file = /Users/just/project/ogg/nlextract/git/bag/db/script/gemeente-provincie-tabel.sql uitvoeren...
@@ -674,9 +623,9 @@ DEBUG: database connectie 5 gesloten
 INFO: SQL uitgevoerd OK
 DEBUG: verbonden met de database 'bag', schema 'public', connId=5
 DEBUG: database commit ok connId=5
-INFO: End 2015-01-06 18:06:20
+INFO: End 2015-01-07 17:16:52
 DEBUG: Configuratiebestand is /Users/just/project/ogg/nlextract/git/bag/extract.conf
-INFO: Start 2015-01-06 18:06:20
+INFO: Start 2015-01-07 17:16:52
 DEBUG: verbonden met de database 'bag', schema 'public', connId=5
 DEBUG: database commit ok connId=5
 INFO: SQL van file = /Users/just/project/ogg/nlextract/git/bag/db/script/adres-tabel.sql uitvoeren...
@@ -686,9 +635,9 @@ DEBUG: database connectie 5 gesloten
 INFO: SQL uitgevoerd OK
 DEBUG: verbonden met de database 'bag', schema 'public', connId=5
 DEBUG: database commit ok connId=5
-INFO: End 2015-01-06 18:06:21
+INFO: End 2015-01-07 17:16:52
 DEBUG: Configuratiebestand is /Users/just/project/ogg/nlextract/git/bag/extract.conf
-INFO: Start 2015-01-06 18:06:21
+INFO: Start 2015-01-07 17:16:53
 DEBUG: verbonden met de database 'bag', schema 'public', connId=5
 DEBUG: database commit ok connId=5
 INFO: SQL van file = /Users/just/project/ogg/nlextract/git/bag/db/script/geocode/geocode-tabellen.sql uitvoeren...
@@ -698,9 +647,9 @@ DEBUG: database connectie 5 gesloten
 INFO: SQL uitgevoerd OK
 DEBUG: verbonden met de database 'bag', schema 'public', connId=5
 DEBUG: database commit ok connId=5
-INFO: End 2015-01-06 18:06:21
+INFO: End 2015-01-07 17:16:53
 DEBUG: Configuratiebestand is /Users/just/project/ogg/nlextract/git/bag/extract.conf
-INFO: Start 2015-01-06 18:06:21
+INFO: Start 2015-01-07 17:16:53
 DEBUG: verbonden met de database 'bag', schema 'public', connId=5
 DEBUG: database commit ok connId=5
 INFO: SQL van file = /Users/just/project/ogg/nlextract/git/bag/db/script/geocode/geocode-functies.sql uitvoeren...
@@ -710,9 +659,9 @@ DEBUG: database connectie 5 gesloten
 INFO: SQL uitgevoerd OK
 DEBUG: verbonden met de database 'bag', schema 'public', connId=5
 DEBUG: database commit ok connId=5
-INFO: End 2015-01-06 18:06:21
+INFO: End 2015-01-07 17:16:53
 DEBUG: Configuratiebestand is /Users/just/project/ogg/nlextract/git/bag/extract.conf
-INFO: Start 2015-01-06 18:06:21
+INFO: Start 2015-01-07 17:16:53
 DEBUG: verbonden met de database 'bag', schema 'public', connId=5
 DEBUG: database commit ok connId=5
 INFO: SQL van file = /Users/just/project/ogg/nlextract/git/bag/test/geocode/geocode-functies-test.sql uitvoeren...
@@ -722,4 +671,4 @@ DEBUG: database connectie 5 gesloten
 INFO: SQL uitgevoerd OK
 DEBUG: verbonden met de database 'bag', schema 'public', connId=5
 DEBUG: database commit ok connId=5
-INFO: End 2015-01-06 18:06:21
+INFO: End 2015-01-07 17:16:53
