@@ -58,14 +58,54 @@ http://www.cbs.nl/nl-NL/menu/methoden/classificaties/overzicht/gemeentelijke-ind
 http://www.cbs.nl/nl-NL/menu/methoden/classificaties/overzicht/gemeentelijke-indeling/2013/
 Deze zal in de regel minder veranderen.
 
+-------------------- 2014 --------------------------------------
+
 NB Per 1 januari 2014 wordt de nieuwe gemeentelijke indeling actief.
 De gemeentes Boskoop en Rijnwoude komen te vervallen en worden opgenomen in gemeente Alphen aan den Rijn.
-De gemeentes Gaasterlân-Sleat, Lemsterland en Skarsterlân vormen vanaf 1 januari 2014 
+De gemeentes Gaasterlân-Sleat, Lemsterland en Skarsterlân vormen vanaf 1 januari 2014
 samen de nieuwe gemeente De Friese Meren.
 
 Gemeente Boarnsterhim word opgedeeld tussen Leeuwarden, Súdwest-Fryslân, Heerenveen en De Friese Meren.
 
 De gemeente-provincie koppeling CSV file was tot 9/1/2014 voor 2013. Via een "pull request"
- https://github.com/opengeogroep/NLExtract/pull/109 is per  9.1.14 de koppeling voor 2014 beschikbaar. 
+ https://github.com/opengeogroep/NLExtract/pull/109 is per  9.1.14 de koppeling voor 2014 beschikbaar.
 Met dank aan @sebastic.
+
+-------------------- 2015 --------------------------------------
+(Met dank aan @sebastic.)
+Per 1 januari 2015 word de nieuwe gemeentelijke indeling actief:
+
+    Graft-De Rijp (0365) & Schermer (0458) komen te vervallen, en
+    worden opgenomen in Alkmaar (0361).
+
+    Millingen aan de Rijn (0265) & Ubbergen (0282) komen te vervallen, en
+    worden opgenomen in Groesbeek (0241).
+
+    Bernisse (0568) & Spijkenisse (0612) komen te vervallen, en worden de
+    nieuwe gemeente Nissewaard (1930).
+
+    Bergambacht (0491), Nederlek (0643), Ouderkerk (0644), Schoonhoven (0608) &
+    Vlist (0623) komen te vervallen, en worden de nieuwe gemeente
+    Krimpenerwaard (1931).
+
+    Maasdonk (1671) komt te vervallen en wordt verdeeld tussen
+    's-Hertogenbosch (0796) & Oss (0828).
+
+Bij de herverdeling van Maasdonk zal de woonplaats Geffen (2747) bij
+gemeente Oss (0828) ingedeeld worden, en Nuland (2748) & Vinkel (2749) bij
+'s-Hertogenbosch (0796).
+
+Zie ook:
+
+    CBS - Gemeentelijke indeling op 1 januari 2015
+    Wikipedia - Gemeentelijke herindeling in Nederland#2015
+
+In deze change is de CSV file geupdate voor 2015 aan de hand van de
+Gemeenten alfabetisch per provincie 2015 (XLS).
+En ook de originele XLS (Gemeentenalfabetischperprovincie2015.xls) is toegevoegd.
+
+Net als voor de update van vorig jaar (#109) heeft het mergen van deze change
+pas zin als de gemeente_woonplaats koppelingen in de BAG de gemeentelijke
+indeling van 2015 gebruikt.
+
 
