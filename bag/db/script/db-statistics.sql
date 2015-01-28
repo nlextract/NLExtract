@@ -39,3 +39,22 @@ SELECT nspname AS "schema"
   WHERE C.relkind <> 'i'
     AND nspname !~ '^pg_toast'  AND nspname !~ '^pg_catalog'  AND nspname !~ '^information_schema'
   GROUP BY nspname;
+
+
+-- Functie voor schema size:
+-- bijv select pg_size_pretty(pg_schema_size('public'));
+CREATE OR REPLACE FUNCTION pg_schema_size(text) returns bigint AS $$
+SELECT sum(pg_relation_size(quote_ident(schemaname) || '.' || quote_ident(tablename)))::bigint FROM pg_tables WHERE schemaname = $1
+$$ LANGUAGE sql;
+
+-- Functie voor top50 verschillende sizes in schema
+-- select pg_schema_size_details('bagactueel');
+CREATE OR REPLACE FUNCTION pg_schema_size_details(text) returns TABLE (relation text, size text)
+AS $$SELECT nspname || '.' || relname AS "relation",
+    pg_size_pretty(pg_relation_size(C.oid)) AS "size"
+  FROM pg_class C
+  LEFT JOIN pg_namespace N ON (N.oid = C.relnamespace)
+  WHERE nspname = $1
+  ORDER BY pg_relation_size(C.oid) DESC
+  LIMIT 50;
+$$ LANGUAGE sql;
