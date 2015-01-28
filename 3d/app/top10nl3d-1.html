@@ -8,10 +8,10 @@
     <!-- Make the application on mobile take up the full browser screen and disable user scaling. -->
     <meta name="viewport"
           content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
-    <title>OpenTopo in CesiumJS</title>
-    <script src="cesium/1.3/Cesium.js"></script>
+    <title>OpenTopo with Top10NL 3D in CesiumJS</title>
+    <script src="cesium/1.5/Cesium.js"></script>
     <style>
-        @import url(cesium/1.3/Widgets/widgets.css);
+        @import url(cesium/1.5/Widgets/widgets.css);
 
         html, body, #cesiumContainer {
             width: 100%;
@@ -45,11 +45,17 @@
     var terrainProvider = new Cesium.CesiumTerrainProvider({
         url: '//cesiumjs.org/tilesets/terrain/smallterrain'
     });
+
     viewer.scene.terrainProvider = terrainProvider;
 
-    var dataSource = new Cesium.GeoJsonDataSource();
+    var dataSource = Cesium.GeoJsonDataSource.fromUrl( 'data/Valkenburg-gebouw_3D_LOD1-4326.json',
+            {
+                stroke: Cesium.Color.BURLYWOOD,
+                fill: Cesium.Color.BURLYWOOD
+            }
+    );
+
     viewer.dataSources.add(dataSource);
-    dataSource.loadUrl('data/Valkenburg-gebouw_3D_LOD1-4326.json');
 
     var vburgLon = 5.8264;
     var vburgLat = 50.8646;

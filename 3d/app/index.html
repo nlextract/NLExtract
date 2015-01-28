@@ -10,7 +10,7 @@
         html, body {
             height: 100%;
             padding: 10px;
-            margin: 10px;
+            margin: 6px;
             font-family: sans-serif;
         }
 
@@ -18,36 +18,44 @@
 </head>
 <body>
 <h2>3D Apps with Dutch Open GeoData</h2>
+by: <a href="http://justobjects.nl">Just van den Broecke</a>
 
-<p>Various web apps to demonstrate and use 3D web mapping. by Just van den Broecke
+<p>Various web apps to demonstrate and use 3D web mapping. Sources
+    for these apps in <a href="https://github.com/opengeogroep/NLExtract/tree/master/3d/app">NLExtract GitHub</a>.
 
-<h3>Open Topo</h3>
+<h3>OpenTopo with CesiumJS</h3>
+<hr/>
 
 <p>
-    <a href="opentopo.html">OpenTopo in Cesium3D Viewer</a> - viewer with OpenTopo 800px/km tiles as imagery layer in CesiumJS
+    <a href="opentopo.html">OpenTopo in Cesium Viewer</a> - viewer with OpenTopo 800px/km tiles as imagery layer in CesiumJS
 
 </p>
 <p>
     <a href="opentopo-bing.html">Ditto with Bing background</a> - viewer with OpenTopo 800px/km tiles as imagery layer in CesiumJS
 
 </p>
+<hr/>
 
 
-<h3>Top10NL3D</h3>
-
+<h3>Top10NL3D with CesiumJS</h3>
+Dutch topography 3D vector. Transformed from ESRI FGDB to GeoJSON.
+See <a href="https://github.com/opengeogroep/NLExtract/tree/master/3d/top10nl3d">conversion tools</a>.
+<hr/>
 <p>
-    <a href="top10nl3d-1.html">Top10NL3D on OpenTopo in Cesium3D Viewer</a> - viewer with OpenTopo 800px/km and 3DBuildings from Top10NL3D (Valkenburg)
+    <a href="top10nl3d-1.html">Top10NL3D on OpenTopo in Cesium Viewer</a> - viewer with OpenTopo 800px/km and 3DBuildings from Top10NL3D (Valkenburg)
 
 </p>
 <p>
-    <a href="sidebyside.html">Top10NL3D on OpenTopo in OpenLayers3+Cesium3D Integrated</a> - ditto, but using OL3-Cesium integration
+    <a href="sidebyside.html">Top10NL3D on OpenTopo in OpenLayers3+Cesium Integrated</a> - ditto, but using OL3-Cesium integration
 
 </p>
+<hr/>
 
 
 <p>
     Navigation in examples:
-    <pre>
+</p>
+   <pre>
 
     Panning
     Mouse Left click-hold + drag
@@ -61,7 +69,7 @@
     CTRL + Left click-hold + drag
 
     </pre>
-</p>
+
 </body>
 </html>
 
