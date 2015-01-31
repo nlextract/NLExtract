@@ -111,8 +111,8 @@ worden uitgezet. Dit kan mbv van SLDs, bijv. tussen schalen 1:9000 en 1:20000 wo
             <FeatureTypeStyle>
                 <FeatureTypeName>Feature</FeatureTypeName>
                 <Rule>
-                    <MinScaleDenominator>8000</MinScaleDenominator>
-                    <MaxScaleDenominator>16000</MaxScaleDenominator>
+                    <MinScaleDenominator>10000</MinScaleDenominator>
+                    <MaxScaleDenominator>20000</MaxScaleDenominator>
                     <RasterSymbolizer>
                         <Opacity>1.0</Opacity>
                     </RasterSymbolizer>
@@ -121,5 +121,6 @@ worden uitgezet. Dit kan mbv van SLDs, bijv. tussen schalen 1:9000 en 1:20000 wo
         </UserStyle>
     </NamedLayer>
 </StyledLayerDescriptor>
+
 
 ```
