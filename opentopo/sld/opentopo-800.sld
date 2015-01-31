@@ -11,8 +11,8 @@
             <FeatureTypeStyle>
                 <FeatureTypeName>Feature</FeatureTypeName>
                 <Rule>
-                    <MinScaleDenominator>3000</MinScaleDenominator>
-                    <MaxScaleDenominator>9000</MaxScaleDenominator>
+                    <MinScaleDenominator>5000</MinScaleDenominator>
+                    <MaxScaleDenominator>10000</MaxScaleDenominator>
                     <RasterSymbolizer>
                         <Opacity>1.0</Opacity>
                     </RasterSymbolizer>
