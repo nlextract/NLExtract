@@ -16,7 +16,7 @@ Voor OpenTopo resoluties wordt dit als volgt:
 
 ```
 px/km   m/px
-37.5    27.054 (x) 27.412 (y)
+37.5    27
 200     5
 400     2.5
 800     1.25
@@ -34,7 +34,7 @@ Helaas is dit een reeks die niet lekker past.
 Om de OpenTopo resoluties toch hierin te passen kunnen we de volgende toewijzing doen:
 
 ```
-~27  (37.5px/km) : 3440.640, 1720.320, 860.160, 430.080, 215.040, 107.520, 53.760, 26.880
+27     (37.5px/km) : 3440.640, 1720.320, 860.160, 430.080, 215.040, 107.520, 53.760, 26.880
 5      (200px/km)  : 13.440, 6.720
 2.5    (400px/km)  : 3.360,
 1.25   (800px/km)  : 1.680,
