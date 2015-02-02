@@ -16,7 +16,7 @@ Voor OpenTopo resoluties wordt dit als volgt:
 
 ```
 px/km   m/px
-37.5    26.67
+37.5    27.054 (x) 27.412 (y)
 200     5
 400     2.5
 800     1.25
@@ -34,8 +34,8 @@ Helaas is dit een reeks die niet lekker past.
 Om de OpenTopo resoluties toch hierin te passen kunnen we de volgende toewijzing doen:
 
 ```
-26.67  (37.5px/km) : 3440.640, 1720.320, 860.160, 430.080, 215.040, 107.520, 53.760,
-5      (200px/km)  : 26.880, 13.440, 6.720
+~27  (37.5px/km) : 3440.640, 1720.320, 860.160, 430.080, 215.040, 107.520, 53.760, 26.880
+5      (200px/km)  : 13.440, 6.720
 2.5    (400px/km)  : 3.360,
 1.25   (800px/km)  : 1.680,
 0.625  (1600px/km) : 0.840, 0.420, 0.210, 0.105, 0.0525
@@ -54,7 +54,7 @@ van resolutie naar schaal (voor RD) is:
 ```
 Zoom Resol   Schaal          Tilecount        GB    OpenTopo
 4    53.76   1:192000                               37.5
-5    26.88   1:96000                                200
+5    26.88   1:96000                                37.5
 6    13.44   1:48000                                200
 7    6.72    1:23811                                200
 8    3,36    1:11905          87380             1   400
@@ -78,7 +78,7 @@ Bij benadering zijn dit de volgende resoluties en schalen (bij 90DPI):
 
 ```
 Zoom Resol   Schaal      OpenTopo
-5    38      1:135354      200
+5    38      1:135354      37.5
 6    19      1:67677       200
 7    9.6     1:34016       200
 8    4.8     1:17008       400
@@ -95,8 +95,8 @@ Google projectie, maar maakt voor tiling niet uit omdat daar vaste resoluties ge
 0-5000           1600px/km
 5000-10000       800px/km
 10000-20000      400px/km
-20000-100000      200px/km
-100000-en hoger   37.5px/km
+20000-80000      200px/km
+80000-en hoger   37.5px/km
 ```
 
 In GeoServer gaan we een "Layer Group" samenstellen van 4 OpenTopo lagen waarbij afhankelijk van de opgevraagde
