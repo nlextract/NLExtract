@@ -92,8 +92,8 @@ Hierop baseren we deze indeling naar schalen bij benadering, zodat iedere resolu
 Google projectie, maar maakt voor tiling niet uit omdat daar vaste resoluties gekozen worden.
 
 ```
-0-5000           1600px/km
-5000-10000       800px/km
+0-4000           1600px/km
+4000-10000       800px/km
 10000-20000      400px/km
 20000-80000      200px/km
 80000-en hoger   37.5px/km
