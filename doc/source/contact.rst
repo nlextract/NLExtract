@@ -13,7 +13,9 @@ Daar staan ook de `mensen vermeld die werken aan NLExtract <http://www.nlextract
 Er is ook een mailing lijst voor vragen/opmerkingen en ontwikkelingen:
 https://groups.google.com/group/nlextract
 
-Voor (commerci‘le) ondersteuning zie: http://www.nlextract.nl/issues
+Voor commerciÃ«le ondersteuning zoals gespecialiseerde extracties, downloads en andere
+services zie: http://www.nlextract.nl/issues of neem contact op met de volgende aanbieders:
 
-
+* Just van den Broecke - via http://justobjects.nl
+* OpenGeoGroep - via http://opengeogroep.nl
 

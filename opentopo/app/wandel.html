@@ -38,8 +38,9 @@
 
     // Layer defs
     var opentopo = L.tileLayer(
-            'http://ws.nlextract.nl/gwc/service/tms/1.0.0/opentopo@EPSG:900913@png/{z}/{x}/{y}.png', {
-        tms: true,
+        // 'http://ws.nlextract.nl/gwc/service/tms/1.0.0/opentopo@EPSG:900913@png/{z}/{x}/{y}.png',
+        'http://ws.nlextract.nl/srv/tiles/opentopo/EPSG900913/{z}/{x}/{y}.png', {
+        // tms: true,
         maxZoom: 18,
         continuousWorld: true,
         detectRetina: false,

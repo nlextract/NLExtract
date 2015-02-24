@@ -48,6 +48,7 @@ SELECT sum(pg_relation_size(quote_ident(schemaname) || '.' || quote_ident(tablen
 $$ LANGUAGE sql;
 
 -- Functie voor top50 verschillende sizes in schema
+-- Adapted from https://wiki.postgresql.org/wiki/Disk_Usage
 -- select pg_schema_size_details('bagactueel');
 CREATE OR REPLACE FUNCTION pg_schema_size_details(text) returns TABLE (relation text, size text)
 AS $$SELECT nspname || '.' || relname AS "relation",

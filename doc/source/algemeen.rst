@@ -6,7 +6,11 @@ Algemeen
 ********
 
 Hieronder staat algemene informatie over het hoe en waarom van NLExtract.
-Zie ook de website: http://nlextract.nl
+Zie ook de website: http://nlextract.nl en de ontwikkeling
+`NLExtract GitHub <https://github.com/opengeogroep/NLExtract>`_.
+
+Voor commerciële ondersteuning zoals gespecialiseerde extracties, downloads en andere
+services neem :ref:`contact` met ons op.
 
 Waarom NLExtract ?
 ==================
@@ -81,3 +85,21 @@ gericht op ontwikkelaars. Wil je als ontwikkelaar meedoen ? Graag !
 Laat ons weten, bijv. via info@opengeogroep.nl. Vooral zoeken we nog
 Windows-experts zodat het op dat platform ook goed gaat werken. Wil je
 nieuwe zaken zien of vind je fouten ? Gebruik de "issues" link hierboven.
+
+Meer dan Extraheren
+===================
+
+Het installeren en uitvoeren van de NLExtract ETL (extracties) kan vaak tijdrovend zijn terwijl
+de meeste gebruikers vaak hetzelfde doel hebben: bijv maandelijks de BAG omzetten naar PostGIS
+of de laatste versie van Top10NL. Daarnaast kan het zijn dat voor andere datasets
+zoals `OpenTopo <http://www.opentopo.nl>`_ je een web service zoals een TMS of WMS wil opzetten.
+Het kan ook zijn dat je bijv op smartphone/tablet eenvoudigweg de OpenTopo
+kaarten wil raadplegen.
+
+Daartoe zijn in 2014 in NLExtract drie nieuwe NLExtract Services opgestart.
+
+* NLExtract Downloads
+* NLExtract Web Services
+* NLExtract Apps
+
+Lees in het volgende hoofdstuk :ref:`services` meer hierover.

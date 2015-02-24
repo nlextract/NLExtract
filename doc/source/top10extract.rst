@@ -5,7 +5,16 @@
 Top10-extract
 *************
 
-Hieronder staat de handleiding voor het gebruik van de tools om Top10NL te extraheren.
+Hieronder staat de handleiding voor het gebruik van de tools om Top10NL te extraheren. Deze tools
+heten kortweg ``Top10-extract`` of soms ``nlextract-top10``.
+
+NB als je alleen interesse hebt om een PostGIS versie van de laatste Top10NL te hebben, kun
+je deze ook downloaden als  PostGIS dumpfile via de link http://data.nlextract.nl/top10nl.
+De dump file (``.backup`` bestand)  kun je direct inlezen in PostGIS, bijv met ``PGAdminIII``.
+Dan hoef je alle zaken hieronder niet uit te voeren :-).
+
+Om gespecialiseerde extracties bijv naar andere databases zoals Oracle te doen, neem contact op
+met het NLExtract team, zie "Ondersteuning": http://www.nlextract.nl/issues.
 
 Handleiding Top10-extract
 =========================
@@ -16,7 +25,7 @@ Algemeen
 Top10NL is onderdeel van de Kadaster Basisregistratie Topografie (BRT). Vind algemene info
 over Top10NL op http://www.kadaster.nl/web/artikel/productartikel/TOP10NL.htm.
 
-NLExtract/Top10NL, kortweg Top10-Extract bevat tools om de Top10NL bronbestanden zoals geleverd door Het Kadaster (GML)
+``nlextract-top10`` zijn tools om de Top10NL GML-bronbestanden, zoals geleverd door Het Kadaster (bijv via PDOK),
 om te zetten naar hanteerbare formaten zoals PostGIS. Tevens bevat Top10-extract visualisatie-bestanden
 (onder de map `style/` ) voor QGIS en SLDs om kaarten te maken. (NB deze zijn nu nog gebaseerd op Top10NL 1.0!).
 
@@ -43,13 +52,18 @@ in 300MB GML Files, de tweede bevat de GML bestanden per kaartblad. Download de 
 gebied wilt inlezen of om te testen.
 
 Als je heel Nederland wilt inlezen kun je het beste
-de "GML File Chunks" gebruiken. De directe link is http://geodata.nationaalgeoregister.nl/top10nl/extract/chunkdata/actueel/gml/top10nl_gml_filechunks.zip.
+de "GML File Chunks" gebruiken.
+De directe link is http://geodata.nationaalgeoregister.nl/top10nl/extract/chunkdata/actueel/gml/top10nl_gml_filechunks.zip.
 
 Voor de Kaartbladen is dat: http://geodata.nationaalgeoregister.nl/top10nl/extract/kaartbladtotaal/actueel/gml/top10nl.zip.
 
 
 `NB  heel belangrijk is om de laatste versie van Top10NL te gebruiken: v1.1.1.` Deze wordt geleverd met ingang van
 september 2012. In bijv. PDOK zijn momenteel (okt 2012) nog oudere versies van Top10NL.
+
+Sinds september 2012 is er een nieuwe versie van Top10NL, versie 1.1.1. Gebruik altijd deze. Na NLExtract v1.1.2
+zullen we de oude Top10NL versie niet meer ondersteunen. Ergens in 2015/2016 komt Top10NL versie 1.2 uit. Dan zullen
+we NLExtract-Top10NL weer aanpassen.
 
 Top10-Extract downloaden
 ------------------------
@@ -80,14 +94,14 @@ in PostGIS geladen.
 NLExtract maakt i.h.a. gebruik van Python voor alle scripts. De Python scripts
 voor Top10-extract roepen `native` tools aan:
 
-* XML parsing via `libxml2`
-* XSLT processing via `libxslt`
-* GDAL/OGR `ogr2ogr`
+* XML parsing via ``libxml2``
+* XSLT processing via ``libxslt``
+* GDAL/OGR ``ogr2ogr``
 
-De reden is vooral snelheid. Top10NL kan niet door `ogr2ogr` direct verwerkt worden.
-Met name dienen objecten als `Wegdelen` die meerdere geometrieën bevatten
-uitgesplitst te worden over objecten die een enkele geometrie bevatten, bijv. `Wegdeel_Hartlijn`
-en `Wegdeel_Vlak`. Het uitsplitsen gaat met XSLT. De uitgesplitste bestanden worden tijdens
+De reden is vooral snelheid. Top10NL kan niet door ``ogr2ogr`` direct verwerkt worden.
+Met name dienen objecten als ``Wegdelen`` die meerdere geometrieën bevatten
+uitgesplitst te worden over objecten die een enkele geometrie bevatten, bijv. ``Wegdeel_Hartlijn``
+en ``Wegdeel_Vlak``. Het uitsplitsen gaat met XSLT. De uitgesplitste bestanden worden tijdens
 verwerken tijdelijk opgeslagen.
 
 Afhankelijkheden
@@ -98,9 +112,9 @@ De volgende software dient aanwezig te zijn om Top10-extract te draaien.
  - Python 2.6 of hoger (niet Python 3!)
  - Python argparse package, voor argument parsing alleen indien Python < 2.7
  - PostGIS: PostgreSQL database server met PostGIS 1.x of 2.x : http://postgis.refractions.net
- - lxml voor razendsnelle native XML parsing, Zie http://lxml.de/installation.html
- - libxml2 en libxslt bibliotheken  (worden door lxml gebruikt)
- - GDAL/OGR v1.8.1 of hoger (voor ogr2ogr) http://www.gdal.org
+ - ``lxml`` voor razendsnelle native XML parsing, Zie http://lxml.de/installation.html
+ - ``libxml2`` en ``libxslt`` bibliotheken  (worden door ``lxml`` gebruikt)
+ - GDAL/OGR v1.8.1 of hoger (voor ``ogr2ogr``) http://www.gdal.org
  - NB: GDAL/OGR Python bindings zijn (voorlopig) `niet` nodig
 
 Installatie
@@ -182,8 +196,24 @@ Mac OSX
 
     export PATH=/Library/Frameworks/GDAL.framework/Versions/Current/Programs:$PATH
 
-Aanroep
+Versies
 -------
+
+NLExtract gaat steeds meer gebruik maken van de ETL framework Stetl, zie http://stetl.org.
+Hierdoor hoeft niet meer per dataset een apart programma worden gemaakt. Op dit moment (feb 2015)
+zijn twee versies beschikbaar voor NLExtract-Top10NL: de "Stetl Versie" en de "Python Versie". Deze staan onder res ``top10nl/etl``
+en ``top10nl/bin``. Alleen de Stetl versie wordt aktief onderhouden. Het is aan te raden deze m.n. op Linux en Mac te
+gebruiken (Windows versie volgt).
+
+Stetl Versie
+------------
+
+Zie details in de README onder ``top10nl/etl``.
+
+Python Versie
+-------------
+
+Dit is de oorpronkelijke versie die staat onder ``top10nl/bin``.
 
 De aanroep van Top10-extract is op alle systemen hetzelfde, namelijk via Python::
 
@@ -247,7 +277,7 @@ Toepassen settings:
 - Mogelijk om settings te overriden via command-line parameters (alleen de PostgreSQL-settings)
 - Mogelijk om settings file mee te geven via command-line
 
-Het optionele argument --multi MULTI_ATTR specificeert hoe Top10-extract om moet gaan wanneer er meerdere attribuutwaarden
+Het optionele argument ``--multi MULTI_ATTR`` specificeert hoe Top10-extract om moet gaan wanneer er meerdere attribuutwaarden
 toegekent zijn aan een object, bijvoorbeeld meerdere wegnummers aan een Wegdeel. Hierbij zijn 4 mogelijke opties, (tussen haakjes de ``GDAL ogr2ogr``
 opties die hieruit gegenereerd worde).
 
@@ -277,7 +307,7 @@ database.
 
 
 Testen
-------
+~~~~~~
 Het beste is om eerst je installatie te testen als volgt:
 
  * pas ``bin/top10-settings.ini`` aan voor je lokale situatie
@@ -285,15 +315,9 @@ Het beste is om eerst je installatie te testen als volgt:
  * in de ``top10nl/test`` directory executeer ``./top10-test.sh`` of ``./top10-test.cmd``
 
 Valideren
----------
+~~~~~~~~~
 
 Sommige Top10NL files van Kadaster kunnen soms invalide GML syntax bevatten.
 Valideren van een GML bestand (tegen Top10NL 1.1.1 schema) ::
 
   top10validate.py <Top10NL GML file> - valideer input GML
-
-Top10NL Versies
----------------
-
-Sinds september 2012 is er een nieuwe versie van Top10NL, versie 1.1.1. Gebruik altijd deze. Na NLExtract v1.1.2
-zullen we de oude Top10NL versie niet meer ondersteunen.
