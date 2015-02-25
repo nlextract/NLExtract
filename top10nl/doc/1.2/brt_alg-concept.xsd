@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:brt="http://www.kadaster.nl/schemas/imbrt/brt-alg/1.0"
+        xmlns:gml="http://www.opengis.net/gml/3.2" elementFormDefault="qualified"
+        targetNamespace="http://www.kadaster.nl/schemas/imbrt/brt-alg/1.0" version="1.0.0">
+    <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+    <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+    <element name="BRTHogeEnLageZijde" substitutionGroup="gml:AbstractObject" type="brt:BRTHogeEnLageZijdeType"/>
+    <complexType name="BRTHogeEnLageZijdeType">
+        <sequence>
+            <element name="hogeZijde" type="gml:CurvePropertyType"/>
+            <element name="lageZijde" type="gml:CurvePropertyType"/>
+        </sequence>
+    </complexType>
+    <complexType name="BRTHogeEnLageZijdePropertyType">
+        <sequence>
+            <element ref="brt:BRTHogeEnLageZijde"/>
+        </sequence>
+    </complexType>
+    <simpleType name="BRTJaNeeWaardeType">
+        <annotation>
+            <documentation>waardelijst als alternatief voor het algemene "boolean" type
+                -- Description--
+                Alleen de waarden 'ja' en 'nee' zijn toegestaan. Niet alle databases kennen het boolean datatype. Met
+                deze waardelijst hoeven gebruikers zich niet af te vragen hoe de waarde in de database terecht moet
+                komen.
+            </documentation>
+        </annotation>
+        <restriction base="string">
+            <enumeration value="ja"/>
+            <enumeration value="nee"/>
+        </restriction>
+    </simpleType>
+    <element name="BRTLijnOfPunt" substitutionGroup="gml:AbstractObject" type="brt:BRTLijnOfPuntType"/>
+    <complexType name="BRTLijnOfPuntType">
+        <choice>
+            <element name="lijnGeometrie" type="gml:CurvePropertyType"/>
+            <element name="puntGeometrie" type="gml:PointPropertyType"/>
+        </choice>
+    </complexType>
+    <complexType name="BRTLijnOfPuntPropertyType">
+        <sequence>
+            <element ref="brt:BRTLijnOfPunt"/>
+        </sequence>
+    </complexType>
+    <element name="BRTVlakLijnOfPunt" substitutionGroup="gml:AbstractObject" type="brt:BRTVlakLijnOfPuntType"/>
+    <complexType name="BRTVlakLijnOfPuntType">
+        <choice>
+            <element name="puntGeometrie" type="gml:PointPropertyType"/>
+            <element name="lijnGeometrie" type="gml:CurvePropertyType"/>
+            <element name="vlakGeometrie" type="gml:SurfacePropertyType"/>
+        </choice>
+    </complexType>
+    <complexType name="BRTVlakLijnOfPuntPropertyType">
+        <sequence>
+            <element ref="brt:BRTVlakLijnOfPunt"/>
+        </sequence>
+    </complexType>
+    <element name="BRTVlakMultivlakOfPunt" substitutionGroup="gml:AbstractObject"
+             type="brt:BRTVlakMultivlakOfPuntType"/>
+    <complexType name="BRTVlakMultivlakOfPuntType">
+        <choice>
+            <element name="vlakGeometrie" type="gml:SurfacePropertyType"/>
+            <element name="multivlakGeometrie" type="gml:MultiSurfacePropertyType"/>
+            <element name="puntGeometrie" type="gml:PointPropertyType"/>
+        </choice>
+    </complexType>
+    <complexType name="BRTVlakMultivlakOfPuntPropertyType">
+        <sequence>
+            <element ref="brt:BRTVlakMultivlakOfPunt"/>
+        </sequence>
+    </complexType>
+    <element name="BRTVlakOfLijn" substitutionGroup="gml:AbstractObject" type="brt:BRTVlakOfLijnType"/>
+    <complexType name="BRTVlakOfLijnType">
+        <choice>
+            <element name="lijnGeometrie" type="gml:CurvePropertyType"/>
+        </choice>
+    </complexType>
+    <complexType name="BRTVlakOfLijnPropertyType">
+        <sequence>
+            <element ref="brt:BRTVlakOfLijn"/>
+        </sequence>
+    </complexType>
+    <element name="BRTVlakOfMultivlak" substitutionGroup="gml:AbstractObject" type="brt:BRTVlakOfMultivlakType"/>
+    <complexType name="BRTVlakOfMultivlakType">
+        <choice>
+            <element name="vlakGeometrie" type="gml:SurfacePropertyType"/>
+            <element name="multivlakGeometrie" type="gml:MultiSurfacePropertyType"/>
+        </choice>
+    </complexType>
+    <complexType name="BRTVlakOfMultivlakPropertyType">
+        <sequence>
+            <element ref="brt:BRTVlakOfMultivlak"/>
+        </sequence>
+    </complexType>
+    <element name="BRTVlakOfPunt" substitutionGroup="gml:AbstractObject" type="brt:BRTVlakOfPuntType"/>
+    <complexType name="BRTVlakOfPuntType">
+        <choice>
+            <element name="vlakGeometrie" type="gml:SurfacePropertyType"/>
+            <element name="puntGeometrie" type="gml:PointPropertyType"/>
+        </choice>
+    </complexType>
+    <complexType name="BRTVlakOfPuntPropertyType">
+        <sequence>
+            <element ref="brt:BRTVlakOfPunt"/>
+        </sequence>
+    </complexType>
+    <element name="NEN3610ID" substitutionGroup="gml:AbstractObject" type="brt:NEN3610IDType">
+        <annotation>
+            <documentation>identificatiegegevens voor de universeel unieke identificatie van een object
+                NOTE De combinatie van ‘namespace’ van een registratie en lokale identificatie maken een object uniek
+                identificeerbaar. Met de informatie van deze klasse kan daardoor met zekerheid worden verwezen naar het
+                geïdentificeerde object.
+                -- Source --
+                Dit datatype is in NEN 3610:2011 gedefinieerd met optionele versie informatie. Deze versie informatie is
+                echter niet opgenomen in IMBRT
+            </documentation>
+        </annotation>
+    </element>
+    <complexType name="NEN3610IDType">
+        <sequence>
+            <element name="namespace" type="string">
+                <annotation>
+                    <documentation>unieke verwijzing naar een registratie van objecten
+                        NOTE Het attribuut &amp;lsquo;namespace&amp;rsquo; is een unieke verwijzing naar de registratie
+                        die de identificatie uitdeelt. Deze lijst van registraties wordt beheerd binnen de context van
+                        NEN 3610. Binnen Nederland zal deze namespace vrijwel altijd met &amp;lsquo;NL.&amp;rsquo;
+                        beginnen.
+                        De volgende karakters mogen in een namespace aanduiding voorkomen: {&amp;rdquo;A&amp;rdquo;&amp;hellip;&amp;rdquo;Z&amp;rdquo;,
+                        &amp;ldquo;a&amp;rdquo;&amp;hellip;&amp;rdquo;z&amp;rdquo;, &amp;rdquo;0&amp;rdquo;&amp;hellip;&amp;rdquo;9&amp;rdquo;,
+                        &amp;ldquo;_&amp;rdquo;, &amp;ldquo;- &amp;ldquo;, &amp;ldquo;,&amp;rdquo;, &amp;rdquo;.&amp;rdquo;}
+                        -- Source --
+                        NEN 3610:2011
+                    </documentation>
+                </annotation>
+            </element>
+            <element name="lokaalID" type="string">
+                <annotation>
+                    <documentation>unieke identificatiecode binnen een registratie
+                        NOTE &amp;lsquo;LokaalId&amp;rsquo; is de identificatiecode die een object heeft binnen een
+                        (lokale) registratie.
+                        De volgende karakters mogen in een lokaalID voorkomen: {&amp;rdquo;A&amp;rdquo;&amp;hellip;&amp;rdquo;Z&amp;rdquo;,
+                        &amp;ldquo;a&amp;rdquo;&amp;hellip;&amp;rdquo;z&amp;rdquo;, &amp;rdquo;0&amp;rdquo;&amp;hellip;&amp;rdquo;9&amp;rdquo;,
+                        &amp;ldquo;_&amp;rdquo;, &amp;ldquo;-&amp;ldquo;, &amp;ldquo;,&amp;rdquo;, &amp;rdquo;.&amp;rdquo;}.
+                        -- Source --
+                        NEN 3610:2011
+                    </documentation>
+                </annotation>
+            </element>
+        </sequence>
+    </complexType>
+    <simpleType name="VoidReasonValueType">
+        <annotation>
+            <documentation>Void reason value: reden waarom een &amp;rsquo;void-waarde&amp;rsquo; is ingevuld
+                -- Source --
+                NEN 3610:2011
+            </documentation>
+        </annotation>
+        <union memberTypes="brt:VoidReasonValueEnumerationType brt:VoidReasonValueOtherType"/>
+    </simpleType>
+    <simpleType name="VoidReasonValueEnumerationType">
+        <annotation>
+            <documentation>Void reason value: reden waarom een &amp;rsquo;void-waarde&amp;rsquo; is ingevuld
+                -- Source --
+                NEN 3610:2011
+            </documentation>
+        </annotation>
+        <restriction base="string">
+            <enumeration value="geenWaarde">
+                <annotation>
+                    <documentation>element heeft in werkelijkheid geen waarde
+                        -- Source --
+                        NEN 3610:2011
+                    </documentation>
+                </annotation>
+            </enumeration>
+            <enumeration value="nietOndersteund">
+                <annotation>
+                    <documentation>-- Definitie --
+                        zender houdt in zijn registratie geen waarde voor dit attribuut bij. Geldt voor alle objecten
+                        van dit objecttype
+                        -- Source --
+                        NEN 3610:2011
+                    </documentation>
+                </annotation>
+            </enumeration>
+            <enumeration value="waardeOnbekend">
+                <annotation>
+                    <documentation>element is verplicht maar de waarde is bij de zender niet bekend
+                        -- Source --
+                        NEN 3610:2011
+                    </documentation>
+                </annotation>
+            </enumeration>
+            <enumeration value="vastgesteldOnbekend">
+                <annotation>
+                    <documentation>er is vastgesteld dat de waarde van het attribuut onbekend is en hoogst
+                        waarschijnlijk niet meer kan worden achterhaald (bijvoorbeeld omdat het brondocument onleesbaar
+                        is of het object niet meer bestaat in de werkelijkheid)
+                        -- Source --
+                        NEN 3610:2011
+                    </documentation>
+                </annotation>
+            </enumeration>
+            <enumeration value="nietGeautoriseerd">
+                <annotation>
+                    <documentation>deze zender vindt dat de ontvanger niet geautoriseerd is om de waarde te kennen
+                        -- Source --
+                        NEN 3610:2011
+                    </documentation>
+                </annotation>
+            </enumeration>
+        </restriction>
+    </simpleType>
+    <simpleType name="VoidReasonValueOtherType">
+        <restriction base="string">
+            <pattern value="other: \w{2,}"/>
+        </restriction>
+    </simpleType>
+    <complexType name="_FunctioneelGebiedPropertyType">
+        <choice minOccurs="0"/>
+        <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    </complexType>
+    <complexType name="_GebouwPropertyType">
+        <choice minOccurs="0"/>
+        <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    </complexType>
+    <complexType name="_GeografischGebiedPropertyType">
+        <choice minOccurs="0"/>
+        <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    </complexType>
+    <complexType name="_HoogtePropertyType">
+        <choice minOccurs="0"/>
+        <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    </complexType>
+    <complexType name="_InrichtingselementPropertyType">
+        <choice minOccurs="0"/>
+        <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    </complexType>
+    <complexType name="_PlanTopografiePropertyType">
+        <choice minOccurs="0"/>
+        <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    </complexType>
+    <complexType name="_RegistratiefGebiedPropertyType">
+        <choice minOccurs="0"/>
+        <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    </complexType>
+    <complexType name="_ReliefPropertyType">
+        <choice minOccurs="0"/>
+        <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    </complexType>
+    <complexType name="_SpoorbaanPropertyType">
+        <choice minOccurs="0"/>
+        <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    </complexType>
+    <complexType name="_TerreinPropertyType">
+        <choice minOccurs="0"/>
+        <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    </complexType>
+    <complexType name="_WaterPropertyType">
+        <choice minOccurs="0"/>
+        <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    </complexType>
+    <complexType name="_WegPropertyType">
+        <choice minOccurs="0"/>
+        <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    </complexType>
+</schema>
