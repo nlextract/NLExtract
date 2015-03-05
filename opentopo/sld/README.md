@@ -46,8 +46,6 @@ de kaart wordt afgebeeld. De omrekeneenheid hiervoor is DPI (dots per inch) om v
 komen. The OGC standard output resolution is 90 DPI. OpenLayers 25.4 / 0.28 = 90.7. 1 inch is 0.0254m.
 90 / 0.0254 = 3543.3 px/m. Dus bijv resolutie 6.72 wordt schaal:  6.72 * 3543.3  = 1: 23811 (benadering)
 
-
-
 Overzicht zoom/resolutie/aantal tiles/opslag en OpenTopo set. De GeoServer DPI is 90 (OGC standaard), dus omrekening
 van resolutie naar schaal (voor RD) is:
 
@@ -92,8 +90,8 @@ Hierop baseren we deze indeling naar schalen bij benadering, zodat iedere resolu
 Google projectie, maar maakt voor tiling niet uit omdat daar vaste resoluties gekozen worden.
 
 ```
-0-4000           1600px/km
-4000-10000       800px/km
+0-5000           1600px/km
+5000-10000       800px/km
 10000-20000      400px/km
 20000-80000      200px/km
 80000-en hoger   37.5px/km
@@ -130,3 +128,28 @@ worden uitgezet. Dit kan mbv van SLDs, bijv. tussen schalen 1:9000 en 1:20000 wo
 
 
 ```
+
+OSM tilecache berekening
+
+
+| Zoom	 | Tiles at zoom | Total tiles    | Storage tot |
+|--------|---------------|----------------|-------------|
+|     5  |             1 |              1 | 100         |
+|     6  |             4 |              4 | 100         |
+|     7  |            16 |             16 | 100         |
+|     8  |            64 |             64 | 100         |
+|     9  |           256 |            256 | 100         |
+|     10 |         1,024 |          1,024 | 100         |
+|     11 |         4,096 |          4,096 | 100         |
+|     12 |        16,384 |         16,384 | 100         |
+|     13 |        65,536 |         87,380 | 100         |
+|     14 |       262,144 |        262,144 | 100         |
+|     15 |     1,048,576 |      1,048,576 | 100         |
+|     16 |     4,194,304 |      4,194,304 | 100         |
+|     17 |    16,777,216 |     16,777,216 | 80.32       |
+|     18 |    67,108,864 |     67,108,864 | 53.11       |
+|     19 |   268,435,456 |    268,435,456 | 32.72       |
+
+
+
+

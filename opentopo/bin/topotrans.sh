@@ -56,5 +56,7 @@ do
 
 done
 
-echo "Maak index aan met gdaltindex"
-gdaltindex opentopo.shp $dst_dir/*.tif
+echo "Maak index.shp aan met gdaltindex in $dst_dir"
+pushd $dst_dir
+gdaltindex index.shp *.tif
+popd
