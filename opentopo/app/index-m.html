@@ -1,31 +1,53 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <title>NLExtract - Apps</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <meta charset="utf-8" />
-     <style>
-    html, body {
-        height: 100%;
-        padding: 10px;
-        margin: 10px;
-        font-family: sans-serif;
-    }
-
-    </style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 </head>
 <body>
-<h2>NLExtract Apps</h2>
-<p>Various web apps to demonstrate and use <a href="http://www.nlextract.nl">NLExtract</a> results.</p>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="../">NLExtract Apps</a>
+        </div>
+        <div>
+            <ul class="nav navbar-nav">
+                <li><a href="../ot">OpenTopo</a></li>
+                <li><a href="../3d">3D Apps</a></li>
+                <li><a href="http://nlextract.nl">NLExtract</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container-fluid">
+    <h2>NLExtract Apps</h2>
 
-<p>
-  <a href="ot">OpenTopo Results</a> - various Map Viewers for OpenTopo
-</p>
-
-<p>
-  <a href="3d">3D Experiments</a> - various 3D Web Demo's and Apps
-</p>
-
+    <p>
+        Web apps that demonstrate and use results from data
+        that is processed/transformed by <a href="http://www.nlextract.nl">NLExtract</a> tools.
+    </p>
+    <table class="table table-bordered">
+        <!--<thead>-->
+        <!--<tr>-->
+        <!--<th>Firstname</th>-->
+        <!--<th>Lastname</th>-->
+        <!--<th>Email</th>-->
+        <!--</tr>-->
+        <!--</thead>-->
+        <tbody>
+        <tr>
+            <td><a href="ot">OpenTopo</a> - Mapping webapps for <a href="http://opentopo.nl">OpenTopo</a> raster maps</td>
+        </tr>
+        <tr>
+            <td><a href="3d">3D Experiments</a> - various 3D Web Demo's and Apps</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
 
 </body>
 </html>

@@ -1,60 +1,74 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Top10NL3D and other 3D stuff</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-    <meta charset="utf-8"/>
-    <meta name="author" content="Just van den Broecke">
-
-    <style>
-        html, body {
-            height: 100%;
-            padding: 10px;
-            margin: 6px;
-            font-family: sans-serif;
-        }
-
-    </style>
+    <title>OpenTopo - Apps - 3D</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 </head>
 <body>
-<h2>3D Apps with Dutch Open GeoData</h2>
-by: <a href="http://justobjects.nl">Just van den Broecke</a>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="../">NLExtract Apps</a>
+        </div>
+        <div>
+            <ul class="nav navbar-nav">
+                <li><a href="../ot">OpenTopo</a></li>
+                <li class="active"><a href="../3d">3D Apps</a></li>
+                <li><a href="http://nlextract.nl">NLExtract</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container-fluid">
 
-<p>Various web apps to demonstrate and use 3D web mapping. Sources
-    for these apps in <a href="https://github.com/opengeogroep/NLExtract/tree/master/3d/app">NLExtract GitHub</a>.
+    <h2>3D Apps with Dutch Open GeoData</h2>
+    by: <a href="http://justobjects.nl">Just van den Broecke</a>
 
-<h3>OpenTopo with CesiumJS</h3>
-<hr/>
+    <p>Various web apps to demonstrate and use 3D web mapping. Sources
+        for these apps in <a href="https://github.com/opengeogroep/NLExtract/tree/master/3d/app">NLExtract GitHub</a>.
 
-<p>
-    <a href="opentopo.html">OpenTopo in Cesium Viewer</a> - viewer with OpenTopo 800px/km tiles as imagery layer in CesiumJS
+    <h3>OpenTopo with CesiumJS</h3>
+    <hr/>
 
-</p>
-<p>
-    <a href="opentopo-bing.html">Ditto with Bing background</a> - viewer with OpenTopo 800px/km tiles as imagery layer in CesiumJS
+    <p>
+        <a href="opentopo.html">OpenTopo in Cesium Viewer</a> - viewer with OpenTopo 800px/km tiles as imagery layer in
+        CesiumJS
 
-</p>
-<hr/>
+    </p>
 
+    <p>
+        <a href="opentopo-bing.html">Ditto with Bing background</a> - viewer with OpenTopo 800px/km tiles as imagery
+        layer in CesiumJS
 
-<h3>Top10NL3D with CesiumJS</h3>
-Dutch topography 3D vector. Transformed from ESRI FGDB to GeoJSON.
-See <a href="https://github.com/opengeogroep/NLExtract/tree/master/3d/top10nl3d">conversion tools</a>.
-<hr/>
-<p>
-    <a href="top10nl3d-1.html">Top10NL3D on OpenTopo in Cesium Viewer</a> - viewer with OpenTopo 800px/km and 3DBuildings from Top10NL3D (Valkenburg)
-
-</p>
-<p>
-    <a href="sidebyside.html">Top10NL3D on OpenTopo in OpenLayers3+Cesium Integrated</a> - ditto, but using OL3-Cesium integration
-
-</p>
-<hr/>
+    </p>
+    <hr/>
 
 
-<p>
-    Navigation in examples:
-</p>
+    <h3>Top10NL3D with CesiumJS</h3>
+    Dutch topography 3D vector. Transformed from ESRI FGDB to GeoJSON.
+    See <a href="https://github.com/opengeogroep/NLExtract/tree/master/3d/top10nl3d">conversion tools</a>.
+    <hr/>
+    <p>
+        <a href="top10nl3d-1.html">Top10NL3D on OpenTopo in Cesium Viewer</a> - viewer with OpenTopo 800px/km and
+        3DBuildings from Top10NL3D (Valkenburg)
+
+    </p>
+
+    <p>
+        <a href="sidebyside.html">Top10NL3D on OpenTopo in OpenLayers3+Cesium Integrated</a> - ditto, but using
+        OL3-Cesium integration
+
+    </p>
+    <hr/>
+
+
+    <p>
+        Navigation in examples:
+    </p>
    <pre>
 
     Panning
@@ -69,6 +83,7 @@ See <a href="https://github.com/opengeogroep/NLExtract/tree/master/3d/top10nl3d"
     CTRL + Left click-hold + drag
 
     </pre>
+</div>
 
 </body>
 </html>
