@@ -7,7 +7,8 @@ BIN_DIR=${HOME_DIR}/bin
 
 # Maakt plaatje lichter en scherper
 # Zie http://www.imagemagick.org/script/command-line-options.php#brightness-contrast
-BRIGHTNESS_CONTRAST=10x5
+# BRIGHTNESS_CONTRAST=10x5
+BRIGHTNESS_CONTRAST=5x20
 
 # Om zwarte randen weg te krijgen (Frank Steggink)
 # De rotatiehoek is -0,4012 graden (dus linksom), ofwel atan(-28/3999)

@@ -75,14 +75,14 @@ function createGeoTiff() {
 	composite -gravity center ${BONNE_MASK_IMG} $src_png $tmp_png
 
 	# TIFF aanmaken, sRGB van maken (ivm GeoTIFF transparantie later), helderheid omhoog, tags zetten.
-    echo "Maak TIFF aan, helderheid omhoog: convert"
+    echo "Maak TIFF aan, helderheid en contrast omhoog: convert"
     convert -brightness-contrast ${BRIGHTNESS_CONTRAST} -colorspace sRGB $tmp_png -set tiff:software "NLExtract" -set tiff:timestamp "`date`"  $tmp_png $tmp_tif
 
     # Maak GeoTIFF van TIFF met juiste georeferentie uit CSV, en internal tiling
     echo "gdal_translate"
-	# gdal_translate -of GTiff -a_ullr $nw $se -co TILED=YES -a_srs EPSG:28992  $tmp_tif $dst_tif
-    gdal_translate -b 1 -b 2 -b 3 -of GTiff -a_ullr $nw $se -co TILED=YES -co PROFILE=Geotiff -co COMPRESS=JPEG -co JPEG_QUALITY=95 \
-            -co PHOTOMETRIC=YCBCR -co BLOCKXSIZE=512 -co BLOCKYSIZE=512 -a_srs EPSG:28992  $tmp_tif $dst_tif
+	gdal_translate -of GTiff -a_ullr $nw $se -co TILED=YES -a_srs EPSG:28992  $tmp_tif $dst_tif
+    # gdal_translate -b 1 -b 2 -b 3 -of GTiff -a_ullr $nw $se -co TILED=YES -co PROFILE=Geotiff -co COMPRESS=JPEG -co JPEG_QUALITY=95 \
+    #         -co PHOTOMETRIC=YCBCR -co BLOCKXSIZE=512 -co BLOCKYSIZE=512 -a_srs EPSG:28992  $tmp_tif $dst_tif
 
     # gdal_translate -b 1 -b 2 -b 3 -of GTiff -a_ullr $nw $se -co TILED=YES -co PROFILE=Geotiff -co COMPRESS=JPEG -co JPEG_QUALITY=95 -co PHOTOMETRIC=YCBCR -co BLOCKXSIZE=512 -co BLOCKYSIZE=512 -a_srs EPSG:28992  $tmp_tif $dst_tif
 
@@ -97,8 +97,8 @@ function createGeoTiff() {
     #    gdaladdo %THIS_DIR%.tif -r average --config COMPRESS_OVERVIEW JPEG
     #    --config JPEG_QUALITY_OVERVIEW 60 --config INTERLEAVE_OVERVIEW PIXEL
     #      --config PHOTOMETRIC_OVERVIEW YCBCR 2 4 8 16 32 64 128 256 512
-    # gdaladdo -r average $dst_tif  ${GDAL_OVERVIEW_LEVELS}
-    gdaladdo -r gauss --config COMPRESS_OVERVIEW JPEG --config PHOTOMETRIC_OVERVIEW YCBCR --config JPEG_QUALITY_OVERVIEW 90 --config INTERLEAVE_OVERVIEW PIXEL $dst_tif  2 4 8 16
+    gdaladdo -r average $dst_tif  ${GDAL_OVERVIEW_LEVELS}
+    # gdaladdo -r gauss --config COMPRESS_OVERVIEW JPEG --config PHOTOMETRIC_OVERVIEW YCBCR --config JPEG_QUALITY_OVERVIEW 90 --config INTERLEAVE_OVERVIEW PIXEL $dst_tif  2 4 8 16
     # gdaladdo -r gauss --config COMPRESS_OVERVIEW JPEG --config PHOTOMETRIC_OVERVIEW YCBCR --config JPEG_QUALITY_OVERVIEW 95 --config INTERLEAVE_OVERVIEW PIXEL $dst_tif  ${GDAL_OVERVIEW_LEVELS}
 
     # Tijdelijke bestanden weggooien
