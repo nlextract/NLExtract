@@ -2,7 +2,7 @@
 # maak een file voor je host aan en die wordt automagisch meegenomen
 
 # Hulpvar
-BONNE_DATA_HOME=/var/kademo/data/bonne
+BONNE_DATA_HOME=/var/nlextract/data/bonne
 
 # Bron bladen directory
 BONNE_DATA_SRC_DIR=${BONNE_DATA_HOME}/src

@@ -33,11 +33,11 @@ CROP=4000x2500+18
 # Plaatje is typisch 4018, 2527 neem grootste
 # log(4200) / log(2) - log (512) / log(2) = 3.036 = ~4
 
-GDAL_OVERVIEW_LEVELS="2 4 8 16"
+GDAL_OVERVIEW_LEVELS="2 4 8 16 32"
 
 # Mask image om randen transparant te maken
 BONNE_MASK_COLOR='#FFFFFF'
-BONNE_MASK_IMG=../data/bonnemask.png
+BONNE_MASK_IMG=${DATA_DIR}/bonnemask.png
 
 # Per-host settings
 SETTINGS_SCRIPT="${BIN_DIR}/settings-`hostname`.sh"

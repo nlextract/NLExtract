@@ -11,9 +11,10 @@
 # bonnetrans.sh b027-1932.png
 
 # Bepaal onze home/bin dir
-BIN_DIR=`dirname $0`/..
-BIN_DIR=`(cd "$BIN_DIR"; pwd)`
-DATA_DIR=${BIN_DIR}/..
+HOME_DIR=`dirname $0`/..
+HOME_DIR=`(cd "$HOME_DIR"; pwd)`
+BIN_DIR=${HOME_DIR}/bin
+DATA_DIR=${HOME_DIR}/data
 
 # In de settings file per host, staat de locatie van de bron
 # .png van de Bonnebladen
@@ -21,7 +22,6 @@ SETTINGS_SCRIPT="${BIN_DIR}/settings.sh"
 . $SETTINGS_SCRIPT
 
 fileName=$1
-
 
 # Extraheer bladnummer, jaar en basis-filenaam
 bladnr=`echo $fileName | cut -d'b' -f2 | cut -d'-' -f1`
@@ -80,11 +80,14 @@ function createGeoTiff() {
 
     # Maak GeoTIFF van TIFF met juiste georeferentie uit CSV, en internal tiling
     echo "gdal_translate"
-	gdal_translate -of GTiff -a_ullr $nw $se -co TILED=YES -a_srs EPSG:28992  $tmp_tif $dst_tif
+	# gdal_translate -of GTiff -a_ullr $nw $se -co TILED=YES -a_srs EPSG:28992  $tmp_tif $dst_tif
+    gdal_translate -b 1 -b 2 -b 3 -of GTiff -co TILED=YES -co PROFILE=Geotiff -co COMPRESS=JPEG -co JPEG_QUALITY=95 \
+            -co PHOTOMETRIC=YCBCR -co BLOCKXSIZE=512 -co BLOCKYSIZE=512 -a_srs EPSG:28992  $tmp_tif $dst_tif
+
     # gdal_translate -b 1 -b 2 -b 3 -of GTiff -a_ullr $nw $se -co TILED=YES -co PROFILE=Geotiff -co COMPRESS=JPEG -co JPEG_QUALITY=95 -co PHOTOMETRIC=YCBCR -co BLOCKXSIZE=512 -co BLOCKYSIZE=512 -a_srs EPSG:28992  $tmp_tif $dst_tif
 
 	# Zet nodata op wit (niet duidelijk of dit zin heeft....)
-    python gdalsetnull.py $dst_tif 255 255 255
+    python $BIN_DIR/gdalsetnull.py $dst_tif 255 255 255
 
     # Maak overview (pyramid)
 	echo "Maak overview met gdaladdo"
@@ -94,7 +97,8 @@ function createGeoTiff() {
     #    gdaladdo %THIS_DIR%.tif -r average --config COMPRESS_OVERVIEW JPEG
     #    --config JPEG_QUALITY_OVERVIEW 60 --config INTERLEAVE_OVERVIEW PIXEL
     #      --config PHOTOMETRIC_OVERVIEW YCBCR 2 4 8 16 32 64 128 256 512
-    gdaladdo -r average $dst_tif  ${GDAL_OVERVIEW_LEVELS}
+    # gdaladdo -r average $dst_tif  ${GDAL_OVERVIEW_LEVELS}
+    gdaladdo -r gauss --config COMPRESS_OVERVIEW JPEG --config PHOTOMETRIC_OVERVIEW YCBCR --config JPEG_QUALITY_OVERVIEW 90 --config INTERLEAVE_OVERVIEW PIXEL $dst_tif  2 4 8 16
     # gdaladdo -r gauss --config COMPRESS_OVERVIEW JPEG --config PHOTOMETRIC_OVERVIEW YCBCR --config JPEG_QUALITY_OVERVIEW 95 --config INTERLEAVE_OVERVIEW PIXEL $dst_tif  ${GDAL_OVERVIEW_LEVELS}
 
     # Tijdelijke bestanden weggooien
@@ -106,6 +110,8 @@ function createGeoTiff() {
 if [ -e $src ]
 then
     createGeoTiff $src $dst
+else
+	echo "source file: $src does not exist!"
 fi
 
 # Oude code/pogingen evt nog later naar kijken
