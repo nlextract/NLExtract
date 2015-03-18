@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# Zet files geldig in jaar samen in dir.
+# Zet bonne-filenamen die geldig in jaar zijn samen in file.
 #
 # Author: Just van den Broecke
 #
@@ -22,7 +22,6 @@ sourceDir=${BONNE_DATA_SRC_DIR}
 targetDir=${BONNE_DATA_YEAR_DIR}/${year}
 targetFile=${targetDir}/files.txt
 fileExt="png"
-# /bin/rm -rf $targetDir  > /dev/null 2>&1
 mkdir -p $targetDir > /dev/null 2>&1
 /bin/rm -f ${targetDir}/*.tif > /dev/null 2>&1
 /bin/rm -f ${targetFile} > /dev/null 2>&1
@@ -34,17 +33,13 @@ do
     yearFit=$year
     while [ $yearFit -ge 1820 ]
     do
-        # echo "$line : $yearFit"
-
         fileName=${line}-${yearFit}.${fileExt}
         filePath=${sourceDir}/${fileName}
-        # echo "TEST  yearFit=$yearFit fileName=$fileName year=$year $filePath"
+
         if [ -e $filePath ]
         then
             echo "OK  $fileName for year: $year"
             echo "${fileName}" >> ${targetFile}
-            # ln -s $filePath $targetDir/$fileName
-            # cp $filePath $targetDir/$fileName
             break
         fi
 
