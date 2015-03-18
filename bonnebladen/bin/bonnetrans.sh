@@ -10,6 +10,12 @@
 # voorbeeld:
 # bonnetrans.sh b027-1932.png
 
+
+fileName=$1
+
+# optional second argument, otherwise BONNE_DATA_DST_DIR is used
+dst_dir=$2
+
 # Bepaal onze home/bin dir
 HOME_DIR=`dirname $0`/..
 HOME_DIR=`(cd "$HOME_DIR"; pwd)`
@@ -20,8 +26,6 @@ DATA_DIR=${HOME_DIR}/data
 # .png van de Bonnebladen
 SETTINGS_SCRIPT="${BIN_DIR}/settings.sh"
 . $SETTINGS_SCRIPT
-
-fileName=$1
 
 # Extraheer bladnummer, jaar en basis-filenaam
 bladnr=`echo $fileName | cut -d'b' -f2 | cut -d'-' -f1`
@@ -43,6 +47,13 @@ sey=`echo $line | cut -d' ' -f9`
 
 # Complete paden naar diverse bestanden
 src=${BONNE_DATA_SRC_DIR}/${fileName}
+
+if [ -n "$dst_dir" ]
+then
+  BONNE_DATA_DST_DIR=${dst_dir}
+fi
+
+echo "using BONNE_DATA_DST_DIR = $BONNE_DATA_DST_DIR"
 tmp_tif=${BONNE_DATA_DST_DIR}/${srcname}.tmp.tif
 tmp_png=${BONNE_DATA_DST_DIR}/${srcname}.tmp.png
 dst=${BONNE_DATA_DST_DIR}/${srcname}.tif
