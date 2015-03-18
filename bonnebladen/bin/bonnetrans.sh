@@ -81,7 +81,7 @@ function createGeoTiff() {
     # Maak GeoTIFF van TIFF met juiste georeferentie uit CSV, en internal tiling
     echo "gdal_translate"
 	# gdal_translate -of GTiff -a_ullr $nw $se -co TILED=YES -a_srs EPSG:28992  $tmp_tif $dst_tif
-    gdal_translate -b 1 -b 2 -b 3 -of GTiff -co TILED=YES -co PROFILE=Geotiff -co COMPRESS=JPEG -co JPEG_QUALITY=95 \
+    gdal_translate -b 1 -b 2 -b 3 -of GTiff -a_ullr $nw $se -co TILED=YES -co PROFILE=Geotiff -co COMPRESS=JPEG -co JPEG_QUALITY=95 \
             -co PHOTOMETRIC=YCBCR -co BLOCKXSIZE=512 -co BLOCKYSIZE=512 -a_srs EPSG:28992  $tmp_tif $dst_tif
 
     # gdal_translate -b 1 -b 2 -b 3 -of GTiff -a_ullr $nw $se -co TILED=YES -co PROFILE=Geotiff -co COMPRESS=JPEG -co JPEG_QUALITY=95 -co PHOTOMETRIC=YCBCR -co BLOCKXSIZE=512 -co BLOCKYSIZE=512 -a_srs EPSG:28992  $tmp_tif $dst_tif
