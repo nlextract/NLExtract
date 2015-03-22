@@ -15,13 +15,28 @@ do
   ./bonnetrans.sh $fileName  ${BONNE_DATA_YEAR_DIR}/1900
 done < ${BONNE_DATA_YEAR_DIR}/1900/files.txt
 
+echo "Maak index.shp aan met gdaltindex in ${BONNE_DATA_YEAR_DIR}/1900"
+pushd ${BONNE_DATA_YEAR_DIR}/1900
+gdaltindex index.shp *.tif
+popd
+
+
 while read fileName
 do
   ./bonnetrans.sh $fileName  ${BONNE_DATA_YEAR_DIR}/1925
 done < ${BONNE_DATA_YEAR_DIR}/1925/files.txt
+
+echo "Maak index.shp aan met gdaltindex in ${BONNE_DATA_YEAR_DIR}/1925"
+pushd ${BONNE_DATA_YEAR_DIR}/1925
+gdaltindex index.shp *.tif
+popd
 
 while read fileName
 do
   ./bonnetrans.sh $fileName  ${BONNE_DATA_YEAR_DIR}/1949
 done < ${BONNE_DATA_YEAR_DIR}/1949/files.txt
 
+echo "Maak index.shp aan met gdaltindex in ${BONNE_DATA_YEAR_DIR}/1949"
+pushd ${BONNE_DATA_YEAR_DIR}/1949
+gdaltindex index.shp *.tif
+popd
