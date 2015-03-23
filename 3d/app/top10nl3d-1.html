@@ -27,8 +27,8 @@
 <script>
     var options = {
         baseLayerPicker: false,
-        imageryProvider: new Cesium.TileMapServiceImageryProvider({
-            url: 'http://ws.nlextract.nl/gwc/service/tms/1.0.0/opentopo@EPSG:900913@png',
+        imageryProvider: new Cesium.OpenStreetMapImageryProvider({
+            url: 'http://s.map5.nl/map/gast/tiles/opentopo/EPSG900913',
             credit: 'OpenTopo Map bij Imergis/JW van Aalst with data from OpenStreetMap and Dutch Kadaster Top10NL'
         })
 //        ,

@@ -97,9 +97,6 @@ function createGeoTiff() {
 
     # gdal_translate -b 1 -b 2 -b 3 -of GTiff -a_ullr $nw $se -co TILED=YES -co PROFILE=Geotiff -co COMPRESS=JPEG -co JPEG_QUALITY=95 -co PHOTOMETRIC=YCBCR -co BLOCKXSIZE=512 -co BLOCKYSIZE=512 -a_srs EPSG:28992  $tmp_tif $dst_tif
 
-	# Zet nodata op wit (niet duidelijk of dit zin heeft....)
-    python $BIN_DIR/gdalsetnull.py $dst_tif 255 255 255
-
     # Maak overview (pyramid)
 	echo "Maak overview met gdaladdo"
 
@@ -111,6 +108,9 @@ function createGeoTiff() {
     gdaladdo -r average $dst_tif  ${GDAL_OVERVIEW_LEVELS}
     # gdaladdo -r gauss --config COMPRESS_OVERVIEW JPEG --config PHOTOMETRIC_OVERVIEW YCBCR --config JPEG_QUALITY_OVERVIEW 90 --config INTERLEAVE_OVERVIEW PIXEL $dst_tif  2 4 8 16
     # gdaladdo -r gauss --config COMPRESS_OVERVIEW JPEG --config PHOTOMETRIC_OVERVIEW YCBCR --config JPEG_QUALITY_OVERVIEW 95 --config INTERLEAVE_OVERVIEW PIXEL $dst_tif  ${GDAL_OVERVIEW_LEVELS}
+
+	# Zet nodata op wit ook de overviews
+    python $BIN_DIR/gdalsetnull.py $dst_tif 255 255 255
 
     # Tijdelijke bestanden weggooien
 	/bin/rm $tmp_png $tmp_tif
