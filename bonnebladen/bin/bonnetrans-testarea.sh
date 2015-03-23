@@ -12,5 +12,6 @@ SETTINGS_SCRIPT="settings.sh"
 
 echo "Maak index.shp aan met gdaltindex in ${BONNE_DATA_HOME}/friesland-trans"
 pushd ${BONNE_DATA_HOME}/testarea-trans
+/bin/rm -f index.*
 gdaltindex index.shp *.tif
 popd
