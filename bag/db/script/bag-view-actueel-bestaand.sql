@@ -193,7 +193,9 @@ CREATE VIEW pandactueelbestaand AS
      AND (pand.einddatumtijdvakgeldigheid is NULL OR pand.einddatumtijdvakgeldigheid >= LOCALTIMESTAMP)
      AND pand.aanduidingrecordinactief = FALSE
      AND pand.geom_valid = TRUE
-     AND (pand.pandstatus <> 'Niet gerealiseerd pand' AND pand.pandstatus  <> 'Pand gesloopt' );
+     AND (pand.pandstatus <> 'Niet gerealiseerd pand' 
+       AND pand.pandstatus <> 'Pand gesloopt'
+       AND pand.pandstatus <> 'Bouwvergunning verleend');
 
 DROP VIEW IF EXISTS standplaatsactueel;
 CREATE VIEW standplaatsactueel AS
@@ -291,7 +293,8 @@ CREATE VIEW verblijfsobjectactueelbestaand AS
       AND verblijfsobject.aanduidingrecordinactief = FALSE
       AND (verblijfsobject.geom_valid is NULL OR verblijfsobject.geom_valid = TRUE)
       AND (verblijfsobject.verblijfsobjectstatus <> 'Niet gerealiseerd verblijfsobject'
-      AND verblijfsobject.verblijfsobjectstatus  <> 'Verblijfsobject ingetrokken' );
+      AND verblijfsobject.verblijfsobjectstatus  <> 'Verblijfsobject ingetrokken' 
+        AND verblijfsobject.verblijfsobjectstatus  <> 'Verblijfsobject gevormd');
 
 DROP VIEW IF EXISTS woonplaatsactueel;
 CREATE VIEW woonplaatsactueel AS
