@@ -210,7 +210,7 @@
   <GMLFeatureClass>
     <Name>Gebouw_Vlak</Name>
     <ElementPath>Gebouw_Vlak</ElementPath>
-    <GeometryType>3</GeometryType>
+    <GeometryType>6</GeometryType>
     <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
       <ExtentXMin>10000</ExtentXMin>
@@ -440,7 +440,7 @@
   <GMLFeatureClass>
     <Name>GeografischGebied_Vlak</Name>
     <ElementPath>GeografischGebied_Vlak</ElementPath>
-    <GeometryType>3</GeometryType>
+    <GeometryType>6</GeometryType>
     <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
       <ExtentXMin>10000</ExtentXMin>
@@ -1798,7 +1798,7 @@
   <GMLFeatureClass>
     <Name>RegistratiefGebied_Vlak</Name>
     <ElementPath>RegistratiefGebied_Vlak</ElementPath>
-    <GeometryType>3</GeometryType>
+    <GeometryType>6</GeometryType>
     <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
       <ExtentXMin>10000</ExtentXMin>
