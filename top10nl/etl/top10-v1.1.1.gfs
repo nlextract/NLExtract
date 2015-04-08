@@ -106,7 +106,7 @@
   <GMLFeatureClass>
     <Name>FunctioneelGebied_Vlak</Name>
     <ElementPath>FunctioneelGebied_Vlak</ElementPath>
-    <GeometryType>3</GeometryType>
+    <GeometryType>6</GeometryType>
     <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
       <ExtentXMin>10000</ExtentXMin>
@@ -210,7 +210,7 @@
   <GMLFeatureClass>
     <Name>Gebouw_Vlak</Name>
     <ElementPath>Gebouw_Vlak</ElementPath>
-    <GeometryType>6</GeometryType>
+    <GeometryType>3</GeometryType>
     <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
       <ExtentXMin>10000</ExtentXMin>
