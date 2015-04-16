@@ -17,4 +17,10 @@ BASEDIR=`(cd "$BASEDIR"; pwd)`
 PY_SCRIPT=$BASEDIR/src/bagextract.py
 
 # uitvoeren Python script met alle meegegeven args
-python $PY_SCRIPT $@
+ret=`python -c 'import sys; print("%i" % (sys.hexversion<0x03000000))'`
+if [ $ret -eq 0 ]; then
+    #Python 3 is de standaard, roep python2 aan.
+    python2 $PY_SCRIPT $@
+else
+    python $PY_SCRIPT $@
+fi
