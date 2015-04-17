@@ -58,7 +58,7 @@ def confirm(prompt=None, resp=False):
         if not ans:
             return resp
         if ans not in ['j', 'J', 'n', 'N']:
-            print 'Geef j of n.'
+            print ('Geef j of n.')
             continue
         if ans == 'j' or ans == 'J':
             return True
