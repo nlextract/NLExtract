@@ -46,6 +46,7 @@
     var layers = viewer.scene.imageryLayers;
     layers.addImageryProvider(new Cesium.OpenStreetMapImageryProvider({
                             url: 'http://s.map5.nl/map/gast/tiles/opentopo/EPSG900913',
+                fileExtension: 'jpeg',
                 credit: 'OpenTopo Map bij Imergis/JW van Aalst with data from OpenStreetMap and Dutch Kadaster Top10NL'
             }));
 
