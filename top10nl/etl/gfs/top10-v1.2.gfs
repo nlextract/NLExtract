@@ -2956,8 +2956,8 @@
       <Width>250</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>getijdeInvloed</Name>
-      <ElementPath>getijdeInvloed</ElementPath>
+      <Name>getijdeinvloed</Name>
+      <ElementPath>getijdeinvloed</ElementPath>
       <Type>String</Type>
       <Width>3</Width>
     </PropertyDefn>
@@ -3140,8 +3140,8 @@
       <Width>250</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>getijdeInvloed</Name>
-      <ElementPath>getijdeInvloed</ElementPath>
+      <Name>getijdeinvloed</Name>
+      <ElementPath>getijdeinvloed</ElementPath>
       <Type>String</Type>
       <Width>3</Width>
     </PropertyDefn>
@@ -3324,8 +3324,8 @@
       <Width>250</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>getijdeInvloed</Name>
-      <ElementPath>getijdeInvloed</ElementPath>
+      <Name>getijdeinvloed</Name>
+      <ElementPath>getijdeinvloed</ElementPath>
       <Type>String</Type>
       <Width>3</Width>
     </PropertyDefn>
