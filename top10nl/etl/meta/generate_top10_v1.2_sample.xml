@@ -1,0 +1,1106 @@
+<GenerateLand
+    xmlns:gml="http://www.opengis.net/gml/3.2"
+    xmlns:top10nl="http://www.kadaster.nl/schemas/imbrt/top10nl/1.2"
+    xmlns:brt="http://www.kadaster.nl/schemas/imbrt/brt-alg/1.0">
+    <BaseGeometries>
+        <PuntGeometrie>
+            <gml:Point srsName="urn:ogc:def:crs:EPSG::28992">
+                <gml:pos>4.5 4.5</gml:pos>
+            </gml:Point>
+        </PuntGeometrie>
+        <LijnGeometrie>
+            <gml:LineString srsName="urn:ogc:def:crs:EPSG::28992">
+                <gml:posList srsDimension="2" count="4">0 0 9 3 0 6 9 9</gml:posList>
+            </gml:LineString>
+        </LijnGeometrie>
+        <VlakGeometrie>
+            <gml:Polygon srsName="urn:ogc:def:crs:EPSG::28992">
+                <gml:exterior>
+                    <gml:LinearRing>
+                        <gml:posList srsDimension="2" count="5">0 0 9 0 9 9 0 9 0 0</gml:posList>
+                    </gml:LinearRing>
+                </gml:exterior>
+            </gml:Polygon>
+        </VlakGeometrie>
+        <VlakGeometrieMetGat>
+            <gml:Polygon srsName="urn:ogc:def:crs:EPSG::28992">
+                <gml:exterior>
+                    <gml:LinearRing>
+                        <gml:posList srsDimension="2" count="5">0 0 9 0 9 9 0 9 0 0</gml:posList>
+                    </gml:LinearRing>
+                </gml:exterior>
+                <gml:interior>
+                    <gml:LinearRing>
+                        <gml:posList srsDimension="2" count="5">3 3 3 6 6 6 6 3 3 3</gml:posList>
+                    </gml:LinearRing>
+                </gml:interior>
+            </gml:Polygon>
+        </VlakGeometrieMetGat>
+        <MultivlakGeometrie>
+            <gml:MultiSurface srsName="urn:ogc:def:crs:EPSG::28992">
+                <gml:surfaceMember>
+                    <gml:Polygon>
+                        <gml:exterior>
+                            <gml:LinearRing>
+                                <gml:posList srsDimension="2" count="5">0 0 9 0 9 4 0 4 0 0</gml:posList>
+                            </gml:LinearRing>
+                        </gml:exterior>
+                    </gml:Polygon>
+                </gml:surfaceMember>
+                <gml:surfaceMember>
+                    <gml:Polygon>
+                        <gml:exterior>
+                            <gml:LinearRing>
+                                <gml:posList srsDimension="2" count="5">0 5 9 5 9 9 0 9 0 5</gml:posList>
+                            </gml:LinearRing>
+                        </gml:exterior>
+                    </gml:Polygon>
+                </gml:surfaceMember>
+            </gml:MultiSurface>
+        </MultivlakGeometrie>
+        <HartpuntGeometrie>
+            <gml:Point srsName="urn:ogc:def:crs:EPSG::28992">
+                <gml:pos>4.5 4.5</gml:pos>
+            </gml:Point>
+        </HartpuntGeometrie>
+        <HartlijnGeometrie>
+            <gml:LineString srsName="urn:ogc:def:crs:EPSG::28992">
+                <gml:posList srsDimension="2" count="2">0 4.5 9 4.5</gml:posList>
+            </gml:LineString>
+        </HartlijnGeometrie>
+        <HogeZijdeGeometrie>
+            <gml:LineString srsName="urn:ogc:def:crs:EPSG::28992">
+                <gml:posList srsDimension="2" count="2">0 6 9 6</gml:posList>
+            </gml:LineString>
+        </HogeZijdeGeometrie>
+        <LageZijdeGeometrie>
+            <gml:LineString srsName="urn:ogc:def:crs:EPSG::28992">
+                <gml:posList srsDimension="2" count="2">0 3 9 3</gml:posList>
+            </gml:LineString>
+        </LageZijdeGeometrie>
+    </BaseGeometries>
+    <FeatureTypes>
+        <FunctioneelGebied>
+            <GeometryTypes>
+                <top10nl:geometrie>
+                    <brt:BRTVlakMultivlakOfPunt>
+                        <brt:puntGeometrie>
+                            <PuntGeometrie/>
+                        </brt:puntGeometrie>
+                    </brt:BRTVlakMultivlakOfPunt>
+                </top10nl:geometrie>
+                <top10nl:geometrie>
+                    <brt:BRTVlakMultivlakOfPunt>
+                        <brt:vlakGeometrie>
+                            <VlakGeometrie/>
+                        </brt:vlakGeometrie>
+                    </brt:BRTVlakMultivlakOfPunt>
+                </top10nl:geometrie>
+                <top10nl:geometrie>
+                    <brt:BRTVlakMultivlakOfPunt>
+                        <brt:vlakGeometrie>
+                            <VlakGeometrieMetGat/>
+                        </brt:vlakGeometrie>
+                    </brt:BRTVlakMultivlakOfPunt>
+                </top10nl:geometrie>
+                <top10nl:geometrie>
+                    <brt:BRTVlakMultivlakOfPunt>
+                        <brt:multivlakGeometrie>
+                            <MultivlakGeometrie/>
+                        </brt:multivlakGeometrie>
+                    </brt:BRTVlakMultivlakOfPunt>
+                </top10nl:geometrie>
+            </GeometryTypes>
+            <NameAttributes>
+                <Attribute>naamNL</Attribute>
+                <Attribute>naamFries</Attribute>
+            </NameAttributes>
+            <Attributes>
+                <typeFunctioneelGebied minOccurs="1" maxOccurs="1">
+                    <Value>arboretum</Value>
+                    <Value>attractiepark</Value>
+                    <Value>bedrijventerrein</Value>
+                    <Value>begraafplaats</Value>
+                    <Value>boswachterij</Value>
+                    <Value>bungalowpark</Value>
+                    <Value>camping, kampeerterrein</Value>
+                    <Value>campus</Value>
+                    <Value>caravanpark</Value>
+                    <Value>circuit</Value>
+                    <Value>crossbaan</Value>
+                    <Value>dierentuin, safaripark</Value>
+                    <Value>eendenkooi</Value>
+                    <Value>emplacement</Value>
+                    <Value>erebegraafplaats</Value>
+                    <Value>gaswinning</Value>
+                    <Value>gebied met hoge objecten</Value>
+                    <Value>gebouwencomplex</Value>
+                    <Value>golfterrein</Value>
+                    <Value>grafheuvel</Value>
+                    <Value>grindwinning</Value>
+                    <Value>groeve</Value>
+                    <Value>haven</Value>
+                    <Value>heemtuin</Value>
+                    <Value>helikopterlandingsterrein</Value>
+                    <Value>infiltratiegebied</Value>
+                    <Value>jachthaven</Value>
+                    <Value>kartingbaan</Value>
+                    <Value>kassengebied</Value>
+                    <Value>kazerne, legerplaats</Value>
+                    <Value>landgoed</Value>
+                    <Value>mijn</Value>
+                    <Value>milieustraat</Value>
+                    <Value>militair oefengebied, schietterrein</Value>
+                    <Value>mosselbank</Value>
+                    <Value>natuurgebied, natuurreservaat</Value>
+                    <Value>oliewinning</Value>
+                    <Value>openluchtmuseum</Value>
+                    <Value>openluchttheater</Value>
+                    <Value>park</Value>
+                    <Value>plantsoen</Value>
+                    <Value>productie-installatie</Value>
+                    <Value>recreatiegebied</Value>
+                    <Value>renbaan</Value>
+                    <Value>skibaan</Value>
+                    <Value>slipschool</Value>
+                    <Value>sluizencomplex</Value>
+                    <Value>sportterrein, sportcomplex</Value>
+                    <Value>stortplaats</Value>
+                    <Value>tennispark</Value>
+                    <Value>transformatorstation</Value>
+                    <Value>tuincentrum</Value>
+                    <Value>verzorgingsplaats</Value>
+                    <Value>viskwekerij</Value>
+                    <Value>vliegveld, luchthaven</Value>
+                    <Value>volkstuinen</Value>
+                    <Value>waterkering</Value>
+                    <Value>werf</Value>
+                    <Value>wildwissel</Value>
+                    <Value>windturbinepark</Value>
+                    <Value>woonwagencentrum</Value>
+                    <Value>ijsbaan</Value>
+                    <Value>zandwinning</Value>
+                    <Value>zenderpark</Value>
+                    <Value>ziekenhuiscomplex</Value>
+                    <Value>zoutwinning</Value>
+                    <Value>zuiveringsinstallatie</Value>
+                    <Value>zweefvliegveldterrein</Value>
+                    <Value>zwembad complex</Value>
+                    <Value>overig</Value>
+                </typeFunctioneelGebied>
+                <soortnaam minOccurs="0" maxOccurs="1">
+                    <Value>testsoortnaam</Value>
+                </soortnaam>
+            </Attributes>
+        </FunctioneelGebied>
+        <Gebouw>
+            <GeometryTypes>
+                <top10nl:geometrie>
+                    <brt:BRTVlakOfPunt>
+                        <brt:puntGeometrie>
+                            <PuntGeometrie/>
+                        </brt:puntGeometrie>
+                    </brt:BRTVlakOfPunt>
+                </top10nl:geometrie>
+                <top10nl:geometrie>
+                    <brt:BRTVlakOfPunt>
+                        <brt:vlakGeometrie>
+                            <VlakGeometrie/>
+                        </brt:vlakGeometrie>
+                    </brt:BRTVlakOfPunt>
+                </top10nl:geometrie>
+                <top10nl:geometrie>
+                    <brt:BRTVlakOfPunt>
+                        <brt:vlakGeometrie>
+                            <VlakGeometrieMetGat/>
+                        </brt:vlakGeometrie>
+                    </brt:BRTVlakOfPunt>
+                </top10nl:geometrie>
+            </GeometryTypes>
+            <NameAttributes>
+                <Attribute>naam</Attribute>
+            </NameAttributes>
+            <Attributes>
+                <typeGebouw minOccurs="1" maxOccurs="unbounded">
+                    <Value>bezoekerscentrum</Value>
+                    <Value>boortoren</Value>
+                    <Value>brandtoren</Value>
+                    <Value>brandweerkazerne</Value>
+                    <Value>bunker</Value>
+                    <Value>crematorium</Value>
+                    <Value>dok</Value>
+                    <Value>elektriciteitscentrale</Value>
+                    <Value>fabriek</Value>
+                    <Value>fort</Value>
+                    <Value>gemaal</Value>
+                    <Value>gemeentehuis</Value>
+                    <Value>gevangenis</Value>
+                    <Value>hotel</Value>
+                    <Value>huizenblok</Value>
+                    <Value>kapel</Value>
+                    <Value>kas, warenhuis</Value>
+                    <Value>kasteel</Value>
+                    <Value>kerk</Value>
+                    <Value>kerncentrale, kernreactor</Value>
+                    <Value>kliniek, inrichting, sanatorium</Value>
+                    <Value>klokkentoren</Value>
+                    <Value>klooster, abdij</Value>
+                    <Value>koeltoren</Value>
+                    <Value>koepel</Value>
+                    <Value>kunstijsbaan</Value>
+                    <Value>lichttoren</Value>
+                    <Value>luchtwachttoren</Value>
+                    <Value>manege</Value>
+                    <Value>markant gebouw</Value>
+                    <Value>militair gebouw</Value>
+                    <Value>moskee</Value>
+                    <Value>museum</Value>
+                    <Value>obsevatorium</Value>
+                    <Value>overig religieus gebouw</Value>
+                    <Value>paleis</Value>
+                    <Value>parkeerdak, parkeerdek, parkeergarage</Value>
+                    <Value>peilmeetstation</Value>
+                    <Value>politiebureau</Value>
+                    <Value>pompstation</Value>
+                    <Value>postkantoor</Value>
+                    <Value>psychiatrisch ziekenhuis, psychiatrisch centrum</Value>
+                    <Value>radarpost</Value>
+                    <Value>radartoren</Value>
+                    <Value>radiotoren, televisietoren</Value>
+                    <Value>recreatiecentrum</Value>
+                    <Value>reddingboothuisje</Value>
+                    <Value>remise</Value>
+                    <Value>ruïne</Value>
+                    <Value>schaapskooi</Value>
+                    <Value>school</Value>
+                    <Value>schoorsteen</Value>
+                    <Value>silo</Value>
+                    <Value>sporthal</Value>
+                    <Value>stadion</Value>
+                    <Value>stadskantoor, hulpsecretarie</Value>
+                    <Value>stationsgebouw</Value>
+                    <Value>synagoge</Value>
+                    <Value>tank</Value>
+                    <Value>tankstation</Value>
+                    <Value>telecommunicatietoren</Value>
+                    <Value>tol</Value>
+                    <Value>toren</Value>
+                    <Value>transformatorstation</Value>
+                    <Value>uitzichttoren</Value>
+                    <Value>universiteit</Value>
+                    <Value>veiling</Value>
+                    <Value>verkeerstoren</Value>
+                    <Value>vuurtoren</Value>
+                    <Value>waterradmolen</Value>
+                    <Value>watertoren</Value>
+                    <Value>wegrestaurant</Value>
+                    <Value>werf</Value>
+                    <Value>windmolen</Value>
+                    <Value>windmolen: korenmolen</Value>
+                    <Value>windmolen: watermolen</Value>
+                    <Value>windturbine</Value>
+                    <Value>zendtoren</Value>
+                    <Value>ziekenhuis</Value>
+                    <Value>zwembad</Value>
+                    <Value>overig</Value>
+                </typeGebouw>
+                <fysiekVoorkomen minOccurs="0" maxOccurs="1">
+                    <Value>ondergronds</Value>
+                    <Value>overkluisd</Value>
+                </fysiekVoorkomen>
+                <hoogteklasse minOccurs="1" maxOccurs="1">
+                    <Value>laagbouw</Value>
+                    <Value>hoogbouw</Value>
+                </hoogteklasse>
+                <hoogteniveau minOccurs="1" maxOccurs="1">
+                    <Value>0</Value>
+                    <Value>-1</Value>
+                    <Value>-2</Value>
+                </hoogteniveau>
+                <hoogte minOccurs="0" maxOccurs="1">
+                    <Value>12.3</Value>
+                </hoogte>
+                <status minOccurs="1" maxOccurs="1">
+                    <Value>in uitvoering</Value>
+                    <Value>in gebruik</Value>
+                    <Value>buiten gebruik</Value>
+                </status>
+                <soortnaam minOccurs="0" maxOccurs="1">
+                    <Value>testsoortnaam</Value>
+                </soortnaam>
+                <gebruiksdoel minOccurs="0" maxOccurs="unbounded">
+                    <Value>bijeenkomstfunctie</Value>
+                    <Value>celfunctie</Value>
+                    <Value>gezondheidszorgfunctie</Value>
+                    <Value>industriefunctie</Value>
+                    <Value>kantoorfunctie</Value>
+                    <Value>logiesfunctie</Value>
+                    <Value>onderwijsfunctie</Value>
+                    <Value>sportfunctie</Value>
+                    <Value>winkelfunctie</Value>
+                    <Value>woonfunctie</Value>
+                    <Value>overige gebruiksfunctie</Value>
+                </gebruiksdoel>
+            </Attributes>
+        </Gebouw>
+        <GeografischGebied>
+            <GeometryTypes>
+                <top10nl:geometrie>
+                    <brt:BRTVlakMultivlakOfPunt>
+                        <brt:puntGeometrie>
+                            <PuntGeometrie/>
+                        </brt:puntGeometrie>
+                    </brt:BRTVlakMultivlakOfPunt>
+                </top10nl:geometrie>
+                <top10nl:geometrie>
+                    <brt:BRTVlakMultivlakOfPunt>
+                        <brt:vlakGeometrie>
+                            <VlakGeometrie/>
+                        </brt:vlakGeometrie>
+                    </brt:BRTVlakMultivlakOfPunt>
+                </top10nl:geometrie>
+                <top10nl:geometrie>
+                    <brt:BRTVlakMultivlakOfPunt>
+                        <brt:vlakGeometrie>
+                            <VlakGeometrieMetGat/>
+                        </brt:vlakGeometrie>
+                    </brt:BRTVlakMultivlakOfPunt>
+                </top10nl:geometrie>
+                <top10nl:geometrie>
+                    <brt:BRTVlakMultivlakOfPunt>
+                        <brt:multivlakGeometrie>
+                            <MultivlakGeometrie/>
+                        </brt:multivlakGeometrie>
+                    </brt:BRTVlakMultivlakOfPunt>
+                </top10nl:geometrie>
+            </GeometryTypes>
+            <NameAttributes>
+                <Attribute>naamNL</Attribute>
+                <Attribute>naamFries</Attribute>
+            </NameAttributes>
+            <Attributes>
+                <typeGeografischGebied minOccurs="1" maxOccurs="1">
+                    <Value>bank, ondiepte, plaat</Value>
+                    <Value>bosgebied</Value>
+                    <Value>duingebied</Value>
+                    <Value>eiland</Value>
+                    <Value>geul, vaargeul</Value>
+                    <Value>heidegebied</Value>
+                    <Value>heuvel, berg</Value>
+                    <Value>kaap, hoek</Value>
+                    <Value>polder</Value>
+                    <Value>streek, veld</Value>
+                    <Value>terp, wierde</Value>
+                    <Value>wad</Value>
+                    <Value>watergebied</Value>
+                    <Value>zee</Value>
+                    <Value>zeegat, zeearm</Value>
+                    <Value>overig</Value>
+                </typeGeografischGebied>
+            </Attributes>
+        </GeografischGebied>
+        <Hoogte>
+            <GeometryTypes>
+                <top10nl:geometrie>
+                    <brt:BRTLijnOfPunt>
+                        <brt:puntGeometrie>
+                            <PuntGeometrie/>
+                        </brt:puntGeometrie>
+                    </brt:BRTLijnOfPunt>
+                </top10nl:geometrie>
+                <top10nl:geometrie>
+                    <brt:BRTLijnOfPunt>
+                        <brt:lijnGeometrie>
+                            <LijnGeometrie/>
+                        </brt:lijnGeometrie>
+                    </brt:BRTLijnOfPunt>
+                </top10nl:geometrie>
+            </GeometryTypes>
+            <Attributes>
+                <typeHoogte minOccurs="1" maxOccurs="1">
+                    <Value>dieptelijn</Value>
+                    <Value>dieptepunt</Value>
+                    <Value>hoogtelijn</Value>
+                    <Value>hoogtepunt</Value>
+                    <Value>hoogwaterlijn</Value>
+                    <Value>laagwaterlijn</Value>
+                    <Value>peil</Value>
+                    <Value>peil: winterpeil</Value>
+                    <Value>peil: zomerpeil</Value>
+                </typeHoogte>
+                <hoogte minOccurs="1" maxOccurs="1">
+                    <Value>12.3</Value>
+                </hoogte>
+                <referentievlak minOccurs="1" maxOccurs="1">
+                    <Value>NAP</Value>
+                    <Value>LAT</Value>
+                    <Value>GHW</Value>
+                    <Value>OLW</Value>
+                </referentievlak>
+            </Attributes>
+        </Hoogte>
+        <Inrichtingselement>
+            <GeometryTypes>
+                <top10nl:geometrie>
+                    <brt:BRTLijnOfPunt>
+                        <brt:puntGeometrie>
+                            <PuntGeometrie/>
+                        </brt:puntGeometrie>
+                    </brt:BRTLijnOfPunt>
+                </top10nl:geometrie>
+                <top10nl:geometrie>
+                    <brt:BRTLijnOfPunt>
+                        <brt:lijnGeometrie>
+                            <LijnGeometrie/>
+                        </brt:lijnGeometrie>
+                    </brt:BRTLijnOfPunt>
+                </top10nl:geometrie>
+            </GeometryTypes>
+            <NameAttributes>
+                <Attribute>naam</Attribute>
+            </NameAttributes>
+            <Attributes>
+                <typeInrichtingselement minOccurs="1" maxOccurs="1">
+                    <Value>aanlegsteiger</Value>
+                    <Value>baak</Value>
+                    <Value>bomenrij</Value>
+                    <Value>botenhelling</Value>
+                    <Value>busstation</Value>
+                    <Value>calamiteitendoorgang</Value>
+                    <Value>dukdalf</Value>
+                    <Value>gaswinning</Value>
+                    <Value>gedenkteken, monument</Value>
+                    <Value>geluidswering</Value>
+                    <Value>golfmeetpaal</Value>
+                    <Value>GPS kernnetpunt</Value>
+                    <Value>grenspunt</Value>
+                    <Value>hek, haag</Value>
+                    <Value>hekwerk</Value>
+                    <Value>helikopterlandingsplatform</Value>
+                    <Value>hoogspanningsleiding</Value>
+                    <Value>hoogspanningsmast</Value>
+                    <Value>hunebed</Value>
+                    <Value>kaap</Value>
+                    <Value>kabelbaan</Value>
+                    <Value>kabelbaanmast</Value>
+                    <Value>kilometerpaal</Value>
+                    <Value>kilometerpaal spoorweg</Value>
+                    <Value>kilometerpaal water</Value>
+                    <Value>kilometerraaibord</Value>
+                    <Value>kilometerraaipaal</Value>
+                    <Value>koedam</Value>
+                    <Value>kogelvanger schietbaan</Value>
+                    <Value>kraan</Value>
+                    <Value>kruis</Value>
+                    <Value>leiding</Value>
+                    <Value>luchtvaartlicht</Value>
+                    <Value>markant object</Value>
+                    <Value>metrostation</Value>
+                    <Value>muur</Value>
+                    <Value>oliepompinstallatie</Value>
+                    <Value>paal</Value>
+                    <Value>paalwerk</Value>
+                    <Value>peilschaal</Value>
+                    <Value>pijler</Value>
+                    <Value>plaatsnaambord</Value>
+                    <Value>radiobaken</Value>
+                    <Value>radiotelescoop</Value>
+                    <Value>RD punt</Value>
+                    <Value>scheepvaartlicht</Value>
+                    <Value>schietbaan</Value>
+                    <Value>seinmast</Value>
+                    <Value>sluisdeur</Value>
+                    <Value>sneltramhalte</Value>
+                    <Value>stormvloedkering</Value>
+                    <Value>strandpaal</Value>
+                    <Value>strekdam, krib, golfbreker</Value>
+                    <Value>stuw</Value>
+                    <Value>tol</Value>
+                    <Value>treinstation</Value>
+                    <Value>verkeersgeleider</Value>
+                    <Value>vlampijp</Value>
+                    <Value>vliedberg</Value>
+                    <Value>wegafsluiting</Value>
+                    <Value>wegwijzer</Value>
+                    <Value>windmolentje</Value>
+                    <Value>zendmast</Value>
+                    <Value>zichtbaar wrak</Value>
+                    <Value>overig</Value>
+                </typeInrichtingselement>
+                <hoogte minOccurs="1" maxOccurs="1">
+                    <Value>12.3</Value>
+                </hoogte>
+                <breedte minOccurs="1" maxOccurs="1">
+                    <Value>5</Value>
+                </breedte>
+                <hoogteniveau minOccurs="1" maxOccurs="1">
+                    <Value>0</Value>
+                    <Value>-1</Value>
+                    <Value>-2</Value>
+                </hoogteniveau>
+                <soortnaam minOccurs="0" maxOccurs="1">
+                    <Value>testsoortnaam</Value>
+                </soortnaam>
+                <nummer minOccurs="0" maxOccurs="unbounded">
+                    <Value>testnummer</Value>
+                </nummer>
+            </Attributes>
+        </Inrichtingselement>
+        <Plaats>
+            <GeometryTypes>
+                <top10nl:geometrie>
+                    <brt:BRTVlakMultivlakOfPunt>
+                        <brt:puntGeometrie>
+                            <PuntGeometrie/>
+                        </brt:puntGeometrie>
+                    </brt:BRTVlakMultivlakOfPunt>
+                </top10nl:geometrie>
+                <top10nl:geometrie>
+                    <brt:BRTVlakMultivlakOfPunt>
+                        <brt:vlakGeometrie>
+                            <VlakGeometrie/>
+                        </brt:vlakGeometrie>
+                    </brt:BRTVlakMultivlakOfPunt>
+                </top10nl:geometrie>
+                <top10nl:geometrie>
+                    <brt:BRTVlakMultivlakOfPunt>
+                        <brt:vlakGeometrie>
+                            <VlakGeometrieMetGat/>
+                        </brt:vlakGeometrie>
+                    </brt:BRTVlakMultivlakOfPunt>
+                </top10nl:geometrie>
+                <top10nl:geometrie>
+                    <brt:BRTVlakMultivlakOfPunt>
+                        <brt:multivlakGeometrie>
+                            <MultivlakGeometrie/>
+                        </brt:multivlakGeometrie>
+                    </brt:BRTVlakMultivlakOfPunt>
+                </top10nl:geometrie>
+            </GeometryTypes>
+            <NameAttributes>
+                <Attribute>naamOfficieel</Attribute>
+                <Attribute>naamNL</Attribute>
+                <Attribute>naamFries</Attribute>
+            </NameAttributes>
+            <Attributes>
+                <typeGebied minOccurs="1" maxOccurs="1">
+                    <Value>woonkern</Value>
+                    <Value>industriekern</Value>
+                    <Value>recreatiekern</Value>
+                    <Value>deelkern</Value>
+                    <Value>gehucht</Value>
+                    <Value>buurtschap</Value>
+                    <Value>stadsdeel</Value>
+                    <Value>wijk</Value>
+                    <Value>buurt</Value>
+                </typeGebied>
+                <bebouwdeKom minOccurs="1" maxOccurs="1">
+                    <Value>ja</Value>
+                    <Value>nee</Value>
+                </bebouwdeKom>
+                <isBAGwoonplaats minOccurs="1" maxOccurs="1">
+                    <Value>ja</Value>
+                    <Value>nee</Value>
+                </isBAGwoonplaats>
+                <aantalInwoners minOccurs="0" maxOccurs="1">
+                    <Value>12345</Value>
+                </aantalInwoners>
+            </Attributes>
+        </Plaats>
+        <PlanTopografie>
+            <GeometryTypes>
+                <top10nl:geometrie>
+                    <brt:BRTVlakLijnOfPunt>
+                        <brt:puntGeometrie>
+                            <PuntGeometrie/>
+                        </brt:puntGeometrie>
+                    </brt:BRTVlakLijnOfPunt>
+                </top10nl:geometrie>
+                <top10nl:geometrie>
+                    <brt:BRTVlakLijnOfPunt>
+                        <brt:lijnGeometrie>
+                            <LijnGeometrie/>
+                        </brt:lijnGeometrie>
+                    </brt:BRTVlakLijnOfPunt>
+                </top10nl:geometrie>
+                <top10nl:geometrie>
+                    <brt:BRTVlakLijnOfPunt>
+                        <brt:vlakGeometrie>
+                            <VlakGeometrie/>
+                        </brt:vlakGeometrie>
+                    </brt:BRTVlakLijnOfPunt>
+                </top10nl:geometrie>
+                <top10nl:geometrie>
+                    <brt:BRTVlakLijnOfPunt>
+                        <brt:vlakGeometrie>
+                            <VlakGeometrieMetGat/>
+                        </brt:vlakGeometrie>
+                    </brt:BRTVlakLijnOfPunt>
+                </top10nl:geometrie>
+            </GeometryTypes>
+            <NameAttributes>
+                <Attribute>naam</Attribute>
+            </NameAttributes>
+            <Attributes>
+                <typeObject minOccurs="1" maxOccurs="1">
+                    <Value>spoorbaan</Value>
+                    <Value>water</Value>
+                    <Value>weg</Value>
+                    <Value>overig</Value>
+                </typeObject>
+            </Attributes>
+        </PlanTopografie>
+        <RegistratiefGebied>
+            <GeometryTypes>
+                <top10nl:geometrie>
+                    <brt:BRTVlakOfMultivlak>
+                        <brt:vlakGeometrie>
+                            <VlakGeometrie/>
+                        </brt:vlakGeometrie>
+                    </brt:BRTVlakOfMultivlak>
+                </top10nl:geometrie>
+                <top10nl:geometrie>
+                    <brt:BRTVlakOfMultivlak>
+                        <brt:vlakGeometrie>
+                            <VlakGeometrieMetGat/>
+                        </brt:vlakGeometrie>
+                    </brt:BRTVlakOfMultivlak>
+                </top10nl:geometrie>
+                <top10nl:geometrie>
+                    <brt:BRTVlakOfMultivlak>
+                        <brt:multivlakGeometrie>
+                            <MultivlakGeometrie/>
+                        </brt:multivlakGeometrie>
+                    </brt:BRTVlakOfMultivlak>
+                </top10nl:geometrie>
+            </GeometryTypes>
+            <NameAttributes>
+                <Attribute>naamOfficieel</Attribute>
+                <Attribute>naamNL</Attribute>
+                <Attribute>naamFries</Attribute>
+            </NameAttributes>
+            <Attributes>
+                <typeRegistratiefGebied minOccurs="1" maxOccurs="1">
+                    <Value>land</Value>
+                    <Value>provincie</Value>
+                    <Value>gemeente</Value>
+                    <Value>territoriale zee</Value>
+                    <Value>waterschap</Value>
+                </typeRegistratiefGebied>
+                <nummer minOccurs="0" maxOccurs="unbounded">
+                    <Value>testnummer</Value>
+                </nummer>
+            </Attributes>
+        </RegistratiefGebied>
+        <Relief>
+            <GeometryTypes>
+                <top10nl:lijnGeometrie>
+                    <LijnGeometrie/>
+                </top10nl:lijnGeometrie>
+                <top10nl:taludGeometrie>
+                    <brt:BRTHogeEnLageZijde>
+                        <brt:hogeZijde>
+                            <HogeZijdeGeometrie/>
+                        </brt:hogeZijde>
+                        <brt:lageZijde>
+                            <LageZijdeGeometrie/>
+                        </brt:lageZijde>
+                    </brt:BRTHogeEnLageZijde>
+                </top10nl:taludGeometrie>
+            </GeometryTypes>
+            <Attributes>
+                <typeRelief minOccurs="1" maxOccurs="1">
+                    <Value>wal</Value>
+                    <Value>talud, hoogteverschil</Value>
+                    <Value>steile rand, aardrand</Value>
+                </typeRelief>
+                <hoogteklasse minOccurs="1" maxOccurs="1">
+                    <Value>&lt; 1 meter</Value>
+                    <Value>1 - 2,5 meter</Value>
+                    <Value>&gt; 2,5 meter</Value>
+                </hoogteklasse>
+                <hoogteniveau minOccurs="1" maxOccurs="1">
+                    <Value>0</Value>
+                    <Value>-1</Value>
+                    <Value>-2</Value>
+                </hoogteniveau>
+                <functie minOccurs="0" maxOccurs="1">
+                    <Value>geluid weren</Value>
+                </functie>
+            </Attributes>
+        </Relief>
+        <Spoorbaandeel>
+            <GeometryTypes>
+                <top10nl:geometrie>
+                    <brt:BRTLijnOfPunt>
+                        <brt:puntGeometrie>
+                            <PuntGeometrie/>
+                        </brt:puntGeometrie>
+                    </brt:BRTLijnOfPunt>
+                </top10nl:geometrie>
+                <top10nl:geometrie>
+                    <brt:BRTLijnOfPunt>
+                        <brt:lijnGeometrie>
+                            <LijnGeometrie/>
+                        </brt:lijnGeometrie>
+                    </brt:BRTLijnOfPunt>
+                </top10nl:geometrie>
+            </GeometryTypes>
+            <NameAttributes>
+                <Attribute>brugnaam</Attribute>
+                <Attribute>tunnelnaam</Attribute>
+                <Attribute>baanvaknaam</Attribute>
+            </NameAttributes>
+            <Attributes>
+                <typeInfrastructuur minOccurs="1" maxOccurs="1">
+                    <Value>verbinding</Value>
+                    <Value>kruising</Value>
+                </typeInfrastructuur>
+                <typeSpoorbaan minOccurs="1" maxOccurs="1">
+                    <Value>trein</Value>
+                    <Value>tram</Value>
+                    <Value>sneltram</Value>
+                    <Value>metro</Value>
+                    <Value>gemengd</Value>
+                </typeSpoorbaan>
+                <fysiekVoorkomen minOccurs="0" maxOccurs="unbounded">
+                    <Value>op vast deel van brug</Value>
+                    <Value>op beweegbaar deel van brug</Value>
+                    <Value>overkluisd</Value>
+                    <Value>in tunnel</Value>
+                </fysiekVoorkomen>
+                <spoorbreedte minOccurs="1" maxOccurs="1">
+                    <Value>normaalspoor</Value>
+                    <Value>smalspoor</Value>
+                </spoorbreedte>
+                <aantalSporen minOccurs="1" maxOccurs="1">
+                    <Value>enkel</Value>
+                    <Value>dubbel</Value>
+                    <Value>meervoudig</Value>
+                </aantalSporen>
+                <vervoerfunctie minOccurs="1" maxOccurs="1">
+                    <Value>gemengd gebruik</Value>
+                    <Value>personenvervoer</Value>
+                    <Value>goederenvervoer</Value>
+                    <Value>museumlijn</Value>
+                </vervoerfunctie>
+                <elektrificatie minOccurs="1" maxOccurs="1">
+                    <Value>ja</Value>
+                    <Value>nee</Value>
+                </elektrificatie>
+                <hoogteniveau minOccurs="1" maxOccurs="1">
+                    <Value>0</Value>
+                    <Value>-1</Value>
+                    <Value>-2</Value>
+                </hoogteniveau>
+                <status minOccurs="1" maxOccurs="1">
+                    <Value>in uitvoering</Value>
+                    <Value>in gebruik</Value>
+                    <Value>buiten gebruik</Value>
+                </status>
+            </Attributes>
+        </Spoorbaandeel>
+        <Terrein>
+            <GeometryTypes>
+                <top10nl:geometrieVlak>
+                    <VlakGeometrie/>
+                </top10nl:geometrieVlak>
+            </GeometryTypes>
+            <NameAttributes>
+                <Attribute>naam</Attribute>
+            </NameAttributes>
+            <Attributes>
+                <typeLandgebruik minOccurs="1" maxOccurs="1">
+                    <Value>aanlegsteiger</Value>
+                    <Value>akkerland</Value>
+                    <Value>basaltblokken</Value>
+                    <Value>bebouwd gebied</Value>
+                    <Value>boomgaard</Value>
+                    <Value>boomkwekerij</Value>
+                    <Value>bos: gemengd bos</Value>
+                    <Value>bos: griend</Value>
+                    <Value>bos: loofbos</Value>
+                    <Value>bos: naaldbos</Value>
+                    <Value>braakliggend</Value>
+                    <Value>dodenakker</Value>
+                    <Value>dodenakker met bos</Value>
+                    <Value>duin</Value>
+                    <Value>fruitkwekerij</Value>
+                    <Value>grasland</Value>
+                    <Value>heide</Value>
+                    <Value>populieren</Value>
+                    <Value>spoorbaanlichaam</Value>
+                    <Value>zand</Value>
+                    <Value>overig</Value>
+                </typeLandgebruik>
+                <fysiekVoorkomen minOccurs="0" maxOccurs="unbounded">
+                    <Value>op vast deel van brug</Value>
+                    <Value>op beweegbaar deel van brug</Value>
+                    <Value>overkluisd</Value>
+                    <Value>in tunnel</Value>
+                </fysiekVoorkomen>
+                <voorkomen minOccurs="0" maxOccurs="unbounded">
+                    <Value>met riet</Value>
+                    <Value>dras, moerassig</Value>
+                </voorkomen>
+                <hoogteniveau minOccurs="1" maxOccurs="1">
+                    <Value>0</Value>
+                    <Value>-1</Value>
+                    <Value>-2</Value>
+                </hoogteniveau>
+            </Attributes>
+        </Terrein>
+        <Waterdeel>
+            <GeometryTypes>
+                <top10nl:geometrie>
+                    <brt:BRTVlakLijnOfPunt>
+                        <brt:puntGeometrie>
+                            <PuntGeometrie/>
+                        </brt:puntGeometrie>
+                    </brt:BRTVlakLijnOfPunt>
+                </top10nl:geometrie>
+                <top10nl:geometrie>
+                    <brt:BRTVlakLijnOfPunt>
+                        <brt:lijnGeometrie>
+                            <LijnGeometrie/>
+                        </brt:lijnGeometrie>
+                    </brt:BRTVlakLijnOfPunt>
+                </top10nl:geometrie>
+                <top10nl:geometrie>
+                    <brt:BRTVlakLijnOfPunt>
+                        <brt:vlakGeometrie>
+                            <VlakGeometrie/>
+                        </brt:vlakGeometrie>
+                    </brt:BRTVlakLijnOfPunt>
+                </top10nl:geometrie>
+                <top10nl:geometrie>
+                    <brt:BRTVlakLijnOfPunt>
+                        <brt:vlakGeometrie>
+                            <VlakGeometrieMetGat/>
+                        </brt:vlakGeometrie>
+                    </brt:BRTVlakLijnOfPunt>
+                </top10nl:geometrie>
+            </GeometryTypes>
+            <NameAttributes>
+                <Attribute>naamOfficieel</Attribute>
+                <Attribute>naamNL</Attribute>
+                <Attribute>naamFries</Attribute>
+                <Attribute>sluisnaam</Attribute>
+                <Attribute>brugnaam</Attribute>
+            </NameAttributes>
+            <Attributes>
+                <typeWater minOccurs="1" maxOccurs="1">
+                    <Value>waterloop</Value>
+                    <Value>meer, plas</Value>
+                    <Value>greppel, droge sloot</Value>
+                    <Value>zee</Value>
+                    <Value>droogvallend</Value>
+                    <Value>bron, wel</Value>
+                    <Value>overig</Value>
+                </typeWater>
+                <breedteklasse minOccurs="0" maxOccurs="1">
+                    <Value>0,5 - 3 meter</Value>
+                    <Value>3 - 6 meter</Value>
+                    <Value>6 - 12 meter</Value>
+                    <Value>12 - 50 meter</Value>
+                    <Value>50 - 125 meter</Value>
+                    <Value>&gt; 125 meter</Value>
+                </breedteklasse>
+                <hoofdafwatering minOccurs="1" maxOccurs="1">
+                    <Value>ja</Value>
+                    <Value>nee</Value>
+                </hoofdafwatering>
+                <fysiekVoorkomen minOccurs="0" maxOccurs="unbounded">
+                    <Value>in sluis</Value>
+                    <Value>op brug</Value>
+                    <Value>in duiker</Value>
+                    <Value>in afsluitbare duiker</Value>
+                    <Value>in grondduiker</Value>
+                    <Value>in afsluitbare grondduiker</Value>
+                    <Value>overkluisd</Value>
+                </fysiekVoorkomen>
+                <voorkomen minOccurs="0" maxOccurs="1">
+                    <Value>met riet</Value>
+                </voorkomen>
+                <hoogteniveau minOccurs="1" maxOccurs="1">
+                    <Value>0</Value>
+                    <Value>-1</Value>
+                    <Value>-2</Value>
+                </hoogteniveau>
+                <functie minOccurs="1" maxOccurs="1">
+                    <Value>drinkwaterbekken</Value>
+                    <Value>haven</Value>
+                    <Value>natuurbad</Value>
+                    <Value>viskwekerij</Value>
+                    <Value>vistrap</Value>
+                    <Value>vloeiveld</Value>
+                    <Value>waterval</Value>
+                    <Value>waterzuivering</Value>
+                    <Value>zwembad</Value>
+                    <Value>overig</Value>
+                </functie>
+                <getijdeinvloed minOccurs="1" maxOccurs="1">
+                    <Value>ja</Value>
+                    <Value>nee</Value>
+                </getijdeinvloed>
+                <vaarwegklasse minOccurs="0" maxOccurs="1">
+                    <Value>I</Value>
+                    <Value>II</Value>
+                    <Value>III</Value>
+                    <Value>IV</Value>
+                    <Value>Va</Value>
+                    <Value>Vb</Value>
+                    <Value>VIa</Value>
+                    <Value>VIb</Value>
+                    <Value>VIc</Value>
+                    <Value>VII</Value>
+                </vaarwegklasse>
+                <isBAGnaam minOccurs="0" maxOccurs="1">
+                    <Value>ja</Value>
+                    <Value>nee</Value>
+                </isBAGnaam>
+            </Attributes>
+        </Waterdeel>
+        <Wegdeel>
+            <GeometryTypes>
+                <top10nl:hartGeometrie>
+                    <brt:BRTLijnOfPunt>
+                        <brt:puntGeometrie>
+                            <PuntGeometrie/>
+                        </brt:puntGeometrie>
+                    </brt:BRTLijnOfPunt>
+                </top10nl:hartGeometrie>
+                <top10nl:hartGeometrie>
+                    <brt:BRTLijnOfPunt>
+                        <brt:lijnGeometrie>
+                            <LijnGeometrie/>
+                        </brt:lijnGeometrie>
+                    </brt:BRTLijnOfPunt>
+                </top10nl:hartGeometrie>
+                <top10nl:hoofdGeometrie>
+                    <brt:BRTVlakLijnOfPunt>
+                        <brt:puntGeometrie>
+                            <PuntGeometrie/>
+                        </brt:puntGeometrie>
+                    </brt:BRTVlakLijnOfPunt>
+                </top10nl:hoofdGeometrie>
+                <top10nl:hoofdGeometrie>
+                    <brt:BRTVlakLijnOfPunt>
+                        <brt:lijnGeometrie>
+                            <LijnGeometrie/>
+                        </brt:lijnGeometrie>
+                    </brt:BRTVlakLijnOfPunt>
+                </top10nl:hoofdGeometrie>
+                <top10nl:hoofdGeometrie>
+                    <brt:BRTVlakLijnOfPunt>
+                        <brt:vlakGeometrie>
+                            <VlakGeometrie/>
+                        </brt:vlakGeometrie>
+                    </brt:BRTVlakLijnOfPunt>
+                </top10nl:hoofdGeometrie>
+                <top10nl:hoofdGeometrie>
+                    <brt:BRTVlakLijnOfPunt>
+                        <brt:vlakGeometrie>
+                            <VlakGeometrieMetGat/>
+                        </brt:vlakGeometrie>
+                    </brt:BRTVlakLijnOfPunt>
+                </top10nl:hoofdGeometrie>
+            </GeometryTypes>
+            <NameAttributes>
+                <Attribute>naam</Attribute>
+                <Attribute>afritnaam</Attribute>
+                <Attribute>knooppuntnaam</Attribute>
+                <Attribute>brugnaam</Attribute>
+                <Attribute>tunnelnaam</Attribute>
+            </NameAttributes>
+            <Attributes>
+                <typeInfrastructuur minOccurs="1" maxOccurs="1">
+                    <Value>verbinding</Value>
+                    <Value>kruising</Value>
+                    <Value>overig verkeersgebied</Value>
+                </typeInfrastructuur>
+                <typeWater minOccurs="1" maxOccurs="1">
+                    <Value>startbaan, landingsbaan</Value>
+                    <Value>rolbaan, platform</Value>
+                    <Value>autosnelweg</Value>
+                    <Value>hoofdweg</Value>
+                    <Value>regionale weg</Value>
+                    <Value>lokale weg</Value>
+                    <Value>straat</Value>
+                    <Value>veerverbinding</Value>
+                    <Value>parkeerplaats</Value>
+                    <Value>parkeerplaats: carpool</Value>
+                    <Value>parkeerplaats: P+R</Value>
+                    <Value>overig</Value>
+                </typeWater>
+                <hoofdverkeersgebruik minOccurs="1" maxOccurs="1">
+                    <Value>vliegverkeer</Value>
+                    <Value>snelverkeer</Value>
+                    <Value>gemengd verkeer</Value>
+                    <Value>busverkeer</Value>
+                    <Value>fietsers, bromfietsers</Value>
+                    <Value>voetgangers</Value>
+                    <Value>ruiters</Value>
+                    <Value>overig</Value>
+                </hoofdverkeersgebruik>
+                <fysiekVoorkomen minOccurs="0" maxOccurs="unbounded">
+                    <Value>op vast deel van brug</Value>
+                    <Value>op beweegbaar deel van brug</Value>
+                    <Value>op rotonde</Value>
+                    <Value>op oprit / afrit</Value>
+                    <Value>op knooppuntverbinding</Value>
+                    <Value>overkluisd</Value>
+                    <Value>in tunnel</Value>
+                </fysiekVoorkomen>
+                <verhardingsbreedteklasse minOccurs="0" maxOccurs="1">
+                    <Value>&gt; 7 meter</Value>
+                    <Value>4 - 7 meter</Value>
+                    <Value>2 - 4 meter</Value>
+                    <Value>&lt; 2 meter</Value>
+                </verhardingsbreedteklasse>
+                <gescheidenRijbaan minOccurs="1" maxOccurs="1">
+                    <Value>ja</Value>
+                    <Value>nee</Value>
+                </gescheidenRijbaan>
+                <verhardingstype minOccurs="1" maxOccurs="1">
+                    <Value>verhard</Value>
+                    <Value>half verhard</Value>
+                    <Value>onverhard</Value>
+                    <Value>onbekend</Value>
+                </verhardingstype>
+                <aantalRijstroken minOccurs="1" maxOccurs="1">
+                    <Value>2</Value>
+                </aantalRijstroken>
+                <hoogteniveau minOccurs="1" maxOccurs="1">
+                    <Value>0</Value>
+                    <Value>-1</Value>
+                    <Value>-2</Value>
+                </hoogteniveau>
+                <status minOccurs="1" maxOccurs="1">
+                    <Value>in uitvoering</Value>
+                    <Value>in gebruik</Value>
+                    <Value>buiten gebruik</Value>
+                </status>
+                <isBAGnaam minOccurs="0" maxOccurs="1">
+                    <Value>ja</Value>
+                    <Value>nee</Value>
+                </isBAGnaam>
+                <A-wegnummer minOccurs="0" maxOccurs="unbounded">
+                    <Value>A 99</Value>
+                </A-wegnummer>
+                <N-wegnummer minOccurs="0" maxOccurs="unbounded">
+                    <Value>N 99</Value>
+                </N-wegnummer>
+                <E-wegnummer minOccurs="0" maxOccurs="unbounded">
+                    <Value>E 99</Value>
+                </E-wegnummer>
+                <S-wegnummer minOccurs="0" maxOccurs="unbounded">
+                    <Value>S 99</Value>
+                </S-wegnummer>
+                <afritnummer minOccurs="0" maxOccurs="1">
+                    <Value>testafritnummer</Value>
+                </afritnummer>
+            </Attributes>
+        </Wegdeel>
+    </FeatureTypes>
+</GenerateLand>
