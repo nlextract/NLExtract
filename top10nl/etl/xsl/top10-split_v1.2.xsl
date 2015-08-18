@@ -28,7 +28,7 @@ geometrie.
                 xmlns:xalan="http://xml.apache.org/xalan" exclude-result-prefixes="xalan"
                 xmlns:top10nl="http://www.kadaster.nl/schemas/imbrt/top10nl/1.2"
                 xmlns:brt="http://www.kadaster.nl/schemas/imbrt/brt-alg/1.0"
-                xmlns:gml="http://www.opengis.net/gml"
+                xmlns:gml="http://www.opengis.net/gml/3.2"
                 xmlns:xs="http://www.w3.org/2001/XMLSchema"
                 xmlns:smil20="http://www.w3.org/2001/SMIL20/"
                 xmlns:smil20lang="http://www.w3.org/2001/SMIL20/Language">
@@ -38,7 +38,7 @@ geometrie.
     <!-- Start: output omhullende FeatureCollection -->
     <xsl:template match="/">
         <top10nl:FeatureCollectionT10NL
-                xmlns:gml="http://www.opengis.net/gml"
+                xmlns:gml="http://www.opengis.net/gml/3.2"
                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                 xmlns:xlink="http://www.w3.org/1999/xlink"
                 xmlns:top10nl="http://www.kadaster.nl/schemas/imbrt/top10nl/1.2"
