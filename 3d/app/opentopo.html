@@ -34,7 +34,7 @@
         imageryProvider : new Cesium.OpenStreetMapImageryProvider({
                         url: 'http://s.map5.nl/map/gast/tiles/opentopo/EPSG900913',
                         fileExtension: 'jpeg',
-                        credit: 'OpenTopo Map bij Imergis/JW van Aalst with data from OpenStreetMap and Dutch Kadaster Top10NL'
+                        credit: 'OpenTopo Map by JW van Aalst from OSM,Top10NL served by map5.nl'
                     })
 //        ,
 //        imageryProvider: new Cesium.TileMapServiceImageryProvider({
@@ -55,14 +55,22 @@
     viewer.scene.terrainProvider = terrainProvider;
 
     var vburgLon = 5.8264;
-    var vburgLat = 50.8646;
+    var vburgLat = 50.85;
+    var center = Cesium.Cartesian3.fromDegrees(vburgLon, vburgLat, 1000.0);
     var heading = Cesium.Math.toRadians(0.0);
-    var pitch = Cesium.Math.toRadians(15.0);
-    var range = 1200.0;
-    var center = Cesium.Cartesian3.fromDegrees(vburgLon, vburgLat);
-    camera.lookAt(center,
-            new Cesium.HeadingPitchRange(heading, pitch, range));
+    var pitch = Cesium.Math.toRadians(-35.0);
+    var roll = 0.0;
+    //camera.lookAt(center,
+    //        new Cesium.HeadingPitchRange(heading, pitch, roll));
 
+    camera.flyTo({
+            destination : center,
+            orientation : {
+                heading : heading,
+                pitch : pitch,
+                roll : roll
+            }
+        });
 
     //    var dataSource = new Cesium.GeoJsonDataSource();
     //    viewer.dataSources.add(dataSource);
@@ -75,7 +83,7 @@
 //    var layers = viewer.scene.imageryLayers;
 //    layers.addImageryProvider(new Cesium.TileMapServiceImageryProvider({
 //                url: 'http://ws.nlextract.nl/gwc/service/tms/1.0.0/opentopo@EPSG:900913@png',
-//                credit: 'OpenTopo Map bij Imergis/JW van Aalst with data from OpenStreetMap and Dutch Kadaster Top10NL'
+//                credit: 'OpenTopo Map by JW van Aalst from OSM,Top10NL served by map5.nl'
 //            }));
 //
 
