@@ -79,8 +79,27 @@
             </gml:LineString>
         </LageZijdeGeometrie>
     </BaseGeometries>
+    <ParentTypes>
+        <Top10Object>
+            <top10nl:identificatie>
+                <brt:NEN3610ID>
+                    <brt:namespace>NL.TOP10NL</brt:namespace>
+                    <brt:lokaalID>{ID}</brt:lokaalID>
+                </brt:NEN3610ID>
+            </top10nl:identificatie>
+            <top10nl:brontype>Luchtfoto</top10nl:brontype>
+            <top10nl:bronactualiteit>2015-01-01</top10nl:bronactualiteit>
+            <top10nl:bronbeschrijving>Een orthogerectificeerde fotografische opname van een deel van het aardoppervlak. Gemaakt vanuit een vliegtuig.</top10nl:bronbeschrijving>
+            <top10nl:bronnauwkeurigheid>0.4</top10nl:bronnauwkeurigheid>
+            <top10nl:objectBeginTijd>2015-08-15</top10nl:objectBeginTijd>
+            <top10nl:tijdstipRegistratie>2015-08-15</top10nl:tijdstipRegistratie>
+            <top10nl:tdnCode>999</top10nl:tdnCode>
+            <top10nl:visualisatieCode>19160</top10nl:visualisatieCode>
+            <top10nl:mutatieType>TEST</top10nl:mutatieType>
+        </Top10Object>
+    </ParentTypes>
     <FeatureTypes>
-        <FunctioneelGebied>
+        <FunctioneelGebied parentType="Top10Object">
             <GeometryTypes>
                 <top10nl:geometrie>
                     <brt:BRTVlakMultivlakOfPunt>
@@ -193,7 +212,7 @@
                 </soortnaam>
             </Attributes>
         </FunctioneelGebied>
-        <Gebouw>
+        <Gebouw parentType="Top10Object">
             <GeometryTypes>
                 <top10nl:geometrie>
                     <brt:BRTVlakOfPunt>
@@ -343,7 +362,7 @@
                 </gebruiksdoel>
             </Attributes>
         </Gebouw>
-        <GeografischGebied>
+        <GeografischGebied parentType="Top10Object">
             <GeometryTypes>
                 <top10nl:geometrie>
                     <brt:BRTVlakMultivlakOfPunt>
@@ -399,7 +418,7 @@
                 </typeGeografischGebied>
             </Attributes>
         </GeografischGebied>
-        <Hoogte>
+        <Hoogte parentType="Top10Object">
             <GeometryTypes>
                 <top10nl:geometrie>
                     <brt:BRTLijnOfPunt>
@@ -439,7 +458,7 @@
                 </referentievlak>
             </Attributes>
         </Hoogte>
-        <Inrichtingselement>
+        <Inrichtingselement parentType="Top10Object">
             <GeometryTypes>
                 <top10nl:geometrie>
                     <brt:BRTLijnOfPunt>
@@ -547,7 +566,7 @@
                 </nummer>
             </Attributes>
         </Inrichtingselement>
-        <Plaats>
+        <Plaats parentType="Top10Object">
             <GeometryTypes>
                 <top10nl:geometrie>
                     <brt:BRTVlakMultivlakOfPunt>
@@ -608,7 +627,7 @@
                 </aantalInwoners>
             </Attributes>
         </Plaats>
-        <PlanTopografie>
+        <PlanTopografie parentType="Top10Object">
             <GeometryTypes>
                 <top10nl:geometrie>
                     <brt:BRTVlakLijnOfPunt>
@@ -651,7 +670,7 @@
                 </typeObject>
             </Attributes>
         </PlanTopografie>
-        <RegistratiefGebied>
+        <RegistratiefGebied parentType="Top10Object">
             <GeometryTypes>
                 <top10nl:geometrie>
                     <brt:BRTVlakOfMultivlak>
@@ -694,7 +713,7 @@
                 </nummer>
             </Attributes>
         </RegistratiefGebied>
-        <Relief>
+        <Relief parentType="Top10Object">
             <GeometryTypes>
                 <top10nl:lijnGeometrie>
                     <LijnGeometrie/>
@@ -731,7 +750,7 @@
                 </functie>
             </Attributes>
         </Relief>
-        <Spoorbaandeel>
+        <Spoorbaandeel parentType="Top10Object">
             <GeometryTypes>
                 <top10nl:geometrie>
                     <brt:BRTLijnOfPunt>
@@ -802,7 +821,7 @@
                 </status>
             </Attributes>
         </Spoorbaandeel>
-        <Terrein>
+        <Terrein parentType="Top10Object">
             <GeometryTypes>
                 <top10nl:geometrieVlak>
                     <VlakGeometrie/>
@@ -852,7 +871,7 @@
                 </hoogteniveau>
             </Attributes>
         </Terrein>
-        <Waterdeel>
+        <Waterdeel parentType="Top10Object">
             <GeometryTypes>
                 <top10nl:geometrie>
                     <brt:BRTVlakLijnOfPunt>
@@ -963,7 +982,7 @@
                 </isBAGnaam>
             </Attributes>
         </Waterdeel>
-        <Wegdeel>
+        <Wegdeel parentType="Top10Object">
             <GeometryTypes>
                 <top10nl:hartGeometrie>
                     <brt:BRTLijnOfPunt>

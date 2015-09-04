@@ -29,7 +29,11 @@
     <xsl:template match="BaseGeometries">
         <!-- Negeer -->
     </xsl:template>
-    
+     
+    <xsl:template match="ParentTypes/*">
+        <!-- Negeer -->
+    </xsl:template>
+   
     <xsl:template match="PuntGeometrie|LijnGeometrie|VlakGeometrie|VlakGeometrieMetGat|MultivlakGeometrie|HartpuntGeometrie|HartlijnGeometrie|HogeZijdeGeometrie|LageZijdeGeometrie" mode="geom">
         <xsl:param name="llx"/>
         <xsl:param name="lly"/>
@@ -95,6 +99,22 @@
         </xsl:choose>
     </xsl:template>
     
+    <xsl:template match="*" mode="parent">
+        <xsl:param name="id"/>
+        <xsl:copy>
+            <xsl:choose>
+                <xsl:when test="text()='{ID}'">
+                    <xsl:value-of select="$id"/>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:apply-templates mode="parent">
+                        <xsl:with-param name="id" select="$id"/>
+                    </xsl:apply-templates>
+                </xsl:otherwise>
+            </xsl:choose>
+        </xsl:copy>
+    </xsl:template>
+    
     <xsl:template name="AddFeature">
         <xsl:param name="el"/>
         <xsl:param name="elPos"/>
@@ -104,7 +124,7 @@
         <xsl:param name="val2"/> <!-- Alleen wanneer maxOccurs een andere waarde heeft dan '1' -->
         <xsl:param name="valPos"/>
         <xsl:param name="featureName"/>
-    
+        
         <xsl:for-each select="$el/GeometryTypes/*">
             <xsl:variable name="id" select="$elPos * 100000 + $atPos * 1000 + $valPos * 10 + position() - 1"/>
             <xsl:variable name="llx" select="100000 + $valPos * 10 + $elPos * 1000"/>
@@ -114,21 +134,13 @@
                     <xsl:attribute name="gml:id" namespace="http://www.opengis.net/gml/3.2">
                         <xsl:value-of select="concat('nl.top10nl.',$id)"/>
                     </xsl:attribute>
-                    <top10nl:identificatie>
-                        <brt:NEN3610ID>
-                            <brt:namespace>NL.TOP10NL</brt:namespace>
-                            <brt:lokaalID><xsl:value-of select="$id"/></brt:lokaalID>
-                        </brt:NEN3610ID>
-                    </top10nl:identificatie>
-                    <top10nl:brontype>Luchtfoto</top10nl:brontype>
-                    <top10nl:bronactualiteit>2015-01-01</top10nl:bronactualiteit>
-                    <top10nl:bronbeschrijving>Een orthogerectificeerde fotografische opname van een deel van het aardoppervlak. Gemaakt vanuit een vliegtuig.</top10nl:bronbeschrijving>
-                    <top10nl:bronnauwkeurigheid>0.4</top10nl:bronnauwkeurigheid>
-                    <top10nl:objectBeginTijd>2015-08-15</top10nl:objectBeginTijd>
-                    <top10nl:tijdstipRegistratie>2015-08-15</top10nl:tijdstipRegistratie>
-                    <top10nl:tdnCode>999</top10nl:tdnCode>
-                    <top10nl:visualisatieCode>19160</top10nl:visualisatieCode>
-                    <top10nl:mutatieType>TEST</top10nl:mutatieType>
+                    <xsl:if test="$el[@parentType]">
+                        <xsl:variable name="parentType" select="$el/../../ParentTypes/*[name()=$el/@parentType]"/>
+                        <xsl:apply-templates select="$parentType/*" mode="parent">
+                            <xsl:with-param name="id" select="$id"/>
+                        </xsl:apply-templates>
+                    </xsl:if>
+                    
                     <xsl:for-each select="$el/Attributes/*">
                         <xsl:if test="name(.)=name($at) and $val">
                             <!-- De (eerste) waarde van het actieve attribuut -->
