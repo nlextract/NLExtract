@@ -142,33 +142,45 @@
                     </xsl:if>
                     
                     <xsl:for-each select="$el/Attributes/*">
-                        <xsl:if test="name(.)=name($at) and $val">
-                            <!-- De (eerste) waarde van het actieve attribuut -->
-                            <xsl:element name="top10nl:{name(.)}" namespace="{$ttnlNS}">
-                                <xsl:value-of select="$val/text()"/>
-                            </xsl:element>
-                        </xsl:if>
-                        <xsl:if test="name(.)=name($at) and $val2">
-                            <!-- De tweede waarde van het actieve attribuut -->
-                            <xsl:comment>Extra waarde voor het actieve attribuut <xsl:value-of select="name(.)"/></xsl:comment>
-                            <xsl:element name="top10nl:{name(.)}" namespace="{$ttnlNS}">
-                                <xsl:value-of select="$val2/text()"/>
-                            </xsl:element>
-                        </xsl:if>
-                        <xsl:if test="name(.)=name($at) and not($val)">
-                            <!-- Melding dat het actieve attribuut wordt weggelaten -->
-                            <xsl:comment>Het actieve attribuut <xsl:value-of select="name(.)"/> wordt overgeslagen</xsl:comment>
-                        </xsl:if>
-                        <xsl:if test="name(.)!=name($at) and (not(@minOccurs) or @minOccurs!='0')">
-                            <!-- Overige attributen; hierbij worden optionele attributen standaard weggelaten -->
-                            <xsl:element name="top10nl:{name(.)}" namespace="{$ttnlNS}">
-                                <xsl:value-of select="./Value[1]/text()"/>
-                            </xsl:element>
-                        </xsl:if>
-                        <xsl:if test="name(.)!=name($at) and @minOccurs='0'">
-                            <!-- Melding dat een optioneel attribuut wordt weggelaten -->
-                            <xsl:comment>Het optionele attribuut <xsl:value-of select="name(.)"/> wordt overgeslagen</xsl:comment>
-                        </xsl:if>
+                        <xsl:choose>
+                            <xsl:when test="name(.)=name($at)">
+                                <!-- Actief attribuut -->
+                                <xsl:choose>
+                                    <xsl:when test="$val">
+                                        <!-- De (eerste) waarde van het actieve attribuut -->
+                                        <xsl:element name="top10nl:{name(.)}" namespace="{$ttnlNS}">
+                                            <xsl:value-of select="$val/text()"/>
+                                        </xsl:element>
+                                        <xsl:if test="$val2">
+                                            <!-- De tweede waarde van het actieve attribuut -->
+                                            <xsl:comment>Extra waarde voor het actieve attribuut <xsl:value-of select="name(.)"/></xsl:comment>
+                                            <xsl:element name="top10nl:{name(.)}" namespace="{$ttnlNS}">
+                                                <xsl:value-of select="$val2/text()"/>
+                                            </xsl:element>
+                                        </xsl:if>
+                                    </xsl:when>
+                                    <xsl:otherwise>
+                                        <!-- Melding dat het actieve attribuut wordt weggelaten -->
+                                        <xsl:comment>Het actieve attribuut <xsl:value-of select="name(.)"/> wordt overgeslagen</xsl:comment>
+                                    </xsl:otherwise>
+                                </xsl:choose>
+                            </xsl:when>
+                            <xsl:otherwise>
+                                <!-- Niet-actief attribuut -->
+                                <xsl:choose>
+                                    <xsl:when test="@minOccurs='0'">
+                                        <!-- Melding dat een optioneel attribuut wordt weggelaten -->
+                                        <xsl:comment>Het optionele attribuut <xsl:value-of select="name(.)"/> wordt overgeslagen</xsl:comment>
+                                    </xsl:when>
+                                    <xsl:otherwise>
+                                        <!-- Overige attributen; hierbij worden optionele attributen standaard weggelaten -->
+                                        <xsl:element name="top10nl:{name(.)}" namespace="{$ttnlNS}">
+                                            <xsl:value-of select="./Value[1]/text()"/>
+                                        </xsl:element>
+                                    </xsl:otherwise>
+                                </xsl:choose>
+                            </xsl:otherwise>
+                        </xsl:choose>
                     </xsl:for-each>
                     <xsl:for-each select="$el/NameAttributes/*">
                         <xsl:element name="top10nl:{text()}" namespace="{$ttnlNS}">
