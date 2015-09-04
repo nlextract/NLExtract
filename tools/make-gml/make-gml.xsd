@@ -60,17 +60,79 @@
     
     <xsd:complexType name="FeatureTypesType">
         <xsd:sequence>
-            <!-- Hierbinnen bevindt zich een onbekend element dat een substituut is van gml:_Feature. Alleen het omhulsel
-                 is een substituut, de inhoud niet. Inhoud: [GeometryTypes, NameAttributes, Attributes]. Inhoud van
-                 GeometryTypes is willekeurige XML, dat uiteindelijk een element bevat dat een verwijzing is naar een
-                 element onder BaseGeometries. Inhoud van NameAttributes zijn willekeurige XML elementen, waarvan alleen
-                 het buitenste element wordt gebruikt. Inhoud van Attributes zijn willekeurige XML elementen met wederom
-                 een verplichte inhoud, nl. een of meerdere Value-elementen en met optioneel minOccurs / maxOccurs
-                 attributen. -->
-            <!-- TODO: naam van onbekende FeatureType elementen en Attributen in een attribuut of child element
-                 stoppen... -->
-            <xsd:any processContents="lax" maxOccurs="unbounded"/>
+            <!-- Hierbinnen bevinden zich een of meerdere FeatureType elementen. In het child element ElementType staat
+                 het daadwerkelijk te gebruiken feature-element. -->
+            <xsd:element name="FeatureType" maxOccurs="unbounded">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="ElementType">
+                            <xsd:complexType>
+                                <xsd:sequence>
+                                    <xsd:any processContents="lax"/>
+                                </xsd:sequence>
+                            </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name="GeometryTypes">
+                            <xsd:complexType>
+                                <xsd:sequence>
+                                    <!-- minOccurs="0"? Gaat nog niet werken met de huidige XSLT... -->
+                                    <xsd:any processContents="lax" maxOccurs="unbounded"/>
+                                </xsd:sequence>
+                            </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name="NameAttributes" minOccurs="0">
+                            <xsd:complexType>
+                                <xsd:sequence>
+                                    <xsd:any processContents="lax" maxOccurs="unbounded"/>
+                                </xsd:sequence>
+                            </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name="Attributes" type="AttributesType"/>
+                    </xsd:sequence>
+                    <xsd:attribute name="parentType" type="xsd:string"/>
+                </xsd:complexType>
+            </xsd:element>
         </xsd:sequence>
     </xsd:complexType>
+    
+    <xsd:complexType name="AttributesType">
+        <xsd:sequence>
+            <!-- Hierbinnen bevinden zich een of meerdere Attribute elementen. In het child element ElementType staat
+                 het daadwerkelijk te gebruiken attribuutelement. -->
+            <xsd:element name="Attribute" maxOccurs="unbounded">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="ElementType">
+                            <xsd:complexType>
+                                <xsd:sequence>
+                                    <xsd:any processContents="lax"/>
+                                </xsd:sequence>
+                            </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name="Value" type="xsd:string" maxOccurs="unbounded"/>
+                    </xsd:sequence>
+                    <xsd:attribute name="minOccurs" type="MinOccursType"/>
+                    <xsd:attribute name="maxOccurs" type="MaxOccursType"/>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:simpleType name="MinOccursType">
+        <xsd:restriction base="xsd:nonNegativeInteger"/>
+    </xsd:simpleType>
+    
+    <xsd:simpleType name="MaxOccursType">
+        <xsd:union>
+            <xsd:simpleType>
+                <xsd:restriction base="xsd:nonNegativeInteger"/>
+            </xsd:simpleType>
+            <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                    <xsd:enumeration value="unbounded"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+        </xsd:union>
+    </xsd:simpleType>
     
 </xsd:schema>

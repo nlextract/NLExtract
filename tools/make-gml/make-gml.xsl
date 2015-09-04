@@ -32,7 +32,7 @@
         <xsl:variable name="el" select="."/>
         <xsl:variable name="elPos" select="position()"/>
         <xsl:for-each select="Attributes/*">
-            <xsl:variable name="at" select="."/>
+            <xsl:variable name="at" select="ElementType/*"/>
             <xsl:variable name="atPos" select="position()"/>
             
             <xsl:if test="@minOccurs='0'">
@@ -99,7 +99,7 @@
             <xsl:element name="{name(//FeatureMember/*)}" namespace="{namespace-uri(//FeatureMember/*)}">
             
                 <!-- Schrijf een nieuwe feature weg -->
-                <xsl:element name="{name($el)}" namespace="{namespace-uri($el)}">
+                <xsl:element name="{name($el/ElementType/*)}" namespace="{namespace-uri($el/ElementType/*)}">
                     <!-- Bepaal het uiteindelijke GML ID -->
                     <xsl:attribute name="gml:id" namespace="http://www.opengis.net/gml/3.2">
                         <xsl:value-of select="concat(//IDPrefix,$id)"/>
@@ -116,25 +116,25 @@
                     <!-- Schrijf alle attributen weg -->
                     <xsl:for-each select="$el/Attributes/*">
                         <xsl:choose>
-                            <xsl:when test="name(.)=name($at)">
+                            <xsl:when test="name(ElementType/*)=name($at)">
                                 <!-- Actief attribuut -->
                                 <xsl:choose>
                                     <xsl:when test="$val">
                                         <!-- De (eerste) waarde van het actieve attribuut -->
-                                        <xsl:element name="{name()}" namespace="{namespace-uri()}">
+                                        <xsl:element name="{name(ElementType/*)}" namespace="{namespace-uri(ElementType/*)}">
                                             <xsl:value-of select="$val/text()"/>
                                         </xsl:element>
                                         <xsl:if test="$val2">
                                             <!-- De tweede waarde van het actieve attribuut -->
-                                            <xsl:comment>Extra waarde voor het actieve attribuut <xsl:value-of select="local-name()"/></xsl:comment>
-                                            <xsl:element name="{name()}" namespace="{namespace-uri()}">
+                                            <xsl:comment>Extra waarde voor het actieve attribuut <xsl:value-of select="local-name(ElementType/*)"/></xsl:comment>
+                                            <xsl:element name="{name(ElementType/*)}" namespace="{namespace-uri(ElementType/*)}">
                                                 <xsl:value-of select="$val2/text()"/>
                                             </xsl:element>
                                         </xsl:if>
                                     </xsl:when>
                                     <xsl:otherwise>
                                         <!-- Melding dat het actieve attribuut wordt weggelaten -->
-                                        <xsl:comment>Het actieve attribuut <xsl:value-of select="local-name()"/> wordt overgeslagen</xsl:comment>
+                                        <xsl:comment>Het actieve attribuut <xsl:value-of select="local-name(ElementType/*)"/> wordt overgeslagen</xsl:comment>
                                     </xsl:otherwise>
                                 </xsl:choose>
                             </xsl:when>
@@ -143,11 +143,11 @@
                                 <xsl:choose>
                                     <xsl:when test="@minOccurs='0'">
                                         <!-- Melding dat een optioneel attribuut wordt weggelaten -->
-                                        <xsl:comment>Het optionele attribuut <xsl:value-of select="local-name()"/> wordt overgeslagen</xsl:comment>
+                                        <xsl:comment>Het optionele attribuut <xsl:value-of select="local-name(ElementType/*)"/> wordt overgeslagen</xsl:comment>
                                     </xsl:when>
                                     <xsl:otherwise>
                                         <!-- Overige attributen; hierbij worden optionele attributen standaard weggelaten -->
-                                        <xsl:element name="{name()}" namespace="{namespace-uri()}">
+                                        <xsl:element name="{name(ElementType/*)}" namespace="{namespace-uri(ElementType/*)}">
                                             <xsl:value-of select="./Value[1]/text()"/>
                                         </xsl:element>
                                     </xsl:otherwise>

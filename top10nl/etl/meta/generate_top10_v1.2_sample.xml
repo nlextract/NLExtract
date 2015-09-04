@@ -112,7 +112,10 @@
         </Top10Object>
     </ParentTypes>
     <FeatureTypes>
-        <top10nl:FunctioneelGebied parentType="Top10Object">
+        <FeatureType parentType="Top10Object">
+            <ElementType>
+                <top10nl:FunctioneelGebied/>
+            </ElementType>
             <GeometryTypes>
                 <top10nl:geometrie>
                     <brt:BRTVlakMultivlakOfPunt>
@@ -148,7 +151,10 @@
                 <top10nl:naamFries/>
             </NameAttributes>
             <Attributes>
-                <top10nl:typeFunctioneelGebied minOccurs="1" maxOccurs="1">
+                <Attribute minOccurs="1" maxOccurs="1">
+                    <ElementType>
+                        <top10nl:typeFunctioneelGebied/>
+                    </ElementType>
                     <Value>arboretum</Value>
                     <Value>attractiepark</Value>
                     <Value>bedrijventerrein</Value>
@@ -219,13 +225,19 @@
                     <Value>zweefvliegveldterrein</Value>
                     <Value>zwembad complex</Value>
                     <Value>overig</Value>
-                </top10nl:typeFunctioneelGebied>
-                <top10nl:soortnaam minOccurs="0" maxOccurs="1">
+                </Attribute>
+                <Attribute minOccurs="0" maxOccurs="1">
+                    <ElementType>
+                        <top10nl:soortnaam/>
+                    </ElementType>
                     <Value>testsoortnaam</Value>
-                </top10nl:soortnaam>
+                </Attribute>
             </Attributes>
-        </top10nl:FunctioneelGebied>
-        <top10nl:Gebouw parentType="Top10Object">
+        </FeatureType>
+        <FeatureType parentType="Top10Object">
+            <ElementType>
+                <top10nl:Gebouw/>
+            </ElementType>
             <GeometryTypes>
                 <top10nl:geometrie>
                     <brt:BRTVlakOfPunt>
@@ -253,7 +265,10 @@
                 <top10nl:naam/>
             </NameAttributes>
             <Attributes>
-                <top10nl:typeGebouw minOccurs="1" maxOccurs="unbounded">
+                <Attribute minOccurs="1" maxOccurs="unbounded">
+                    <ElementType>
+                        <top10nl:typeGebouw/>
+                    </ElementType>
                     <Value>bezoekerscentrum</Value>
                     <Value>boortoren</Value>
                     <Value>brandtoren</Value>
@@ -335,32 +350,53 @@
                     <Value>ziekenhuis</Value>
                     <Value>zwembad</Value>
                     <Value>overig</Value>
-                </top10nl:typeGebouw>
-                <top10nl:fysiekVoorkomen minOccurs="0" maxOccurs="1">
+                </Attribute>
+                <Attribute minOccurs="0" maxOccurs="1">
+                    <ElementType>
+                        <top10nl:fysiekVoorkomen/>
+                    </ElementType>
                     <Value>ondergronds</Value>
                     <Value>overkluisd</Value>
-                </top10nl:fysiekVoorkomen>
-                <top10nl:hoogteklasse minOccurs="1" maxOccurs="1">
+                </Attribute>
+                <Attribute minOccurs="1" maxOccurs="1">
+                    <ElementType>
+                        <top10nl:hoogteklasse/>
+                    </ElementType>
                     <Value>laagbouw</Value>
                     <Value>hoogbouw</Value>
-                </top10nl:hoogteklasse>
-                <top10nl:hoogteniveau minOccurs="1" maxOccurs="1">
+                </Attribute>
+                <Attribute minOccurs="1" maxOccurs="1">
+                    <ElementType>
+                        <top10nl:hoogteniveau/>
+                    </ElementType>
                     <Value>0</Value>
                     <Value>-1</Value>
                     <Value>-2</Value>
-                </top10nl:hoogteniveau>
-                <top10nl:hoogte minOccurs="0" maxOccurs="1">
+                </Attribute>
+                <Attribute minOccurs="0" maxOccurs="1">
+                    <ElementType>
+                        <top10nl:hoogte/>
+                    </ElementType>
                     <Value>12.3</Value>
-                </top10nl:hoogte>
-                <top10nl:status minOccurs="1" maxOccurs="1">
+                </Attribute>
+                <Attribute minOccurs="1" maxOccurs="1">
+                    <ElementType>
+                        <top10nl:status/>
+                    </ElementType>
                     <Value>in uitvoering</Value>
                     <Value>in gebruik</Value>
                     <Value>buiten gebruik</Value>
-                </top10nl:status>
-                <top10nl:soortnaam minOccurs="0" maxOccurs="1">
+                </Attribute>
+                <Attribute minOccurs="0" maxOccurs="1">
+                    <ElementType>
+                        <top10nl:soortnaam/>
+                    </ElementType>
                     <Value>testsoortnaam</Value>
-                </top10nl:soortnaam>
-                <top10nl:gebruiksdoel minOccurs="0" maxOccurs="unbounded">
+                </Attribute>
+                <Attribute minOccurs="0" maxOccurs="unbounded">
+                    <ElementType>
+                        <top10nl:gebruiksdoel/>
+                    </ElementType>
                     <Value>bijeenkomstfunctie</Value>
                     <Value>celfunctie</Value>
                     <Value>gezondheidszorgfunctie</Value>
@@ -372,10 +408,13 @@
                     <Value>winkelfunctie</Value>
                     <Value>woonfunctie</Value>
                     <Value>overige gebruiksfunctie</Value>
-                </top10nl:gebruiksdoel>
+                </Attribute>
             </Attributes>
-        </top10nl:Gebouw>
-        <top10nl:GeografischGebied parentType="Top10Object">
+        </FeatureType>
+        <FeatureType parentType="Top10Object">
+            <ElementType>
+                <top10nl:GeografischGebied/>
+            </ElementType>
             <GeometryTypes>
                 <top10nl:geometrie>
                     <brt:BRTVlakMultivlakOfPunt>
@@ -411,7 +450,10 @@
                 <top10nl:naamFries/>
             </NameAttributes>
             <Attributes>
-                <top10nl:typeGeografischGebied minOccurs="1" maxOccurs="1">
+                <Attribute minOccurs="1" maxOccurs="1">
+                    <ElementType>
+                        <top10nl:typeGeografischGebied/>
+                    </ElementType>
                     <Value>bank, ondiepte, plaat</Value>
                     <Value>bosgebied</Value>
                     <Value>duingebied</Value>
@@ -428,10 +470,13 @@
                     <Value>zee</Value>
                     <Value>zeegat, zeearm</Value>
                     <Value>overig</Value>
-                </top10nl:typeGeografischGebied>
+                </Attribute>
             </Attributes>
-        </top10nl:GeografischGebied>
-        <top10nl:Hoogte parentType="Top10Object">
+        </FeatureType>
+        <FeatureType parentType="Top10Object">
+            <ElementType>
+                <top10nl:Hoogte/>
+            </ElementType>
             <GeometryTypes>
                 <top10nl:geometrie>
                     <brt:BRTLijnOfPunt>
@@ -449,7 +494,10 @@
                 </top10nl:geometrie>
             </GeometryTypes>
             <Attributes>
-                <top10nl:typeHoogte minOccurs="1" maxOccurs="1">
+                <Attribute minOccurs="1" maxOccurs="1">
+                    <ElementType>
+                        <top10nl:typeHoogte/>
+                    </ElementType>
                     <Value>dieptelijn</Value>
                     <Value>dieptepunt</Value>
                     <Value>hoogtelijn</Value>
@@ -459,19 +507,28 @@
                     <Value>peil</Value>
                     <Value>peil: winterpeil</Value>
                     <Value>peil: zomerpeil</Value>
-                </top10nl:typeHoogte>
-                <top10nl:hoogte minOccurs="1" maxOccurs="1">
+                </Attribute>
+                <Attribute minOccurs="1" maxOccurs="1">
+                    <ElementType>
+                        <top10nl:hoogte/>
+                    </ElementType>
                     <Value>12.3</Value>
-                </top10nl:hoogte>
-                <top10nl:referentievlak minOccurs="1" maxOccurs="1">
+                </Attribute>
+                <Attribute minOccurs="1" maxOccurs="1">
+                    <ElementType>
+                        <top10nl:referentievlak/>
+                    </ElementType>
                     <Value>NAP</Value>
                     <Value>LAT</Value>
                     <Value>GHW</Value>
                     <Value>OLW</Value>
-                </top10nl:referentievlak>
+                </Attribute>
             </Attributes>
-        </top10nl:Hoogte>
-        <top10nl:Inrichtingselement parentType="Top10Object">
+        </FeatureType>
+        <FeatureType parentType="Top10Object">
+            <ElementType>
+                <top10nl:Inrichtingselement/>
+            </ElementType>
             <GeometryTypes>
                 <top10nl:geometrie>
                     <brt:BRTLijnOfPunt>
@@ -492,7 +549,10 @@
                 <top10nl:naam/>
             </NameAttributes>
             <Attributes>
-                <top10nl:typeInrichtingselement minOccurs="1" maxOccurs="1">
+                <Attribute minOccurs="1" maxOccurs="1">
+                    <ElementType>
+                        <top10nl:typeInrichtingselement/>
+                    </ElementType>
                     <Value>aanlegsteiger</Value>
                     <Value>baak</Value>
                     <Value>bomenrij</Value>
@@ -558,28 +618,46 @@
                     <Value>zendmast</Value>
                     <Value>zichtbaar wrak</Value>
                     <Value>overig</Value>
-                </top10nl:typeInrichtingselement>
-                <top10nl:hoogte minOccurs="1" maxOccurs="1">
+                </Attribute>
+                <Attribute minOccurs="1" maxOccurs="1">
+                    <ElementType>
+                        <top10nl:hoogte/>
+                    </ElementType>
                     <Value>12.3</Value>
-                </top10nl:hoogte>
-                <top10nl:breedte minOccurs="1" maxOccurs="1">
+                </Attribute>
+                <Attribute minOccurs="1" maxOccurs="1">
+                    <ElementType>
+                        <top10nl:breedte/>
+                    </ElementType>
                     <Value>5</Value>
-                </top10nl:breedte>
-                <top10nl:hoogteniveau minOccurs="1" maxOccurs="1">
+                </Attribute>
+                <Attribute minOccurs="1" maxOccurs="1">
+                    <ElementType>
+                        <top10nl:hoogteniveau/>
+                    </ElementType>
                     <Value>0</Value>
                     <Value>-1</Value>
                     <Value>-2</Value>
-                </top10nl:hoogteniveau>
-                <top10nl:soortnaam minOccurs="0" maxOccurs="1">
+                </Attribute>
+                <Attribute minOccurs="0" maxOccurs="1">
+                    <ElementType>
+                        <top10nl:soortnaam/>
+                    </ElementType>
                     <Value>testsoortnaam</Value>
-                </top10nl:soortnaam>
-                <top10nl:nummer minOccurs="0" maxOccurs="unbounded">
+                </Attribute>
+                <Attribute minOccurs="0" maxOccurs="unbounded">
+                    <ElementType>
+                        <top10nl:nummer/>
+                    </ElementType>
                     <Value>testnummer</Value>
                     <Value>testnummer 2</Value>
-                </top10nl:nummer>
+                </Attribute>
             </Attributes>
-        </top10nl:Inrichtingselement>
-        <top10nl:Plaats parentType="Top10Object">
+        </FeatureType>
+        <FeatureType parentType="Top10Object">
+            <ElementType>
+                <top10nl:Plaats/>
+            </ElementType>
             <GeometryTypes>
                 <top10nl:geometrie>
                     <brt:BRTVlakMultivlakOfPunt>
@@ -616,7 +694,10 @@
                 <top10nl:naamFries/>
             </NameAttributes>
             <Attributes>
-                <top10nl:typeGebied minOccurs="1" maxOccurs="1">
+                <Attribute minOccurs="1" maxOccurs="1">
+                    <ElementType>
+                        <top10nl:typeGebied/>
+                    </ElementType>
                     <Value>woonkern</Value>
                     <Value>industriekern</Value>
                     <Value>recreatiekern</Value>
@@ -626,21 +707,33 @@
                     <Value>stadsdeel</Value>
                     <Value>wijk</Value>
                     <Value>buurt</Value>
-                </top10nl:typeGebied>
-                <top10nl:bebouwdeKom minOccurs="1" maxOccurs="1">
+                </Attribute>
+                <Attribute minOccurs="1" maxOccurs="1">
+                    <ElementType>
+                        <top10nl:bebouwdeKom/>
+                    </ElementType>
                     <Value>ja</Value>
                     <Value>nee</Value>
-                </top10nl:bebouwdeKom>
-                <top10nl:isBAGwoonplaats minOccurs="1" maxOccurs="1">
+                </Attribute>
+                <Attribute minOccurs="1" maxOccurs="1">
+                    <ElementType>
+                        <top10nl:isBAGwoonplaats/>
+                    </ElementType>
                     <Value>ja</Value>
                     <Value>nee</Value>
-                </top10nl:isBAGwoonplaats>
-                <top10nl:aantalInwoners minOccurs="0" maxOccurs="1">
+                </Attribute>
+                <Attribute minOccurs="0" maxOccurs="1">
+                    <ElementType>
+                        <top10nl:aantalInwoners/>
+                    </ElementType>
                     <Value>12345</Value>
-                </top10nl:aantalInwoners>
+                </Attribute>
             </Attributes>
-        </top10nl:Plaats>
-        <top10nl:PlanTopografie parentType="Top10Object">
+        </FeatureType>
+        <FeatureType parentType="Top10Object">
+            <ElementType>
+                <top10nl:PlanTopografie/>
+            </ElementType>
             <GeometryTypes>
                 <top10nl:geometrie>
                     <brt:BRTVlakLijnOfPunt>
@@ -675,15 +768,21 @@
                 <top10nl:naam/>
             </NameAttributes>
             <Attributes>
-                <top10nl:typeObject minOccurs="1" maxOccurs="1">
+                <Attribute minOccurs="1" maxOccurs="1">
+                    <ElementType>
+                        <top10nl:typeObject/>
+                    </ElementType>
                     <Value>spoorbaan</Value>
                     <Value>water</Value>
                     <Value>weg</Value>
                     <Value>overig</Value>
-                </top10nl:typeObject>
+                </Attribute>
             </Attributes>
-        </top10nl:PlanTopografie>
-        <top10nl:RegistratiefGebied parentType="Top10Object">
+        </FeatureType>
+        <FeatureType parentType="Top10Object">
+            <ElementType>
+                <top10nl:RegistratiefGebied/>
+            </ElementType>
             <GeometryTypes>
                 <top10nl:geometrie>
                     <brt:BRTVlakOfMultivlak>
@@ -713,20 +812,29 @@
                 <top10nl:naamFries/>
             </NameAttributes>
             <Attributes>
-                <top10nl:typeRegistratiefGebied minOccurs="1" maxOccurs="1">
+                <Attribute minOccurs="1" maxOccurs="1">
+                    <ElementType>
+                        <top10nl:typeRegistratiefGebied/>
+                    </ElementType>
                     <Value>land</Value>
                     <Value>provincie</Value>
                     <Value>gemeente</Value>
                     <Value>territoriale zee</Value>
                     <Value>waterschap</Value>
-                </top10nl:typeRegistratiefGebied>
-                <top10nl:nummer minOccurs="0" maxOccurs="unbounded">
+                </Attribute>
+                <Attribute minOccurs="0" maxOccurs="unbounded">
+                    <ElementType>
+                        <top10nl:nummer/>
+                    </ElementType>
                     <Value>testnummer</Value>
                     <Value>testnummer 2</Value>
-                </top10nl:nummer>
+                </Attribute>
             </Attributes>
-        </top10nl:RegistratiefGebied>
-        <top10nl:Relief parentType="Top10Object">
+        </FeatureType>
+        <FeatureType parentType="Top10Object">
+            <ElementType>
+                <top10nl:Relief/>
+            </ElementType>
             <GeometryTypes>
                 <top10nl:lijnGeometrie>
                     <LijnGeometrie/>
@@ -743,27 +851,42 @@
                 </top10nl:taludGeometrie>
             </GeometryTypes>
             <Attributes>
-                <top10nl:typeRelief minOccurs="1" maxOccurs="1">
+                <Attribute minOccurs="1" maxOccurs="1">
+                    <ElementType>
+                        <top10nl:typeRelief/>
+                    </ElementType>
                     <Value>wal</Value>
                     <Value>talud, hoogteverschil</Value>
                     <Value>steile rand, aardrand</Value>
-                </top10nl:typeRelief>
-                <top10nl:hoogteklasse minOccurs="1" maxOccurs="1">
+                </Attribute>
+                <Attribute minOccurs="1" maxOccurs="1">
+                    <ElementType>
+                        <top10nl:hoogteklasse/>
+                    </ElementType>
                     <Value>&lt; 1 meter</Value>
                     <Value>1 - 2,5 meter</Value>
                     <Value>&gt; 2,5 meter</Value>
-                </top10nl:hoogteklasse>
-                <top10nl:hoogteniveau minOccurs="1" maxOccurs="1">
+                </Attribute>
+                <Attribute minOccurs="1" maxOccurs="1">
+                    <ElementType>
+                        <top10nl:hoogteniveau/>
+                    </ElementType>
                     <Value>0</Value>
                     <Value>-1</Value>
                     <Value>-2</Value>
-                </top10nl:hoogteniveau>
-                <top10nl:functie minOccurs="0" maxOccurs="1">
+                </Attribute>
+                <Attribute minOccurs="0" maxOccurs="1">
+                    <ElementType>
+                        <top10nl:functie/>
+                    </ElementType>
                     <Value>geluid weren</Value>
-                </top10nl:functie>
+                </Attribute>
             </Attributes>
-        </top10nl:Relief>
-        <top10nl:Spoorbaandeel parentType="Top10Object">
+        </FeatureType>
+        <FeatureType parentType="Top10Object">
+            <ElementType>
+                <top10nl:Spoorbaandeel/>
+            </ElementType>
             <GeometryTypes>
                 <top10nl:geometrie>
                     <brt:BRTLijnOfPunt>
@@ -786,55 +909,85 @@
                 <top10nl:baanvaknaam/>
             </NameAttributes>
             <Attributes>
-                <top10nl:typeInfrastructuur minOccurs="1" maxOccurs="1">
+                <Attribute minOccurs="1" maxOccurs="1">
+                    <ElementType>
+                        <top10nl:typeInfrastructuur/>
+                    </ElementType>
                     <Value>verbinding</Value>
                     <Value>kruising</Value>
-                </top10nl:typeInfrastructuur>
-                <top10nl:typeSpoorbaan minOccurs="1" maxOccurs="1">
+                </Attribute>
+                <Attribute minOccurs="1" maxOccurs="1">
+                    <ElementType>
+                        <top10nl:typeSpoorbaan/>
+                    </ElementType>
                     <Value>trein</Value>
                     <Value>tram</Value>
                     <Value>sneltram</Value>
                     <Value>metro</Value>
                     <Value>gemengd</Value>
-                </top10nl:typeSpoorbaan>
-                <top10nl:fysiekVoorkomen minOccurs="0" maxOccurs="unbounded">
+                </Attribute>
+                <Attribute minOccurs="0" maxOccurs="unbounded">
+                    <ElementType>
+                        <top10nl:fysiekVoorkomen/>
+                    </ElementType>
                     <Value>op vast deel van brug</Value>
                     <Value>op beweegbaar deel van brug</Value>
                     <Value>overkluisd</Value>
                     <Value>in tunnel</Value>
-                </top10nl:fysiekVoorkomen>
-                <top10nl:spoorbreedte minOccurs="1" maxOccurs="1">
+                </Attribute>
+                <Attribute minOccurs="1" maxOccurs="1">
+                    <ElementType>
+                        <top10nl:spoorbreedte/>
+                    </ElementType>
                     <Value>normaalspoor</Value>
                     <Value>smalspoor</Value>
-                </top10nl:spoorbreedte>
-                <top10nl:aantalSporen minOccurs="1" maxOccurs="1">
+                </Attribute>
+                <Attribute minOccurs="1" maxOccurs="1">
+                    <ElementType>
+                        <top10nl:aantalSporen/>
+                    </ElementType>
                     <Value>enkel</Value>
                     <Value>dubbel</Value>
                     <Value>meervoudig</Value>
-                </top10nl:aantalSporen>
-                <top10nl:vervoerfunctie minOccurs="1" maxOccurs="1">
+                </Attribute>
+                <Attribute minOccurs="1" maxOccurs="1">
+                    <ElementType>
+                        <top10nl:vervoerfunctie/>
+                    </ElementType>
                     <Value>gemengd gebruik</Value>
                     <Value>personenvervoer</Value>
                     <Value>goederenvervoer</Value>
                     <Value>museumlijn</Value>
-                </top10nl:vervoerfunctie>
-                <top10nl:elektrificatie minOccurs="1" maxOccurs="1">
+                </Attribute>
+                <Attribute minOccurs="1" maxOccurs="1">
+                    <ElementType>
+                        <top10nl:elektrificatie/>
+                    </ElementType>
                     <Value>ja</Value>
                     <Value>nee</Value>
-                </top10nl:elektrificatie>
-                <top10nl:hoogteniveau minOccurs="1" maxOccurs="1">
+                </Attribute>
+                <Attribute minOccurs="1" maxOccurs="1">
+                    <ElementType>
+                        <top10nl:hoogteniveau/>
+                    </ElementType>
                     <Value>0</Value>
                     <Value>-1</Value>
                     <Value>-2</Value>
-                </top10nl:hoogteniveau>
-                <top10nl:status minOccurs="1" maxOccurs="1">
+                </Attribute>
+                <Attribute minOccurs="1" maxOccurs="1">
+                    <ElementType>
+                        <top10nl:status/>
+                    </ElementType>
                     <Value>in uitvoering</Value>
                     <Value>in gebruik</Value>
                     <Value>buiten gebruik</Value>
-                </top10nl:status>
+                </Attribute>
             </Attributes>
-        </top10nl:Spoorbaandeel>
-        <top10nl:Terrein parentType="Top10Object">
+        </FeatureType>
+        <FeatureType parentType="Top10Object">
+            <ElementType>
+                <top10nl:Terrein/>
+            </ElementType>
             <GeometryTypes>
                 <top10nl:geometrieVlak>
                     <VlakGeometrie/>
@@ -844,7 +997,10 @@
                 <top10nl:naam/>
             </NameAttributes>
             <Attributes>
-                <top10nl:typeLandgebruik minOccurs="1" maxOccurs="1">
+                <Attribute minOccurs="1" maxOccurs="1">
+                    <ElementType>
+                        <top10nl:typeLandgebruik/>
+                    </ElementType>
                     <Value>aanlegsteiger</Value>
                     <Value>akkerland</Value>
                     <Value>basaltblokken</Value>
@@ -866,25 +1022,37 @@
                     <Value>spoorbaanlichaam</Value>
                     <Value>zand</Value>
                     <Value>overig</Value>
-                </top10nl:typeLandgebruik>
-                <top10nl:fysiekVoorkomen minOccurs="0" maxOccurs="unbounded">
+                </Attribute>
+                <Attribute minOccurs="0" maxOccurs="unbounded">
+                    <ElementType>
+                        <top10nl:fysiekVoorkomen/>
+                    </ElementType>
                     <Value>op vast deel van brug</Value>
                     <Value>op beweegbaar deel van brug</Value>
                     <Value>overkluisd</Value>
                     <Value>in tunnel</Value>
-                </top10nl:fysiekVoorkomen>
-                <top10nl:voorkomen minOccurs="0" maxOccurs="unbounded">
+                </Attribute>
+                <Attribute minOccurs="0" maxOccurs="unbounded">
+                    <ElementType>
+                        <top10nl:voorkomen/>
+                    </ElementType>
                     <Value>met riet</Value>
                     <Value>dras, moerassig</Value>
-                </top10nl:voorkomen>
-                <top10nl:hoogteniveau minOccurs="1" maxOccurs="1">
+                </Attribute>
+                <Attribute minOccurs="1" maxOccurs="1">
+                    <ElementType>
+                        <top10nl:hoogteniveau/>
+                    </ElementType>
                     <Value>0</Value>
                     <Value>-1</Value>
                     <Value>-2</Value>
-                </top10nl:hoogteniveau>
+                </Attribute>
             </Attributes>
-        </top10nl:Terrein>
-        <top10nl:Waterdeel parentType="Top10Object">
+        </FeatureType>
+        <FeatureType parentType="Top10Object">
+            <ElementType>
+                <top10nl:Waterdeel/>
+            </ElementType>
             <GeometryTypes>
                 <top10nl:geometrie>
                     <brt:BRTVlakLijnOfPunt>
@@ -923,7 +1091,10 @@
                 <top10nl:brugnaam/>
             </NameAttributes>
             <Attributes>
-                <top10nl:typeWater minOccurs="1" maxOccurs="1">
+                <Attribute minOccurs="1" maxOccurs="1">
+                    <ElementType>
+                        <top10nl:typeWater/>
+                    </ElementType>
                     <Value>waterloop</Value>
                     <Value>meer, plas</Value>
                     <Value>greppel, droge sloot</Value>
@@ -931,20 +1102,29 @@
                     <Value>droogvallend</Value>
                     <Value>bron, wel</Value>
                     <Value>overig</Value>
-                </top10nl:typeWater>
-                <top10nl:breedteklasse minOccurs="0" maxOccurs="1">
+                </Attribute>
+                <Attribute minOccurs="0" maxOccurs="1">
+                    <ElementType>
+                        <top10nl:breedteklasse/>
+                    </ElementType>
                     <Value>0,5 - 3 meter</Value>
                     <Value>3 - 6 meter</Value>
                     <Value>6 - 12 meter</Value>
                     <Value>12 - 50 meter</Value>
                     <Value>50 - 125 meter</Value>
                     <Value>&gt; 125 meter</Value>
-                </top10nl:breedteklasse>
-                <top10nl:hoofdafwatering minOccurs="1" maxOccurs="1">
+                </Attribute>
+                <Attribute minOccurs="1" maxOccurs="1">
+                    <ElementType>
+                        <top10nl:hoofdafwatering/>
+                    </ElementType>
                     <Value>ja</Value>
                     <Value>nee</Value>
-                </top10nl:hoofdafwatering>
-                <top10nl:fysiekVoorkomen minOccurs="0" maxOccurs="unbounded">
+                </Attribute>
+                <Attribute minOccurs="0" maxOccurs="unbounded">
+                    <ElementType>
+                        <top10nl:fysiekVoorkomen/>
+                    </ElementType>
                     <Value>in sluis</Value>
                     <Value>op brug</Value>
                     <Value>in duiker</Value>
@@ -952,16 +1132,25 @@
                     <Value>in grondduiker</Value>
                     <Value>in afsluitbare grondduiker</Value>
                     <Value>overkluisd</Value>
-                </top10nl:fysiekVoorkomen>
-                <top10nl:voorkomen minOccurs="0" maxOccurs="1">
+                </Attribute>
+                <Attribute minOccurs="0" maxOccurs="1">
+                    <ElementType>
+                        <top10nl:voorkomen/>
+                    </ElementType>
                     <Value>met riet</Value>
-                </top10nl:voorkomen>
-                <top10nl:hoogteniveau minOccurs="1" maxOccurs="1">
+                </Attribute>
+                <Attribute minOccurs="1" maxOccurs="1">
+                    <ElementType>
+                        <top10nl:hoogteniveau/>
+                    </ElementType>
                     <Value>0</Value>
                     <Value>-1</Value>
                     <Value>-2</Value>
-                </top10nl:hoogteniveau>
-                <top10nl:functie minOccurs="1" maxOccurs="1">
+                </Attribute>
+                <Attribute minOccurs="1" maxOccurs="1">
+                    <ElementType>
+                        <top10nl:functie/>
+                    </ElementType>
                     <Value>drinkwaterbekken</Value>
                     <Value>haven</Value>
                     <Value>natuurbad</Value>
@@ -972,12 +1161,18 @@
                     <Value>waterzuivering</Value>
                     <Value>zwembad</Value>
                     <Value>overig</Value>
-                </top10nl:functie>
-                <top10nl:getijdeinvloed minOccurs="1" maxOccurs="1">
+                </Attribute>
+                <Attribute minOccurs="1" maxOccurs="1">
+                    <ElementType>
+                        <top10nl:getijdeinvloed/>
+                    </ElementType>
                     <Value>ja</Value>
                     <Value>nee</Value>
-                </top10nl:getijdeinvloed>
-                <top10nl:vaarwegklasse minOccurs="0" maxOccurs="1">
+                </Attribute>
+                <Attribute minOccurs="0" maxOccurs="1">
+                    <ElementType>
+                        <top10nl:vaarwegklasse/>
+                    </ElementType>
                     <Value>I</Value>
                     <Value>II</Value>
                     <Value>III</Value>
@@ -988,14 +1183,20 @@
                     <Value>VIb</Value>
                     <Value>VIc</Value>
                     <Value>VII</Value>
-                </top10nl:vaarwegklasse>
-                <top10nl:isBAGnaam minOccurs="0" maxOccurs="1">
+                </Attribute>
+                <Attribute minOccurs="0" maxOccurs="1">
+                    <ElementType>
+                        <top10nl:isBAGnaam/>
+                    </ElementType>
                     <Value>ja</Value>
                     <Value>nee</Value>
-                </top10nl:isBAGnaam>
+                </Attribute>
             </Attributes>
-        </top10nl:Waterdeel>
-        <top10nl:Wegdeel parentType="Top10Object">
+        </FeatureType>
+        <FeatureType parentType="Top10Object">
+            <ElementType>
+                <top10nl:Wegdeel/>
+            </ElementType>
             <GeometryTypes>
                 <top10nl:hartGeometrie>
                     <brt:BRTLijnOfPunt>
@@ -1048,12 +1249,18 @@
                 <top10nl:tunnelnaam/>
             </NameAttributes>
             <Attributes>
-                <top10nl:typeInfrastructuur minOccurs="1" maxOccurs="1">
+                <Attribute minOccurs="1" maxOccurs="1">
+                    <ElementType>
+                        <top10nl:typeInfrastructuur/>
+                    </ElementType>
                     <Value>verbinding</Value>
                     <Value>kruising</Value>
                     <Value>overig verkeersgebied</Value>
-                </top10nl:typeInfrastructuur>
-                <top10nl:typeWater minOccurs="1" maxOccurs="1">
+                </Attribute>
+                <Attribute minOccurs="1" maxOccurs="1">
+                    <ElementType>
+                        <top10nl:typeWater/>
+                    </ElementType>
                     <Value>startbaan, landingsbaan</Value>
                     <Value>rolbaan, platform</Value>
                     <Value>autosnelweg</Value>
@@ -1066,8 +1273,11 @@
                     <Value>parkeerplaats: carpool</Value>
                     <Value>parkeerplaats: P+R</Value>
                     <Value>overig</Value>
-                </top10nl:typeWater>
-                <top10nl:hoofdverkeersgebruik minOccurs="1" maxOccurs="1">
+                </Attribute>
+                <Attribute minOccurs="1" maxOccurs="1">
+                    <ElementType>
+                        <top10nl:hoofdverkeersgebruik/>
+                    </ElementType>
                     <Value>vliegverkeer</Value>
                     <Value>snelverkeer</Value>
                     <Value>gemengd verkeer</Value>
@@ -1076,8 +1286,11 @@
                     <Value>voetgangers</Value>
                     <Value>ruiters</Value>
                     <Value>overig</Value>
-                </top10nl:hoofdverkeersgebruik>
-                <top10nl:fysiekVoorkomen minOccurs="0" maxOccurs="unbounded">
+                </Attribute>
+                <Attribute minOccurs="0" maxOccurs="unbounded">
+                    <ElementType>
+                        <top10nl:fysiekVoorkomen/>
+                    </ElementType>
                     <Value>op vast deel van brug</Value>
                     <Value>op beweegbaar deel van brug</Value>
                     <Value>op rotonde</Value>
@@ -1085,60 +1298,96 @@
                     <Value>op knooppuntverbinding</Value>
                     <Value>overkluisd</Value>
                     <Value>in tunnel</Value>
-                </top10nl:fysiekVoorkomen>
-                <top10nl:verhardingsbreedteklasse minOccurs="0" maxOccurs="1">
+                </Attribute>
+                <Attribute minOccurs="0" maxOccurs="1">
+                    <ElementType>
+                        <top10nl:verhardingsbreedteklasse/>
+                    </ElementType>
                     <Value>&gt; 7 meter</Value>
                     <Value>4 - 7 meter</Value>
                     <Value>2 - 4 meter</Value>
                     <Value>&lt; 2 meter</Value>
-                </top10nl:verhardingsbreedteklasse>
-                <top10nl:gescheidenRijbaan minOccurs="1" maxOccurs="1">
+                </Attribute>
+                <Attribute minOccurs="1" maxOccurs="1">
+                    <ElementType>
+                        <top10nl:gescheidenRijbaan/>
+                    </ElementType>
                     <Value>ja</Value>
                     <Value>nee</Value>
-                </top10nl:gescheidenRijbaan>
-                <top10nl:verhardingstype minOccurs="1" maxOccurs="1">
+                </Attribute>
+                <Attribute minOccurs="1" maxOccurs="1">
+                    <ElementType>
+                        <top10nl:verhardingstype/>
+                    </ElementType>
                     <Value>verhard</Value>
                     <Value>half verhard</Value>
                     <Value>onverhard</Value>
                     <Value>onbekend</Value>
-                </top10nl:verhardingstype>
-                <top10nl:aantalRijstroken minOccurs="1" maxOccurs="1">
+                </Attribute>
+                <Attribute minOccurs="1" maxOccurs="1">
+                    <ElementType>
+                        <top10nl:aantalRijstroken/>
+                    </ElementType>
                     <Value>2</Value>
-                </top10nl:aantalRijstroken>
-                <top10nl:hoogteniveau minOccurs="1" maxOccurs="1">
+                </Attribute>
+                <Attribute minOccurs="1" maxOccurs="1">
+                    <ElementType>
+                        <top10nl:hoogteniveau/>
+                    </ElementType>
                     <Value>0</Value>
                     <Value>-1</Value>
                     <Value>-2</Value>
-                </top10nl:hoogteniveau>
-                <top10nl:status minOccurs="1" maxOccurs="1">
+                </Attribute>
+                <Attribute minOccurs="1" maxOccurs="1">
+                    <ElementType>
+                        <top10nl:status/>
+                    </ElementType>
                     <Value>in uitvoering</Value>
                     <Value>in gebruik</Value>
                     <Value>buiten gebruik</Value>
-                </top10nl:status>
-                <top10nl:isBAGnaam minOccurs="0" maxOccurs="1">
+                </Attribute>
+                <Attribute minOccurs="0" maxOccurs="1">
+                    <ElementType>
+                        <top10nl:isBAGnaam/>
+                    </ElementType>
                     <Value>ja</Value>
                     <Value>nee</Value>
-                </top10nl:isBAGnaam>
-                <top10nl:A-wegnummer minOccurs="0" maxOccurs="unbounded">
+                </Attribute>
+                <Attribute minOccurs="0" maxOccurs="unbounded">
+                    <ElementType>
+                        <top10nl:A-wegnummer/>
+                    </ElementType>
                     <Value>A 99</Value>
                     <Value>A 98</Value>
-                </top10nl:A-wegnummer>
-                <top10nl:N-wegnummer minOccurs="0" maxOccurs="unbounded">
+                </Attribute>
+                <Attribute minOccurs="0" maxOccurs="unbounded">
+                    <ElementType>
+                        <top10nl:N-wegnummer/>
+                    </ElementType>
                     <Value>N 99</Value>
                     <Value>N 98</Value>
-                </top10nl:N-wegnummer>
-                <top10nl:E-wegnummer minOccurs="0" maxOccurs="unbounded">
+                </Attribute>
+                <Attribute minOccurs="0" maxOccurs="unbounded">
+                    <ElementType>
+                        <top10nl:E-wegnummer/>
+                    </ElementType>
                     <Value>E 99</Value>
                     <Value>E 98</Value>
-                </top10nl:E-wegnummer>
-                <top10nl:S-wegnummer minOccurs="0" maxOccurs="unbounded">
+                </Attribute>
+                <Attribute minOccurs="0" maxOccurs="unbounded">
+                    <ElementType>
+                        <top10nl:S-wegnummer/>
+                    </ElementType>
                     <Value>S 99</Value>
                     <Value>S 98</Value>
-                </top10nl:S-wegnummer>
-                <top10nl:afritnummer minOccurs="0" maxOccurs="1">
+                </Attribute>
+                <Attribute minOccurs="0" maxOccurs="1">
+                    <ElementType>
+                        <top10nl:afritnummer/>
+                    </ElementType>
                     <Value>testafritnummer</Value>
-                </top10nl:afritnummer>
+                </Attribute>
             </Attributes>
-        </top10nl:Wegdeel>
+        </FeatureType>
     </FeatureTypes>
 </GenerateGML>
