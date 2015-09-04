@@ -217,7 +217,7 @@
         <xsl:param name="llx"/>
         <xsl:param name="lly"/>
         <xsl:variable name="curName" select="name()"/>
-        <xsl:variable name="baseGeom" select="//BaseGeometries/*[name()=$curName]/*"/>
+        <xsl:variable name="baseGeom" select="//BaseGeometries/Geometry[@name=$curName]/*"/>
         <xsl:apply-templates select="$baseGeom" mode="pos">
             <xsl:with-param name="llx" select="$llx"/>
             <xsl:with-param name="lly" select="$lly"/>

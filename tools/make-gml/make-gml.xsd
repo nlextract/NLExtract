@@ -1,4 +1,10 @@
-<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<xsd:schema
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:gml31="http://www.opengis.net/gml"
+    xmlns:gml32="http://www.opengis.net/gml/3.2">
+
+    <xsd:import namespace="http://www.opengis.net/gml" schemaLocation="http://schemas.opengis.net/gml/3.1.1/base/gml.xsd"/>
+    <xsd:import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
 
     <xsd:element name="GenerateGML">
         <xsd:complexType>
@@ -15,7 +21,8 @@
 
     <xsd:complexType name="FeatureCollectionType">
         <xsd:sequence>
-            <!-- Hierbinnen bevindt zich willekeurige XML. Alleen het buitenste element en zijn attributen worden gebruikt. -->
+            <!-- Hierbinnen bevindt zich willekeurige XML. Alleen het buitenste element en zijn attributen worden
+                 gebruikt. -->
             <xsd:any processContents="lax"/>
         </xsd:sequence>
     </xsd:complexType>
@@ -29,9 +36,18 @@
     
     <xsd:complexType name="BaseGeometriesType">
         <xsd:sequence>
-            <!-- Hierbinnen bevindt zich een onbekend element dat een substituut bevat van gml:_Geometry -->
-            <!-- TODO: naam van het onbekende element in een attribuut of child element stoppen... -->
-            <xsd:any processContents="lax" maxOccurs="unbounded"/>
+            <!-- Hierbinnen bevindt zich een Geometry-element, waarvan het name-attribuut de naam is van de te gebruiken
+                 geometrie binnen een FeatureType. De inhoud van een Geometry-element is een GML 3.1.1- of een GML
+                 3.2.1-geometrie. -->
+            <xsd:element name="Geometry" maxOccurs="unbounded">
+                <xsd:complexType>
+                    <xsd:choice>
+                        <xsd:element ref="gml31:_Geometry"/>
+                        <xsd:element ref="gml32:AbstractGeometry"/>
+                    </xsd:choice>
+                    <xsd:attribute name="name" type="xsd:string"/>
+                </xsd:complexType>
+            </xsd:element>
         </xsd:sequence>
     </xsd:complexType>
     
@@ -53,7 +69,7 @@
                  attributen. -->
             <!-- TODO: naam van onbekende FeatureType elementen en Attributen in een attribuut of child element
                  stoppen... -->
-            <xsd:any processContents="lax"/>
+            <xsd:any processContents="lax" maxOccurs="unbounded"/>
         </xsd:sequence>
     </xsd:complexType>
     
