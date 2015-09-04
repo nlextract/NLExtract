@@ -100,7 +100,8 @@
         <xsl:param name="elPos"/>
         <xsl:param name="at"/>
         <xsl:param name="atPos"/>
-        <xsl:param name="val"/>
+        <xsl:param name="val"/>  <!-- Leeg wanneer AddFeature wordt aangeroepen waarbij dit attribuut wordt weggelaten vanwege minOccurs='0' -->
+        <xsl:param name="val2"/> <!-- Alleen wanneer maxOccurs een andere waarde heeft dan '1' -->
         <xsl:param name="valPos"/>
         <xsl:param name="featureName"/>
     
@@ -130,17 +131,31 @@
                     <top10nl:mutatieType>TEST</top10nl:mutatieType>
                     <xsl:for-each select="$el/Attributes/*">
                         <xsl:if test=".=$at and $val">
+                            <!-- De (eerste) waarde van het actieve attribuut -->
                             <xsl:element name="top10nl:{name(.)}" namespace="{$ttnlNS}">
                                 <xsl:value-of select="$val/text()"/>
                             </xsl:element>
                         </xsl:if>
+                        <xsl:if test=".=$at and $val2">
+                            <!-- De tweede waarde van het actieve attribuut -->
+                            <xsl:comment>Extra waarde voor het actieve attribuut <xsl:value-of select="name(.)"/></xsl:comment>
+                            <xsl:element name="top10nl:{name(.)}" namespace="{$ttnlNS}">
+                                <xsl:value-of select="$val2/text()"/>
+                            </xsl:element>
+                        </xsl:if>
                         <xsl:if test=".=$at and not($val)">
-                            <xsl:comment>Attribute <xsl:value-of select="name(.)"/> is skipped</xsl:comment>
+                            <!-- Melding dat het actieve attribuut wordt weggelaten -->
+                            <xsl:comment>Het actieve attribuut <xsl:value-of select="name(.)"/> wordt overgeslagen</xsl:comment>
                         </xsl:if>
                         <xsl:if test="not(.=$at) and (not(@minOccurs) or @minOccurs!='0')">
+                            <!-- Overige attributen; hierbij worden optionele attributen standaard weggelaten -->
                             <xsl:element name="top10nl:{name(.)}" namespace="{$ttnlNS}">
                                 <xsl:value-of select="./Value[1]/text()"/>
                             </xsl:element>
+                        </xsl:if>
+                        <xsl:if test="not(.=$at) and @minOccurs='0'">
+                            <!-- Melding dat een optioneel attribuut wordt weggelaten -->
+                            <xsl:comment>Het optionele attribuut <xsl:value-of select="name(.)"/> wordt overgeslagen</xsl:comment>
                         </xsl:if>
                     </xsl:for-each>
                     <xsl:for-each select="$el/NameAttributes/*">
@@ -179,17 +194,18 @@
             <xsl:variable name="at" select="."/>
             <xsl:variable name="atPos" select="position()"/>
             <xsl:if test="@minOccurs='0'">
+                <!-- Maak een feature aan waarbij het actieve attribuut wordt weggelaten -->
                 <xsl:call-template name="AddFeature">
                     <xsl:with-param name="el" select="$el"/>
                     <xsl:with-param name="elPos" select="$elPos"/>
                     <xsl:with-param name="at" select="$at"/>
                     <xsl:with-param name="atPos" select="$atPos"/>
-                    <!--xsl:with-param name="val" select=""/-->
                     <xsl:with-param name="valPos" select="0"/>
-                    <xsl:with-param name="featureName" select="concat('Test ', name($at), ' ', .)"/>                    
+                    <xsl:with-param name="featureName" select="concat('Test weggelaten attribuut ', name($at))"/>                    
                 </xsl:call-template>
             </xsl:if>
             <xsl:for-each select="Value">
+                <!-- Maak features aan voor alle waarden van het actieve attribuut -->
                 <xsl:call-template name="AddFeature">
                     <xsl:with-param name="el" select="$el"/>
                     <xsl:with-param name="elPos" select="$elPos"/>
@@ -200,6 +216,19 @@
                     <xsl:with-param name="featureName" select="concat('Test ', name($at), ' ', .)"/>                    
                 </xsl:call-template>
             </xsl:for-each>
+            <xsl:if test="@maxOccurs and @maxOccurs!='1'">
+                <!-- Maak een feature aan met meerdere waarden voor het actieve attribuut -->
+                <xsl:call-template name="AddFeature">
+                    <xsl:with-param name="el" select="$el"/>
+                    <xsl:with-param name="elPos" select="$elPos"/>
+                    <xsl:with-param name="at" select="$at"/>
+                    <xsl:with-param name="atPos" select="$atPos"/>
+                    <xsl:with-param name="val" select="Value[1]"/>
+                    <xsl:with-param name="val2" select="Value[2]"/>
+                    <xsl:with-param name="valPos" select="count(Value) + 1"/>
+                    <xsl:with-param name="featureName" select="concat('Test multiattribuut ', name($at))"/>                    
+                </xsl:call-template>
+            </xsl:if>
         </xsl:for-each>
     </xsl:template>
 
