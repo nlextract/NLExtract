@@ -216,7 +216,7 @@
                     <xsl:with-param name="featureName" select="concat('Test ', name($at), ' ', .)"/>                    
                 </xsl:call-template>
             </xsl:for-each>
-            <xsl:if test="@maxOccurs and @maxOccurs!='1'">
+            <xsl:if test="@maxOccurs and @maxOccurs!='1' and @maxOccurs!='0'">
                 <!-- Maak een feature aan met meerdere waarden voor het actieve attribuut -->
                 <xsl:call-template name="AddFeature">
                     <xsl:with-param name="el" select="$el"/>
