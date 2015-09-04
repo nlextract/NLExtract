@@ -1,0 +1,89 @@
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+    <xsd:element name="GMLFeatureClassList">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="SpatialInfo" type="SpatialInfoType"/>
+                <xsd:element name="GMLFeatureClass" type="GMLFeatureClassType" maxOccurs="unbounded"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    
+    <xsd:complexType name="SpatialInfoType">
+        <xsd:sequence>
+            <xsd:element name="SRSName" type="SRSNameType"/>
+            <xsd:element name="DatasetSpecificInfo" type="DatasetSpecificInfoType"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:simpleType name="SRSNameType">
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="EPSG:[0-9]+"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    
+    <xsd:complexType name="DatasetSpecificInfoType">
+        <xsd:sequence>
+            <xsd:element name="ExtentXMin" type="xsd:double"/>
+            <xsd:element name="ExtentXMax" type="xsd:double"/>
+            <xsd:element name="ExtentYMin" type="xsd:double"/>
+            <xsd:element name="ExtentYMax" type="xsd:double"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="GMLFeatureClassType">
+        <xsd:sequence>
+            <xsd:element name="Name" type="NameType"/>
+            <xsd:element name="ElementPath" type="ElementPathType" minOccurs="0"/>
+            <xsd:element name="GeometryType" type="GeometryTypeType" minOccurs="0"/>
+            <xsd:element name="ParentClass" type="NameType" minOccurs="0"/>
+            <xsd:element name="PropertyDefn" type="PropertyDefnType" minOccurs="0" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:simpleType name="NameType">
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="[a-zA-Z][a-zA-Z0-9_]*"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    
+    <xsd:simpleType name="ElementPathType">
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="[a-zA-Z]|[a-zA-Z][a-zA-Z0-9_|]*[a-zA-Z0-9_]"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    
+    <xsd:simpleType name="GeometryTypeType">
+        <xsd:restriction base="xsd:integer">
+            <xsd:enumeration value="0"/>   <!-- Geometry -->
+            <xsd:enumeration value="1"/>   <!-- Point -->
+            <xsd:enumeration value="2"/>   <!-- LineString -->
+            <xsd:enumeration value="3"/>   <!-- Polygon -->
+            <xsd:enumeration value="4"/>   <!-- MultiPoint -->
+            <xsd:enumeration value="5"/>   <!-- MultiLineString -->
+            <xsd:enumeration value="6"/>   <!-- MultiPolygon -->
+            <xsd:enumeration value="100"/> <!-- No Geometry -->
+        </xsd:restriction>
+    </xsd:simpleType>
+    
+    <xsd:complexType name="PropertyDefnType">
+        <xsd:sequence>
+            <xsd:element name="Name" type="NameType"/>
+            <xsd:element name="ElementPath" type="ElementPathType"/>
+            <xsd:element name="Type" type="TypeType"/>
+            <xsd:element name="Width" type="xsd:positiveInteger" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:simpleType name="TypeType">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="String"/>
+            <xsd:enumeration value="Integer"/>
+            <xsd:enumeration value="Real"/>
+            <xsd:enumeration value="StringList"/>
+            <xsd:enumeration value="IntegerList"/>
+            <xsd:enumeration value="RealList"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+</xsd:schema>
