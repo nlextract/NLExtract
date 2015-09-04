@@ -94,6 +94,70 @@
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
+    
+    <xsl:template name="AddFeature">
+        <xsl:param name="el"/>
+        <xsl:param name="elPos"/>
+        <xsl:param name="at"/>
+        <xsl:param name="atPos"/>
+        <xsl:param name="val"/>
+        <xsl:param name="valPos"/>
+        <xsl:param name="featureName"/>
+    
+        <xsl:for-each select="$el/GeometryTypes/*">
+            <xsl:variable name="id" select="$elPos * 100000 + $atPos * 1000 + $valPos * 10 + position() - 1"/>
+            <xsl:variable name="llx" select="100000 + $valPos * 10 + $elPos * 1000"/>
+            <xsl:variable name="lly" select="400000 + (position() - 1) * 10 + $atPos * 100"/>
+            <top10nl:FeatureMember>
+                <xsl:element name="top10nl:{name($el)}" namespace="{$ttnlNS}">
+                    <xsl:attribute name="gml:id" namespace="http://www.opengis.net/gml/3.2">
+                        <xsl:value-of select="concat('nl.top10nl.',$id)"/>
+                    </xsl:attribute>
+                    <top10nl:identificatie>
+                        <brt:NEN3610ID>
+                            <brt:namespace>NL.TOP10NL</brt:namespace>
+                            <brt:lokaalID><xsl:value-of select="$id"/></brt:lokaalID>
+                        </brt:NEN3610ID>
+                    </top10nl:identificatie>
+                    <top10nl:brontype>Luchtfoto</top10nl:brontype>
+                    <top10nl:bronactualiteit>2015-01-01</top10nl:bronactualiteit>
+                    <top10nl:bronbeschrijving>Een orthogerectificeerde fotografische opname van een deel van het aardoppervlak. Gemaakt vanuit een vliegtuig.</top10nl:bronbeschrijving>
+                    <top10nl:bronnauwkeurigheid>0.4</top10nl:bronnauwkeurigheid>
+                    <top10nl:objectBeginTijd>2015-08-15</top10nl:objectBeginTijd>
+                    <top10nl:tijdstipRegistratie>2015-08-15</top10nl:tijdstipRegistratie>
+                    <top10nl:tdnCode>999</top10nl:tdnCode>
+                    <top10nl:visualisatieCode>19160</top10nl:visualisatieCode>
+                    <top10nl:mutatieType>TEST</top10nl:mutatieType>
+                    <xsl:for-each select="$el/Attributes/*">
+                        <xsl:if test=".=$at and $val">
+                            <xsl:element name="top10nl:{name(.)}" namespace="{$ttnlNS}">
+                                <xsl:value-of select="$val/text()"/>
+                            </xsl:element>
+                        </xsl:if>
+                        <xsl:if test=".=$at and not($val)">
+                            <xsl:comment>Attribute <xsl:value-of select="name(.)"/> is skipped</xsl:comment>
+                        </xsl:if>
+                        <xsl:if test="not(.=$at) and (not(@minOccurs) or @minOccurs!='0')">
+                            <xsl:element name="top10nl:{name(.)}" namespace="{$ttnlNS}">
+                                <xsl:value-of select="./Value[1]/text()"/>
+                            </xsl:element>
+                        </xsl:if>
+                    </xsl:for-each>
+                    <xsl:for-each select="$el/NameAttributes/*">
+                        <xsl:element name="top10nl:{text()}" namespace="{$ttnlNS}">
+                            <xsl:value-of select="$featureName"/>
+                        </xsl:element>
+                    </xsl:for-each>
+                    <xsl:copy>
+                        <xsl:apply-templates mode="geom">
+                            <xsl:with-param name="llx" select="$llx"/>
+                            <xsl:with-param name="lly" select="$lly"/>
+                        </xsl:apply-templates>
+                    </xsl:copy>
+                </xsl:element>
+            </top10nl:FeatureMember>
+        </xsl:for-each>
+    </xsl:template>
 
     <xsl:template match="*" mode="pos">
         <xsl:param name="llx"/>
@@ -114,58 +178,27 @@
         <xsl:for-each select="Attributes/*">
             <xsl:variable name="at" select="."/>
             <xsl:variable name="atPos" select="position()"/>
+            <xsl:if test="@minOccurs='0'">
+                <xsl:call-template name="AddFeature">
+                    <xsl:with-param name="el" select="$el"/>
+                    <xsl:with-param name="elPos" select="$elPos"/>
+                    <xsl:with-param name="at" select="$at"/>
+                    <xsl:with-param name="atPos" select="$atPos"/>
+                    <!--xsl:with-param name="val" select=""/-->
+                    <xsl:with-param name="valPos" select="0"/>
+                    <xsl:with-param name="featureName" select="concat('Test ', name($at), ' ', .)"/>                    
+                </xsl:call-template>
+            </xsl:if>
             <xsl:for-each select="Value">
-                <xsl:variable name="v" select="."/>
-                <xsl:variable name="valPos" select="position()"/>
-                <xsl:variable name="n" select="concat('Test ', name($at), ' ', $v)"/>
-                <xsl:for-each select="$el/GeometryTypes/*">
-                    <xsl:variable name="id" select="$elPos * 100000 + $atPos * 1000 + $valPos * 10 + position() - 1"/>
-                    <xsl:variable name="llx" select="100000 + $valPos * 10 + $elPos * 1000"/>
-                    <xsl:variable name="lly" select="400000 + (position() - 1) * 10 + $atPos * 100"/>
-                    <top10nl:FeatureMember>
-                        <xsl:element name="top10nl:{name($el)}" namespace="{$ttnlNS}">
-                            <xsl:attribute name="gml:id" namespace="http://www.opengis.net/gml/3.2">
-                                <xsl:value-of select="concat('nl.top10nl.',$id)"/>
-                            </xsl:attribute>
-                            <top10nl:identificatie>
-                                <brt:NEN3610ID>
-                                    <brt:namespace>NL.TOP10NL</brt:namespace>
-                                    <brt:lokaalID><xsl:value-of select="$id"/></brt:lokaalID>
-                                </brt:NEN3610ID>
-                            </top10nl:identificatie>
-                            <top10nl:brontype>Luchtfoto</top10nl:brontype>
-                            <top10nl:bronactualiteit>2015-01-01</top10nl:bronactualiteit>
-                            <top10nl:bronbeschrijving>Een orthogerectificeerde fotografische opname van een deel van het aardoppervlak. Gemaakt vanuit een vliegtuig.</top10nl:bronbeschrijving>
-                            <top10nl:bronnauwkeurigheid>0.4</top10nl:bronnauwkeurigheid>
-                            <top10nl:objectBeginTijd>2015-08-15</top10nl:objectBeginTijd>
-                            <top10nl:tijdstipRegistratie>2015-08-15</top10nl:tijdstipRegistratie>
-                            <top10nl:tdnCode>999</top10nl:tdnCode>
-                            <top10nl:visualisatieCode>19160</top10nl:visualisatieCode>
-                            <top10nl:mutatieType>TEST</top10nl:mutatieType>
-                            <xsl:for-each select="$el/Attributes/*">
-                                <xsl:element name="top10nl:{name(.)}" namespace="{$ttnlNS}">
-                                    <xsl:if test=".=$at">
-                                        <xsl:value-of select="$v/text()"/>
-                                    </xsl:if>
-                                    <xsl:if test="not(.=$at)">
-                                        <xsl:value-of select="./Value[1]/text()"/>
-                                    </xsl:if>
-                                </xsl:element>
-                            </xsl:for-each>
-                            <xsl:for-each select="$el/NameAttributes/*">
-                                <xsl:element name="top10nl:{text()}" namespace="{$ttnlNS}">
-                                    <xsl:value-of select="$n"/>
-                                </xsl:element>
-                            </xsl:for-each>
-                            <xsl:copy>
-                                <xsl:apply-templates mode="geom">
-                                    <xsl:with-param name="llx" select="$llx"/>
-                                    <xsl:with-param name="lly" select="$lly"/>
-                                </xsl:apply-templates>
-                            </xsl:copy>
-                        </xsl:element>
-                    </top10nl:FeatureMember>
-                </xsl:for-each>
+                <xsl:call-template name="AddFeature">
+                    <xsl:with-param name="el" select="$el"/>
+                    <xsl:with-param name="elPos" select="$elPos"/>
+                    <xsl:with-param name="at" select="$at"/>
+                    <xsl:with-param name="atPos" select="$atPos"/>
+                    <xsl:with-param name="val" select="."/>
+                    <xsl:with-param name="valPos" select="position()"/>
+                    <xsl:with-param name="featureName" select="concat('Test ', name($at), ' ', .)"/>                    
+                </xsl:call-template>
             </xsl:for-each>
         </xsl:for-each>
     </xsl:template>
