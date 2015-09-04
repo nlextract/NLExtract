@@ -1100,8 +1100,8 @@
                     <Value>E 98</Value>
                 </E-wegnummer>
                 <S-wegnummer minOccurs="0" maxOccurs="unbounded">
-                    <Value>E 99</Value>
-                    <Value>E 98</Value>
+                    <Value>S 99</Value>
+                    <Value>S 98</Value>
                 </S-wegnummer>
                 <afritnummer minOccurs="0" maxOccurs="1">
                     <Value>testafritnummer</Value>
