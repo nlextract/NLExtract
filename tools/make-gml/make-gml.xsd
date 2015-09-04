@@ -1,0 +1,60 @@
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+    <xsd:element name="GenerateGML">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="FeatureCollection" type="FeatureCollectionType"/>
+                <xsd:element name="FeatureMember" type="FeatureMemberType"/>
+                <xsd:element name="IDPrefix" type="xsd:string" minOccurs="0"/>
+                <xsd:element name="BaseGeometries" type="BaseGeometriesType"/>
+                <xsd:element name="ParentTypes" type="ParentTypesType"/>
+                <xsd:element name="FeatureTypes" type="FeatureTypesType"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:complexType name="FeatureCollectionType">
+        <xsd:sequence>
+            <!-- Hierbinnen bevindt zich willekeurige XML. Alleen het buitenste element en zijn attributen worden gebruikt. -->
+            <xsd:any processContents="lax"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="FeatureMemberType">
+        <xsd:sequence>
+            <!-- Hierbinnen bevindt zich willekeurige XML. Alleen het buitenste element wordt gebruikt. -->
+            <xsd:any processContents="lax"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="BaseGeometriesType">
+        <xsd:sequence>
+            <!-- Hierbinnen bevindt zich een onbekend element dat een substituut bevat van gml:_Geometry -->
+            <!-- TODO: naam van het onbekende element in een attribuut of child element stoppen... -->
+            <xsd:any processContents="lax" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="ParentTypesType">
+        <xsd:sequence>
+            <!-- Hierbinnen bevindt zich willekeurige XML. Dit mag een placeholder '{ID}' bevatten voor het GML ID. -->
+            <xsd:any processContents="lax"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="FeatureTypesType">
+        <xsd:sequence>
+            <!-- Hierbinnen bevindt zich een onbekend element dat een substituut is van gml:_Feature. Alleen het omhulsel
+                 is een substituut, de inhoud niet. Inhoud: [GeometryTypes, NameAttributes, Attributes]. Inhoud van
+                 GeometryTypes is willekeurige XML, dat uiteindelijk een element bevat dat een verwijzing is naar een
+                 element onder BaseGeometries. Inhoud van NameAttributes zijn willekeurige XML elementen, waarvan alleen
+                 het buitenste element wordt gebruikt. Inhoud van Attributes zijn willekeurige XML elementen met wederom
+                 een verplichte inhoud, nl. een of meerdere Value-elementen en met optioneel minOccurs / maxOccurs
+                 attributen. -->
+            <!-- TODO: naam van onbekende FeatureType elementen en Attributen in een attribuut of child element
+                 stoppen... -->
+            <xsd:any processContents="lax"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+</xsd:schema>
