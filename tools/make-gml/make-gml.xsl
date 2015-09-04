@@ -6,32 +6,20 @@
 -->
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xmlns:top10nl="http://www.kadaster.nl/schemas/imbrt/top10nl/1.2"
-        xmlns:brt="http://www.kadaster.nl/schemas/imbrt/brt-alg/1.0"
         xmlns:gml="http://www.opengis.net/gml/3.2">
     <xsl:output method="xml" indent="yes" version="1.0" encoding="UTF-8"/>
     <xsl:strip-space elements="*"/>
     
-    <xsl:variable name="ttnlNS" select="'http://www.kadaster.nl/schemas/imbrt/top10nl/1.2'"/>
-
     <xsl:template match="/">
-        <top10nl:FeatureCollectionT10NL xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                xmlns:top10nl="http://www.kadaster.nl/schemas/imbrt/top10nl/1.2"
-                xmlns:brt="http://www.kadaster.nl/schemas/imbrt/brt-alg/1.0"
-                xmlns:gml="http://www.opengis.net/gml/3.2"
-                xsi:schemaLocation="http://www.kadaster.nl/schemas/imbrt/top10nl/1.2 top10nl-concept.xsd"
-                gml:id="NL.TOP10NL_FC1">
+        <xsl:apply-templates select="GenerateGML/FeatureCollection"></xsl:apply-templates>
+    </xsl:template>
+   
+    <xsl:template match="FeatureCollection/*">
+        <xsl:copy>
+            <xsl:copy-of select="@*"/>
             <xsl:comment>Dit GML-bestand is gegenereerd met make-gml.xsl</xsl:comment>
-            <xsl:apply-templates/>
-        </top10nl:FeatureCollectionT10NL>
-    </xsl:template>
-
-    <xsl:template match="BaseGeometries">
-        <!-- Negeer -->
-    </xsl:template>
-     
-    <xsl:template match="ParentTypes/*">
-        <!-- Negeer -->
+            <xsl:apply-templates select="//FeatureTypes"/>
+        </xsl:copy>
     </xsl:template>
    
     <xsl:template match="PuntGeometrie|LijnGeometrie|VlakGeometrie|VlakGeometrieMetGat|MultivlakGeometrie|HartpuntGeometrie|HartlijnGeometrie|HogeZijdeGeometrie|LageZijdeGeometrie" mode="geom">
@@ -129,10 +117,10 @@
             <xsl:variable name="id" select="$elPos * 100000 + $atPos * 1000 + $valPos * 10 + position() - 1"/>
             <xsl:variable name="llx" select="100000 + $valPos * 10 + $elPos * 1000"/>
             <xsl:variable name="lly" select="400000 + (position() - 1) * 10 + $atPos * 100"/>
-            <top10nl:FeatureMember>
-                <xsl:element name="top10nl:{name($el)}" namespace="{$ttnlNS}">
+            <xsl:element name="{name(//FeatureMember/*)}" namespace="{namespace-uri(//FeatureMember/*)}">
+                <xsl:element name="{name($el)}" namespace="{namespace-uri($el)}">
                     <xsl:attribute name="gml:id" namespace="http://www.opengis.net/gml/3.2">
-                        <xsl:value-of select="concat('nl.top10nl.',$id)"/>
+                        <xsl:value-of select="concat(//IDPrefix,$id)"/>
                     </xsl:attribute>
                     <xsl:if test="$el[@parentType]">
                         <xsl:variable name="parentType" select="$el/../../ParentTypes/*[name()=$el/@parentType]"/>
@@ -148,20 +136,20 @@
                                 <xsl:choose>
                                     <xsl:when test="$val">
                                         <!-- De (eerste) waarde van het actieve attribuut -->
-                                        <xsl:element name="top10nl:{name(.)}" namespace="{$ttnlNS}">
+                                        <xsl:element name="{name()}" namespace="{namespace-uri()}">
                                             <xsl:value-of select="$val/text()"/>
                                         </xsl:element>
                                         <xsl:if test="$val2">
                                             <!-- De tweede waarde van het actieve attribuut -->
-                                            <xsl:comment>Extra waarde voor het actieve attribuut <xsl:value-of select="name(.)"/></xsl:comment>
-                                            <xsl:element name="top10nl:{name(.)}" namespace="{$ttnlNS}">
+                                            <xsl:comment>Extra waarde voor het actieve attribuut <xsl:value-of select="local-name()"/></xsl:comment>
+                                            <xsl:element name="{name()}" namespace="{namespace-uri()}">
                                                 <xsl:value-of select="$val2/text()"/>
                                             </xsl:element>
                                         </xsl:if>
                                     </xsl:when>
                                     <xsl:otherwise>
                                         <!-- Melding dat het actieve attribuut wordt weggelaten -->
-                                        <xsl:comment>Het actieve attribuut <xsl:value-of select="name(.)"/> wordt overgeslagen</xsl:comment>
+                                        <xsl:comment>Het actieve attribuut <xsl:value-of select="local-name()"/> wordt overgeslagen</xsl:comment>
                                     </xsl:otherwise>
                                 </xsl:choose>
                             </xsl:when>
@@ -170,11 +158,11 @@
                                 <xsl:choose>
                                     <xsl:when test="@minOccurs='0'">
                                         <!-- Melding dat een optioneel attribuut wordt weggelaten -->
-                                        <xsl:comment>Het optionele attribuut <xsl:value-of select="name(.)"/> wordt overgeslagen</xsl:comment>
+                                        <xsl:comment>Het optionele attribuut <xsl:value-of select="local-name()"/> wordt overgeslagen</xsl:comment>
                                     </xsl:when>
                                     <xsl:otherwise>
                                         <!-- Overige attributen; hierbij worden optionele attributen standaard weggelaten -->
-                                        <xsl:element name="top10nl:{name(.)}" namespace="{$ttnlNS}">
+                                        <xsl:element name="{name()}" namespace="{namespace-uri()}">
                                             <xsl:value-of select="./Value[1]/text()"/>
                                         </xsl:element>
                                     </xsl:otherwise>
@@ -183,7 +171,7 @@
                         </xsl:choose>
                     </xsl:for-each>
                     <xsl:for-each select="$el/NameAttributes/*">
-                        <xsl:element name="top10nl:{text()}" namespace="{$ttnlNS}">
+                        <xsl:element name="{name()}" namespace="{namespace-uri()}">
                             <xsl:value-of select="$featureName"/>
                         </xsl:element>
                     </xsl:for-each>
@@ -194,7 +182,7 @@
                         </xsl:apply-templates>
                     </xsl:copy>
                 </xsl:element>
-            </top10nl:FeatureMember>
+            </xsl:element>
         </xsl:for-each>
     </xsl:template>
 
@@ -225,7 +213,7 @@
                     <xsl:with-param name="at" select="$at"/>
                     <xsl:with-param name="atPos" select="$atPos"/>
                     <xsl:with-param name="valPos" select="0"/>
-                    <xsl:with-param name="featureName" select="concat('Test weggelaten attribuut ', name($at))"/>                    
+                    <xsl:with-param name="featureName" select="concat('Test weggelaten attribuut ', local-name($at))"/>                    
                 </xsl:call-template>
             </xsl:if>
             <xsl:for-each select="Value">
@@ -237,7 +225,7 @@
                     <xsl:with-param name="atPos" select="$atPos"/>
                     <xsl:with-param name="val" select="."/>
                     <xsl:with-param name="valPos" select="position()"/>
-                    <xsl:with-param name="featureName" select="concat('Test ', name($at), ' ', .)"/>                    
+                    <xsl:with-param name="featureName" select="concat('Test ', local-name($at), ' ', .)"/>                    
                 </xsl:call-template>
             </xsl:for-each>
             <xsl:if test="@maxOccurs and @maxOccurs!='1' and @maxOccurs!='0'">
@@ -250,7 +238,7 @@
                     <xsl:with-param name="val" select="Value[1]"/>
                     <xsl:with-param name="val2" select="Value[2]"/>
                     <xsl:with-param name="valPos" select="count(Value) + 1"/>
-                    <xsl:with-param name="featureName" select="concat('Test multiattribuut ', name($at))"/>                    
+                    <xsl:with-param name="featureName" select="concat('Test multiattribuut ', local-name($at))"/>                    
                 </xsl:call-template>
             </xsl:if>
         </xsl:for-each>
