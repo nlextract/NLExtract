@@ -130,30 +130,30 @@
                     <top10nl:visualisatieCode>19160</top10nl:visualisatieCode>
                     <top10nl:mutatieType>TEST</top10nl:mutatieType>
                     <xsl:for-each select="$el/Attributes/*">
-                        <xsl:if test=".=$at and $val">
+                        <xsl:if test="name(.)=name($at) and $val">
                             <!-- De (eerste) waarde van het actieve attribuut -->
                             <xsl:element name="top10nl:{name(.)}" namespace="{$ttnlNS}">
                                 <xsl:value-of select="$val/text()"/>
                             </xsl:element>
                         </xsl:if>
-                        <xsl:if test=".=$at and $val2">
+                        <xsl:if test="name(.)=name($at) and $val2">
                             <!-- De tweede waarde van het actieve attribuut -->
                             <xsl:comment>Extra waarde voor het actieve attribuut <xsl:value-of select="name(.)"/></xsl:comment>
                             <xsl:element name="top10nl:{name(.)}" namespace="{$ttnlNS}">
                                 <xsl:value-of select="$val2/text()"/>
                             </xsl:element>
                         </xsl:if>
-                        <xsl:if test=".=$at and not($val)">
+                        <xsl:if test="name(.)=name($at) and not($val)">
                             <!-- Melding dat het actieve attribuut wordt weggelaten -->
                             <xsl:comment>Het actieve attribuut <xsl:value-of select="name(.)"/> wordt overgeslagen</xsl:comment>
                         </xsl:if>
-                        <xsl:if test="not(.=$at) and (not(@minOccurs) or @minOccurs!='0')">
+                        <xsl:if test="name(.)!=name($at) and (not(@minOccurs) or @minOccurs!='0')">
                             <!-- Overige attributen; hierbij worden optionele attributen standaard weggelaten -->
                             <xsl:element name="top10nl:{name(.)}" namespace="{$ttnlNS}">
                                 <xsl:value-of select="./Value[1]/text()"/>
                             </xsl:element>
                         </xsl:if>
-                        <xsl:if test="not(.=$at) and @minOccurs='0'">
+                        <xsl:if test="name(.)!=name($at) and @minOccurs='0'">
                             <!-- Melding dat een optioneel attribuut wordt weggelaten -->
                             <xsl:comment>Het optionele attribuut <xsl:value-of select="name(.)"/> wordt overgeslagen</xsl:comment>
                         </xsl:if>
