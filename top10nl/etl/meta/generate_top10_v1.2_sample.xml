@@ -543,6 +543,7 @@
                 </soortnaam>
                 <nummer minOccurs="0" maxOccurs="unbounded">
                     <Value>testnummer</Value>
+                    <Value>testnummer 2</Value>
                 </nummer>
             </Attributes>
         </Inrichtingselement>
@@ -689,6 +690,7 @@
                 </typeRegistratiefGebied>
                 <nummer minOccurs="0" maxOccurs="unbounded">
                     <Value>testnummer</Value>
+                    <Value>testnummer 2</Value>
                 </nummer>
             </Attributes>
         </RegistratiefGebied>
@@ -1087,15 +1089,19 @@
                 </isBAGnaam>
                 <A-wegnummer minOccurs="0" maxOccurs="unbounded">
                     <Value>A 99</Value>
+                    <Value>A 98</Value>
                 </A-wegnummer>
                 <N-wegnummer minOccurs="0" maxOccurs="unbounded">
                     <Value>N 99</Value>
+                    <Value>N 98</Value>
                 </N-wegnummer>
                 <E-wegnummer minOccurs="0" maxOccurs="unbounded">
                     <Value>E 99</Value>
+                    <Value>E 98</Value>
                 </E-wegnummer>
                 <S-wegnummer minOccurs="0" maxOccurs="unbounded">
-                    <Value>S 99</Value>
+                    <Value>E 99</Value>
+                    <Value>E 98</Value>
                 </S-wegnummer>
                 <afritnummer minOccurs="0" maxOccurs="1">
                     <Value>testafritnummer</Value>
