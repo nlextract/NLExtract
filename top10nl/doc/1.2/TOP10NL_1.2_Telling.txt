@@ -1,0 +1,32 @@
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Telling van objecten in de TOP10NL GML bestanden.
+TOP10NL levering en dataset: 2015-09_TOP10NL_1.2_test
+
+Telling uitgevoerd op: Fri 11 Sep 2015 19:39:25
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Bestandsnaam                          SOM  WEGDEEL  SPOORBA  WATERDE   GEBOUW  TERREIN  INRICHT   RELIEF   HOOGTE  REGISTR  GEOGRAF  FUNCTIO   PLAATS  PLANTOP
+
+            TOP10NL_30_Oost.gml    288791    98733     1227    47912    61917    45811    25355     5027     1823       24      164      618      180        0
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Totaal Wegdelen:                  98733
+Totaal Spoorbaandelen:             1227
+Totaal Waterdelen:                47912
+Totaal Gebouwen:                  61917
+Totaal Terreinen:                 45811
+Totaal Inrichtingselementen:      25355
+Totaal Relief:                     5027
+Totaal Hoogte:                     1823
+Totaal Registratieve gebieden:       24
+Totaal Geografische gebieden:       164
+Totaal Functionele gebieden:        618
+Totaal Plaatsen:                    180
+Totaal Plantopografie:                0
+
+Totaal aantal objecten:          288791
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
