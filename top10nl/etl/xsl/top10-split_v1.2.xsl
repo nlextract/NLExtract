@@ -26,8 +26,8 @@ geometrie.
 -->
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:xalan="http://xml.apache.org/xalan" exclude-result-prefixes="xalan"
-                xmlns:top10nl="http://www.kadaster.nl/schemas/imbrt/top10nl/1.2"
-                xmlns:brt="http://www.kadaster.nl/schemas/imbrt/brt-alg/1.0"
+                xmlns:top10nl="http://register.geostandaarden.nl/gmlapplicatieschema/top10nl/1.2.0"
+                xmlns:brt="http://register.geostandaarden.nl/gmlapplicatieschema/brt-algemeen/1.2.0"
                 xmlns:gml="http://www.opengis.net/gml/3.2"
                 xmlns:xs="http://www.w3.org/2001/XMLSchema"
                 xmlns:smil20="http://www.w3.org/2001/SMIL20/"
@@ -41,9 +41,9 @@ geometrie.
                 xmlns:gml="http://www.opengis.net/gml/3.2"
                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                 xmlns:xlink="http://www.w3.org/1999/xlink"
-                xmlns:top10nl="http://www.kadaster.nl/schemas/imbrt/top10nl/1.2"
-                xmlns:brt="http://www.kadaster.nl/schemas/imbrt/brt-alg/1.0"
-                xsi:schemaLocation="http://www.kadaster.nl/schemas/imbrt/top10nl/1.2 TOP10NL_1_2.xsd"
+                xmlns:top10nl="http://register.geostandaarden.nl/gmlapplicatieschema/top10nl/1.2.0"
+                xmlns:brt="http://register.geostandaarden.nl/gmlapplicatieschema/brt-algemeen/1.2.0"
+                xsi:schemaLocation="http://register.geostandaarden.nl/gmlapplicatieschema/top10nl/1.2.0 top10nl.xsd"
                 gml:id="uuidf074ae61-93b9-448a-b1db-289fd15e8752"
                 >
             <xsl:apply-templates/>

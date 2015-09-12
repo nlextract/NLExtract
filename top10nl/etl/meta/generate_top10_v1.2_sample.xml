@@ -1,14 +1,15 @@
 <GenerateGML
     xmlns:gml="http://www.opengis.net/gml/3.2"
-    xmlns:top10nl="http://www.kadaster.nl/schemas/imbrt/top10nl/1.2"
-    xmlns:brt="http://www.kadaster.nl/schemas/imbrt/brt-alg/1.0">
+    xmlns:top10nl="http://register.geostandaarden.nl/gmlapplicatieschema/top10nl/1.2.0"
+    xmlns:brt="http://register.geostandaarden.nl/gmlapplicatieschema/brt-algemeen/1.2.0">
     <FeatureCollection>
         <top10nl:FeatureCollectionT10NL
-            xmlns:top10nl="http://www.kadaster.nl/schemas/imbrt/top10nl/1.2"
-            xmlns:brt="http://www.kadaster.nl/schemas/imbrt/brt-alg/1.0"
+            xmlns:top10nl="http://register.geostandaarden.nl/gmlapplicatieschema/top10nl/1.2.0"
+            xmlns:brt="http://register.geostandaarden.nl/gmlapplicatieschema/brt-algemeen/1.2.0"
             xmlns:gml="http://www.opengis.net/gml/3.2"
             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-            xsi:schemaLocation="http://www.kadaster.nl/schemas/imbrt/top10nl/1.2 top10nl-concept.xsd"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            xsi:schemaLocation="http://register.geostandaarden.nl/gmlapplicatieschema/top10nl/1.2.0 top10nl.xsd"
             gml:id="NL.TOP10NL_FC1"/>
     </FeatureCollection>
     <FeatureMember>
