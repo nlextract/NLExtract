@@ -113,7 +113,7 @@ class BAGExtractGUI(wx.Frame):
         menu1.Append(102, "Laad BAGExtract &Bestand (.zip .xml)",
                      "Laadt een enkel BAG-extractbestand (.zip, .xml) in de database")
         menu1.AppendSeparator()
-        menu1.Append(103, "&Edit configuratie", "Edit configuratie instellingen")
+        menu1.Append(103, "&Edit Configuratie", "Edit configuratie instellingen")
         menu1.AppendSeparator()
         menu1.Append(104, "&Afsluiten", "Sluit NLExtract-BAG af")
         self.menuBalk.Append(menu1, "&Bestand")
@@ -169,22 +169,22 @@ class BAGExtractGUI(wx.Frame):
     #------------------------------------------------------------------------------
     # Pak een extract of mutatiebestand uit.
     #------------------------------------------------------------------------------    
-    def bestandUnzipExtract(self, event):
-        fileDialoog = wx.FileDialog(self,
-                                    "Selecteer bestand",
-                                    BAGConfig.config.download,
-                                    "",
-                                    "*.zip",
-                                    wx.OPEN | wx.CHANGE_DIR)
-        if fileDialoog.ShowModal() == wx.ID_OK:
-            log.start(self, database, "Uitpakken extract bestand", fileDialoog.GetPath())
-            log("Unzip " + fileDialoog.GetPath())
-            log(" naar " + BAGConfig.config.extract)
-            log("")
-            if not unzip_file_into_dir(fileDialoog.GetPath(), BAGConfig.config.extract):
-                log("Uitpakken mislukt")
-            log("")
-            log.sluit()
+    # def bestandUnzipExtract(self, event):
+    #     fileDialoog = wx.FileDialog(self,
+    #                                 "Selecteer bestand",
+    #                                 BAGConfig.config.download,
+    #                                 "",
+    #                                 "*.zip",
+    #                                 wx.OPEN | wx.CHANGE_DIR)
+    #     if fileDialoog.ShowModal() == wx.ID_OK:
+    #         log.start(self, database, "Uitpakken extract bestand", fileDialoog.GetPath())
+    #         log("Unzip " + fileDialoog.GetPath())
+    #         log(" naar " + BAGConfig.config.extract)
+    #         log("")
+    #         if not unzip_file_into_dir(fileDialoog.GetPath(), BAGConfig.config.extract):
+    #             log("Uitpakken mislukt")
+    #         log("")
+    #         log.sluit()
 
     #------------------------------------------------------------------------------
     # Laad een BAG Extract bestand in de database.

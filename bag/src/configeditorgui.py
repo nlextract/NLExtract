@@ -10,14 +10,12 @@ class ConfigEditorPanel(wx.Dialog):
         wx.Dialog.__init__(self, parent, -1, 'NLExtract BAG config aanpassen', size=(400, 200))
 
         self.panel = panel = wx.Panel(self, wx.ID_ANY)
-        topsizer = wx.BoxSizer(wx.VERTICAL)
 
         # Difference between using PropertyGridManager vs PropertyGrid is that
         # the manager supports multiple pages and a description box.
         self.pg = pg = wxpg.PropertyGridManager(panel,
                                                 style=wxpg.PG_SPLITTER_AUTO_CENTER |
-                                                      wxpg.PG_AUTO_SORT |
-                                                      wxpg.PG_TOOLBAR)
+                                                      wxpg.PG_AUTO_SORT )
         pg.AddPage("BAG Extract Config")
 
         pg.Append(wxpg.PropertyCategory("BAG Extract Config"))
@@ -30,12 +28,14 @@ class ConfigEditorPanel(wx.Dialog):
         # pg.Append(wxpg.BoolProperty("Verbose logging", value=True))
         # pg.SetPropertyAttribute("Bool_with_Checkbox", "UseCheckbox", True)
 
+        topsizer = wx.BoxSizer(wx.VERTICAL)
         topsizer.Add(pg, 1, wx.EXPAND)
-
-        rowsizer = wx.BoxSizer(wx.HORIZONTAL)
         but = wx.Button(panel, -1, "Bewaren")
         but.Bind(wx.EVT_BUTTON, self.OnSave)
-        rowsizer.Add(but, 1)
+        topsizer.Add(but, 1, wx.EXPAND)
+
+        # rowsizer = wx.BoxSizer(wx.HORIZONTAL)
+        # rowsizer.Add(but, 1)
 
         panel.SetSizer(topsizer)
         topsizer.SetSizeHints(panel)
