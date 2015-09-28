@@ -15,7 +15,9 @@ __date__ = "$Jun 14, 2011 11:11:01 AM$"
  OpenGeoGroep.nl
 """
 
+import os, sys
 from bagobject import BAGObjectFabriek
+from bagconfig import BAGConfig
 from bestuurlijkobject import BestuurlijkObjectFabriek
 from postgresdb import Database
 from log import Log
@@ -25,6 +27,31 @@ class Processor:
     def __init__(self):
         self.database = Database()
         self.naam = 'onbekend'
+
+    def dbInit(self):
+        # Print start time
+        Log.log.time("Start")
+
+        # Dumps all tables and recreates them
+        db_script = os.path.realpath(BAGConfig.config.bagextract_home + '/db/script/bag-db.sql')
+        Log.log.info("alle tabellen weggooien en opnieuw aanmaken in database '%s', schema '%s'..." % (BAGConfig.config.database, BAGConfig.config.schema))
+        try:
+            self.database.initialiseer(db_script)
+        except Exception as e:
+            Log.log.fatal("Kan geen verbinding maken met de database")
+            sys.exit()
+
+        Log.log.info("Initieele data (bijv. gemeenten/provincies) inlezen...")
+        from bagfilereader import BAGFileReader
+        # from bagobject import VerblijfsObjectPand, AdresseerbaarObjectNevenAdres, VerblijfsObjectGebruiksdoel, Woonplaats, OpenbareRuimte, Nummeraanduiding, Ligplaats, Standplaats, Verblijfsobject, Pand
+        myreader = BAGFileReader(BAGConfig.config.bagextract_home + '/db/data')
+        myreader.process()
+        Log.log.info("Views aanmaken...")
+        db_script = os.path.realpath(BAGConfig.config.bagextract_home + '/db/script/bag-view-actueel-bestaand.sql')
+        self.database.file_uitvoeren(db_script)
+
+        # Print end time
+        Log.log.time("End")
 
     def processCSV(self, csvreader, naam='onbekend'):
         objecten = []

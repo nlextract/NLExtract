@@ -99,6 +99,16 @@ class BAGObject:
         for relatie in self.relaties:
             relatie.leesUitXML(xml)
 
+    # Geef het actuele voorkomen van het object, geselecteerd uit de database op basis van
+    # de identificatie
+    def maakSelectSQL(self):
+        sql  = "SELECT "
+        for attribuut in self.attributen_volgorde:
+            sql += attribuut.naam() + ", "
+        sql += " identificatie FROM " + self.naam() + "actueelbestaand"
+        sql += " WHERE identificatie = " + self.attribuut('identificatie').waarde()
+        return sql
+
     # Retourneer het attribuut met de gegeven naam
     def attribuut(self, naam):
         return self.attributen[naam]
@@ -273,6 +283,21 @@ class Nummeraanduiding(BAGObject):
                                                    "bag_LVC:gerelateerdeOpenbareRuimte/bag_LVC:identificatie"))
         self.voegToe(BAGnumeriekAttribuut(16, "gerelateerdeWoonplaats",
                                                    "bag_LVC:gerelateerdeWoonplaats/bag_LVC:identificatie"))
+
+
+    def maakSelectAdresseerbaarObjectSQL(self):
+        adresseerbaarObject = None
+        if self.attribuut('typeAdresseerbaarObject').waarde().lower() == "ligplaats":
+            adresseerbaarObject = Ligplaats()
+        elif self.attribuut('typeAdresseerbaarObject').waarde().lower() == "standplaats":
+            adresseerbaarObject = Standplaats()
+        elif self.attribuut('typeAdresseerbaarObject').waarde().lower() == "verblijfsobject":
+            adresseerbaarObject = Verblijfsobject()
+        
+        sql  = "SELECT DISTINCT identificatie"
+        sql += "  FROM " + self.attribuut('typeAdresseerbaarObject').waarde().lower() + "actueelbestaand"
+        sql += " WHERE hoofdadres = " + self.attribuut('identificatie').waarde()
+        return sql
 
 #--------------------------------------------------------------------------------------------------------
 # Class         BAGadresseerbaarObject
@@ -457,22 +482,23 @@ class BAGObjectFabriek:
     #--------------------------------------------------------------------------------------------------------
     def getBAGObjectBijIdentificatie(self, identificatie):
         obj = None
-        if len(identificatie) == 4:
+        id_str = str(identificatie)
+        if len(id_str) == 4:
             obj = Woonplaats()
-        elif identificatie[4:6] == "30":
+        elif id_str[3:5] == "30":
             obj = OpenbareRuimte()
-        elif identificatie[4:6] == "20":
+        elif id_str[3:5] == "20":
             obj = Nummeraanduiding()
-        elif identificatie[4:6] == "02":
+        elif id_str[3:5] == "02":
             obj = Ligplaats()
-        elif identificatie[4:6] == "03":
+        elif id_str[3:5] == "03":
             obj = Standplaats()
-        elif identificatie[4:6] == "01":
+        elif id_str[3:5] == "01":
             obj = Verblijfsobject()
-        elif identificatie[4:6] == "10":
+        elif id_str[3:5] == "10":
             obj = Pand()
         if obj:
-            obj.identificatie.setWaarde(identificatie)
+            obj.attributen['identificatie'].setWaarde(identificatie)
         return obj
 
 
