@@ -69,13 +69,13 @@ xslt_strip_ns = '''<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/19
 </xsl:stylesheet>
 '''
 
-xslt_doc = False
+xslt_doc = None
 
 # Haal alle Namespaces recursief uit een node
 # Handig om bijv. XPath expressies los te laten
 def stripNS(node):
     global xslt_doc, xslt_strip_ns
-    if not xslt_doc:
+    if xslt_doc is None:
         xslt_doc = etree.fromstring(xslt_strip_ns)
 
     transform = etree.XSLT(xslt_doc)
