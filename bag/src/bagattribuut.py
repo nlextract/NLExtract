@@ -62,6 +62,8 @@ class BAGattribuut:
         self._tag = tag
         self._waarde = None
         self._parentObj = None
+        # default attr is singlevalued
+        self._relatieNaam = None
 
     # Attribuut lengte
     def lengte(self):
@@ -70,6 +72,10 @@ class BAGattribuut:
     # Attribuut naam
     def naam(self):
         return self._naam
+
+    # Attribuut enkel/of meervoudig (via relatie)
+    def enkelvoudig(self):
+        return self._relatieNaam is None
 
     # Attribuut tag
     def tag(self):

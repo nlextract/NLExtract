@@ -82,6 +82,10 @@ class BAGObject:
     def naam(self):
         return self._naam
 
+    # Retourneer een omschrijving van het object, bestaande uit de identificatie en het adres
+    def omschrijving(self):
+        return "%s %s" % (self.objectType(), self.identificatie())
+
     # Geef het objecttype bij het type BAG-object.
     def objectType(self):
         return self._objectType
@@ -99,6 +103,19 @@ class BAGObject:
         for relatie in self.relaties:
             relatie.leesUitXML(xml)
 
+    # Initialisatie vanuit array/list met attribuut waarden
+    def zetWaarden(self, value_list):
+        i = 0
+        for attribuut in self.attributen_volgorde:
+            attribuut.setWaarde(value_list[i])
+            i += 1
+
+    # Initialisatie vanuit array/list met attribuut waarden
+    def zetWaarde(self, name, value):
+        attr = self.attribuut(name)
+        if attr:
+            attr.setWaarde(value)
+
     # Geef het actuele voorkomen van het object, geselecteerd uit de database op basis van
     # de identificatie
     def maakSelectSQL(self):
@@ -106,7 +123,7 @@ class BAGObject:
         for attribuut in self.attributen_volgorde:
             sql += attribuut.naam() + ", "
         sql += " identificatie FROM " + self.naam() + "actueelbestaand"
-        sql += " WHERE identificatie = " + self.attribuut('identificatie').waarde()
+        sql += " WHERE identificatie = " + str(self.attribuut('identificatie').waarde())
         return sql
 
     # Retourneer het attribuut met de gegeven naam
@@ -284,19 +301,21 @@ class Nummeraanduiding(BAGObject):
         self.voegToe(BAGnumeriekAttribuut(16, "gerelateerdeWoonplaats",
                                                    "bag_LVC:gerelateerdeWoonplaats/bag_LVC:identificatie"))
 
+    def getAdresseerbaarObject(self):
+        adresseerbaarObject = None
+        typeAdresseerbaarObject = self.attribuut('typeAdresseerbaarObject').waarde().lower()
+        if typeAdresseerbaarObject == "ligplaats":
+            adresseerbaarObject = Ligplaats()
+        elif typeAdresseerbaarObject == "standplaats":
+            adresseerbaarObject = Standplaats()
+        elif typeAdresseerbaarObject == "verblijfsobject":
+            adresseerbaarObject = Verblijfsobject()
+        return adresseerbaarObject
 
     def maakSelectAdresseerbaarObjectSQL(self):
-        adresseerbaarObject = None
-        if self.attribuut('typeAdresseerbaarObject').waarde().lower() == "ligplaats":
-            adresseerbaarObject = Ligplaats()
-        elif self.attribuut('typeAdresseerbaarObject').waarde().lower() == "standplaats":
-            adresseerbaarObject = Standplaats()
-        elif self.attribuut('typeAdresseerbaarObject').waarde().lower() == "verblijfsobject":
-            adresseerbaarObject = Verblijfsobject()
-        
         sql  = "SELECT DISTINCT identificatie"
         sql += "  FROM " + self.attribuut('typeAdresseerbaarObject').waarde().lower() + "actueelbestaand"
-        sql += " WHERE hoofdadres = " + self.attribuut('identificatie').waarde()
+        sql += " WHERE hoofdadres = " + str(self.attribuut('identificatie').waarde())
         return sql
 
 #--------------------------------------------------------------------------------------------------------

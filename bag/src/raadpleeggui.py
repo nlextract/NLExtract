@@ -73,13 +73,20 @@ class BAGZoekOpIdentificatie(BAGZoekPanel):
         self.raadpleegScherm.boom.maakLeeg()
         self.raadpleegScherm.kaart.maakLeeg()
         self.logScherm("")
-        obj = BAGObjectFabriek.bof.getBAGObjectBijIdentificatie(self.idText.GetValue())
-        if not obj or not obj.leesActueelVoorkomenUitDatabase():
-            self.logScherm("Geen object gevonden bij deze gegevens")
-        else:
-            self.raadpleegScherm.boom.toonItem(self.raadpleegScherm.boom.voegToe(self.idText.GetValue()))
-            self.raadpleegScherm.boom.SelectItem(self.raadpleegScherm.boom.GetFirstVisibleItem())
+        identificatie = int(self.idText.GetValue())
+        obj = BAGObjectFabriek.bof.getBAGObjectBijIdentificatie(identificatie)
+        if not obj:
+            self.logScherm("Geen geldig BAG-object identificatie")
+            return
 
+        sql = obj.maakSelectSQL()
+        rows = self.database.select(sql)
+        if len(rows) > 0:
+            obj.zetWaarden(rows[0])
+            self.raadpleegScherm.boom.toonItem(self.raadpleegScherm.boom.voegToe(identificatie))
+            self.raadpleegScherm.boom.SelectItem(self.raadpleegScherm.boom.GetFirstVisibleItem())
+        else:
+            self.logScherm("Geen object van type %s gevonden bij deze gegevens" % obj.objectType())
 
 #------------------------------------------------------------------------------
 # Uitklapbaar zoekpanel voor het zoeken op postcode, huisnummer.
@@ -101,9 +108,9 @@ class BAGZoekOpPostcode(BAGZoekPanel):
         postcode = self.postcodeText.GetValue()
         huisnummer = self.huisnummerText.GetValue()
         sql = "SELECT identificatie"
-        sql += "  FROM nummeraanduidingActueel"
+        sql += "  FROM nummeraanduidingActueelBestaand"
         sql += " WHERE upper(postcode) = '%s'" % postcode.upper()
-        sql += "   AND huisnummer      = '%s'" % huisnummer
+        sql += "   AND huisnummer      = %s" % huisnummer
         nummeraanduidingen = self.database.select(sql)
         self.raadpleegScherm.boom.maakLeeg()
         self.raadpleegScherm.kaart.maakLeeg()
@@ -141,10 +148,10 @@ class BAGZoekOpAdres(BAGZoekPanel):
         huisnummer = self.huisnummerText.GetValue()
         sql = "SELECT nummeraanduidingidentificatie"
         sql += "  FROM adresActueel"
-        sql += " WHERE upper(woonplaatsnaam) LIKE     '%s'" % (database.string(woonplaatsNaam.upper()))
-        sql += "   AND upper(openbareruimtenaam) LIKE '%s'" % (database.string(openbareRuimteNaam.upper()))
-        sql += "   AND huisnummer                   = '%s'" % (database.string(huisnummer))
-        nummeraanduidingen = database.select(sql)
+        sql += " WHERE upper(woonplaatsnaam) LIKE     '%s'" % woonplaatsNaam.upper()
+        sql += "   AND upper(openbareruimtenaam) LIKE '%s'" % openbareRuimteNaam.upper()
+        sql += "   AND huisnummer                    = %s" % huisnummer
+        nummeraanduidingen = self.database.select(sql)
         self.raadpleegScherm.boom.maakLeeg()
         self.raadpleegScherm.kaart.maakLeeg()
         self.logScherm("")
@@ -186,9 +193,9 @@ class BAGZoekOpCoordinaten(BAGZoekPanel):
 
         # Zoek eerst naar een pand op de gegeven locatie
         sql = "SELECT identificatie"
-        sql += "  FROM pandActueel"
-        sql += " WHERE geometrie && GeomFromEWKT('SRID=28992;POINT(%s %s 0.0)')" % (x, y)
-        panden = database.select(sql)
+        sql += "  FROM pandactueelbestaand"
+        sql += " WHERE geovlak && GeomFromEWKT('SRID=28992;POINT(%s %s 0.0)')" % (x, y)
+        panden = self.database.select(sql)
         if len(panden) >= 1:
             for pand in panden:
                 self.raadpleegScherm.boom.voegToe(pand[0])
@@ -197,9 +204,9 @@ class BAGZoekOpCoordinaten(BAGZoekPanel):
 
         # Zoek ligplaats
         sql = "SELECT identificatie"
-        sql += "  FROM ligplaatsActueel"
-        sql += " WHERE geometrie && GeomFromEWKT('SRID=28992;POINT(%s %s 0.0)')" % (x, y)
-        ligplaatsen = database.select(sql)
+        sql += "  FROM ligplaatsactueelbestaand"
+        sql += " WHERE geovlak && GeomFromEWKT('SRID=28992;POINT(%s %s 0.0)')" % (x, y)
+        ligplaatsen = self.database.select(sql)
         if len(ligplaatsen) >= 1:
             for ligplaats in ligplaatsen:
                 self.raadpleegScherm.boom.voegToe(ligplaats[0])
@@ -208,9 +215,9 @@ class BAGZoekOpCoordinaten(BAGZoekPanel):
 
         # Zoek standplaats
         sql = "SELECT identificatie"
-        sql += "  FROM standplaatsActueel"
-        sql += " WHERE geometrie && GeomFromEWKT('SRID=28992;POINT(%s %s 0.0)')" % (x, y)
-        standplaatsen = database.select(sql)
+        sql += "  FROM standplaatsactueelbestaand"
+        sql += " WHERE geovlak && GeomFromEWKT('SRID=28992;POINT(%s %s 0.0)')" % (x, y)
+        standplaatsen = self.database.select(sql)
         if len(standplaatsen) >= 1:
             for standplaats in standplaatsen:
                 self.raadpleegScherm.boom.voegToe(standplaats[0])
@@ -260,34 +267,40 @@ class BAGBoom(wx.TreeCtrl):
     def _initObject(self, item):
         if not self.GetPyData(item):
             # Initialiseer het BAG-object
-            BAGobject = BAGObjectFabriek.bof.getBAGObjectBijIdentificatie(self.GetItemText(item).partition(" ")[2])
-            sql = BAGobject.maakSelectSQL()
+            bagObject = BAGObjectFabriek.bof.getBAGObjectBijIdentificatie(self.GetItemText(item).partition(" ")[2])
+            sql = bagObject.maakSelectSQL()
             rows = self.database.select(sql)
+            if len(rows) > 0:
+                vals = rows[0]
+                bagObject.zetWaarden(vals)
 
-            self.SetPyData(item, BAGobject)
+            self.SetPyData(item, bagObject)
 
-            if BAGobject.objectType() == "OPR":
-                self._initItem(item, "WPL", BAGobject.attribuut('gerelateerdeWoonplaats').waarde())
-            if BAGobject.objectType() == "NUM":
-                if BAGobject.attribuut('gerelateerdeWoonplaats').waarde() <> "":
-                    self._initItem(item, "WPL", BAGobject.attribuut('gerelateerdeWoonplaats').waarde())
-                self._initItem(item, "OPR", BAGobject.attribuut('gerelateerdeOpenbareRuimte').waarde())
+            if bagObject.objectType() == "OPR":
+                self._initItem(item, "WPL", bagObject.attribuut('gerelateerdeWoonplaats').waarde())
+            if bagObject.objectType() == "NUM":
+                if bagObject.attribuut('gerelateerdeWoonplaats').waarde() <> "":
+                    self._initItem(item, "WPL", bagObject.attribuut('gerelateerdeWoonplaats').waarde())
+                self._initItem(item, "OPR", bagObject.attribuut('gerelateerdeOpenbareRuimte').waarde())
 
-                oaSQL = BAGobject.maakSelectAdresseerbaarObjectSQL()
-
-                ao = BAGobject.getAdresseerbaarObject()
+                ao = bagObject.getAdresseerbaarObject()
                 if ao:
-                    self._initItem(item, ao.objectType(), ao.attribuut('identificatie').waarde())
-            if BAGobject.objectType() in ["LPL", "SPL", "VBO"]:
-                self._initItem(item, "NUM", BAGobject.attribuut('hoofdadres').waarde())
-                for nevenadres in BAGobject.attribuut('nevenadres').waarde():
+                    sql = bagObject.maakSelectAdresseerbaarObjectSQL()
+                    ao_rows = self.database.select(sql)
+                    if len(ao_rows) > 0 and len(ao_rows[0]) > 0:
+                        identificatie = ao_rows[0][0]
+                        ao.zetWaarde('identificatie', identificatie)
+                        self._initItem(item, ao.objectType(), ao.identificatie())
+            if bagObject.objectType() in ["LPL", "SPL", "VBO"]:
+                self._initItem(item, "NUM", bagObject.attribuut('hoofdadres').waarde())
+                for nevenadres in bagObject.attribuut('nevenadres').waarde():
                     self._initItem(item, "NUM", nevenadres)
-            if BAGobject.objectType() == "VBO":
-                for pand in BAGobject.attribuut('gerelateerdPand').waarde():
+            if bagObject.objectType() == "VBO":
+                for pand in bagObject.attribuut('gerelateerdPand').waarde():
                     self._initItem(item, "PND", pand)
-            if BAGobject.objectType() == "PND":
-                for vbo in BAGobject.getVerblijfsobjecten():
-                    self._initItem(item, "VBO", vbo.attribuut('identificatie').waarde())
+            if bagObject.objectType() == "PND":
+                for vbo in bagObject.getVerblijfsobjecten():
+                    self._initItem(item, "VBO", vbo.identificatie())
         return self.GetPyData(item)
 
     # Private functie voor het openen van een item. Deze functie wordt uitgevoerd wanneer
@@ -317,9 +330,9 @@ class BAGBoom(wx.TreeCtrl):
     # gerelateerde objecten zichtbaar worden. Vervolgens wordt het object getoond in de
     # view in het rechterdeel van het scherm.
     def toonItem(self, item):
-        BAGobject = self._initObject(item)
-        self.raadpleegScherm.view.toonObject(BAGobject)
-        self.raadpleegScherm.kaart.toonGeometrie(BAGobject)
+        bagObject = self._initObject(item)
+        self.raadpleegScherm.view.toonObject(bagObject)
+        self.raadpleegScherm.kaart.toonGeometrie(bagObject)
 
     # Maak de hele boom leeg
     def maakLeeg(self):
@@ -329,9 +342,9 @@ class BAGBoom(wx.TreeCtrl):
 
     # Voeg een object met de gegeven identificatie toe aan de boom
     def voegToe(self, identificatie):
-        BAGobject = BAGObjectFabriek.bof.getBAGObjectBijIdentificatie(identificatie)
-        if BAGobject:
-            return self._initItem(self.GetRootItem(), BAGobject.objectType(), BAGobject.attribuut('identificatie').waarde())
+        bagObject = BAGObjectFabriek.bof.getBAGObjectBijIdentificatie(identificatie)
+        if bagObject:
+            return self._initItem(self.GetRootItem(), bagObject.objectType(), bagObject.identificatie())
         else:
             return None
 
@@ -347,7 +360,7 @@ class BAGView(rt.RichTextCtrl):
         rt.RichTextCtrl.__init__(self, raadpleegScherm, -1, "", positie, afmeting,
                                  style=wx.TE_READONLY | wx.TE_MULTILINE)
         self.raadpleegScherm = raadpleegScherm
-        self.BAGobject = None
+        self.bagObject = None
         self.font = wx.Font(8, wx.FONTFAMILY_MODERN, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_NORMAL)
         self.SetFont(self.font)
         self.toonLevenscyclusKnop = wx.Button(self, label="Toon levenscyclus",
@@ -356,16 +369,16 @@ class BAGView(rt.RichTextCtrl):
         self.toonLevenscyclusKnop.Hide()
 
     # Toon 1 object/voorkomen 
-    def toonObject(self, BAGobject):
+    def toonObject(self, bagObject):
         self.Clear()
-        self.BAGobject = BAGobject
+        self.bagObject = bagObject
 
-        self.WriteText("--- %s ---\n" % (self.BAGobject.naam()))
+        self.WriteText("--- %s ---\n" % (self.bagObject.naam()))
         self.BeginBold()
-        self.WriteText("%s\n" % (self.BAGobject.omschrijving()))
+        self.WriteText("%s\n" % (self.bagObject.omschrijving()))
         self.EndBold()
         self.WriteText("Attributen:\n")
-        for attribuut in self.BAGobject.attributen:
+        for attribuut in self.bagObject.attributen_volgorde:
             if attribuut.enkelvoudig():
                 self.WriteText(" - %-27s: %s\n" % (attribuut.naam(), attribuut.waarde()))
             else:
@@ -383,12 +396,12 @@ class BAGView(rt.RichTextCtrl):
     # opzichte van het voorgaande voorkomen, getoond in blauwe letters.
     def toonLevenscyclus(self, event):
         self.Clear()
-        self.WriteText("--- %s ---\n" % (self.BAGobject.naam()))
+        self.WriteText("--- %s ---\n" % (self.bagObject.naam()))
         self.BeginBold()
-        self.WriteText("%s\n" % (self.BAGobject.omschrijving()))
+        self.WriteText("%s\n" % (self.bagObject.omschrijving()))
         self.EndBold()
-        levenscyclus = self.BAGobject.controleerLevenscyclus(toonResultaat=False)
-        if not self.BAGobject.levenscyclusCorrect:
+        levenscyclus = self.bagObject.controleerLevenscyclus(toonResultaat=False)
+        if not self.bagObject.levenscyclusCorrect:
             self.BeginTextColour((255, 0, 0))
             self.WriteText("*** Levenscyclus is corrupt; zie opmerkingen bij voorkomens ***\n")
             self.EndTextColour()
@@ -462,8 +475,8 @@ class BAGKaart(wx.Panel):
         self.schaal = 0.0
         self.zoom = 0.5
         self.polygonen = []  # Verzameling van alle polygonen die worden getoond in de kaart
-        self.BAGobject = None  # Het huidige BAGobject dat wordt getoond in de kaart
-        self.highlightPolygonen = []  # Polygoon(en) van het huidige BAGobject
+        self.bagObject = None  # Het huidige bagObject dat wordt getoond in de kaart
+        self.highlightPolygonen = []  # Polygoon(en) van het huidige bagObject
         self.PNDpolygonen = []  # Lijst van Pand-polygonen
         self.LPLpolygonen = []  # Lijst van Ligplaats-polygonen
         self.SPLpolygonen = []  # Lijst van Standplaats-polygonen
@@ -482,6 +495,7 @@ class BAGKaart(wx.Panel):
         self.zoomInKnop = wx.Button(self, label="+", pos=(self.GetSize().GetWidth() - 20, 20), size=(20, 20))
         self.Bind(wx.EVT_BUTTON, self._zoomUit, self.zoomUitKnop)
         self.Bind(wx.EVT_BUTTON, self._zoomIn, self.zoomInKnop)
+        self.database = Database()
 
     # Maak de kaart leeg
     def maakLeeg(self):
@@ -494,7 +508,7 @@ class BAGKaart(wx.Panel):
         self.schaal = 0.0
         self.zoom = 0.5
         self.polygonen = []
-        self.BAGobject = None
+        self.bagObject = None
         self.highlightPolygonen = []
         self.PNDpolygonen = []
         self.LPLpolygonen = []
@@ -590,12 +604,12 @@ class BAGKaart(wx.Panel):
     # Zoom in op de kaart door de zoomfactor te halveren
     def _zoomIn(self, event):
         self.zoom = self.zoom / 2.0
-        self.toonGeometrie(self.BAGobject)
+        self.toonGeometrie(self.bagObject)
 
     # Zoom uit op de kaart door de zoomfactor te verdubbelen
     def _zoomUit(self, event):
         self.zoom = self.zoom * 2.0
-        self.toonGeometrie(self.BAGobject)
+        self.toonGeometrie(self.bagObject)
 
     # Reken de X-coordinaat om naar een positie op de kaart op het scherm.
     def schermCoordinaatX(self, x):
@@ -617,24 +631,25 @@ class BAGKaart(wx.Panel):
 
     # Toon van een gevonden BAG-object de geometrie in de kaart, tezamen met de geometrieen van
     # omliggende objecten.
-    def toonGeometrie(self, BAGobject):
-        if BAGobject.objectType() == "WPL":
+    def toonGeometrie(self, bagObject):
+        if bagObject.objectType() == "WPL":
             return
+        return
 
         # Initialiseer eerst het huidige, geselecteerde BAG object en stop de geometrie hiervan in de verzameling
         # highlightPolygonen.
-        self.BAGobject = BAGobject
+        self.bagObject = bagObject
         self.highlightPolygonen = []
 
-        if self.BAGobject.objectType() == "NUM":
+        if self.bagObject.objectType() == "NUM":
             # In geval van een nummeraanduiding, wordt het adresseerbare object bij de nummeraanduiding gebruikt
             # als uitgangspunt voor weergave op de kaart.
-            self.BAGobject = self.BAGobject.getAdresseerbaarObject()
+            self.bagObject = self.bagObject.getAdresseerbaarObject()
 
-        if self.BAGobject.objectType() in ["PND", "LPL", "SPL", "VBO"]:
-            # Lees de geometrie uit het BAGobject en stel de BAGpolygoon samen als een lijst van
+        if self.bagObject.objectType() in ["PND", "LPL", "SPL", "VBO"]:
+            # Lees de geometrie uit het bagObject en stel de BAGpolygoon samen als een lijst van
             # coordinatenparen.
-            geometrie = self.BAGobject.geometrie().waarde()
+            geometrie = self.bagObject.geometrie().waarde()
             if geometrie[:7].upper() == "POLYGON" or geometrie[:5].upper() == "POINT":
                 polygoon = []
                 if geometrie[:7].upper() == "POLYGON":
@@ -647,15 +662,15 @@ class BAGKaart(wx.Panel):
                 self.highlightPolygonen.append(polygoon)
                 self.polygonen.append(polygoon)
 
-        if self.BAGobject.objectType() == "OPR":
+        if self.bagObject.objectType() == "OPR":
             # In geval van een openbare ruimte, wordt de verzameling gevuld met geometrieen van de adresseerbare objecten
             # met een hoofdadres aan de openbare ruimte.
             sql = "SELECT vbo.verblijfsobjectgeometrie "
             sql += "  FROM verblijfsobjectActueel vbo"
             sql += "     , nummeraanduidingActueel num"
-            sql += " WHERE num.gerelateerdeopenbareruimte = '" + self.BAGobject.identificatie.waarde() + "'"
+            sql += " WHERE num.gerelateerdeopenbareruimte = " + str(self.bagObject.identificatie())
             sql += "   AND vbo.hoofdadres = num.identificatie"
-            verblijfsobjecten = database.select(sql)
+            verblijfsobjecten = self.database.select(sql)
             for verblijfsobject in verblijfsobjecten:
                 geometrie = verblijfsobject[0]
                 if geometrie[:5].upper() == "POINT":
@@ -671,9 +686,9 @@ class BAGKaart(wx.Panel):
             sql = "SELECT lpl.ligplaatsgeometrie "
             sql += "  FROM ligplaatsActueel lpl"
             sql += "     , nummeraanduidingActueel num"
-            sql += " WHERE num.gerelateerdeopenbareruimte = '" + self.BAGobject.identificatie.waarde() + "'"
+            sql += " WHERE num.gerelateerdeopenbareruimte = " + str(self.bagObject.identificatie())
             sql += "   AND lpl.hoofdadres = num.identificatie"
-            ligplaatsen = database.select(sql)
+            ligplaatsen = self.database.select(sql)
             for ligplaats in ligplaatsen:
                 geometrie = ligplaats[0]
                 if geometrie[:7].upper() == "POLYGON":
@@ -689,9 +704,9 @@ class BAGKaart(wx.Panel):
             sql = "SELECT spl.standplaatsgeometrie "
             sql += "  FROM standplaatsActueel spl"
             sql += "     , nummeraanduidingActueel num"
-            sql += " WHERE num.gerelateerdeopenbareruimte = '" + self.BAGobject.identificatie.waarde() + "'"
+            sql += " WHERE num.gerelateerdeopenbareruimte = " + str(self.bagObject.identificatie())
             sql += "   AND spl.hoofdadres = num.identificatie"
-            standplaatsen = database.select(sql)
+            standplaatsen = self.database.select(sql)
             for standplaats in standplaatsen:
                 geometrie = standplaats[0]
                 if geometrie[:7].upper() == "POLYGON":
@@ -749,7 +764,7 @@ class BAGKaart(wx.Panel):
             sql = "SELECT pandgeometrie, pandstatus"
             sql += "  FROM pandActueel"
             sql += " WHERE geometrie && GeomFromEWKT('SRID=28992;" + rechthoek + "')"
-            panden = database.select(sql)
+            panden = self.database.select(sql)
             for pand in panden:
                 geometrie = pand[0]
                 status = pand[1]
@@ -769,7 +784,7 @@ class BAGKaart(wx.Panel):
             sql = "SELECT ligplaatsgeometrie, ligplaatsstatus"
             sql += "  FROM ligplaatsActueel"
             sql += " WHERE geometrie && GeomFromEWKT('SRID=28992;" + rechthoek + "')"
-            ligplaatsen = database.select(sql)
+            ligplaatsen = self.database.select(sql)
             for ligplaats in ligplaatsen:
                 geometrie = ligplaats[0]
                 status = ligplaats[1]
@@ -789,7 +804,7 @@ class BAGKaart(wx.Panel):
             sql = "SELECT standplaatsgeometrie, standplaatsstatus"
             sql += "  FROM standplaatsActueel"
             sql += " WHERE geometrie && GeomFromEWKT('SRID=28992;" + rechthoek + "')"
-            standplaatsen = database.select(sql)
+            standplaatsen = self.database.select(sql)
             for standplaats in standplaatsen:
                 geometrie = standplaats[0]
                 status = standplaats[1]
@@ -809,7 +824,7 @@ class BAGKaart(wx.Panel):
             sql = "SELECT woonplaatsgeometrie"
             sql += "  FROM woonplaatsActueel"
             sql += " WHERE geometrie && GeomFromEWKT('SRID=28992;" + rechthoek + "')"
-            woonplaatsen = database.select(sql)
+            woonplaatsen = self.database.select(sql)
             for woonplaats in woonplaatsen:
                 geometrie = woonplaats[0]
                 if geometrie[:12].upper() == "MULTIPOLYGON":
