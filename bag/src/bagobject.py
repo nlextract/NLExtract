@@ -95,6 +95,14 @@ class BAGObject:
     def heeftGeometrie(self):
         return False
 
+    # Verkrijg relatie attributen van bepaald object-type
+    def getRelaties(self, relatieNaam=None):
+        result = []
+        for relatie in self.relaties:
+            if not relatieNaam or (relatieNaam and relatieNaam == relatie.relatieNaam()):
+                result.append(relatie)
+        return result
+
     # Initialisatie vanuit XML
     def leesUitXML(self, xml):
         for attribuut in self.attributen_volgorde:
@@ -121,6 +129,8 @@ class BAGObject:
     def maakSelectSQL(self):
         sql  = "SELECT "
         for attribuut in self.attributen_volgorde:
+            if attribuut.naam() == 'geom_valid':
+                continue
             sql += attribuut.naam() + ", "
         sql += " identificatie FROM " + self.naam() + "actueelbestaand"
         sql += " WHERE identificatie = " + str(self.attribuut('identificatie').waarde())

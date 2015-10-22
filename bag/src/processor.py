@@ -27,13 +27,14 @@ class Processor:
     def __init__(self):
         self.database = Database()
         self.naam = 'onbekend'
+        self.script_template = os.path.realpath(BAGConfig.config.bagextract_home + '/db/script/%s')
 
     def dbInit(self):
         # Print start time
         Log.log.time("Start")
 
         # Dumps all tables and recreates them
-        db_script = os.path.realpath(BAGConfig.config.bagextract_home + '/db/script/bag-db.sql')
+        db_script = self.script_template % 'bag-db.sql'
         Log.log.info("alle tabellen weggooien en opnieuw aanmaken in database '%s', schema '%s'..." % (BAGConfig.config.database, BAGConfig.config.schema))
         try:
             self.database.initialiseer(db_script)
@@ -46,12 +47,16 @@ class Processor:
         # from bagobject import VerblijfsObjectPand, AdresseerbaarObjectNevenAdres, VerblijfsObjectGebruiksdoel, Woonplaats, OpenbareRuimte, Nummeraanduiding, Ligplaats, Standplaats, Verblijfsobject, Pand
         myreader = BAGFileReader(BAGConfig.config.bagextract_home + '/db/data')
         myreader.process()
+
         Log.log.info("Views aanmaken...")
-        db_script = os.path.realpath(BAGConfig.config.bagextract_home + '/db/script/bag-view-actueel-bestaand.sql')
-        self.database.file_uitvoeren(db_script)
+        self.processSQLScript('bag-view-actueel-bestaand.sql')
 
         # Print end time
         Log.log.time("End")
+
+    def processSQLScript(self, sql_file):
+        db_script = self.script_template % sql_file
+        self.database.file_uitvoeren(db_script)
 
     def processCSV(self, csvreader, naam='onbekend'):
         objecten = []

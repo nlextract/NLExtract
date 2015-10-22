@@ -122,7 +122,8 @@ class BAGExtractGUI(wx.Frame):
         menu2.Append(201, "&Initialiseer database", "Maakt database gereed (en leeg) voor gebruik van NLExtract-BAG")
         menu1.AppendSeparator()
         menu2.Append(202, "&Raadpleeg database", "Zoekt en toont de gegevens van een BAG-object")
-        menu2.Append(203, "&Toon logging", "Toont de logging in de database")
+        menu2.Append(203, "&Maak en vul adressentabel", "Genereer en vul tabel met actuele adressen uit BAG-tabellen")
+        menu2.Append(204, "&Toon logging", "Toont de logging in de database")
         self.menuBalk.Append(menu2, "&Database")
 
         menu3 = wx.Menu()
@@ -139,7 +140,8 @@ class BAGExtractGUI(wx.Frame):
 
         self.Bind(wx.EVT_MENU, self.databaseInitialiseer, id=201)
         self.Bind(wx.EVT_MENU, self.databaseRaadpleeg, id=202)
-        self.Bind(wx.EVT_MENU, self.databaseToonLogging, id=203)
+        self.Bind(wx.EVT_MENU, self.databaseMaakAdressen, id=203)
+        self.Bind(wx.EVT_MENU, self.databaseToonLogging, id=204)
 
         self.Bind(wx.EVT_MENU, self.infoBAGExtractGUI, id=301)
 
@@ -289,6 +291,25 @@ class BAGExtractGUI(wx.Frame):
         raadpleeg = BAGRaadpleeg(self)
         raadpleeg.ShowModal()
         Log.log.set_output(self.logScherm)
+
+    #------------------------------------------------------------------------------
+    # Maakt en vult de tabel 'adres' vanuit BAG tabellen (VIEWS).
+    #------------------------------------------------------------------------------
+    def databaseMaakAdressen(self, event):
+
+        def worker():
+            # Print start time
+            Log.log.time("Start")
+            sql_script = 'adres-tabel.sql'
+            # Extracts any data from any source files/dirs/zips/xml/csv etc
+            Database().log_actie('start_maak_adressen', sql_script)
+            processor = Processor()
+            processor.processSQLScript(sql_script)
+            Database().log_actie('stop_maak_adressen', sql_script)
+            # Print end time
+            Log.log.time("End")
+
+        WorkerThread(self, worker).start()
 
     #------------------------------------------------------------------------------
     # Toon de logging van uitgevoerde NLExtract-BAG acties in de database

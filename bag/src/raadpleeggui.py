@@ -63,7 +63,7 @@ class BAGZoekOpIdentificatie(BAGZoekPanel):
     def __init__(self, raadpleegScherm):
         BAGZoekPanel.__init__(self, raadpleegScherm, "Zoek op identificatie")
         self.idLabel = wx.StaticText(self.cp.GetPane(), -1, "Identificatie:", pos=(0, 0))
-        self.idText = wx.TextCtrl(self.cp.GetPane(), -1, "", pos=(0, 15), size=(150, 20))
+        self.idText = wx.TextCtrl(self.cp.GetPane(), -1, "362100001056722", pos=(0, 15), size=(150, 20))
         self.focus = self.idText
         self.zoekKnop = wx.Button(self.cp.GetPane(), label="Zoek", pos=(80, 110), size=(56, 24))
         self.Bind(wx.EVT_BUTTON, self.zoek, self.zoekKnop)
@@ -130,7 +130,7 @@ class BAGZoekOpPostcode(BAGZoekPanel):
 class BAGZoekOpAdres(BAGZoekPanel):
     # Constructor
     def __init__(self, raadpleegScherm):
-        BAGZoekPanel.__init__(self, raadpleegScherm, "Zoek op adres")
+        BAGZoekPanel.__init__(self, raadpleegScherm, "Zoek in adres-tabel")
         self.woonplaatsLabel = wx.StaticText(self.cp.GetPane(), -1, "Woonplaats (% is wildcard):", pos=(0, 0))
         self.woonplaatsText = wx.TextCtrl(self.cp.GetPane(), -1, "", pos=(0, 15), size=(160, 20))
         self.focus = self.woonplaatsText
@@ -146,8 +146,8 @@ class BAGZoekOpAdres(BAGZoekPanel):
         woonplaatsNaam = self.woonplaatsText.GetValue()
         openbareRuimteNaam = self.openbareRuimteText.GetValue()
         huisnummer = self.huisnummerText.GetValue()
-        sql = "SELECT nummeraanduidingidentificatie"
-        sql += "  FROM adresActueel"
+        sql = "SELECT nummeraanduiding"
+        sql += "  FROM adres"
         sql += " WHERE upper(woonplaatsnaam) LIKE     '%s'" % woonplaatsNaam.upper()
         sql += "   AND upper(openbareruimtenaam) LIKE '%s'" % openbareRuimteNaam.upper()
         sql += "   AND huisnummer                    = %s" % huisnummer
@@ -171,10 +171,10 @@ class BAGZoekOpCoordinaten(BAGZoekPanel):
     def __init__(self, raadpleegScherm):
         BAGZoekPanel.__init__(self, raadpleegScherm, "Zoek op coordinaten")
         self.xLabel = wx.StaticText(self.cp.GetPane(), -1, "X-coordinaat:", pos=(0, 0))
-        self.xText = wx.TextCtrl(self.cp.GetPane(), -1, "", pos=(0, 15), size=(160, 20))
+        self.xText = wx.TextCtrl(self.cp.GetPane(), -1, "118126", pos=(0, 15), size=(160, 20))
         self.focus = self.xText
         self.yLabel = wx.StaticText(self.cp.GetPane(), -1, "Y-coordinaat:", pos=(0, 40))
-        self.yText = wx.TextCtrl(self.cp.GetPane(), -1, "", pos=(0, 55), size=(160, 20))
+        self.yText = wx.TextCtrl(self.cp.GetPane(), -1, "480477", pos=(0, 55), size=(160, 20))
         self.zoekKnop = wx.Button(self.cp.GetPane(), label="Zoek", pos=(80, 110), size=(56, 24))
         self.Bind(wx.EVT_BUTTON, self.zoek, self.zoekKnop)
 
@@ -277,9 +277,10 @@ class BAGBoom(wx.TreeCtrl):
             self.SetPyData(item, bagObject)
 
             if bagObject.objectType() == "OPR":
-                self._initItem(item, "WPL", bagObject.attribuut('gerelateerdeWoonplaats').waarde())
+                if bagObject.attribuut('gerelateerdeWoonplaats').waarde() is not None:
+                    self._initItem(item, "WPL", bagObject.attribuut('gerelateerdeWoonplaats').waarde())
             if bagObject.objectType() == "NUM":
-                if bagObject.attribuut('gerelateerdeWoonplaats').waarde() <> "":
+                if bagObject.attribuut('gerelateerdeWoonplaats').waarde() is not None:
                     self._initItem(item, "WPL", bagObject.attribuut('gerelateerdeWoonplaats').waarde())
                 self._initItem(item, "OPR", bagObject.attribuut('gerelateerdeOpenbareRuimte').waarde())
 
@@ -293,14 +294,17 @@ class BAGBoom(wx.TreeCtrl):
                         self._initItem(item, ao.objectType(), ao.identificatie())
             if bagObject.objectType() in ["LPL", "SPL", "VBO"]:
                 self._initItem(item, "NUM", bagObject.attribuut('hoofdadres').waarde())
-                for nevenadres in bagObject.attribuut('nevenadres').waarde():
-                    self._initItem(item, "NUM", nevenadres)
+                nevenadressen = bagObject.getRelaties('nevenadres')
+                for nevenadres in nevenadressen:
+                    self._initItem(item, "NUM", nevenadres.waarde())
             if bagObject.objectType() == "VBO":
-                for pand in bagObject.attribuut('gerelateerdPand').waarde():
-                    self._initItem(item, "PND", pand)
+                panden = bagObject.getRelaties('gerelateerdPand')
+                for pand in panden:
+                    self._initItem(item, "PND", pand.waarde())
             if bagObject.objectType() == "PND":
-                for vbo in bagObject.getVerblijfsobjecten():
-                    self._initItem(item, "VBO", vbo.identificatie())
+                vbos = bagObject.getRelaties('gerelateerdverblijfsObject')
+                for vbo in vbos:
+                    self._initItem(item, "VBO", vbo.waarde())
         return self.GetPyData(item)
 
     # Private functie voor het openen van een item. Deze functie wordt uitgevoerd wanneer
@@ -380,7 +384,10 @@ class BAGView(rt.RichTextCtrl):
         self.WriteText("Attributen:\n")
         for attribuut in self.bagObject.attributen_volgorde:
             if attribuut.enkelvoudig():
-                self.WriteText(" - %-27s: %s\n" % (attribuut.naam(), attribuut.waarde()))
+                waarde = attribuut.waarde()
+                if attribuut.isGeometrie() and waarde is not None:
+                    waarde = 'aanwezig'
+                self.WriteText(" - %-27s: %s\n" % (attribuut.naam(), waarde))
             else:
                 naam = attribuut.naam()
                 for waarde in attribuut.waarde():
