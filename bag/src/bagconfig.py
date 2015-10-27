@@ -19,10 +19,14 @@ class BAGConfig:
     # Singleton: sole static instance of Log to have a single Log object
     config = None
 
-    def __init__(self, args):
-        # Derive home dir from script location
-        self.bagextract_home = os.path.abspath(
-            os.path.join(os.path.realpath(os.path.dirname(sys.argv[0])), os.path.pardir))
+    def __init__(self, args, home_path=None):
+        # See if home dir is passed
+        if home_path:
+            self.bagextract_home = home_path
+        else:
+            # Derive home dir from script location
+            self.bagextract_home = os.path.abspath(
+                os.path.join(os.path.realpath(os.path.dirname(sys.argv[0])), os.path.pardir))
 
         # Default config file
         self.config_file = os.path.realpath(self.bagextract_home + '/extract.conf')
@@ -85,7 +89,7 @@ class BAGConfig:
                     self.password = args.password
 
         except:
-            Log.log.fatal(" het overrulen van configuratiebestand " + str(config_file) + " via commandline loopt spaak")
+            Log.log.fatal(" het overrulen van configuratiebestand " + str(self.config_file) + " via commandline loopt spaak")
 
 
     def save(self):

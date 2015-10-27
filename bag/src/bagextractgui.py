@@ -47,8 +47,6 @@ from loggui import LogScherm, AsyncLogScherm
 from bagconfig import *
 from log import Log
 
-NLExtractBAGVersie = "1.0.5"
-NLExtractBAGDatum = "oktober 2015"
 
 # Define local events
 # http://wxpython.org/Phoenix/docs/html/lib.newevent.html
@@ -91,8 +89,14 @@ class BAGExtractGUI(wx.Frame):
         Log()
         self.app = app
         self.hoofdScherm()
+
+        # Find homedir: we may have been started within .app or .exe!!
+        bagextract_home = os.path.dirname(os.path.realpath(__file__))
+        if not os.path.isdir(os.path.join(bagextract_home, 'db')):
+            bagextract_home = None
+
         # Init globale configuratie
-        BAGConfig(None)
+        BAGConfig(None, home_path=bagextract_home)
         self.database = Database()
 
     #------------------------------------------------------------------------------
@@ -356,9 +360,11 @@ class BAGExtractGUI(wx.Frame):
     # Toon informatie over de NLExtract-BAG applicatie 
     #------------------------------------------------------------------------------    
     def infoBAGExtractGUI(self, event):
+        from versie import __version__, __date__
+
         info = wx.AboutDialogInfo()
         info.Name = "NLExtract-BAG"
-        info.Version = NLExtractBAGVersie
+        info.Version = __version__
         info.Description = "NLExtract-BAG is een set hulpmiddelen voor het maken   \n"
         info.Description += "en vullen van een lokale BAG-database.                \n"
         info.Description += "Deze database wordt gevuld met gegevens uit de BAG    \n"
