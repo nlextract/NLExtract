@@ -641,7 +641,6 @@ class BAGKaart(wx.Panel):
     def toonGeometrie(self, bagObject):
         if bagObject.objectType() == "WPL":
             return
-        return
 
         # Initialiseer eerst het huidige, geselecteerde BAG object en stop de geometrie hiervan in de verzameling
         # highlightPolygonen.
@@ -651,12 +650,28 @@ class BAGKaart(wx.Panel):
         if self.bagObject.objectType() == "NUM":
             # In geval van een nummeraanduiding, wordt het adresseerbare object bij de nummeraanduiding gebruikt
             # als uitgangspunt voor weergave op de kaart.
-            self.bagObject = self.bagObject.getAdresseerbaarObject()
+            ao = self.bagObject.getAdresseerbaarObject()
+            if ao:
+                sql = self.bagObject.maakSelectAdresseerbaarObjectSQL()
+                ao_rows = self.database.select(sql)
+                if len(ao_rows) > 0 and len(ao_rows[0]) > 0:
+                    ao.zetWaarde('identificatie', ao_rows[0][0])
+                    sql = ao.maakSelectSQL()
+                    ao_rows = self.database.select(sql)
+                    if len(ao_rows) > 0 and len(ao_rows[0]) > 0:
+                        ao.zetWaarden(ao_rows[0])
+                        self.bagObject = ao
+                else:
+                    return
 
         if self.bagObject.objectType() in ["PND", "LPL", "SPL", "VBO"]:
+            if self.bagObject.objectType() in ["PND", "LPL", "SPL"]:
+                geometrie = self.bagObject.attribuut('geovlak').waarde()
+            else:
+                geometrie = self.bagObject.attribuut('geopunt').waarde()
+
             # Lees de geometrie uit het bagObject en stel de BAGpolygoon samen als een lijst van
             # coordinatenparen.
-            geometrie = self.bagObject.geometrie().waarde()
             if geometrie[:7].upper() == "POLYGON" or geometrie[:5].upper() == "POINT":
                 polygoon = []
                 if geometrie[:7].upper() == "POLYGON":
@@ -672,9 +687,9 @@ class BAGKaart(wx.Panel):
         if self.bagObject.objectType() == "OPR":
             # In geval van een openbare ruimte, wordt de verzameling gevuld met geometrieen van de adresseerbare objecten
             # met een hoofdadres aan de openbare ruimte.
-            sql = "SELECT vbo.verblijfsobjectgeometrie "
-            sql += "  FROM verblijfsobjectActueel vbo"
-            sql += "     , nummeraanduidingActueel num"
+            sql = "SELECT vbo.geopunt "
+            sql += "  FROM verblijfsobjectactueelbestaand vbo"
+            sql += "     , nummeraanduidingactueelbestaand num"
             sql += " WHERE num.gerelateerdeopenbareruimte = " + str(self.bagObject.identificatie())
             sql += "   AND vbo.hoofdadres = num.identificatie"
             verblijfsobjecten = self.database.select(sql)
@@ -690,9 +705,9 @@ class BAGKaart(wx.Panel):
                     self.polygonen.append(polygoon)
 
             # Zoek de ligplaatsen aan de openbare ruimte
-            sql = "SELECT lpl.ligplaatsgeometrie "
-            sql += "  FROM ligplaatsActueel lpl"
-            sql += "     , nummeraanduidingActueel num"
+            sql = "SELECT lpl.geovlak "
+            sql += "  FROM ligplaatsactueelbestaand lpl"
+            sql += "     , nummeraanduidingactueelbestaand num"
             sql += " WHERE num.gerelateerdeopenbareruimte = " + str(self.bagObject.identificatie())
             sql += "   AND lpl.hoofdadres = num.identificatie"
             ligplaatsen = self.database.select(sql)
@@ -708,9 +723,9 @@ class BAGKaart(wx.Panel):
                     self.polygonen.append(polygoon)
 
             # Zoek de standplaatsen aan de openbare ruimte
-            sql = "SELECT spl.standplaatsgeometrie "
-            sql += "  FROM standplaatsActueel spl"
-            sql += "     , nummeraanduidingActueel num"
+            sql = "SELECT spl.geovlak "
+            sql += "  FROM standplaatsactueelbestaand spl"
+            sql += "     , nummeraanduidingactueelbestaand num"
             sql += " WHERE num.gerelateerdeopenbareruimte = " + str(self.bagObject.identificatie())
             sql += "   AND spl.hoofdadres = num.identificatie"
             standplaatsen = self.database.select(sql)
@@ -768,9 +783,9 @@ class BAGKaart(wx.Panel):
                 lX, lY, rX, lY, rX, rY, lX, rY, lX, lY)
 
             # Zoek panden in de omgeving                
-            sql = "SELECT pandgeometrie, pandstatus"
-            sql += "  FROM pandActueel"
-            sql += " WHERE geometrie && GeomFromEWKT('SRID=28992;" + rechthoek + "')"
+            sql = "SELECT geovlak, pandstatus"
+            sql += "  FROM pandactueelbestaand"
+            sql += " WHERE geovlak && GeomFromEWKT('SRID=28992;" + rechthoek + "')"
             panden = self.database.select(sql)
             for pand in panden:
                 geometrie = pand[0]
@@ -788,9 +803,9 @@ class BAGKaart(wx.Panel):
                     self.polygonen.append(polygoon)
 
             # Zoek ligplaatsen in de omgeving
-            sql = "SELECT ligplaatsgeometrie, ligplaatsstatus"
+            sql = "SELECT geovlak, ligplaatsstatus"
             sql += "  FROM ligplaatsActueel"
-            sql += " WHERE geometrie && GeomFromEWKT('SRID=28992;" + rechthoek + "')"
+            sql += " WHERE geovlak && GeomFromEWKT('SRID=28992;" + rechthoek + "')"
             ligplaatsen = self.database.select(sql)
             for ligplaats in ligplaatsen:
                 geometrie = ligplaats[0]
@@ -808,9 +823,9 @@ class BAGKaart(wx.Panel):
                     self.polygonen.append(polygoon)
 
             # Zoek standplaatsen in de omgeving
-            sql = "SELECT standplaatsgeometrie, standplaatsstatus"
+            sql = "SELECT geovlak, standplaatsstatus"
             sql += "  FROM standplaatsActueel"
-            sql += " WHERE geometrie && GeomFromEWKT('SRID=28992;" + rechthoek + "')"
+            sql += " WHERE geovlak && GeomFromEWKT('SRID=28992;" + rechthoek + "')"
             standplaatsen = self.database.select(sql)
             for standplaats in standplaatsen:
                 geometrie = standplaats[0]
@@ -828,9 +843,9 @@ class BAGKaart(wx.Panel):
                     self.polygonen.append(polygoon)
 
             # Zoek woonplaatsen in de omgeving
-            sql = "SELECT woonplaatsgeometrie"
+            sql = "SELECT geovlak"
             sql += "  FROM woonplaatsActueel"
-            sql += " WHERE geometrie && GeomFromEWKT('SRID=28992;" + rechthoek + "')"
+            sql += " WHERE geovlak && GeomFromEWKT('SRID=28992;" + rechthoek + "')"
             woonplaatsen = self.database.select(sql)
             for woonplaats in woonplaatsen:
                 geometrie = woonplaats[0]

@@ -391,19 +391,11 @@ class BAGgeoAttribuut(BAGattribuut):
         else:
             return True
 
-    # Attribuut waarde. Deze method kan worden overloaded
-    def waardeSQL(self):
-        if self._geometrie is not None:
-            # Forceer gespecificeerde coordinaat dimensie
-            self._geometrie.SetCoordinateDimension(self._dimensie)
-            self._waarde = self._geometrie.ExportToWkt()
-
-        if self._waarde:
-            return 'SRID=28992;' + self._waarde
-        else:
-            return None
-
-            # Attribuut waarde. Deze method kan worden overloaded
+    # Wijzig de waarde.
+    def setWaarde(self, waarde):
+        self._waarde = waarde
+        if self._waarde is not None:
+            self._geometrie = ogr.CreateGeometryFromWkt(self._waarde)
 
     def waardeSQLTpl(self):
         if self._waarde:

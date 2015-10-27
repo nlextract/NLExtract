@@ -118,7 +118,7 @@ class BAGObject:
             attribuut.setWaarde(value_list[i])
             i += 1
 
-    # Initialisatie vanuit array/list met attribuut waarden
+    # Zet named attribuut waarde
     def zetWaarde(self, name, value):
         attr = self.attribuut(name)
         if attr:
@@ -131,7 +131,10 @@ class BAGObject:
         for attribuut in self.attributen_volgorde:
             if attribuut.naam() == 'geom_valid':
                 continue
-            sql += attribuut.naam() + ", "
+            naam = attribuut.naam()
+            if attribuut.isGeometrie():
+                naam = 'ST_AsText(ST_Force_2D(%s))' % naam
+            sql += naam + ", "
         sql += " identificatie FROM " + self.naam() + "actueelbestaand"
         sql += " WHERE identificatie = " + str(self.attribuut('identificatie').waarde())
         return sql
