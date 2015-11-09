@@ -117,6 +117,9 @@ class BAGExtractGUI(wx.Frame):
         menu1.Append(102, "Laad BAGExtract &Bestand (.zip .xml)",
                      "Laadt een enkel BAG-extractbestand (.zip, .xml) in de database")
         menu1.AppendSeparator()
+        menu1.Append(1022, "Download BAG BronBestand (.zip)",
+                     "Download BAG BronBestand (.zip) van PDOK")
+        menu1.AppendSeparator()
         menu1.Append(103, "&Edit Configuratie", "Edit configuratie instellingen")
         menu1.AppendSeparator()
         menu1.Append(104, "&Afsluiten", "Sluit NLExtract-BAG af")
@@ -139,6 +142,7 @@ class BAGExtractGUI(wx.Frame):
         # self.Bind(wx.EVT_MENU, self.bestandUnzipExtract,          id=101)
         self.Bind(wx.EVT_MENU, self.bestandLaadExtractDir, id=101)
         self.Bind(wx.EVT_MENU, self.bestandLaadExtractBestand, id=102)
+        self.Bind(wx.EVT_MENU, self.bestandDownloadBAGBron, id=1022)
         self.Bind(wx.EVT_MENU, self.bestandEditConfiguratie, id=103)
         self.Bind(wx.EVT_MENU, self.bestandSluitBAGExtractplus, id=104)
 
@@ -244,6 +248,14 @@ class BAGExtractGUI(wx.Frame):
             Log.log.time("End")
 
         WorkerThread(self, worker).start()
+
+    #------------------------------------------------------------------------------
+    # Download de BAG Extract bron data (van PDOK).
+    #------------------------------------------------------------------------------
+    def bestandDownloadBAGBron(self, event):
+        # http://www.blog.pythonlibrary.org/2014/01/29/wxpython-creating-a-file-downloading-app/
+        from bagdownloadgui import BAGDownloaderFrame
+        BAGDownloaderFrame()
 
     #------------------------------------------------------------------------------
     # Toon configuratiegegevens uit BAG.conf.
