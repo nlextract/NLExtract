@@ -16,9 +16,10 @@ __date__ = "$Jun 14, 2011 11:11:01 AM$"
 """
 
 import os, sys
+from collections import defaultdict
 from bagobject import BAGObjectFabriek
 from bagconfig import BAGConfig
-from bestuurlijkobject import BestuurlijkObjectFabriek
+from bestuurlijkobject import BestuurlijkObjectFabriek,GemeentelijkeIndelingFabriek
 from postgresdb import Database
 from log import Log
 from etree import etree,stripschema,stripNS
@@ -81,6 +82,95 @@ class Processor:
             self.database.uitvoeren(obj.sql, obj.valuelist)
         self.database.commit()
         Database().log_actie('insert_database', naam, bericht)
+
+    def processGemeentelijkeIndeling(self, node, naam='onbekend'):
+        objecten = []
+        provincie_gemeente = defaultdict(dict)
+
+        doc_tag = stripschema(node.tag)
+
+        # XML schema:
+        # <gemeentelijke_indeling xmlns="http://nlextract.nl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://nlextract.nl gemeentelijke-indeling.xsd">
+        #   ...
+        #   <indeling jaar="2016">
+        #     ...
+        #     <provincie code="27" naam="Noord-Holland">
+        #       <gemeente code="358" naam="Aalsmeer" begindatum="1970-01-01" />
+        #       ...
+        #       <gemeente code="381" naam="Bussum" begindatum="1970-01-01" einddatum="2016-01-01" />
+        #       ...
+        #       <gemeente code="1942" naam="Gooise Meren" begindatum="2016-01-01" />
+        #     </provincie>
+        #     ...
+        #   </indeling>
+        #   ...
+        # </gemeentelijke_indeling>
+
+        if doc_tag == 'gemeentelijke_indeling':
+            for indelingNode in node:
+                if stripschema(indelingNode.tag) == 'indeling':
+                   jaar = indelingNode.get('jaar')
+
+                   for provincieNode in indelingNode:
+                       if stripschema(provincieNode.tag) == 'provincie':
+                           provinciecode = provincieNode.get('code')
+                           provincienaam = provincieNode.get('naam')
+
+                           for gemeenteNode in provincieNode:
+                               if stripschema(gemeenteNode.tag) == 'gemeente':
+                                   gemeentecode = gemeenteNode.get('code')
+                                   gemeentenaam = gemeenteNode.get('naam')
+                                   begindatum   = gemeenteNode.get('begindatum')
+                                   einddatum    = gemeenteNode.get('einddatum')
+
+                                   provincie_gemeente[provinciecode][gemeentecode] = {
+                                                                                      'provinciecode' : provinciecode,
+                                                                                      'provincienaam' : provincienaam,
+                                                                                      'gemeentecode'  : gemeentecode,
+                                                                                      'gemeentenaam'  : gemeentenaam,
+                                                                                      'begindatum'    : begindatum,
+                                                                                      'einddatum'     : einddatum,
+                                                                                     }
+
+            for provinciecode in sorted(provincie_gemeente.keys()):
+                for gemeentecode in sorted(provincie_gemeente[provinciecode].keys()):
+                    obj = GemeentelijkeIndelingFabriek(provincie_gemeente[provinciecode][gemeentecode])
+                    if obj:
+                        objecten.append(obj)
+                    else:
+                        Log.log.warn("Geen object gevonden voor provinciecode %s en gemeentecode %s" % (provinciecode, gemeentecode))
+
+            bericht = "Processed objectCount=" + str(len(objecten))
+            Log.log.info(bericht)
+            self.database.verbind()
+
+            updated = 0
+            inserted = 0
+            unchanged = 0
+
+            self.database.connection.set_client_encoding('UTF8')
+            for obj in objecten:
+                obj.exists()
+                if self.database.uitvoeren(obj.sql, obj.valuelist):
+                    obj.unchanged()
+                    if self.database.uitvoeren(obj.sql, obj.valuelist):
+                        unchanged += 1
+                    else:
+                        obj.update()
+                        self.database.uitvoeren(obj.sql, obj.valuelist)
+                        updated += 1
+                else:
+                    obj.insert()
+                    self.database.uitvoeren(obj.sql, obj.valuelist)
+                    inserted += 1
+            self.database.commit()
+
+            log_bericht = "Objects inserted=" + str(inserted) + " updated=" + str(updated) + " unchanged=" + str(unchanged)
+            Log.log.info(log_bericht)
+            Database().log_actie('insert_database', naam, bericht + " " + log_bericht)
+        else:
+            bericht = Log.log.info("Niet-verwerkbare XML node: " + doc_tag)
+            Database().log_actie('n.v.t', self.naam, bericht)
 
     def processDOM(self, node, naam='onbekend'):
         self.bagObjecten = []

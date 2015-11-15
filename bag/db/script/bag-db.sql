@@ -18,7 +18,7 @@ CREATE TABLE nlx_bag_info (
 );
 
 INSERT INTO nlx_bag_info (sleutel,waarde)
-        VALUES ('schema_versie', '1.1.0');
+        VALUES ('schema_versie', '1.1.1');
 INSERT INTO nlx_bag_info (sleutel,waarde)
         VALUES ('software_versie', '1.1.4');
 INSERT INTO nlx_bag_info (sleutel,waarde)
@@ -353,6 +353,18 @@ CREATE TABLE gemeente_provincie (
   gemeentenaam character varying(80),
   provinciecode numeric(4),
   provincienaam character varying(80),
+  PRIMARY KEY (gid)
+);
+
+DROP TABLE IF EXISTS provincie_gemeente CASCADE;
+CREATE TABLE provincie_gemeente (
+  gid serial,
+  provinciecode numeric(4),
+  provincienaam character varying(80),
+  gemeentecode numeric(4),
+  gemeentenaam character varying(80),
+  begindatum TIMESTAMP WITHOUT TIME ZONE,
+  einddatum TIMESTAMP WITHOUT TIME ZONE,
   PRIMARY KEY (gid)
 );
 

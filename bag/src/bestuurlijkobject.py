@@ -159,3 +159,100 @@ def BestuurlijkObjectFabriek(cols, record):
         bestuurlijkOBject = GemeenteProvincie(record)
 
     return bestuurlijkOBject
+
+class GemeentelijkeIndeling(BestuurlijkObject):
+    """
+    Verrijking: GemeentelijkeIndeling
+    """
+
+    def __init__(self,obj):
+        # XML schema:
+        # <gemeentelijke_indeling xmlns="http://nlextract.nl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://nlextract.nl gemeentelijke-indeling.xsd">
+        #   ...
+        #   <indeling jaar="2016">
+        #     ...
+        #     <provincie code="27" naam="Noord-Holland">
+        #       <gemeente code="358" naam="Aalsmeer" begindatum="1970-01-01" />
+        #       ...
+        #       <gemeente code="381" naam="Bussum" begindatum="1970-01-01" einddatum="2016-01-01" />
+        #       ...
+        #       <gemeente code="1942" naam="Gooise Meren" begindatum="2016-01-01" />
+        #     </provincie>
+        #     ...
+        #   </indeling>
+        #   ...
+        # </gemeentelijke_indeling>
+        #
+        # DB schema:
+        # provinciecode numberic(4, 0)
+        # provincienaam character varying(80)
+        # gemeentecode  numberic(4, 0)
+        # gemeentenaam  character varying(80)
+        # begindatum    timestamp without time zone
+        # einddatum     timestamp without time zone
+
+        self.naam = 'provincie_gemeente'
+        self.provinciecode = obj['provinciecode']
+        self.provincienaam = obj['provincienaam']
+        self.gemeentecode  = obj['gemeentecode']
+        self.gemeentenaam  = obj['gemeentenaam']
+        self.begindatum    = obj['begindatum']
+        self.einddatum     = obj['einddatum']
+
+    def __repr__(self):
+        return "<ProvincieGemeente('%s', '%s', '%s', '%s', '%s', '%s', '%s')>" % (self.naam, self.provinciecode, self.provincienaam, self.gemeentecode, self.gemeentenaam, self.begindatum, self.einddatum)
+
+    def exists(self):
+        self.sql = """SELECT gid
+                        FROM provincie_gemeente
+                       WHERE provinciecode = %s
+                         AND gemeentecode = %s
+                       LIMIT 1"""
+        self.valuelist = (self.provinciecode, self.gemeentecode)
+
+    def unchanged(self):
+        and_einddatum = ' AND einddatum IS NULL'
+        valuelist = [self.provinciecode, self.provincienaam, self.gemeentecode, self.gemeentenaam, self.begindatum]
+
+        if self.einddatum:
+            and_einddatum = ' AND einddatum = %s'
+            valuelist.append(self.einddatum)
+        
+        self.sql = """SELECT gid
+                        FROM provincie_gemeente
+                       WHERE provinciecode = %s
+                         AND provincienaam = %s
+                         AND gemeentecode = %s
+                         AND gemeentenaam = %s
+                         AND begindatum = %s"""
+        self.sql +=      and_einddatum
+        self.sql +=  ' LIMIT 1'
+        self.valuelist = valuelist
+
+    def update(self):
+        self.sql = """UPDATE provincie_gemeente
+                         SET provincienaam = %s,
+                             gemeentenaam = %s,
+                             begindatum = %s,
+                             einddatum = %s
+                       WHERE provinciecode = %s
+                         AND gemeentecode = %s"""
+        self.valuelist = (self.provincienaam, self.gemeentenaam, self.begindatum, self.einddatum, self.provinciecode, self.gemeentecode)
+
+    def insert(self):
+        self.sql = """INSERT INTO provincie_gemeente (
+                                  provinciecode,
+                                  provincienaam,
+                                  gemeentecode,
+                                  gemeentenaam,
+                                  begindatum,
+                                  einddatum)
+                           VALUES (%s, %s, %s, %s, %s, %s)"""
+        self.valuelist = (self.provinciecode, self.provincienaam, self.gemeentecode, self.gemeentenaam, self.begindatum, self.einddatum)
+
+def GemeentelijkeIndelingFabriek(obj):
+    bestuurlijkObject = None
+    if obj:
+        bestuurlijkObject = GemeentelijkeIndeling(obj)
+
+    return bestuurlijkObject
