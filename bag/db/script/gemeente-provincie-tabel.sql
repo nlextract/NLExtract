@@ -11,7 +11,7 @@ drop table if exists gemeente;
 
 create table gemeente as
   select gw.gemeentecode,gp.gemeentenaam,ST_Multi(ST_Union(w.geovlak)) as geovlak
-  from gemeente_woonplaatsactueelbestaand as gw, woonplaatsactueelbestaand as w, gemeente_provincie as gp
+  from gemeente_woonplaatsactueelbestaand as gw, woonplaatsactueelbestaand as w, provincie_gemeenteactueelbestaand as gp
   where gw.woonplaatscode = w.identificatie and gw.gemeentecode = gp.gemeentecode
   group by gw.gemeentecode,gp.gemeentenaam;
 
@@ -29,9 +29,9 @@ drop table if exists provincie;
 create table provincie as
   select provinciecode,provincienaam,ST_Multi(ST_Union(gemeente.geovlak)) as geovlak
   from
-  	gemeente_provincie,
+  	provincie_gemeenteactueelbestaand,
   	gemeente
-  where gemeente_provincie.gemeentecode = gemeente.gemeentecode
+  where provincie_gemeenteactueelbestaand.gemeentecode = gemeente.gemeentecode
   group by provinciecode,provincienaam;
 
 alter table provincie add column gid serial;

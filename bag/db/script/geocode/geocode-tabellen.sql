@@ -57,7 +57,7 @@ FROM
 	(SELECT identificatie,  openbareruimtenaam, gerelateerdewoonplaats from openbareruimteactueelbestaand) o,
 	(SELECT identificatie,  woonplaatsnaam from woonplaatsactueel) w,
 	(SELECT woonplaatscode, gemeentecode from gemeente_woonplaatsactueelbestaand) g,
-	(SELECT gemeentenaam, gemeentecode,   provincienaam from gemeente_provincie) p
+	(SELECT gemeentenaam, gemeentecode,   provincienaam from provincie_gemeenteactueelbestaand) p
 WHERE
 	v.hoofdadres = n.identificatie
 	and n.gerelateerdeopenbareruimte = o.identificatie
@@ -85,7 +85,7 @@ FROM
 	(SELECT identificatie,  openbareruimtenaam, gerelateerdewoonplaats from openbareruimteactueelbestaand) o,
 	(SELECT identificatie,  woonplaatsnaam from woonplaatsactueel) w,
 	(SELECT woonplaatscode, gemeentecode from gemeente_woonplaatsactueelbestaand) g,
-	(SELECT gemeentenaam, gemeentecode,   provincienaam from gemeente_provincie) p
+	(SELECT gemeentenaam, gemeentecode,   provincienaam from provincie_gemeenteactueelbestaand) p
 WHERE
 	l.hoofdadres = n.identificatie
 	and n.gerelateerdeopenbareruimte = o.identificatie
@@ -113,7 +113,7 @@ FROM
 	(SELECT identificatie,  openbareruimtenaam, gerelateerdewoonplaats from openbareruimteactueelbestaand) o,
 	(SELECT identificatie,  woonplaatsnaam from woonplaatsactueel) w,
 	(SELECT woonplaatscode, gemeentecode from gemeente_woonplaatsactueelbestaand) g,
-	(SELECT gemeentenaam, gemeentecode,   provincienaam from gemeente_provincie) p
+	(SELECT gemeentenaam, gemeentecode,   provincienaam from provincie_gemeenteactueelbestaand) p
 WHERE
 	l.hoofdadres = n.identificatie
 	and n.gerelateerdeopenbareruimte = o.identificatie
@@ -140,7 +140,7 @@ FROM
 	(SELECT identificatie,  openbareruimtenaam, gerelateerdewoonplaats from openbareruimteactueelbestaand) o,
 	(SELECT identificatie,  woonplaatsnaam from woonplaatsactueel) w,
 	(SELECT woonplaatscode, gemeentecode from gemeente_woonplaatsactueelbestaand) g,
-	(SELECT gemeentenaam, gemeentecode,   provincienaam from gemeente_provincie) p
+	(SELECT gemeentenaam, gemeentecode,   provincienaam from provincie_gemeenteactueelbestaand) p
 WHERE
   aon.nevenadres = n.identificatie
 	and aon.identificatie = v.identificatie
@@ -170,7 +170,7 @@ FROM
 	(SELECT identificatie,  openbareruimtenaam, gerelateerdewoonplaats from openbareruimteactueelbestaand) o,
 	(SELECT identificatie,  woonplaatsnaam from woonplaatsactueel) w,
 	(SELECT woonplaatscode, gemeentecode from gemeente_woonplaatsactueelbestaand) g,
-	(SELECT gemeentenaam, gemeentecode,   provincienaam from gemeente_provincie) p
+	(SELECT gemeentenaam, gemeentecode,   provincienaam from provincie_gemeenteactueelbestaand) p
 WHERE
   aon.nevenadres = n.identificatie
 	and aon.identificatie = l.identificatie
@@ -200,7 +200,7 @@ FROM
 	(SELECT identificatie,  openbareruimtenaam, gerelateerdewoonplaats from openbareruimteactueelbestaand) o,
 	(SELECT identificatie,  woonplaatsnaam from woonplaatsactueel) w,
 	(SELECT woonplaatscode, gemeentecode from gemeente_woonplaatsactueelbestaand) g,
-	(SELECT gemeentenaam, gemeentecode,   provincienaam from gemeente_provincie) p
+	(SELECT gemeentenaam, gemeentecode,   provincienaam from provincie_gemeenteactueelbestaand) p
 WHERE
   aon.nevenadres = n.identificatie
 	and aon.identificatie = s.identificatie
@@ -412,7 +412,7 @@ INSERT INTO geo_woonplaats (provincie, gemeente, woonplaats, geopunt)
 FROM
 	(SELECT identificatie, woonplaatsnaam, geovlak from woonplaatsactueel) w,
 	(SELECT woonplaatscode, gemeentecode from gemeente_woonplaatsactueelbestaand) g,
-	(SELECT  gemeentenaam, gemeentecode, provincienaam from gemeente_provincie) p
+	(SELECT  gemeentenaam, gemeentecode, provincienaam from provincie_gemeenteactueelbestaand) p
 WHERE
 	w.identificatie = g.woonplaatscode
 	and g.gemeentecode = p.gemeentecode;
@@ -445,7 +445,7 @@ INSERT INTO geo_gemeente (provincie, gemeente, geopunt)
 	ST_Force_2D(ST_Centroid(g.geovlak))  as geopunt
 FROM
 	(SELECT gemeentecode,gemeentenaam,geovlak from gemeente) g,
-	(SELECT gemeentecode, provincienaam from gemeente_provincie) p
+	(SELECT gemeentecode, provincienaam from provincie_gemeenteactueelbestaand) p
 WHERE
   g.gemeentecode = p.gemeentecode;
 

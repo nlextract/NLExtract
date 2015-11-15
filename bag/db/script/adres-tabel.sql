@@ -61,7 +61,7 @@ INSERT INTO adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeg
     ON (o.gerelateerdewoonplaats = w.identificatie)
     JOIN gemeente_woonplaatsactueelbestaand  g
     ON (g.woonplaatscode = w.identificatie)
-    JOIN gemeente_provincie p
+    JOIN provincie_gemeenteactueelbestaand p
     ON (g.gemeentecode = p.gemeentecode)
     -- Wanneer nummeraanduiding een gerelateerdewoonplaats heeft moet die gebruikt worden ipv via openbareruimte!
     -- Zie issue: https://github.com/opengeogroep/NLExtract/issues/54
@@ -69,7 +69,7 @@ INSERT INTO adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeg
     ON (n.gerelateerdewoonplaats = wp2.identificatie)
     LEFT OUTER JOIN gemeente_woonplaatsactueelbestaand  g2
     ON (g2.woonplaatscode = wp2.identificatie)
-    LEFT OUTER JOIN gemeente_provincie p2
+    LEFT OUTER JOIN provincie_gemeenteactueelbestaand p2
     ON (g2.gemeentecode = p2.gemeentecode);
 
       -- 26.06.12 JvdB Vervangen implicit JOINs by real JOINs n.a.v. https://github.com/opengeogroep/NLExtract/issues/54
@@ -79,7 +79,7 @@ INSERT INTO adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeg
         -- 	(SELECT identificatie,  openbareruimtenaam, gerelateerdewoonplaats from openbareruimteactueelbestaand) o,
         -- 	(SELECT identificatie,  woonplaatsnaam from woonplaatsactueel) w,
         -- 	(SELECT woonplaatscode, gemeentenaam, gemeentecode from gemeente_woonplaatsactueelbestaand  where einddatum_gemeente is null AND einddatum_woonplaats is null) g,
-        -- 	(SELECT gemeentecode,   provincienaam from gemeente_provincie) p
+        -- 	(SELECT gemeentecode,   provincienaam from provincie_gemeenteactueelbestaand) p
         -- WHERE
         -- 	v.hoofdadres = n.identificatie
         -- 	and n.gerelateerdeopenbareruimte = o.identificatie
@@ -118,7 +118,7 @@ INSERT INTO adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeg
    ON (o.gerelateerdewoonplaats = w.identificatie)
    JOIN gemeente_woonplaatsactueelbestaand  g
    ON (g.woonplaatscode = w.identificatie)
-   JOIN gemeente_provincie p
+   JOIN provincie_gemeenteactueelbestaand p
    ON (g.gemeentecode = p.gemeentecode)
    -- Wanneer nummeraanduiding een gerelateerdewoonplaats heeft moet die gebruikt worden ipv via openbareruimte!
    -- Zie issue: https://github.com/opengeogroep/NLExtract/issues/54
@@ -126,7 +126,7 @@ INSERT INTO adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeg
    ON (n.gerelateerdewoonplaats = wp2.identificatie)
    LEFT OUTER JOIN gemeente_woonplaatsactueelbestaand  g2
    ON (g2.woonplaatscode = wp2.identificatie)
-   LEFT OUTER JOIN gemeente_provincie p2
+   LEFT OUTER JOIN provincie_gemeenteactueelbestaand p2
    ON (g2.gemeentecode = p2.gemeentecode);
 
 
@@ -137,7 +137,7 @@ INSERT INTO adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeg
 -- 	(SELECT identificatie,  openbareruimtenaam, gerelateerdewoonplaats from openbareruimteactueelbestaand) o,
 -- 	(SELECT identificatie,  woonplaatsnaam from woonplaatsactueel) w,
 -- 	(SELECT woonplaatscode, gemeentenaam, gemeentecode from gemeente_woonplaatsactueelbestaand  where einddatum_gemeente is null AND einddatum_woonplaats is null) g,
--- 	(SELECT gemeentecode,   provincienaam from gemeente_provincie) p
+-- 	(SELECT gemeentecode,   provincienaam from provincie_gemeenteactueelbestaand) p
 -- WHERE
 -- 	l.hoofdadres = n.identificatie
 -- 	and n.gerelateerdeopenbareruimte = o.identificatie
@@ -176,7 +176,7 @@ INSERT INTO adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeg
    ON (o.gerelateerdewoonplaats = w.identificatie)
    JOIN gemeente_woonplaatsactueelbestaand  g
    ON (g.woonplaatscode = w.identificatie)
-   JOIN gemeente_provincie p
+   JOIN provincie_gemeenteactueelbestaand p
    ON (g.gemeentecode = p.gemeentecode)
    -- Wanneer nummeraanduiding een gerelateerdewoonplaats heeft moet die gebruikt worden ipv via openbareruimte!
    -- Zie issue: https://github.com/opengeogroep/NLExtract/issues/54
@@ -184,7 +184,7 @@ INSERT INTO adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeg
    ON (n.gerelateerdewoonplaats = wp2.identificatie)
    LEFT OUTER JOIN gemeente_woonplaatsactueelbestaand  g2
    ON (g2.woonplaatscode = wp2.identificatie)
-   LEFT OUTER JOIN gemeente_provincie p2
+   LEFT OUTER JOIN provincie_gemeenteactueelbestaand p2
    ON (g2.gemeentecode = p2.gemeentecode);
 
 -- FROM
@@ -193,7 +193,7 @@ INSERT INTO adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeg
 -- 	(SELECT identificatie,  openbareruimtenaam, gerelateerdewoonplaats from openbareruimteactueelbestaand) o,
 -- 	(SELECT identificatie,  woonplaatsnaam from woonplaatsactueel) w,
 -- 	(SELECT woonplaatscode, gemeentenaam, gemeentecode from gemeente_woonplaatsactueelbestaand  where einddatum_gemeente is null AND einddatum_woonplaats is null) g,
--- 	(SELECT gemeentecode,   provincienaam from gemeente_provincie) p
+-- 	(SELECT gemeentecode,   provincienaam from provincie_gemeenteactueelbestaand) p
 -- WHERE
 -- 	l.hoofdadres = n.identificatie
 -- 	and n.gerelateerdeopenbareruimte = o.identificatie
@@ -258,7 +258,7 @@ JOIN
 ON
     (g.woonplaatscode = w.identificatie)
 JOIN
-    gemeente_provincie p
+    provincie_gemeenteactueelbestaand p
 ON
     (g.gemeentecode = p.gemeentecode)
     -- Wanneer nummeraanduiding een gerelateerdewoonplaats heeft moet die gebruikt worden ipv via openbareruimte!
@@ -272,7 +272,7 @@ LEFT OUTER JOIN
 ON
     (g2.woonplaatscode = wp2.identificatie)
 LEFT OUTER JOIN
-    gemeente_provincie p2
+    provincie_gemeenteactueelbestaand p2
 ON
     (g2.gemeentecode = p2.gemeentecode);
 
@@ -328,7 +328,7 @@ JOIN
 ON
     (g.woonplaatscode = w.identificatie)
 JOIN
-    gemeente_provincie p
+    provincie_gemeenteactueelbestaand p
 ON
     (g.gemeentecode = p.gemeentecode)
     -- Wanneer nummeraanduiding een gerelateerdewoonplaats heeft moet die gebruikt worden ipv via openbareruimte!
@@ -342,7 +342,7 @@ LEFT OUTER JOIN
 ON
     (g2.woonplaatscode = wp2.identificatie)
 LEFT OUTER JOIN
-    gemeente_provincie p2
+    provincie_gemeenteactueelbestaand p2
 ON
     (g2.gemeentecode = p2.gemeentecode);
 
@@ -399,7 +399,7 @@ JOIN
 ON
     (g.woonplaatscode = w.identificatie)
 JOIN
-    gemeente_provincie p
+    provincie_gemeenteactueelbestaand p
 ON
     (g.gemeentecode = p.gemeentecode)
     -- Wanneer nummeraanduiding een gerelateerdewoonplaats heeft moet die gebruikt worden ipv via openbareruimte!
@@ -413,7 +413,7 @@ LEFT OUTER JOIN
 ON
     (g2.woonplaatscode = wp2.identificatie)
 LEFT OUTER JOIN
-    gemeente_provincie p2
+    provincie_gemeenteactueelbestaand p2
 ON
     (g2.gemeentecode = p2.gemeentecode);
 
