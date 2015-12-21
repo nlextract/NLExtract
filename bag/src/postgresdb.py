@@ -110,6 +110,17 @@ class Database:
 
         return self.cursor.rowcount
 
+    def select(self, sql):
+        self.verbind()
+        try:
+            self.cursor.execute(sql)
+            rows = self.cursor.fetchall()
+            self.connection.commit()
+            return rows
+        except (psycopg2.Error,), foutmelding:
+            Log.log.error("*** FOUT *** Kan SQL-statement '%s' niet uitvoeren:\n %s" %(sql, foutmelding))
+            return []
+
     def file_uitvoeren(self, sqlfile):
         self.e = None
         try:

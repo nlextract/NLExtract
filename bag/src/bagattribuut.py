@@ -15,13 +15,14 @@ from log import Log
 from etree import etree, tagVolledigeNS, stripschema
 
 import sys
+
 try:
-    from osgeo import ogr #apt-get install python-gdal
+    from osgeo import ogr  # apt-get install python-gdal
 except ImportError:
     print("FATAAL: GDAL Python bindings zijn niet beschikbaar, installeer bijv met 'apt-get install python-gdal'")
     sys.exit(-1)
 
-from string import maketrans   # Required to call maketrans function.
+from string import maketrans  # Required to call maketrans function.
 
 # Geef de waarde van een textnode in XML
 def getText(nodelist):
@@ -30,11 +31,13 @@ def getText(nodelist):
         rc = rc + node.text
     return rc
 
+
 # TODO: werking van deze functie controleren en vergelijken met origineel
 
 # Geef de waardes van alle elementen met de gegeven tag binnen de XML (parent).
 def getValues(parent, tag):
     return [node.text for node in parent.iterfind('./' + tagVolledigeNS(tag, parent.nsmap))]
+
 
 # Geef de waarde van het eerste element met de gegeven tag binnen de XML (parent). Als er geen eerste
 # element gevonden wordt, is het resultaat een lege string.
@@ -47,7 +50,8 @@ def getValue(parent, tag):
         # ook dan alle if != '' in BAGattribuut classes nalopen..
         return ""
 
-#--------------------------------------------------------------------------------------------------------
+
+# --------------------------------------------------------------------------------------------------------
 # Class         BAGattribuut
 # Omschrijving  Bevat binnen een BAGobject 1 attribuut met zijn waarde
 # Bevat         - tag
@@ -62,6 +66,8 @@ class BAGattribuut:
         self._tag = tag
         self._waarde = None
         self._parentObj = None
+        # default attr is singlevalued
+        self._relatieNaam = None
 
     # Attribuut lengte
     def lengte(self):
@@ -70,6 +76,10 @@ class BAGattribuut:
     # Attribuut naam
     def naam(self):
         return self._naam
+
+    # Attribuut enkel/of meervoudig (via relatie)
+    def enkelvoudig(self):
+        return self._relatieNaam is None
 
     # Attribuut tag
     def tag(self):
@@ -127,6 +137,7 @@ class BAGattribuut:
     def schrijf(self):
         print "- %-27s: %s" % (self._naam, self._waarde)
 
+
 #--------------------------------------------------------------------------------------------------------
 # Class BAGstringAttribuut
 # Afgeleid van BAGattribuut
@@ -154,8 +165,8 @@ class BAGstringAttribuut(BAGattribuut):
             # ondanks restrictie vanuit BAG XSD model
             waarde = waarde[:self._lengte]
 
-#            try:
-                # self._waarde =  self._waarde.translate(BAGstringAttribuut.translatieTabel)
+            #            try:
+            # self._waarde =  self._waarde.translate(BAGstringAttribuut.translatieTabel)
 
             # Zie boven: voorlopig even de \ \n en ~ handmatig vervangen. Komt af en toe   voor.
             # Niet fraai maar werkt.
@@ -171,6 +182,8 @@ class BAGstringAttribuut(BAGattribuut):
 
         # Toekennen aan object
         self._waarde = waarde
+
+
 #
 #            except:
 #                Log.log.warn("Fout in translate: waarde=%s tag=%s id=%s type=%s" % (self._waarde, self._naam, self._parentObj.objectType(), self._parentObj.identificatie()) )
@@ -197,7 +210,7 @@ class BAGenumAttribuut(BAGattribuut):
     # Initialiseer database
     def sqlinit(self):
         return "DROP TYPE IF EXISTS %s;\nCREATE TYPE %s AS ENUM ('%s');\n" % (
-        self._naam, self._naam, "', '".join(self._lijst))
+            self._naam, self._naam, "', '".join(self._lijst))
 
 
 class BAGnumeriekAttribuut(BAGattribuut):
@@ -385,7 +398,6 @@ class BAGgeoAttribuut(BAGattribuut):
         else:
             return True
 
-    # Attribuut waarde. Deze method kan worden overloaded
     def waardeSQL(self):
         if self._geometrie is not None:
             # Forceer gespecificeerde coordinaat dimensie
@@ -396,8 +408,13 @@ class BAGgeoAttribuut(BAGattribuut):
             return 'SRID=28992;' + self._waarde
         else:
             return None
-
             # Attribuut waarde. Deze method kan worden overloaded
+
+    #  Wijzig de waarde.
+    def setWaarde(self, waarde):
+        self._waarde = waarde
+        if self._waarde is not None:
+            self._geometrie = ogr.CreateGeometryFromWkt(self._waarde)
 
     def waardeSQLTpl(self):
         if self._waarde:
@@ -410,6 +427,7 @@ class BAGgeoAttribuut(BAGattribuut):
     # Attribuut soort
     def soort(self):
         return ""
+
 
 #--------------------------------------------------------------------------------------------------------
 # Class         BAGpoint
@@ -447,6 +465,7 @@ class BAGpoint(BAGgeoAttribuut):
             Log.log.error("ik kan hier echt geen POINT van maken: %s (en zet dit op 0,0,0)" % str(point.text))
             # self._waarde = "POINT(0 0 0)"
 
+
 #--------------------------------------------------------------------------------------------------------
 # Class         BAGpolygoon
 # Afgeleid van  BAGgeoAttribuut
@@ -466,6 +485,7 @@ class BAGpolygoon(BAGgeoAttribuut):
             if gmlNode is not None:
                 gmlStr = etree.tostring(gmlNode)
                 self._geometrie = ogr.CreateGeometryFromGML(str(gmlStr))
+
 
 #--------------------------------------------------------------------------------------------------------
 # Class         BAGmultiPolygoon
@@ -499,10 +519,13 @@ class BAGmultiPolygoon(BAGpolygoon):
                 gmlStr = etree.tostring(gmlNode)
                 self._geometrie = ogr.CreateGeometryFromGML(str(gmlStr))
                 if self._geometrie is None:
-                     Log.log.warn("Null MultiSurface in BAGmultiPolygoon: tag=%s parent=%s" % (self._tag, self._parentObj.identificatie()))
+                    Log.log.warn("Null MultiSurface in BAGmultiPolygoon: tag=%s parent=%s" % (
+                    self._tag, self._parentObj.identificatie()))
 
         if self._geometrie is None:
-            Log.log.warn("Null geometrie in BAGmultiPolygoon: tag=%s identificatie=%s" % (self._tag, self._parentObj.identificatie()))
+            Log.log.warn("Null geometrie in BAGmultiPolygoon: tag=%s identificatie=%s" % (
+            self._tag, self._parentObj.identificatie()))
+
 
 #--------------------------------------------------------------------------------------------------------
 # Class         BAGgeometrieValidatie
@@ -594,8 +617,9 @@ class BAGrelatieAttribuut(BAGattribuut):
     # Maak insert SQL voor deze relatie
     def maakCopySQL(self):
         self.velden = (
-        "identificatie", "aanduidingrecordinactief", "aanduidingrecordcorrectie", "begindatumtijdvakgeldigheid","einddatumtijdvakgeldigheid",
-        self.naam())
+            "identificatie", "aanduidingrecordinactief", "aanduidingrecordcorrectie", "begindatumtijdvakgeldigheid",
+            "einddatumtijdvakgeldigheid",
+            self.naam())
         self.sql = ""
         for waarde in self._waarde:
             self.sql += self._parent.attribuut('identificatie').waardeSQL() + "~"
@@ -607,7 +631,7 @@ class BAGrelatieAttribuut(BAGattribuut):
             einddatumWaardeSQL = self._parent.attribuut('einddatumTijdvakGeldigheid').waardeSQL()
             if not einddatumWaardeSQL or einddatumWaardeSQL is '':
                 einddatumWaardeSQL = '\\\N'
-            self.sql += einddatumWaardeSQL  + "~"
+            self.sql += einddatumWaardeSQL + "~"
 
             if not waarde:
                 waarde = '\\\N'
@@ -653,6 +677,7 @@ class BAGrelatieAttribuut(BAGattribuut):
             else:
                 print "- %-27s  %s" % ("", waarde)
 
+
 #--------------------------------------------------------------------------------------------------------
 # Class         BAGenumRelatieAttribuut
 # Afgeleid van  BAGrelatieAttribuut
@@ -673,5 +698,5 @@ class BAGenumRelatieAttribuut(BAGrelatieAttribuut):
     # Initialiseer database
     def sqlinit(self):
         return "DROP TYPE IF EXISTS %s;\nCREATE TYPE %s AS ENUM ('%s');\n" % (
-        self._naam, self._naam, "', '".join(self._lijst))
+            self._naam, self._naam, "', '".join(self._lijst))
 

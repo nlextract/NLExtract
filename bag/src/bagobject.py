@@ -82,6 +82,10 @@ class BAGObject:
     def naam(self):
         return self._naam
 
+    # Retourneer een omschrijving van het object, bestaande uit de identificatie en het adres
+    def omschrijving(self):
+        return "%s %s" % (self.objectType(), self.identificatie())
+
     # Geef het objecttype bij het type BAG-object.
     def objectType(self):
         return self._objectType
@@ -91,6 +95,14 @@ class BAGObject:
     def heeftGeometrie(self):
         return False
 
+    # Verkrijg relatie attributen van bepaald object-type
+    def getRelaties(self, relatieNaam=None):
+        result = []
+        for relatie in self.relaties:
+            if not relatieNaam or (relatieNaam and relatieNaam == relatie.relatieNaam()):
+                result.append(relatie)
+        return result
+
     # Initialisatie vanuit XML
     def leesUitXML(self, xml):
         for attribuut in self.attributen_volgorde:
@@ -98,6 +110,34 @@ class BAGObject:
 
         for relatie in self.relaties:
             relatie.leesUitXML(xml)
+
+    # Initialisatie vanuit array/list met attribuut waarden
+    def zetWaarden(self, value_list):
+        i = 0
+        for attribuut in self.attributen_volgorde:
+            attribuut.setWaarde(value_list[i])
+            i += 1
+
+    # Zet named attribuut waarde
+    def zetWaarde(self, name, value):
+        attr = self.attribuut(name)
+        if attr:
+            attr.setWaarde(value)
+
+    # Geef het actuele voorkomen van het object, geselecteerd uit de database op basis van
+    # de identificatie
+    def maakSelectSQL(self):
+        sql  = "SELECT "
+        for attribuut in self.attributen_volgorde:
+            if attribuut.naam() == 'geom_valid':
+                continue
+            naam = attribuut.naam()
+            if attribuut.isGeometrie():
+                naam = 'ST_AsText(ST_Force_2D(%s))' % naam
+            sql += naam + ", "
+        sql += " identificatie FROM " + self.naam() + "actueelbestaand"
+        sql += " WHERE identificatie = " + str(self.attribuut('identificatie').waarde())
+        return sql
 
     # Retourneer het attribuut met de gegeven naam
     def attribuut(self, naam):
@@ -273,6 +313,23 @@ class Nummeraanduiding(BAGObject):
                                                    "bag_LVC:gerelateerdeOpenbareRuimte/bag_LVC:identificatie"))
         self.voegToe(BAGnumeriekAttribuut(16, "gerelateerdeWoonplaats",
                                                    "bag_LVC:gerelateerdeWoonplaats/bag_LVC:identificatie"))
+
+    def getAdresseerbaarObject(self):
+        adresseerbaarObject = None
+        typeAdresseerbaarObject = self.attribuut('typeAdresseerbaarObject').waarde().lower()
+        if typeAdresseerbaarObject == "ligplaats":
+            adresseerbaarObject = Ligplaats()
+        elif typeAdresseerbaarObject == "standplaats":
+            adresseerbaarObject = Standplaats()
+        elif typeAdresseerbaarObject == "verblijfsobject":
+            adresseerbaarObject = Verblijfsobject()
+        return adresseerbaarObject
+
+    def maakSelectAdresseerbaarObjectSQL(self):
+        sql  = "SELECT DISTINCT identificatie"
+        sql += "  FROM " + self.attribuut('typeAdresseerbaarObject').waarde().lower() + "actueelbestaand"
+        sql += " WHERE hoofdadres = " + str(self.attribuut('identificatie').waarde())
+        return sql
 
 #--------------------------------------------------------------------------------------------------------
 # Class         BAGadresseerbaarObject
@@ -457,22 +514,23 @@ class BAGObjectFabriek:
     #--------------------------------------------------------------------------------------------------------
     def getBAGObjectBijIdentificatie(self, identificatie):
         obj = None
-        if len(identificatie) == 4:
+        id_str = str(identificatie)
+        if len(id_str) == 4:
             obj = Woonplaats()
-        elif identificatie[4:6] == "30":
+        elif id_str[3:5] == "30":
             obj = OpenbareRuimte()
-        elif identificatie[4:6] == "20":
+        elif id_str[3:5] == "20":
             obj = Nummeraanduiding()
-        elif identificatie[4:6] == "02":
+        elif id_str[3:5] == "02":
             obj = Ligplaats()
-        elif identificatie[4:6] == "03":
+        elif id_str[3:5] == "03":
             obj = Standplaats()
-        elif identificatie[4:6] == "01":
+        elif id_str[3:5] == "01":
             obj = Verblijfsobject()
-        elif identificatie[4:6] == "10":
+        elif id_str[3:5] == "10":
             obj = Pand()
         if obj:
-            obj.identificatie.setWaarde(identificatie)
+            obj.attributen['identificatie'].setWaarde(identificatie)
         return obj
 
 
