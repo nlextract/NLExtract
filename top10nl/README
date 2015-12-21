@@ -8,7 +8,7 @@ om te zetten naar hanteerbare formaten zoals PostGIS. Tevens bevat Top10Extract 
 
 Documentatie vind je op: http://nlextract.readthedocs.org
 
-Nieuw (3/12/14): onder "etl" map staat laatste versie Top10NL inlezen op basis Stetl ETL
+Belangrijke wijzigingen:
+* 03-12-2014: onder "etl" map staat laatste versie Top10NL inlezen op basis Stetl ETL
 framework, www.stetl.org
-
-
+* 21-12-2015: ondersteuning voor TOP10NL versie 1.2 toegevoegd; oude inleesprocedure (in bin-dir) verwijderd.
