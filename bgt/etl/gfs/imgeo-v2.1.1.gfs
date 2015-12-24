@@ -40,71 +40,80 @@
     </PropertyDefn>
     <PropertyDefn>
       <Name>tijdstipRegistratie</Name>
+      <ElementPath>tijdstipRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>eindRegistratie</Name>
+      <ElementPath>eindRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>LV-publicatiedatum</Name>
+      <Name>LV_publicatiedatum</Name>
+      <ElementPath>LV-publicatiedatum</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>bronhouder</Name>
+      <ElementPath>bronhouder</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>inOnderzoek</Name>
+      <ElementPath>inOnderzoek</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>relatieveHoogteligging</Name>
+      <ElementPath>relatieveHoogteligging</ElementPath>
       <Type>Integer</Type>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>bgt-status</Name>
+      <Name>bgt_status</Name>
+      <ElementPath>bgt-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-status</Name>
+      <Name>plus_status</Name>
+      <ElementPath>plus-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <!--Einde properties van BGTObject-->
     <!--Begin properties van Wegdeel-->
     <PropertyDefn>
-      <Name>bgt-functie</Name>
+      <Name>bgt_functie</Name>
       <ElementPath>function</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-functie</Name>
+      <Name>plus_functie</Name>
       <ElementPath>plus-functieWegdeel</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>bgt-fysiekVoorkomen</Name>
+      <Name>bgt_fysiekVoorkomen</Name>
       <ElementPath>surfaceMaterial</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-fysiekVoorkomen</Name>
+      <Name>plus_fysiekVoorkomen</Name>
       <ElementPath>plus-fysiekVoorkomenWegdeel</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>wegdeelOpTalud</Name>
+      <ElementPath>wegdeelOpTalud</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
@@ -150,71 +159,80 @@
     </PropertyDefn>
     <PropertyDefn>
       <Name>tijdstipRegistratie</Name>
+      <ElementPath>tijdstipRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>eindRegistratie</Name>
+      <ElementPath>eindRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>LV-publicatiedatum</Name>
+      <Name>LV_publicatiedatum</Name>
+      <ElementPath>LV-publicatiedatum</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>bronhouder</Name>
+      <ElementPath>bronhouder</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>inOnderzoek</Name>
+      <ElementPath>inOnderzoek</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>relatieveHoogteligging</Name>
+      <ElementPath>relatieveHoogteligging</ElementPath>
       <Type>Integer</Type>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>bgt-status</Name>
+      <Name>bgt_status</Name>
+      <ElementPath>bgt-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-status</Name>
+      <Name>plus_status</Name>
+      <ElementPath>plus-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <!--Einde properties van BGTObject-->
     <!--Begin properties van Wegdeel-->
     <PropertyDefn>
-      <Name>bgt-functie</Name>
+      <Name>bgt_functie</Name>
       <ElementPath>function</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-functie</Name>
+      <Name>plus_functie</Name>
       <ElementPath>plus-functieWegdeel</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>bgt-fysiekVoorkomen</Name>
+      <Name>bgt_fysiekVoorkomen</Name>
       <ElementPath>surfaceMaterial</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-fysiekVoorkomen</Name>
+      <Name>plus_fysiekVoorkomen</Name>
       <ElementPath>plus-fysiekVoorkomenWegdeel</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>wegdeelOpTalud</Name>
+      <ElementPath>wegdeelOpTalud</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
@@ -260,71 +278,80 @@
     </PropertyDefn>
     <PropertyDefn>
       <Name>tijdstipRegistratie</Name>
+      <ElementPath>tijdstipRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>eindRegistratie</Name>
+      <ElementPath>eindRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>LV-publicatiedatum</Name>
+      <Name>LV_publicatiedatum</Name>
+      <ElementPath>LV-publicatiedatum</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>bronhouder</Name>
+      <ElementPath>bronhouder</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>inOnderzoek</Name>
+      <ElementPath>inOnderzoek</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>relatieveHoogteligging</Name>
+      <ElementPath>relatieveHoogteligging</ElementPath>
       <Type>Integer</Type>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>bgt-status</Name>
+      <Name>bgt_status</Name>
+      <ElementPath>bgt-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-status</Name>
+      <Name>plus_status</Name>
+      <ElementPath>plus-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <!--Einde properties van BGTObject-->
     <!--Begin properties van Wegdeel-->
     <PropertyDefn>
-      <Name>bgt-functie</Name>
+      <Name>bgt_functie</Name>
       <ElementPath>function</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-functie</Name>
+      <Name>plus_functie</Name>
       <ElementPath>plus-functieWegdeel</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>bgt-fysiekVoorkomen</Name>
+      <Name>bgt_fysiekVoorkomen</Name>
       <ElementPath>surfaceMaterial</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-fysiekVoorkomen</Name>
+      <Name>plus_fysiekVoorkomen</Name>
       <ElementPath>plus-fysiekVoorkomenWegdeel</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>wegdeelOpTalud</Name>
+      <ElementPath>wegdeelOpTalud</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
@@ -370,71 +397,80 @@
     </PropertyDefn>
     <PropertyDefn>
       <Name>tijdstipRegistratie</Name>
+      <ElementPath>tijdstipRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>eindRegistratie</Name>
+      <ElementPath>eindRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>LV-publicatiedatum</Name>
+      <Name>LV_publicatiedatum</Name>
+      <ElementPath>LV-publicatiedatum</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>bronhouder</Name>
+      <ElementPath>bronhouder</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>inOnderzoek</Name>
+      <ElementPath>inOnderzoek</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>relatieveHoogteligging</Name>
+      <ElementPath>relatieveHoogteligging</ElementPath>
       <Type>Integer</Type>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>bgt-status</Name>
+      <Name>bgt_status</Name>
+      <ElementPath>bgt-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-status</Name>
+      <Name>plus_status</Name>
+      <ElementPath>plus-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <!--Einde properties van BGTObject-->
     <!--Begin properties van OndersteunendWegdeel-->
     <PropertyDefn>
-      <Name>bgt-functie</Name>
+      <Name>bgt_functie</Name>
       <ElementPath>function</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-functie</Name>
+      <Name>plus_functie</Name>
       <ElementPath>plus-functieOndersteunendWegdeel</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>bgt-fysiekVoorkomen</Name>
+      <Name>bgt_fysiekVoorkomen</Name>
       <ElementPath>surfaceMaterial</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-fysiekVoorkomen</Name>
+      <Name>plus_fysiekVoorkomen</Name>
       <ElementPath>plus-fysiekVoorkomenOndersteunendWegdeel</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>ondersteunendWegdeelOpTalud</Name>
+      <ElementPath>ondersteunendWegdeelOpTalud</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
@@ -480,71 +516,80 @@
     </PropertyDefn>
     <PropertyDefn>
       <Name>tijdstipRegistratie</Name>
+      <ElementPath>tijdstipRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>eindRegistratie</Name>
+      <ElementPath>eindRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>LV-publicatiedatum</Name>
+      <Name>LV_publicatiedatum</Name>
+      <ElementPath>LV-publicatiedatum</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>bronhouder</Name>
+      <ElementPath>bronhouder</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>inOnderzoek</Name>
+      <ElementPath>inOnderzoek</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>relatieveHoogteligging</Name>
+      <ElementPath>relatieveHoogteligging</ElementPath>
       <Type>Integer</Type>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>bgt-status</Name>
+      <Name>bgt_status</Name>
+      <ElementPath>bgt-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-status</Name>
+      <Name>plus_status</Name>
+      <ElementPath>plus-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <!--Einde properties van BGTObject-->
     <!--Begin properties van OndersteunendWegdeel-->
     <PropertyDefn>
-      <Name>bgt-functie</Name>
+      <Name>bgt_functie</Name>
       <ElementPath>function</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-functie</Name>
+      <Name>plus_functie</Name>
       <ElementPath>plus-functieOndersteunendWegdeel</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>bgt-fysiekVoorkomen</Name>
+      <Name>bgt_fysiekVoorkomen</Name>
       <ElementPath>surfaceMaterial</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-fysiekVoorkomen</Name>
+      <Name>plus_fysiekVoorkomen</Name>
       <ElementPath>plus-fysiekVoorkomenOndersteunendWegdeel</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>ondersteunendWegdeelOpTalud</Name>
+      <ElementPath>ondersteunendWegdeelOpTalud</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
@@ -590,71 +635,80 @@
     </PropertyDefn>
     <PropertyDefn>
       <Name>tijdstipRegistratie</Name>
+      <ElementPath>tijdstipRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>eindRegistratie</Name>
+      <ElementPath>eindRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>LV-publicatiedatum</Name>
+      <Name>LV_publicatiedatum</Name>
+      <ElementPath>LV-publicatiedatum</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>bronhouder</Name>
+      <ElementPath>bronhouder</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>inOnderzoek</Name>
+      <ElementPath>inOnderzoek</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>relatieveHoogteligging</Name>
+      <ElementPath>relatieveHoogteligging</ElementPath>
       <Type>Integer</Type>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>bgt-status</Name>
+      <Name>bgt_status</Name>
+      <ElementPath>bgt-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-status</Name>
+      <Name>plus_status</Name>
+      <ElementPath>plus-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <!--Einde properties van BGTObject-->
     <!--Begin properties van OndersteunendWegdeel-->
     <PropertyDefn>
-      <Name>bgt-functie</Name>
+      <Name>bgt_functie</Name>
       <ElementPath>function</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-functie</Name>
+      <Name>plus_functie</Name>
       <ElementPath>plus-functieOndersteunendWegdeel</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>bgt-fysiekVoorkomen</Name>
+      <Name>bgt_fysiekVoorkomen</Name>
       <ElementPath>surfaceMaterial</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-fysiekVoorkomen</Name>
+      <Name>plus_fysiekVoorkomen</Name>
       <ElementPath>plus-fysiekVoorkomenOndersteunendWegdeel</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>ondersteunendWegdeelOpTalud</Name>
+      <ElementPath>ondersteunendWegdeelOpTalud</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
@@ -699,57 +753,68 @@
     </PropertyDefn>
     <PropertyDefn>
       <Name>tijdstipRegistratie</Name>
+      <ElementPath>tijdstipRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>eindRegistratie</Name>
+      <ElementPath>eindRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>LV-publicatiedatum</Name>
+      <Name>LV_publicatiedatum</Name>
+      <ElementPath>LV-publicatiedatum</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>bronhouder</Name>
+      <ElementPath>bronhouder</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>inOnderzoek</Name>
+      <ElementPath>inOnderzoek</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>relatieveHoogteligging</Name>
+      <ElementPath>relatieveHoogteligging</ElementPath>
       <Type>Integer</Type>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>bgt-status</Name>
+      <Name>bgt_status</Name>
+      <ElementPath>bgt-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-status</Name>
+      <Name>plus_status</Name>
+      <ElementPath>plus-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <!--Einde properties van BGTObject-->
     <!--Begin properties van OnbegroeidTerreindeel-->
     <PropertyDefn>
-      <Name>bgt-fysiekVoorkomen</Name>
+      <Name>bgt_fysiekVoorkomen</Name>
+      <ElementPath>bgt-fysiekVoorkomen</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-fysiekVoorkomen</Name>
+      <Name>plus_fysiekVoorkomen</Name>
+      <ElementPath>plus-fysiekVoorkomen</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>onbegroeidTerreindeelOpTalud</Name>
+      <ElementPath>onbegroeidTerreindeelOpTalud</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
@@ -794,57 +859,68 @@
     </PropertyDefn>
     <PropertyDefn>
       <Name>tijdstipRegistratie</Name>
+      <ElementPath>tijdstipRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>eindRegistratie</Name>
+      <ElementPath>eindRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>LV-publicatiedatum</Name>
+      <Name>LV_publicatiedatum</Name>
+      <ElementPath>LV-publicatiedatum</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>bronhouder</Name>
+      <ElementPath>bronhouder</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>inOnderzoek</Name>
+      <ElementPath>inOnderzoek</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>relatieveHoogteligging</Name>
+      <ElementPath>relatieveHoogteligging</ElementPath>
       <Type>Integer</Type>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>bgt-status</Name>
+      <Name>bgt_status</Name>
+      <ElementPath>bgt-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-status</Name>
+      <Name>plus_status</Name>
+      <ElementPath>plus-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <!--Einde properties van BGTObject-->
     <!--Begin properties van OnbegroeidTerreindeel-->
     <PropertyDefn>
-      <Name>bgt-fysiekVoorkomen</Name>
+      <Name>bgt_fysiekVoorkomen</Name>
+      <ElementPath>bgt-fysiekVoorkomen</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-fysiekVoorkomen</Name>
+      <Name>plus_fysiekVoorkomen</Name>
+      <ElementPath>plus-fysiekVoorkomen</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>onbegroeidTerreindeelOpTalud</Name>
+      <ElementPath>onbegroeidTerreindeelOpTalud</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
@@ -889,57 +965,68 @@
     </PropertyDefn>
     <PropertyDefn>
       <Name>tijdstipRegistratie</Name>
+      <ElementPath>tijdstipRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>eindRegistratie</Name>
+      <ElementPath>eindRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>LV-publicatiedatum</Name>
+      <Name>LV_publicatiedatum</Name>
+      <ElementPath>LV-publicatiedatum</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>bronhouder</Name>
+      <ElementPath>bronhouder</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>inOnderzoek</Name>
+      <ElementPath>inOnderzoek</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>relatieveHoogteligging</Name>
+      <ElementPath>relatieveHoogteligging</ElementPath>
       <Type>Integer</Type>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>bgt-status</Name>
+      <Name>bgt_status</Name>
+      <ElementPath>bgt-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-status</Name>
+      <Name>plus_status</Name>
+      <ElementPath>plus-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <!--Einde properties van BGTObject-->
     <!--Begin properties van OnbegroeidTerreindeel-->
     <PropertyDefn>
-      <Name>bgt-fysiekVoorkomen</Name>
+      <Name>bgt_fysiekVoorkomen</Name>
+      <ElementPath>bgt-fysiekVoorkomen</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-fysiekVoorkomen</Name>
+      <Name>plus_fysiekVoorkomen</Name>
+      <ElementPath>plus-fysiekVoorkomen</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>onbegroeidTerreindeelOpTalud</Name>
+      <ElementPath>onbegroeidTerreindeelOpTalud</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
@@ -985,58 +1072,68 @@
     </PropertyDefn>
     <PropertyDefn>
       <Name>tijdstipRegistratie</Name>
+      <ElementPath>tijdstipRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>eindRegistratie</Name>
+      <ElementPath>eindRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>LV-publicatiedatum</Name>
+      <Name>LV_publicatiedatum</Name>
+      <ElementPath>LV-publicatiedatum</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>bronhouder</Name>
+      <ElementPath>bronhouder</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>inOnderzoek</Name>
+      <ElementPath>inOnderzoek</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>relatieveHoogteligging</Name>
+      <ElementPath>relatieveHoogteligging</ElementPath>
       <Type>Integer</Type>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>bgt-status</Name>
+      <Name>bgt_status</Name>
+      <ElementPath>bgt-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-status</Name>
+      <Name>plus_status</Name>
+      <ElementPath>plus-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <!--Einde properties van BGTObject-->
     <!--Begin properties van BegroeidTerreindeel-->
     <PropertyDefn>
-      <Name>bgt-fysiekVoorkomen</Name>
+      <Name>bgt_fysiekVoorkomen</Name>
       <ElementPath>class</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-fysiekVoorkomen</Name>
+      <Name>plus_fysiekVoorkomen</Name>
+      <ElementPath>plus-fysiekVoorkomen</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>begroeidTerreindeelOpTalud</Name>
+      <ElementPath>begroeidTerreindeelOpTalud</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
@@ -1082,58 +1179,68 @@
     </PropertyDefn>
     <PropertyDefn>
       <Name>tijdstipRegistratie</Name>
+      <ElementPath>tijdstipRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>eindRegistratie</Name>
+      <ElementPath>eindRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>LV-publicatiedatum</Name>
+      <Name>LV_publicatiedatum</Name>
+      <ElementPath>LV-publicatiedatum</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>bronhouder</Name>
+      <ElementPath>bronhouder</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>inOnderzoek</Name>
+      <ElementPath>inOnderzoek</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>relatieveHoogteligging</Name>
+      <ElementPath>relatieveHoogteligging</ElementPath>
       <Type>Integer</Type>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>bgt-status</Name>
+      <Name>bgt_status</Name>
+      <ElementPath>bgt-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-status</Name>
+      <Name>plus_status</Name>
+      <ElementPath>plus-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <!--Einde properties van BGTObject-->
     <!--Begin properties van BegroeidTerreindeel-->
     <PropertyDefn>
-      <Name>bgt-fysiekVoorkomen</Name>
+      <Name>bgt_fysiekVoorkomen</Name>
       <ElementPath>class</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-fysiekVoorkomen</Name>
+      <Name>plus_fysiekVoorkomen</Name>
+      <ElementPath>plus-fysiekVoorkomen</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>begroeidTerreindeelOpTalud</Name>
+      <ElementPath>begroeidTerreindeelOpTalud</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
@@ -1179,58 +1286,68 @@
     </PropertyDefn>
     <PropertyDefn>
       <Name>tijdstipRegistratie</Name>
+      <ElementPath>tijdstipRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>eindRegistratie</Name>
+      <ElementPath>eindRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>LV-publicatiedatum</Name>
+      <Name>LV_publicatiedatum</Name>
+      <ElementPath>LV-publicatiedatum</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>bronhouder</Name>
+      <ElementPath>bronhouder</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>inOnderzoek</Name>
+      <ElementPath>inOnderzoek</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>relatieveHoogteligging</Name>
+      <ElementPath>relatieveHoogteligging</ElementPath>
       <Type>Integer</Type>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>bgt-status</Name>
+      <Name>bgt_status</Name>
+      <ElementPath>bgt-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-status</Name>
+      <Name>plus_status</Name>
+      <ElementPath>plus-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <!--Einde properties van BGTObject-->
     <!--Begin properties van BegroeidTerreindeel-->
     <PropertyDefn>
-      <Name>bgt-fysiekVoorkomen</Name>
+      <Name>bgt_fysiekVoorkomen</Name>
       <ElementPath>class</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-fysiekVoorkomen</Name>
+      <Name>plus_fysiekVoorkomen</Name>
+      <ElementPath>plus-fysiekVoorkomen</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>begroeidTerreindeelOpTalud</Name>
+      <ElementPath>begroeidTerreindeelOpTalud</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
@@ -1275,53 +1392,62 @@
     </PropertyDefn>
     <PropertyDefn>
       <Name>tijdstipRegistratie</Name>
+      <ElementPath>tijdstipRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>eindRegistratie</Name>
+      <ElementPath>eindRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>LV-publicatiedatum</Name>
+      <Name>LV_publicatiedatum</Name>
+      <ElementPath>LV-publicatiedatum</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>bronhouder</Name>
+      <ElementPath>bronhouder</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>inOnderzoek</Name>
+      <ElementPath>inOnderzoek</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>relatieveHoogteligging</Name>
+      <ElementPath>relatieveHoogteligging</ElementPath>
       <Type>Integer</Type>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>bgt-status</Name>
+      <Name>bgt_status</Name>
+      <ElementPath>bgt-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-status</Name>
+      <Name>plus_status</Name>
+      <ElementPath>plus-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <!--Einde properties van BGTObject-->
     <!--Begin properties van Waterdeel-->
     <PropertyDefn>
-      <Name>bgt-type</Name>
+      <Name>bgt_type</Name>
       <ElementPath>class</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-type</Name>
+      <Name>plus_type</Name>
+      <ElementPath>plus-type</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
@@ -1366,53 +1492,62 @@
     </PropertyDefn>
     <PropertyDefn>
       <Name>tijdstipRegistratie</Name>
+      <ElementPath>tijdstipRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>eindRegistratie</Name>
+      <ElementPath>eindRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>LV-publicatiedatum</Name>
+      <Name>LV_publicatiedatum</Name>
+      <ElementPath>LV-publicatiedatum</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>bronhouder</Name>
+      <ElementPath>bronhouder</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>inOnderzoek</Name>
+      <ElementPath>inOnderzoek</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>relatieveHoogteligging</Name>
+      <ElementPath>relatieveHoogteligging</ElementPath>
       <Type>Integer</Type>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>bgt-status</Name>
+      <Name>bgt_status</Name>
+      <ElementPath>bgt-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-status</Name>
+      <Name>plus_status</Name>
+      <ElementPath>plus-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <!--Einde properties van BGTObject-->
     <!--Begin properties van Waterdeel-->
     <PropertyDefn>
-      <Name>bgt-type</Name>
+      <Name>bgt_type</Name>
       <ElementPath>class</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-type</Name>
+      <Name>plus_type</Name>
+      <ElementPath>plus-type</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
@@ -1457,53 +1592,62 @@
     </PropertyDefn>
     <PropertyDefn>
       <Name>tijdstipRegistratie</Name>
+      <ElementPath>tijdstipRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>eindRegistratie</Name>
+      <ElementPath>eindRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>LV-publicatiedatum</Name>
+      <Name>LV_publicatiedatum</Name>
+      <ElementPath>LV-publicatiedatum</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>bronhouder</Name>
+      <ElementPath>bronhouder</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>inOnderzoek</Name>
+      <ElementPath>inOnderzoek</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>relatieveHoogteligging</Name>
+      <ElementPath>relatieveHoogteligging</ElementPath>
       <Type>Integer</Type>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>bgt-status</Name>
+      <Name>bgt_status</Name>
+      <ElementPath>bgt-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-status</Name>
+      <Name>plus_status</Name>
+      <ElementPath>plus-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <!--Einde properties van BGTObject-->
     <!--Begin properties van OndersteunendWaterdeel-->
     <PropertyDefn>
-      <Name>bgt-type</Name>
+      <Name>bgt_type</Name>
       <ElementPath>class</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-type</Name>
+      <Name>plus_type</Name>
+      <ElementPath>plus-type</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
@@ -1548,53 +1692,62 @@
     </PropertyDefn>
     <PropertyDefn>
       <Name>tijdstipRegistratie</Name>
+      <ElementPath>tijdstipRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>eindRegistratie</Name>
+      <ElementPath>eindRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>LV-publicatiedatum</Name>
+      <Name>LV_publicatiedatum</Name>
+      <ElementPath>LV-publicatiedatum</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>bronhouder</Name>
+      <ElementPath>bronhouder</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>inOnderzoek</Name>
+      <ElementPath>inOnderzoek</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>relatieveHoogteligging</Name>
+      <ElementPath>relatieveHoogteligging</ElementPath>
       <Type>Integer</Type>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>bgt-status</Name>
+      <Name>bgt_status</Name>
+      <ElementPath>bgt-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-status</Name>
+      <Name>plus_status</Name>
+      <ElementPath>plus-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <!--Einde properties van BGTObject-->
     <!--Begin properties van OndersteunendWaterdeel-->
     <PropertyDefn>
-      <Name>bgt-type</Name>
+      <Name>bgt_type</Name>
       <ElementPath>class</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-type</Name>
+      <Name>plus_type</Name>
+      <ElementPath>plus-type</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
@@ -1640,40 +1793,48 @@
     </PropertyDefn>
     <PropertyDefn>
       <Name>tijdstipRegistratie</Name>
+      <ElementPath>tijdstipRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>eindRegistratie</Name>
+      <ElementPath>eindRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>LV-publicatiedatum</Name>
+      <Name>LV_publicatiedatum</Name>
+      <ElementPath>LV-publicatiedatum</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>bronhouder</Name>
+      <ElementPath>bronhouder</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>inOnderzoek</Name>
+      <ElementPath>inOnderzoek</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>relatieveHoogteligging</Name>
+      <ElementPath>relatieveHoogteligging</ElementPath>
       <Type>Integer</Type>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>bgt-status</Name>
+      <Name>bgt_status</Name>
+      <ElementPath>bgt-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-status</Name>
+      <Name>plus_status</Name>
+      <ElementPath>plus-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
@@ -1681,6 +1842,7 @@
     <!--Begin properties van Pand-->
     <PropertyDefn>
       <Name>identificatieBAGPND</Name>
+      <ElementPath>identificatieBAGPND</ElementPath>
       <Type>String</Type>
       <Width>16</Width>
     </PropertyDefn>
@@ -1726,40 +1888,48 @@
     </PropertyDefn>
     <PropertyDefn>
       <Name>tijdstipRegistratie</Name>
+      <ElementPath>tijdstipRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>eindRegistratie</Name>
+      <ElementPath>eindRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>LV-publicatiedatum</Name>
+      <Name>LV_publicatiedatum</Name>
+      <ElementPath>LV-publicatiedatum</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>bronhouder</Name>
+      <ElementPath>bronhouder</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>inOnderzoek</Name>
+      <ElementPath>inOnderzoek</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>relatieveHoogteligging</Name>
+      <ElementPath>relatieveHoogteligging</ElementPath>
       <Type>Integer</Type>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>bgt-status</Name>
+      <Name>bgt_status</Name>
+      <ElementPath>bgt-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-status</Name>
+      <Name>plus_status</Name>
+      <ElementPath>plus-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
@@ -1767,6 +1937,7 @@
     <!--Begin properties van Pand-->
     <PropertyDefn>
       <Name>identificatieBAGPND</Name>
+      <ElementPath>identificatieBAGPND</ElementPath>
       <Type>String</Type>
       <Width>16</Width>
     </PropertyDefn>
@@ -1796,11 +1967,13 @@
     </PropertyDefn>
     <PropertyDefn>
       <Name>identificatieBAGVBOLaagsteHuisnummer</Name>
+      <ElementPath>identificatieBAGVBOLaagsteHuisnummer</ElementPath>
       <Type>String</Type>
       <Width>16</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>identificatieBAGVBOHoogsteHuisnummer</Name>
+      <ElementPath>identificatieBAGVBOHoogsteHuisnummer</ElementPath>
       <Type>String</Type>
       <Width>16</Width>
     </PropertyDefn>
@@ -1846,53 +2019,61 @@
     </PropertyDefn>
     <PropertyDefn>
       <Name>tijdstipRegistratie</Name>
+      <ElementPath>tijdstipRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>eindRegistratie</Name>
+      <ElementPath>eindRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>LV-publicatiedatum</Name>
+      <Name>LV_publicatiedatum</Name>
+      <ElementPath>LV-publicatiedatum</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>bronhouder</Name>
+      <ElementPath>bronhouder</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>inOnderzoek</Name>
+      <ElementPath>inOnderzoek</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>relatieveHoogteligging</Name>
+      <ElementPath>relatieveHoogteligging</ElementPath>
       <Type>Integer</Type>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>bgt-status</Name>
+      <Name>bgt_status</Name>
+      <ElementPath>bgt-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-status</Name>
+      <Name>plus_status</Name>
+      <ElementPath>plus-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <!--Einde properties van BGTObject-->
     <!--Begin properties van Spoor-->
     <PropertyDefn>
-      <Name>bgt-functie</Name>
+      <Name>bgt_functie</Name>
       <ElementPath>function</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-functie</Name>
+      <Name>plus_functie</Name>
       <ElementPath>plus-functieSpoor</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
@@ -1939,53 +2120,61 @@
     </PropertyDefn>
     <PropertyDefn>
       <Name>tijdstipRegistratie</Name>
+      <ElementPath>tijdstipRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>eindRegistratie</Name>
+      <ElementPath>eindRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>LV-publicatiedatum</Name>
+      <Name>LV_publicatiedatum</Name>
+      <ElementPath>LV-publicatiedatum</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>bronhouder</Name>
+      <ElementPath>bronhouder</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>inOnderzoek</Name>
+      <ElementPath>inOnderzoek</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>relatieveHoogteligging</Name>
+      <ElementPath>relatieveHoogteligging</ElementPath>
       <Type>Integer</Type>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>bgt-status</Name>
+      <Name>bgt_status</Name>
+      <ElementPath>bgt-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-status</Name>
+      <Name>plus_status</Name>
+      <ElementPath>plus-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <!--Einde properties van BGTObject-->
     <!--Begin properties van Spoor-->
     <PropertyDefn>
-      <Name>bgt-functie</Name>
+      <Name>bgt_functie</Name>
       <ElementPath>function</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-functie</Name>
+      <Name>plus_functie</Name>
       <ElementPath>plus-functieSpoor</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
@@ -2031,52 +2220,62 @@
     </PropertyDefn>
     <PropertyDefn>
       <Name>tijdstipRegistratie</Name>
+      <ElementPath>tijdstipRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>eindRegistratie</Name>
+      <ElementPath>eindRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>LV-publicatiedatum</Name>
+      <Name>LV_publicatiedatum</Name>
+      <ElementPath>LV-publicatiedatum</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>bronhouder</Name>
+      <ElementPath>bronhouder</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>inOnderzoek</Name>
+      <ElementPath>inOnderzoek</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>relatieveHoogteligging</Name>
+      <ElementPath>relatieveHoogteligging</ElementPath>
       <Type>Integer</Type>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>bgt-status</Name>
+      <Name>bgt_status</Name>
+      <ElementPath>bgt-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-status</Name>
+      <Name>plus_status</Name>
+      <ElementPath>plus-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <!--Einde properties van BGTObject-->
     <!--Begin properties van OverigBouwwerk-->
     <PropertyDefn>
-      <Name>bgt-type</Name>
+      <Name>bgt_type</Name>
+      <ElementPath>bgt-type</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-type</Name>
+      <Name>plus_type</Name>
+      <ElementPath>plus-type</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
@@ -2121,52 +2320,62 @@
     </PropertyDefn>
     <PropertyDefn>
       <Name>tijdstipRegistratie</Name>
+      <ElementPath>tijdstipRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>eindRegistratie</Name>
+      <ElementPath>eindRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>LV-publicatiedatum</Name>
+      <Name>LV_publicatiedatum</Name>
+      <ElementPath>LV-publicatiedatum</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>bronhouder</Name>
+      <ElementPath>bronhouder</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>inOnderzoek</Name>
+      <ElementPath>inOnderzoek</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>relatieveHoogteligging</Name>
+      <ElementPath>relatieveHoogteligging</ElementPath>
       <Type>Integer</Type>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>bgt-status</Name>
+      <Name>bgt_status</Name>
+      <ElementPath>bgt-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-status</Name>
+      <Name>plus_status</Name>
+      <ElementPath>plus-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <!--Einde properties van BGTObject-->
     <!--Begin properties van OverigBouwwerk-->
     <PropertyDefn>
-      <Name>bgt-type</Name>
+      <Name>bgt_type</Name>
+      <ElementPath>bgt-type</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-type</Name>
+      <Name>plus_type</Name>
+      <ElementPath>plus-type</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
@@ -2211,52 +2420,62 @@
     </PropertyDefn>
     <PropertyDefn>
       <Name>tijdstipRegistratie</Name>
+      <ElementPath>tijdstipRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>eindRegistratie</Name>
+      <ElementPath>eindRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>LV-publicatiedatum</Name>
+      <Name>LV_publicatiedatum</Name>
+      <ElementPath>LV-publicatiedatum</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>bronhouder</Name>
+      <ElementPath>bronhouder</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>inOnderzoek</Name>
+      <ElementPath>inOnderzoek</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>relatieveHoogteligging</Name>
+      <ElementPath>relatieveHoogteligging</ElementPath>
       <Type>Integer</Type>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>bgt-status</Name>
+      <Name>bgt_status</Name>
+      <ElementPath>bgt-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-status</Name>
+      <Name>plus_status</Name>
+      <ElementPath>plus-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <!--Einde properties van BGTObject-->
     <!--Begin properties van Kunstwerkdeel-->
     <PropertyDefn>
-      <Name>bgt-type</Name>
+      <Name>bgt_type</Name>
+      <ElementPath>bgt-type</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-type</Name>
+      <Name>plus_type</Name>
+      <ElementPath>plus-type</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
@@ -2301,52 +2520,62 @@
     </PropertyDefn>
     <PropertyDefn>
       <Name>tijdstipRegistratie</Name>
+      <ElementPath>tijdstipRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>eindRegistratie</Name>
+      <ElementPath>eindRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>LV-publicatiedatum</Name>
+      <Name>LV_publicatiedatum</Name>
+      <ElementPath>LV-publicatiedatum</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>bronhouder</Name>
+      <ElementPath>bronhouder</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>inOnderzoek</Name>
+      <ElementPath>inOnderzoek</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>relatieveHoogteligging</Name>
+      <ElementPath>relatieveHoogteligging</ElementPath>
       <Type>Integer</Type>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>bgt-status</Name>
+      <Name>bgt_status</Name>
+      <ElementPath>bgt-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-status</Name>
+      <Name>plus_status</Name>
+      <ElementPath>plus-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <!--Einde properties van BGTObject-->
     <!--Begin properties van Kunstwerkdeel-->
     <PropertyDefn>
-      <Name>bgt-type</Name>
+      <Name>bgt_type</Name>
+      <ElementPath>bgt-type</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-type</Name>
+      <Name>plus_type</Name>
+      <ElementPath>plus-type</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
@@ -2392,40 +2621,48 @@
     </PropertyDefn>
     <PropertyDefn>
       <Name>tijdstipRegistratie</Name>
+      <ElementPath>tijdstipRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>eindRegistratie</Name>
+      <ElementPath>eindRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>LV-publicatiedatum</Name>
+      <Name>LV_publicatiedatum</Name>
+      <ElementPath>LV-publicatiedatum</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>bronhouder</Name>
+      <ElementPath>bronhouder</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>inOnderzoek</Name>
+      <ElementPath>inOnderzoek</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>relatieveHoogteligging</Name>
+      <ElementPath>relatieveHoogteligging</ElementPath>
       <Type>Integer</Type>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>bgt-status</Name>
+      <Name>bgt_status</Name>
+      <ElementPath>bgt-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-status</Name>
+      <Name>plus_status</Name>
+      <ElementPath>plus-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
@@ -2491,40 +2728,48 @@
     </PropertyDefn>
     <PropertyDefn>
       <Name>tijdstipRegistratie</Name>
+      <ElementPath>tijdstipRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>eindRegistratie</Name>
+      <ElementPath>eindRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>LV-publicatiedatum</Name>
+      <Name>LV_publicatiedatum</Name>
+      <ElementPath>LV-publicatiedatum</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>bronhouder</Name>
+      <ElementPath>bronhouder</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>inOnderzoek</Name>
+      <ElementPath>inOnderzoek</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>relatieveHoogteligging</Name>
+      <ElementPath>relatieveHoogteligging</ElementPath>
       <Type>Integer</Type>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>bgt-status</Name>
+      <Name>bgt_status</Name>
+      <ElementPath>bgt-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-status</Name>
+      <Name>plus_status</Name>
+      <ElementPath>plus-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
@@ -2590,40 +2835,48 @@
     </PropertyDefn>
     <PropertyDefn>
       <Name>tijdstipRegistratie</Name>
+      <ElementPath>tijdstipRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>eindRegistratie</Name>
+      <ElementPath>eindRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>LV-publicatiedatum</Name>
+      <Name>LV_publicatiedatum</Name>
+      <ElementPath>LV-publicatiedatum</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>bronhouder</Name>
+      <ElementPath>bronhouder</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>inOnderzoek</Name>
+      <ElementPath>inOnderzoek</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>relatieveHoogteligging</Name>
+      <ElementPath>relatieveHoogteligging</ElementPath>
       <Type>Integer</Type>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>bgt-status</Name>
+      <Name>bgt_status</Name>
+      <ElementPath>bgt-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-status</Name>
+      <Name>plus_status</Name>
+      <ElementPath>plus-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
@@ -2669,40 +2922,48 @@
     </PropertyDefn>
     <PropertyDefn>
       <Name>tijdstipRegistratie</Name>
+      <ElementPath>tijdstipRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>eindRegistratie</Name>
+      <ElementPath>eindRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>LV-publicatiedatum</Name>
+      <Name>LV_publicatiedatum</Name>
+      <ElementPath>LV-publicatiedatum</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>bronhouder</Name>
+      <ElementPath>bronhouder</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>inOnderzoek</Name>
+      <ElementPath>inOnderzoek</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>relatieveHoogteligging</Name>
+      <ElementPath>relatieveHoogteligging</ElementPath>
       <Type>Integer</Type>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>bgt-status</Name>
+      <Name>bgt_status</Name>
+      <ElementPath>bgt-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-status</Name>
+      <Name>plus_status</Name>
+      <ElementPath>plus-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
@@ -2747,52 +3008,62 @@
     </PropertyDefn>
     <PropertyDefn>
       <Name>tijdstipRegistratie</Name>
+      <ElementPath>tijdstipRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>eindRegistratie</Name>
+      <ElementPath>eindRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>LV-publicatiedatum</Name>
+      <Name>LV_publicatiedatum</Name>
+      <ElementPath>LV-publicatiedatum</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>bronhouder</Name>
+      <ElementPath>bronhouder</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>inOnderzoek</Name>
+      <ElementPath>inOnderzoek</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>relatieveHoogteligging</Name>
+      <ElementPath>relatieveHoogteligging</ElementPath>
       <Type>Integer</Type>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>bgt-status</Name>
+      <Name>bgt_status</Name>
+      <ElementPath>bgt-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-status</Name>
+      <Name>plus_status</Name>
+      <ElementPath>plus-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <!--Einde properties van BGTObject-->
     <!--Begin properties van Scheiding-->
     <PropertyDefn>
-      <Name>bgt-type</Name>
+      <Name>bgt_type</Name>
+      <ElementPath>bgt-type</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-type</Name>
+      <Name>plus_type</Name>
+      <ElementPath>plus-type</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
@@ -2837,52 +3108,62 @@
     </PropertyDefn>
     <PropertyDefn>
       <Name>tijdstipRegistratie</Name>
+      <ElementPath>tijdstipRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>eindRegistratie</Name>
+      <ElementPath>eindRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>LV-publicatiedatum</Name>
+      <Name>LV_publicatiedatum</Name>
+      <ElementPath>LV-publicatiedatum</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>bronhouder</Name>
+      <ElementPath>bronhouder</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>inOnderzoek</Name>
+      <ElementPath>inOnderzoek</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>relatieveHoogteligging</Name>
+      <ElementPath>relatieveHoogteligging</ElementPath>
       <Type>Integer</Type>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>bgt-status</Name>
+      <Name>bgt_status</Name>
+      <ElementPath>bgt-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-status</Name>
+      <Name>plus_status</Name>
+      <ElementPath>plus-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <!--Einde properties van BGTObject-->
     <!--Begin properties van Scheiding-->
     <PropertyDefn>
-      <Name>bgt-type</Name>
+      <Name>bgt_type</Name>
+      <ElementPath>bgt-type</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-type</Name>
+      <Name>plus_type</Name>
+      <ElementPath>plus-type</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
@@ -2927,52 +3208,62 @@
     </PropertyDefn>
     <PropertyDefn>
       <Name>tijdstipRegistratie</Name>
+      <ElementPath>tijdstipRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>eindRegistratie</Name>
+      <ElementPath>eindRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>LV-publicatiedatum</Name>
+      <Name>LV_publicatiedatum</Name>
+      <ElementPath>LV-publicatiedatum</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>bronhouder</Name>
+      <ElementPath>bronhouder</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>inOnderzoek</Name>
+      <ElementPath>inOnderzoek</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>relatieveHoogteligging</Name>
+      <ElementPath>relatieveHoogteligging</ElementPath>
       <Type>Integer</Type>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>bgt-status</Name>
+      <Name>bgt_status</Name>
+      <ElementPath>bgt-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-status</Name>
+      <Name>plus_status</Name>
+      <ElementPath>plus-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <!--Einde properties van BGTObject-->
     <!--Begin properties van OverigeScheiding-->
     <PropertyDefn>
-      <Name>bgt-type</Name>
+      <Name>bgt_type</Name>
+      <ElementPath>bgt-type</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-type</Name>
+      <Name>plus_type</Name>
+      <ElementPath>plus-type</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
@@ -3017,52 +3308,62 @@
     </PropertyDefn>
     <PropertyDefn>
       <Name>tijdstipRegistratie</Name>
+      <ElementPath>tijdstipRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>eindRegistratie</Name>
+      <ElementPath>eindRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>LV-publicatiedatum</Name>
+      <Name>LV_publicatiedatum</Name>
+      <ElementPath>LV-publicatiedatum</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>bronhouder</Name>
+      <ElementPath>bronhouder</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>inOnderzoek</Name>
+      <ElementPath>inOnderzoek</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>relatieveHoogteligging</Name>
+      <ElementPath>relatieveHoogteligging</ElementPath>
       <Type>Integer</Type>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>bgt-status</Name>
+      <Name>bgt_status</Name>
+      <ElementPath>bgt-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-status</Name>
+      <Name>plus_status</Name>
+      <ElementPath>plus-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <!--Einde properties van BGTObject-->
     <!--Begin properties van OverigeScheiding-->
     <PropertyDefn>
-      <Name>bgt-type</Name>
+      <Name>bgt_type</Name>
+      <ElementPath>bgt-type</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-type</Name>
+      <Name>plus_type</Name>
+      <ElementPath>plus-type</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
@@ -3107,56 +3408,67 @@
     </PropertyDefn>
     <PropertyDefn>
       <Name>tijdstipRegistratie</Name>
+      <ElementPath>tijdstipRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>eindRegistratie</Name>
+      <ElementPath>eindRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>LV-publicatiedatum</Name>
+      <Name>LV_publicatiedatum</Name>
+      <ElementPath>LV-publicatiedatum</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>bronhouder</Name>
+      <ElementPath>bronhouder</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>inOnderzoek</Name>
+      <ElementPath>inOnderzoek</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>relatieveHoogteligging</Name>
+      <ElementPath>relatieveHoogteligging</ElementPath>
       <Type>Integer</Type>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>bgt-status</Name>
+      <Name>bgt_status</Name>
+      <ElementPath>bgt-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-status</Name>
+      <Name>plus_status</Name>
+      <ElementPath>plus-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <!--Einde properties van BGTObject-->
     <!--Begin properties van FunctioneelGebied-->
     <PropertyDefn>
-      <Name>bgt-type</Name>
+      <Name>bgt_type</Name>
+      <ElementPath>bgt-type</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-type</Name>
+      <Name>plus_type</Name>
+      <ElementPath>plus-type</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
+      <Name>naam</Name>
       <Name>naam</Name>
       <Type>String</Type>
       <Width>255</Width>
@@ -3202,56 +3514,67 @@
     </PropertyDefn>
     <PropertyDefn>
       <Name>tijdstipRegistratie</Name>
+      <ElementPath>tijdstipRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>eindRegistratie</Name>
+      <ElementPath>eindRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>LV-publicatiedatum</Name>
+      <Name>LV_publicatiedatum</Name>
+      <ElementPath>LV-publicatiedatum</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>bronhouder</Name>
+      <ElementPath>bronhouder</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>inOnderzoek</Name>
+      <ElementPath>inOnderzoek</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>relatieveHoogteligging</Name>
+      <ElementPath>relatieveHoogteligging</ElementPath>
       <Type>Integer</Type>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>bgt-status</Name>
+      <Name>bgt_status</Name>
+      <ElementPath>bgt-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-status</Name>
+      <Name>plus_status</Name>
+      <ElementPath>plus-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <!--Einde properties van BGTObject-->
     <!--Begin properties van FunctioneelGebied-->
     <PropertyDefn>
-      <Name>bgt-type</Name>
+      <Name>bgt_type</Name>
+      <ElementPath>bgt-type</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-type</Name>
+      <Name>plus_type</Name>
+      <ElementPath>plus-type</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
+      <Name>naam</Name>
       <Name>naam</Name>
       <Type>String</Type>
       <Width>255</Width>
@@ -3297,40 +3620,48 @@
     </PropertyDefn>
     <PropertyDefn>
       <Name>tijdstipRegistratie</Name>
+      <ElementPath>tijdstipRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>eindRegistratie</Name>
+      <ElementPath>eindRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>LV-publicatiedatum</Name>
+      <Name>LV_publicatiedatum</Name>
+      <ElementPath>LV-publicatiedatum</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>bronhouder</Name>
+      <ElementPath>bronhouder</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>inOnderzoek</Name>
+      <ElementPath>inOnderzoek</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>relatieveHoogteligging</Name>
+      <ElementPath>relatieveHoogteligging</ElementPath>
       <Type>Integer</Type>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>bgt-status</Name>
+      <Name>bgt_status</Name>
+      <ElementPath>bgt-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-status</Name>
+      <Name>plus_status</Name>
+      <ElementPath>plus-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
@@ -3375,40 +3706,48 @@
     </PropertyDefn>
     <PropertyDefn>
       <Name>tijdstipRegistratie</Name>
+      <ElementPath>tijdstipRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>eindRegistratie</Name>
+      <ElementPath>eindRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>LV-publicatiedatum</Name>
+      <Name>LV_publicatiedatum</Name>
+      <ElementPath>LV-publicatiedatum</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>bronhouder</Name>
+      <ElementPath>bronhouder</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>inOnderzoek</Name>
+      <ElementPath>inOnderzoek</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>relatieveHoogteligging</Name>
+      <ElementPath>relatieveHoogteligging</ElementPath>
       <Type>Integer</Type>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>bgt-status</Name>
+      <Name>bgt_status</Name>
+      <ElementPath>bgt-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-status</Name>
+      <Name>plus_status</Name>
+      <ElementPath>plus-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
@@ -3453,40 +3792,48 @@
     </PropertyDefn>
     <PropertyDefn>
       <Name>tijdstipRegistratie</Name>
+      <ElementPath>tijdstipRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>eindRegistratie</Name>
+      <ElementPath>eindRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>LV-publicatiedatum</Name>
+      <Name>LV_publicatiedatum</Name>
+      <ElementPath>LV-publicatiedatum</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>bronhouder</Name>
+      <ElementPath>bronhouder</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>inOnderzoek</Name>
+      <ElementPath>inOnderzoek</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>relatieveHoogteligging</Name>
+      <ElementPath>relatieveHoogteligging</ElementPath>
       <Type>Integer</Type>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>bgt-status</Name>
+      <Name>bgt_status</Name>
+      <ElementPath>bgt-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-status</Name>
+      <Name>plus_status</Name>
+      <ElementPath>plus-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
@@ -3494,6 +3841,7 @@
     <!--Begin properties van OpenbareRuimteLabel-->
     <PropertyDefn>
       <Name>identificatieBAGOPR</Name>
+      <ElementPath>identificatieBAGOPR</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
@@ -3510,6 +3858,7 @@
     </PropertyDefn>
     <PropertyDefn>
       <Name>openbareRuimteType</Name>
+      <ElementPath>openbareRuimteType</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
@@ -3542,20 +3891,24 @@
     <!--Begin properties van Plaatsbepalingspunt-->
     <PropertyDefn>
       <Name>nauwkeurigheid</Name>
+      <ElementPath>nauwkeurigheid</ElementPath>
       <Type>Integer</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>datumInwinning</Name>
+      <ElementPath>datumInwinning</ElementPath>
       <Type>String</Type>
       <Width>10</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>inwinnendeInstantie</Name>
+      <ElementPath>inwinnendeInstantie</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>inwinningsmethode</Name>
+      <ElementPath>inwinningsmethode</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
@@ -3600,53 +3953,62 @@
     </PropertyDefn>
     <PropertyDefn>
       <Name>tijdstipRegistratie</Name>
+      <ElementPath>tijdstipRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>eindRegistratie</Name>
+      <ElementPath>eindRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>LV-publicatiedatum</Name>
+      <Name>LV_publicatiedatum</Name>
+      <ElementPath>LV-publicatiedatum</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>bronhouder</Name>
+      <ElementPath>bronhouder</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>inOnderzoek</Name>
+      <ElementPath>inOnderzoek</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>relatieveHoogteligging</Name>
+      <ElementPath>relatieveHoogteligging</ElementPath>
       <Type>Integer</Type>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>bgt-status</Name>
+      <Name>bgt_status</Name>
+      <ElementPath>bgt-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-status</Name>
+      <Name>plus_status</Name>
+      <ElementPath>plus-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <!--Einde properties van BGTObject-->
     <!--Begin properties van Inrichtingselement-->
     <PropertyDefn>
-      <Name>bgt-type</Name>
+      <Name>bgt_type</Name>
       <ElementPath>class</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-type</Name>
+      <Name>plus_type</Name>
+      <ElementPath>plus-type</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
@@ -3691,53 +4053,62 @@
     </PropertyDefn>
     <PropertyDefn>
       <Name>tijdstipRegistratie</Name>
+      <ElementPath>tijdstipRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>eindRegistratie</Name>
+      <ElementPath>eindRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>LV-publicatiedatum</Name>
+      <Name>LV_publicatiedatum</Name>
+      <ElementPath>LV-publicatiedatum</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>bronhouder</Name>
+      <ElementPath>bronhouder</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>inOnderzoek</Name>
+      <ElementPath>inOnderzoek</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>relatieveHoogteligging</Name>
+      <ElementPath>relatieveHoogteligging</ElementPath>
       <Type>Integer</Type>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>bgt-status</Name>
+      <Name>bgt_status</Name>
+      <ElementPath>bgt-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-status</Name>
+      <Name>plus_status</Name>
+      <ElementPath>plus-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <!--Einde properties van BGTObject-->
     <!--Begin properties van Inrichtingselement-->
     <PropertyDefn>
-      <Name>bgt-type</Name>
+      <Name>bgt_type</Name>
       <ElementPath>class</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-type</Name>
+      <Name>plus_type</Name>
+      <ElementPath>plus-type</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
@@ -3782,53 +4153,62 @@
     </PropertyDefn>
     <PropertyDefn>
       <Name>tijdstipRegistratie</Name>
+      <ElementPath>tijdstipRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>eindRegistratie</Name>
+      <ElementPath>eindRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>LV-publicatiedatum</Name>
+      <Name>LV_publicatiedatum</Name>
+      <ElementPath>LV-publicatiedatum</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>bronhouder</Name>
+      <ElementPath>bronhouder</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>inOnderzoek</Name>
+      <ElementPath>inOnderzoek</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>relatieveHoogteligging</Name>
+      <ElementPath>relatieveHoogteligging</ElementPath>
       <Type>Integer</Type>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>bgt-status</Name>
+      <Name>bgt_status</Name>
+      <ElementPath>bgt-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-status</Name>
+      <Name>plus_status</Name>
+      <ElementPath>plus-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <!--Einde properties van BGTObject-->
     <!--Begin properties van Inrichtingselement-->
     <PropertyDefn>
-      <Name>bgt-type</Name>
+      <Name>bgt_type</Name>
       <ElementPath>class</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-type</Name>
+      <Name>plus_type</Name>
+      <ElementPath>plus-type</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
@@ -3873,53 +4253,62 @@
     </PropertyDefn>
     <PropertyDefn>
       <Name>tijdstipRegistratie</Name>
+      <ElementPath>tijdstipRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>eindRegistratie</Name>
+      <ElementPath>eindRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>LV-publicatiedatum</Name>
+      <Name>LV_publicatiedatum</Name>
+      <ElementPath>LV-publicatiedatum</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>bronhouder</Name>
+      <ElementPath>bronhouder</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>inOnderzoek</Name>
+      <ElementPath>inOnderzoek</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>relatieveHoogteligging</Name>
+      <ElementPath>relatieveHoogteligging</ElementPath>
       <Type>Integer</Type>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>bgt-status</Name>
+      <Name>bgt_status</Name>
+      <ElementPath>bgt-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-status</Name>
+      <Name>plus_status</Name>
+      <ElementPath>plus-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <!--Einde properties van BGTObject-->
     <!--Begin properties van Inrichtingselement-->
     <PropertyDefn>
-      <Name>bgt-type</Name>
+      <Name>bgt_type</Name>
       <ElementPath>class</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-type</Name>
+      <Name>plus_type</Name>
+      <ElementPath>plus-type</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
@@ -3965,53 +4354,62 @@
     </PropertyDefn>
     <PropertyDefn>
       <Name>tijdstipRegistratie</Name>
+      <ElementPath>tijdstipRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>eindRegistratie</Name>
+      <ElementPath>eindRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>LV-publicatiedatum</Name>
+      <Name>LV_publicatiedatum</Name>
+      <ElementPath>LV-publicatiedatum</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>bronhouder</Name>
+      <ElementPath>bronhouder</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>inOnderzoek</Name>
+      <ElementPath>inOnderzoek</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>relatieveHoogteligging</Name>
+      <ElementPath>relatieveHoogteligging</ElementPath>
       <Type>Integer</Type>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>bgt-status</Name>
+      <Name>bgt_status</Name>
+      <ElementPath>bgt-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-status</Name>
+      <Name>plus_status</Name>
+      <ElementPath>plus-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <!--Einde properties van BGTObject-->
     <!--Begin properties van Inrichtingselement-->
     <PropertyDefn>
-      <Name>bgt-type</Name>
+      <Name>bgt_type</Name>
       <ElementPath>class</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-type</Name>
+      <Name>plus_type</Name>
+      <ElementPath>plus-type</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
@@ -4057,53 +4455,62 @@
     </PropertyDefn>
     <PropertyDefn>
       <Name>tijdstipRegistratie</Name>
+      <ElementPath>tijdstipRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>eindRegistratie</Name>
+      <ElementPath>eindRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>LV-publicatiedatum</Name>
+      <Name>LV_publicatiedatum</Name>
+      <ElementPath>LV-publicatiedatum</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>bronhouder</Name>
+      <ElementPath>bronhouder</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>inOnderzoek</Name>
+      <ElementPath>inOnderzoek</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>relatieveHoogteligging</Name>
+      <ElementPath>relatieveHoogteligging</ElementPath>
       <Type>Integer</Type>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>bgt-status</Name>
+      <Name>bgt_status</Name>
+      <ElementPath>bgt-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-status</Name>
+      <Name>plus_status</Name>
+      <ElementPath>plus-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <!--Einde properties van BGTObject-->
     <!--Begin properties van Inrichtingselement-->
     <PropertyDefn>
-      <Name>bgt-type</Name>
+      <Name>bgt_type</Name>
       <ElementPath>class</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-type</Name>
+      <Name>plus_type</Name>
+      <ElementPath>plus-type</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
@@ -4148,53 +4555,62 @@
     </PropertyDefn>
     <PropertyDefn>
       <Name>tijdstipRegistratie</Name>
+      <ElementPath>tijdstipRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>eindRegistratie</Name>
+      <ElementPath>eindRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>LV-publicatiedatum</Name>
+      <Name>LV_publicatiedatum</Name>
+      <ElementPath>LV-publicatiedatum</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>bronhouder</Name>
+      <ElementPath>bronhouder</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>inOnderzoek</Name>
+      <ElementPath>inOnderzoek</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>relatieveHoogteligging</Name>
+      <ElementPath>relatieveHoogteligging</ElementPath>
       <Type>Integer</Type>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>bgt-status</Name>
+      <Name>bgt_status</Name>
+      <ElementPath>bgt-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-status</Name>
+      <Name>plus_status</Name>
+      <ElementPath>plus-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <!--Einde properties van BGTObject-->
     <!--Begin properties van Inrichtingselement-->
     <PropertyDefn>
-      <Name>bgt-type</Name>
+      <Name>bgt_type</Name>
       <ElementPath>class</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-type</Name>
+      <Name>plus_type</Name>
+      <ElementPath>plus-type</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
@@ -4239,53 +4655,62 @@
     </PropertyDefn>
     <PropertyDefn>
       <Name>tijdstipRegistratie</Name>
+      <ElementPath>tijdstipRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>eindRegistratie</Name>
+      <ElementPath>eindRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>LV-publicatiedatum</Name>
+      <Name>LV_publicatiedatum</Name>
+      <ElementPath>LV-publicatiedatum</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>bronhouder</Name>
+      <ElementPath>bronhouder</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>inOnderzoek</Name>
+      <ElementPath>inOnderzoek</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>relatieveHoogteligging</Name>
+      <ElementPath>relatieveHoogteligging</ElementPath>
       <Type>Integer</Type>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>bgt-status</Name>
+      <Name>bgt_status</Name>
+      <ElementPath>bgt-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-status</Name>
+      <Name>plus_status</Name>
+      <ElementPath>plus-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <!--Einde properties van BGTObject-->
     <!--Begin properties van Inrichtingselement-->
     <PropertyDefn>
-      <Name>bgt-type</Name>
+      <Name>bgt_type</Name>
       <ElementPath>class</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-type</Name>
+      <Name>plus_type</Name>
+      <ElementPath>plus-type</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
@@ -4330,53 +4755,62 @@
     </PropertyDefn>
     <PropertyDefn>
       <Name>tijdstipRegistratie</Name>
+      <ElementPath>tijdstipRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>eindRegistratie</Name>
+      <ElementPath>eindRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>LV-publicatiedatum</Name>
+      <Name>LV_publicatiedatum</Name>
+      <ElementPath>LV-publicatiedatum</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>bronhouder</Name>
+      <ElementPath>bronhouder</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>inOnderzoek</Name>
+      <ElementPath>inOnderzoek</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>relatieveHoogteligging</Name>
+      <ElementPath>relatieveHoogteligging</ElementPath>
       <Type>Integer</Type>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>bgt-status</Name>
+      <Name>bgt_status</Name>
+      <ElementPath>bgt-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-status</Name>
+      <Name>plus_status</Name>
+      <ElementPath>plus-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <!--Einde properties van BGTObject-->
     <!--Begin properties van Inrichtingselement-->
     <PropertyDefn>
-      <Name>bgt-type</Name>
+      <Name>bgt_type</Name>
       <ElementPath>class</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-type</Name>
+      <Name>plus_type</Name>
+      <ElementPath>plus-type</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
@@ -4421,53 +4855,62 @@
     </PropertyDefn>
     <PropertyDefn>
       <Name>tijdstipRegistratie</Name>
+      <ElementPath>tijdstipRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>eindRegistratie</Name>
+      <ElementPath>eindRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>LV-publicatiedatum</Name>
+      <Name>LV_publicatiedatum</Name>
+      <ElementPath>LV-publicatiedatum</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>bronhouder</Name>
+      <ElementPath>bronhouder</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>inOnderzoek</Name>
+      <ElementPath>inOnderzoek</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>relatieveHoogteligging</Name>
+      <ElementPath>relatieveHoogteligging</ElementPath>
       <Type>Integer</Type>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>bgt-status</Name>
+      <Name>bgt_status</Name>
+      <ElementPath>bgt-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-status</Name>
+      <Name>plus_status</Name>
+      <ElementPath>plus-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <!--Einde properties van BGTObject-->
     <!--Begin properties van Inrichtingselement-->
     <PropertyDefn>
-      <Name>bgt-type</Name>
+      <Name>bgt_type</Name>
       <ElementPath>class</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-type</Name>
+      <Name>plus_type</Name>
+      <ElementPath>plus-type</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
@@ -4512,53 +4955,62 @@
     </PropertyDefn>
     <PropertyDefn>
       <Name>tijdstipRegistratie</Name>
+      <ElementPath>tijdstipRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>eindRegistratie</Name>
+      <ElementPath>eindRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>LV-publicatiedatum</Name>
+      <Name>LV_publicatiedatum</Name>
+      <ElementPath>LV-publicatiedatum</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>bronhouder</Name>
+      <ElementPath>bronhouder</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>inOnderzoek</Name>
+      <ElementPath>inOnderzoek</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>relatieveHoogteligging</Name>
+      <ElementPath>relatieveHoogteligging</ElementPath>
       <Type>Integer</Type>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>bgt-status</Name>
+      <Name>bgt_status</Name>
+      <ElementPath>bgt-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-status</Name>
+      <Name>plus_status</Name>
+      <ElementPath>plus-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <!--Einde properties van BGTObject-->
     <!--Begin properties van Inrichtingselement-->
     <PropertyDefn>
-      <Name>bgt-type</Name>
+      <Name>bgt_type</Name>
       <ElementPath>class</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-type</Name>
+      <Name>plus_type</Name>
+      <ElementPath>plus-type</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
@@ -4603,53 +5055,62 @@
     </PropertyDefn>
     <PropertyDefn>
       <Name>tijdstipRegistratie</Name>
+      <ElementPath>tijdstipRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>eindRegistratie</Name>
+      <ElementPath>eindRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>LV-publicatiedatum</Name>
+      <Name>LV_publicatiedatum</Name>
+      <ElementPath>LV-publicatiedatum</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>bronhouder</Name>
+      <ElementPath>bronhouder</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>inOnderzoek</Name>
+      <ElementPath>inOnderzoek</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>relatieveHoogteligging</Name>
+      <ElementPath>relatieveHoogteligging</ElementPath>
       <Type>Integer</Type>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>bgt-status</Name>
+      <Name>bgt_status</Name>
+      <ElementPath>bgt-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-status</Name>
+      <Name>plus_status</Name>
+      <ElementPath>plus-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <!--Einde properties van BGTObject-->
     <!--Begin properties van Inrichtingselement-->
     <PropertyDefn>
-      <Name>bgt-type</Name>
+      <Name>bgt_type</Name>
       <ElementPath>class</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-type</Name>
+      <Name>plus_type</Name>
+      <ElementPath>plus-type</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
@@ -4694,53 +5155,62 @@
     </PropertyDefn>
     <PropertyDefn>
       <Name>tijdstipRegistratie</Name>
+      <ElementPath>tijdstipRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>eindRegistratie</Name>
+      <ElementPath>eindRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>LV-publicatiedatum</Name>
+      <Name>LV_publicatiedatum</Name>
+      <ElementPath>LV-publicatiedatum</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>bronhouder</Name>
+      <ElementPath>bronhouder</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>inOnderzoek</Name>
+      <ElementPath>inOnderzoek</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>relatieveHoogteligging</Name>
+      <ElementPath>relatieveHoogteligging</ElementPath>
       <Type>Integer</Type>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>bgt-status</Name>
+      <Name>bgt_status</Name>
+      <ElementPath>bgt-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-status</Name>
+      <Name>plus_status</Name>
+      <ElementPath>plus-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <!--Einde properties van BGTObject-->
     <!--Begin properties van Inrichtingselement-->
     <PropertyDefn>
-      <Name>bgt-type</Name>
+      <Name>bgt_type</Name>
       <ElementPath>class</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-type</Name>
+      <Name>plus_type</Name>
+      <ElementPath>plus-type</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
@@ -4748,6 +5218,7 @@
     <!--Begin properties van Paal-->
     <PropertyDefn>
       <Name>hectometeraanduiding</Name>
+      <ElementPath>hectometeraanduiding</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
@@ -4792,53 +5263,62 @@
     </PropertyDefn>
     <PropertyDefn>
       <Name>tijdstipRegistratie</Name>
+      <ElementPath>tijdstipRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>eindRegistratie</Name>
+      <ElementPath>eindRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>LV-publicatiedatum</Name>
+      <Name>LV_publicatiedatum</Name>
+      <ElementPath>LV-publicatiedatum</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>bronhouder</Name>
+      <ElementPath>bronhouder</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>inOnderzoek</Name>
+      <ElementPath>inOnderzoek</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>relatieveHoogteligging</Name>
+      <ElementPath>relatieveHoogteligging</ElementPath>
       <Type>Integer</Type>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>bgt-status</Name>
+      <Name>bgt_status</Name>
+      <ElementPath>bgt-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-status</Name>
+      <Name>plus_status</Name>
+      <ElementPath>plus-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <!--Einde properties van BGTObject-->
     <!--Begin properties van Inrichtingselement-->
     <PropertyDefn>
-      <Name>bgt-type</Name>
+      <Name>bgt_type</Name>
       <ElementPath>class</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-type</Name>
+      <Name>plus_type</Name>
+      <ElementPath>plus-type</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
@@ -4846,6 +5326,7 @@
     <!--Begin properties van Paal-->
     <PropertyDefn>
       <Name>hectometeraanduiding</Name>
+      <ElementPath>hectometeraanduiding</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
@@ -4890,53 +5371,62 @@
     </PropertyDefn>
     <PropertyDefn>
       <Name>tijdstipRegistratie</Name>
+      <ElementPath>tijdstipRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>eindRegistratie</Name>
+      <ElementPath>eindRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>LV-publicatiedatum</Name>
+      <Name>LV_publicatiedatum</Name>
+      <ElementPath>LV-publicatiedatum</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>bronhouder</Name>
+      <ElementPath>bronhouder</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>inOnderzoek</Name>
+      <ElementPath>inOnderzoek</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>relatieveHoogteligging</Name>
+      <ElementPath>relatieveHoogteligging</ElementPath>
       <Type>Integer</Type>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>bgt-status</Name>
+      <Name>bgt_status</Name>
+      <ElementPath>bgt-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-status</Name>
+      <Name>plus_status</Name>
+      <ElementPath>plus-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <!--Einde properties van BGTObject-->
     <!--Begin properties van Inrichtingselement-->
     <PropertyDefn>
-      <Name>bgt-type</Name>
+      <Name>bgt_type</Name>
       <ElementPath>class</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-type</Name>
+      <Name>plus_type</Name>
+      <ElementPath>plus-type</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
@@ -4981,53 +5471,62 @@
     </PropertyDefn>
     <PropertyDefn>
       <Name>tijdstipRegistratie</Name>
+      <ElementPath>tijdstipRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>eindRegistratie</Name>
+      <ElementPath>eindRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>LV-publicatiedatum</Name>
+      <Name>LV_publicatiedatum</Name>
+      <ElementPath>LV-publicatiedatum</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>bronhouder</Name>
+      <ElementPath>bronhouder</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>inOnderzoek</Name>
+      <ElementPath>inOnderzoek</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>relatieveHoogteligging</Name>
+      <ElementPath>relatieveHoogteligging</ElementPath>
       <Type>Integer</Type>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>bgt-status</Name>
+      <Name>bgt_status</Name>
+      <ElementPath>bgt-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-status</Name>
+      <Name>plus_status</Name>
+      <ElementPath>plus-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <!--Einde properties van BGTObject-->
     <!--Begin properties van Inrichtingselement-->
     <PropertyDefn>
-      <Name>bgt-type</Name>
+      <Name>bgt_type</Name>
       <ElementPath>class</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-type</Name>
+      <Name>plus_type</Name>
+      <ElementPath>plus-type</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
@@ -5072,53 +5571,62 @@
     </PropertyDefn>
     <PropertyDefn>
       <Name>tijdstipRegistratie</Name>
+      <ElementPath>tijdstipRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>eindRegistratie</Name>
+      <ElementPath>eindRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>LV-publicatiedatum</Name>
+      <Name>LV_publicatiedatum</Name>
+      <ElementPath>LV-publicatiedatum</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>bronhouder</Name>
+      <ElementPath>bronhouder</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>inOnderzoek</Name>
+      <ElementPath>inOnderzoek</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>relatieveHoogteligging</Name>
+      <ElementPath>relatieveHoogteligging</ElementPath>
       <Type>Integer</Type>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>bgt-status</Name>
+      <Name>bgt_status</Name>
+      <ElementPath>bgt-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-status</Name>
+      <Name>plus_status</Name>
+      <ElementPath>plus-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <!--Einde properties van BGTObject-->
     <!--Begin properties van Inrichtingselement-->
     <PropertyDefn>
-      <Name>bgt-type</Name>
+      <Name>bgt_type</Name>
       <ElementPath>class</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-type</Name>
+      <Name>plus_type</Name>
+      <ElementPath>plus-type</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
@@ -5163,53 +5671,62 @@
     </PropertyDefn>
     <PropertyDefn>
       <Name>tijdstipRegistratie</Name>
+      <ElementPath>tijdstipRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>eindRegistratie</Name>
+      <ElementPath>eindRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>LV-publicatiedatum</Name>
+      <Name>LV_publicatiedatum</Name>
+      <ElementPath>LV-publicatiedatum</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>bronhouder</Name>
+      <ElementPath>bronhouder</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>inOnderzoek</Name>
+      <ElementPath>inOnderzoek</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>relatieveHoogteligging</Name>
+      <ElementPath>relatieveHoogteligging</ElementPath>
       <Type>Integer</Type>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>bgt-status</Name>
+      <Name>bgt_status</Name>
+      <ElementPath>bgt-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-status</Name>
+      <Name>plus_status</Name>
+      <ElementPath>plus-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <!--Einde properties van BGTObject-->
     <!--Begin properties van Inrichtingselement-->
     <PropertyDefn>
-      <Name>bgt-type</Name>
+      <Name>bgt_type</Name>
       <ElementPath>class</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-type</Name>
+      <Name>plus_type</Name>
+      <ElementPath>plus-type</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
@@ -5254,53 +5771,62 @@
     </PropertyDefn>
     <PropertyDefn>
       <Name>tijdstipRegistratie</Name>
+      <ElementPath>tijdstipRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>eindRegistratie</Name>
+      <ElementPath>eindRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>LV-publicatiedatum</Name>
+      <Name>LV_publicatiedatum</Name>
+      <ElementPath>LV-publicatiedatum</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>bronhouder</Name>
+      <ElementPath>bronhouder</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>inOnderzoek</Name>
+      <ElementPath>inOnderzoek</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>relatieveHoogteligging</Name>
+      <ElementPath>relatieveHoogteligging</ElementPath>
       <Type>Integer</Type>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>bgt-status</Name>
+      <Name>bgt_status</Name>
+      <ElementPath>bgt-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-status</Name>
+      <Name>plus_status</Name>
+      <ElementPath>plus-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <!--Einde properties van BGTObject-->
     <!--Begin properties van Inrichtingselement-->
     <PropertyDefn>
-      <Name>bgt-type</Name>
+      <Name>bgt_type</Name>
       <ElementPath>class</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-type</Name>
+      <Name>plus_type</Name>
+      <ElementPath>plus-type</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
@@ -5345,53 +5871,62 @@
     </PropertyDefn>
     <PropertyDefn>
       <Name>tijdstipRegistratie</Name>
+      <ElementPath>tijdstipRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>eindRegistratie</Name>
+      <ElementPath>eindRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>LV-publicatiedatum</Name>
+      <Name>LV_publicatiedatum</Name>
+      <ElementPath>LV-publicatiedatum</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>bronhouder</Name>
+      <ElementPath>bronhouder</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>inOnderzoek</Name>
+      <ElementPath>inOnderzoek</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>relatieveHoogteligging</Name>
+      <ElementPath>relatieveHoogteligging</ElementPath>
       <Type>Integer</Type>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>bgt-status</Name>
+      <Name>bgt_status</Name>
+      <ElementPath>bgt-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-status</Name>
+      <Name>plus_status</Name>
+      <ElementPath>plus-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <!--Einde properties van BGTObject-->
     <!--Begin properties van Inrichtingselement-->
     <PropertyDefn>
-      <Name>bgt-type</Name>
+      <Name>bgt_type</Name>
       <ElementPath>class</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-type</Name>
+      <Name>plus_type</Name>
+      <ElementPath>plus-type</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
@@ -5436,53 +5971,62 @@
     </PropertyDefn>
     <PropertyDefn>
       <Name>tijdstipRegistratie</Name>
+      <ElementPath>tijdstipRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>eindRegistratie</Name>
+      <ElementPath>eindRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>LV-publicatiedatum</Name>
+      <Name>LV_publicatiedatum</Name>
+      <ElementPath>LV-publicatiedatum</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>bronhouder</Name>
+      <ElementPath>bronhouder</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>inOnderzoek</Name>
+      <ElementPath>inOnderzoek</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>relatieveHoogteligging</Name>
+      <ElementPath>relatieveHoogteligging</ElementPath>
       <Type>Integer</Type>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>bgt-status</Name>
+      <Name>bgt_status</Name>
+      <ElementPath>bgt-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-status</Name>
+      <Name>plus_status</Name>
+      <ElementPath>plus-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <!--Einde properties van BGTObject-->
     <!--Begin properties van Inrichtingselement-->
     <PropertyDefn>
-      <Name>bgt-type</Name>
+      <Name>bgt_type</Name>
       <ElementPath>class</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-type</Name>
+      <Name>plus_type</Name>
+      <ElementPath>plus-type</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
@@ -5527,53 +6071,62 @@
     </PropertyDefn>
     <PropertyDefn>
       <Name>tijdstipRegistratie</Name>
+      <ElementPath>tijdstipRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>eindRegistratie</Name>
+      <ElementPath>eindRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>LV-publicatiedatum</Name>
+      <Name>LV_publicatiedatum</Name>
+      <ElementPath>LV-publicatiedatum</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>bronhouder</Name>
+      <ElementPath>bronhouder</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>inOnderzoek</Name>
+      <ElementPath>inOnderzoek</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>relatieveHoogteligging</Name>
+      <ElementPath>relatieveHoogteligging</ElementPath>
       <Type>Integer</Type>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>bgt-status</Name>
+      <Name>bgt_status</Name>
+      <ElementPath>bgt-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-status</Name>
+      <Name>plus_status</Name>
+      <ElementPath>plus-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <!--Einde properties van BGTObject-->
     <!--Begin properties van Inrichtingselement-->
     <PropertyDefn>
-      <Name>bgt-type</Name>
+      <Name>bgt_type</Name>
       <ElementPath>class</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-type</Name>
+      <Name>plus_type</Name>
+      <ElementPath>plus-type</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
@@ -5618,53 +6171,62 @@
     </PropertyDefn>
     <PropertyDefn>
       <Name>tijdstipRegistratie</Name>
+      <ElementPath>tijdstipRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>eindRegistratie</Name>
+      <ElementPath>eindRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>LV-publicatiedatum</Name>
+      <Name>LV_publicatiedatum</Name>
+      <ElementPath>LV-publicatiedatum</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>bronhouder</Name>
+      <ElementPath>bronhouder</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>inOnderzoek</Name>
+      <ElementPath>inOnderzoek</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>relatieveHoogteligging</Name>
+      <ElementPath>relatieveHoogteligging</ElementPath>
       <Type>Integer</Type>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>bgt-status</Name>
+      <Name>bgt_status</Name>
+      <ElementPath>bgt-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-status</Name>
+      <Name>plus_status</Name>
+      <ElementPath>plus-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <!--Einde properties van BGTObject-->
     <!--Begin properties van Inrichtingselement-->
     <PropertyDefn>
-      <Name>bgt-type</Name>
+      <Name>bgt_type</Name>
       <ElementPath>class</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-type</Name>
+      <Name>plus_type</Name>
+      <ElementPath>plus-type</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
@@ -5709,53 +6271,62 @@
     </PropertyDefn>
     <PropertyDefn>
       <Name>tijdstipRegistratie</Name>
+      <ElementPath>tijdstipRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>eindRegistratie</Name>
+      <ElementPath>eindRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>LV-publicatiedatum</Name>
+      <Name>LV_publicatiedatum</Name>
+      <ElementPath>LV-publicatiedatum</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>bronhouder</Name>
+      <ElementPath>bronhouder</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>inOnderzoek</Name>
+      <ElementPath>inOnderzoek</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>relatieveHoogteligging</Name>
+      <ElementPath>relatieveHoogteligging</ElementPath>
       <Type>Integer</Type>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>bgt-status</Name>
+      <Name>bgt_status</Name>
+      <ElementPath>bgt-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-status</Name>
+      <Name>plus_status</Name>
+      <ElementPath>plus-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <!--Einde properties van BGTObject-->
     <!--Begin properties van Inrichtingselement-->
     <PropertyDefn>
-      <Name>bgt-type</Name>
+      <Name>bgt_type</Name>
       <ElementPath>class</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-type</Name>
+      <Name>plus_type</Name>
+      <ElementPath>plus-type</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
@@ -5801,53 +6372,62 @@
     </PropertyDefn>
     <PropertyDefn>
       <Name>tijdstipRegistratie</Name>
+      <ElementPath>tijdstipRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>eindRegistratie</Name>
+      <ElementPath>eindRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>LV-publicatiedatum</Name>
+      <Name>LV_publicatiedatum</Name>
+      <ElementPath>LV-publicatiedatum</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>bronhouder</Name>
+      <ElementPath>bronhouder</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>inOnderzoek</Name>
+      <ElementPath>inOnderzoek</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>relatieveHoogteligging</Name>
+      <ElementPath>relatieveHoogteligging</ElementPath>
       <Type>Integer</Type>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>bgt-status</Name>
+      <Name>bgt_status</Name>
+      <ElementPath>bgt-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-status</Name>
+      <Name>plus_status</Name>
+      <ElementPath>plus-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <!--Einde properties van BGTObject-->
     <!--Begin properties van VegetatieObject-->
     <PropertyDefn>
-      <Name>bgt-type</Name>
+      <Name>bgt_type</Name>
       <ElementPath>class</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-type</Name>
+      <Name>plus_type</Name>
+      <ElementPath>plus-type</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
@@ -5893,53 +6473,62 @@
     </PropertyDefn>
     <PropertyDefn>
       <Name>tijdstipRegistratie</Name>
+      <ElementPath>tijdstipRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>eindRegistratie</Name>
+      <ElementPath>eindRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>LV-publicatiedatum</Name>
+      <Name>LV_publicatiedatum</Name>
+      <ElementPath>LV-publicatiedatum</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>bronhouder</Name>
+      <ElementPath>bronhouder</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>inOnderzoek</Name>
+      <ElementPath>inOnderzoek</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>relatieveHoogteligging</Name>
+      <ElementPath>relatieveHoogteligging</ElementPath>
       <Type>Integer</Type>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>bgt-status</Name>
+      <Name>bgt_status</Name>
+      <ElementPath>bgt-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-status</Name>
+      <Name>plus_status</Name>
+      <ElementPath>plus-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <!--Einde properties van BGTObject-->
     <!--Begin properties van VegetatieObject-->
     <PropertyDefn>
-      <Name>bgt-type</Name>
+      <Name>bgt_type</Name>
       <ElementPath>class</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-type</Name>
+      <Name>plus_type</Name>
+      <ElementPath>plus-type</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
@@ -5984,40 +6573,48 @@
     </PropertyDefn>
     <PropertyDefn>
       <Name>tijdstipRegistratie</Name>
+      <ElementPath>tijdstipRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>eindRegistratie</Name>
+      <ElementPath>eindRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>LV-publicatiedatum</Name>
+      <Name>LV_publicatiedatum</Name>
+      <ElementPath>LV-publicatiedatum</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>bronhouder</Name>
+      <ElementPath>bronhouder</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>inOnderzoek</Name>
+      <ElementPath>inOnderzoek</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>relatieveHoogteligging</Name>
+      <ElementPath>relatieveHoogteligging</ElementPath>
       <Type>Integer</Type>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>bgt-status</Name>
+      <Name>bgt_status</Name>
+      <ElementPath>bgt-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-status</Name>
+      <Name>plus_status</Name>
+      <ElementPath>plus-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
@@ -6025,6 +6622,7 @@
     <!--Begin properties van RegistratiefGebied-->
     <PropertyDefn>
       <Name>naam</Name>
+      <ElementPath>naam</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
@@ -6069,40 +6667,48 @@
     </PropertyDefn>
     <PropertyDefn>
       <Name>tijdstipRegistratie</Name>
+      <ElementPath>tijdstipRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>eindRegistratie</Name>
+      <ElementPath>eindRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>LV-publicatiedatum</Name>
+      <Name>LV_publicatiedatum</Name>
+      <ElementPath>LV-publicatiedatum</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>bronhouder</Name>
+      <ElementPath>bronhouder</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>inOnderzoek</Name>
+      <ElementPath>inOnderzoek</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>relatieveHoogteligging</Name>
+      <ElementPath>relatieveHoogteligging</ElementPath>
       <Type>Integer</Type>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>bgt-status</Name>
+      <Name>bgt_status</Name>
+      <ElementPath>bgt-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-status</Name>
+      <Name>plus_status</Name>
+      <ElementPath>plus-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
@@ -6110,6 +6716,7 @@
     <!--Begin properties van RegistratiefGebied-->
     <PropertyDefn>
       <Name>naam</Name>
+      <ElementPath>naam</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
@@ -6154,40 +6761,48 @@
     </PropertyDefn>
     <PropertyDefn>
       <Name>tijdstipRegistratie</Name>
+      <ElementPath>tijdstipRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>eindRegistratie</Name>
+      <ElementPath>eindRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>LV-publicatiedatum</Name>
+      <Name>LV_publicatiedatum</Name>
+      <ElementPath>LV-publicatiedatum</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>bronhouder</Name>
+      <ElementPath>bronhouder</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>inOnderzoek</Name>
+      <ElementPath>inOnderzoek</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>relatieveHoogteligging</Name>
+      <ElementPath>relatieveHoogteligging</ElementPath>
       <Type>Integer</Type>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>bgt-status</Name>
+      <Name>bgt_status</Name>
+      <ElementPath>bgt-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-status</Name>
+      <Name>plus_status</Name>
+      <ElementPath>plus-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
@@ -6195,6 +6810,7 @@
     <!--Begin properties van RegistratiefGebied-->
     <PropertyDefn>
       <Name>naam</Name>
+      <ElementPath>naam</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
@@ -6239,40 +6855,48 @@
     </PropertyDefn>
     <PropertyDefn>
       <Name>tijdstipRegistratie</Name>
+      <ElementPath>tijdstipRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>eindRegistratie</Name>
+      <ElementPath>eindRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>LV-publicatiedatum</Name>
+      <Name>LV_publicatiedatum</Name>
+      <ElementPath>LV-publicatiedatum</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>bronhouder</Name>
+      <ElementPath>bronhouder</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>inOnderzoek</Name>
+      <ElementPath>inOnderzoek</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>relatieveHoogteligging</Name>
+      <ElementPath>relatieveHoogteligging</ElementPath>
       <Type>Integer</Type>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>bgt-status</Name>
+      <Name>bgt_status</Name>
+      <ElementPath>bgt-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-status</Name>
+      <Name>plus_status</Name>
+      <ElementPath>plus-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
@@ -6280,6 +6904,7 @@
     <!--Begin properties van RegistratiefGebied-->
     <PropertyDefn>
       <Name>naam</Name>
+      <ElementPath>naam</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
@@ -6324,40 +6949,48 @@
     </PropertyDefn>
     <PropertyDefn>
       <Name>tijdstipRegistratie</Name>
+      <ElementPath>tijdstipRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>eindRegistratie</Name>
+      <ElementPath>eindRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>LV-publicatiedatum</Name>
+      <Name>LV_publicatiedatum</Name>
+      <ElementPath>LV-publicatiedatum</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>bronhouder</Name>
+      <ElementPath>bronhouder</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>inOnderzoek</Name>
+      <ElementPath>inOnderzoek</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>relatieveHoogteligging</Name>
+      <ElementPath>relatieveHoogteligging</ElementPath>
       <Type>Integer</Type>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>bgt-status</Name>
+      <Name>bgt_status</Name>
+      <ElementPath>bgt-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-status</Name>
+      <Name>plus_status</Name>
+      <ElementPath>plus-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
@@ -6365,6 +6998,7 @@
     <!--Begin properties van RegistratiefGebied-->
     <PropertyDefn>
       <Name>naam</Name>
+      <ElementPath>naam</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
@@ -6409,40 +7043,48 @@
     </PropertyDefn>
     <PropertyDefn>
       <Name>tijdstipRegistratie</Name>
+      <ElementPath>tijdstipRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>eindRegistratie</Name>
+      <ElementPath>eindRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>LV-publicatiedatum</Name>
+      <Name>LV_publicatiedatum</Name>
+      <ElementPath>LV-publicatiedatum</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>bronhouder</Name>
+      <ElementPath>bronhouder</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>inOnderzoek</Name>
+      <ElementPath>inOnderzoek</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>relatieveHoogteligging</Name>
+      <ElementPath>relatieveHoogteligging</ElementPath>
       <Type>Integer</Type>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>bgt-status</Name>
+      <Name>bgt_status</Name>
+      <ElementPath>bgt-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-status</Name>
+      <Name>plus_status</Name>
+      <ElementPath>plus-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
@@ -6450,6 +7092,7 @@
     <!--Begin properties van RegistratiefGebied-->
     <PropertyDefn>
       <Name>naam</Name>
+      <ElementPath>naam</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
@@ -6494,40 +7137,48 @@
     </PropertyDefn>
     <PropertyDefn>
       <Name>tijdstipRegistratie</Name>
+      <ElementPath>tijdstipRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>eindRegistratie</Name>
+      <ElementPath>eindRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>LV-publicatiedatum</Name>
+      <Name>LV_publicatiedatum</Name>
+      <ElementPath>LV-publicatiedatum</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>bronhouder</Name>
+      <ElementPath>bronhouder</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>inOnderzoek</Name>
+      <ElementPath>inOnderzoek</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>relatieveHoogteligging</Name>
+      <ElementPath>relatieveHoogteligging</ElementPath>
       <Type>Integer</Type>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>bgt-status</Name>
+      <Name>bgt_status</Name>
+      <ElementPath>bgt-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-status</Name>
+      <Name>plus_status</Name>
+      <ElementPath>plus-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
@@ -6535,6 +7186,7 @@
     <!--Begin properties van RegistratiefGebied-->
     <PropertyDefn>
       <Name>naam</Name>
+      <ElementPath>naam</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
@@ -6579,40 +7231,48 @@
     </PropertyDefn>
     <PropertyDefn>
       <Name>tijdstipRegistratie</Name>
+      <ElementPath>tijdstipRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>eindRegistratie</Name>
+      <ElementPath>eindRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>LV-publicatiedatum</Name>
+      <Name>LV_publicatiedatum</Name>
+      <ElementPath>LV-publicatiedatum</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>bronhouder</Name>
+      <ElementPath>bronhouder</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>inOnderzoek</Name>
+      <ElementPath>inOnderzoek</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>relatieveHoogteligging</Name>
+      <ElementPath>relatieveHoogteligging</ElementPath>
       <Type>Integer</Type>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>bgt-status</Name>
+      <Name>bgt_status</Name>
+      <ElementPath>bgt-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-status</Name>
+      <Name>plus_status</Name>
+      <ElementPath>plus-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
@@ -6620,6 +7280,7 @@
     <!--Begin properties van RegistratiefGebied-->
     <PropertyDefn>
       <Name>naam</Name>
+      <ElementPath>naam</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
@@ -6664,40 +7325,48 @@
     </PropertyDefn>
     <PropertyDefn>
       <Name>tijdstipRegistratie</Name>
+      <ElementPath>tijdstipRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>eindRegistratie</Name>
+      <ElementPath>eindRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>LV-publicatiedatum</Name>
+      <Name>LV_publicatiedatum</Name>
+      <ElementPath>LV-publicatiedatum</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>bronhouder</Name>
+      <ElementPath>bronhouder</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>inOnderzoek</Name>
+      <ElementPath>inOnderzoek</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>relatieveHoogteligging</Name>
+      <ElementPath>relatieveHoogteligging</ElementPath>
       <Type>Integer</Type>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>bgt-status</Name>
+      <Name>bgt_status</Name>
+      <ElementPath>bgt-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-status</Name>
+      <Name>plus_status</Name>
+      <ElementPath>plus-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
@@ -6705,6 +7374,7 @@
     <!--Begin properties van RegistratiefGebied-->
     <PropertyDefn>
       <Name>naam</Name>
+      <ElementPath>naam</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
@@ -6749,40 +7419,48 @@
     </PropertyDefn>
     <PropertyDefn>
       <Name>tijdstipRegistratie</Name>
+      <ElementPath>tijdstipRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>eindRegistratie</Name>
+      <ElementPath>eindRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>LV-publicatiedatum</Name>
+      <Name>LV_publicatiedatum</Name>
+      <ElementPath>LV-publicatiedatum</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>bronhouder</Name>
+      <ElementPath>bronhouder</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>inOnderzoek</Name>
+      <ElementPath>inOnderzoek</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>relatieveHoogteligging</Name>
+      <ElementPath>relatieveHoogteligging</ElementPath>
       <Type>Integer</Type>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>bgt-status</Name>
+      <Name>bgt_status</Name>
+      <ElementPath>bgt-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-status</Name>
+      <Name>plus_status</Name>
+      <ElementPath>plus-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
@@ -6790,6 +7468,7 @@
     <!--Begin properties van RegistratiefGebied-->
     <PropertyDefn>
       <Name>naam</Name>
+      <ElementPath>naam</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>

@@ -44,40 +44,48 @@
     </PropertyDefn>
     <PropertyDefn>
       <Name>tijdstipRegistratie</Name>
+      <ElementPath>tijdstipRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn> 
     <PropertyDefn>
       <Name>eindRegistratie</Name>
+      <ElementPath>eindRegistratie</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn> 
     <PropertyDefn>
-      <Name>LV-publicatiedatum</Name>
+      <Name>LV_publicatiedatum</Name>
+      <ElementPath>LV-publicatiedatum</ElementPath>
       <Type>String</Type>
       <Width>23</Width>
     </PropertyDefn> 
     <PropertyDefn>
       <Name>bronhouder</Name>
+      <ElementPath>bronhouder</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn> 
     <PropertyDefn>
       <Name>inOnderzoek</Name>
+      <ElementPath>inOnderzoek</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>     
     <PropertyDefn>
       <Name>relatieveHoogteligging</Name>
+      <ElementPath>relatieveHoogteligging</ElementPath>
       <Type>Integer</Type>
     </PropertyDefn>     
     <PropertyDefn>
-      <Name>bgt-status</Name>
+      <Name>bgt_status</Name>
+      <ElementPath>bgt-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-status</Name>
+      <Name>plus_status</Name>
+      <ElementPath>plus-status</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>     
@@ -86,31 +94,32 @@
     <Name>Wegdeel</Name>
     <ParentClass>BGTObject</ParentClass>
     <PropertyDefn>
-      <Name>bgt-functie</Name>
+      <Name>bgt_functie</Name>
       <ElementPath>function</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>     
     <PropertyDefn>
-      <Name>plus-functie</Name>
+      <Name>plus_functie</Name>
       <ElementPath>plus-functieWegdeel</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn> 
     <PropertyDefn>
-      <Name>bgt-fysiekVoorkomen</Name>
+      <Name>bgt_fysiekVoorkomen</Name>
       <ElementPath>surfaceMaterial</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-fysiekVoorkomen</Name>
+      <Name>plus_fysiekVoorkomen</Name>
       <ElementPath>plus-fysiekVoorkomenWegdeel</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn> 
     <PropertyDefn>
       <Name>wegdeelOpTalud</Name>
+      <ElementPath>wegdeelOpTalud</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
@@ -137,31 +146,32 @@
     <Name>OndersteunendWegdeel</Name>
     <ParentClass>BGTObject</ParentClass>
     <PropertyDefn>
-      <Name>bgt-functie</Name>
+      <Name>bgt_functie</Name>
       <ElementPath>function</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>     
     <PropertyDefn>
-      <Name>plus-functie</Name>
+      <Name>plus_functie</Name>
       <ElementPath>plus-functieOndersteunendWegdeel</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn> 
     <PropertyDefn>
-      <Name>bgt-fysiekVoorkomen</Name>
+      <Name>bgt_fysiekVoorkomen</Name>
       <ElementPath>surfaceMaterial</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-fysiekVoorkomen</Name>
+      <Name>plus_fysiekVoorkomen</Name>
       <ElementPath>plus-fysiekVoorkomenOndersteunendWegdeel</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn> 
     <PropertyDefn>
       <Name>ondersteunendWegdeelOpTalud</Name>
+      <ElementPath>ondersteunendWegdeelOpTalud</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
@@ -188,17 +198,20 @@
     <Name>OnbegroeidTerreindeel</Name>
     <ParentClass>BGTObject</ParentClass>
     <PropertyDefn>
-      <Name>bgt-fysiekVoorkomen</Name>
+      <Name>bgt_fysiekVoorkomen</Name>
+      <ElementPath>bgt-fysiekVoorkomen</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-fysiekVoorkomen</Name>
+      <Name>plus_fysiekVoorkomen</Name>
+      <ElementPath>plus-fysiekVoorkomen</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn> 
     <PropertyDefn>
       <Name>onbegroeidTerreindeelOpTalud</Name>
+      <ElementPath>onbegroeidTerreindeelOpTalud</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
@@ -222,18 +235,20 @@
     <Name>BegroeidTerreindeel</Name>
     <ParentClass>BGTObject</ParentClass>
     <PropertyDefn>
-      <Name>bgt-fysiekVoorkomen</Name>
+      <Name>bgt_fysiekVoorkomen</Name>
       <ElementPath>class</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-fysiekVoorkomen</Name>
+      <Name>plus_fysiekVoorkomen</Name>
+      <ElementPath>plus-fysiekVoorkomen</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn> 
     <PropertyDefn>
       <Name>begroeidTerreindeelOpTalud</Name>
+      <ElementPath>begroeidTerreindeelOpTalud</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
@@ -260,13 +275,14 @@
     <Name>Waterdeel</Name>
     <ParentClass>BGTObject</ParentClass>
     <PropertyDefn>
-      <Name>bgt-type</Name>
+      <Name>bgt_type</Name>
       <ElementPath>class</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-type</Name>
+      <Name>plus_type</Name>
+      <ElementPath>plus-type</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn> 
@@ -285,13 +301,14 @@
     <Name>OndersteunendWaterdeel</Name>
     <ParentClass>BGTObject</ParentClass>
     <PropertyDefn>
-      <Name>bgt-type</Name>
+      <Name>bgt_type</Name>
       <ElementPath>class</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>plus-type</Name>
+      <Name>plus_type</Name>
+      <ElementPath>plus-type</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn> 
@@ -311,6 +328,7 @@
     <ParentClass>BGTObject</ParentClass>
     <PropertyDefn>
       <Name>identificatieBAGPND</Name>
+      <ElementPath>identificatieBAGPND</ElementPath>
       <Type>String</Type>
       <Width>16</Width>
     </PropertyDefn> 
@@ -343,11 +361,13 @@
     </PropertyDefn>
     <PropertyDefn>
       <Name>identificatieBAGVBOLaagsteHuisnummer</Name>
+      <ElementPath>identificatieBAGVBOLaagsteHuisnummer</ElementPath>
       <Type>String</Type>
       <Width>16</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>identificatieBAGVBOHoogsteHuisnummer</Name>
+      <ElementPath>identificatieBAGVBOHoogsteHuisnummer</ElementPath>
       <Type>String</Type>
       <Width>16</Width>
     </PropertyDefn>
@@ -356,13 +376,13 @@
     <Name>Spoor</Name>
     <ParentClass>BGTObject</ParentClass>
     <PropertyDefn>
-      <Name>bgt-functie</Name>
+      <Name>bgt_functie</Name>
       <ElementPath>function</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>     
     <PropertyDefn>
-      <Name>plus-functie</Name>
+      <Name>plus_functie</Name>
       <ElementPath>plus-functieSpoor</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
@@ -384,12 +404,14 @@
     <Name>OverigBouwwerk</Name>
     <ParentClass>BGTObject</ParentClass>
     <PropertyDefn>
-      <Name>bgt-type</Name>
+      <Name>bgt_type</Name>
+      <ElementPath>bgt-type</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>     
     <PropertyDefn>
-      <Name>plus-type</Name>
+      <Name>plus_type</Name>
+      <ElementPath>plus-type</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn> 
@@ -408,12 +430,14 @@
     <Name>Kunstwerkdeel</Name>
     <ParentClass>BGTObject</ParentClass>
     <PropertyDefn>
-      <Name>bgt-type</Name>
+      <Name>bgt_type</Name>
+      <ElementPath>bgt-type</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>     
     <PropertyDefn>
-      <Name>plus-type</Name>
+      <Name>plus_type</Name>
+      <ElementPath>plus-type</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn> 
@@ -482,12 +506,14 @@
     <Name>Scheiding</Name>
     <ParentClass>BGTObject</ParentClass>
     <PropertyDefn>
-      <Name>bgt-type</Name>
+      <Name>bgt_type</Name>
+      <ElementPath>bgt-type</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>     
     <PropertyDefn>
-      <Name>plus-type</Name>
+      <Name>plus_type</Name>
+      <ElementPath>plus-type</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn> 
@@ -506,12 +532,14 @@
     <Name>OverigeScheiding</Name>
     <ParentClass>BGTObject</ParentClass>
     <PropertyDefn>
-      <Name>bgt-type</Name>
+      <Name>bgt_type</Name>
+      <ElementPath>bgt-type</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>     
     <PropertyDefn>
-      <Name>plus-type</Name>
+      <Name>plus_type</Name>
+      <ElementPath>plus-type</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn> 
@@ -530,16 +558,19 @@
     <Name>FunctioneelGebied</Name>
     <ParentClass>BGTObject</ParentClass>
     <PropertyDefn>
-      <Name>bgt-type</Name>
+      <Name>bgt_type</Name>
+      <ElementPath>bgt-type</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>     
     <PropertyDefn>
-      <Name>plus-type</Name>
+      <Name>plus_type</Name>
+      <ElementPath>plus-type</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn> 
     <PropertyDefn>
+      <Name>naam</Name>
       <Name>naam</Name>
       <Type>String</Type>
       <Width>255</Width>
@@ -575,6 +606,7 @@
     <GeometryType>1</GeometryType>
     <PropertyDefn>
       <Name>identificatieBAGOPR</Name>
+      <ElementPath>identificatieBAGOPR</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
@@ -591,6 +623,7 @@
     </PropertyDefn>
     <PropertyDefn>
       <Name>openbareRuimteType</Name>
+      <ElementPath>openbareRuimteType</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
@@ -601,20 +634,24 @@
     <GeometryType>1</GeometryType>
     <PropertyDefn>
       <Name>nauwkeurigheid</Name>
+      <ElementPath>nauwkeurigheid</ElementPath>
       <Type>Integer</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>datumInwinning</Name>
+      <ElementPath>datumInwinning</ElementPath>
       <Type>String</Type>
       <Width>10</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>inwinnendeInstantie</Name>
+      <ElementPath>inwinnendeInstantie</ElementPath>
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>inwinningsmethode</Name>
+      <ElementPath>inwinningsmethode</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn> 
@@ -623,13 +660,14 @@
     <Name>Inrichtingselement</Name>
     <ParentClass>BGTObject</ParentClass>
     <PropertyDefn>
-      <Name>bgt-type</Name>
+      <Name>bgt_type</Name>
       <ElementPath>class</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>     
     <PropertyDefn>
-      <Name>plus-type</Name>
+      <Name>plus_type</Name>
+      <ElementPath>plus-type</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn> 
@@ -725,6 +763,7 @@
     <ParentClass>Inrichtingselement</ParentClass>
     <PropertyDefn>
       <Name>hectometeraanduiding</Name>
+      <ElementPath>hectometeraanduiding</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn> 
@@ -813,13 +852,14 @@
     <Name>VegetatieObject</Name>
     <ParentClass>BGTObject</ParentClass>
     <PropertyDefn>
-      <Name>bgt-type</Name>
+      <Name>bgt_type</Name>
       <ElementPath>class</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>     
     <PropertyDefn>
-      <Name>plus-type</Name>
+      <Name>plus_type</Name>
+      <ElementPath>plus-type</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn> 
@@ -841,6 +881,7 @@
     <ParentClass>BGTObject</ParentClass>
     <PropertyDefn>
       <Name>naam</Name>
+      <ElementPath>naam</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>     
