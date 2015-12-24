@@ -1,4 +1,6 @@
 <GMLFeatureClassList>
+  <!-- In this GFS template file the LoD 0-representations have been commented out, because they are not in use yet.
+       So, at this moment, the resulting GFS file doesn't contain LoD 0-representations at all. -->
   <SpatialInfo>
     <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
@@ -130,12 +132,12 @@
     <ParentClass>Wegdeel</ParentClass>
     <GeometryType>3</GeometryType>
   </GMLFeatureClass>
-  <GMLFeatureClass>
+  <!--GMLFeatureClass>
     <Name>Wegdeel_lod0</Name>
     <ElementPath>TrafficArea_lod0</ElementPath>
     <ParentClass>Wegdeel</ParentClass>
     <GeometryType>3</GeometryType>
-  </GMLFeatureClass>
+  </GMLFeatureClass-->
   <GMLFeatureClass>
     <Name>Wegdeel_kruinlijn</Name>
     <ElementPath>TrafficArea_kruinlijn</ElementPath>
@@ -182,12 +184,12 @@
     <ParentClass>OndersteunendWegdeel</ParentClass>
     <GeometryType>3</GeometryType>
   </GMLFeatureClass>
-  <GMLFeatureClass>
+  <!--GMLFeatureClass>
     <Name>OndersteunendWegdeel_lod0</Name>
     <ElementPath>AuxiliaryTrafficArea_lod0</ElementPath>
     <ParentClass>OndersteunendWegdeel</ParentClass>
     <GeometryType>3</GeometryType>
-  </GMLFeatureClass>
+  </GMLFeatureClass-->
   <GMLFeatureClass>
     <Name>OndersteunendWegdeel_kruinlijn</Name>
     <ElementPath>AuxiliaryTrafficArea_kruinlijn</ElementPath>
@@ -221,11 +223,11 @@
     <ParentClass>OnbegroeidTerreindeel</ParentClass>
     <GeometryType>3</GeometryType>
   </GMLFeatureClass>
-  <GMLFeatureClass>
+  <!--GMLFeatureClass>
     <Name>OnbegroeidTerreindeel_lod0</Name>
     <ParentClass>OnbegroeidTerreindeel</ParentClass>
     <GeometryType>3</GeometryType>
-  </GMLFeatureClass>
+  </GMLFeatureClass-->
   <GMLFeatureClass>
     <Name>OnbegroeidTerreindeel_kruinlijn</Name>
     <ParentClass>OnbegroeidTerreindeel</ParentClass>
@@ -259,12 +261,12 @@
     <ParentClass>BegroeidTerreindeel</ParentClass>
     <GeometryType>3</GeometryType>
   </GMLFeatureClass>
-  <GMLFeatureClass>
+  <!--GMLFeatureClass>
     <Name>BegroeidTerreindeel_lod0</Name>
     <ElementPath>PlantCover_lod0</ElementPath>
     <ParentClass>BegroeidTerreindeel</ParentClass>
     <GeometryType>3</GeometryType>
-  </GMLFeatureClass>
+  </GMLFeatureClass-->
   <GMLFeatureClass>
     <Name>BegroeidTerreindeel_kruinlijn</Name>
     <ElementPath>PlantCover_kruinlijn</ElementPath>
@@ -292,11 +294,11 @@
     <ParentClass>Waterdeel</ParentClass>
     <GeometryType>3</GeometryType>
   </GMLFeatureClass>
-  <GMLFeatureClass>
+  <!--GMLFeatureClass>
     <Name>Waterdeel_lod0</Name>
     <ParentClass>Waterdeel</ParentClass>
     <GeometryType>3</GeometryType>
-  </GMLFeatureClass>
+  </GMLFeatureClass-->
   <GMLFeatureClass>
     <Name>OndersteunendWaterdeel</Name>
     <ParentClass>BGTObject</ParentClass>
@@ -318,11 +320,11 @@
     <ParentClass>OndersteunendWaterdeel</ParentClass>
     <GeometryType>3</GeometryType>
   </GMLFeatureClass>
-  <GMLFeatureClass>
+  <!--GMLFeatureClass>
     <Name>OndersteunendWaterdeel_lod0</Name>
     <ParentClass>OndersteunendWaterdeel</ParentClass>
     <GeometryType>3</GeometryType>
-  </GMLFeatureClass>
+  </GMLFeatureClass-->
   <GMLFeatureClass>
     <Name>Pand</Name>
     <ParentClass>BGTObject</ParentClass>
@@ -339,12 +341,12 @@
     <ParentClass>Pand</ParentClass>
     <GeometryType>6</GeometryType>
   </GMLFeatureClass>
-  <GMLFeatureClass>
+  <!--GMLFeatureClass>
     <Name>Pand_lod0</Name>
     <ElementPath>BuildingPart_lod0</ElementPath>
     <ParentClass>Pand</ParentClass>
     <GeometryType>6</GeometryType>
-  </GMLFeatureClass>
+  </GMLFeatureClass-->
   <GMLFeatureClass>
     <Name>Nummeraanduidingreeks</Name>
     <GeometryType>1</GeometryType>
@@ -394,12 +396,12 @@
     <ParentClass>Spoor</ParentClass>
     <GeometryType>2</GeometryType>
   </GMLFeatureClass>
-  <GMLFeatureClass>
+  <!--GMLFeatureClass>
     <Name>Spoor_lod0</Name>
     <ElementPath>Railway_lod0</ElementPath>
     <ParentClass>Spoor</ParentClass>
     <GeometryType>2</GeometryType>
-  </GMLFeatureClass>
+  </GMLFeatureClass-->
   <GMLFeatureClass>
     <Name>OverigBouwwerk</Name>
     <ParentClass>BGTObject</ParentClass>
@@ -421,11 +423,11 @@
     <ParentClass>OverigBouwwerk</ParentClass>
     <GeometryType>6</GeometryType>
   </GMLFeatureClass>
-  <GMLFeatureClass>
+  <!--GMLFeatureClass>
     <Name>OverigBouwwerk_lod0</Name>
     <ParentClass>OverigBouwwerk</ParentClass>
     <GeometryType>6</GeometryType>
-  </GMLFeatureClass>
+  </GMLFeatureClass-->
   <GMLFeatureClass>
     <Name>Kunstwerkdeel</Name>
     <ParentClass>BGTObject</ParentClass>
@@ -447,11 +449,11 @@
     <ParentClass>Kunstwerkdeel</ParentClass>
     <GeometryType>0</GeometryType>
   </GMLFeatureClass>
-  <GMLFeatureClass>
+  <!--GMLFeatureClass>
     <Name>Kunstwerkdeel_lod0</Name>
     <ParentClass>Kunstwerkdeel</ParentClass>
     <GeometryType>0</GeometryType>
-  </GMLFeatureClass>
+  </GMLFeatureClass-->
   <GMLFeatureClass>
     <Name>Overbruggingsdeel</Name>
     <ParentClass>BGTObject</ParentClass>
@@ -480,12 +482,12 @@
     <ParentClass>Overbruggingsdeel</ParentClass>
     <GeometryType>3</GeometryType>
   </GMLFeatureClass>
-  <GMLFeatureClass>
+  <!--GMLFeatureClass>
     <Name>Overbruggingsdeel_lod0</Name>
     <ElementPath>BridgeConstructionElement_lod0</ElementPath>
     <ParentClass>Overbruggingsdeel</ParentClass>
     <GeometryType>3</GeometryType>
-  </GMLFeatureClass>
+  </GMLFeatureClass-->
   <GMLFeatureClass>
     <Name>Tunneldeel</Name>
     <ParentClass>BGTObject</ParentClass>
@@ -496,12 +498,12 @@
     <ParentClass>Tunneldeel</ParentClass>
     <GeometryType>3</GeometryType>
   </GMLFeatureClass>
-  <GMLFeatureClass>
+  <!--GMLFeatureClass>
     <Name>Tunneldeel_lod0</Name>
     <ElementPath>TunnelPart_lod0</ElementPath>
     <ParentClass>Tunneldeel</ParentClass>
     <GeometryType>3</GeometryType>
-  </GMLFeatureClass>
+  </GMLFeatureClass-->
   <GMLFeatureClass>
     <Name>Scheiding</Name>
     <ParentClass>BGTObject</ParentClass>
@@ -523,11 +525,11 @@
     <ParentClass>Scheiding</ParentClass>
     <GeometryType>0</GeometryType>
   </GMLFeatureClass>
-  <GMLFeatureClass>
+  <!--GMLFeatureClass>
     <Name>Scheiding_lod0</Name>
     <ParentClass>Scheiding</ParentClass>
     <GeometryType>0</GeometryType>
-  </GMLFeatureClass>
+  </GMLFeatureClass-->
   <GMLFeatureClass>
     <Name>OverigeScheiding</Name>
     <ParentClass>BGTObject</ParentClass>
@@ -549,11 +551,11 @@
     <ParentClass>OverigeScheiding</ParentClass>
     <GeometryType>0</GeometryType>
   </GMLFeatureClass>
-  <GMLFeatureClass>
+  <!--GMLFeatureClass>
     <Name>OverigeScheiding_lod0</Name>
     <ParentClass>OverigeScheiding</ParentClass>
     <GeometryType>0</GeometryType>
-  </GMLFeatureClass>
+  </GMLFeatureClass-->
   <GMLFeatureClass>
     <Name>FunctioneelGebied</Name>
     <ParentClass>BGTObject</ParentClass>
@@ -581,11 +583,11 @@
     <ParentClass>FunctioneelGebied</ParentClass>
     <GeometryType>3</GeometryType>
   </GMLFeatureClass>
-  <GMLFeatureClass>
+  <!--GMLFeatureClass>
     <Name>FunctioneelGebied_lod0</Name>
     <ParentClass>FunctioneelGebied</ParentClass>
     <GeometryType>3</GeometryType>
-  </GMLFeatureClass>
+  </GMLFeatureClass-->
   <GMLFeatureClass>
     <Name>OngeclassificeerdObject</Name>
     <ParentClass>BGTObject</ParentClass>
@@ -595,11 +597,11 @@
     <ParentClass>OngeclassificeerdObject</ParentClass>
     <GeometryType>3</GeometryType>
   </GMLFeatureClass>
-  <GMLFeatureClass>
+  <!--GMLFeatureClass>
     <Name>OngeclassificeerdObject_lod0</Name>
     <ParentClass>OngeclassificeerdObject</ParentClass>
     <GeometryType>3</GeometryType>
-  </GMLFeatureClass>
+  </GMLFeatureClass-->
   <GMLFeatureClass>
     <Name>OpenbareRuimteLabel</Name>
     <ParentClass>BGTObject</ParentClass>
@@ -681,11 +683,11 @@
     <ParentClass>Bak</ParentClass>
     <GeometryType>1</GeometryType>
   </GMLFeatureClass>
-  <GMLFeatureClass>
+  <!--GMLFeatureClass>
     <Name>Bak_lod0</Name>
     <ParentClass>Bak</ParentClass>
     <GeometryType>1</GeometryType>
-  </GMLFeatureClass>
+  </GMLFeatureClass-->
   <GMLFeatureClass>
     <Name>Bord</Name>
     <ParentClass>Inrichtingselement</ParentClass>
@@ -695,11 +697,11 @@
     <ParentClass>Bord</ParentClass>
     <GeometryType>1</GeometryType>
   </GMLFeatureClass>
-  <GMLFeatureClass>
+  <!--GMLFeatureClass>
     <Name>Bord_lod0</Name>
     <ParentClass>Bord</ParentClass>
     <GeometryType>1</GeometryType>
-  </GMLFeatureClass>
+  </GMLFeatureClass-->
   <GMLFeatureClass>
     <Name>GebouwInstallatie</Name>
     <ParentClass>Inrichtingselement</ParentClass>
@@ -710,12 +712,12 @@
     <ParentClass>GebouwInstallatie</ParentClass>
     <GeometryType>3</GeometryType>
   </GMLFeatureClass>
-  <GMLFeatureClass>
+  <!--GMLFeatureClass>
     <Name>GebouwInstallatie_lod0</Name>
     <ElementPath>BuildingInstallation_lod0</ElementPath>
     <ParentClass>GebouwInstallatie</ParentClass>
     <GeometryType>3</GeometryType>
-  </GMLFeatureClass>
+  </GMLFeatureClass-->
   <GMLFeatureClass>
     <Name>Installatie</Name>
     <ParentClass>Inrichtingselement</ParentClass>
@@ -725,11 +727,11 @@
     <ParentClass>Installatie</ParentClass>
     <GeometryType>1</GeometryType>
   </GMLFeatureClass>
-  <GMLFeatureClass>
+  <!--GMLFeatureClass>
     <Name>Installatie_lod0</Name>
     <ParentClass>Installatie</ParentClass>
     <GeometryType>1</GeometryType>
-  </GMLFeatureClass>
+  </GMLFeatureClass-->
   <GMLFeatureClass>
     <Name>Kast</Name>
     <ParentClass>Inrichtingselement</ParentClass>
@@ -739,11 +741,11 @@
     <ParentClass>Kast</ParentClass>
     <GeometryType>1</GeometryType>
   </GMLFeatureClass>
-  <GMLFeatureClass>
+  <!--GMLFeatureClass>
     <Name>Kast_lod0</Name>
     <ParentClass>Kast</ParentClass>
     <GeometryType>1</GeometryType>
-  </GMLFeatureClass>
+  </GMLFeatureClass-->
   <GMLFeatureClass>
     <Name>Mast</Name>
     <ParentClass>Inrichtingselement</ParentClass>
@@ -753,11 +755,11 @@
     <ParentClass>Mast</ParentClass>
     <GeometryType>1</GeometryType>
   </GMLFeatureClass>
-  <GMLFeatureClass>
+  <!--GMLFeatureClass>
     <Name>Mast_lod0</Name>
     <ParentClass>Mast</ParentClass>
     <GeometryType>1</GeometryType>
-  </GMLFeatureClass>
+  </GMLFeatureClass-->
   <GMLFeatureClass>
     <Name>Paal</Name>
     <ParentClass>Inrichtingselement</ParentClass>
@@ -773,11 +775,11 @@
     <ParentClass>Paal</ParentClass>
     <GeometryType>1</GeometryType>
   </GMLFeatureClass>
-  <GMLFeatureClass>
+  <!--GMLFeatureClass>
     <Name>Paal_lod0</Name>
     <ParentClass>Paal</ParentClass>
     <GeometryType>1</GeometryType>
-  </GMLFeatureClass>
+  </GMLFeatureClass-->
   <GMLFeatureClass>
     <Name>Put</Name>
     <ParentClass>Inrichtingselement</ParentClass>
@@ -787,11 +789,11 @@
     <ParentClass>Put</ParentClass>
     <GeometryType>1</GeometryType>
   </GMLFeatureClass>
-  <GMLFeatureClass>
+  <!--GMLFeatureClass>
     <Name>Put_lod0</Name>
     <ParentClass>Put</ParentClass>
     <GeometryType>1</GeometryType>
-  </GMLFeatureClass>
+  </GMLFeatureClass-->
   <GMLFeatureClass>
     <Name>Sensor</Name>
     <ParentClass>Inrichtingselement</ParentClass>
@@ -801,11 +803,11 @@
     <ParentClass>Sensor</ParentClass>
     <GeometryType>0</GeometryType>
   </GMLFeatureClass>
-  <GMLFeatureClass>
+  <!--GMLFeatureClass>
     <Name>Sensor_lod0</Name>
     <ParentClass>Sensor</ParentClass>
     <GeometryType>0</GeometryType>
-  </GMLFeatureClass>
+  </GMLFeatureClass-->
   <GMLFeatureClass>
     <Name>Straatmeubilair</Name>
     <ParentClass>Inrichtingselement</ParentClass>
@@ -815,11 +817,11 @@
     <ParentClass>Straatmeubilair</ParentClass>
     <GeometryType>1</GeometryType>
   </GMLFeatureClass>
-  <GMLFeatureClass>
+  <!--GMLFeatureClass>
     <Name>Straatmeubilair_lod0</Name>
     <ParentClass>Straatmeubilair</ParentClass>
     <GeometryType>1</GeometryType>
-  </GMLFeatureClass>
+  </GMLFeatureClass-->
   <GMLFeatureClass>
     <Name>Waterinrichtingselement</Name>
     <ParentClass>Inrichtingselement</ParentClass>
@@ -829,11 +831,11 @@
     <ParentClass>Waterinrichtingselement</ParentClass>
     <GeometryType>0</GeometryType>
   </GMLFeatureClass>
-  <GMLFeatureClass>
+  <!--GMLFeatureClass>
     <Name>Waterinrichtingselement_lod0</Name>
     <ParentClass>Waterinrichtingselement</ParentClass>
     <GeometryType>0</GeometryType>
-  </GMLFeatureClass>
+  </GMLFeatureClass-->
   <GMLFeatureClass>
     <Name>Weginrichtingselement</Name>
     <ParentClass>Inrichtingselement</ParentClass>
@@ -843,11 +845,11 @@
     <ParentClass>Weginrichtingselement</ParentClass>
     <GeometryType>0</GeometryType>
   </GMLFeatureClass>
-  <GMLFeatureClass>
+  <!--GMLFeatureClass>
     <Name>Weginrichtingselement_lod0</Name>
     <ParentClass>Weginrichtingselement</ParentClass>
     <GeometryType>0</GeometryType>
-  </GMLFeatureClass>
+  </GMLFeatureClass-->
   <GMLFeatureClass>
     <Name>VegetatieObject</Name>
     <ParentClass>BGTObject</ParentClass>
@@ -870,12 +872,12 @@
     <ParentClass>VegetatieObject</ParentClass>
     <GeometryType>0</GeometryType>
   </GMLFeatureClass>
-  <GMLFeatureClass>
+  <!--GMLFeatureClass>
     <Name>VegetatieObject_lod0</Name>
     <ElementPath>SolitaryVegetationObject_lod0</ElementPath>
     <ParentClass>VegetatieObject</ParentClass>
     <GeometryType>0</GeometryType>
-  </GMLFeatureClass>
+  </GMLFeatureClass-->
   <GMLFeatureClass>
     <Name>RegistratiefGebied</Name>
     <ParentClass>BGTObject</ParentClass>
@@ -895,11 +897,11 @@
     <ParentClass>Buurt</ParentClass>
     <GeometryType>6</GeometryType>
   </GMLFeatureClass>
-  <GMLFeatureClass>
+  <!--GMLFeatureClass>
     <Name>Buurt_lod0</Name>
     <ParentClass>Buurt</ParentClass>
     <GeometryType>6</GeometryType>
-  </GMLFeatureClass>
+  </GMLFeatureClass-->
   <GMLFeatureClass>
     <Name>OpenbareRuimte</Name>
     <ParentClass>RegistratiefGebied</ParentClass>
@@ -909,11 +911,11 @@
     <ParentClass>OpenbareRuimte</ParentClass>
     <GeometryType>6</GeometryType>
   </GMLFeatureClass>
-  <GMLFeatureClass>
+  <!--GMLFeatureClass>
     <Name>OpenbareRuimte_lod0</Name>
     <ParentClass>OpenbareRuimte</ParentClass>
     <GeometryType>6</GeometryType>
-  </GMLFeatureClass>
+  </GMLFeatureClass-->
   <GMLFeatureClass>
     <Name>Stadsdeel</Name>
     <ParentClass>RegistratiefGebied</ParentClass>
@@ -923,11 +925,11 @@
     <ParentClass>Stadsdeel</ParentClass>
     <GeometryType>6</GeometryType>
   </GMLFeatureClass>
-  <GMLFeatureClass>
+  <!--GMLFeatureClass>
     <Name>Stadsdeel_lod0</Name>
     <ParentClass>Stadsdeel</ParentClass>
     <GeometryType>6</GeometryType>
-  </GMLFeatureClass>
+  </GMLFeatureClass-->
   <GMLFeatureClass>
     <Name>Waterschap</Name>
     <ParentClass>RegistratiefGebied</ParentClass>
@@ -937,11 +939,11 @@
     <ParentClass>Waterschap</ParentClass>
     <GeometryType>6</GeometryType>
   </GMLFeatureClass>
-  <GMLFeatureClass>
+  <!--GMLFeatureClass>
     <Name>Waterschap_lod0</Name>
     <ParentClass>Waterschap</ParentClass>
     <GeometryType>6</GeometryType>
-  </GMLFeatureClass>
+  </GMLFeatureClass-->
   <GMLFeatureClass>
     <Name>Wijk</Name>
     <ParentClass>RegistratiefGebied</ParentClass>
@@ -951,9 +953,9 @@
     <ParentClass>Wijk</ParentClass>
     <GeometryType>6</GeometryType>
   </GMLFeatureClass>
-  <GMLFeatureClass>
+  <!--GMLFeatureClass>
     <Name>Wijk_lod0</Name>
     <ParentClass>Wijk</ParentClass>
     <GeometryType>6</GeometryType>
-  </GMLFeatureClass>
+  </GMLFeatureClass-->
 </GMLFeatureClassList>
