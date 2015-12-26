@@ -44,7 +44,7 @@
             </xs:restriction>
           </xs:simpleType>
         </xs:element>
-        <xs:element name="AKRKadastraleGemeenteCode" nillable="true" minOccurs="0" maxOccurs="1">
+        <xs:element name="gemeente" nillable="true" minOccurs="0" maxOccurs="1">
           <xs:simpleType>
             <xs:restriction base="xs:string">
               <xs:maxLength value="5"/>

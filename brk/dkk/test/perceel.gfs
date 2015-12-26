@@ -29,10 +29,8 @@
             <Width>23</Width>
         </PropertyDefn>
         <PropertyDefn>
-            <Name>AKRKadastraleGemeenteCode</Name>
-            <ElementPath>
-                kadastraleAanduiding|TypeKadastraleAanduiding|kadastraleGemeente|KadastraleGemeenteKeuze|AKRKadastraleGemeenteCode
-            </ElementPath>
+            <Name>gemeente</Name>
+            <ElementPath>kadastraleAanduiding|TypeKadastraleAanduiding|kadastraleGemeente|KadastraleGemeenteKeuze|AKRKadastraleGemeenteCode</ElementPath>
             <Type>String</Type>
             <Width>5</Width>
         </PropertyDefn>
