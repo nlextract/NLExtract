@@ -8,7 +8,7 @@ Top10-extract
 Hieronder staat de handleiding voor het gebruik van de tools om TOP10NL te extraheren. Deze tools
 heten kortweg ``Top10-extract`` of soms ``nlextract-top10``.
 
-NB als je alleen interesse hebt om een PostGIS versie van de laatste TOP10NL te hebben, kun
+NB: als je alleen interesse hebt om een PostGIS versie van de laatste TOP10NL te hebben, kun
 je deze ook downloaden als  PostGIS dumpfile via de link http://data.nlextract.nl/top10nl.
 De dump file (``.backup`` bestand)  kun je direct inlezen in PostGIS, bijv met ``PGAdminIII``.
 Dan hoef je alle zaken hieronder niet uit te voeren :-).
@@ -25,14 +25,13 @@ Algemeen
 TOP10NL is onderdeel van de Kadaster Basisregistratie Topografie (BRT). Vind algemene info
 over TOP10NL op http://www.kadaster.nl/web/artikel/productartikel/TOP10NL.htm.
 
-``Top10-extract`` bevat de tools om de TOP10NL GML-bronbestanden, zoals geleverd door Het Kadaster (bijv via PDOK),
-om te zetten naar hanteerbare formaten zoals PostGIS. Tevens bevat Top10-extract visualisatie-bestanden
+``Top10-extract`` bevat de tools om de TOP10NL GML-bronbestanden, zoals geleverd door het Kadaster (bijv via PDOK),
+om te zetten naar hanteerbare formaten, zoals PostGIS. Tevens bevat Top10-extract visualisatie-bestanden
 (onder de map `style/` ) voor QGIS en SLDs om kaarten te maken. (NB deze zijn nu nog gebaseerd op TOP10NL 1.0!).
 
-TOP10NL (v1.2) wordt geleverd door Het Kadaster als een .zip file van plm 2GB. Voor de landsdekkende
-versies zijn er 2 soorten .zip-bestanden, een op basis van kaartbladen,
-zie `Bestandswijzer_GML_TOP10NL_2012.pdf <https://github.com/opengeogroep/NLExtract/raw/master/top10nl/doc/Bestandswijzer_GML_TOP10NL_2012.pdf>`_
-en een .zip file op basis van "GML FileChunks" waarbij de totale GML is opgedeeld in files van 300MB.
+TOP10NL (v1.2) wordt geleverd door het Kadaster als een .zip file van plm 2 GB. Voor de landsdekkende
+versies zijn er 2 soorten .zip-bestanden, een op basis van kaartbladen en een .zip file op basis van
+"GML FileChunks" waarbij de totale GML is opgedeeld in files van 300 MB. Zie `Bestandswijzer_GML_TOP10NL_2012.pdf <https://github.com/opengeogroep/NLExtract/raw/master/top10nl/doc/Bestandswijzer_GML_TOP10NL_2012.pdf>`_ voor de kaartbladindeling.
 
 Er zijn 13 typen TOP10NL objecten. Zie voor de beschrijving van de structuur en verdere bijzonderheden voor de GML bestandsindeling in
 `BRT_Catalogus_Productspecificaties.pdf <https://github.com/opengeogroep/NLExtract/raw/master/top10nl/doc/1.2/BRT_Catalogus_Productspecificaties.pdf>`_ (nog gebaseerd op versie 1.1.1).
@@ -50,10 +49,10 @@ Als je heel Nederland wilt inlezen kun je het beste
 de "GML File Chunks" gebruiken.
 De directe link is http://geodata.nationaalgeoregister.nl/top10nlv2/extract/chunkdata/top10nl_gml_filechunks.zip?formaat=gml.
 
-Voor de Kaartbladen is dat: http://geodata.nationaalgeoregister.nl/top10nlv2/extract/kaartbladtotaal/top10nl.zip?formaat=gml.
+Voor de kaartbladen is dat: http://geodata.nationaalgeoregister.nl/top10nlv2/extract/kaartbladtotaal/top10nl.zip?formaat=gml.
 
 
-`NB het is heel belangrijk om de laatste versie van Top10NL te gebruiken: v1.2.` Deze wordt geleverd
+`NB: het is heel belangrijk om de laatste versie van Top10NL te gebruiken. Dit is versie 1.2.` Deze wordt geleverd
 met ingang van november 2015. Alleen deze versie wordt ondersteund door de huidige versie
 Top10-extract. Met ingang van deze datum is ook het Kadaster volledig overgeschakeld. De oude
 versies van TOP10NL worden niet meer ondersteund. Mocht je toch de oude versie willen inlezen,
@@ -64,7 +63,7 @@ Top10-Extract downloaden
 
 Vind altijd de laatste versie op: http://www.nlextract.nl/file-cabinet
 
-Omdat NLExtract voortdurend in ontwikkeling is kun je ook de actuele broncode, een `snapshot`, downloaden
+Omdat NLExtract voortdurend in ontwikkeling is, kun je ook de actuele broncode, een `snapshot`, downloaden
 en op dezelfde manier gebruiken als een versie:
 
 - snapshot via git: git clone http://github.com/opengeogroep/NLExtract.git
@@ -147,12 +146,12 @@ om de laatste versies van veel packages, met name GDAL en PostGIS 1.x te verkrij
 
    sudo easy_install argparse
 
-- NB als je een proxy gebruikt via http_proxy  doe dan easy_install -E (exporteer huidige environment)
+- NB: als je een proxy gebruikt via http_proxy, doe dan easy_install -E (exporteer huidige environment)
 
 Windows
 ~~~~~~~
 
-De Python scripts zijn ontwikkeld en getest op Windows 7 met Python 2.7.2.
+De Python scripts zijn ontwikkeld en getest op Windows 7 met Python 2.7.
 
 Let op: wanneer je Windows gebruikt en je wilt op de command line met PostgreSQL connecten, gebruik
 ``chcp 1252`` om de code page van de console bij te werken. Je krijgt anders een waarschuwing wanneer je in PostgreSQL inlogt.
@@ -188,15 +187,86 @@ Mac OSX
 
     export PATH=/Library/Frameworks/GDAL.framework/Versions/Current/Programs:$PATH
 
-Versies
--------
+Stetl
+-----
 
 NLExtract gaat steeds meer gebruik maken van de ETL framework Stetl, zie http://stetl.org.
-Hierdoor hoeft niet meer per dataset een apart programma worden gemaakt. Met ingang van de november-release van de BRT (2015R11) wordt alleen de "Stetl versie" ondersteund van Top10-extract. Deze versie werkt ook op Windows via `MSYS <http://www.mingw.org/wiki/msys>`_. Dit is een collectie van GNU-utilites, waardoor .sh-scripts uitgevoerd kunnen worden. MSYS wordt ondermeer geïnstalleerd als onderdeel van QGIS.
-en ``top10nl/bin``. Alleen de Stetl versie wordt aktief onderhouden. Het is aan te raden deze m.n. op Linux en Mac te
-gebruiken (Windows versie volgt).
+Hierdoor hoeft niet meer per dataset een apart programma worden gemaakt. Met ingang van de november-release van de BRT (2015R11) wordt alleen de "Stetl versie" ondersteund van Top10-extract.
 
-Stetl Versie
-------------
+Uitvoeren: ``./etl-top10.sh``
 
-Zie details in de README onder ``top10nl/etl``.
+Opties zetten: maak hiertoe een eigen lokaal bestand in de options-directory, met de naam ``options-<hostnaam>.sh``. Default worden de opties in options.sh gebruikt. D.m.v. het lokale bestand kun je deze overriden.
+
+De Stetl-configuratie in etl-top10nl.cfg hoeft niet te worden gewijzigd, alleen indien bijv. een andere output gewenst is.
+
+Let op: het Windows batch-bestand etl-top10nl is een work-in-progress. Hier wordt nog aan gewerkt.
+Er is een alternatief: het bash-script werkt ook op Windows via `MSYS <http://www.mingw.org/wiki/msys>`_.
+Dit is een collectie van GNU-utilites, waardoor .sh-scripts uitgevoerd kunnen worden. MSYS wordt
+ondermeer geïnstalleerd als onderdeel van QGIS.
+
+Voorbeeld configuratiebestand (Windows):
+::
+
+    #!/bin/sh
+    #
+    # Host-specific settings - Frank's laptop
+
+    # INPUT
+    # Let op, de alternatieve syntax /c/Temp/top10nl_201511 werkt niet goed.
+    export input_files=c:\\Temp\\top10_201511
+
+    # OUTPUT
+    export db_host=localhost
+    export db_port=5432
+    export PGUSER=top10nl
+    export PGPASSWORD=top10nl
+    export database=top10nl
+    export schema=ttnl
+
+    # Python settings
+    # Let op: bij gebruik MSYS wordt de Python-installatie van QGIS gebruikt. Deze
+    # herkent niet mijn eigen site-packages. Tevens worden dan eventuele Windows-
+    # paden (bijv. naar Mapnik 2.2.0) overschreven. Dat is hier toch niet nodig.
+    export PYTHONPATH=/c/python27/lib/site-packages
+
+    # Overige opties
+    export max_features=20000
+  
+Uitleg opties
+~~~~~~~~~~~~~
+
+De volgende opties worden samengesteld tot een command line string waarmee het Stetl-script wordt aangeroepen. De opties worden ingesteld d.m.v. het zetten van environment variabelen.
+
+**input-files**
+    Directory met inputbestanden.
+    
+**db_host**
+    Hostnaam van de server waarop de database staat.
+    
+**db_port**
+    Poortnummer waarmee verbinding gemaakt kan worden met de database server.
+
+**PGUSER**
+    Gebruikersnaam van de PostgreSQL gebruiker waarmee verbinding gemaakt moet worden.
+
+**PGPASSWORD**
+    Wachtwoord van de PostgreSQL gebruiker waarmee verbinding gemaakt moet worden.
+    
+**database**
+    Naam van de database waarmee verbinding gemaakt moet worden.
+    
+**schema**
+    Naam van het database schema die de datatabellen zal bevatten.
+    
+**max_features**
+    Aantal features (nog niet uitgesplitst) dat tegelijkertijd geladen zal worden.
+    
+**multi_opts**
+    Wijze waarop omgegaan moet worden met multiattributen (ogr2ogr-opties). Varianten:
+        - Eerstvoorkomende attribuutwaarde: ``multi_opts=-splitlistfields~-maxsubfields 1``
+        - Meerdere kolommen: ``multi_opts=-splitlistfields``
+        - Stringlijst: ``multi_opts=-fieldTypeToString~StringList``
+        - Array (default): ``multi_opts=~``
+
+**spatial_extent**
+    Definieert het in te lezen gebied. Formaat: ``<minx>~<miny>~<maxx>~<maxy>``. Wanneer dit leeggelaten wordt, wordt alle data ingelezen.
