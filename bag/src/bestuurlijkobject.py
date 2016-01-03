@@ -113,50 +113,11 @@ class GemeenteWoonplaats(BestuurlijkObject):
             self.einddatum_woonplaats,self.gemeentenaam, self.gemeentecode, self.begindatum_gemeente,
             self.einddatum_gemeente)
 
-class GemeenteProvincie(BestuurlijkObject):
-    """
-    Verrijking: GemeenteProvincie
-    """
-
-    def __init__(self,record):
-        # CSV schema:
-        # Gemcode;Gemcodel;provcode;provcodel
-        # 0003;Appingedam;20;Groningen
-        #
-        # alle records zijn gevuld, geen lege velden
-        # In 2012: 415 gemeenten
-        #
-        # DB schema:
-        # gemeentecode character varying(4),
-	    # gemeentenaam character varying(80),
-	    # provinciecode character varying(4),
-	    # provincienaam character varying(80),
-        #
-        self.naam = 'gemeente_provincie'
-        self.gemeentecode = getNumber(record[0])
-        self.gemeentenaam = record[1]
-        self.provinciecode = getNumber(record[2])
-        self.provincienaam = record[3]
-
-    def __repr__(self):
-       return "<GemeenteProvincie('%s','%s', '%s')>" % (self.naam, self.gemeentenaam, self.provincienaam)
-
-    def insert(self):
-        self.sql = """INSERT INTO gemeente_provincie (
-            gemeentecode,
-            gemeentenaam,
-            provinciecode,
-            provincienaam)
-            VALUES (%s, %s, %s, %s)"""
-        self.valuelist = (self.gemeentecode, self.gemeentenaam, self.provinciecode,self.provincienaam)
-
 # Creeer een BestuurlijkObject uit een CSV header+record
 def BestuurlijkObjectFabriek(cols, record):
     bestuurlijkOBject = None
     if cols[0] == 'Woonplaats':
         bestuurlijkOBject = GemeenteWoonplaats(record)
-    elif cols[1] == 'Gemcodel':
-        bestuurlijkOBject = GemeenteProvincie(record)
 
     return bestuurlijkOBject
 

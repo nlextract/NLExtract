@@ -18,7 +18,7 @@ CREATE TABLE nlx_bag_info (
 );
 
 INSERT INTO nlx_bag_info (sleutel,waarde)
-        VALUES ('schema_versie', '1.1.1');
+        VALUES ('schema_versie', '1.2.0');
 INSERT INTO nlx_bag_info (sleutel,waarde)
         VALUES ('software_versie', '1.1.4');
 INSERT INTO nlx_bag_info (sleutel,waarde)
@@ -347,14 +347,6 @@ CREATE INDEX gem_wpl_woonplaatscode_idx ON gemeente_woonplaats USING btree (woon
 CREATE INDEX gem_wpl_gemeentecode_datum_idx ON gemeente_woonplaats USING btree (gemeentecode);
 
 DROP TABLE IF EXISTS gemeente_provincie CASCADE;
-CREATE TABLE gemeente_provincie (
-  gid serial,
-  gemeentecode numeric(4),
-  gemeentenaam character varying(80),
-  provinciecode numeric(4),
-  provincienaam character varying(80),
-  PRIMARY KEY (gid)
-);
 
 DROP TABLE IF EXISTS provincie_gemeente CASCADE;
 CREATE TABLE provincie_gemeente (
