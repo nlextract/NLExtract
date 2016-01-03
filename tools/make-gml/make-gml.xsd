@@ -1,0 +1,138 @@
+<xsd:schema
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:gml31="http://www.opengis.net/gml"
+    xmlns:gml32="http://www.opengis.net/gml/3.2">
+
+    <xsd:import namespace="http://www.opengis.net/gml" schemaLocation="http://schemas.opengis.net/gml/3.1.1/base/gml.xsd"/>
+    <xsd:import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+
+    <xsd:element name="GenerateGML">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="FeatureCollection" type="FeatureCollectionType"/>
+                <xsd:element name="FeatureMember" type="FeatureMemberType"/>
+                <xsd:element name="IDPrefix" type="xsd:string" minOccurs="0"/>
+                <xsd:element name="BaseGeometries" type="BaseGeometriesType"/>
+                <xsd:element name="ParentTypes" type="ParentTypesType"/>
+                <xsd:element name="FeatureTypes" type="FeatureTypesType"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:complexType name="FeatureCollectionType">
+        <xsd:sequence>
+            <!-- Hierbinnen bevindt zich willekeurige XML. Alleen het buitenste element en zijn attributen worden
+                 gebruikt. -->
+            <xsd:any processContents="lax"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="FeatureMemberType">
+        <xsd:sequence>
+            <!-- Hierbinnen bevindt zich willekeurige XML. Alleen het buitenste element wordt gebruikt. -->
+            <xsd:any processContents="lax"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="BaseGeometriesType">
+        <xsd:sequence>
+            <!-- Hierbinnen bevindt zich een Geometry-element, waarvan het name-attribuut de naam is van de te gebruiken
+                 geometrie binnen een FeatureType. De inhoud van een Geometry-element is een GML 3.1.1- of een GML
+                 3.2.1-geometrie. -->
+            <xsd:element name="Geometry" maxOccurs="unbounded">
+                <xsd:complexType>
+                    <xsd:choice>
+                        <xsd:element ref="gml31:_Geometry"/>
+                        <xsd:element ref="gml32:AbstractGeometry"/>
+                    </xsd:choice>
+                    <xsd:attribute name="name" type="xsd:string"/>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="ParentTypesType">
+        <xsd:sequence>
+            <!-- Hierbinnen bevindt zich willekeurige XML. Dit mag een placeholder '{ID}' bevatten voor het GML ID. -->
+            <xsd:any processContents="lax"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="FeatureTypesType">
+        <xsd:sequence>
+            <!-- Hierbinnen bevinden zich een of meerdere FeatureType elementen. In het child element ElementType staat
+                 het daadwerkelijk te gebruiken feature-element. -->
+            <xsd:element name="FeatureType" maxOccurs="unbounded">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="ElementType">
+                            <xsd:complexType>
+                                <xsd:sequence>
+                                    <xsd:any processContents="lax"/>
+                                </xsd:sequence>
+                            </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name="GeometryTypes">
+                            <xsd:complexType>
+                                <xsd:sequence>
+                                    <!-- minOccurs="0"? Gaat nog niet werken met de huidige XSLT... -->
+                                    <xsd:any processContents="lax" maxOccurs="unbounded"/>
+                                </xsd:sequence>
+                            </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name="NameAttributes" minOccurs="0">
+                            <xsd:complexType>
+                                <xsd:sequence>
+                                    <xsd:any processContents="lax" maxOccurs="unbounded"/>
+                                </xsd:sequence>
+                            </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name="Attributes" type="AttributesType"/>
+                    </xsd:sequence>
+                    <xsd:attribute name="parentType" type="xsd:string"/>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="AttributesType">
+        <xsd:sequence>
+            <!-- Hierbinnen bevinden zich een of meerdere Attribute elementen. In het child element ElementType staat
+                 het daadwerkelijk te gebruiken attribuutelement. -->
+            <xsd:element name="Attribute" maxOccurs="unbounded">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="ElementType">
+                            <xsd:complexType>
+                                <xsd:sequence>
+                                    <xsd:any processContents="lax"/>
+                                </xsd:sequence>
+                            </xsd:complexType>
+                        </xsd:element>
+                        <xsd:element name="Value" type="xsd:string" maxOccurs="unbounded"/>
+                    </xsd:sequence>
+                    <xsd:attribute name="minOccurs" type="MinOccursType"/>
+                    <xsd:attribute name="maxOccurs" type="MaxOccursType"/>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:simpleType name="MinOccursType">
+        <xsd:restriction base="xsd:nonNegativeInteger"/>
+    </xsd:simpleType>
+    
+    <xsd:simpleType name="MaxOccursType">
+        <xsd:union>
+            <xsd:simpleType>
+                <xsd:restriction base="xsd:nonNegativeInteger"/>
+            </xsd:simpleType>
+            <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                    <xsd:enumeration value="unbounded"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+        </xsd:union>
+    </xsd:simpleType>
+    
+</xsd:schema>

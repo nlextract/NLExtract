@@ -1,0 +1,1358 @@
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:bri="http://www.opengis.net/citygml/bridge/2.0" xmlns:bui="http://www.opengis.net/citygml/building/2.0" xmlns:cif="http://www.opengis.net/citygml/cityfurniture/2.0" xmlns:cit="http://www.opengis.net/citygml/2.0" xmlns:gml="http://www.opengis.net/gml" xmlns:imgeo="http://www.geostandaarden.nl/imgeo/2.1" xmlns:lu="http://www.opengis.net/citygml/landuse/2.0" xmlns:tra="http://www.opengis.net/citygml/transportation/2.0" xmlns:tun="http://www.opengis.net/citygml/tunnel/2.0" xmlns:veg="http://www.opengis.net/citygml/vegetation/2.0" xmlns:wat="http://www.opengis.net/citygml/waterbody/2.0" elementFormDefault="qualified" targetNamespace="http://www.geostandaarden.nl/imgeo/2.1" version="2.1.1">
+  <import namespace="http://www.opengis.net/citygml/2.0" schemaLocation="http://schemas.opengis.net/citygml/2.0/cityGMLBase.xsd"/>
+  <import namespace="http://www.opengis.net/citygml/bridge/2.0" schemaLocation="http://schemas.opengis.net/citygml/bridge/2.0/bridge.xsd"/>
+  <import namespace="http://www.opengis.net/citygml/building/2.0" schemaLocation="http://schemas.opengis.net/citygml/building/2.0/building.xsd"/>
+  <import namespace="http://www.opengis.net/citygml/cityfurniture/2.0" schemaLocation="http://schemas.opengis.net/citygml/cityfurniture/2.0/cityFurniture.xsd"/>
+  <import namespace="http://www.opengis.net/citygml/landuse/2.0" schemaLocation="http://schemas.opengis.net/citygml/landuse/2.0/landUse.xsd"/>
+  <import namespace="http://www.opengis.net/citygml/transportation/2.0" schemaLocation="http://schemas.opengis.net/citygml/transportation/2.0/transportation.xsd"/>
+  <import namespace="http://www.opengis.net/citygml/tunnel/2.0" schemaLocation="http://schemas.opengis.net/citygml/tunnel/2.0/tunnel.xsd"/>
+  <import namespace="http://www.opengis.net/citygml/vegetation/2.0" schemaLocation="http://schemas.opengis.net/citygml/vegetation/2.0/vegetation.xsd"/>
+  <import namespace="http://www.opengis.net/citygml/waterbody/2.0" schemaLocation="http://schemas.opengis.net/citygml/waterbody/2.0/waterBody.xsd"/>
+  <import namespace="http://www.opengis.net/citygml/relief/2.0" schemaLocation="http://schemas.opengis.net/citygml/relief/2.0/relief.xsd"/>
+  <import namespace="http://www.opengis.net/citygml/generics/2.0" schemaLocation="http://schemas.opengis.net/citygml/generics/2.0/generics.xsd"/>
+  <import namespace="http://www.opengis.net/gml" schemaLocation="http://schemas.opengis.net/gml/3.1.1/base/gml.xsd"/>
+  <!--XML Schema document created by ShapeChange-->
+  <annotation>
+    <documentation>Erratum 20130329 Correcties (mantis nr) 4068, 4069, 4072, 4073, 4036.</documentation>
+  </annotation>
+  <element name="Straatmeubilair" substitutionGroup="cif:CityFurniture" type="imgeo:StraatmeubilairType">
+    <annotation>
+      <documentation>Een ruimtelijk object ter inrichting van de openbare ruimte.</documentation>
+    </annotation>
+  </element>
+  <complexType name="StraatmeubilairType">
+    <complexContent>
+      <extension base="cif:CityFurnitureType">
+        <sequence>
+          <element minOccurs="0" name="plus-type" type="gml:CodeType">
+            <annotation>
+              <documentation>Het soort straatmeubilair (IMGeo plus-populatie).</documentation>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="geometrie2dStraatmeubilair" type="gml:PointPropertyType">
+            <annotation>
+              <documentation>Puntgeometrie.</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="lod0GeometrieStraatmeubilair" type="gml:PointPropertyType">
+            <annotation>
+              <documentation>Puntgeometrie in 2.5D op level of detail 0.</documentation>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="StraatmeubilairPropertyType">
+    <sequence minOccurs="0">
+      <element ref="imgeo:Straatmeubilair"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+  </complexType>
+  <element name="OpenbareRuimteLabel" substitutionGroup="cit:_CityObject" type="imgeo:OpenbareRuimteLabelType">
+    <annotation>
+      <documentation>Naam en plaatsingspunten van een in de BAG geregistreerde OPENBARE RUIMTE.</documentation>
+    </annotation>
+  </element>
+  <complexType name="OpenbareRuimteLabelType">
+    <complexContent>
+      <extension base="cit:AbstractCityObjectType">
+        <sequence>
+          <element name="identificatieBAGOPR" type="string">
+            <annotation>
+              <documentation>De unieke identificatie van het object zoals is toegekend in de BAG-administratie.</documentation>
+            </annotation>
+          </element>
+          <element name="openbareRuimteNaam" type="imgeo:LabelPropertyType">
+            <annotation>
+              <documentation>Een door het bevoegde gemeentelijke orgaan aan een OPENBARE RUIMTE toegekende benaming.</documentation>
+            </annotation>
+          </element>
+          <element name="openbareRuimteType" type="gml:CodeType">
+            <annotation>
+              <documentation>De aard van de als zodanig benoemde OPENBARE RUIMTE.</documentation>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="OpenbareRuimteLabelPropertyType">
+    <sequence minOccurs="0">
+      <element ref="imgeo:OpenbareRuimteLabel"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+  </complexType>
+  <element name="Bak" substitutionGroup="cif:CityFurniture" type="imgeo:BakType">
+    <annotation>
+      <documentation>Object met een permanent karakter dat dient om iets in te bergen of te verzamelen.</documentation>
+    </annotation>
+  </element>
+  <complexType name="BakType">
+    <complexContent>
+      <extension base="cif:CityFurnitureType">
+        <sequence>
+          <element minOccurs="0" name="plus-type" type="gml:CodeType">
+            <annotation>
+              <documentation>Het soort bak (IMGeo plus-populatie).</documentation>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="geometrie2dBak" type="gml:PointPropertyType">
+            <annotation>
+              <documentation>Puntgeometrie.</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="lod0GeometrieBak" type="gml:PointPropertyType">
+            <annotation>
+              <documentation>Puntgeometrie in 2.5D op level of detail 0.</documentation>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="BakPropertyType">
+    <sequence minOccurs="0">
+      <element ref="imgeo:Bak"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+  </complexType>
+  <element name="plus-functieSpoor" substitutionGroup="tra:_GenericApplicationPropertyOfRailway" type="gml:CodeType">
+    <annotation>
+      <documentation>Specificatie van het soort gebruik van het spoor, indien dit een IMGeo uitbreiding van de populatie betreft.</documentation>
+    </annotation>
+  </element>
+  <element name="lod0CurveSpoor" substitutionGroup="tra:_GenericApplicationPropertyOfRailway" type="gml:CurvePropertyType">
+    <annotation>
+      <documentation>Lijngeometrie in 2.5D.</documentation>
+    </annotation>
+  </element>
+  <element name="geometrie2dSpoor" substitutionGroup="tra:_GenericApplicationPropertyOfRailway" type="gml:CurvePropertyType">
+    <annotation>
+      <documentation>Lijngeometrie.</documentation>
+    </annotation>
+  </element>
+  <element name="plus-type" substitutionGroup="veg:_GenericApplicationPropertyOfSolitaryVegetationObject" type="gml:CodeType">
+    <annotation>
+      <documentation>De specificatie van het soort vrijstaand vegetatieobject.</documentation>
+    </annotation>
+  </element>
+  <element name="lod0GeometryVegetatieObject" substitutionGroup="veg:_GenericApplicationPropertyOfSolitaryVegetationObject" type="gml:GeometryPropertyType">
+    <annotation>
+      <documentation>Punt-, lijn-, of vlakgeometrie in 2.5D op level of detail 0.</documentation>
+    </annotation>
+  </element>
+  <element name="geometrie2dVegetatieObject" substitutionGroup="veg:_GenericApplicationPropertyOfSolitaryVegetationObject" type="gml:GeometryPropertyType">
+    <annotation>
+      <documentation>Punt-, lijn-, of vlakgeometrie.</documentation>
+    </annotation>
+  </element>
+  <element name="geometrie2dTunneldeel" substitutionGroup="tun:_GenericApplicationPropertyOfTunnelPart" type="gml:SurfacePropertyType">
+    <annotation>
+      <documentation>Vlakgeometrie.</documentation>
+    </annotation>
+  </element>
+  <element name="lod0GeometrieTunneldeel" substitutionGroup="tun:_GenericApplicationPropertyOfTunnelPart" type="gml:SurfacePropertyType">
+    <annotation>
+      <documentation>Vlakgeometrie in 2.5D op level of detail 0.</documentation>
+    </annotation>
+  </element>
+  <element name="OverigeScheiding" substitutionGroup="imgeo:OverigeConstructie" type="imgeo:OverigeScheidingType">
+    <annotation>
+      <documentation>Kunstmatig, meestal lineair obstakel met een werende functie, met kleinere afmetingen dan toegestaan voor opname in de BGT.</documentation>
+    </annotation>
+  </element>
+  <complexType name="OverigeScheidingType">
+    <complexContent>
+      <extension base="imgeo:OverigeConstructieType">
+        <sequence>
+          <element minOccurs="0" name="plus-type" type="gml:CodeType">
+            <annotation>
+              <documentation>Specificatie van het soort overige scheiding.</documentation>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="OverigeScheidingPropertyType">
+    <sequence minOccurs="0">
+      <element ref="imgeo:OverigeScheiding"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+  </complexType>
+  <element name="Scheiding" substitutionGroup="imgeo:OverigeConstructie" type="imgeo:ScheidingType">
+    <annotation>
+      <documentation>Kunstmatig, meestal lineair obstakel met een werende functie.</documentation>
+    </annotation>
+  </element>
+  <complexType name="ScheidingType">
+    <complexContent>
+      <extension base="imgeo:OverigeConstructieType">
+        <sequence>
+          <element name="bgt-type" type="gml:CodeType">
+            <annotation>
+              <documentation>Specificatie van het soort scheiding.</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="plus-type" type="gml:CodeType">
+            <annotation>
+              <documentation>Specificatie van het soort scheiding, indien dit een IMGeo uitbreiding van de populatie betreft.</documentation>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="ScheidingPropertyType">
+    <sequence minOccurs="0">
+      <element ref="imgeo:Scheiding"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+  </complexType>
+  <element name="Put" substitutionGroup="cif:CityFurniture" type="imgeo:PutType">
+    <annotation>
+      <documentation>Gegraven of geboorde kokervormige diepte waarin zich (vloei)stoffen bevinden.</documentation>
+    </annotation>
+  </element>
+  <complexType name="PutType">
+    <complexContent>
+      <extension base="cif:CityFurnitureType">
+        <sequence>
+          <element minOccurs="0" name="plus-type" type="gml:CodeType">
+            <annotation>
+              <documentation>Het soort put (IMGeo plus-populatie).</documentation>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="geometrie2dPut" type="gml:PointPropertyType">
+            <annotation>
+              <documentation>Puntgeometrie.</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="lod0GeometriePut" type="gml:PointPropertyType">
+            <annotation>
+              <documentation>Puntgeometrie in 2.5D op level of detail 0.</documentation>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="PutPropertyType">
+    <sequence minOccurs="0">
+      <element ref="imgeo:Put"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+  </complexType>
+  <element name="Weginrichtingselement" substitutionGroup="cif:CityFurniture" type="imgeo:WeginrichtingselementType">
+    <annotation>
+      <documentation>Een ruimtelijk object dat dient voor de inrichting van de openbare weg.</documentation>
+    </annotation>
+  </element>
+  <complexType name="WeginrichtingselementType">
+    <complexContent>
+      <extension base="cif:CityFurnitureType">
+        <sequence>
+          <element minOccurs="0" name="plus-type" type="gml:CodeType">
+            <annotation>
+              <documentation>Het soort weginrichtingselement (IMGeo plus-populatie).</documentation>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="geometrie2dWeginrichtingselement" type="gml:GeometryPropertyType">
+            <annotation>
+              <documentation>Punt-, lijn of vlakgeometrie.</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="lod0GeometrieWeginrichtingselement" type="gml:GeometryPropertyType">
+            <annotation>
+              <documentation>Punt-, lijn- of vlakgeometrie in 2.5D op level of detail 0.</documentation>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="WeginrichtingselementPropertyType">
+    <sequence minOccurs="0">
+      <element ref="imgeo:Weginrichtingselement"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+  </complexType>
+  <element name="plus-typeGebouwInstallatie" substitutionGroup="bui:_GenericApplicationPropertyOfBuildingInstallation" type="gml:CodeType">
+    <annotation>
+      <documentation>Specificatie van het soort gebouwinstallatie, indien dit een IMGeo uitbreiding van de populatie betreft.</documentation>
+    </annotation>
+  </element>
+  <element name="lod0GeometryGebouwInstallatie" substitutionGroup="bui:_GenericApplicationPropertyOfBuildingInstallation" type="gml:SurfacePropertyType">
+    <annotation>
+      <documentation>Vlakgeometrie in 2.5D op level of detail 0.</documentation>
+    </annotation>
+  </element>
+  <element name="geometrie2dGebouwInstallatie" substitutionGroup="bui:_GenericApplicationPropertyOfBuildingInstallation" type="gml:SurfacePropertyType">
+    <annotation>
+      <documentation>Vlakgeometrie.</documentation>
+    </annotation>
+  </element>
+  <element name="Waterinrichtingselement" substitutionGroup="cif:CityFurniture" type="imgeo:WaterinrichtingselementType">
+    <annotation>
+      <documentation>Een ruimtelijk object ter inrichting van het water.</documentation>
+    </annotation>
+  </element>
+  <complexType name="WaterinrichtingselementType">
+    <complexContent>
+      <extension base="cif:CityFurnitureType">
+        <sequence>
+          <element minOccurs="0" name="plus-type" type="gml:CodeType">
+            <annotation>
+              <documentation>Het soort waterinrichtingselement (IMGeo plus-populatie).</documentation>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="geometrie2dWaterinrichtingselement" type="gml:GeometryPropertyType">
+            <annotation>
+              <documentation>Punt- of lijngeometrie.</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="lod0GeometrieWaterinrichtingselement" type="gml:GeometryPropertyType">
+            <annotation>
+              <documentation>Punt- of lijngeometrie in 2.5D op level of detail 0.</documentation>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="WaterinrichtingselementPropertyType">
+    <sequence minOccurs="0">
+      <element ref="imgeo:Waterinrichtingselement"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+  </complexType>
+  <element name="OpenbareRuimte" substitutionGroup="imgeo:RegistratiefGebied" type="imgeo:OpenbareRuimteType">
+    <annotation>
+      <documentation>Een OPENBARE RUIMTE is een door het bevoegde gemeentelijke orgaan als zodanig aangewezen en van een naam voorziene buitenruimte die binnen één woonplaats is gelegen.</documentation>
+    </annotation>
+  </element>
+  <complexType name="OpenbareRuimteType">
+    <complexContent>
+      <extension base="imgeo:RegistratiefGebiedType">
+        <sequence>
+          <element minOccurs="0" name="naamEnIdOpenbareRuimte" type="imgeo:OpenbareRuimteLabelPropertyType">
+            <annotation>
+              <documentation>Verwijzing naar het BGT object OpenbareRuimteLabel waarin de BGT identificatie, BAG identificatie, naam en type van de openbare ruimte zijn opgenomen.</documentation>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="OpenbareRuimtePropertyType">
+    <sequence minOccurs="0">
+      <element ref="imgeo:OpenbareRuimte"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+  </complexType>
+  <element name="Stadsdeel" substitutionGroup="imgeo:RegistratiefGebied" type="imgeo:StadsdeelType">
+    <annotation>
+      <documentation>Deel van een stad, wijk.</documentation>
+    </annotation>
+  </element>
+  <complexType name="StadsdeelType">
+    <complexContent>
+      <extension base="imgeo:RegistratiefGebiedType">
+        <sequence/>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="StadsdeelPropertyType">
+    <sequence minOccurs="0">
+      <element ref="imgeo:Stadsdeel"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+  </complexType>
+  <element name="hoortBijTypeOverbrugging" substitutionGroup="bri:_GenericApplicationPropertyOfBridgeConstructionElement" type="gml:CodeType">
+    <annotation>
+      <documentation>Nadere classificatie van de overbrugging waar het overbruggingsdeel een onderdeel van is.</documentation>
+    </annotation>
+  </element>
+  <element name="overbruggingIsBeweegbaar" substitutionGroup="bri:_GenericApplicationPropertyOfBridgeConstructionElement" type="boolean">
+    <annotation>
+      <documentation>Aanduiding of de brug waar het overbruggingsdeel bij hoort al dan niet beweegbaar is.</documentation>
+    </annotation>
+  </element>
+  <element name="geometrie2dOverbruggingsdeel" substitutionGroup="bri:_GenericApplicationPropertyOfBridgeConstructionElement" type="gml:SurfacePropertyType">
+    <annotation>
+      <documentation>Vlakgeometrie.</documentation>
+    </annotation>
+  </element>
+  <element name="lod0GeometrieOverbruggingsdeel" substitutionGroup="bri:_GenericApplicationPropertyOfBridgeConstructionElement" type="gml:SurfacePropertyType">
+    <annotation>
+      <documentation>Vlakgeometrie in 2.5D op level of detail 0.</documentation>
+    </annotation>
+  </element>
+  <element abstract="true" name="OverigeConstructie" substitutionGroup="cit:_Site" type="imgeo:OverigeConstructieType">
+    <annotation>
+      <documentation>Abstract objecttype zijnde een gebouwd object dat niet valt onder de definitie van NEN 3610 Gebouw.</documentation>
+    </annotation>
+  </element>
+  <complexType abstract="true" name="OverigeConstructieType">
+    <complexContent>
+      <extension base="cit:AbstractSiteType">
+        <sequence>
+          <element minOccurs="0" name="lod3ImplicitRepresentation" type="cit:ImplicitRepresentationPropertyType">
+            <annotation>
+              <documentation>Link naar een prototypische geometrie op level of detail 3, die wordt hergebruikt elke keer als een dergelijk object voorkomt.</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="lod1ImplicitRepresentation" type="cit:ImplicitRepresentationPropertyType">
+            <annotation>
+              <documentation>Link naar een prototypische geometrie op level of detail 1, die wordt hergebruikt elke keer als een dergelijk object voorkomt.</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="lod2ImplicitRepresentation" type="cit:ImplicitRepresentationPropertyType">
+            <annotation>
+              <documentation>Link naar een prototypische geometrie op level of detail 2, die wordt hergebruikt elke keer als een dergelijk object voorkomt.</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="lod0ImplicitRepresentation" type="cit:ImplicitRepresentationPropertyType">
+            <annotation>
+              <documentation>Link naar een prototypische geometrie op level of detail 0, die wordt hergebruikt elke keer als een dergelijk object voorkomt.</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="lod0Geometry" type="gml:GeometryPropertyType">
+            <annotation>
+              <documentation>Punt-, lijn- of vlakgeometrie in 2.5D.</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="lod3Geometry" type="gml:GeometryPropertyType">
+            <annotation>
+              <documentation>3D geometrie op level of detail 3.</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="lod1Geometry" type="gml:GeometryPropertyType">
+            <annotation>
+              <documentation>3D geometrie op level of detail 1.</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="lod2Geometry" type="gml:GeometryPropertyType">
+            <annotation>
+              <documentation>3D geometrie op level of detail 2.</documentation>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="geometrie2dOverigeConstructie" type="gml:GeometryPropertyType">
+            <annotation>
+              <documentation>Punt-, lijn-, vlak- of multivlakgeometrie.</documentation>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="OverigeConstructiePropertyType">
+    <sequence minOccurs="0">
+      <element ref="imgeo:OverigeConstructie"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+  </complexType>
+  <element name="Labelpositie" substitutionGroup="gml:_Object" type="imgeo:LabelpositieType">
+    <annotation>
+      <documentation>Locatie waar een label ten behoeve van visualisatie moet worden afgebeeld.</documentation>
+    </annotation>
+  </element>
+  <complexType name="LabelpositieType">
+    <sequence>
+      <element name="plaatsingspunt" type="gml:PointPropertyType">
+        <annotation>
+          <documentation>Coördinaten voor de locatie waar het label moet worden getoond.</documentation>
+        </annotation>
+      </element>
+      <element name="hoek" type="double">
+        <annotation>
+          <documentation>De rotatie van het label bij visualisatie, met de klok mee ten opzichte van de normale tekstrichting.</documentation>
+        </annotation>
+      </element>
+    </sequence>
+  </complexType>
+  <complexType name="LabelpositiePropertyType">
+    <sequence>
+      <element ref="imgeo:Labelpositie"/>
+    </sequence>
+  </complexType>
+  <element name="Waterdeel" substitutionGroup="wat:WaterBody" type="imgeo:WaterdeelType">
+    <annotation>
+      <documentation>Kleinste functioneel onafhankelijk stukje water met gelijkblijvende, homogene eigenschappen en relaties dat er binnen het objecttype Water van NEN 3610 wordt onderscheiden en dat permanent met water bedekt is.</documentation>
+    </annotation>
+  </element>
+  <complexType name="WaterdeelType">
+    <complexContent>
+      <extension base="wat:WaterBodyType">
+        <sequence>
+          <element minOccurs="0" name="plus-type" type="gml:CodeType">
+            <annotation>
+              <documentation>Specificatie van het soort Water, nadere classificatie.</documentation>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="geometrie2dWaterdeel" type="gml:SurfacePropertyType">
+            <annotation>
+              <documentation>Vlakgeometrie.</documentation>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="WaterdeelPropertyType">
+    <sequence minOccurs="0">
+      <element ref="imgeo:Waterdeel"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+  </complexType>
+  <element name="Waterschap" substitutionGroup="imgeo:RegistratiefGebied" type="imgeo:WaterschapType">
+    <annotation>
+      <documentation>Regionaal gebied onder het bestuur van een overheidsinstantie (waterschap) die tot taak heeft de waterhuishouding in dit gebied te regelen.</documentation>
+    </annotation>
+  </element>
+  <complexType name="WaterschapType">
+    <complexContent>
+      <extension base="imgeo:RegistratiefGebiedType">
+        <sequence/>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="WaterschapPropertyType">
+    <sequence minOccurs="0">
+      <element ref="imgeo:Waterschap"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+  </complexType>
+  <element name="Label" substitutionGroup="gml:_Object" type="imgeo:LabelType">
+    <annotation>
+      <documentation>Een samengesteld attribuut voor verwijzing naar een te plaatsen labeltekst en positie daarvan.</documentation>
+    </annotation>
+  </element>
+  <complexType name="LabelType">
+    <sequence>
+      <element name="tekst" type="string">
+        <annotation>
+          <documentation>Tekst voor het label.</documentation>
+        </annotation>
+      </element>
+      <element maxOccurs="unbounded" name="positie" type="imgeo:LabelpositiePropertyType">
+        <annotation>
+          <documentation>Labelpositie, samengesteld uit plaatsingspunt en rotatiehoek.</documentation>
+        </annotation>
+      </element>
+    </sequence>
+  </complexType>
+  <complexType name="LabelPropertyType">
+    <sequence>
+      <element ref="imgeo:Label"/>
+    </sequence>
+  </complexType>
+  <element name="Paal" substitutionGroup="cif:CityFurniture" type="imgeo:PaalType">
+    <annotation>
+      <documentation>Langwerpig stuk hout, ijzer, steen enz., dat in de grond staat.</documentation>
+    </annotation>
+  </element>
+  <complexType name="PaalType">
+    <complexContent>
+      <extension base="cif:CityFurnitureType">
+        <sequence>
+          <element minOccurs="0" name="hectometeraanduiding" type="string">
+            <annotation>
+              <documentation>Code van de paal die kan worden gebruikt voor afstandsaanduiding, zoals bij hectometerpaaltjes en dijkpalen.</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="plus-type" type="gml:CodeType">
+            <annotation>
+              <documentation>Het soort paal (IMGeo plus-populatie).</documentation>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="geometrie2dPaal" type="gml:PointPropertyType">
+            <annotation>
+              <documentation>Puntgeometrie.</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="lod0GeometriePaal" type="gml:PointPropertyType">
+            <annotation>
+              <documentation>Puntgeometrie in 2.5D op level of detail 0.</documentation>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="PaalPropertyType">
+    <sequence minOccurs="0">
+      <element ref="imgeo:Paal"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+  </complexType>
+  <element name="begroeidTerreindeelOpTalud" substitutionGroup="veg:_GenericApplicationPropertyOfPlantCover" nillable="true">
+    <annotation>
+      <documentation>Indicatie of het object wel of niet op een hellend vlak ligt.</documentation>
+    </annotation>
+    <complexType>
+      <simpleContent>
+        <extension base="boolean">
+          <attribute name="nilReason" type="gml:NullType"/>
+        </extension>
+      </simpleContent>
+    </complexType>
+  </element>
+  <element name="plus-fysiekVoorkomen" substitutionGroup="veg:_GenericApplicationPropertyOfPlantCover" type="gml:CodeType">
+    <annotation>
+      <documentation>Nadere classificatie van het vegetatiedek, ingedeeld naar soort vegetatie.</documentation>
+    </annotation>
+  </element>
+  <element name="lod0MultiSurfaceBegroeidTerreindeel" substitutionGroup="veg:_GenericApplicationPropertyOfPlantCover" type="gml:MultiSurfacePropertyType">
+    <annotation>
+      <documentation>Multivlakgeometrie in 2.5D.</documentation>
+    </annotation>
+  </element>
+  <element name="geometrie2dBegroeidTerreindeel" substitutionGroup="veg:_GenericApplicationPropertyOfPlantCover" type="gml:SurfacePropertyType">
+    <annotation>
+      <documentation>Vlakgeometrie.</documentation>
+    </annotation>
+  </element>
+  <element name="kruinlijnBegroeidTerreindeel" substitutionGroup="veg:_GenericApplicationPropertyOfPlantCover" nillable="true">
+    <annotation>
+      <documentation>Lijngeometrie van de hoogstgelegen begrenzing van een kunstmatig aangelegd en onderhouden helling.</documentation>
+    </annotation>
+    <complexType>
+      <complexContent>
+        <extension base="gml:CurvePropertyType">
+          <attribute name="nilReason" type="gml:NullType"/>
+        </extension>
+      </complexContent>
+    </complexType>
+  </element>
+  <element name="Kunstwerkdeel" substitutionGroup="imgeo:OverigeConstructie" type="imgeo:KunstwerkdeelType">
+    <annotation>
+      <documentation>Onderdeel van een civiel-technisch werk voor de infrastructuur van wegen, water, spoorbanen, waterkeringen en/of leidingen.</documentation>
+    </annotation>
+  </element>
+  <complexType name="KunstwerkdeelType">
+    <complexContent>
+      <extension base="imgeo:OverigeConstructieType">
+        <sequence>
+          <element name="bgt-type" type="gml:CodeType">
+            <annotation>
+              <documentation>Specificatie van het soort kunstwerk.</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="plus-type" type="gml:CodeType">
+            <annotation>
+              <documentation>Specificatie van het soort kunstwerk, indien dit een IMGeo uitbreiding van de populatie betreft.</documentation>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="KunstwerkdeelPropertyType">
+    <sequence minOccurs="0">
+      <element ref="imgeo:Kunstwerkdeel"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+  </complexType>
+  <element name="plus-functieWegdeel" substitutionGroup="tra:_GenericApplicationPropertyOfTrafficArea" type="gml:CodeType">
+    <annotation>
+      <documentation>Specificatie van het hoofdgebruiksdoel van het wegdeel, nadere classificatie.</documentation>
+    </annotation>
+  </element>
+  <element name="wegdeelOpTalud" substitutionGroup="tra:_GenericApplicationPropertyOfTrafficArea" nillable="true">
+    <annotation>
+      <documentation>Indicatie of het object wel of niet op een hellend vlak ligt.</documentation>
+    </annotation>
+    <complexType>
+      <simpleContent>
+        <extension base="boolean">
+          <attribute name="nilReason" type="gml:NullType"/>
+        </extension>
+      </simpleContent>
+    </complexType>
+  </element>
+  <element name="plus-fysiekVoorkomenWegdeel" substitutionGroup="tra:_GenericApplicationPropertyOfTrafficArea" type="gml:CodeType">
+    <annotation>
+      <documentation>Mate waarin het wegdeel al of niet verhard is, nadere classificatie.</documentation>
+    </annotation>
+  </element>
+  <element name="kruinlijnWegdeel" substitutionGroup="tra:_GenericApplicationPropertyOfTrafficArea" nillable="true">
+    <annotation>
+      <documentation>Lijngeometrie van de hoogstgelegen begrenzing van een kunstmatig aangelegd en onderhouden helling.</documentation>
+    </annotation>
+    <complexType>
+      <complexContent>
+        <extension base="gml:CurvePropertyType">
+          <attribute name="nilReason" type="gml:NullType"/>
+        </extension>
+      </complexContent>
+    </complexType>
+  </element>
+  <element name="lod0SurfaceWegdeel" substitutionGroup="tra:_GenericApplicationPropertyOfTrafficArea" type="gml:SurfacePropertyType">
+    <annotation>
+      <documentation>Vlakgeometrie in 2.5D.</documentation>
+    </annotation>
+  </element>
+  <element name="geometrie2dWegdeel" substitutionGroup="tra:_GenericApplicationPropertyOfTrafficArea" type="gml:SurfacePropertyType">
+    <annotation>
+      <documentation>Vlakgeometrie.</documentation>
+    </annotation>
+  </element>
+  <element name="NEN3610ID" substitutionGroup="gml:_Object" type="imgeo:NEN3610IDType">
+    <annotation>
+      <documentation>Identificatiegegevens voor de universeel unieke identificatie van een object.</documentation>
+    </annotation>
+  </element>
+  <complexType name="NEN3610IDType">
+    <sequence>
+      <element name="namespace" type="string">
+        <annotation>
+          <documentation>Unieke verwijzing naar een registratie van objecten.</documentation>
+        </annotation>
+      </element>
+      <element name="lokaalID" type="string">
+        <annotation>
+          <documentation>Unieke identificatiecode binnen een registratie.</documentation>
+        </annotation>
+      </element>
+    </sequence>
+  </complexType>
+  <complexType name="NEN3610IDPropertyType">
+    <sequence>
+      <element ref="imgeo:NEN3610ID"/>
+    </sequence>
+  </complexType>
+  <element name="Wijk" substitutionGroup="imgeo:RegistratiefGebied" type="imgeo:WijkType">
+    <annotation>
+      <documentation>Een aaneengesloten gedeelte van het grondgebied van een gemeente, waarvan de grenzen zoveel mogelijk zijn gebaseerd op sociaalgeografische kenmerken.</documentation>
+    </annotation>
+  </element>
+  <complexType name="WijkType">
+    <complexContent>
+      <extension base="imgeo:RegistratiefGebiedType">
+        <sequence>
+          <element name="wijkcode" type="string">
+            <annotation>
+              <documentation>De code behorende bij de naam van de wijk.</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="stadsdeel" type="imgeo:StadsdeelPropertyType">
+            <annotation>
+              <documentation>Het stadsdeel waarin de wijk gelegen is.</documentation>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="WijkPropertyType">
+    <sequence minOccurs="0">
+      <element ref="imgeo:Wijk"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+  </complexType>
+  <element name="identificatieBAGPND" substitutionGroup="bui:_GenericApplicationPropertyOfBuildingPart" type="string">
+    <annotation>
+      <documentation>De unieke identificatie van het object zoals is toegekend in de BAG-administratie.</documentation>
+    </annotation>
+  </element>
+  <element name="nummeraanduidingreeks" substitutionGroup="bui:_GenericApplicationPropertyOfBuildingPart" type="imgeo:NummeraanduidingreeksPropertyType">
+    <annotation>
+      <documentation>Bevat de reeks nummeraanduidingen behorend bij het pand ten behoeve van visualisatie.</documentation>
+    </annotation>
+  </element>
+  <element name="geometrie2dGrondvlak" substitutionGroup="bui:_GenericApplicationPropertyOfBuildingPart" type="gml:MultiSurfacePropertyType">
+    <annotation>
+      <documentation>Vlakgeometrie grondvlak.</documentation>
+    </annotation>
+  </element>
+  <element name="Mast" substitutionGroup="cif:CityFurniture" type="imgeo:MastType">
+    <annotation>
+      <documentation>Hoge draagconstructie.</documentation>
+    </annotation>
+  </element>
+  <complexType name="MastType">
+    <complexContent>
+      <extension base="cif:CityFurnitureType">
+        <sequence>
+          <element minOccurs="0" name="plus-type" type="gml:CodeType">
+            <annotation>
+              <documentation>Het soort mast (IMGeo plus-populatie).</documentation>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="geometrie2dMast" type="gml:PointPropertyType">
+            <annotation>
+              <documentation>Puntgeometrie.</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="lod0GeometrieMast" type="gml:PointPropertyType">
+            <annotation>
+              <documentation>Puntgeometrie in 2.5D op level of detail 0.</documentation>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="MastPropertyType">
+    <sequence minOccurs="0">
+      <element ref="imgeo:Mast"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+  </complexType>
+  <element name="OverigBouwwerk" substitutionGroup="imgeo:OverigeConstructie" type="imgeo:OverigBouwwerkType">
+    <annotation>
+      <documentation>Met de aarde verbonden duurzaam bouwwerk, dat niet valt onder de definities van een pand of kunstwerk.</documentation>
+    </annotation>
+  </element>
+  <complexType name="OverigBouwwerkType">
+    <complexContent>
+      <extension base="imgeo:OverigeConstructieType">
+        <sequence>
+          <element name="bgt-type" type="gml:CodeType">
+            <annotation>
+              <documentation>Specificatie van het soort overig bouwwerk.</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="plus-type" type="gml:CodeType">
+            <annotation>
+              <documentation>Specificatie van het soort overig bouwwerk, indien dit een IMGeo uitbreiding van de populatie betreft.</documentation>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="OverigBouwwerkPropertyType">
+    <sequence minOccurs="0">
+      <element ref="imgeo:OverigBouwwerk"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+  </complexType>
+  <element name="Plaatsbepalingspunt" substitutionGroup="gml:_Feature" type="imgeo:PlaatsbepalingspuntType">
+    <annotation>
+      <documentation>Punt dat is ingemeten en vervolgens gebruikt is bij en onderdeel uitmaakt van de begrenzing van BGT objecten.</documentation>
+    </annotation>
+  </element>
+  <complexType name="PlaatsbepalingspuntType">
+    <complexContent>
+      <extension base="gml:AbstractFeatureType">
+        <sequence>
+          <element name="identificatie" type="imgeo:NEN3610IDPropertyType">
+            <annotation>
+              <documentation>Uniek identificatienummer voor het object dat onveranderlijk is zolang het object bestaat.</documentation>
+            </annotation>
+          </element>
+          <element name="nauwkeurigheid" nillable="true">
+            <annotation>
+              <documentation>Gerealiseerde geometrische nauwkeurigheid van de geometrie van het object ten opzichte van de werkelijkheid, uitgedrukt in centimeters.</documentation>
+            </annotation>
+            <complexType>
+              <simpleContent>
+                <extension base="integer">
+                  <attribute name="nilReason" type="gml:NullType"/>
+                </extension>
+              </simpleContent>
+            </complexType>
+          </element>
+          <element name="datumInwinning" type="date">
+            <annotation>
+              <documentation>Datum waarop het punt is ingewonnen.</documentation>
+            </annotation>
+          </element>
+          <element name="inwinnendeInstantie" nillable="true">
+            <annotation>
+              <documentation>De organisatie die namens de bronhouder het object inwint.</documentation>
+            </annotation>
+            <complexType>
+              <simpleContent>
+                <extension base="string">
+                  <attribute name="nilReason" type="gml:NullType"/>
+                </extension>
+              </simpleContent>
+            </complexType>
+          </element>
+          <element name="inwinningsmethode" type="gml:CodeType">
+            <annotation>
+              <documentation>De wijze waarop het punt is ingewonnen.</documentation>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="geometrie" type="gml:PointPropertyType">
+            <annotation>
+              <documentation>Puntgeometrie.</documentation>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="PlaatsbepalingspuntPropertyType">
+    <sequence minOccurs="0">
+      <element ref="imgeo:Plaatsbepalingspunt"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+  </complexType>
+  <element name="Sensor" substitutionGroup="cif:CityFurniture" type="imgeo:SensorType">
+    <annotation>
+      <documentation>Apparaat voor de meting van een fysieke grootheid (bijv. temperatuur, licht, druk, elektriciteit).</documentation>
+    </annotation>
+  </element>
+  <complexType name="SensorType">
+    <complexContent>
+      <extension base="cif:CityFurnitureType">
+        <sequence>
+          <element minOccurs="0" name="plus-type" type="gml:CodeType">
+            <annotation>
+              <documentation>Het soort sensor (IMGeo plus-populatie).</documentation>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="geometrie2dSensor" type="gml:GeometryPropertyType">
+            <annotation>
+              <documentation>Punt- of lijngeometrie.</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="lod0GeometrieSensor" type="gml:GeometryPropertyType">
+            <annotation>
+              <documentation>Punt- of lijngeometrie in 2.5D op level of detail 0.</documentation>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="SensorPropertyType">
+    <sequence minOccurs="0">
+      <element ref="imgeo:Sensor"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+  </complexType>
+  <element name="OnbegroeidTerreindeel" substitutionGroup="lu:LandUse" type="imgeo:OnbegroeidTerreindeelType">
+    <annotation>
+      <documentation>Kleinste functioneel onafhankelijk stukje van een terrein, dat er binnen het objecttype Terrein van NEN 3610 wordt onderscheiden, zonder aaneengesloten vegetatie.</documentation>
+    </annotation>
+  </element>
+  <complexType name="OnbegroeidTerreindeelType">
+    <complexContent>
+      <extension base="lu:LandUseType">
+        <sequence>
+          <element name="bgt-fysiekVoorkomen" type="gml:CodeType">
+            <annotation>
+              <documentation>Classificatie van het soort terrein, ingedeeld naar de uiterlijke verschijningsvorm.</documentation>
+            </annotation>
+          </element>
+          <element default="false" name="onbegroeidTerreindeelOpTalud" nillable="true">
+            <annotation>
+              <documentation>Indicatie of het object wel of niet op een hellend vlak ligt.</documentation>
+            </annotation>
+            <complexType>
+              <simpleContent>
+                <extension base="boolean">
+                  <attribute name="nilReason" type="gml:NullType"/>
+                </extension>
+              </simpleContent>
+            </complexType>
+          </element>
+          <element minOccurs="0" name="plus-fysiekVoorkomen" type="gml:CodeType">
+            <annotation>
+              <documentation>Nadere classificatie van het soort terrein, ingedeeld naar de uiterlijke verschijningsvorm.</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="kruinlijnOnbegroeidTerreindeel" nillable="true">
+            <annotation>
+              <documentation>Lijngeometrie van de hoogstgelegen begrenzing van een kunstmatig aangelegd en onderhouden helling.</documentation>
+            </annotation>
+            <complexType>
+              <complexContent>
+                <extension base="gml:CurvePropertyType">
+                  <attribute name="nilReason" type="gml:NullType"/>
+                </extension>
+              </complexContent>
+            </complexType>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="geometrie2dOnbegroeidTerreindeel" type="gml:SurfacePropertyType">
+            <annotation>
+              <documentation>Vlakgeometrie.</documentation>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="OnbegroeidTerreindeelPropertyType">
+    <sequence minOccurs="0">
+      <element ref="imgeo:OnbegroeidTerreindeel"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+  </complexType>
+  <element name="Kast" substitutionGroup="cif:CityFurniture" type="imgeo:KastType">
+    <annotation>
+      <documentation>Object met een permanent karakter dat dient om iets in te bergen en te beschermen.</documentation>
+    </annotation>
+  </element>
+  <complexType name="KastType">
+    <complexContent>
+      <extension base="cif:CityFurnitureType">
+        <sequence>
+          <element minOccurs="0" name="plus-type" type="gml:CodeType">
+            <annotation>
+              <documentation>Het soort kast (IMGeo plus-populatie).</documentation>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="geometrie2dKast" type="gml:PointPropertyType">
+            <annotation>
+              <documentation>Puntgeometrie.</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="lod0GeometrieKast" type="gml:PointPropertyType">
+            <annotation>
+              <documentation>Puntgeometrie in 2.5D op level of detail 0.</documentation>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="KastPropertyType">
+    <sequence minOccurs="0">
+      <element ref="imgeo:Kast"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+  </complexType>
+  <element name="OngeclassificeerdObject" substitutionGroup="cit:_CityObject" type="imgeo:OngeclassificeerdObjectType">
+    <annotation>
+      <documentation>Object waarvoor geen bronhouder aangewezen is en/of dat niet nader is geclassificeerd.</documentation>
+    </annotation>
+  </element>
+  <complexType name="OngeclassificeerdObjectType">
+    <complexContent>
+      <extension base="cit:AbstractCityObjectType">
+        <sequence>
+          <element maxOccurs="unbounded" minOccurs="0" name="geometrie2d" type="gml:SurfacePropertyType">
+            <annotation>
+              <documentation>Vlakgeometrie.</documentation>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="OngeclassificeerdObjectPropertyType">
+    <sequence minOccurs="0">
+      <element ref="imgeo:OngeclassificeerdObject"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+  </complexType>
+  <element abstract="true" name="RegistratiefGebied" substitutionGroup="lu:LandUse" type="imgeo:RegistratiefGebiedType">
+    <annotation>
+      <documentation>Op basis van wet- of regelgeving afgebakend gebied dat als eenheid geldt van politiek/bestuurlijke verantwoordelijkheid of voor bedrijfsvoering.</documentation>
+    </annotation>
+  </element>
+  <complexType abstract="true" name="RegistratiefGebiedType">
+    <complexContent>
+      <extension base="lu:LandUseType">
+        <sequence>
+          <element minOccurs="0" name="naam" type="gml:CodeType">
+            <annotation>
+              <documentation>De benaming van het registratieve gebied.</documentation>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="geometrie2d" type="gml:MultiSurfacePropertyType">
+            <annotation>
+              <documentation>Multivlakgeometrie.</documentation>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="RegistratiefGebiedPropertyType">
+    <sequence minOccurs="0">
+      <element ref="imgeo:RegistratiefGebied"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+  </complexType>
+  <element name="ondersteunendWegdeelOpTalud" substitutionGroup="tra:_GenericApplicationPropertyOfAuxiliaryTrafficArea" nillable="true">
+    <annotation>
+      <documentation>Indicatie of het object wel of niet op een hellend vlak ligt.</documentation>
+    </annotation>
+    <complexType>
+      <simpleContent>
+        <extension base="boolean">
+          <attribute name="nilReason" type="gml:NullType"/>
+        </extension>
+      </simpleContent>
+    </complexType>
+  </element>
+  <element name="plus-functieOndersteunendWegdeel" substitutionGroup="tra:_GenericApplicationPropertyOfAuxiliaryTrafficArea" type="gml:CodeType">
+    <annotation>
+      <documentation>Specificatie van het soort ondersteunend wegdeel, nadere classificatie.</documentation>
+    </annotation>
+  </element>
+  <element name="plus-fysiekVoorkomenOndersteunendWegdeel" substitutionGroup="tra:_GenericApplicationPropertyOfAuxiliaryTrafficArea" type="gml:CodeType">
+    <annotation>
+      <documentation>Mate waarin het ondersteunend wegdeel al of niet verhard is, nadere classificatie.</documentation>
+    </annotation>
+  </element>
+  <element name="kruinlijnOndersteunendWegdeel" substitutionGroup="tra:_GenericApplicationPropertyOfAuxiliaryTrafficArea" nillable="true">
+    <annotation>
+      <documentation>Lijngeometrie van de hoogstgelegen begrenzing van een kunstmatig aangelegd en onderhouden helling.</documentation>
+    </annotation>
+    <complexType>
+      <complexContent>
+        <extension base="gml:CurvePropertyType">
+          <attribute name="nilReason" type="gml:NullType"/>
+        </extension>
+      </complexContent>
+    </complexType>
+  </element>
+  <element name="lod0SurfaceOndersteunendWegdeel" substitutionGroup="tra:_GenericApplicationPropertyOfAuxiliaryTrafficArea" type="gml:SurfacePropertyType">
+    <annotation>
+      <documentation>Vlakgeometrie in 2.5D.</documentation>
+    </annotation>
+  </element>
+  <element name="geometrie2dOndersteunendWegdeel" substitutionGroup="tra:_GenericApplicationPropertyOfAuxiliaryTrafficArea" type="gml:SurfacePropertyType">
+    <annotation>
+      <documentation>Vlakgeometrie.</documentation>
+    </annotation>
+  </element>
+  <element name="Installatie" substitutionGroup="cif:CityFurniture" type="imgeo:InstallatieType">
+    <annotation>
+      <documentation>Samenhangend systeem dat een bepaald doel dient.</documentation>
+    </annotation>
+  </element>
+  <complexType name="InstallatieType">
+    <complexContent>
+      <extension base="cif:CityFurnitureType">
+        <sequence>
+          <element minOccurs="0" name="plus-type" type="gml:CodeType">
+            <annotation>
+              <documentation>Het soort installatie (IMGeo plus-populatie).</documentation>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="geometrie2dInstallatie" type="gml:PointPropertyType">
+            <annotation>
+              <documentation>Puntgeometrie.</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="lod0GeometrieInstallatie" type="gml:PointPropertyType">
+            <annotation>
+              <documentation>Puntgeometrie in 2.5D op level of detail 0.</documentation>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="InstallatiePropertyType">
+    <sequence minOccurs="0">
+      <element ref="imgeo:Installatie"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+  </complexType>
+  <element name="Bord" substitutionGroup="cif:CityFurniture" type="imgeo:BordType">
+    <annotation>
+      <documentation>Een paneel waarop informatie wordt afgebeeld.</documentation>
+    </annotation>
+  </element>
+  <complexType name="BordType">
+    <complexContent>
+      <extension base="cif:CityFurnitureType">
+        <sequence>
+          <element minOccurs="0" name="plus-type" type="gml:CodeType">
+            <annotation>
+              <documentation>Het soort bord (IMGeo plus-populatie).</documentation>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="geometrie2dBord" type="gml:PointPropertyType">
+            <annotation>
+              <documentation>Puntgeometrie.</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="lod0GeometrieBord" type="gml:PointPropertyType">
+            <annotation>
+              <documentation>Puntgeometrie in 2.5D op level of detail 0.</documentation>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="BordPropertyType">
+    <sequence minOccurs="0">
+      <element ref="imgeo:Bord"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+  </complexType>
+  <element name="Buurt" substitutionGroup="imgeo:RegistratiefGebied" type="imgeo:BuurtType">
+    <annotation>
+      <documentation>Een aaneengesloten gedeelte van een wijk, waarvan de grenzen zoveel mogelijk zijn gebaseerd op topografische elementen.</documentation>
+    </annotation>
+  </element>
+  <complexType name="BuurtType">
+    <complexContent>
+      <extension base="imgeo:RegistratiefGebiedType">
+        <sequence>
+          <element name="buurtcode" type="string">
+            <annotation>
+              <documentation>De code behorende bij de naam van de buurt.</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="wijk" type="imgeo:WijkPropertyType">
+            <annotation>
+              <documentation>De wijk waarin de buurt gelegen is.</documentation>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="BuurtPropertyType">
+    <sequence minOccurs="0">
+      <element ref="imgeo:Buurt"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+  </complexType>
+  <element name="OndersteunendWaterdeel" substitutionGroup="wat:WaterBody" type="imgeo:OndersteunendWaterdeelType">
+    <annotation>
+      <documentation>Object dat in het kader van de waterhuishouding periodiek gedeeltelijk of geheel met water is bedekt.</documentation>
+    </annotation>
+  </element>
+  <complexType name="OndersteunendWaterdeelType">
+    <complexContent>
+      <extension base="wat:WaterBodyType">
+        <sequence>
+          <element minOccurs="0" name="plus-type" type="gml:CodeType">
+            <annotation>
+              <documentation>Specificatie van het soort Water, nadere classificatie.</documentation>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="geometrie2dOndersteunendWaterdeel" type="gml:SurfacePropertyType">
+            <annotation>
+              <documentation>Vlakgeometrie.</documentation>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="OndersteunendWaterdeelPropertyType">
+    <sequence minOccurs="0">
+      <element ref="imgeo:OndersteunendWaterdeel"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+  </complexType>
+  <element name="identificatie" substitutionGroup="cit:_GenericApplicationPropertyOfCityObject" type="imgeo:NEN3610IDPropertyType">
+    <annotation>
+      <documentation>Uniek identificatienummer voor het object dat onveranderlijk is zolang het object bestaat.</documentation>
+    </annotation>
+  </element>
+  <element name="tijdstipRegistratie" substitutionGroup="cit:_GenericApplicationPropertyOfCityObject" type="dateTime">
+    <annotation>
+      <documentation>Tijdstip waarop deze instantie van het object is opgenomen door de bronhouder.</documentation>
+    </annotation>
+  </element>
+  <element name="eindRegistratie" substitutionGroup="cit:_GenericApplicationPropertyOfCityObject" type="dateTime">
+    <annotation>
+      <documentation>Eind van de periode waarop deze instantie van het object geldig is bij de bronhouder. Wanneer deze waarde niet is ingevuld is de instantie nog geldig.</documentation>
+    </annotation>
+  </element>
+  <element name="LV-publicatiedatum" substitutionGroup="cit:_GenericApplicationPropertyOfCityObject" type="dateTime">
+    <annotation>
+      <documentation>Tijdstip waarop deze instantie van het object is opgenomen in de landelijke voorziening.</documentation>
+    </annotation>
+  </element>
+  <element name="bronhouder" substitutionGroup="cit:_GenericApplicationPropertyOfCityObject" type="string">
+    <annotation>
+      <documentation>De bronhoudercode van het object.</documentation>
+    </annotation>
+  </element>
+  <element name="inOnderzoek" substitutionGroup="cit:_GenericApplicationPropertyOfCityObject" type="boolean">
+    <annotation>
+      <documentation>Een aanduiding waarmee wordt aangegeven dat een onderzoek wordt uitgevoerd naar de juistheid van een of meer gegevens van het betreffende object.</documentation>
+    </annotation>
+  </element>
+  <element name="relatieveHoogteligging" substitutionGroup="cit:_GenericApplicationPropertyOfCityObject" type="integer">
+    <annotation>
+      <documentation>Aanduiding voor de relatieve hoogte van het object</documentation>
+    </annotation>
+  </element>
+  <element name="bgt-status" substitutionGroup="cit:_GenericApplicationPropertyOfCityObject" type="gml:CodeType">
+    <annotation>
+      <documentation>De status gekoppeld aan de levenscyclus van een geo-object</documentation>
+    </annotation>
+  </element>
+  <element name="plus-status" substitutionGroup="cit:_GenericApplicationPropertyOfCityObject" type="gml:CodeType">
+    <annotation>
+      <documentation>De status gekoppeld aan de levenscyclus van een geo-object, indien dit een uitbreiding van de populatie betreft.</documentation>
+    </annotation>
+  </element>
+  <element name="Nummeraanduidingreeks" substitutionGroup="gml:_Object" type="imgeo:NummeraanduidingreeksType">
+    <annotation>
+      <documentation>Samengesteld attribuut ten behoeve van opname van een reeks nummeraanduidingen van verblijfsobjecten in een pand.</documentation>
+    </annotation>
+  </element>
+  <complexType name="NummeraanduidingreeksType">
+    <sequence>
+      <element name="nummeraanduidingreeks" type="imgeo:LabelPropertyType">
+        <annotation>
+          <documentation>Bevat de reeks nummeraanduidingen behorend bij het pand ten behoeve van visualisatie.</documentation>
+        </annotation>
+      </element>
+      <element name="identificatieBAGVBOLaagsteHuisnummer" type="string">
+        <annotation>
+          <documentation>Identificatie in de BAG registratie van het verblijfsobject met het laagste huisnummer behorende tot de reeks.</documentation>
+        </annotation>
+      </element>
+      <element minOccurs="0" name="identificatieBAGVBOHoogsteHuisnummer" type="string">
+        <annotation>
+          <documentation>Identificatie in de BAG registratie van het verblijfsobject met het hoogste huisnummer behorende tot de reeks.</documentation>
+        </annotation>
+      </element>
+    </sequence>
+  </complexType>
+  <complexType name="NummeraanduidingreeksPropertyType">
+    <sequence>
+      <element ref="imgeo:Nummeraanduidingreeks"/>
+    </sequence>
+  </complexType>
+  <element name="FunctioneelGebied" substitutionGroup="lu:LandUse" type="imgeo:FunctioneelGebiedType">
+    <annotation>
+      <documentation>Begrensd en benoemd gebied dat door een functionele eenheid beschreven wordt.</documentation>
+    </annotation>
+  </element>
+  <complexType name="FunctioneelGebiedType">
+    <complexContent>
+      <extension base="lu:LandUseType">
+        <sequence>
+          <element name="bgt-type" type="gml:CodeType">
+            <annotation>
+              <documentation>Specificatie van het soort Functioneel Gebied.</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="plus-type" type="gml:CodeType">
+            <annotation>
+              <documentation>Specificatie van het soort Functioneel Gebied, indien het een IMGeo uitbreiding van de populatie betreft.</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="naam" type="gml:CodeType">
+            <annotation>
+              <documentation>De benaming van het functionele gebied.</documentation>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="geometrie2dFunctioneelGebied" type="gml:SurfacePropertyType">
+            <annotation>
+              <documentation>Vlakgeometrie.</documentation>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="FunctioneelGebiedPropertyType">
+    <sequence minOccurs="0">
+      <element ref="imgeo:FunctioneelGebied"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+  </complexType>
+</schema>

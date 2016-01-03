@@ -58,6 +58,30 @@ http://www.cbs.nl/nl-NL/menu/methoden/classificaties/overzicht/gemeentelijke-ind
 http://www.cbs.nl/nl-NL/menu/methoden/classificaties/overzicht/gemeentelijke-indeling/2013/
 Deze zal in de regel minder veranderen.
 
+CBS heeft de kolomnamen en volgorde veranderd sinds de initiele ondersteuning
+voor de gemeentelijke indeling CSV bestanden aan NLExtract is toegevoegd.
+
+Gebruik de 'Gemeenten alfabetisch (per provincie)' XLS en sla deze op als CSV
+met LibreOffice bijvoorbeeld nadat de kolomnamen en volgorde is aangepast.
+
+De eerste regel met kolomnamen moet in de CSV als volgt worden:
+
+Gemcode;Gemcodel;provcode;provcodel
+
+Sorteer de volgende regels op alleen de provinciecode (provcode) om de
+volgorde overeen te laten komen met CSV bestanden van voorgaande jaren,
+o.a. om de diff leesbaar te houden.
+
+Zoals te zien in de kolomnamen regel worden de velden gescheiden met een
+puntkomma karakter (;) i.p.v. de gebruikelijke komma (,). Ook worden de
+tekstvelden niet gequote eveneens gebruikelijk voor CSV bestanden.
+
+Linux gebruikers moeten na de conversie naar CSV ook de voor Windows
+gebruikelijke CRLF line ends gebruiken. Dit kan eenvoudig met het unix2dos
+commando. Het file commando zal het bestand daarna rapporteren als:
+
+UTF-8 Unicode text, with CRLF line terminators
+
 -------------------- 2014 --------------------------------------
 
 NB Per 1 januari 2014 wordt de nieuwe gemeentelijke indeling actief.
@@ -108,5 +132,27 @@ Net als voor de update van vorig jaar (#109) heeft het mergen van deze change
 pas zin als de gemeente_woonplaats koppelingen in de BAG de gemeentelijke
 indeling van 2015 gebruikt.
 
--------------------- 2015 --------------------------------------
+-------------------- 2016 --------------------------------------
+
+Per 1 januari 2016 word de nieuwe gemeentelijke indeling actief:
+
+ * De Friese Meren (1921) is hernoemt naar De Fryske Marren (1940).
+   Deze wijziging is op 1 juli 2015 al actief geworden, maar door CBS
+   pas in gemeentelijke indeling 2016 opgenomen.
+
+ * Groesbeek (0241) is hernoemt naar Berg en Dal (1945).
+
+ * Bussum (0381), Muiden (0424) & Naarden (0425) komen te vervallen,
+   en worden de nieuwe gemeente Gooise Meren (1942).
+
+ * Zeevang (0478) komt te vervallen en wordt opgenomen in
+   Edam-Volendam (0385).
+
+Zie ook:
+
+ * CBS - Gemeentelijke indeling op 1 januari 2016
+   http://www.cbs.nl/nl-NL/menu/methoden/classificaties/overzicht/gemeentelijke-indeling/2016
+
+ * Wikipedia - Gemeentelijke herindeling in Nederland
+   https://nl.wikipedia.org/wiki/Gemeentelijke_herindeling_in_Nederland#2016
 

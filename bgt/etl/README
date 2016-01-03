@@ -1,0 +1,38 @@
+BGT / IMGeo inlezen met Stetl (www.stetl.org) ETL framework.
+door: Just van den Broecke,
+GFS en XSLT door Just van den Broecke en Frank Steggink
+
+Deze map bevat de ETL configuratie en commando om via Stetl
+BGT / IMGeo vanuit de bron GML bestanden naar verschillende outputs weg te schrijven.
+Standaard is dit PostGIS, maar omdat output via ogr2ogr verloopt kan dit
+elke output zijn die ogr2ogr ondersteunt, bijv SHP, GeoJSON of GeoPackage, in theorie ook bijv Oracle.
+
+Om gebruik te maken van Stetl moet de externe GitHub submodule externals/stetl
+aanwezig zijn.
+
+Bij het klonen van de GitHub komt Stetl als volgt mee:
+git clone --recursive https://github.com/opengeogroep/NLExtract.git
+Stetl komt dan mee, hoeft niet apart geinstalleerd, alleen de Stetl-dependencies.
+
+Dependencies Stetl installeren:
+http://www.stetl.org/en/latest/install.html
+
+Meer over Stetl: http://stetl.org
+
+Commando:
+
+./etl-imgeo.sh
+
+Opties zetten:
+maak een eigen lokale file:
+options/options-<jouw host naam>.sh
+
+Stetl configuratie, hoeft niet gewijzigd, alleen indien bijv andere output gewenst:
+etl-imgeo.cfg
+
+
+TODO
+Windows (.bat) scripts: etl-imgeo.cmd (nog niet gemaakt en getest)
+
+GUI
+
