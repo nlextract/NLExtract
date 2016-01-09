@@ -3,156 +3,114 @@ van BAG data met bestuurlijke eenheden (gemeenten en provincies).
 
 Deze data wordt zoveel mogelijk actueel gehouden en waar nodig opgeschoond.
 
-- woonplaats-gemeente koppeling
-Komt van Kadaster in de zip file geheten "Woonplaatscodetabel met historie "
-te vinden op http://kadaster.nl/window.html?inhoud=/BAG/
-http://kadaster.nl/bag/docs/BAG_Overzicht_aangesloten_gemeenten.zip
-Dit bestand verandert regelmatig bijv. ivm gemeentelijke herindelingen.
-Als je zelf een nieuwere versie neerzet, zorg dan dat de file encoded is als
-UTF-8 (de oorspronkelijke Kadaster .csv file is in LATIN1).
-In de koppeltabel staat ook historie in de zin dat er begin/einddata van
-zowel woonplaatsen (veld 3/4) als gemeenten (laatste 2 velden) zijn opgenomen.
-daarom kan het in eerste instantie lijken of er dubbeling is. NB de CSV gaat eruit, zie voldgende bericht.
+- gemeente-provincie koppeling (gemeentelijke-indeling.{xml,xsd})
+CBS gemeentelijke indeling sinds 1990, verrijkt met begin & eind datums.
 
-- bericht van Kadaster t.b.v. woonplaats-gemeente koppeling
-"In release 2012/1, die op 22 juni 2012 is geïmplementeerd, is onder andere gerealiseerd dat de gemeente-woonplaats-relatie
-meegeleverd wordt in een bestand op xml formaat bij de levering van BAG extract en BAG compact.
-Dit bestand voorziet u van actuele gegevens op basis waarvan de relatie tussen de woonplaatscode
-en de gemeentecode gelegd kan worden. Dit bestand is ook opgenomen op onze website:
-http://www.kadaster.nl/BAG/docs/Gemeente-woonplaats-relatietabel.zip.
-Het bestand zal regelmatig worden geactualiseerd. Het leveren van het bestand op xml
-formaat brengt met zich mee dat deze, handmatig bijgehouden, tabel na verloop van tijd
-verwijderd zal worden van onze website.
-Wij adviseren u daarom het verwerken van BAG extract en BAG compact zo in te richten dat
-u met het nieuwe bestand uit de voeten kunt.
-Wij verwachten dat deze tabel tot oktober 2012 op onze website zal staan."
+Voorheen werd een CSV bestand gemaakt door het 'Gemeenten alfabetisch (per
+provincie)' XLS bestand van CBS met de door NLExtract verwachte kolom namen
+en volgorde te exporteren.
 
-Note JvdB: alleen staan in die .xml niet de gemeente en woonplaatsnamen, alleen numerieke
-koppelingen bijv.
+De CBS gemeentelijke indeling bestanden zijn beschikbaar via:
+http://www.cbs.nl/nl-NL/menu/methoden/classificaties/overzicht/gemeentelijke-indeling/<jaar>
+bijvoorbeeld:
+http://www.cbs.nl/nl-NL/menu/methoden/classificaties/overzicht/gemeentelijke-indeling/2016/
 
-<gwr_LVC:GemeenteWoonplaatsRelatie>
-<gwr_LVC:tijdvakgeldigheid>
-<bagtype:begindatumTijdvakGeldigheid>2010102000000000</bagtype:begindatumTijdvakGeldigheid>
-<bagtype:einddatumTijdvakGeldigheid>2010102100000000</bagtype:einddatumTijdvakGeldigheid>
-</gwr_LVC:tijdvakgeldigheid>
-<gwr_LVC:gerelateerdeWoonplaats>
-<gwr_LVC:identificatie>3386</gwr_LVC:identificatie>
-</gwr_LVC:gerelateerdeWoonplaats>
-<gwr_LVC:gerelateerdeGemeente>
-<gwr_LVC:identificatie>0003</gwr_LVC:identificatie>
-</gwr_LVC:gerelateerdeGemeente>
-<gwr_LVC:status>definitief</gwr_LVC:status>
-</gwr_LVC:GemeenteWoonplaatsRelatie>
+Sinds 2006 publiceert CBS XLS bestanden bij de tabel van wijzigingen aan
+de gemeentelijke indeling. Voor het updaten van gemeentelijke-indeling.xml
+is de XLS vereist met vier kolommen: Gemeentecode, Gemeentenaam,
+Provinciecode & Provincienaam. De kolom namen en volgorde verschilt tussen
+de verschillende jaren, waar rekening mee gehouden moet worden bij het
+updaten.
 
+Het gemeentelijke-indeling.pl script heeft ondersteuning voor de
+verschillende kolom namen en volgordes, en moet aangepast worden wanneer
+andere kolom namen of volgorde wordt gebruikt in de nieuwe CBS XLS
+bestanden. Het script zal termineren met een 'Unsupported header order'
+error wanneer nog niet ondersteunde kolom namen of volgorde wordt
+gebruikt.
 
-terwijl in de CSV staat
-Appingedam;3386;;;Appingedam;0003;;
+Een kopie van de gemeentelijke indeling van het voorgaande jaar wordt als
+basis gebruikt voor de nieuwe gemeentelijke indeling. Alle gemeente
+elementen met een einddatum attribuut voor 1 januari van het nieuwe jaar
+worden verwijderd, en het einddatum attribuut wordt toegevoegd aan de
+gemeenten die niet meer voorkomen in de nieuwe CBS gemeentelijke indeling
+(deze gemeenten zijn opgeheven in de nieuwe gemeentelijke indeling).
+Gemeenten die in de nieuwe CBS gemeentelijke indeling zijn gevormd worden
+toegevoegd met 1 januari van het nieuwe jaar als waarde van het begindatum
+attribuut.
 
-We gaan wel de XML gebruiken zodat de .csv overbodig wordt:
-https://github.com/opengeogroep/NLExtract/issues/82
+De meeste wijzigingen aan de gemeentelijke indeling vindt plaats op 1
+januari van het nieuwe jaar, maar het komt ook voor dat wijzigingen in de
+loop van het jaar worden doorgevoerd (b.v. de hernoeming van gemeente
+De Friese Meren (1921) naar De Fryske Marren (1940) per 1 juli 2015).
+CBS neemt deze wijzigingen pas op in de gemeentelijke indeling van het
+daarop volgende jaar. Omdat de met de BAG meegeleverde gemeente-woonplaats
+koppeling de nieuwe gemeentecode al eerder zal gebruiken, moeten voor
+NLExtract deze wijzigingen eveneens al eerder doorgevoerd worden in de
+gemeentelijke indeling. Met het gemeentelijke-indeling.pl script kunnen
+in de meeste recent gemeentelijke indeling bestaande gemeenten worden
+opgeheven (door het toevoegen van het einddatum attribuut), en nieuw
+gevormde gemeenten worden toegevoegd.
 
-- gemeente-provincie koppeling
-Komt van CBS en geeft de koppeling gemeente-provincie via de gemeente-code.
-Zie
-http://www.cbs.nl/nl-NL/menu/methoden/classificaties/overzicht/gemeentelijke-indeling/<jaar>  bijvoorbeeld
-http://www.cbs.nl/nl-NL/menu/methoden/classificaties/overzicht/gemeentelijke-indeling/2013/
-Deze zal in de regel minder veranderen.
+De help optie van het gemeentelijke-indeling.pl script beschrijft de
+ondersteunde acties en diens argumenten. Ter voorbeeld volgt de gebruikte
+procedure voor het verwerken van de naamswijziging De Friese Meren naar
+De Fryske Marren op 1 juli 2015, en het toevoegen van de daarop volgende
+gemeentelijke indeling voor 2016.
 
-CBS heeft de kolomnamen en volgorde veranderd sinds de initiele ondersteuning
-voor de gemeentelijke indeling CSV bestanden aan NLExtract is toegevoegd.
+ # Beëindig de oude gemeente in de meest recente indeling
+ $ ./bag/bin/gemeentelijke-indeling.pl --end-gemeente \
+                                       --code 1921 \
+                                       --date 2015-07-01 \
+                                       --prov Friesland \
+                                       --input bag/db/data/gemeentelijke-indeling.xml \
+                                       --verbose
+ Parsing XML file: bag/db/data/gemeentelijke-indeling.xml
+ Setting einddatum for gemeente De Friese Meren (1921) [2014-01-01|2015-07-01] in provincie Friesland (21)
+ Building XML structure...
+ Saving file: bag/db/data/gemeentelijke-indeling.xml
 
-Gebruik de 'Gemeenten alfabetisch (per provincie)' XLS en sla deze op als CSV
-met LibreOffice bijvoorbeeld nadat de kolomnamen en volgorde is aangepast.
+ # Voeg de nieuwe gemeente toe aan de meest recente indeling
+ $ ./bag/bin/gemeentelijke-indeling.pl --add-gemeente \
+                                       --code 1940 \
+                                       --name "De Fryske Marren" \
+                                       --date 2015-07-01 \
+                                       --prov Friesland \
+                                       --input bag/db/data/gemeentelijke-indeling.xml \
+                                       --verbose
+ Parsing XML file: bag/db/data/gemeentelijke-indeling.xml
+ Adding gemeente De Fryske Marren (1940) [2015-07-01] to provincie Friesland (21)
+ Building XML structure...
+ Saving file: bag/db/data/gemeentelijke-indeling.xml
 
-De eerste regel met kolomnamen moet in de CSV als volgt worden:
-
-Gemcode;Gemcodel;provcode;provcodel
-
-Sorteer de volgende regels op alleen de provinciecode (provcode) om de
-volgorde overeen te laten komen met CSV bestanden van voorgaande jaren,
-o.a. om de diff leesbaar te houden.
-
-Zoals te zien in de kolomnamen regel worden de velden gescheiden met een
-puntkomma karakter (;) i.p.v. de gebruikelijke komma (,). Ook worden de
-tekstvelden niet gequote eveneens gebruikelijk voor CSV bestanden.
-
-Linux gebruikers moeten na de conversie naar CSV ook de voor Windows
-gebruikelijke CRLF line ends gebruiken. Dit kan eenvoudig met het unix2dos
-commando. Het file commando zal het bestand daarna rapporteren als:
-
-UTF-8 Unicode text, with CRLF line terminators
-
--------------------- 2014 --------------------------------------
-
-NB Per 1 januari 2014 wordt de nieuwe gemeentelijke indeling actief.
-De gemeentes Boskoop en Rijnwoude komen te vervallen en worden opgenomen in gemeente Alphen aan den Rijn.
-De gemeentes Gaasterlân-Sleat, Lemsterland en Skarsterlân vormen vanaf 1 januari 2014
-samen de nieuwe gemeente De Friese Meren.
-
-Gemeente Boarnsterhim word opgedeeld tussen Leeuwarden, Súdwest-Fryslân, Heerenveen en De Friese Meren.
-
-De gemeente-provincie koppeling CSV file was tot 9/1/2014 voor 2013. Via een "pull request"
- https://github.com/opengeogroep/NLExtract/pull/109 is per  9.1.14 de koppeling voor 2014 beschikbaar.
-Met dank aan @sebastic.
-
--------------------- 2015 --------------------------------------
-(Met dank aan @sebastic.)
-Per 1 januari 2015 word de nieuwe gemeentelijke indeling actief:
-
-    Graft-De Rijp (0365) & Schermer (0458) komen te vervallen, en
-    worden opgenomen in Alkmaar (0361).
-
-    Millingen aan de Rijn (0265) & Ubbergen (0282) komen te vervallen, en
-    worden opgenomen in Groesbeek (0241).
-
-    Bernisse (0568) & Spijkenisse (0612) komen te vervallen, en worden de
-    nieuwe gemeente Nissewaard (1930).
-
-    Bergambacht (0491), Nederlek (0643), Ouderkerk (0644), Schoonhoven (0608) &
-    Vlist (0623) komen te vervallen, en worden de nieuwe gemeente
-    Krimpenerwaard (1931).
-
-    Maasdonk (1671) komt te vervallen en wordt verdeeld tussen
-    's-Hertogenbosch (0796) & Oss (0828).
-
-Bij de herverdeling van Maasdonk zal de woonplaats Geffen (2747) bij
-gemeente Oss (0828) ingedeeld worden, en Nuland (2748) & Vinkel (2749) bij
-'s-Hertogenbosch (0796).
-
-Zie ook:
-
-    CBS - Gemeentelijke indeling op 1 januari 2015
-    Wikipedia - Gemeentelijke herindeling in Nederland#2015
-
-In deze change is de CSV file geupdate voor 2015 aan de hand van de
-Gemeenten alfabetisch per provincie 2015 (XLS).
-En ook de originele XLS (Gemeentenalfabetischperprovincie2015.xls) is toegevoegd.
-
-Net als voor de update van vorig jaar (#109) heeft het mergen van deze change
-pas zin als de gemeente_woonplaats koppelingen in de BAG de gemeentelijke
-indeling van 2015 gebruikt.
-
--------------------- 2016 --------------------------------------
-
-Per 1 januari 2016 word de nieuwe gemeentelijke indeling actief:
-
- * De Friese Meren (1921) is hernoemt naar De Fryske Marren (1940).
-   Deze wijziging is op 1 juli 2015 al actief geworden, maar door CBS
-   pas in gemeentelijke indeling 2016 opgenomen.
-
- * Groesbeek (0241) is hernoemt naar Berg en Dal (1945).
-
- * Bussum (0381), Muiden (0424) & Naarden (0425) komen te vervallen,
-   en worden de nieuwe gemeente Gooise Meren (1942).
-
- * Zeevang (0478) komt te vervallen en wordt opgenomen in
-   Edam-Volendam (0385).
-
-Zie ook:
-
- * CBS - Gemeentelijke indeling op 1 januari 2016
-   http://www.cbs.nl/nl-NL/menu/methoden/classificaties/overzicht/gemeentelijke-indeling/2016
-
- * Wikipedia - Gemeentelijke herindeling in Nederland
-   https://nl.wikipedia.org/wiki/Gemeentelijke_herindeling_in_Nederland#2016
+ # Voeg de gemeentelijke indeling voor 2016 toe
+ $ ./bag/bin/gemeentelijke-indeling.pl --add-cbs-data \
+                                       --file bag/db/data/oud/gemeentenalfabetisch2016.xls \
+                                       --input bag/db/data/gemeentelijke-indeling.xml \
+                                       --verbose
+ Parsing XML file: bag/db/data/gemeentelijke-indeling.xml
+ Parsing XLS file: bag/db/data/oud/gemeentenalfabetisch2016.xls
+ Adding indeling for 2016
+ Removing gemeente De Friese Meren (1921) [2014-01-01|2015-07-01] from provincie Friesland (21)
+ Setting einddatum for gemeente Groesbeek (241) [1970-01-01|2016-01-01] in provincie Gelderland (25)
+ Removing gemeente Millingen aan de Rijn (265) [1955-01-01|2015-01-01] from provincie Gelderland (25)
+ Removing gemeente Ubbergen (282) [1970-01-01|2015-01-01] from provincie Gelderland (25)
+ Adding gemeente Berg en Dal (1945) [2016-01-01] to provincie Gelderland (25)
+ Removing gemeente Graft-De Rijp (365) [1970-08-01|2015-01-01] from provincie Noord-Holland (27)
+ Setting einddatum for gemeente Bussum (381) [1970-01-01|2016-01-01] in provincie Noord-Holland (27)
+ Setting einddatum for gemeente Muiden (424) [1970-01-01|2016-01-01] in provincie Noord-Holland (27)
+ Setting einddatum for gemeente Naarden (425) [1970-01-01|2016-01-01] in provincie Noord-Holland (27)
+ Removing gemeente Schermer (458) [1970-08-01|2015-01-01] from provincie Noord-Holland (27)
+ Setting einddatum for gemeente Zeevang (478) [1970-08-01|2016-01-01] in provincie Noord-Holland (27)
+ Adding gemeente Gooise Meren (1942) [2016-01-01] to provincie Noord-Holland (27)
+ Removing gemeente Bergambacht (491) [1970-01-01|2015-01-01] from provincie Zuid-Holland (28)
+ Removing gemeente Bernisse (568) [1980-01-01|2015-01-01] from provincie Zuid-Holland (28)
+ Removing gemeente Schoonhoven (608) [1970-01-01|2015-01-01] from provincie Zuid-Holland (28)
+ Removing gemeente Spijkenisse (612) [1970-01-01|2015-01-01] from provincie Zuid-Holland (28)
+ Removing gemeente Vlist (623) [1970-01-01|2015-01-01] from provincie Zuid-Holland (28)
+ Removing gemeente Nederlek (643) [1985-01-01|2015-01-01] from provincie Zuid-Holland (28)
+ Removing gemeente Ouderkerk (644) [1985-01-01|2015-01-01] from provincie Zuid-Holland (28)
+ Removing gemeente Maasdonk (1671) [1993-01-01|2015-01-01] from provincie Noord-Brabant (30)
+ Building XML structure...
+ Saving file: bag/db/data/gemeentelijke-indeling.xml
 
