@@ -23,6 +23,7 @@ Inhoud:
    services.rst
    bagextract.rst
    top10extract.rst
+   bgtextract.rst
    contact.rst
    links.rst
 
