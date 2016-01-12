@@ -127,13 +127,21 @@ class BAGFileReader:
             self.database.log_actie('xml_parse', filenaam, bericht, True)
             return
 
-        try:
-            # Verwerken parsed xml: de Processor bepaalt of het een extract of een mutatie is
-            self.processor.processDOM(parsed_xml.getroot(), filenaam)
-            self.database.log_actie('verwerkt', filenaam, 'verwerkt OK')
-        except (Exception), e:
-            bericht = Log.log.error("fout %s in XML DOM processing, bestand=%s" % (str(e), filenaam))
-            self.database.log_actie('xml_processing', filenaam, bericht, True)
+        if filenaam == 'gemeentelijke-indeling.xml':
+            try:
+                self.processor.processGemeentelijkeIndeling(parsed_xml.getroot(), filenaam)
+                self.database.log_actie('xml_processing', filenaam, 'verwerkt OK')
+            except (Exception), e:
+                bericht = Log.log.error("fout %s in XML DOM processing, bestand=%s" % (str(e), filenaam))
+                self.database.log_actie('xml_processing', filenaam, bericht, True)
+        else:
+            try:
+                # Verwerken parsed xml: de Processor bepaalt of het een extract of een mutatie is
+                self.processor.processDOM(parsed_xml.getroot(), filenaam)
+                self.database.log_actie('verwerkt', filenaam, 'verwerkt OK')
+            except (Exception), e:
+                bericht = Log.log.error("fout %s in XML DOM processing, bestand=%s" % (str(e), filenaam))
+                self.database.log_actie('xml_processing', filenaam, bericht, True)
 
     def process_csv(self, file_resource, filenaam):
         Log.log.info("process_csv: verwerk %s " % filenaam)

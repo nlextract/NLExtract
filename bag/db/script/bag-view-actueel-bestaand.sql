@@ -400,6 +400,20 @@ CREATE VIEW gemeente_woonplaatsactueelbestaand AS
     AND (gw.einddatumtijdvakgeldigheid is NULL OR gw.einddatumtijdvakgeldigheid >= LOCALTIMESTAMP)
     AND gw.status = 'definitief';
 
+DROP VIEW IF EXISTS provincie_gemeenteactueelbestaand;
+CREATE VIEW provincie_gemeenteactueelbestaand AS
+    SELECT  pg.gid,
+            pg.provinciecode,
+            pg.provincienaam,
+            pg.gemeentecode,
+            pg.gemeentenaam,
+            pg.begindatum,
+            pg.einddatum
+    FROM provincie_gemeente AS pg
+  WHERE
+    pg.begindatum <= LOCALTIMESTAMP
+    AND (pg.einddatum IS NULL OR pg.einddatum >= LOCALTIMESTAMP);
+
 ----------------------------------------------------------------------------------
 -- Extra definitie voor GeoServer om om te gaan met VIEWs
 ----------------------------------------------------------------------------------
