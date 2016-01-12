@@ -24,6 +24,7 @@ Inhoud:
    bagextract.rst
    top10extract.rst
    bgtextract.rst
+   stetl-framework.rst
    contact.rst
    links.rst
 

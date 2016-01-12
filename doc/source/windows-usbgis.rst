@@ -5,6 +5,7 @@
 NLExtract op Windows met Portable GIS
 *************************************
 
+**Let op: deze pagina moet nog worden nagekeken voor het gebruik van het Stetl-framework op Windows!**
 
 Dit is een Windows (7) install voor NLExtract gebruikmakend van `Portable GIS <http://www.archaeogeek.com/portable-gis.html>`_.
 Uitgevoerd door Just van den Broecke, op een Asus netbook met Windows 7.
