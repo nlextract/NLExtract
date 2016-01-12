@@ -17,5 +17,6 @@ Voor commerciële ondersteuning zoals gespecialiseerde extracties, downloads en 
 services zie: http://www.nlextract.nl/issues of neem contact op met de volgende aanbieders:
 
 * Just van den Broecke - via http://justobjects.nl
+* Frank Steggink - via http://steggink.it
 * OpenGeoGroep - via http://opengeogroep.nl
 
