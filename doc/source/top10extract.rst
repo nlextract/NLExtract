@@ -6,7 +6,7 @@ Top10-extract
 *************
 
 Hieronder staat de handleiding voor het gebruik van de tools om TOP10NL te extraheren. Deze tools
-heten kortweg ``Top10-extract`` of soms ``nlextract-top10``.
+heten kortweg ``Top10-extract`` of soms ``NLExtract-TOP10``.
 
 NB: als je alleen interesse hebt om een PostGIS versie van de laatste TOP10NL te hebben, kun
 je deze ook downloaden als  PostGIS dumpfile via de link http://data.nlextract.nl/top10nl.
@@ -14,7 +14,7 @@ De dump file (``.backup`` bestand)  kun je direct inlezen in PostGIS, bijv met `
 Dan hoef je alle zaken hieronder niet uit te voeren :-).
 
 Om gespecialiseerde extracties bijv naar andere databases zoals Oracle te doen, neem contact op
-met het NLExtract team, zie "Ondersteuning": http://www.nlextract.nl/issues.
+met het NLExtract-team, zie "Ondersteuning": http://www.nlextract.nl/issues.
 
 Handleiding Top10-extract
 =========================
@@ -36,7 +36,7 @@ versies zijn er 2 soorten .zip-bestanden, een op basis van kaartbladen en een .z
 Er zijn 13 typen TOP10NL objecten. Zie voor de beschrijving van de structuur en verdere bijzonderheden voor de GML bestandsindeling in
 `BRT_Catalogus_Productspecificaties.pdf <https://github.com/opengeogroep/NLExtract/raw/master/top10nl/doc/1.2/BRT_Catalogus_Productspecificaties.pdf>`_ (nog gebaseerd op versie 1.1.1).
 
-TOP10NL Downloaden
+TOP10NL downloaden
 ------------------
 
 TOP10NL brondata in GML kun je via `PDOK TOP10NL Downloads <https://www.pdok.nl/nl/producten/pdok-downloads/basis-registratie-topografie/topnl/topnl-actueel/top10nl>`_ downloaden.
@@ -45,8 +45,7 @@ Er zijn twee download varianten: de "GML File Chunks" en "50D Kaartbladen". De e
 in 300MB GML Files, de tweede bevat de GML bestanden per kaartblad. Download de Kaartbladen alleen als je bijv. een enkel
 gebied wilt inlezen of om te testen. Beide ZIP-bestanden zijn ca. 2 GB groot.
 
-Als je heel Nederland wilt inlezen kun je het beste
-de "GML File Chunks" gebruiken.
+Als je heel Nederland wilt inlezen, kun je het beste de "GML File Chunks" gebruiken.
 De directe link is http://geodata.nationaalgeoregister.nl/top10nlv2/extract/chunkdata/top10nl_gml_filechunks.zip?formaat=gml.
 
 Voor de kaartbladen is dat: http://geodata.nationaalgeoregister.nl/top10nlv2/extract/kaartbladtotaal/top10nl.zip?formaat=gml.
@@ -114,7 +113,7 @@ Installatie
 Top10-extract werkt op de drie voornaamste platformen: Windows, Mac OSX, Linux.
 De bovengenoemde afhankelijkheden hebben ieder hun eigen handleiding voor
 installatie op desbetreffend platform. Raadpleeg deze als eerste.
-Hieronder een aantal tips en bijzonderheden per platform.
+Hieronder volgt een aantal tips en bijzonderheden per platform.
 
 Linux
 ~~~~~
