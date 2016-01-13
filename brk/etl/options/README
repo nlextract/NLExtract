@@ -1,0 +1,17 @@
+Zet hier je lokale/per-host opties in een options-<hostname>.sh file.
+
+Bijv heet je host "tophost", dan heet je file options-tophost.sh.
+De settings daarin overrulen de default. Bijv.
+
+# INPUT - waar staan je input files (uitgepakte BRK GML levering)
+export input_files=/home/my/brk/leveringen/yyyymm
+# Op Windows: export input_files=d:\\Data\\BRK\\yyyymm
+
+# OUTPUT
+export db_host=localhost
+export db_port=5432
+export PGUSER=myuser
+export PGPASSWORD=mysecretpassword
+export database=brk
+export schema=brk_yyyymm
+
