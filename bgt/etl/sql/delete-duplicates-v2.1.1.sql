@@ -75,7 +75,7 @@ SELECT _nlx_dedup_data('mast');
 SELECT _nlx_dedup_data('mast_2d');
 SELECT _nlx_dedup_data('mast_lod0');
 
-SELECT _nlx_dedup_data('nummeraanduidingreeks');
+--SELECT _nlx_dedup_data('nummeraanduidingreeks');
 
 SELECT _nlx_dedup_data('onbegroeidterreindeel');
 SELECT _nlx_dedup_data('onbegroeidterreindeel_2d');
