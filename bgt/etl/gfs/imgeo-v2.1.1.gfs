@@ -1,7 +1,7 @@
 <GMLFeatureClassList>
   <!--Dit GFS-bestand is gegenereerd met make-gfs.xsl-->
   <GMLFeatureClass>
-    <Name>Wegdeel_2D</Name>
+    <Name>Wegdeel_2D_tmp</Name>
     <ElementPath>TrafficArea_2D</ElementPath>
     <GeometryType>3</GeometryType>
     <SRSName>EPSG:28992</SRSName>
@@ -120,7 +120,7 @@
     <!--Einde properties van Wegdeel-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Wegdeel_kruinlijn</Name>
+    <Name>Wegdeel_kruinlijn_tmp</Name>
     <ElementPath>TrafficArea_kruinlijn</ElementPath>
     <GeometryType>2</GeometryType>
     <SRSName>EPSG:28992</SRSName>
@@ -239,7 +239,7 @@
     <!--Einde properties van Wegdeel-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>OndersteunendWegdeel_2D</Name>
+    <Name>OndersteunendWegdeel_2D_tmp</Name>
     <ElementPath>AuxiliaryTrafficArea_2D</ElementPath>
     <GeometryType>3</GeometryType>
     <SRSName>EPSG:28992</SRSName>
@@ -358,7 +358,7 @@
     <!--Einde properties van OndersteunendWegdeel-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>OndersteunendWegdeel_kruinlijn</Name>
+    <Name>OndersteunendWegdeel_kruinlijn_tmp</Name>
     <ElementPath>AuxiliaryTrafficArea_kruinlijn</ElementPath>
     <GeometryType>2</GeometryType>
     <SRSName>EPSG:28992</SRSName>
@@ -477,7 +477,8 @@
     <!--Einde properties van OndersteunendWegdeel-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>OnbegroeidTerreindeel_2D</Name>
+    <Name>OnbegroeidTerreindeel_2D_tmp</Name>
+    <ElementPath>OnbegroeidTerreindeel_2D</ElementPath>
     <GeometryType>3</GeometryType>
     <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
@@ -583,7 +584,8 @@
     <!--Einde properties van OnbegroeidTerreindeel-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>OnbegroeidTerreindeel_kruinlijn</Name>
+    <Name>OnbegroeidTerreindeel_kruinlijn_tmp</Name>
+    <ElementPath>OnbegroeidTerreindeel_kruinlijn</ElementPath>
     <GeometryType>2</GeometryType>
     <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
@@ -689,7 +691,7 @@
     <!--Einde properties van OnbegroeidTerreindeel-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>BegroeidTerreindeel_2D</Name>
+    <Name>BegroeidTerreindeel_2D_tmp</Name>
     <ElementPath>PlantCover_2D</ElementPath>
     <GeometryType>3</GeometryType>
     <SRSName>EPSG:28992</SRSName>
@@ -796,7 +798,7 @@
     <!--Einde properties van BegroeidTerreindeel-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>BegroeidTerreindeel_kruinlijn</Name>
+    <Name>BegroeidTerreindeel_kruinlijn_tmp</Name>
     <ElementPath>PlantCover_kruinlijn</ElementPath>
     <GeometryType>2</GeometryType>
     <SRSName>EPSG:28992</SRSName>
@@ -903,7 +905,8 @@
     <!--Einde properties van BegroeidTerreindeel-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Waterdeel_2D</Name>
+    <Name>Waterdeel_2D_tmp</Name>
+    <ElementPath>Waterdeel_2D</ElementPath>
     <GeometryType>3</GeometryType>
     <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
@@ -1003,7 +1006,8 @@
     <!--Einde properties van Waterdeel-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>OndersteunendWaterdeel_2D</Name>
+    <Name>OndersteunendWaterdeel_2D_tmp</Name>
+    <ElementPath>OndersteunendWaterdeel_2D</ElementPath>
     <GeometryType>3</GeometryType>
     <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
@@ -1103,7 +1107,7 @@
     <!--Einde properties van OndersteunendWaterdeel-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Pand_2D</Name>
+    <Name>Pand_2D_tmp</Name>
     <ElementPath>BuildingPart_2D</ElementPath>
     <GeometryType>6</GeometryType>
     <SRSName>EPSG:28992</SRSName>
@@ -1234,7 +1238,7 @@
     <!--Einde properties van Nummeraanduidingreeks-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Spoor_2D</Name>
+    <Name>Spoor_2D_tmp</Name>
     <ElementPath>Railway_2D</ElementPath>
     <GeometryType>2</GeometryType>
     <SRSName>EPSG:28992</SRSName>
@@ -1335,7 +1339,8 @@
     <!--Einde properties van Spoor-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>OverigBouwwerk_2D</Name>
+    <Name>OverigBouwwerk_2D_tmp</Name>
+    <ElementPath>OverigBouwwerk_2D</ElementPath>
     <GeometryType>6</GeometryType>
     <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
@@ -1435,7 +1440,8 @@
     <!--Einde properties van OverigBouwwerk-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Kunstwerkdeel_2D</Name>
+    <Name>Kunstwerkdeel_2D_tmp</Name>
+    <ElementPath>Kunstwerkdeel_2D</ElementPath>
     <GeometryType>0</GeometryType>
     <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
@@ -1535,7 +1541,7 @@
     <!--Einde properties van Kunstwerkdeel-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Overbruggingsdeel_2D</Name>
+    <Name>Overbruggingsdeel_2D_tmp</Name>
     <ElementPath>BridgeConstructionElement_2D</ElementPath>
     <GeometryType>3</GeometryType>
     <SRSName>EPSG:28992</SRSName>
@@ -1642,7 +1648,7 @@
     <!--Einde properties van Overbruggingsdeel-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Tunneldeel_2D</Name>
+    <Name>Tunneldeel_2D_tmp</Name>
     <ElementPath>TunnelPart_2D</ElementPath>
     <GeometryType>3</GeometryType>
     <SRSName>EPSG:28992</SRSName>
@@ -1729,7 +1735,8 @@
     <!--Einde properties van BGTObject-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Scheiding_2D</Name>
+    <Name>Scheiding_2D_tmp</Name>
+    <ElementPath>Scheiding_2D</ElementPath>
     <GeometryType>0</GeometryType>
     <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
@@ -1829,7 +1836,8 @@
     <!--Einde properties van Scheiding-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>OverigeScheiding_2D</Name>
+    <Name>OverigeScheiding_2D_tmp</Name>
+    <ElementPath>OverigeScheiding_2D</ElementPath>
     <GeometryType>0</GeometryType>
     <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
@@ -1929,7 +1937,8 @@
     <!--Einde properties van OverigeScheiding-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>FunctioneelGebied_2D</Name>
+    <Name>FunctioneelGebied_2D_tmp</Name>
+    <ElementPath>FunctioneelGebied_2D</ElementPath>
     <GeometryType>3</GeometryType>
     <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
@@ -2035,7 +2044,8 @@
     <!--Einde properties van FunctioneelGebied-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>OngeclassificeerdObject_2D</Name>
+    <Name>OngeclassificeerdObject_2D_tmp</Name>
+    <ElementPath>OngeclassificeerdObject_2D</ElementPath>
     <GeometryType>3</GeometryType>
     <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
@@ -2121,7 +2131,8 @@
     <!--Einde properties van BGTObject-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>OpenbareRuimteLabel</Name>
+    <Name>OpenbareRuimteLabel_tmp</Name>
+    <ElementPath>OpenbareRuimteLabel</ElementPath>
     <GeometryType>1</GeometryType>
     <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
@@ -2205,7 +2216,7 @@
       <Width>255</Width>
     </PropertyDefn>
     <!--Einde properties van BGTObject-->
-    <!--Begin properties van OpenbareRuimteLabel-->
+    <!--Begin properties van OpenbareRuimteLabel_tmp-->
     <PropertyDefn>
       <Name>identificatieBAGOPR</Name>
       <ElementPath>identificatieBAGOPR</ElementPath>
@@ -2229,10 +2240,11 @@
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
-    <!--Einde properties van OpenbareRuimteLabel-->
+    <!--Einde properties van OpenbareRuimteLabel_tmp-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Plaatsbepalingspunt</Name>
+    <Name>Plaatsbepalingspunt_tmp</Name>
+    <ElementPath>Plaatsbepalingspunt</ElementPath>
     <GeometryType>1</GeometryType>
     <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
@@ -2255,7 +2267,7 @@
       <Width>38</Width>
     </PropertyDefn>
     <!--Einde properties van IMGeoObject-->
-    <!--Begin properties van Plaatsbepalingspunt-->
+    <!--Begin properties van Plaatsbepalingspunt_tmp-->
     <PropertyDefn>
       <Name>nauwkeurigheid</Name>
       <ElementPath>nauwkeurigheid</ElementPath>
@@ -2279,10 +2291,11 @@
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
-    <!--Einde properties van Plaatsbepalingspunt-->
+    <!--Einde properties van Plaatsbepalingspunt_tmp-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Bak_2D</Name>
+    <Name>Bak_2D_tmp</Name>
+    <ElementPath>Bak_2D</ElementPath>
     <GeometryType>1</GeometryType>
     <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
@@ -2382,7 +2395,8 @@
     <!--Einde properties van Inrichtingselement-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Bord_2D</Name>
+    <Name>Bord_2D_tmp</Name>
+    <ElementPath>Bord_2D</ElementPath>
     <GeometryType>1</GeometryType>
     <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
@@ -2482,7 +2496,7 @@
     <!--Einde properties van Inrichtingselement-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>GebouwInstallatie_2D</Name>
+    <Name>GebouwInstallatie_2D_tmp</Name>
     <ElementPath>BuildingInstallation_2D</ElementPath>
     <GeometryType>3</GeometryType>
     <SRSName>EPSG:28992</SRSName>
@@ -2583,7 +2597,8 @@
     <!--Einde properties van Inrichtingselement-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Installatie_2D</Name>
+    <Name>Installatie_2D_tmp</Name>
+    <ElementPath>Installatie_2D</ElementPath>
     <GeometryType>1</GeometryType>
     <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
@@ -2683,7 +2698,8 @@
     <!--Einde properties van Inrichtingselement-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Kast_2D</Name>
+    <Name>Kast_2D_tmp</Name>
+    <ElementPath>Kast_2D</ElementPath>
     <GeometryType>1</GeometryType>
     <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
@@ -2783,7 +2799,8 @@
     <!--Einde properties van Inrichtingselement-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Mast_2D</Name>
+    <Name>Mast_2D_tmp</Name>
+    <ElementPath>Mast_2D</ElementPath>
     <GeometryType>1</GeometryType>
     <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
@@ -2883,7 +2900,8 @@
     <!--Einde properties van Inrichtingselement-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Paal_2D</Name>
+    <Name>Paal_2D_tmp</Name>
+    <ElementPath>Paal_2D</ElementPath>
     <GeometryType>1</GeometryType>
     <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
@@ -2991,7 +3009,8 @@
     <!--Einde properties van Paal-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Put_2D</Name>
+    <Name>Put_2D_tmp</Name>
+    <ElementPath>Put_2D</ElementPath>
     <GeometryType>1</GeometryType>
     <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
@@ -3091,7 +3110,8 @@
     <!--Einde properties van Inrichtingselement-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Sensor_2D</Name>
+    <Name>Sensor_2D_tmp</Name>
+    <ElementPath>Sensor_2D</ElementPath>
     <GeometryType>0</GeometryType>
     <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
@@ -3191,7 +3211,8 @@
     <!--Einde properties van Inrichtingselement-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Straatmeubilair_2D</Name>
+    <Name>Straatmeubilair_2D_tmp</Name>
+    <ElementPath>Straatmeubilair_2D</ElementPath>
     <GeometryType>1</GeometryType>
     <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
@@ -3291,7 +3312,8 @@
     <!--Einde properties van Inrichtingselement-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Waterinrichtingselement_2D</Name>
+    <Name>Waterinrichtingselement_2D_tmp</Name>
+    <ElementPath>Waterinrichtingselement_2D</ElementPath>
     <GeometryType>0</GeometryType>
     <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
@@ -3391,7 +3413,8 @@
     <!--Einde properties van Inrichtingselement-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Weginrichtingselement_2D</Name>
+    <Name>Weginrichtingselement_2D_tmp</Name>
+    <ElementPath>Weginrichtingselement_2D</ElementPath>
     <GeometryType>0</GeometryType>
     <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
@@ -3491,7 +3514,7 @@
     <!--Einde properties van Inrichtingselement-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>VegetatieObject_2D</Name>
+    <Name>VegetatieObject_2D_tmp</Name>
     <ElementPath>SolitaryVegetationObject_2D</ElementPath>
     <GeometryType>0</GeometryType>
     <SRSName>EPSG:28992</SRSName>
@@ -3592,7 +3615,8 @@
     <!--Einde properties van VegetatieObject-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Buurt_2D</Name>
+    <Name>Buurt_2D_tmp</Name>
+    <ElementPath>Buurt_2D</ElementPath>
     <GeometryType>6</GeometryType>
     <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
@@ -3686,7 +3710,8 @@
     <!--Einde properties van RegistratiefGebied-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>OpenbareRuimte_2D</Name>
+    <Name>OpenbareRuimte_2D_tmp</Name>
+    <ElementPath>OpenbareRuimte_2D</ElementPath>
     <GeometryType>6</GeometryType>
     <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
@@ -3780,7 +3805,8 @@
     <!--Einde properties van RegistratiefGebied-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Stadsdeel_2D</Name>
+    <Name>Stadsdeel_2D_tmp</Name>
+    <ElementPath>Stadsdeel_2D</ElementPath>
     <GeometryType>6</GeometryType>
     <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
@@ -3874,7 +3900,8 @@
     <!--Einde properties van RegistratiefGebied-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Waterschap_2D</Name>
+    <Name>Waterschap_2D_tmp</Name>
+    <ElementPath>Waterschap_2D</ElementPath>
     <GeometryType>6</GeometryType>
     <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
@@ -3968,7 +3995,8 @@
     <!--Einde properties van RegistratiefGebied-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Wijk_2D</Name>
+    <Name>Wijk_2D_tmp</Name>
+    <ElementPath>Wijk_2D</ElementPath>
     <GeometryType>6</GeometryType>
     <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
