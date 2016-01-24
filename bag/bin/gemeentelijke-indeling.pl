@@ -319,7 +319,7 @@ sub write_gemeentelijke_indeling {
 		$root->appendChild($indeling);
 	}
 
-	(my $xml = $dom->toString(2)) =~ s/"\/>/" \/>/g;
+	my $xml = $dom->toString(2);
 
 	if($cfg{dry_run}) {
 		print "Not saving file: $file (DRY-RUN)\n" if($cfg{verbose});
