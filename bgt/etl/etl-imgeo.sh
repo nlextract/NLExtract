@@ -11,10 +11,16 @@
 . options.sh
 
 # Gebruik Stetl meegeleverd met NLExtract (kan in theorie ook Stetl via pip install stetl zijn)
-STETL_HOME=../../externals/stetl
+if [ -z "$STETL_HOME" ]; then
+  STETL_HOME=../../externals/stetl
+fi
 
 # Nodig voor imports
-export PYTHONPATH=$STETL_HOME:$PYTHONPATH
+if [ -z "$PYTHONPATH" ]; then
+  export PYTHONPATH=$STETL_HOME:$PYTHONPATH
+else
+  export PYTHONPATH=$STETL_HOME
+fi
 
 # Uiteindelijke commando. Kan ook gewoon "stetl -c etl-imgeo.cfg -a ..." worden indien Stetl installed
 python $STETL_HOME/stetl/main.py -c conf/etl-imgeo-v2.1.1.cfg -a "$pg_options temp_dir=temp max_features=$max_features gml_files=$gml_files $multi $spatial_extent"

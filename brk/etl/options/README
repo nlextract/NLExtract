@@ -15,3 +15,10 @@ export PGPASSWORD=mysecretpassword
 export database=brk
 export schema=brk_yyyymm
 
+# Het maximale aantal features dat in een keer met XSLT wordt getransformeerd en
+# naar de database wordt weggeschreven. Dit bepaalt sterk het (RAM)
+# geheugengebruik. 15000 tot 2000 is een goed getal.
+export max_features=15000
+
+# Locatie van Stetl, indien dit niet in ../../externals/stetl staat
+export STETL_HOME=../../../stetl
