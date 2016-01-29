@@ -25,15 +25,19 @@ Afhankelijkheden
 
 De volgende software dient aanwezig te zijn om gebruik te maken van het Stetl-framework:
 
-* Python 2.6 of hoger (niet Python 3!);
-* Python argparse package, voor argument parsing alleen indien Python < 2.7;
-* PostGIS: PostgreSQL 8.x of 9.x database server met PostGIS 1.x of 2.x: http://postgis.refractions.net;
+* Python 2.6 of hoger (niet Python 3!). Let op dat de ontwikkeling van Python 2.6 is stopgezet!
+
+  * Op Windows_ is Python 2.7 de minimale versie. Als je een OSGeo4W-/QGIS-installatie hebt, installeer Python dan ook apart.
+  
+* Python argparse package, voor argument parsing alleen indien Python 2.6 gebruikt wordt.
+* PostGIS: PostgreSQL 8.x of 9.x database server met PostGIS 1.x of 2.x: http://postgis.refractions.net.
 
   * PostgreSQL 9.x met PostGIS 2.x wordt aanbevolen.
 
-* ``lxml`` voor razendsnelle native XML parsing: http://lxml.de/installation.html;
-* ``libxml2`` en ``libxslt`` bibliotheken  (worden door ``lxml`` gebruikt);
-* GDAL/OGR v1.8.1 of hoger (voor ``ogr2ogr``): http://www.gdal.org.
+* ``lxml`` voor razendsnelle native XML parsing: http://lxml.de/installation.html.
+* ``libxml2`` en ``libxslt`` bibliotheken  (worden door ``lxml`` gebruikt).
+* GDAL/OGR v1.11 of hoger (voor ``ogr2ogr``): http://www.gdal.org.
+* Python setuptools (o.a. voor package ``pkg_resources``).
 
 NB: GDAL/OGR Python bindings zijn (voorlopig) `niet` nodig.
 
@@ -82,7 +86,25 @@ Windows
 
 De Python scripts zijn ontwikkeld en getest op Windows 7 met Python 2.7.
 
-Let op: wanneer je Windows gebruikt en je wilt op de command line met PostgreSQL connecten, gebruik
+Het is gebleken dat het lastig is om NLExtract goed op Windows aan de praat te krijgen. Een belangrijke reden is de OSGeo4W-installer, waar o.a. ook QGIS mee wordt geïnstalleerd. OSGeo4W levert een eigen Python-versie mee. Deze versie, 2.7.5, die o.a. met QGIS Lyon (2.12) wordt geïnstalleerd, loopt een stuk achter bij de laatste Python 2.7-relase, 2.7.11 (status januari 2016). De Python-executable bevindt zich zelfs in dezelfde directory als ogr2ogr, wat de zaak alleen gecompliceerder maakt.
+
+Voor de rest zijn er v.w.b. tooling en dependencies veel verschillende mogelijkheden die niet op één lijn zitten, omdat er minder richtlijnen voor de installatie van softwarepakketten zijn dan op Linux of Mac. Vaak heeft men een combinatie van Python-tools en andere tools op zijn machine staan, waardoor er geen sprake is van een schone uitgangssituatie. Omdat de ontwikkeling van open source software een continu proces is, betekent dit ook dat de installatie-instructies snel aan veroudering onderhevig zijn.
+
+Op de site http://www.lfd.uci.edu/~gohlke/pythonlibs/ zijn de benodigde dependencies te vinden. Er zijn geen dependencies meer te vinden voor Python 2.6. Let op dat je de "win32" versie gebruikt als je nog een Windows 32-bit machine hebt, anders moet je de "win_amd64" versie gebruiken, ook als je geen AMD-processor hebt. Installeer de volgende dependencies:
+
+- Pip (bij Python-versie < 2.7.9): http://www.lfd.uci.edu/~gohlke/pythonlibs/#pip
+- Setuptools: http://www.lfd.uci.edu/~gohlke/pythonlibs/#setuptools
+- Lxml: http://www.lfd.uci.edu/~gohlke/pythonlibs/#lxml (versie maakt niet uit)
+
+De dependencies, de WHL-bestanden, zijn zogenaamde "Python-wheels". Deze kunnen als volgt met PIP worden geïnstalleerd::
+
+    pip install <package>.whl
+
+Als je deze dependencies installeert, worden ze in de standaard Python-directory geïnstalleerd en niet in de Python-directory die via OSGeo4W/QGIS wordt geïnstalleerd. Wel wordt bij het uitvoeren (via MSYS of de OSGeo4W-shell) de Python-installatie van OSGeo4W/QGIS gebruikt. Dit is op te lossen door in de options-<machinenaam>.sh bij een ETL in de options-directory de waarde PYTHONPATH te exporteren::
+
+    export PYTHONPATH=/c/python27/lib/site-packages
+
+Let bij Windows ook op het volgende: wanneer je op de command line met PostgreSQL wilt connecten, gebruik
 ``chcp 1252`` om de code page van de console bij te werken naar ANSI. Je krijgt anders een waarschuwing wanneer je in PostgreSQL inlogt. Dit komt omdat de code page standaard 437 is (extended ASCII) i.p.v. 1252 (ANSI).
 
 In Python 2.6:
