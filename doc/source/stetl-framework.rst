@@ -14,9 +14,9 @@ De volgende extract-tools maken gebruik van het Stetl-framework:
 
 Stetl maakt i.h.a. gebruik van Python voor alle scripts. De Python-scripts voor de extract-tools die gebruik maken van het Stetl-framework roepen `native` tools aan:
 
-* XML parsing via ``libxml2``
-* XSLT processing via ``libxslt``
-* GDAL/OGR ``ogr2ogr``
+* XML parsing via ``libxml2``;
+* XSLT processing via ``libxslt``;
+* GDAL/OGR via ``ogr2ogr``.
 
 De reden hiervoor is vooral de snelheid. Deze native libraries zijn beschikbaar binnen Python d.m.v. zogenaamde `bindings`.
 
@@ -27,17 +27,18 @@ De volgende software dient aanwezig te zijn om gebruik te maken van het Stetl-fr
 
 * Python 2.6 of hoger (niet Python 3!). Let op dat de ontwikkeling van Python 2.6 is stopgezet!
 
-  * Op Windows_ is Python 2.7 de minimale versie. Als je een OSGeo4W-/QGIS-installatie hebt, installeer Python dan ook apart.
+  * Op Windows_ is Python 2.7 de minimale versie. Deze versie wordt ook geïnstalleerd wanneer je OSGeo4W met de juiste opties, of QGIS hebt geïnstalleerd.
   
-* Python argparse package, voor argument parsing alleen indien Python 2.6 gebruikt wordt.
+* GDAL/OGR v1.11 of hoger (voor ``ogr2ogr``): http://www.gdal.org.
 * PostGIS: PostgreSQL 8.x of 9.x database server met PostGIS 1.x of 2.x: http://postgis.refractions.net.
 
   * PostgreSQL 9.x met PostGIS 2.x wordt aanbevolen.
 
+* Pip en Setuptools (o.a. voor package ``pkg_resources``): https://pip.pypa.io/en/latest/installing/#install-pip. Dit is alleen nodig indien je Python-versie ouder dan 2.7.9 is.
+* ``argparse`` voor argument parsing. Alleen nodig bij Python 2.6.
+* ``psycopg2`` voor het maken van database connecties met PostgreSQL vanuit Python.
 * ``lxml`` voor razendsnelle native XML parsing: http://lxml.de/installation.html.
 * ``libxml2`` en ``libxslt`` bibliotheken  (worden door ``lxml`` gebruikt).
-* GDAL/OGR v1.11 of hoger (voor ``ogr2ogr``): http://www.gdal.org.
-* Python setuptools (o.a. voor package ``pkg_resources``).
 
 NB: GDAL/OGR Python bindings zijn (voorlopig) `niet` nodig.
 
@@ -88,31 +89,23 @@ De Python scripts zijn ontwikkeld en getest op Windows 7 met Python 2.7.
 
 Het is gebleken dat het lastig is om NLExtract goed op Windows aan de praat te krijgen. Een belangrijke reden is de OSGeo4W-installer, waar o.a. ook QGIS mee wordt geïnstalleerd. OSGeo4W levert een eigen Python-versie mee. Deze versie, 2.7.5, die o.a. met QGIS Lyon (2.12) wordt geïnstalleerd, loopt een stuk achter bij de laatste Python 2.7-relase, 2.7.11 (status januari 2016). De Python-executable bevindt zich zelfs in dezelfde directory als ogr2ogr, wat de zaak alleen gecompliceerder maakt.
 
-Voor de rest zijn er v.w.b. tooling en dependencies veel verschillende mogelijkheden die niet op één lijn zitten, omdat er minder richtlijnen voor de installatie van softwarepakketten zijn dan op Linux of Mac. Vaak heeft men een combinatie van Python-tools en andere tools op zijn machine staan, waardoor er geen sprake is van een schone uitgangssituatie. Omdat de ontwikkeling van open source software een continu proces is, betekent dit ook dat de installatie-instructies snel aan veroudering onderhevig zijn.
+Met onderstaande instructies is het mogelijk om NLExtract werkend te krijgen op Windows. Hierbij maakt het niet uit of je de OSGeo4W-versie van Python gebruikt of je eigen Python-versie. In het laatste geval moet je wel zelf op de een of andere manier ogr2ogr op je machine krijgen en de locatie hiervan in de PATH-variabele zetten.
 
-Op de site http://www.lfd.uci.edu/~gohlke/pythonlibs/ zijn de benodigde dependencies te vinden. Er zijn geen dependencies meer te vinden voor Python 2.6. Let op dat je de "win32" versie gebruikt als je nog een Windows 32-bit machine hebt, anders moet je de "win_amd64" versie gebruiken, ook als je geen AMD-processor hebt. Installeer de volgende dependencies:
+Open een command prompt. Indien Python, QGIS of de OSGeo4W-software in ``C:\Program Files`` of ``C:\Program Files (x86)`` staat, dien je de command prompt als Administrator te openen.
 
-- Pip (bij Python-versie < 2.7.9): http://www.lfd.uci.edu/~gohlke/pythonlibs/#pip
-- Setuptools: http://www.lfd.uci.edu/~gohlke/pythonlibs/#setuptools
-- Lxml: http://www.lfd.uci.edu/~gohlke/pythonlibs/#lxml (versie maakt niet uit)
+In de instructies wordt gebruik gemaakt van Python wheels, ofwel WHL-bestanden. Voor Windows is een groot aantal van deze bestanden te vinden op de site van `Christian Gohlke <http://www.lfd.uci.edu/~gohlke/pythonlibs/>`_. Kies de Python 2.7-versie en kies de 32- of 64-bits versie. Dit is afhankelijk van de Python-versie of OSGeo4W/QGIS-versie die je hebt.
 
-De dependencies, de WHL-bestanden, zijn zogenaamde "Python-wheels". Deze kunnen als volgt met PIP worden geïnstalleerd::
+* Installatie Pip, Setuptools en pkg_resources: dit is alleen nodig indien je Python-versie ouder is dan 2.7.9, dus ook als je de OSGeo4W-versie gebruikt. Dit kan via het script ``get-pip.py``. Zie https://pip.pypa.io/en/latest/installing/#install-pip voor verdere instructies. Hierbij krijg je tevens ondersteuning voor de installatie van Python-wheels (WHL-bestanden). Dit is nodig voor de vervolgstappen. Zorg ervoor dat de Scripts-directory van Python, waar pip.exe staat, in het pad is in het commando shell waarmee je de installaties uitvoert. Een WHL-bestand kan als volgt met Pip geïnstalleerd worden::
 
     pip install <package>.whl
 
-Als je deze dependencies installeert, worden ze in de standaard Python-directory geïnstalleerd en niet in de Python-directory die via OSGeo4W/QGIS wordt geïnstalleerd. Wel wordt bij het uitvoeren (via MSYS of de OSGeo4W-shell) de Python-installatie van OSGeo4W/QGIS gebruikt. Dit is op te lossen door in de options-<machinenaam>.sh bij een ETL in de options-directory de waarde PYTHONPATH te exporteren::
-
-    export PYTHONPATH=/c/python27/lib/site-packages
+* Installatie lxml: download en installeer het WHL-bestand. Je hoeft niet apart libxml2 of libxslt te installeren.
+* Installatie psycopg (niet bij OSGeo4W): download en installeer het WHL-bestand.
 
 Let bij Windows ook op het volgende: wanneer je op de command line met PostgreSQL wilt connecten, gebruik
 ``chcp 1252`` om de code page van de console bij te werken naar ANSI. Je krijgt anders een waarschuwing wanneer je in PostgreSQL inlogt. Dit komt omdat de code page standaard 437 is (extended ASCII) i.p.v. 1252 (ANSI).
 
-In Python 2.6:
-
-- argparse module: http://pypi.python.org/pypi/argparse
-  Het gemakkelijkst is om argparse.py in de directory Python26\\Lib\\ te droppen
-
-- Beschrijving installatie en run door Just (23 juni 2013) met behulp van Portable GIS: :doc:`windows-usbgis`.
+(Oud) Beschrijving installatie en run door Just (23 juni 2013) met behulp van Portable GIS: :doc:`windows-usbgis`.
 
 Mac OSX
 ~~~~~~~
