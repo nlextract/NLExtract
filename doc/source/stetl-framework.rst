@@ -89,9 +89,9 @@ De Python scripts zijn ontwikkeld en getest op Windows 7 met Python 2.7.
 
 Het is gebleken dat het lastig is om NLExtract goed op Windows aan de praat te krijgen. Een belangrijke reden is de OSGeo4W-installer, waar o.a. ook QGIS mee wordt geïnstalleerd. OSGeo4W levert een eigen Python-versie mee. Deze versie, 2.7.5, die o.a. met QGIS Lyon (2.12) wordt geïnstalleerd, loopt een stuk achter bij de laatste Python 2.7-relase, 2.7.11 (status januari 2016). De Python-executable bevindt zich zelfs in dezelfde directory als ogr2ogr, wat de zaak alleen gecompliceerder maakt.
 
-Met onderstaande instructies is het mogelijk om NLExtract werkend te krijgen op Windows. Hierbij maakt het niet uit of je de OSGeo4W-versie van Python gebruikt of je eigen Python-versie. In het laatste geval moet je wel zelf op de een of andere manier ogr2ogr op je machine krijgen en de locatie hiervan in de PATH-variabele zetten.
+Met onderstaande instructies is het mogelijk om NLExtract werkend te krijgen op Windows. Hierbij maakt het niet uit of je de OSGeo4W-versie van Python gebruikt of je eigen Python-versie. In het laatste geval moet je wel zelf op de een of andere manier ogr2ogr op je machine krijgen en de locatie hiervan in de PATH-variabele zetten. Vanwege de vele mogelijkheden zijn niet alle situaties getest. Open s.v.p. een issue-report in Github bij problemen of meld het op de mailinglijst. De kans is het grootst dat er problemen zijn met de PATH-variabele of de PYTHONPATH-variabele.
 
-Open een command prompt. Indien Python, QGIS of de OSGeo4W-software in ``C:\Program Files`` of ``C:\Program Files (x86)`` staat, dien je de command prompt als Administrator te openen.
+Open een command prompt. Indien Python, QGIS of de OSGeo4W-software in ``C:\Program Files`` of ``C:\Program Files (x86)`` staat, dien je de command prompt als Administrator te openen. Indien je OSGeo4W/QGIS hebt, kun je eventueel ook de OSGeo4W-shell of MSYS gebruiken.
 
 In de instructies wordt gebruik gemaakt van Python wheels, ofwel WHL-bestanden. Voor Windows is een groot aantal van deze bestanden te vinden op de site van `Christian Gohlke <http://www.lfd.uci.edu/~gohlke/pythonlibs/>`_. Kies de Python 2.7-versie en kies de 32- of 64-bits versie. Dit is afhankelijk van de Python-versie of OSGeo4W/QGIS-versie die je hebt.
 
