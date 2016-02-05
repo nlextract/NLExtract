@@ -31,8 +31,5 @@ Stetl configuratie, hoeft niet gewijzigd, alleen indien bijv andere output gewen
 etl-top10nl.cfg
 
 
-TODO
-Windows (.bat) scripts: etl-top10nl.cmd (nog niet getest)
-
-GUI
-
+TODO:
+* GUI
