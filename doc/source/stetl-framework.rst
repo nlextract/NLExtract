@@ -137,14 +137,17 @@ Stetl uitvoeren
 Uitvoeren: ``./etl-<dataset>.sh``
 Ga hiervoor met een prompt in de etl-directory staan van de desbetreffende dataset, dus in ``<dataset>/etl``.
 
-Opties zetten: maak hiertoe een eigen lokaal bestand in de options-directory, met de naam ``options-<hostnaam>.sh``. Default worden de opties in options.sh gebruikt. D.m.v. het lokale bestand kun je deze overriden.
+Opties zetten: maak hiertoe een eigen lokaal bestand in de options-directory, met de naam ``options-<hostnaam>.sh``.
+Default worden de opties in options.sh gebruikt. D.m.v. het lokale bestand kun je deze overriden.
 
-De Stetl-configuratie in etl-<dataset>-<versie>.cfg hoeft niet te worden gewijzigd, alleen indien bijv. een andere output gewenst is.
+De Stetl-configuratie in ``etl-<dataset>-<versie>.cfg`` hoeft niet te worden gewijzigd, alleen indien bijv. een andere
+output gewenst is.
 
-Let op: het Windows batch-bestand ``etl-top10nl.cmd`` (alleen bij TOP10NL) is een work-in-progress. Hier wordt nog aan gewerkt.
-Er is een alternatief: het bash-script werkt ook op Windows via `MSYS <http://www.mingw.org/wiki/msys>`_ of via de OSGeo4W-shell.
-MSYS  is een collectie van GNU-utilites, waardoor .sh-scripts uitgevoerd kunnen worden. Zowel MSYS als de OSGeo4W-shell worden
-geïnstalleerd als onderdeel van QGIS.
+Let op: ook op Windows is het mogelijk om het bash-script uit te voeren. Dit kan via `MSYS <http://www.mingw.org/wiki/msys>`_
+of via de OSGeo4W-shell. MSYS is een collectie van GNU-utilites, waardoor SH-scripts uitgevoerd kunnen worden. Zowel
+MSYS als de OSGeo4W-shell worden geïnstalleerd als onderdeel van QGIS. MSYS gedraagt zich als een normale bash-shell.
+De OSGeo4W-shell gedraagt zich als de Windows command prompt. Het shell-script kun je uitvoeren door in de juiste
+etl-directory te gaan staan en vervolgens ``etl-<dataset>.sh`` in te typen.
 
 Voorbeeld configuratiebestand (Windows):
 ::
@@ -165,15 +168,21 @@ Voorbeeld configuratiebestand (Windows):
     export database=top10nl
     export schema=ttnl
 
-    # Python settings
-    # Let op: bij gebruik MSYS wordt de Python-installatie van QGIS gebruikt. Deze
-    # herkent niet mijn eigen site-packages. Tevens worden dan eventuele Windows-
-    # paden (bijv. naar Mapnik 2.2.0) overschreven. Dat is hier toch niet nodig.
-    export PYTHONPATH=/c/python27/lib/site-packages
+    # Stetl path
+    export STETL_HOME=../../../stetl
+
+    # Reset pythonpath
+    export PYTHONPATH=
 
     # Overige opties
     export max_features=20000
-  
+
+In het verleden was er bij Top10-extract een Windows batch-bestand aanwezig, maar er is besloten om de ontwikkeling
+hiervan te stoppen. Dit is gedaan, omdat ontwikkelcapaciteit schaars is en het apart bijhouden van batch-bestanden
+onderhoudsgevoelig is. Alle wijzigingen aan de shell-scripts, dus ook het toevoegen van extra opties, zouden dan dubbel
+getest moeten worden. Met de OSGeo4W-shell is een goede oplossing beschikbaar voor mensen die de Windows command-prompt
+gewend zijn.
+
 Uitleg opties
 ~~~~~~~~~~~~~
 
