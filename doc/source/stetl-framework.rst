@@ -141,10 +141,10 @@ Opties zetten: maak hiertoe een eigen lokaal bestand in de options-directory, me
 
 De Stetl-configuratie in etl-<dataset>-<versie>.cfg hoeft niet te worden gewijzigd, alleen indien bijv. een andere output gewenst is.
 
-Let op: het Windows batch-bestand etl-top10nl (alleen bij TOP10NL) is een work-in-progress. Hier wordt nog aan gewerkt.
-Er is een alternatief: het bash-script werkt ook op Windows via `MSYS <http://www.mingw.org/wiki/msys>`_.
-Dit is een collectie van GNU-utilites, waardoor .sh-scripts uitgevoerd kunnen worden. MSYS wordt
-ondermeer geïnstalleerd als onderdeel van QGIS.
+Let op: het Windows batch-bestand ``etl-top10nl.cmd`` (alleen bij TOP10NL) is een work-in-progress. Hier wordt nog aan gewerkt.
+Er is een alternatief: het bash-script werkt ook op Windows via `MSYS <http://www.mingw.org/wiki/msys>`_ of via de OSGeo4W-shell.
+MSYS  is een collectie van GNU-utilites, waardoor .sh-scripts uitgevoerd kunnen worden. Zowel MSYS als de OSGeo4W-shell worden
+geïnstalleerd als onderdeel van QGIS.
 
 Voorbeeld configuratiebestand (Windows):
 ::
