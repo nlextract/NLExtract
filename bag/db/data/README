@@ -22,7 +22,7 @@ Provinciecode & Provincienaam. De kolom namen en volgorde verschilt tussen
 de verschillende jaren, waar rekening mee gehouden moet worden bij het
 updaten.
 
-Het gemeentelijke-indeling.pl script heeft ondersteuning voor de
+Het gemeentelijke-indeling.sh script heeft ondersteuning voor de
 verschillende kolom namen en volgordes, en moet aangepast worden wanneer
 andere kolom namen of volgorde wordt gebruikt in de nieuwe CBS XLS
 bestanden. Het script zal termineren met een 'Unsupported header order'
@@ -47,47 +47,50 @@ CBS neemt deze wijzigingen pas op in de gemeentelijke indeling van het
 daarop volgende jaar. Omdat de met de BAG meegeleverde gemeente-woonplaats
 koppeling de nieuwe gemeentecode al eerder zal gebruiken, moeten voor
 NLExtract deze wijzigingen eveneens al eerder doorgevoerd worden in de
-gemeentelijke indeling. Met het gemeentelijke-indeling.pl script kunnen
-in de meeste recent gemeentelijke indeling bestaande gemeenten worden
+gemeentelijke indeling. Met het gemeentelijke-indeling.sh script kunnen
+in de meest recente gemeentelijke indeling bestaande gemeenten worden
 opgeheven (door het toevoegen van het einddatum attribuut), en nieuw
 gevormde gemeenten worden toegevoegd.
 
-De help optie van het gemeentelijke-indeling.pl script beschrijft de
+De help optie van het gemeentelijke-indeling.sh script beschrijft de
 ondersteunde acties en diens argumenten. Ter voorbeeld volgt de gebruikte
 procedure voor het verwerken van de naamswijziging De Friese Meren naar
 De Fryske Marren op 1 juli 2015, en het toevoegen van de daarop volgende
 gemeentelijke indeling voor 2016.
 
  # Beëindig de oude gemeente in de meest recente indeling
- $ ./bag/bin/gemeentelijke-indeling.pl --end-gemeente \
+ $ ./bag/bin/gemeentelijke-indeling.sh --end-gemeente \
                                        --code 1921 \
                                        --date 2015-07-01 \
                                        --prov Friesland \
                                        --input bag/db/data/gemeentelijke-indeling.xml \
                                        --verbose
+ running with lxml.etree
  Parsing XML file: bag/db/data/gemeentelijke-indeling.xml
  Setting einddatum for gemeente De Friese Meren (1921) [2014-01-01|2015-07-01] in provincie Friesland (21)
  Building XML structure...
  Saving file: bag/db/data/gemeentelijke-indeling.xml
 
  # Voeg de nieuwe gemeente toe aan de meest recente indeling
- $ ./bag/bin/gemeentelijke-indeling.pl --add-gemeente \
+ $ ./bag/bin/gemeentelijke-indeling.sh --add-gemeente \
                                        --code 1940 \
                                        --name "De Fryske Marren" \
                                        --date 2015-07-01 \
                                        --prov Friesland \
                                        --input bag/db/data/gemeentelijke-indeling.xml \
                                        --verbose
+ running with lxml.etree
  Parsing XML file: bag/db/data/gemeentelijke-indeling.xml
  Adding gemeente De Fryske Marren (1940) [2015-07-01] to provincie Friesland (21)
  Building XML structure...
  Saving file: bag/db/data/gemeentelijke-indeling.xml
 
  # Voeg de gemeentelijke indeling voor 2016 toe
- $ ./bag/bin/gemeentelijke-indeling.pl --add-cbs-data \
+ $ ./bag/bin/gemeentelijke-indeling.sh --add-cbs-data \
                                        --file bag/db/data/oud/gemeentenalfabetisch2016.xls \
                                        --input bag/db/data/gemeentelijke-indeling.xml \
                                        --verbose
+ running with lxml.etree
  Parsing XML file: bag/db/data/gemeentelijke-indeling.xml
  Parsing XLS file: bag/db/data/oud/gemeentenalfabetisch2016.xls
  Adding indeling for 2016
