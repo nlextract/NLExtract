@@ -17,9 +17,9 @@ fi
 
 # Nodig voor imports
 if [ -z "$PYTHONPATH" ]; then
-  export PYTHONPATH=$STETL_HOME:$PYTHONPATH
-else
   export PYTHONPATH=$STETL_HOME
+else
+  export PYTHONPATH=$STETL_HOME:$PYTHONPATH
 fi
 
 # Uiteindelijke commando. Kan ook gewoon "stetl -c etl-brk.cfg -a ..." worden indien Stetl installed
