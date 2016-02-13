@@ -52,12 +52,12 @@ INSERT INTO adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeg
     v.identificatie as adresseerbaarobject,
     n.identificatie as nummeraanduiding,
     v.geopunt
-   FROM verblijfsobjectactueelbestaand v
-    JOIN nummeraanduidingactueelbestaand n
+   FROM verblijfsobjectactueel v
+    JOIN nummeraanduidingactueel n
     ON (n.identificatie = v.hoofdadres)
-    JOIN openbareruimteactueelbestaand o
+    JOIN openbareruimteactueel o
     ON (n.gerelateerdeopenbareruimte = o.identificatie)
-    JOIN woonplaatsactueelbestaand w
+    JOIN woonplaatsactueel w
     ON (o.gerelateerdewoonplaats = w.identificatie)
     JOIN gemeente_woonplaatsactueelbestaand  g
     ON (g.woonplaatscode = w.identificatie)
@@ -65,7 +65,7 @@ INSERT INTO adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeg
     ON (g.gemeentecode = p.gemeentecode)
     -- Wanneer nummeraanduiding een gerelateerdewoonplaats heeft moet die gebruikt worden ipv via openbareruimte!
     -- Zie issue: https://github.com/opengeogroep/NLExtract/issues/54
-    LEFT OUTER JOIN woonplaatsactueelbestaand wp2
+    LEFT OUTER JOIN woonplaatsactueel wp2
     ON (n.gerelateerdewoonplaats = wp2.identificatie)
     LEFT OUTER JOIN gemeente_woonplaatsactueelbestaand  g2
     ON (g2.woonplaatscode = wp2.identificatie)
@@ -74,9 +74,9 @@ INSERT INTO adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeg
 
       -- 26.06.12 JvdB Vervangen implicit JOINs by real JOINs n.a.v. https://github.com/opengeogroep/NLExtract/issues/54
        -- FROM
-        -- 	(SELECT identificatie,  geopunt, hoofdadres from verblijfsobjectactueelbestaand) v,
-        -- 	(SELECT identificatie,  huisnummer, huisletter, huisnummertoevoeging, postcode, gerelateerdeopenbareruimte, gerelateerdewoonplaats from nummeraanduidingactueelbestaand) n,
-        -- 	(SELECT identificatie,  openbareruimtenaam, gerelateerdewoonplaats from openbareruimteactueelbestaand) o,
+        -- 	(SELECT identificatie,  geopunt, hoofdadres from verblijfsobjectactueel) v,
+        -- 	(SELECT identificatie,  huisnummer, huisletter, huisnummertoevoeging, postcode, gerelateerdeopenbareruimte, gerelateerdewoonplaats from nummeraanduidingactueel) n,
+        -- 	(SELECT identificatie,  openbareruimtenaam, gerelateerdewoonplaats from openbareruimteactueel) o,
         -- 	(SELECT identificatie,  woonplaatsnaam from woonplaatsactueel) w,
         -- 	(SELECT woonplaatscode, gemeentenaam, gemeentecode from gemeente_woonplaatsactueelbestaand  where einddatum_gemeente is null AND einddatum_woonplaats is null) g,
         -- 	(SELECT gemeentecode,   provincienaam from provincie_gemeenteactueelbestaand) p
@@ -109,12 +109,12 @@ INSERT INTO adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeg
 	n.identificatie as nummeraanduiding,
     -- Vlak geometrie wordt punt
 	ST_Force_3D(ST_Centroid(l.geovlak))  as geopunt
-  FROM ligplaatsactueelbestaand l
-   JOIN nummeraanduidingactueelbestaand n
+  FROM ligplaatsactueel l
+   JOIN nummeraanduidingactueel n
    ON (n.identificatie = l.hoofdadres)
-   JOIN openbareruimteactueelbestaand o
+   JOIN openbareruimteactueel o
    ON (n.gerelateerdeopenbareruimte = o.identificatie)
-   JOIN woonplaatsactueelbestaand w
+   JOIN woonplaatsactueel w
    ON (o.gerelateerdewoonplaats = w.identificatie)
    JOIN gemeente_woonplaatsactueelbestaand  g
    ON (g.woonplaatscode = w.identificatie)
@@ -122,7 +122,7 @@ INSERT INTO adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeg
    ON (g.gemeentecode = p.gemeentecode)
    -- Wanneer nummeraanduiding een gerelateerdewoonplaats heeft moet die gebruikt worden ipv via openbareruimte!
    -- Zie issue: https://github.com/opengeogroep/NLExtract/issues/54
-   LEFT OUTER JOIN woonplaatsactueelbestaand wp2
+   LEFT OUTER JOIN woonplaatsactueel wp2
    ON (n.gerelateerdewoonplaats = wp2.identificatie)
    LEFT OUTER JOIN gemeente_woonplaatsactueelbestaand  g2
    ON (g2.woonplaatscode = wp2.identificatie)
@@ -132,9 +132,9 @@ INSERT INTO adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeg
 
  -- 26.06.12 JvdB Vervangen implicit JOINs by real JOINs n.a.v. https://github.com/opengeogroep/NLExtract/issues/54
  -- FROM
--- 	(SELECT identificatie,  geovlak, hoofdadres from ligplaatsactueelbestaand) l,
--- 	(SELECT identificatie,  huisnummer, huisletter, huisnummertoevoeging, postcode, gerelateerdeopenbareruimte from nummeraanduidingactueelbestaand) n,
--- 	(SELECT identificatie,  openbareruimtenaam, gerelateerdewoonplaats from openbareruimteactueelbestaand) o,
+-- 	(SELECT identificatie,  geovlak, hoofdadres from ligplaatsactueel) l,
+-- 	(SELECT identificatie,  huisnummer, huisletter, huisnummertoevoeging, postcode, gerelateerdeopenbareruimte from nummeraanduidingactueel) n,
+-- 	(SELECT identificatie,  openbareruimtenaam, gerelateerdewoonplaats from openbareruimteactueel) o,
 -- 	(SELECT identificatie,  woonplaatsnaam from woonplaatsactueel) w,
 -- 	(SELECT woonplaatscode, gemeentenaam, gemeentecode from gemeente_woonplaatsactueelbestaand  where einddatum_gemeente is null AND einddatum_woonplaats is null) g,
 -- 	(SELECT gemeentecode,   provincienaam from provincie_gemeenteactueelbestaand) p
@@ -167,12 +167,12 @@ INSERT INTO adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeg
 	n.identificatie as nummeraanduiding,
     -- Vlak geometrie wordt punt
 	ST_Force_3D(ST_Centroid(s.geovlak)) as geopunt
-  FROM standplaatsactueelbestaand s
-   JOIN nummeraanduidingactueelbestaand n
+  FROM standplaatsactueel s
+   JOIN nummeraanduidingactueel n
    ON (n.identificatie = s.hoofdadres)
-   JOIN openbareruimteactueelbestaand o
+   JOIN openbareruimteactueel o
    ON (n.gerelateerdeopenbareruimte = o.identificatie)
-   JOIN woonplaatsactueelbestaand w
+   JOIN woonplaatsactueel w
    ON (o.gerelateerdewoonplaats = w.identificatie)
    JOIN gemeente_woonplaatsactueelbestaand  g
    ON (g.woonplaatscode = w.identificatie)
@@ -180,7 +180,7 @@ INSERT INTO adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeg
    ON (g.gemeentecode = p.gemeentecode)
    -- Wanneer nummeraanduiding een gerelateerdewoonplaats heeft moet die gebruikt worden ipv via openbareruimte!
    -- Zie issue: https://github.com/opengeogroep/NLExtract/issues/54
-   LEFT OUTER JOIN woonplaatsactueelbestaand wp2
+   LEFT OUTER JOIN woonplaatsactueel wp2
    ON (n.gerelateerdewoonplaats = wp2.identificatie)
    LEFT OUTER JOIN gemeente_woonplaatsactueelbestaand  g2
    ON (g2.woonplaatscode = wp2.identificatie)
@@ -188,9 +188,9 @@ INSERT INTO adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeg
    ON (g2.gemeentecode = p2.gemeentecode);
 
 -- FROM
--- 	(SELECT identificatie,  geovlak, hoofdadres from standplaatsactueelbestaand) l,
--- 	(SELECT identificatie,  huisnummer, huisletter, huisnummertoevoeging, postcode, gerelateerdeopenbareruimte from nummeraanduidingactueelbestaand) n,
--- 	(SELECT identificatie,  openbareruimtenaam, gerelateerdewoonplaats from openbareruimteactueelbestaand) o,
+-- 	(SELECT identificatie,  geovlak, hoofdadres from standplaatsactueel) l,
+-- 	(SELECT identificatie,  huisnummer, huisletter, huisnummertoevoeging, postcode, gerelateerdeopenbareruimte from nummeraanduidingactueel) n,
+-- 	(SELECT identificatie,  openbareruimtenaam, gerelateerdewoonplaats from openbareruimteactueel) o,
 -- 	(SELECT identificatie,  woonplaatsnaam from woonplaatsactueel) w,
 -- 	(SELECT woonplaatscode, gemeentenaam, gemeentecode from gemeente_woonplaatsactueelbestaand  where einddatum_gemeente is null AND einddatum_woonplaats is null) g,
 -- 	(SELECT gemeentecode,   provincienaam from provincie_gemeenteactueelbestaand) p
@@ -216,7 +216,7 @@ INSERT INTO adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeg
 --         postcode,
 --         gerelateerdewoonplaats
 --     FROM
---         nummeraanduidingactueelbestaand
+--         nummeraanduidingactueel
 --     WHERE
 --         typeadresseerbaarobject = 'Verblijfsobject'
 -- )
@@ -238,19 +238,19 @@ INSERT INTO adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeg
 FROM
     adresseerbaarobjectnevenadresactueel an
 JOIN
-    nummeraanduidingactueelbestaand n
+    nummeraanduidingactueel n
 ON
     (an.nevenadres = n.identificatie)
 JOIN
-    verblijfsobjectactueelbestaand v
+    verblijfsobjectactueel v
 ON
     (an.identificatie = v.identificatie)
 JOIN
-    openbareruimteactueelbestaand o
+    openbareruimteactueel o
 ON
     (n.gerelateerdeopenbareruimte = o.identificatie)
 JOIN
-    woonplaatsactueelbestaand w
+    woonplaatsactueel w
 ON
     (o.gerelateerdewoonplaats = w.identificatie)
 JOIN
@@ -264,7 +264,7 @@ ON
     -- Wanneer nummeraanduiding een gerelateerdewoonplaats heeft moet die gebruikt worden ipv via openbareruimte!
     -- Zie issue: https://github.com/opengeogroep/NLExtract/issues/54
 LEFT OUTER JOIN
-    woonplaatsactueelbestaand wp2
+    woonplaatsactueel wp2
 ON
     (n.gerelateerdewoonplaats = wp2.identificatie)
 LEFT OUTER JOIN
@@ -286,7 +286,7 @@ ON
 --         postcode,
 --         gerelateerdewoonplaats
 --     FROM
---         nummeraanduidingactueelbestaand
+--         nummeraanduidingactueel
 --     WHERE
 --         typeadresseerbaarobject = 'Ligplaats'
 -- )
@@ -308,19 +308,19 @@ INSERT INTO adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeg
 FROM
     adresseerbaarobjectnevenadresactueel an
 JOIN
-    nummeraanduidingactueelbestaand n
+    nummeraanduidingactueel n
 ON
     (an.nevenadres = n.identificatie AND n.typeadresseerbaarobject = 'Ligplaats')
 JOIN
-    ligplaatsactueelbestaand l
+    ligplaatsactueel l
 ON
     (an.identificatie = l.identificatie)
 JOIN
-    openbareruimteactueelbestaand o
+    openbareruimteactueel o
 ON
     (n.gerelateerdeopenbareruimte = o.identificatie)
 JOIN
-    woonplaatsactueelbestaand w
+    woonplaatsactueel w
 ON
     (o.gerelateerdewoonplaats = w.identificatie)
 JOIN
@@ -334,7 +334,7 @@ ON
     -- Wanneer nummeraanduiding een gerelateerdewoonplaats heeft moet die gebruikt worden ipv via openbareruimte!
     -- Zie issue: https://github.com/opengeogroep/NLExtract/issues/54
 LEFT OUTER JOIN
-    woonplaatsactueelbestaand wp2
+    woonplaatsactueel wp2
 ON
     (n.gerelateerdewoonplaats = wp2.identificatie)
 LEFT OUTER JOIN
@@ -357,7 +357,7 @@ ON
 --         postcode,
 --         gerelateerdewoonplaats
 --     FROM
---         nummeraanduidingactueelbestaand
+--         nummeraanduidingactueel
 --     WHERE
 --         typeadresseerbaarobject = 'Standplaats'
 -- )
@@ -379,19 +379,19 @@ INSERT INTO adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeg
 FROM
     adresseerbaarobjectnevenadresactueel an
 JOIN
-    nummeraanduidingactueelbestaand n
+    nummeraanduidingactueel n
 ON
     (an.nevenadres = n.identificatie AND n.typeadresseerbaarobject = 'Standplaats')
 JOIN
-    standplaatsactueelbestaand s
+    standplaatsactueel s
 ON
     (an.identificatie = s.identificatie)
 JOIN
-    openbareruimteactueelbestaand o
+    openbareruimteactueel o
 ON
     (n.gerelateerdeopenbareruimte = o.identificatie)
 JOIN
-    woonplaatsactueelbestaand w
+    woonplaatsactueel w
 ON
     (o.gerelateerdewoonplaats = w.identificatie)
 JOIN
@@ -405,7 +405,7 @@ ON
     -- Wanneer nummeraanduiding een gerelateerdewoonplaats heeft moet die gebruikt worden ipv via openbareruimte!
     -- Zie issue: https://github.com/opengeogroep/NLExtract/issues/54
 LEFT OUTER JOIN
-    woonplaatsactueelbestaand wp2
+    woonplaatsactueel wp2
 ON
     (n.gerelateerdewoonplaats = wp2.identificatie)
 LEFT OUTER JOIN
