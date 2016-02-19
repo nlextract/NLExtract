@@ -4,7 +4,7 @@
 
 # DEFAULTS
 # INPUT
-export input_files=test/input
+export input_files=test/v1_2/nlextract
 
 # OUTPUT
 export db_host=localhost
