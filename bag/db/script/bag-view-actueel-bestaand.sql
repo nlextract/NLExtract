@@ -294,7 +294,7 @@ CREATE VIEW verblijfsobjectactueelbestaand AS
       AND (verblijfsobject.geom_valid is NULL OR verblijfsobject.geom_valid = TRUE)
       AND (verblijfsobject.verblijfsobjectstatus <> 'Niet gerealiseerd verblijfsobject'
       AND verblijfsobject.verblijfsobjectstatus  <> 'Verblijfsobject ingetrokken' 
-        AND verblijfsobject.verblijfsobjectstatus  <> 'Verblijfsobject gevormd');
+      AND verblijfsobject.verblijfsobjectstatus  <> 'Verblijfsobject gevormd');
 
 DROP VIEW IF EXISTS woonplaatsactueel;
 CREATE VIEW woonplaatsactueel AS
@@ -385,6 +385,30 @@ CREATE VIEW verblijfsobjectgebruiksdoelactueel AS
     vog.begindatumtijdvakgeldigheid <= LOCALTIMESTAMP
     AND (vog.einddatumtijdvakgeldigheid is NULL OR vog.einddatumtijdvakgeldigheid >= LOCALTIMESTAMP)
     AND vog.aanduidingrecordinactief = FALSE;
+
+DROP VIEW IF EXISTS verblijfsobjectgebruiksdoelactueelbestaand;
+CREATE VIEW verblijfsobjectgebruiksdoelactueelbestaand AS
+    SELECT vog.gid,
+            vog.identificatie,
+            vog.aanduidingrecordinactief,
+            vog.aanduidingrecordcorrectie,
+            vog.begindatumtijdvakgeldigheid,
+            vog.einddatumtijdvakgeldigheid,
+            vog.gebruiksdoelverblijfsobject
+    FROM verblijfsobjectgebruiksdoel as vog
+    LEFT JOIN verblijfsobject ON vog.identificatie = verblijfsobject.identificatie
+  WHERE
+    vog.begindatumtijdvakgeldigheid <= LOCALTIMESTAMP
+    AND (vog.einddatumtijdvakgeldigheid is NULL OR vog.einddatumtijdvakgeldigheid >= LOCALTIMESTAMP)
+    AND vog.aanduidingrecordinactief = FALSE
+    AND verblijfsobject.begindatumtijdvakgeldigheid <= 'now'::text::timestamp without time zone
+    AND verblijfsobject.begindatumtijdvakgeldigheid <= LOCALTIMESTAMP
+    AND (verblijfsobject.einddatumtijdvakgeldigheid is NULL OR verblijfsobject.einddatumtijdvakgeldigheid >= LOCALTIMESTAMP)
+    AND verblijfsobject.aanduidingrecordinactief = FALSE
+    AND (verblijfsobject.geom_valid is NULL OR verblijfsobject.geom_valid = TRUE)
+    AND (verblijfsobject.verblijfsobjectstatus <> 'Niet gerealiseerd verblijfsobject'
+    AND verblijfsobject.verblijfsobjectstatus  <> 'Verblijfsobject ingetrokken' 
+    AND verblijfsobject.verblijfsobjectstatus  <> 'Verblijfsobject gevormd');
 
 DROP VIEW IF EXISTS gemeente_woonplaatsactueelbestaand;
 CREATE VIEW gemeente_woonplaatsactueelbestaand AS
