@@ -293,8 +293,11 @@ CREATE VIEW verblijfsobjectactueelbestaand AS
       AND verblijfsobject.aanduidingrecordinactief = FALSE
       AND (verblijfsobject.geom_valid is NULL OR verblijfsobject.geom_valid = TRUE)
       AND (verblijfsobject.verblijfsobjectstatus <> 'Niet gerealiseerd verblijfsobject'
-      AND verblijfsobject.verblijfsobjectstatus  <> 'Verblijfsobject ingetrokken' 
-        AND verblijfsobject.verblijfsobjectstatus  <> 'Verblijfsobject gevormd');
+      AND verblijfsobject.verblijfsobjectstatus  <> 'Verblijfsobject ingetrokken');
+
+-- JvdB removed AND verblijfsobject.verblijfsobjectstatus  <> 'Verblijfsobject gevormd', see issue #173
+-- https://github.com/opengeogroep/NLExtract/issues/173  23.3.16
+--
 
 DROP VIEW IF EXISTS woonplaatsactueel;
 CREATE VIEW woonplaatsactueel AS
