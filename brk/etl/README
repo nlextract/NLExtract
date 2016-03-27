@@ -19,19 +19,36 @@ http://www.stetl.org/en/latest/install.html
 
 Meer over Stetl: http://stetl.org
 
-Commando:
+Commando
+--------
 
 ./etl-brk.sh
 
-Opties zetten:
-maak een eigen lokale file:
-options/options-<jouw host naam>.sh
+Gebruikt default opties (database params etc) uit options/default.args
 
 Stetl configuratie, hoeft niet gewijzigd, alleen indien bijv andere output gewenst:
-etl-brk.cfg
+conf/etl-brk.cfg
 
+Opties/argumenten
+-----------------
+
+Een aantal opties kunnen op 2 manieren vervangen worden:
+
+1- Impliciet: Overrule default opties (database params etc) met een eigen lokale file gebaseerd op lokale hostnaam:
+options/<jouw host naam>.args
+
+2- Expliciet op command line via  ./etl-brk.sh <mijn opties file>.args
+
+Indien methode 2 gebruikt wordt prevaleert deze boven 1 en de default opties!
+
+Database mapping
+----------------
+gfs/brk.gfs is GDAL/OGR "GFS Template" en bepaalt de mapping van GML elementen/attributen naar PostGIS kolom(namen).
+Maak evt eigen GFS file en specificeer deze in je options/<jouw host naam>.args: bijv gfs_template=gfs/mijnbrk.gfs
 
 TODO
+----
+
 Windows (.bat) scripts: etl-brk.cmd (nog niet gemaakt en getest)
 
 GUI
