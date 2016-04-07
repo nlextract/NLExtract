@@ -40,6 +40,8 @@ do
     gdal_translate -b 1 -b 2 -b 3 -of GTiff -co TILED=YES -co PROFILE=Geotiff -co COMPRESS=JPEG -co JPEG_QUALITY=95 \
             -co PHOTOMETRIC=YCBCR -co BLOCKXSIZE=512 -co BLOCKYSIZE=512 -a_srs EPSG:28992  $src_tif $dst_tif
 
+	# JPEG met Alpha
+	# http://lists.osgeo.org/pipermail/gdal-dev/2012-July/033298.html
     # Maak overview (pyramid)
     echo "Maak overview met gdaladdo"
     # number of pyramids = log(pixelsize of image) / log(2) - log (pixelsize of tile) / log(2).

@@ -2,7 +2,7 @@
 
 Just van den Broecke - dec 2015
 
-Hier komt de ETL voor de "Digitale Kadastrale Kaart", onderdeel van de BRK met
+Dit is een eerste test voor de "Digitale Kadastrale Kaart", onderdeel van de BRK met
 percelen, gebouwen en annotaties.
 
 Per 19/12/2015 te downloaden (per provincie) via data.overheid.nl:
@@ -14,3 +14,6 @@ De structuur van de GML is simpel genoeg om in te lezen met GDAL ogr2ogr (1.11+)
 met een GFS-file waarmee de geneste GML elementen kunnen worden aangeduid en
 geextraheerd. Zie test/ hieronder.
 
+## UPDATE
+
+Inmiddels (maart 2016) is de echte ETL, dankzij Frank Steggink, beschikbaar op brk/etl.
