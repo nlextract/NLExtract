@@ -7,6 +7,7 @@
 #
 # Auteur: Just van den Broecke
 #
+# NB soms is .zip file 0 bytes, lijkt vreemd probleem PDOK
 
 # Download gegevens: dataset IDs en 12 provincies
 # Zie https://www.pdok.nl/nl/producten/pdok-downloads/basis-registratie-kadaster/kadastrale-kaart
