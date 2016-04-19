@@ -1,14 +1,27 @@
 #!/bin/bash
 #
-# Excecute in git dir!
+# Make a distribution: check out from Git (including Stetl) and create .tar.gs
 #
 
-ts=`date +%Y%H%d-%H%M`
-id="nlextract-${ts}"
+# provide version via commandline: if none given, use datetime
+version=$1
+if [ -z "$version" ]; then
+	version=`date +%Y%H%d-%H%M`
+fi
+
+id="nlextract-${version}"
 target="${id}.tar.gz"
-# rm ${target}
+
+/bin/rm -f ${target} > /dev/null 2>&1
+
+# get clone from git into version dir
 git clone  --recursive https://github.com/opengeogroep/NLExtract.git ${id}
 
-excludes="--exclude=.git --exclude=externals/stetl/.git --exclude=bag/build --exclude=bag/dist --exclude=bgt/data --exclude=bgt/doc --exclude=bonnebladen --exclude=3d --exclude=ahn2 --exclude=opentopo --exclude=tools --exclude=top10nl/test --exclude=top10nl/doc"
-tar -zcvf ${target}  ${excludes} ${id}
+# Take only relevant dirs
+excludes="--exclude=.git --exclude=externals/stetl/.git  --exclude=3d --exclude=ahn2 --exclude=bag/build --exclude=bag/dist --exclude=bgt/data --exclude=bgt/doc --exclude=bonnebladen --exclude=doc --exclude=opentopo --exclude=tools --exclude=top10nl/test --exclude=top10nl/doc"
 
+# create archive
+tar -zcvf ${target} ${excludes} ${id}
+
+# target="${id}.zip"
+# zip -9 -r ${excludes} ${target} ${id}

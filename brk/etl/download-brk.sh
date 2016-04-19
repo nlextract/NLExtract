@@ -8,6 +8,9 @@
 # Auteur: Just van den Broecke
 #
 # NB soms is .zip file 0 bytes, lijkt vreemd probleem PDOK
+# Ligt misschien aan self-signed certificate?
+# "WARNING: cannot verify geodatastore.pdok.nl's certificate, issued by `/C=NL/O=QuoVadis Trustlink BV/OU=Issuing Certification Authority/CN=QuoVadis CSP - PKI Overheid CA - G2':
+#    Self-signed certificate encountered."
 
 # Download gegevens: dataset IDs en 12 provincies
 # Zie https://www.pdok.nl/nl/producten/pdok-downloads/basis-registratie-kadaster/kadastrale-kaart
@@ -37,7 +40,7 @@ do
 
   # Download
   echo "Downloading $2 ..."
-  wget -O ${doel_dir}/${2}.zip ${base_url}/${1}
+  wget -O ${doel_dir}/${2}.zip --no-check-certificate ${base_url}/${1}
   unset IFS
 done
 
