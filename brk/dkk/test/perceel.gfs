@@ -72,11 +72,11 @@
             <!-- XML element name possibly with '|' to specify the path -->
             <Type>Polygon</Type>
         </GeomPropertyDefn>
-        <GeomPropertyDefn>
-            <Name>plaatscoordinaten</Name>
-            <ElementPath>plaatscoordinaten</ElementPath>
-            <Type>Point</Type>
-        </GeomPropertyDefn>
+        <!--<GeomPropertyDefn>-->
+            <!--<Name>plaatscoordinaten</Name>-->
+            <!--<ElementPath>plaatscoordinaten</ElementPath>-->
+            <!--<Type>Point</Type>-->
+        <!--</GeomPropertyDefn>-->
 
     </GMLFeatureClass>
 </GMLFeatureClassList>
