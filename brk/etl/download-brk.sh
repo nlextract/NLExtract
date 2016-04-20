@@ -7,6 +7,11 @@
 #
 # Auteur: Just van den Broecke
 #
+# Probeert BRK-DKK GML van alle provincies te downloaden. Er kan nogal wat mis gaan,
+# en gebeurt veel in praktijk, vandaar veel checks en retries:
+# - connectie wordt vaak verbroken
+# - download lijkt ok, maar .zip is 0 bytes
+#
 # NB soms is .zip file 0 bytes, lijkt vreemd probleem PDOK
 # Ligt misschien aan self-signed certificate?
 # "WARNING: cannot verify geodatastore.pdok.nl's certificate, issued by `/C=NL/O=QuoVadis Trustlink BV/OU=Issuing Certification Authority/CN=QuoVadis CSP - PKI Overheid CA - G2':
@@ -40,28 +45,50 @@ do
   IFS=","
   set $dataset
 
+  uuid="${1}"
+  provincie="${2}"
+  
   # Download
-  target_file="${doel_dir}/${2}.zip"
-  target_url="${base_url}/${1}"
+  target_file="${doel_dir}/${provincie}.zip"
+  target_url="${base_url}/${uuid}"
 
   # Blijf proberen bestand op te halen tot gelukt
   while true
   do
-    echo "Downloading $2 ..."
+    echo "Downloading ${provincie} ..."
     /bin/rm -f ${target_file} > /dev/null 2>&1
 
     # Haal file op
     wget -O ${target_file} --no-check-certificate ${target_url}
 
-    # Many times a downloaded .zip is 0 bytes, if not break inner loop
-    if [ -s "${target_file}" ]
+	# Check download outcome and stop on error
+	if [ $? -ne 0 ]
+	then
+	  echo "Download ${provincie} NOT OK - download interrupted"
+	  continue
+	fi
+	
+	# Download ok: proceed
+	# check zipfile content
+	unzip -l ${target_file}
+	if [ $? -ne 0 ]
+	then
+	  echo "Download ${provincie} NOT OK, zipfile corrupt"
+	  continue
+	fi
+
+    # Many times a downloaded seems to succeed but .zip is 0 bytes, if not break inner loop
+    if [ ! -s "${target_file}" ]
     then
-      echo "Download $2 OK!"
-      break
-    else
-      echo "Download $2 NOT OK, retrying...!"
+      echo "Download ${provincie} NOT OK, zero file, retrying...!"
+	  continue
     fi
+
+    # ASSERT: we get here when all checks ok
+	echo "Download ${provincie} OK!"
+	break
   done
+  # Reset field seperator
   unset IFS
 done
 
