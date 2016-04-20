@@ -32,6 +32,8 @@ b1f9fd73-7050-4af1-a48e-85fbd06e17f2,Zeeland \
 
 # Download
 doel_dir=$1
+
+# Ga door alle provincie tuples
 for dataset in ${datasets}
 do
   # DatasetID,Provincie is tuple, scheid deze
@@ -39,8 +41,27 @@ do
   set $dataset
 
   # Download
-  echo "Downloading $2 ..."
-  wget -O ${doel_dir}/${2}.zip --no-check-certificate ${base_url}/${1}
+  target_file="${doel_dir}/${2}.zip"
+  target_url="${base_url}/${1}"
+
+  # Blijf proberen bestand op te halen tot gelukt
+  while true
+  do
+    echo "Downloading $2 ..."
+    /bin/rm -f ${target_file} > /dev/null 2>&1
+
+    # Haal file op
+    wget -O ${target_file} --no-check-certificate ${target_url}
+
+    # Many times a downloaded .zip is 0 bytes, if not break inner loop
+    if [ -s "${target_file}" ]
+    then
+      echo "Download $2 OK!"
+      break
+    else
+      echo "Download $2 NOT OK, retrying...!"
+    fi
+  done
   unset IFS
 done
 
