@@ -159,7 +159,7 @@ create or replace view ondersteunendwaterdeel_2dactueelbestaand as select * from
 drop table ondersteunendwaterdeel_2d_tmp;
 
 -- Ondersteunend wegdeel
-create table ondersteunendwegdeel_2d as select ogc_fid, wkb_geometry, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamp), cast(eindregistratie as timestamp), cast(lv_publicatiedatum as timestamp), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, bgt_fysiekvoorkomen, plus_fysiekvoorkomen, cast(ondersteunendwegdeeloptalud as boolean) from ondersteunendwegdeel_2d_tmp;
+create table ondersteunendwegdeel_2d as select ogc_fid, wkb_geometry, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamp), cast(eindregistratie as timestamp), cast(lv_publicatiedatum as timestamp), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, bgt_functie, plus_functie, bgt_fysiekvoorkomen, plus_fysiekvoorkomen, cast(ondersteunendwegdeeloptalud as boolean) from ondersteunendwegdeel_2d_tmp;
 
 alter table ondersteunendwegdeel_2d add primary key (ogc_fid);
 create index ondersteunendwegdeel_2d_wkb_geometry_geom_idx on ondersteunendwegdeel_2d using gist((wkb_geometry::geometry(POLYGON, 28992)));
