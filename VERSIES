@@ -3,28 +3,23 @@ via de link: http://www.nlextract.nl/file-cabinet. Nieuwste bovenaan.
 De rest ligt nog open afhankelijk van wensen gebruikers en natuurlijk eventuele bugs.
 
 ONGEPLAND
-- BGT Extractie
 - AHN
-- Bonne Bladen (historische kaarten)
 - Linked Data
 - Top10NL naar Oracle,
-- gebruik Stetl als algemeen ETL framework: https://stetl.org
 
-v1.1.5 - feb.2014 - GEPLAND
+v1.2.0 - apr.2016 - GEPLAND
 
-Mutatieverwerking!!
+Zie GitHub Milestones:
+https://github.com/opengeogroep/NLExtract/milestones
 
 v1.1.4 - 9.jan.2014 - HUIDIGE VERSIE
 Werd weer tijd, veel fixes, ook veel via Pull requests, dank! Features in:
 
 #107 BAG Datumtijd kolommen moeten ook decimale seconden meenemen bag-extract
 
-
 #105  (Her)gebruik database connecties in BAG Extract bag-extract
 
-
 #102  Nevenadressen moeten meegenomen in genereren adres tabel bag-extract
-
 
 #101 BAG - CSV gemeente-provincie koppeling van CBS upgrade van 2012 naar 2013 bag-extract
 
@@ -58,7 +53,6 @@ Features
 Bugs opgelost
 - BAG documentdatum is altijd null door typefout in bagattribuut.py  (bug)
 - probe_geometry_columns niet aanroepen indien PostGIS 2.x
-
 
 v1.1.2 - 16.okt.2012
 De issues (werk-items) voor deze release zijn hier te vinden:

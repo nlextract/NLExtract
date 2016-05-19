@@ -15,8 +15,7 @@
   <xs:complexContent>
     <xs:extension base="gml:AbstractFeatureType">
       <xs:sequence>
-        <xs:element name="begrenzing" type="gml:PolygonPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
-        <xs:element name="plaatscoordinaten" type="gml:PointPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
+        <xs:element name="geometryProperty" type="gml:PolygonPropertyType" nillable="true" minOccurs="0" maxOccurs="1"/>
         <xs:element name="gml_id" nillable="true" minOccurs="0" maxOccurs="1">
           <xs:simpleType>
             <xs:restriction base="xs:string">

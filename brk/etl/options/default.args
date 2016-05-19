@@ -5,11 +5,15 @@
 
 # INPUT: gml files, point to directory or file(s) pattern
 # gml_files=/Users/just/geodata/top10nl/TOP10NL_GML_50D_Blokken_september_2012/GML_50D_Blokken/Top10NL_05Oost.gml
-gml_files=test/input
+input_dir=test/input
 
 # Files pattern: files filter volgens Python glob.glob patronen: https://docs.python.org/2/library/glob.html
 # NB moeten op dit moment .zip files zijn!
-gml_files_pattern=*.[zZ][iI][pP]
+zip_files_pattern=*.[zZ][iI][pP]
+
+# Match files binnen zip-archieven, default is alle .gml files
+# filename_match=[!Kadastralegrens]* om bijv Kadastralegrens te excluden
+filename_match=*.gml
 
 # OPTIONS
 # Temp dir voor GFS

@@ -8,8 +8,6 @@
 # Author: Just van den Broecke
 #
 
-# . options.sh
-
 # Gebruik Stetl meegeleverd met NLExtract (kan in theorie ook Stetl via pip install stetl zijn)
 if [ -z "$STETL_HOME" ]; then
   STETL_HOME=../../externals/stetl

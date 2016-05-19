@@ -19,6 +19,12 @@ http://www.stetl.org/en/latest/install.html
 
 Meer over Stetl: http://stetl.org
 
+Downloaden GML
+--------------
+
+Met het hulpscript download-brk.sh <doel map> kan de BRK-DKK eerst gedownload worden naar een doel map.
+NB, soms zijn de gedonwloade files 0 bytes. Oorzaak is vreemd HTTPS probleem PDOK vermoedelijk.
+
 Commando
 --------
 
