@@ -170,7 +170,7 @@ create or replace view ondersteunendwegdeel_2dactueelbestaand as select * from o
 drop table ondersteunendwegdeel_2d_tmp;
 
 -- Ondersteunend wegdeel (kruinlijn)
-create table ondersteunendwegdeel_kruinlijn as select ogc_fid, wkb_geometry, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamp), cast(eindregistratie as timestamp), cast(lv_publicatiedatum as timestamp), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, bgt_fysiekvoorkomen, plus_fysiekvoorkomen, cast(ondersteunendwegdeeloptalud as boolean) from ondersteunendwegdeel_kruinlijn_tmp;
+create table ondersteunendwegdeel_kruinlijn as select ogc_fid, wkb_geometry, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamp), cast(eindregistratie as timestamp), cast(lv_publicatiedatum as timestamp), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, bgt_functie, plus_functie, bgt_fysiekvoorkomen, plus_fysiekvoorkomen, cast(ondersteunendwegdeeloptalud as boolean) from ondersteunendwegdeel_kruinlijn_tmp;
 
 alter table ondersteunendwegdeel_kruinlijn add primary key (ogc_fid);
 create index ondersteunendwegdeel_kruinlijn_wkb_geometry_geom_idx on ondersteunendwegdeel_kruinlijn using gist((wkb_geometry::geometry(LINESTRING, 28992)));
