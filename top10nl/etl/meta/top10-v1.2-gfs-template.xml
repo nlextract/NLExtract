@@ -327,7 +327,7 @@
     </PropertyDefn>
     <PropertyDefn>
       <Name>bebouwdeKom</Name>
-      <ElementPath>naamNL</ElementPath>
+      <ElementPath>bebouwdeKom</ElementPath>
       <Type>String</Type>
       <Width>3</Width>
     </PropertyDefn>
