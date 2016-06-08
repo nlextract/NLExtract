@@ -1377,8 +1377,8 @@
       <Width>3</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>aantalInwoners</Name>
-      <ElementPath>aantalInwoners</ElementPath>
+      <Name>aantalinwoners</Name>
+      <ElementPath>aantalinwoners</ElementPath>
       <Type>Integer</Type>
     </PropertyDefn>
     <PropertyDefn>
@@ -1516,8 +1516,8 @@
       <Width>3</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>aantalInwoners</Name>
-      <ElementPath>aantalInwoners</ElementPath>
+      <Name>aantalinwoners</Name>
+      <ElementPath>aantalinwoners</ElementPath>
       <Type>Integer</Type>
     </PropertyDefn>
     <PropertyDefn>
