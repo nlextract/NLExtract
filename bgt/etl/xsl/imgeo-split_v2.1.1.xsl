@@ -123,9 +123,37 @@
         <c:cityObjectMember>
             <xsl:element name="{$prefix}:{$objectType}">
                 <xsl:call-template name="CopyNonGeoProps"/>
-                <xsl:copy-of select="$geometrie"/>
+                <!-- Zorg ervoor dat de geometrie altijd een srsName attribuut heeft en een posList
+                     het attribuut srsDimension. Deze ontbreken nl. bij kruinlijnen. -->
+                <xsl:for-each select="$geometrie">
+                    <xsl:copy>
+                        <xsl:apply-templates mode="geom1" select="node()"/>
+                    </xsl:copy>
+                </xsl:for-each>
             </xsl:element>
         </c:cityObjectMember>
+    </xsl:template>
+    
+    <xsl:template match="node()" mode="geom1">
+        <xsl:copy>
+            <xsl:if test="not(@srsName)">
+                <xsl:attribute name="srsName">urn:ogc:def:crs:EPSG::28992</xsl:attribute>
+            </xsl:if>
+            <xsl:apply-templates mode="geom" select="@*|node()"/>
+        </xsl:copy>
+    </xsl:template>
+    
+    <xsl:template match="@*|node()" mode="geom">
+        <xsl:copy>
+            <xsl:apply-templates mode="geom" select="@*|node()"/>
+        </xsl:copy>
+    </xsl:template>
+    
+    <xsl:template match="gml:posList[not(@srsDimension)]" mode="geom">
+        <xsl:copy>
+            <xsl:attribute name="srsDimension">2</xsl:attribute>
+            <xsl:copy-of select="@*|node()"/>
+        </xsl:copy>
     </xsl:template>
 
 </xsl:stylesheet>
