@@ -1,0 +1,44 @@
+# Default options for the Stetl BGT extract command
+# These values are substituted into the ETL conf in conf/etl-imgeo-v2.1.1.cfg, see the {arg} strings there
+
+# INPUT: gml files, point to directory or file(s) pattern
+# gml_files=/Users/just/geodata/top10nl/TOP10NL_GML_50D_Blokken_september_2012/GML_50D_Blokken/Top10NL_05Oost.gml
+input_dir=test/input
+
+# Files pattern: files filter volgens Python glob.glob patronen: https://docs.python.org/2/library/glob.html
+# NB moeten op dit moment .zip files zijn!
+zip_files_pattern=*.[zZ][iI][pP]
+
+# Match files binnen zip-archieven, default is alle .gml files
+# filename_match=[!bgt_plaatsbepalingspunt]* om bijv de plaatsbepalingspunten te excluden
+filename_match=*.gml
+
+# OPTIONS
+# Temp dir voor GFS
+temp_dir=temp
+
+# GFS template: bepaalt mapping van GML-velden naar PostGIS table kolommen
+gfs_template=gfs/imgeo-v2.1.1.gfs
+
+# OUTPUT: PostGIS settings
+host=localhost
+port=5432
+user=postgres
+password=postgres
+database=bgt
+schema=test
+
+# OPTION: attribuut waarden bijv typeWeg die meerdere keren in XML voorkomen, wat daarmee te doen
+# NB: niet van toepassing op BRK
+# Zie ogr2ogr opties
+# May use: these options
+# multi_opts=-splitlistfields -maxsubfields 1
+# multi_opts=-splitlistfields
+multi_opts=-fieldTypeToString StringList
+
+# Welk gebied (clip), zet leeg voor alles
+# spatial_extent=120000 450000 160000 500000
+spatial_extent=
+
+# Maximaal aantal features
+max_features=20000
