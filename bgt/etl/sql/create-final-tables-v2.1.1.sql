@@ -236,7 +236,7 @@ create or replace view overigbouwwerk_2dactueelbestaand as select * from overigb
 drop table overigbouwwerk_2d_tmp;
 
 -- Overige scheiding
-create table overigescheiding_2d as select ogc_fid, wkb_geometry, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamp), cast(eindregistratie as timestamp), cast(lv_publicatiedatum as timestamp), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, bgt_type, plus_type from overigescheiding_2d_tmp;
+create table overigescheiding_2d as select ogc_fid, wkb_geometry, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamp), cast(eindregistratie as timestamp), cast(lv_publicatiedatum as timestamp), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, plus_type from overigescheiding_2d_tmp;
 
 alter table overigescheiding_2d add primary key (ogc_fid);
 create index overigescheiding_2d_wkb_geometry_geom_idx on overigescheiding_2d using gist((wkb_geometry::geometry(GEOMETRY, 28992)));

@@ -541,12 +541,6 @@
     <Name>OverigeScheiding</Name>
     <ParentClass>BGTObject</ParentClass>
     <PropertyDefn>
-      <Name>bgt_type</Name>
-      <ElementPath>bgt-type</ElementPath>
-      <Type>String</Type>
-      <Width>255</Width>
-    </PropertyDefn>     
-    <PropertyDefn>
       <Name>plus_type</Name>
       <ElementPath>plus-type</ElementPath>
       <Type>String</Type>
@@ -671,11 +665,39 @@
     </PropertyDefn> 
   </GMLFeatureClass>
   <GMLFeatureClass>
+    <Name>GebouwInstallatie</Name>
+    <ParentClass>BGTObject</ParentClass>
+    <PropertyDefn>
+      <Name>bgt_type</Name>
+      <ElementPath>function</ElementPath>
+      <Type>String</Type>
+      <Width>255</Width>
+    </PropertyDefn>
+    <PropertyDefn>
+      <Name>plus_type</Name>
+      <ElementPath>plus-typeGebouwInstallatie</ElementPath>
+      <Type>String</Type>
+      <Width>255</Width>
+    </PropertyDefn>
+  </GMLFeatureClass>
+  <GMLFeatureClass>
+    <Name>GebouwInstallatie_2D_tmp</Name>
+    <ElementPath>BuildingInstallation_2D</ElementPath>
+    <ParentClass>GebouwInstallatie</ParentClass>
+    <GeometryType>3</GeometryType>
+  </GMLFeatureClass>
+  <!--GMLFeatureClass>
+    <Name>GebouwInstallatie_lod0</Name>
+    <ElementPath>BuildingInstallation_lod0</ElementPath>
+    <ParentClass>GebouwInstallatie</ParentClass>
+    <GeometryType>3</GeometryType>
+  </GMLFeatureClass-->
+  <GMLFeatureClass>
     <Name>Inrichtingselement</Name>
     <ParentClass>BGTObject</ParentClass>
     <PropertyDefn>
       <Name>bgt_type</Name>
-      <ElementPath>class</ElementPath>
+      <ElementPath>function</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>     
@@ -715,22 +737,6 @@
     <Name>Bord_lod0</Name>
     <ParentClass>Bord</ParentClass>
     <GeometryType>1</GeometryType>
-  </GMLFeatureClass-->
-  <GMLFeatureClass>
-    <Name>GebouwInstallatie</Name>
-    <ParentClass>Inrichtingselement</ParentClass>
-  </GMLFeatureClass>
-  <GMLFeatureClass>
-    <Name>GebouwInstallatie_2D_tmp</Name>
-    <ElementPath>BuildingInstallation_2D</ElementPath>
-    <ParentClass>GebouwInstallatie</ParentClass>
-    <GeometryType>3</GeometryType>
-  </GMLFeatureClass>
-  <!--GMLFeatureClass>
-    <Name>GebouwInstallatie_lod0</Name>
-    <ElementPath>BuildingInstallation_lod0</ElementPath>
-    <ParentClass>GebouwInstallatie</ParentClass>
-    <GeometryType>3</GeometryType>
   </GMLFeatureClass-->
   <GMLFeatureClass>
     <Name>Installatie</Name>
