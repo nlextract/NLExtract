@@ -10,11 +10,6 @@
   </SpatialInfo>
   <GMLFeatureClass>
     <Name>GmlObject</Name>
-    <PropertyDefn>
-      <Name>fid</Name>
-      <ElementPath>fid</ElementPath>
-      <Type>Integer</Type>
-    </PropertyDefn>
   </GMLFeatureClass>
   <GMLFeatureClass>
     <Name>Top10Object</Name>

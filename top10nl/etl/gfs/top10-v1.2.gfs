@@ -11,13 +11,6 @@
       <ExtentYMin>300000</ExtentYMin>
       <ExtentYMax>625000</ExtentYMax>
     </DatasetSpecificInfo>
-    <!--Begin properties van GmlObject-->
-    <PropertyDefn>
-      <Name>fid</Name>
-      <ElementPath>fid</ElementPath>
-      <Type>Integer</Type>
-    </PropertyDefn>
-    <!--Einde properties van GmlObject-->
     <!--Begin properties van Top10Object-->
     <PropertyDefn>
       <Name>namespace</Name>
@@ -131,13 +124,6 @@
       <ExtentYMin>300000</ExtentYMin>
       <ExtentYMax>625000</ExtentYMax>
     </DatasetSpecificInfo>
-    <!--Begin properties van GmlObject-->
-    <PropertyDefn>
-      <Name>fid</Name>
-      <ElementPath>fid</ElementPath>
-      <Type>Integer</Type>
-    </PropertyDefn>
-    <!--Einde properties van GmlObject-->
     <!--Begin properties van Top10Object-->
     <PropertyDefn>
       <Name>namespace</Name>
@@ -251,13 +237,6 @@
       <ExtentYMin>300000</ExtentYMin>
       <ExtentYMax>625000</ExtentYMax>
     </DatasetSpecificInfo>
-    <!--Begin properties van GmlObject-->
-    <PropertyDefn>
-      <Name>fid</Name>
-      <ElementPath>fid</ElementPath>
-      <Type>Integer</Type>
-    </PropertyDefn>
-    <!--Einde properties van GmlObject-->
     <!--Begin properties van Top10Object-->
     <PropertyDefn>
       <Name>namespace</Name>
@@ -398,13 +377,6 @@
       <ExtentYMin>300000</ExtentYMin>
       <ExtentYMax>625000</ExtentYMax>
     </DatasetSpecificInfo>
-    <!--Begin properties van GmlObject-->
-    <PropertyDefn>
-      <Name>fid</Name>
-      <ElementPath>fid</ElementPath>
-      <Type>Integer</Type>
-    </PropertyDefn>
-    <!--Einde properties van GmlObject-->
     <!--Begin properties van Top10Object-->
     <PropertyDefn>
       <Name>namespace</Name>
@@ -545,13 +517,6 @@
       <ExtentYMin>300000</ExtentYMin>
       <ExtentYMax>625000</ExtentYMax>
     </DatasetSpecificInfo>
-    <!--Begin properties van GmlObject-->
-    <PropertyDefn>
-      <Name>fid</Name>
-      <ElementPath>fid</ElementPath>
-      <Type>Integer</Type>
-    </PropertyDefn>
-    <!--Einde properties van GmlObject-->
     <!--Begin properties van Top10Object-->
     <PropertyDefn>
       <Name>namespace</Name>
@@ -659,13 +624,6 @@
       <ExtentYMin>300000</ExtentYMin>
       <ExtentYMax>625000</ExtentYMax>
     </DatasetSpecificInfo>
-    <!--Begin properties van GmlObject-->
-    <PropertyDefn>
-      <Name>fid</Name>
-      <ElementPath>fid</ElementPath>
-      <Type>Integer</Type>
-    </PropertyDefn>
-    <!--Einde properties van GmlObject-->
     <!--Begin properties van Top10Object-->
     <PropertyDefn>
       <Name>namespace</Name>
@@ -773,13 +731,6 @@
       <ExtentYMin>300000</ExtentYMin>
       <ExtentYMax>625000</ExtentYMax>
     </DatasetSpecificInfo>
-    <!--Begin properties van GmlObject-->
-    <PropertyDefn>
-      <Name>fid</Name>
-      <ElementPath>fid</ElementPath>
-      <Type>Integer</Type>
-    </PropertyDefn>
-    <!--Einde properties van GmlObject-->
     <!--Begin properties van Top10Object-->
     <PropertyDefn>
       <Name>namespace</Name>
@@ -888,13 +839,6 @@
       <ExtentYMin>300000</ExtentYMin>
       <ExtentYMax>625000</ExtentYMax>
     </DatasetSpecificInfo>
-    <!--Begin properties van GmlObject-->
-    <PropertyDefn>
-      <Name>fid</Name>
-      <ElementPath>fid</ElementPath>
-      <Type>Integer</Type>
-    </PropertyDefn>
-    <!--Einde properties van GmlObject-->
     <!--Begin properties van Top10Object-->
     <PropertyDefn>
       <Name>namespace</Name>
@@ -1003,13 +947,6 @@
       <ExtentYMin>300000</ExtentYMin>
       <ExtentYMax>625000</ExtentYMax>
     </DatasetSpecificInfo>
-    <!--Begin properties van GmlObject-->
-    <PropertyDefn>
-      <Name>fid</Name>
-      <ElementPath>fid</ElementPath>
-      <Type>Integer</Type>
-    </PropertyDefn>
-    <!--Einde properties van GmlObject-->
     <!--Begin properties van Top10Object-->
     <PropertyDefn>
       <Name>namespace</Name>
@@ -1138,13 +1075,6 @@
       <ExtentYMin>300000</ExtentYMin>
       <ExtentYMax>625000</ExtentYMax>
     </DatasetSpecificInfo>
-    <!--Begin properties van GmlObject-->
-    <PropertyDefn>
-      <Name>fid</Name>
-      <ElementPath>fid</ElementPath>
-      <Type>Integer</Type>
-    </PropertyDefn>
-    <!--Einde properties van GmlObject-->
     <!--Begin properties van Top10Object-->
     <PropertyDefn>
       <Name>namespace</Name>
@@ -1273,13 +1203,6 @@
       <ExtentYMin>300000</ExtentYMin>
       <ExtentYMax>625000</ExtentYMax>
     </DatasetSpecificInfo>
-    <!--Begin properties van GmlObject-->
-    <PropertyDefn>
-      <Name>fid</Name>
-      <ElementPath>fid</ElementPath>
-      <Type>Integer</Type>
-    </PropertyDefn>
-    <!--Einde properties van GmlObject-->
     <!--Begin properties van Top10Object-->
     <PropertyDefn>
       <Name>namespace</Name>
@@ -1412,13 +1335,6 @@
       <ExtentYMin>300000</ExtentYMin>
       <ExtentYMax>625000</ExtentYMax>
     </DatasetSpecificInfo>
-    <!--Begin properties van GmlObject-->
-    <PropertyDefn>
-      <Name>fid</Name>
-      <ElementPath>fid</ElementPath>
-      <Type>Integer</Type>
-    </PropertyDefn>
-    <!--Einde properties van GmlObject-->
     <!--Begin properties van Top10Object-->
     <PropertyDefn>
       <Name>namespace</Name>
@@ -1551,13 +1467,6 @@
       <ExtentYMin>300000</ExtentYMin>
       <ExtentYMax>625000</ExtentYMax>
     </DatasetSpecificInfo>
-    <!--Begin properties van GmlObject-->
-    <PropertyDefn>
-      <Name>fid</Name>
-      <ElementPath>fid</ElementPath>
-      <Type>Integer</Type>
-    </PropertyDefn>
-    <!--Einde properties van GmlObject-->
     <!--Begin properties van Top10Object-->
     <PropertyDefn>
       <Name>namespace</Name>
@@ -1661,13 +1570,6 @@
       <ExtentYMin>300000</ExtentYMin>
       <ExtentYMax>625000</ExtentYMax>
     </DatasetSpecificInfo>
-    <!--Begin properties van GmlObject-->
-    <PropertyDefn>
-      <Name>fid</Name>
-      <ElementPath>fid</ElementPath>
-      <Type>Integer</Type>
-    </PropertyDefn>
-    <!--Einde properties van GmlObject-->
     <!--Begin properties van Top10Object-->
     <PropertyDefn>
       <Name>namespace</Name>
@@ -1771,13 +1673,6 @@
       <ExtentYMin>300000</ExtentYMin>
       <ExtentYMax>625000</ExtentYMax>
     </DatasetSpecificInfo>
-    <!--Begin properties van GmlObject-->
-    <PropertyDefn>
-      <Name>fid</Name>
-      <ElementPath>fid</ElementPath>
-      <Type>Integer</Type>
-    </PropertyDefn>
-    <!--Einde properties van GmlObject-->
     <!--Begin properties van Top10Object-->
     <PropertyDefn>
       <Name>namespace</Name>
@@ -1881,13 +1776,6 @@
       <ExtentYMin>300000</ExtentYMin>
       <ExtentYMax>625000</ExtentYMax>
     </DatasetSpecificInfo>
-    <!--Begin properties van GmlObject-->
-    <PropertyDefn>
-      <Name>fid</Name>
-      <ElementPath>fid</ElementPath>
-      <Type>Integer</Type>
-    </PropertyDefn>
-    <!--Einde properties van GmlObject-->
     <!--Begin properties van Top10Object-->
     <PropertyDefn>
       <Name>namespace</Name>
@@ -2006,13 +1894,6 @@
       <ExtentYMin>300000</ExtentYMin>
       <ExtentYMax>625000</ExtentYMax>
     </DatasetSpecificInfo>
-    <!--Begin properties van GmlObject-->
-    <PropertyDefn>
-      <Name>fid</Name>
-      <ElementPath>fid</ElementPath>
-      <Type>Integer</Type>
-    </PropertyDefn>
-    <!--Einde properties van GmlObject-->
     <!--Begin properties van Top10Object-->
     <PropertyDefn>
       <Name>namespace</Name>
@@ -2127,13 +2008,6 @@
       <ExtentYMin>300000</ExtentYMin>
       <ExtentYMax>625000</ExtentYMax>
     </DatasetSpecificInfo>
-    <!--Begin properties van GmlObject-->
-    <PropertyDefn>
-      <Name>fid</Name>
-      <ElementPath>fid</ElementPath>
-      <Type>Integer</Type>
-    </PropertyDefn>
-    <!--Einde properties van GmlObject-->
     <!--Begin properties van Top10Object-->
     <PropertyDefn>
       <Name>namespace</Name>
@@ -2248,13 +2122,6 @@
       <ExtentYMin>300000</ExtentYMin>
       <ExtentYMax>625000</ExtentYMax>
     </DatasetSpecificInfo>
-    <!--Begin properties van GmlObject-->
-    <PropertyDefn>
-      <Name>fid</Name>
-      <ElementPath>fid</ElementPath>
-      <Type>Integer</Type>
-    </PropertyDefn>
-    <!--Einde properties van GmlObject-->
     <!--Begin properties van Top10Object-->
     <PropertyDefn>
       <Name>namespace</Name>
@@ -2369,13 +2236,6 @@
       <ExtentYMin>300000</ExtentYMin>
       <ExtentYMax>625000</ExtentYMax>
     </DatasetSpecificInfo>
-    <!--Begin properties van GmlObject-->
-    <PropertyDefn>
-      <Name>fid</Name>
-      <ElementPath>fid</ElementPath>
-      <Type>Integer</Type>
-    </PropertyDefn>
-    <!--Einde properties van GmlObject-->
     <!--Begin properties van Top10Object-->
     <PropertyDefn>
       <Name>namespace</Name>
@@ -2537,13 +2397,6 @@
       <ExtentYMin>300000</ExtentYMin>
       <ExtentYMax>625000</ExtentYMax>
     </DatasetSpecificInfo>
-    <!--Begin properties van GmlObject-->
-    <PropertyDefn>
-      <Name>fid</Name>
-      <ElementPath>fid</ElementPath>
-      <Type>Integer</Type>
-    </PropertyDefn>
-    <!--Einde properties van GmlObject-->
     <!--Begin properties van Top10Object-->
     <PropertyDefn>
       <Name>namespace</Name>
@@ -2705,13 +2558,6 @@
       <ExtentYMin>300000</ExtentYMin>
       <ExtentYMax>625000</ExtentYMax>
     </DatasetSpecificInfo>
-    <!--Begin properties van GmlObject-->
-    <PropertyDefn>
-      <Name>fid</Name>
-      <ElementPath>fid</ElementPath>
-      <Type>Integer</Type>
-    </PropertyDefn>
-    <!--Einde properties van GmlObject-->
     <!--Begin properties van Top10Object-->
     <PropertyDefn>
       <Name>namespace</Name>
@@ -2830,13 +2676,6 @@
       <ExtentYMin>300000</ExtentYMin>
       <ExtentYMax>625000</ExtentYMax>
     </DatasetSpecificInfo>
-    <!--Begin properties van GmlObject-->
-    <PropertyDefn>
-      <Name>fid</Name>
-      <ElementPath>fid</ElementPath>
-      <Type>Integer</Type>
-    </PropertyDefn>
-    <!--Einde properties van GmlObject-->
     <!--Begin properties van Top10Object-->
     <PropertyDefn>
       <Name>namespace</Name>
@@ -3014,13 +2853,6 @@
       <ExtentYMin>300000</ExtentYMin>
       <ExtentYMax>625000</ExtentYMax>
     </DatasetSpecificInfo>
-    <!--Begin properties van GmlObject-->
-    <PropertyDefn>
-      <Name>fid</Name>
-      <ElementPath>fid</ElementPath>
-      <Type>Integer</Type>
-    </PropertyDefn>
-    <!--Einde properties van GmlObject-->
     <!--Begin properties van Top10Object-->
     <PropertyDefn>
       <Name>namespace</Name>
@@ -3198,13 +3030,6 @@
       <ExtentYMin>300000</ExtentYMin>
       <ExtentYMax>625000</ExtentYMax>
     </DatasetSpecificInfo>
-    <!--Begin properties van GmlObject-->
-    <PropertyDefn>
-      <Name>fid</Name>
-      <ElementPath>fid</ElementPath>
-      <Type>Integer</Type>
-    </PropertyDefn>
-    <!--Einde properties van GmlObject-->
     <!--Begin properties van Top10Object-->
     <PropertyDefn>
       <Name>namespace</Name>
@@ -3382,13 +3207,6 @@
       <ExtentYMin>300000</ExtentYMin>
       <ExtentYMax>625000</ExtentYMax>
     </DatasetSpecificInfo>
-    <!--Begin properties van GmlObject-->
-    <PropertyDefn>
-      <Name>fid</Name>
-      <ElementPath>fid</ElementPath>
-      <Type>Integer</Type>
-    </PropertyDefn>
-    <!--Einde properties van GmlObject-->
     <!--Begin properties van Top10Object-->
     <PropertyDefn>
       <Name>namespace</Name>
@@ -3596,13 +3414,6 @@
       <ExtentYMin>300000</ExtentYMin>
       <ExtentYMax>625000</ExtentYMax>
     </DatasetSpecificInfo>
-    <!--Begin properties van GmlObject-->
-    <PropertyDefn>
-      <Name>fid</Name>
-      <ElementPath>fid</ElementPath>
-      <Type>Integer</Type>
-    </PropertyDefn>
-    <!--Einde properties van GmlObject-->
     <!--Begin properties van Top10Object-->
     <PropertyDefn>
       <Name>namespace</Name>
@@ -3810,13 +3621,6 @@
       <ExtentYMin>300000</ExtentYMin>
       <ExtentYMax>625000</ExtentYMax>
     </DatasetSpecificInfo>
-    <!--Begin properties van GmlObject-->
-    <PropertyDefn>
-      <Name>fid</Name>
-      <ElementPath>fid</ElementPath>
-      <Type>Integer</Type>
-    </PropertyDefn>
-    <!--Einde properties van GmlObject-->
     <!--Begin properties van Top10Object-->
     <PropertyDefn>
       <Name>namespace</Name>
@@ -4024,13 +3828,6 @@
       <ExtentYMin>300000</ExtentYMin>
       <ExtentYMax>625000</ExtentYMax>
     </DatasetSpecificInfo>
-    <!--Begin properties van GmlObject-->
-    <PropertyDefn>
-      <Name>fid</Name>
-      <ElementPath>fid</ElementPath>
-      <Type>Integer</Type>
-    </PropertyDefn>
-    <!--Einde properties van GmlObject-->
     <!--Begin properties van Top10Object-->
     <PropertyDefn>
       <Name>namespace</Name>
@@ -4238,13 +4035,6 @@
       <ExtentYMin>300000</ExtentYMin>
       <ExtentYMax>625000</ExtentYMax>
     </DatasetSpecificInfo>
-    <!--Begin properties van GmlObject-->
-    <PropertyDefn>
-      <Name>fid</Name>
-      <ElementPath>fid</ElementPath>
-      <Type>Integer</Type>
-    </PropertyDefn>
-    <!--Einde properties van GmlObject-->
     <!--Begin properties van Top10Object-->
     <PropertyDefn>
       <Name>namespace</Name>

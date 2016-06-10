@@ -402,10 +402,6 @@ geometrie.
 
     <!-- Copieer alle niet-geo attributen -->
     <xsl:template name="CopyNonGeoProps" priority="1">
-        <fid>
-            <xsl:value-of select='top10nl:identificatie/brt:NEN3610ID/brt:lokaalID'/>
-        </fid>
-
         <!-- Copieer alle top10:* attributen, behalve de geometrieen. -->
         <xsl:copy-of
                 select="top10nl:*[not(self::top10nl:hoofdGeometrie)][not(self::top10nl:hartGeometrie)][not(self::top10nl:geometrie)][not(self::top10nl:geometrieVlak)][not(self::top10nl:lijnGeometrie)][not(self::top10nl:taludGeometrie)]"/>
