@@ -413,6 +413,7 @@ geometrie.
         <xsl:param name="geometrie"/>
         <gml:featureMember>
             <xsl:element name="{$objectType}">
+                <xsl:attribute name="gml:id"><xsl:value-of select="@gml:id"/></xsl:attribute>
                 <xsl:call-template name="CopyNonGeoProps"/>
                 <xsl:copy-of select="$geometrie"/>
             </xsl:element>
