@@ -1,8 +1,8 @@
-:: ETL voor BRK GML met gebruik Stetl.
+:: ETL voor BGT GML met gebruik Stetl.
 ::
 :: Dit is een front-end/wrapper batch-script om uiteindelijk Stetl met een configuratie
-:: (etl-brk.cfg) en parameters (options\myoptions.args) aan te roepen. Dit script is
-:: gebaseerd op het shell-script etl-brk.sh.
+:: (etl-imgeo-v2.1.1.cfg) en parameters (options\myoptions.args) aan te roepen. Dit script is
+:: gebaseerd op het shell-script ../../brk/etl-brk.sh.
 ::
 :: Author: Frank Steggink
 @echo off
@@ -28,10 +28,10 @@ set options_file=options\default.args
 :: options\<hostnaam>.args. 
 if exist options\%COMPUTERNAME%.args set options_file=options\%COMPUTERNAME%.args
 
-:: Evt via commandline overrulen: etl-brk.cmd <mijn optiebestand>
+:: Evt via commandline overrulen: etl-imgeo.cmd <mijn optiebestand>
 if not "%~1"=="" set options_file=%1
 
-:: Uiteindelijke commando. Kan ook gewoon "stetl -c etl-brk.cfg -a ..." worden indien Stetl installed
+:: Uiteindelijke commando. Kan ook gewoon "stetl -c etl-imgeo-v2.1.1.cfg -a ..." worden indien Stetl installed
 python %STETL_HOME%\stetl\main.py -c conf\etl-imgeo-v2.1.1.cfg -a %options_file%
 
 endlocal
