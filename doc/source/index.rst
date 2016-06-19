@@ -25,8 +25,9 @@ Inhoud:
    top10extract.rst
    bgtextract.rst
    stetl-framework.rst
-   contact.rst
+   tooling.rst
    links.rst
+   contact.rst
 
 Indices and tables
 ==================
