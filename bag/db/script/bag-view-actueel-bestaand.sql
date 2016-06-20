@@ -16,7 +16,7 @@ CREATE VIEW ligplaatsactueel AS
             ligplaats.ligplaatsstatus,
             ligplaats.begindatumtijdvakgeldigheid,
             ligplaats.einddatumtijdvakgeldigheid,
-            ligplaats.geovlak
+            ligplaats.geovlak::geometry(PolygonZ, 28992)
     FROM ligplaats
     WHERE
       ligplaats.begindatumtijdvakgeldigheid <= LOCALTIMESTAMP
@@ -38,7 +38,7 @@ CREATE VIEW ligplaatsactueelbestaand AS
             ligplaats.ligplaatsstatus,
             ligplaats.begindatumtijdvakgeldigheid,
             ligplaats.einddatumtijdvakgeldigheid,
-            ligplaats.geovlak
+            ligplaats.geovlak::geometry(PolygonZ, 28992)
     FROM ligplaats
     WHERE
       ligplaats.begindatumtijdvakgeldigheid <= LOCALTIMESTAMP
@@ -164,7 +164,7 @@ CREATE VIEW pandactueel AS
             pand.bouwjaar,
             pand.begindatumtijdvakgeldigheid,
             pand.einddatumtijdvakgeldigheid,
-            pand.geovlak
+            pand.geovlak::geometry(PolygonZ, 28992)
     FROM pand
     WHERE
       pand.begindatumtijdvakgeldigheid <= LOCALTIMESTAMP
@@ -186,7 +186,7 @@ CREATE VIEW pandactueelbestaand AS
             pand.bouwjaar,
             pand.begindatumtijdvakgeldigheid,
             pand.einddatumtijdvakgeldigheid,
-            pand.geovlak
+            pand.geovlak::geometry(PolygonZ, 28992)
   FROM pand
    WHERE
      pand.begindatumtijdvakgeldigheid <= LOCALTIMESTAMP
@@ -211,7 +211,7 @@ CREATE VIEW standplaatsactueel AS
             standplaats.standplaatsstatus,
             standplaats.begindatumtijdvakgeldigheid,
             standplaats.einddatumtijdvakgeldigheid,
-            standplaats.geovlak
+            standplaats.geovlak::geometry(PolygonZ, 28992)
   FROM standplaats
   WHERE
     standplaats.begindatumtijdvakgeldigheid <= LOCALTIMESTAMP
@@ -234,7 +234,7 @@ CREATE VIEW standplaatsactueelbestaand AS
             standplaats.standplaatsstatus,
             standplaats.begindatumtijdvakgeldigheid,
             standplaats.einddatumtijdvakgeldigheid,
-            standplaats.geovlak
+            standplaats.geovlak::geometry(PolygonZ, 28992)
   FROM standplaats
   WHERE
     standplaats.begindatumtijdvakgeldigheid <= LOCALTIMESTAMP
@@ -259,8 +259,8 @@ CREATE VIEW verblijfsobjectactueel AS
             verblijfsobject.oppervlakteverblijfsobject,
             verblijfsobject.begindatumtijdvakgeldigheid,
             verblijfsobject.einddatumtijdvakgeldigheid,
-            verblijfsobject.geopunt,
-            verblijfsobject.geovlak
+            verblijfsobject.geopunt::geometry(PointZ, 28992),
+            verblijfsobject.geovlak::geometry(PolygonZ, 28992)
     FROM verblijfsobject
   WHERE
     verblijfsobject.begindatumtijdvakgeldigheid <= LOCALTIMESTAMP
@@ -284,8 +284,8 @@ CREATE VIEW verblijfsobjectactueelbestaand AS
             verblijfsobject.oppervlakteverblijfsobject,
             verblijfsobject.begindatumtijdvakgeldigheid,
             verblijfsobject.einddatumtijdvakgeldigheid,
-            verblijfsobject.geopunt,
-            verblijfsobject.geovlak
+            verblijfsobject.geopunt::geometry(PointZ, 28992),
+            verblijfsobject.geovlak::geometry(PolygonZ, 28992)
     FROM verblijfsobject
     WHERE
       verblijfsobject.begindatumtijdvakgeldigheid <= LOCALTIMESTAMP
@@ -313,7 +313,7 @@ CREATE VIEW woonplaatsactueel AS
             woonplaats.woonplaatsstatus,
             woonplaats.begindatumtijdvakgeldigheid,
             woonplaats.einddatumtijdvakgeldigheid,
-            woonplaats.geovlak
+            woonplaats.geovlak::geometry(MultiPolygon, 28992)
     FROM woonplaats
   WHERE
     woonplaats.begindatumtijdvakgeldigheid <= LOCALTIMESTAMP
@@ -335,7 +335,7 @@ CREATE VIEW woonplaatsactueelbestaand AS
             woonplaats.woonplaatsstatus,
             woonplaats.begindatumtijdvakgeldigheid,
             woonplaats.einddatumtijdvakgeldigheid,
-            woonplaats.geovlak
+            woonplaats.geovlak::geometry(MultiPolygon, 28992)
     FROM woonplaats
   WHERE
     woonplaats.begindatumtijdvakgeldigheid <= LOCALTIMESTAMP
@@ -477,7 +477,3 @@ VALUES (current_schema(), 'pandactueel', 'gid', null, null, null);
 
 INSERT INTO gt_pk_metadata(table_schema, table_name, pk_column, pk_column_idx, pk_policy, pk_sequence)
 VALUES (current_schema(), 'pandactueelbestaand', 'gid', null, null, null);
-
--- Populeert public.geometry_columns
--- Dummy voor PostGIS 2+
-SELECT public.probe_geometry_columns();
