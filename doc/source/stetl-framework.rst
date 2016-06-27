@@ -11,6 +11,7 @@ De volgende extract-tools maken gebruik van het Stetl-framework:
 
 * :doc:`top10extract`
 * :doc:`bgtextract`
+* :doc:`brkextract`
 
 Stetl maakt i.h.a. gebruik van Python voor alle scripts. De Python-scripts voor de extract-tools die gebruik maken van het Stetl-framework roepen `native` tools aan:
 
@@ -87,17 +88,17 @@ Windows
 
 De Python scripts zijn ontwikkeld en getest op Windows 7 met Python 2.7.
 
-Het is gebleken dat het lastig is om NLExtract goed op Windows aan de praat te krijgen. Een belangrijke reden is de OSGeo4W-installer, waar o.a. ook QGIS mee wordt geïnstalleerd. OSGeo4W levert een eigen Python-versie mee. Deze versie, 2.7.5, die o.a. met QGIS Lyon (2.12) wordt geïnstalleerd, loopt een stuk achter bij de laatste Python 2.7-relase, 2.7.11 (status januari 2016). De Python-executable bevindt zich zelfs in dezelfde directory als ogr2ogr, wat de zaak alleen gecompliceerder maakt.
+Het is gebleken dat het lastig is om NLExtract goed op Windows aan de praat te krijgen. Een belangrijke reden is de OSGeo4W-installer, waar o.a. ook QGIS mee wordt geïnstalleerd. OSGeo4W levert een eigen Python-versie mee. Deze versie, 2.7.5, die o.a. met QGIS Essen (2.14) wordt geïnstalleerd, loopt een stuk achter bij de laatste Python 2.7-relase, 2.7.11 (status juni 2016). De Python-executable bevindt zich zelfs in dezelfde directory als ogr2ogr, wat de zaak alleen gecompliceerder maakt.
 
 Met onderstaande instructies is het mogelijk om NLExtract werkend te krijgen op Windows. Hierbij maakt het niet uit of je de OSGeo4W-versie van Python gebruikt of je eigen Python-versie. In het laatste geval moet je wel zelf op de een of andere manier ogr2ogr op je machine krijgen en de locatie hiervan in de PATH-variabele zetten. Vanwege de vele mogelijkheden zijn niet alle situaties getest. Open s.v.p. een issue-report in Github bij problemen of meld het op de mailinglijst. De kans is het grootst dat er problemen zijn met de PATH-variabele of de PYTHONPATH-variabele.
 
-Open een command prompt. Indien Python, QGIS of de OSGeo4W-software in ``C:\Program Files`` of ``C:\Program Files (x86)`` staat, dien je de command prompt als Administrator te openen. Indien je OSGeo4W/QGIS hebt, kun je eventueel ook de OSGeo4W-shell of MSYS gebruiken.
+Open een command prompt. Indien Python, QGIS of de OSGeo4W-software in ``C:\Program Files`` of ``C:\Program Files (x86)`` staat, dien je de command prompt als Administrator te openen. Indien je OSGeo4W/QGIS hebt, kun je eventueel ook de OSGeo4W-shell gebruiken.
 
 In de instructies wordt gebruik gemaakt van Python wheels, ofwel WHL-bestanden. Voor Windows is een groot aantal van deze bestanden te vinden op de site van `Christian Gohlke <http://www.lfd.uci.edu/~gohlke/pythonlibs/>`_. Kies de Python 2.7-versie en kies de 32- of 64-bits versie. Dit is afhankelijk van de Python-versie of OSGeo4W/QGIS-versie die je hebt.
 
 * Installatie Pip, Setuptools en pkg_resources: dit is alleen nodig indien je Python-versie ouder is dan 2.7.9, dus ook als je de OSGeo4W-versie gebruikt. Dit kan via het script ``get-pip.py``. Zie https://pip.pypa.io/en/latest/installing/#install-pip voor verdere instructies. Hierbij krijg je tevens ondersteuning voor de installatie van Python-wheels (WHL-bestanden). Dit is nodig voor de vervolgstappen. Zorg ervoor dat de Scripts-directory van Python, waar pip.exe staat, in het pad is in het commando shell waarmee je de installaties uitvoert. Een WHL-bestand kan als volgt met Pip geïnstalleerd worden::
 
-    pip install <package>.whl
+    python -m pip install <package>.whl
 
 * Installatie lxml: download en installeer het WHL-bestand. Je hoeft niet apart libxml2 of libxslt te installeren.
 * Installatie psycopg (niet bij OSGeo4W): download en installeer het WHL-bestand.
@@ -132,74 +133,45 @@ Mac OSX
 Stetl uitvoeren
 ---------------
 
-Uitvoeren: ``./etl-<dataset>.sh``
+Uitvoeren: ``./etl-<dataset>.sh`` of ``./etl-<dataset>.cmd`` (Windows).
 Ga hiervoor met een prompt in de etl-directory staan van de desbetreffende dataset, dus in ``<dataset>/etl``.
 
-Opties zetten: maak hiertoe een eigen lokaal bestand in de options-directory, met de naam ``options-<hostnaam>.sh``.
-Default worden de opties in options.sh gebruikt. D.m.v. het lokale bestand kun je deze overriden.
-
+Opties zetten: maak hiertoe een eigen lokaal bestand in de options-directory, met de naam ``<hostnaam>.args``. Dit kan door het kopiëren van het bestand default.args. Let op dat alle opties in je eigen optie-bestand gezet moet worden indien je geen gebruik maakt van default.args. Er is geen fallback-mogelijkheid, zoals voorheen wel het geval was.
+    
 De Stetl-configuratie in ``etl-<dataset>-<versie>.cfg`` hoeft niet te worden gewijzigd, alleen indien bijv. een andere
 output gewenst is.
-
-Let op: ook op Windows is het mogelijk om het bash-script uit te voeren. Dit kan via `MSYS <http://www.mingw.org/wiki/msys>`_
-of via de OSGeo4W-shell. MSYS is een collectie van GNU-utilites, waardoor SH-scripts uitgevoerd kunnen worden. Zowel
-MSYS als de OSGeo4W-shell worden geïnstalleerd als onderdeel van QGIS. MSYS gedraagt zich als een normale bash-shell.
-De OSGeo4W-shell gedraagt zich als de Windows command prompt. Het shell-script kun je uitvoeren door in de juiste
-etl-directory te gaan staan en vervolgens ``etl-<dataset>.sh`` in te typen.
-
-Voorbeeld configuratiebestand (Windows):
-::
-
-    #!/bin/sh
-    #
-    # Host-specific settings - Frank's laptop
-
-    # INPUT
-    # Let op, de alternatieve syntax /c/Temp/top10nl_201511 werkt niet goed.
-    export input_files=c:\\Temp\\top10_201511
-
-    # OUTPUT
-    export db_host=localhost
-    export db_port=5432
-    export PGUSER=top10nl
-    export PGPASSWORD=top10nl
-    export database=top10nl
-    export schema=ttnl
-
-    # Stetl path
-    export STETL_HOME=../../../stetl
-
-    # Reset pythonpath
-    export PYTHONPATH=
-
-    # Overige opties
-    export max_features=20000
-
-In het verleden was er bij Top10-extract een Windows batch-bestand aanwezig, maar er is besloten om de ontwikkeling
-hiervan te stoppen. Dit is gedaan, omdat ontwikkelcapaciteit schaars is en het apart bijhouden van batch-bestanden
-onderhoudsgevoelig is. Alle wijzigingen aan de shell-scripts, dus ook het toevoegen van extra opties, zouden dan dubbel
-getest moeten worden. Met de OSGeo4W-shell is een goede oplossing beschikbaar voor mensen die de Windows command-prompt
-gewend zijn.
 
 Uitleg opties
 ~~~~~~~~~~~~~
 
-De volgende opties worden samengesteld tot een command line string waarmee het Stetl-script wordt aangeroepen. De opties worden ingesteld d.m.v. het zetten van environment variabelen.
+De volgende opties worden door Stetl gebruikt bij het laden van data via NLExtract. Onder water worden ze gecombineerd tot het commando waarmee ogr2ogr wordt aangeroepen. De opties worden ingesteld door het meegeven van het juiste opties-bestand (args-bestand) aan het ETL-commando. Zie het SH- of het CMD-script voor meer informatie.
 
-**input-files**
-    Directory met inputbestanden.
+**input_dir**
+    Directory met inputbestanden. NB: ook op Windows kunnen forward slashes in paden worden gebruikt.
     
-**db_host**
+**zip_files_pattern**
+    Bestandenfilter volgens Python `glob.glob patronen <https://docs.python.org/2/library/glob.html>`_.
+    
+**filename_match**
+    Filter op bestanden binnen de ZIP-bestanden. Meestal is *.gml voldoende. Kan gebruikt worden om bepaalde featuretypes uit te sluiten, indien de bestandsnaam hiervoor geschikt is.
+    
+**temp_dir**
+    Directory waar tijdelijke bestanden (bijv. opgesplitste GML-bestanden en kopieën GFS-bestanden) komen te staan.
+    
+**gfs_template**
+    Naam van het GFS template-bestand. Dit bevat de mapping naar de kolommen in PostgreSQL.
+    
+**host**
     Hostnaam van de server waarop de database staat.
     
-**db_port**
+**port**
     Poortnummer waarmee verbinding gemaakt kan worden met de database server.
 
-**PGUSER**
-    Gebruikersnaam van de PostgreSQL gebruiker waarmee verbinding gemaakt moet worden.
+**user**
+    Gebruikersnaam van de PostgreSQL-gebruiker waarmee verbinding gemaakt moet worden.
 
-**PGPASSWORD**
-    Wachtwoord van de PostgreSQL gebruiker waarmee verbinding gemaakt moet worden.
+**password**
+    Wachtwoord van de PostgreSQL-gebruiker waarmee verbinding gemaakt moet worden.
     
 **database**
     Naam van de database waarmee verbinding gemaakt moet worden.
@@ -207,16 +179,15 @@ De volgende opties worden samengesteld tot een command line string waarmee het S
 **schema**
     Naam van het database schema die de datatabellen zal bevatten.
     
-**max_features**
-    Aantal features (nog niet uitgesplitst) dat tegelijkertijd geladen zal worden.
-    
 **multi_opts**
     Wijze waarop omgegaan moet worden met multiattributen (ogr2ogr-opties). Varianten:
-        - Eerstvoorkomende attribuutwaarde: ``multi_opts=-splitlistfields~-maxsubfields 1``
+        - Eerstvoorkomende attribuutwaarde: ``multi_opts=-splitlistfields -maxsubfields 1``
         - Meerdere kolommen: ``multi_opts=-splitlistfields``
-        - Stringlijst: ``multi_opts=-fieldTypeToString~StringList``
-        - Array (default): ``multi_opts=~``
+        - Stringlijst: ``multi_opts=-fieldTypeToString StringList``
+        - Array (default): ``multi_opts=``
 
 **spatial_extent**
-    Definieert het in te lezen gebied. Formaat: ``<minx>~<miny>~<maxx>~<maxy>``. Wanneer dit leeggelaten wordt, wordt alle data ingelezen.
-
+    Definieert het in te lezen gebied. Formaat: ``<minx> <miny> <maxx> <maxy>``. Wanneer dit leeggelaten wordt, wordt alle data ingelezen.
+    
+**max_features**
+    Aantal features (nog niet uitgesplitst) dat tegelijkertijd geladen zal worden. De waarde van 20000 wordt gebruikt, voldoet eigenlijk altijd. Hogere waarden kunnen op met name Windows tot geheugenproblemen leiden, maar dit heeft voor de verwerking geen voordelen.
