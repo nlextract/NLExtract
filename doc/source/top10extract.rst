@@ -9,7 +9,7 @@ Hieronder staat de handleiding voor het gebruik van de tools om TOP10NL te extra
 heten kortweg ``Top10-extract`` of soms ``NLExtract-TOP10``.
 
 NB: als je alleen interesse hebt om een PostGIS versie van de laatste TOP10NL te hebben, kun
-je deze ook downloaden als  PostGIS dumpfile via de link http://data.nlextract.nl/top10nl.
+je deze ook downloaden als  PostGIS dumpfile via de link http://data.nlextract.nl/top10nl/postgis.
 De dump file (``.backup`` bestand)  kun je direct inlezen in PostGIS, bijv met ``PGAdminIII``.
 Dan hoef je alle zaken hieronder niet uit te voeren :-).
 
@@ -43,7 +43,7 @@ TOP10NL brondata in GML kun je via `PDOK TOP10NL Downloads <https://www.pdok.nl/
 
 Er zijn twee download varianten: de "GML File Chunks" en "50D Kaartbladen". De eerste is de totale verzameling opgesplitst
 in 300MB GML Files, de tweede bevat de GML bestanden per kaartblad. Download de Kaartbladen alleen als je bijv. een enkel
-gebied wilt inlezen of om te testen. Beide ZIP-bestanden zijn ca. 2 GB groot.
+gebied wilt inlezen of om te testen. Beide ZIP-bestanden zijn ca. 2 GB groot. Het is ook mogelijk om de TOP10NL via PDOK-services te downloaden, bijv. via WFS. Het inlezen van deze gegevens via NLExtract wordt niet ondersteund.
 
 Als je heel Nederland wilt inlezen, kun je het beste de "GML File Chunks" gebruiken.
 De directe link is http://geodata.nationaalgeoregister.nl/top10nlv2/extract/chunkdata/top10nl_gml_filechunks.zip?formaat=gml.
@@ -60,7 +60,7 @@ gebruik dan een oude release van NLExtract.
 Top10-extract downloaden
 ------------------------
 
-Vind altijd de laatste versie op: http://www.nlextract.nl/file-cabinet
+Vind altijd de laatste versie op: http://www.nlextract.nl/file-cabinet.
 
 Omdat NLExtract voortdurend in ontwikkeling is, kun je ook de actuele broncode, een `snapshot`, downloaden
 en op dezelfde manier gebruiken als een versie:
