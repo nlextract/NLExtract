@@ -105,8 +105,6 @@ In de instructies wordt gebruik gemaakt van Python wheels, ofwel WHL-bestanden. 
 Let bij Windows ook op het volgende: wanneer je op de command line met PostgreSQL wilt connecten, gebruik
 ``chcp 1252`` om de code page van de console bij te werken naar ANSI. Je krijgt anders een waarschuwing wanneer je in PostgreSQL inlogt. Dit komt omdat de code page standaard 437 is (extended ASCII) i.p.v. 1252 (ANSI).
 
-(Oud) Beschrijving installatie en run door Just (23 juni 2013) met behulp van Portable GIS: :doc:`windows-usbgis`.
-
 Mac OSX
 ~~~~~~~
 
