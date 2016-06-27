@@ -254,6 +254,8 @@ CREATE TABLE verblijfsobjectpand (
   aanduidingRecordCorrectie INTEGER,
   begindatumTijdvakGeldigheid TIMESTAMP WITHOUT TIME ZONE,
   einddatumTijdvakGeldigheid TIMESTAMP WITHOUT TIME ZONE,
+  verblijfsobjectStatus verblijfsobjectStatus,
+  geom_valid BOOLEAN,
   gerelateerdpand NUMERIC(16),
   PRIMARY KEY (gid)
 );
@@ -268,6 +270,10 @@ CREATE TABLE adresseerbaarobjectnevenadres (
   aanduidingRecordCorrectie INTEGER,
   begindatumTijdvakGeldigheid TIMESTAMP WITHOUT TIME ZONE,
   einddatumTijdvakGeldigheid TIMESTAMP WITHOUT TIME ZONE,
+  ligplaatsStatus ligplaatsStatus,
+  standplaatsStatus standplaatsStatus,
+  verblijfsobjectStatus verblijfsobjectStatus,
+  geom_valid BOOLEAN,
   nevenadres NUMERIC(16),
   PRIMARY KEY (gid)
 );
@@ -286,6 +292,8 @@ CREATE TABLE verblijfsobjectgebruiksdoel (
   aanduidingrecordcorrectie integer,
   begindatumtijdvakgeldigheid timestamp without time zone,
   einddatumTijdvakGeldigheid TIMESTAMP WITHOUT TIME ZONE,
+  verblijfsobjectStatus verblijfsobjectStatus,
+  geom_valid BOOLEAN,
   gebruiksdoelverblijfsobject gebruiksdoelVerblijfsobject,
   PRIMARY KEY (gid)
 );

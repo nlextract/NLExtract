@@ -566,12 +566,14 @@ class BAGgeometrieValidatie(BAGattribuut):
 #--------------------------------------------------------------------------------------------------------
 class BAGrelatieAttribuut(BAGattribuut):
     # Constructor
-    def __init__(self, parent, relatieNaam, lengte, naam, tag):
+    def __init__(self, parent, relatieNaam, lengte, naam, tag, extraAttributes):
         BAGattribuut.__init__(self, lengte, naam, tag)
         # BAGObject waar dit multivalued attribuut bijhoort
         self._parent = parent
         self._relatieNaam = relatieNaam
         self._waarde = []
+        # Extra te kopieren attributen van het parent-object
+        self._extraAttributes = extraAttributes
 
     # Attribuut relatienaam
     def relatieNaam(self):
@@ -604,22 +606,32 @@ class BAGrelatieAttribuut(BAGattribuut):
         for waarde in self._waarde:
             sql = "INSERT INTO " + self.relatieNaam() + " "
             sql += "(identificatie,aanduidingrecordinactief,aanduidingrecordcorrectie,begindatumtijdvakgeldigheid,einddatumtijdvakgeldigheid,"
+            sql += ",".join(self._extraAttributes) + ","
             sql += self.naam() + ") VALUES (%s, %s, %s, %s, %s, %s)"
-            self.inhoud.append((self._parent.attribuut('identificatie').waardeSQL(),
-                                self._parent.attribuut('aanduidingRecordInactief').waardeSQL(),
-                                self._parent.attribuut('aanduidingRecordCorrectie').waardeSQL(),
-                                self._parent.attribuut('begindatumTijdvakGeldigheid').waardeSQL(),
-                                self._parent.attribuut('einddatumTijdvakGeldigheid').waardeSQL(),
-                                waarde))
+            
+            inhoud = [self._parent.attribuut('identificatie').waardeSQL(),
+                      self._parent.attribuut('aanduidingRecordInactief').waardeSQL(),
+                      self._parent.attribuut('aanduidingRecordCorrectie').waardeSQL(),
+                      self._parent.attribuut('begindatumTijdvakGeldigheid').waardeSQL(),
+                      self._parent.attribuut('einddatumTijdvakGeldigheid').waardeSQL()]
+            for attr in self._extraAttributes:
+                if self._parent.heeftAttribuut(attr):
+                    inhoud.append(self._parent.attribuut(attr).waardeSQL())
+                else:
+                    inhoud.append('')
+            inhoud.append(waarde)
+            self.inhoud.append(tuple(inhoud))
 
             self.sql.append(sql)
 
     # Maak insert SQL voor deze relatie
     def maakCopySQL(self):
-        self.velden = (
-            "identificatie", "aanduidingrecordinactief", "aanduidingrecordcorrectie", "begindatumtijdvakgeldigheid",
-            "einddatumtijdvakgeldigheid",
-            self.naam())
+        velden = ["identificatie", "aanduidingrecordinactief", "aanduidingrecordcorrectie", "begindatumtijdvakgeldigheid",
+            "einddatumtijdvakgeldigheid"]
+        velden += self._extraAttributes
+        velden.append(self.naam())
+        self.velden = tuple(velden)
+        
         self.sql = ""
         for waarde in self._waarde:
             self.sql += self._parent.attribuut('identificatie').waardeSQL() + "~"
@@ -632,6 +644,17 @@ class BAGrelatieAttribuut(BAGattribuut):
             if not einddatumWaardeSQL or einddatumWaardeSQL is '':
                 einddatumWaardeSQL = '\\\N'
             self.sql += einddatumWaardeSQL + "~"
+                
+            for attr in self._extraAttributes:
+                # Ook de extra attributen kunnen leeg zijn
+                if self._parent.heeftAttribuut(attr):
+                    attrWaarde = self._parent.attribuut(attr).waardeSQL()
+                else:
+                    attrWaarde = ''
+                    
+                if not attrWaarde or attrWaarde is '':
+                    attrWaarde = '\\\N'
+                self.sql += attrWaarde + "~"
 
             if not waarde:
                 waarde = '\\\N'
@@ -647,7 +670,6 @@ class BAGrelatieAttribuut(BAGattribuut):
         # in via insert. Helaas maar waar.
         sql = "DELETE FROM " + self.relatieNaam() + " WHERE  "
         sql += "identificatie = %s AND aanduidingrecordinactief = %s AND aanduidingrecordcorrectie = %s AND begindatumtijdvakgeldigheid "
-
 
         # Tricky: indien beginDatum (komt in principe niet voor)  leeg moet in WHERE "is NULL" staan
         # want "= NULL" geeft geen resultaat
@@ -685,8 +707,8 @@ class BAGrelatieAttribuut(BAGattribuut):
 #--------------------------------------------------------------------------------------------------------
 class BAGenumRelatieAttribuut(BAGrelatieAttribuut):
     # Constructor
-    def __init__(self, parent, relatieNaam, naam, tag, lijst):
-        BAGrelatieAttribuut.__init__(self, parent, relatieNaam, len(lijst), naam, tag)
+    def __init__(self, parent, relatieNaam, naam, tag, extraAttributes, lijst):
+        BAGrelatieAttribuut.__init__(self, parent, relatieNaam, len(lijst), naam, tag, extraAttributes)
         self._lijst = lijst
         #        self._lengte = len(max(lijst, key=len))
         self._lengte = len(lijst)
