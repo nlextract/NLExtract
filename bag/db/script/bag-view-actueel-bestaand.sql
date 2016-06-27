@@ -293,7 +293,7 @@ CREATE VIEW verblijfsobjectactueelbestaand AS
       AND verblijfsobject.aanduidingrecordinactief = FALSE
       AND (verblijfsobject.geom_valid is NULL OR verblijfsobject.geom_valid = TRUE)
       AND (verblijfsobject.verblijfsobjectstatus <> 'Niet gerealiseerd verblijfsobject'
-      AND verblijfsobject.verblijfsobjectstatus  <> 'Verblijfsobject ingetrokken');
+        AND verblijfsobject.verblijfsobjectstatus  <> 'Verblijfsobject ingetrokken');
 
 -- JvdB removed AND verblijfsobject.verblijfsobjectstatus  <> 'Verblijfsobject gevormd', see issue #173
 -- https://github.com/opengeogroep/NLExtract/issues/173  23.3.16
@@ -352,12 +352,36 @@ CREATE VIEW verblijfsobjectpandactueel AS
             vbop.aanduidingrecordcorrectie,
             vbop.begindatumtijdvakgeldigheid,
             vbop.einddatumtijdvakgeldigheid,
-            vbop.gerelateerdpand
+            vbop.gerelateerdpand,
+            vbop.verblijfsobjectstatus,
+            vbop.geom_valid
     FROM verblijfsobjectpand as vbop
   WHERE
     vbop.begindatumtijdvakgeldigheid <= LOCALTIMESTAMP
     AND (vbop.einddatumtijdvakgeldigheid is NULL OR vbop.einddatumtijdvakgeldigheid >= LOCALTIMESTAMP)
-    AND vbop.aanduidingrecordinactief = FALSE;
+    AND vbop.aanduidingrecordinactief = FALSE
+    AND (vbop.geom_valid is NULL OR vbop.geom_valid = TRUE);
+
+DROP VIEW IF EXISTS verblijfsobjectpandactueelbestaand;
+CREATE VIEW verblijfsobjectpandactueelbestaand AS
+    SELECT vbop.gid,
+            vbop.identificatie,
+            vbop.aanduidingrecordinactief,
+            vbop.aanduidingrecordcorrectie,
+            vbop.begindatumtijdvakgeldigheid,
+            vbop.einddatumtijdvakgeldigheid,
+            vbop.gerelateerdpand,
+            vbop.verblijfsobjectstatus,
+            vbop.geom_valid
+    FROM verblijfsobjectpand as vbop
+  WHERE
+    vbop.begindatumtijdvakgeldigheid <= LOCALTIMESTAMP
+    AND (vbop.einddatumtijdvakgeldigheid is NULL OR vbop.einddatumtijdvakgeldigheid >= LOCALTIMESTAMP)
+    AND vbop.aanduidingrecordinactief = FALSE
+    AND (vbop.geom_valid is NULL OR vbop.geom_valid = TRUE)
+    AND ((vbop.verblijfsobjectstatus <> 'Niet gerealiseerd verblijfsobject' AND
+          vbop.verblijfsobjectstatus <> 'Verblijfsobject ingetrokken') OR
+         vbop.verblijfsobjectstatus is NULL);
 
 DROP VIEW IF EXISTS adresseerbaarobjectnevenadresactueel;
 CREATE VIEW adresseerbaarobjectnevenadresactueel AS
@@ -367,12 +391,42 @@ CREATE VIEW adresseerbaarobjectnevenadresactueel AS
             aon.aanduidingrecordcorrectie,
             aon.begindatumtijdvakgeldigheid,
             aon.einddatumtijdvakgeldigheid,
-            aon.nevenadres
+            aon.nevenadres,
+            aon.ligplaatsstatus,
+            aon.standplaatsstatus,
+            aon.verblijfsobjectstatus,
+            aon.geom_valid
     FROM adresseerbaarobjectnevenadres as aon
   WHERE
     aon.begindatumtijdvakgeldigheid <= LOCALTIMESTAMP
     AND (aon.einddatumtijdvakgeldigheid is NULL OR aon.einddatumtijdvakgeldigheid >= LOCALTIMESTAMP)
-    AND aon.aanduidingrecordinactief = FALSE;
+    AND aon.aanduidingrecordinactief = FALSE
+    AND (aon.geom_valid is NULL OR aon.geom_valid = TRUE);
+
+DROP VIEW IF EXISTS adresseerbaarobjectnevenadresactueelbestaand;
+CREATE VIEW adresseerbaarobjectnevenadresactueelbestaand AS
+    SELECT aon.gid,
+            aon.identificatie,
+            aon.aanduidingrecordinactief,
+            aon.aanduidingrecordcorrectie,
+            aon.begindatumtijdvakgeldigheid,
+            aon.einddatumtijdvakgeldigheid,
+            aon.nevenadres,
+            aon.ligplaatsstatus,
+            aon.standplaatsstatus,
+            aon.verblijfsobjectstatus,
+            aon.geom_valid
+    FROM adresseerbaarobjectnevenadres as aon
+  WHERE
+    aon.begindatumtijdvakgeldigheid <= LOCALTIMESTAMP
+    AND (aon.einddatumtijdvakgeldigheid is NULL OR aon.einddatumtijdvakgeldigheid >= LOCALTIMESTAMP)
+    AND aon.aanduidingrecordinactief = FALSE
+    AND (aon.geom_valid is NULL OR aon.geom_valid = TRUE)
+    AND ((aon.ligplaatsstatus <> 'Plaats ingetrokken' OR aon.ligplaatsstatus is NULL) AND
+         (aon.standplaatsstatus <> 'Plaats ingetrokken' OR aon.standplaatsstatus is NULL) AND
+         ((aon.verblijfsobjectstatus <> 'Niet gerealiseerd verblijfsobject' AND
+           aon.verblijfsobjectstatus <> 'Verblijfsobject ingetrokken') OR
+          aon.verblijfsobjectstatus is NULL));
 
 DROP VIEW IF EXISTS verblijfsobjectgebruiksdoelactueel;
 CREATE VIEW verblijfsobjectgebruiksdoelactueel AS
@@ -382,12 +436,36 @@ CREATE VIEW verblijfsobjectgebruiksdoelactueel AS
             vog.aanduidingrecordcorrectie,
             vog.begindatumtijdvakgeldigheid,
             vog.einddatumtijdvakgeldigheid,
-            vog.gebruiksdoelverblijfsobject
+            vog.gebruiksdoelverblijfsobject,
+            vog.verblijfsobjectstatus,
+            vog.geom_valid
     FROM verblijfsobjectgebruiksdoel as vog
   WHERE
     vog.begindatumtijdvakgeldigheid <= LOCALTIMESTAMP
     AND (vog.einddatumtijdvakgeldigheid is NULL OR vog.einddatumtijdvakgeldigheid >= LOCALTIMESTAMP)
-    AND vog.aanduidingrecordinactief = FALSE;
+    AND vog.aanduidingrecordinactief = FALSE
+    AND (vog.geom_valid is NULL OR vog.geom_valid = TRUE);
+
+DROP VIEW IF EXISTS verblijfsobjectgebruiksdoelactueelbestaand;
+CREATE VIEW verblijfsobjectgebruiksdoelactueelbestaand AS
+    SELECT vog.gid,
+            vog.identificatie,
+            vog.aanduidingrecordinactief,
+            vog.aanduidingrecordcorrectie,
+            vog.begindatumtijdvakgeldigheid,
+            vog.einddatumtijdvakgeldigheid,
+            vog.gebruiksdoelverblijfsobject,
+            vog.verblijfsobjectstatus,
+            vog.geom_valid
+    FROM verblijfsobjectgebruiksdoel as vog
+  WHERE
+    vog.begindatumtijdvakgeldigheid <= LOCALTIMESTAMP
+    AND (vog.einddatumtijdvakgeldigheid is NULL OR vog.einddatumtijdvakgeldigheid >= LOCALTIMESTAMP)
+    AND vog.aanduidingrecordinactief = FALSE
+    AND (vog.geom_valid is NULL OR vog.geom_valid = TRUE)
+    AND ((vog.verblijfsobjectstatus <> 'Niet gerealiseerd verblijfsobject' AND
+          vog.verblijfsobjectstatus <> 'Verblijfsobject ingetrokken') OR
+         vog.verblijfsobjectstatus is NULL);
 
 DROP VIEW IF EXISTS gemeente_woonplaatsactueelbestaand;
 CREATE VIEW gemeente_woonplaatsactueelbestaand AS

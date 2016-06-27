@@ -138,6 +138,10 @@ class BAGObject:
         sql += " identificatie FROM " + self.naam() + "actueelbestaand"
         sql += " WHERE identificatie = " + str(self.attribuut('identificatie').waarde())
         return sql
+        
+    # Retourneer boolean waarde of het attribuut bestaat
+    def heeftAttribuut(self, naam):
+        return naam in self.attributen
 
     # Retourneer het attribuut met de gegeven naam
     def attribuut(self, naam):
@@ -344,7 +348,8 @@ class BAGadresseerbaarObject(BAGObject):
                                        "bag_LVC:gerelateerdeAdressen/bag_LVC:hoofdadres/bag_LVC:identificatie"))
         self.relaties.append(BAGrelatieAttribuut(self, "adresseerbaarobjectnevenadres",
                                               16, "nevenadres",
-                                              "bag_LVC:gerelateerdeAdressen/bag_LVC:nevenadres/bag_LVC:identificatie"))
+                                              "bag_LVC:gerelateerdeAdressen/bag_LVC:nevenadres/bag_LVC:identificatie",
+                                              ["ligplaatsStatus", "standplaatsStatus", "verblijfsobjectStatus", "geom_valid"]))
 
 #--------------------------------------------------------------------------------------------------------
 # Class         Ligplaats
@@ -398,7 +403,7 @@ class Verblijfsobject(BAGadresseerbaarObject):
     def __init__(self):
 
         BAGadresseerbaarObject.__init__(self, "bag_LVC:Verblijfsobject", "verblijfsobject", "VBO")
-        self.voegToe(BAGenumAttribuut(Verblijfsobject.statusEnum,"verblijfsobjectStatus",
+        self.voegToe(BAGenumAttribuut(Verblijfsobject.statusEnum, "verblijfsobjectStatus",
                                         "bag_LVC:verblijfsobjectStatus"))
         self.voegToe(BAGnumeriekAttribuut(6, "oppervlakteVerblijfsobject",
                                         "bag_LVC:oppervlakteVerblijfsobject"))
@@ -411,11 +416,14 @@ class Verblijfsobject(BAGadresseerbaarObject):
         self.voegToe(BAGgeometrieValidatie("geom_valid", "geovlak"))
 
         self.relaties.append(BAGenumRelatieAttribuut(self, "verblijfsobjectgebruiksdoel",
-                                                               "gebruiksdoelVerblijfsobject",
-                                                               "bag_LVC:gebruiksdoelVerblijfsobject", Verblijfsobject.gebruiksdoelEnum))
+                                                           "gebruiksdoelVerblijfsobject",
+                                                           "bag_LVC:gebruiksdoelVerblijfsobject",
+                                                           ["verblijfsobjectStatus", "geom_valid"],
+                                                           Verblijfsobject.gebruiksdoelEnum))
         self.relaties.append(BAGrelatieAttribuut(self, "verblijfsobjectpand",
-                                                   16, "gerelateerdPand",
-                                                   "bag_LVC:gerelateerdPand/bag_LVC:identificatie"))
+                                                       16, "gerelateerdPand",
+                                                       "bag_LVC:gerelateerdPand/bag_LVC:identificatie",
+                                                       ["verblijfsobjectStatus", "geom_valid"]))
 
     def heeftGeometrie(self):
         return True
@@ -603,7 +611,7 @@ class VerblijfsObjectPand(BAGRelatie):
 
 #--------------------------------------------------------------------------------------------------------
 # Class         AdresseerbaarObjectNevenAdres
-# Omschrijving  Relatie van Verblijfsobject naar Nevenadres
+# Omschrijving  Relatie van Ligplaats, Standplaats of Verblijfsobject naar Nevenadres
 #--------------------------------------------------------------------------------------------------------
 class AdresseerbaarObjectNevenAdres(BAGRelatie):
     def __init__(self):
