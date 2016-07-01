@@ -8,8 +8,8 @@ Bgt-extract
 Hieronder staat de handleiding voor het gebruik van de tools om BGT te extraheren. Deze tools
 heten kortweg ``Bgt-extract`` of soms ``NLExtract-BGT``.
 
-.. NB: als je alleen interesse hebt om een PostGIS versie van de laatste TOP10NL te hebben, kun
-   je deze ook downloaden als PostGIS dumpfile via de link http://data.nlextract.nl/top10nl.
+.. NB: als je alleen interesse hebt om een PostGIS versie van de laatste BGT te hebben, kun
+   je deze ook downloaden als PostGIS dumpfile via de link http://data.nlextract.nl/bgt/postgis.
    De dump file (``.backup`` bestand)  kun je direct inlezen in PostGIS, bijv met ``PGAdminIII``.
    Dan hoef je alle zaken hieronder niet uit te voeren :-).
 
@@ -29,9 +29,9 @@ Er zijn 41 typen BGT-objecten (featureklassen). Iedere featureklasse heeft een g
 BGT downloaden
 --------------
 
-De brondata van de BGT in GML kun je via `PDOK Download Basisregistratie Grootschalige Topografie <https://www.pdok.nl/nl/producten/pdok-downloads/download-basisregistratie-grootschalige-topografie>`_ downloaden.
+De brondata van de BGT in GML kun je via `PDOK Download Basisregistratie Grootschalige Topografie <https://www.pdok.nl/nl/producten/pdok-downloads/download-basisregistratie-grootschalige-topografie>`_ downloaden. Voor NLExtract zijn reeds downloadscripts gemaakt, voor zowel Linux als Windows.
 
-De BGT wordt via PDOK geleverd in ZIP-bestanden. Het is mogelijk om zowel een landelijk bestand als deelbestanden te downloaden. De laatste zijn opgedeeld in een grid van 2x2, 4x4, 8x8, 16x16, 32x32 en 64x64 km. Het is niet mogelijk om de BGT van een gemeente, provincie of een zelf te definiëren gebied via PDOK te downloaden.
+De BGT wordt via PDOK geleverd in ZIP-bestanden. Het is mogelijk om zowel een landelijk bestand als deelbestanden te downloaden. De laatste zijn opgedeeld in een grid van 2x2, 4x4, 8x8, 16x16, 32x32 en 64x64 km. Omdat de PDOK-download wel eens hapert, wordt aanbevolen om de 64x64 km-extracten te downloaden via een downloadscript van NLExtract. Het is mogelijk om de BGT via PDOK-services te downloaden, bijv. via WFS. Het inlezen van deze gegevens via NLExtract wordt niet ondersteund.
 
 De BGT is beschikbaar in meerdere varianten:
 
@@ -40,14 +40,14 @@ De BGT is beschikbaar in meerdere varianten:
 
 De BGT bestaat uit zowel een verplicht (BGT) als optioneel (IMGeo) deel. Dit is het zogenaamde "plus"-deel, welke ook door NLExtract wordt ondersteund. Dit laatste bestaat uit nieuwe featureklassen en extra attributen bij bestaande featureklassen.
 
-Momenteel (januari 2016) zijn veel bronhouders bezig om de BGT te vullen. De omvang van het BGT ZIP-bestand van heel Nederland, zonder plaatsbepalingspunten, was op 12 januari jl. 1,91 GB. Voor de kerst, op 21 december jl., was het slechts 1,41 GB. De verwachting is dat het ZIP-bestand van heel Nederland uiteindelijk bijna 50 GB zal zijn. 
+Momenteel (juni 2016) zijn veel bronhouders bezig om de BGT te vullen. De omvang van de BGT ZIP-bestanden van heel Nederland, zonder plaatsbepalingspunten, was op 16 juni jl. 5,3 GB. Medio januari was het slechts 1,9 GB. De verwachting is dat het ZIP-bestand van heel Nederland uiteindelijk ca. 15 GB zal zijn. 
 
 Als je heel Nederland wilt inlezen, kun je het beste het bestand exclusief plaatsbepalingspunten, GML-variant, gebruiken. Zie PDOK voor de directe link. Deze verandert namelijk iedere dag.
 
 Bgt-extract downloaden
 ----------------------
 
-Vind altijd de laatste versie op: http://www.nlextract.nl/file-cabinet (TODO, niet actueel).
+Vind altijd de laatste versie op: http://www.nlextract.nl/file-cabinet.
 
 Omdat NLExtract voortdurend in ontwikkeling is, kun je ook de actuele broncode, een `snapshot`, downloaden
 en op dezelfde manier gebruiken als een versie:

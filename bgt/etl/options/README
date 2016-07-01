@@ -1,24 +1,3 @@
-Zet hier je lokale/per-host opties in een options-<hostname>.sh file.
+Zet hier je lokale/per-host opties in een <hostname>.args file.
 
-Bijv heet je host "tophost", dan heet je file options-tophost.sh.
-De settings daarin overrulen de default. Bijv.
-
-# INPUT - waar staan je input files (uitgepakte IMGeo/BGT GML levering)
-export input_files=/home/my/bgt/leveringen/yyyymm
-# Op Windows: export input_files=d:\\Data\\BGT\\yyyymm
-
-# OUTPUT
-export db_host=localhost
-export db_port=5432
-export PGUSER=myuser
-export PGPASSWORD=mysecretpassword
-export database=bgt
-export schema=bgt_yyyymm
-
-# Het maximale aantal features dat in een keer met XSLT wordt getransformeerd en
-# naar de database wordt weggeschreven. Dit bepaalt sterk het (RAM)
-# geheugengebruik. 15000 tot 2000 is een goed getal.
-export max_features=15000
-
-# Locatie van Stetl, indien dit niet in ../../externals/stetl staat
-export STETL_HOME=../../../stetl
+Bijv heet je host "tophost", dan heet je file tophost.args.

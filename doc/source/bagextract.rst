@@ -13,23 +13,23 @@ Handleiding Bag-extract
 Bag-extract is onderdeel van de NLExtract tools voor het inlezen en verrijken van Kadaster BAG
 (Basisregistratie Adressen en Gebouwen) GML leveringen in (voorlopig) een Postgres/Postgis database.
 
-BAG Downloaden
+BAG downloaden
 --------------
 
-De BAG Leveringsbestanden (totaal plm 1.2 GB .zip) worden iedere maand ververst en zijn te downloaden via deze
+De BAG Leveringsbestanden (totaal plm 1.5 GB .zip) worden iedere maand ververst en zijn te downloaden via deze
 PDOK link: http://geodata.nationaalgeoregister.nl/inspireadressen/atom/inspireadressen.xml (Atom feed).
 Als je wilt testen met een kleiner bestand kun je via http://www.nlextract.nl/file-cabinet
-ook de "BAG Amstelveen" (5.6 MB) downloaden.
+ook de "BAG Amstelveen" (5.6 MB) downloaden. Let wel dat de bestandsstructuur van de Amstelveen-levering afwijkt van de tegenwoordige BAG-leveringen.
 
-BAG PostGIS Dumps Downloaden
+BAG PostGIS dumps downloaden
 ----------------------------
 
 Als je geen zin/tijd hebt om NLExtract-BAG zelf te installeren en te draaien, dan kun je ook direct
 PostGIS database en CSV dumps downloaden vanaf http://data.nlextract.nl/bag. Deze worden maandelijks ververst
-direct na uitkomen nieuwe BAG-levering. Begin 2015 mogelijk ook dagelijks op basis mutatie-bestanden.
+direct na uitkomen nieuwe BAG-levering.
 
-Wat doet Bag-extract ?
-----------------------
+Wat doet Bag-extract?
+---------------------
 
 Bag-extract biedt de volgende functionaliteiten:
 
@@ -54,9 +54,9 @@ Bag-extract downloaden
 Afhankelijkheden
 ----------------
 
-- PostgreSQL: relationele database, minimaal versie 8.3, optimaal is versie 9.1, zie http://www.postgresql.org
-- PostGIS: spatial extensie PostgreSQL, bijv. opslag geodata, minimaal versie 1.5, optimaal is versie 2.x, zie http://postgis.org
-- Python: versie 2, minimaal versie 2.4.3, beste is 2.7 of hoger voor lxml, geen Python 3
+- PostgreSQL: relationele database, minimaal versie 9.1, optimaal is versie 9.5, zie http://www.postgresql.org
+- PostGIS: spatial extensie PostgreSQL, bijv. opslag geodata, minimaal versie 2.0, optimaal is versie 2.2, zie http://postgis.org
+- Python: versie 2, minimaal versie 2.4.3, beste is 2.7 voor lxml, geen Python 3
 - Python argparse package, voor argument parsing alleen indien Python < 2.7
 - psycopg2: Python PostgreSQL client bibliotheek. Zie http://initd.org/psycopg
 - lxml voor razendsnelle native XML parsing, Zie http://lxml.de
@@ -168,78 +168,42 @@ Installatie (Linux)
 Installatie (Windows)
 ---------------------
 
-Er zijn een aantal mogelijkheden gebaseerd op bijdragen van gebruikers en een van de developers (Just).
+De installatie van Bag-extract op Windows werd in het verleden gekenmerkt door lastige installaties, vanwege het feit dat open source ontwikkeling op Windows gefragmenteerd plaatsvindt. Tegenwoordig is het een stuk gemakkelijker om Bag-extract aan de praat te krijgen. Als je zelf Bag-extract wilt uitvoeren, voer dan onderstaande beschrijving uit. Voor het gebruiken van de PostGIS-dump, volg dan de instructie die door Geert Doornbos beschikbaar is gesteld (`work in progress <https://github.com/opengeogroep/NLExtract/issues/186>`_).
 
-- Nieuw: `beschrijving door Just (23 juni 2013) met behulp van Portable GIS <windows-usbgis.html>`_
-- beschrijving door Pim Verver http://groups.google.com/group/nlextract/browse_frm/thread/c02af6012b43767a
-- hieronder een installatie met PostgreSQL 9 en PostGIS 2.0, beschreven door Reinier Sterkenburg (met dank) en wat aanvullingen van Just:
+Benodigdheden:
 
-#. Installeer Postgresql 9.2 64 bits van http://www.enterprisedb.com/products-services-training/pgdownload#windows
-#. Installeer Postgis 2.0 (postgis-pg92x64-setup-2.0.1-1.exe) van http://postgis.refractions.net/download/windows/#postgis-installers. Tijdens de installatie wordt je de mogelijkheid geboden om meteen een spatial database aan te maken. Dat heb ik gedaan, en die noemde ik bag.
-#. Installeer Python 2.7.3 64bits (python-2.7.3.amd64.msi)  van http://www.python.org/ftp/python/2.7.3/python-2.7.3.amd64.msi
-#. Voeg de folder waarin Python is geinstalleerd toe aan Path. Via windows explorer, right-click op Computer, klik op Eigenschappen, Klik links op Geavanceerde Systeeminstellingen, klik in tabblad Geavanceerd op knop Omgevingsvariableen, klik bovenin op variable PATH, klik op knop Bewerken en voeg het volledige pad naar de Python folder, incl. een semi colon vooraan (in mijn geval ";C:\Python27") toe. Klik op de diverse OK knoppen om af te sluiten.
-#. Download en installeer 'setuptools-0.6c11.win32-py2.7.exe (md5)' van http://pypi.python.org/pypi/setuptools
-#. Voeg de 'scripts' folder van de Python hoofdfolder toe aan Path (zoals beschreven in punt 4).
-#. Installeer LXML lxml-2.3.6.win-amd64-py2.7.exe (2.3.6 was de meest recente versie van Lxml) van http://www.lfd.uci.edu/~gohlke/pythonlibs
-#. Installeer GDAL (64 bits = gdal-19-1600-x64-core.msi) en GDAL Python bindings (64 bits + Python 2.7 = GDAL-1.9.0.win-amd64-py2.7.msi) via http://www.gisinternals.com/sdk/Download.aspx?file=release-1600-x64-gdal-1-9-mapserver-6-0\gdal-19-1600-x64-core.msi. en via http://www.gisinternals.com/sdk/PackageList.aspx?file=release-1600-x64-gdal-1-9-mapserver-6-2.zip (het versienummer loopt daar snel op trouwens)
-#. Voeg GDAL folder, C:\\Program Files\\GDAL\\, toe aan Path (zoals beschreven in punt 4).
-#. Python Postgres Client: Download  'psycopg2-2.4.6.win-amd64-py2.7-pg9.2.2-release.exe' (dus 64 bits, voor Python 2.7 en Postgresql 9.2.2) van http://www.stickpeople.com/projects/python/win-psycopg/
-#. Maak dan binnen Postgresql een database aan waar de BAG gegevens ingezet worden. Gebruik als template de template die je hebt gedefinieerd bij de installatie van Postgis en selecteer een gebruiker. Bij het installeren van PostGIS wordt je de mogelijkheid geboden een spatial database aan te maken. Die heb ik gebruikt om de bag database te laten maken. Alternatief: zie punt 2.
+- PostgreSQL 9.x: https://www.postgresql.org/download/. 
+- PostGIS 2.x: wordt geïnstalleerd via de Stack Builder van PostgreSQL.
+- Python 2.7: https://www.python.org/downloads/windows/, momenteel is versie 2.7.11 de meest recente versie. Neem de 64-bits versie als je een 64-bits machine hebt. Let op, als je Python via de hoofdpagina downloadt, krijg je de 32-bits versie.
+- Recente GDAL-versie (1.11 of 2.x): te installeren via `QGIS <http://www.qgis.org/en/site/forusers/download.html>`_ of via de `OSGeo4W installer <http://trac.osgeo.org/osgeo4w/>`_ (niet getest).
+- Python bindings: http://www.lfd.uci.edu/~gohlke/pythonlibs/. Nodig zijn:
 
-12. Maak een folder structuur voor NLEXTRACT aan, bv
-::
+  - lxml (alleen getest met lxml-3.4.4)
+  - psycopg (dit is Psycopg2)
+  - gdal
+  Neem de cp27-versies. Neem de win_amd64.whl-versie als je 64-bits Python gebriukt
+  
+Let bij het downloaden van de software of je de 32-bits of de 64-bits versie gebruikt. De 64-bits versie werkt op de meeste recente computers. De 32-bits versie werkt op alle Windows-computers, maar issues met het geheugen zijn dan niet uitgesloten.
 
-    C:\BAGExtract\ (bevat extract.conf)
-    C:\BAGExtract\scripts
-    C:\BAGExtract\db
+Installatie:
 
-en kopieer de scripts en db folders van NLExtract.zip naar deze folders.
+- PostgreSQL, PostGIS en het aanmaken van een spatial database: zie de instructie voor het terugzetten van de PostgreSQL dump. Kort gezegd komt het op het volgende neer:
 
-13. Vul in de extract.conf file de gegevens van je server, de onder punt 11 aangemaakte database, de onder punt 11 aangemaakte gebruiker en bijbehorend wachtwoord. Standaard maken de scripts gebruik van deze gegevens.
-NB: De extract.conf file staat onder NL Extract (subfolder bag).
-::
+  - PostgreSQL: voer de installer uit.
+  - PostGIS: via de Stack Builder van PostgreSQL.
+  - Aanmaken BAG-gebruiker en database: via pgAdmin III of via de commandline (niet beschreven).
+- Python: voer de installer uit. Python 2.7.11 wordt helaas met een verouderde versie van Pip meegeleverd. Deze dient geüpgrade te worden naar versie 8. Dit is nodig voor het installeren van de Psycopyg-wheel. Commando::
+    
+    python -m pip install -U pip
+  Je kunt ook pip rechtsteeks aanroepen. Voeg dan de Python scripts-directory eerst toe aan de PATH-variabele.
+- Python dependencies::
 
-    [DEFAULT]
-    database = bag
-    schema = public
-    host     = localhost
-    user     = postgres
-    password = admin
-    port = 5432
+    python -m pip install <wheel>.whl
+    
+- GDAL: voer de installer van QGIS uit. Natuurlijk is niet altijd QGIS nodig, zeker op een server-omgeving. Op een desktop is het wel aan te bevelen, zodat je gelijk het resultaat in de database kunt controleren. Op een server kun je de OSGeo4W-installer gebruiken. Dit is niet getest met NLExtract.
 
-Initialiseer de database:
-::
-
-    python bagextract.py  -H localhost -d bag -U postgres -W admin -c -v
-
-In deze stap (-c) wordt de database leeg gemaakt en de DB scripts: bag-db.sql, bag-view-actueel-bestaand.sql uitgevoerd en alle data onder db\\data ingelezen: Gemeente-woonplaats-relatietabel.zip
-en cbs-gemeentenperprovincie-2012.csv. NB: de parameters -H, -d, -U en -W kunnen achterwege blijven als die in de extract.conf file staan ingevuld.
-
-14.   Importeer BAG data met:
-::
-
-    python bagextract.py -v -e PAD_NAAR_XML_FILE_OF_DIRECTORY_OF_ZIP_BESTAND
-
-PAD_NAAR_XML_FILE_OF_DIRECTORY_OF_ZIP_BESTAND is bij voorkeur het gehele BAG .zip download bestand, bijv. DNLDLXAE02-0000673060-0096000265-08042012.zip of de hoofddirectory wanneer deze zip wordt uitgepakt.
-Het is belangrijk om dit zo te doen omdat NLExtract allerlei meta-bestanden ook inleest, bijv. een nieuwere woonplaats-gemeente koppel tabel (dan onder db/data) en meta info voor
-de tabel nlx_bag_info.
-
-15.  Optioneel: Verrijken: genereren gemeente + provincie tabellen met geometrie uit woonplaatsen aggregeren.
-::
-
-     python bagextract.py -v -q ../db/script/gemeente-provincie-tabel.sql
-
-16. Optioneel: Verrijken: aanmaken tabel met volledige �ACN-achtige� adressen uit BAG + gemeente + provincie tabellen (kan lang duren op gehele BAG, lijkt sneller te gaan via �psql� Postgres commando).
-::
-
-     "c:\Program Files\PostgreSQL\9.2\bin\psql" -d bag -U postgres < ../db/script/adres-tabel.sql
-
-17. Optioneel: Verrijken: reverse geocoding (voor gebruik, zie commentaar in onderstaande sql files). Evt. aanpassen van script: vervang ndims door st_ndims en srid door st_srid
-::
-
-     python bagextract.py -v -q ../db/script/geocode/geocode-tabellen.sql
-     python bagextract.py -v -q ../db/script/geocode/geocode-functies.sql
-
+Zie Instellingen_ voor de configuratie en het gebruik van Bag-extract.
+    
 
 Installatie (Mac OSX)
 ---------------------
@@ -280,8 +244,8 @@ Onder de manier die  Just, een van de NLExtract ontwikkelaars gebruikt. (NLExtra
 
     sudo python easy_install psycopg2
 
-Commando:
----------
+Commando
+--------
 
 - direct via python "python src/bagextract.py"
 - of (Unix,Linux,Mac) via shell script: "bin/Bag-extract.sh"
@@ -289,8 +253,8 @@ Commando:
 
  Alle commando's werken onafhankelijk van de plek (directory) waar ze aangeroepen worden
 
-Instellingen:
--------------
+Instellingen
+------------
 
 - extract.conf
     Configuratiebestand dat nodig is bij het uitvoeren van de programma's.
@@ -305,8 +269,8 @@ Instellingen:
     bagextract.py -H localhost -d bag -U postgres -W postgres -c
     bagextract.py -f mijn.conf -c
 
-Voorbeelden:
-------------
+Voorbeelden
+-----------
 
 0. Help en opties:
 
@@ -361,8 +325,8 @@ Voorbeelden:
     en hulp functies voor met name "reverse geocoding" (vind adres
     voor x,y coordinaten).
 
-Issues:
--------
+Issues
+------
 
 Het is mogelijk de hele BAG .zip levering in te lezen vanuit de "hoofd" zip, maar dit kan
 soms geheugen-problemen opleveren. De voorlopige oplossing is om de hoofdzip uit te pakken in een enkele
