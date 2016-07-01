@@ -26,7 +26,7 @@ Inhoud:
    bgtextract.rst
    brkextract.rst
    stetl-framework.rst
-   tooling.rst
+   instructie.rst
    links.rst
    contact.rst
 

@@ -32,9 +32,7 @@ Onder andere kunnen hier BAG en Top10NL PostGIS dumps worden gedownload. Deze wo
 zo snel mogelijk ververst waneer nieuwe versies van betreffende datasets uitkomen.
 In de README bestanden bij de betreffende downloads vind je meer informatie.
 
-Om gebruik te maken van de database dumps bieden we een overzicht om vlot tot een 'up and running' situatie te komen.
-
-Kijk hier voor een instructie: :ref:`Tooling <tooling>` .  
+Om gebruik te maken van de database dumps bieden we een overzicht om vlot tot een 'up and running' situatie te komen. Kijk hier voor een :ref:`instructie <instructie>`.  
 
 
 Voor gespecialiseerde downloads, bijv voor andere databases of zeg de BAG per gemeente,

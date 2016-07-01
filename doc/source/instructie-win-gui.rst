@@ -1,17 +1,8 @@
-.. _tooling:
+.. _instructie:
 
-********
-Tooling
-********
-
-Om gebruik te maken van NLExtract data is ondersteunende software nodig, de tools om met de data te kunnen werken.
-Hierbij is het uiteraard afhankelijk wat je wilt bereiken. In het algemeen kun je stellen dat de meeste gebruikers
-gewoon de data willen gebruiken. Dan volstaat een database dump en uiteraard de database software.
-
-
-
-Instructie (Windows)
-====================
+**************************
+Instructie (Windows - GUI)
+**************************
 
 Deze beschrijving is een voorbeeldinstructie om de benodigde software te installeren en daarbij tevens een database dump terug te zetten. 
 We beschrijven de volgende stappen:
@@ -20,10 +11,11 @@ We beschrijven de volgende stappen:
 * :ref:`PostgreSQL Installeren <postgresql-install>`
 * :ref:`PostGIS Installeren <postgis-install>`
 * :ref:`PgAdmin III - BAG login toevoegen <bag-create-login>`
-* :ref:`PgAdmin III - BAG eigenaar instellen <bag-owner>`
-* :ref:`Instellen Path voor PostgreSQL tools <set-bin-path>`
-* :ref:`BAG dump terugzetten <bag-dump-restore>`
+* :ref:`PgAdmin III - BAG database aanmaken <bag-create-database>`
+* :ref:`PgAdmin III - BAG dump terugzetten <bag-dump-restore>`
 
+|
+|
 
 .. _dump-downloaden:
 
@@ -47,6 +39,9 @@ Afhankelijk van de netwerkverbinding kan dit even duren, het bestand is groter d
     :alt: dump gedownload
 
 Eventueel bag-amstelveen.backup downloaden om te testen met een kleiner bestand. 
+
+|
+|
 
 .. _postgresql-install:
 
@@ -91,7 +86,7 @@ Behoud het standaard poortnummer.
 .. image:: _static/images/nlextractimg(10).png
     :alt: default locale
 
-Alles is gereed om de installatie te beginnnen.
+Alles is gereed om de installatie te beginnen.
     
 .. image:: _static/images/nlextractimg(11).png
     :alt: start install
@@ -106,10 +101,13 @@ Nu is PostgreSQL geinstalleerd. Het laatste scherm biedt de mogelijkheid om uitb
 .. image:: _static/images/nlextractimg(13).png
     :alt: extensions
 
+|
+|
+
 .. _postgis-install:
 
 PostGIS Installeren
-~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~
 
 PostGIS is de uitbreiding op PostgreSQL dat het mogelijk maakt om data met geometrische / geografische gegevens op te slaan en te verwerken.
 
@@ -138,7 +136,7 @@ Nu wordt gevraagd akkoord te gaan met de licentievoorwaarden.
     
 Voor het gemak vinken we de keuze 'create spatial database' aan. Het is in deze instructie de bedoeling om direct een database aan te maken die kan dienen om de dump (back-up) terug te zetten. Het kan uiteraard ook op een later moment.
 
-.. image:: _static/images/nlextractimg(18).png
+.. image:: _static/images/nlextractimg(52).png
     :alt: alternate text
     
 Hier wordt gevraagd waar de PostGIS uitbreiding geplaatst kan worden. We laten dit staan, mits dit klopt met de locatie van de PostgreSQL installatie.
@@ -150,13 +148,8 @@ Op het volgende scherm wordt de gebruikersnaam en het wachtwoord gevraagd. Hierm
 
 .. image:: _static/images/nlextractimg(20).png
     :alt: alternate text
-    
-In deze instructie zetten we de BAG dump terug, dus we noemen de database 'bag'.
 
-.. image:: _static/images/nlextractimg(21).png
-    :alt: alternate text
-
-Nu wordt PostGIS geinstalleerd en wordt de database (met de naam 'bag') aangemaakt. Als het goed is, verloopt dit redelijk vlot.
+Nu wordt PostGIS geinstalleerd. Dit verloopt redelijk vlot.
     
 .. image:: _static/images/nlextractimg(22).png
     :alt: alternate text
@@ -186,7 +179,9 @@ De Stack builder geeft aan dat alle aangevinkte uitbreidingen zijn geinstalleerd
 .. image:: _static/images/nlextractimg(27).png
     :alt: alternate text
     
-    
+|
+|
+
 .. _bag-create-login:
 
 PgAdmin III - BAG login toevoegen
@@ -212,9 +207,9 @@ Maak een nieuwe 'login' aan. Het is de bedoeling om een login te hebben die past
 .. image:: _static/images/nlextractimg(31).png
     :alt: alternate text
 
-De nieuwe login krijgt de naam 'kademo'.
+De nieuwe login krijgt de naam 'basuser'.
 
-.. image:: _static/images/nlextractimg(32).png
+.. image:: _static/images/nlextractimg(53).png
     :alt: alternate text
     
 Kies een wachtoord voor deze login, vul deze twee keer in en onthoud deze. Sluit af met 'Ok'.
@@ -224,100 +219,87 @@ Kies een wachtoord voor deze login, vul deze twee keer in en onthoud deze. Sluit
 
 De PostgreSQL database server heeft nu twee logins.
     
-.. image:: _static/images/nlextractimg(35).png
+.. image:: _static/images/nlextractimg(55).png
     :alt: alternate text
 
-.. _bag-owner:
 
-PgAdmin III - BAG eigenaar instellen
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+|
+|
 
-Zoek binnen pgAdmin de 'bag' database, open het contextmenu en kies 'Properties'. 
+.. _bag-create-database:
 
-.. image:: _static/images/nlextractimg(36).png
-    :alt: alternate text
-    
-De eigenschappen van de database worden zichtbaar. Kies bij 'Owner' de eerder aangemaakte login met de naam 'kademo'. 
-    
-.. image:: _static/images/nlextractimg(37).png
-    :alt: alternate text
-    
-Login 'kademo' is nu eigenaar van de database 'bag'.
-    
-.. image:: _static/images/nlextractimg(38).png
+PgAdmin III - BAG database aanmaken
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+De BAG database aanmaken omvat twee stappen, namelijk een PostgreSQL database aanmaken en een PostGIS uitbreiding toevoegen aan de database.
+Open voor het aanmaken van een nieuwe database het contextmenu (rechter muisknop) op 'Databases' en kies 'New Database'.
+
+.. image:: _static/images/nlextractimg(56).png
     :alt: alternate text
 
-.. _set-bin-path:
+We noemen de database 'bagdb'. Kies de zojuist gemaakte inlog 'baguser' als eigenaar van de database.
 
-Instellen Path voor PostgreSQL tools
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.. image:: _static/images/nlextractimg(57).png
+    :alt: alternate text
 
-Indien gebruik gemaakt wordt van de console (Opdrachtprompt) om PostgreSQL utilities te gebruiken (in de volgende stap) dat is
-het handig om de locatie van deze tools opgenomen te hebben in de PATH omgevingsvariable. Eigenlijk zou het installaieprogramma
-van PostgreSQL dit moeten/kunnen verzorgen, maar dat is helaas niet gebeurd. Na aanpassen van de PATH variabele zijn de utilities aan te roepen vanuit willekeurige locatie.
+Er is nu een nieuwe database aangemaakt, echter bevat deze nog geen PostGIS mogelijkheden.
+Hiervoor gaan we een uitbreiding toevoegen aan de database.
+Kies 'New Extension' in het contextmenu  (rechter muisknop) op 'Extensions', binnen de node 'bagdb'.
 
-Navigeer via de verkenner naar de 'Bin' map van de PostgreSQL installatie in 'Program Files'.    
-    
-.. image:: _static/images/nlextractimg(39).png
-    :alt: Locate Bin path
-    
-Daarna kan de maplocatie worden geselecteerd (wordt blauw) en naar het klembord worden gekopieerd. In het voorbeeld via de contextmenu, keuze 'Kopiëren'.  
+.. image:: _static/images/nlextractimg(61).png
+    :alt: alternate text
 
-.. image:: _static/images/nlextractimg(40).png
-    :alt: Kopieer path
+Kies in het scherm de extensie 'postgis'.
 
-Open dan het 'Systeemeigenschappen' dialoog. Dat kan via het configuratiescherm -> Systeem en beveiliging -> Systeem. Een snelkopeling is <Win>+<Break>. Kies dan voor 'Geavanceerde systeeminstellingen'.
+.. image:: _static/images/nlextractimg(62).png
+    :alt: postgis extension
 
-Kies de knop 'Omgevingsvariabelen'.    
+.. image:: _static/images/nlextractimg(63).png
+    :alt: postgis extension public schema
 
-.. image:: _static/images/nlextractimg(41).png
-    :alt: Omgevingsvariabelen
+Klik op 'Ok' en de uitbreiding 'postgis' zal zichtbaar worden.
 
-Onderstaand is het scherm zoals het er uitziet bij Windows 10. Kies variabele 'PATH' en klik op 'Bewerken'. Plak (Ctrl-V) dan op een nieuwe regel de locatie van de PostgreSQL Bin map.
-
-Bij eerdere Windows versies kan de PATH variabele worden aangepast door de waarde te bewerken, een ';' scheidingsteken toe te voegen en dan de PostgreSQL Bin locatie er achteraan te plakken (of overtypen).
-
-Sluit het venster door op 'Ok' te klikken.  
-    
-.. image:: _static/images/nlextractimg(42).png
-    :alt: PATH bewerking afsluiten
-    
-Elke opdrachtprompt die vanaf nu wordt geopend, zal door de PATH variabele de locatie van de PostgreSQL utilities kunnen vinden. Een reeds openstaande opdrachtprompt kent de nieuwe PATH variabele nog niet.  
+|
+|
 
 .. _bag-dump-restore:
 
-BAG dump terugzetten
-~~~~~~~~~~~~~~~~~~~~
+PgAdmin III - BAG dump terugzetten
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Open een Opdrachtprompt (<Win>+X, O) en ga naar de locatie waar de gedownloade database dumps zijn neergezet. In deze instructie is dat 'C:/NLExtract', dus type commando 'cd /NLExtract'. Voer commando 'dir' uit om de controleren of de dumps er staan.
+Kies optie 'Restore' middels het contextmenu (rechter muisknop) op de zojuiste gemaakte database 'bagdb'.  
 
-.. image:: _static/images/nlextractimg(44).png
-    :alt: console openen
+.. image:: _static/images/nlextractimg(58).png
+    :alt: alternate text
 
-Nu gaan we de dump herstellen (restore) naar de database 'bag'.
+Kies als 'Filename' het eerder gedownloade bestand 'bag-laatst.backup' en kies als 'Roleuser' de eerder aangemaakte login 'basuser'. 
 
-```
-pg_restore --no-owner --no-privileges --username=kademo -d bag bag-laatst.backup
-```
+.. image:: _static/images/nlextractimg(59).png
+    :alt: alternate text
 
-.. image:: _static/images/nlextractimg(45).png
-    :alt: restore starten
-    
-Er wordt om een wachtwoord gevraagd die bij de login van 'kademo' hoort. Zie :ref:`PgAdmin III - BAG login toevoegen <bag-create-login>`
-    
-.. image:: _static/images/nlextractimg(46).png
-    :alt: wachtwoord kademo
+De restore opties:
 
-Nu is het herstelproces van de BAG database begonnen. Dit kan, afhankelijk van de capaciteit van de computer, enige tijd in beslag nemen (kwartier/half uur). Tijd voor koffie :) 
+.. image:: _static/images/nlextractimg(60).png
+    :alt: alternate text
 
-Om te bevestigen dat er echt iets gebeurt, kan via Taakbeheer (<Ctrl>+<Shift>+<Esc>) zichtbaar gemaakt worden dat PostgreSQL echt met de restore bezig is. Nog even geduld dus. 
- 
-.. image:: _static/images/nlextractimg(47).png
-    :alt: Taakbeheer
+Kies 'Restore' en het terugzetten van de dump zal beginnen.
 
-Als het proces is afgerond kan via pgAdmin de nieuwe inhoud van de BAG database worden gebruikt.
+Nu is het herstelproces van de BAG database begonnen. Dit kan, afhankelijk van de capaciteit van de computer, enige tijd in beslag nemen (kwartier/half uur).
+Aan het eind moet 'Proces returned exit code 0' zichtbaar zijn, dat aangeeft dat het terugzetten gelukt is.
+
+.. image:: _static/images/nlextractimg(65).png
+    :alt: restore process
+
+Kies eventueel een 'Refresh' om de navigatiestructuur te verversen, zodat alle herstelde data zichtbaar wordt.
+
+.. image:: _static/images/nlextractimg(66).png
+    :alt: refresh
+
+De database is klaar voor gebruik:
 
 .. image:: _static/images/nlextractimg(49).png
     :alt: pgAdmin restore complete
 
+|
+|
 
