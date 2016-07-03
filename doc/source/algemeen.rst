@@ -99,7 +99,6 @@ kaarten wil raadplegen.
 Daartoe zijn in 2014 in NLExtract drie nieuwe NLExtract Services opgestart.
 
 * NLExtract Downloads
-* NLExtract Web Services
 * NLExtract Apps
 
 Lees in het volgende hoofdstuk :ref:`services` meer hierover.

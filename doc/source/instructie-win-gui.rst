@@ -4,7 +4,10 @@
 Instructie (Windows - GUI)
 **************************
 
-Deze beschrijving is een voorbeeldinstructie om de benodigde software te installeren en daarbij tevens een database dump terug te zetten. 
+Deze beschrijving is een voorbeeldinstructie om de benodigde software te installeren en daarbij tevens een database dump terug te zetten.
+Het voorbeeld hier beschreven is voor de BAG PostGIS Download, maar zal zelfde zijn voor andere NLExtract Downloads zoals BGT en BRK.
+Met dank aan Geert Doornbos voor opstellen van deze instructie.
+
 We beschrijven de volgende stappen:
 
 * :ref:`Database Dump Downloaden <dump-downloaden>`
