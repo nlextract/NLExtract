@@ -26,8 +26,9 @@ Inhoud:
    bgtextract.rst
    brkextract.rst
    stetl-framework.rst
-   contact.rst
+   instructie.rst
    links.rst
+   contact.rst
 
 Indices and tables
 ==================
