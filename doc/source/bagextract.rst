@@ -181,7 +181,8 @@ Benodigdheden:
   - lxml (alleen getest met lxml-3.4.4)
   - psycopg (dit is Psycopg2)
   - gdal
-  Neem de cp27-versies. Neem de win_amd64.whl-versie als je 64-bits Python gebriukt
+  
+  Neem de cp27-versies. Neem de win_amd64.whl-versie als je 64-bits Python gebruikt.
   
 Let bij het downloaden van de software of je de 32-bits of de 64-bits versie gebruikt. De 64-bits versie werkt op de meeste recente computers. De 32-bits versie werkt op alle Windows-computers, maar issues met het geheugen zijn dan niet uitgesloten.
 
@@ -192,10 +193,13 @@ Installatie:
   - PostgreSQL: voer de installer uit.
   - PostGIS: via de Stack Builder van PostgreSQL.
   - Aanmaken BAG-gebruiker en database: via pgAdmin III of via de commandline (niet beschreven).
+  
 - Python: voer de installer uit. Python 2.7.11 wordt helaas met een verouderde versie van Pip meegeleverd. Deze dient geüpgrade te worden naar versie 8. Dit is nodig voor het installeren van de Psycopyg-wheel. Commando::
     
     python -m pip install -U pip
+    
   Je kunt ook pip rechtsteeks aanroepen. Voeg dan de Python scripts-directory eerst toe aan de PATH-variabele.
+
 - Python dependencies::
 
     python -m pip install <wheel>.whl

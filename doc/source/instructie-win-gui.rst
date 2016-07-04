@@ -1,4 +1,4 @@
-.. _instructie:
+.. _instructie_win_gui:
 
 **************************
 Instructie (Windows - GUI)

@@ -153,7 +153,7 @@ De volgende opties worden door Stetl gebruikt bij het laden van data via NLExtra
     Bestandenfilter volgens Python `glob.glob patronen <https://docs.python.org/2/library/glob.html>`_.
     
 **filename_match**
-    Filter op bestanden binnen de ZIP-bestanden. Meestal is *.gml voldoende. Kan gebruikt worden om bepaalde featuretypes uit te sluiten, indien de bestandsnaam hiervoor geschikt is.
+    Filter op bestanden binnen de ZIP-bestanden. Meestal is \*.gml voldoende. Kan gebruikt worden om bepaalde featuretypes uit te sluiten, indien de bestandsnaam hiervoor geschikt is.
     
 **temp_dir**
     Directory waar tijdelijke bestanden (bijv. opgesplitste GML-bestanden en kopieën GFS-bestanden) komen te staan.
