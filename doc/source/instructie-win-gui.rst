@@ -4,8 +4,8 @@
 Instructie (Windows - GUI)
 **************************
 
-Deze beschrijving is een voorbeeldinstructie om de benodigde software te installeren en daarbij tevens een database dump terug te zetten.
-Het voorbeeld hier beschreven is voor de BAG PostGIS Download, maar zal zelfde zijn voor andere NLExtract Downloads zoals BGT en BRK.
+Deze beschrijving is een voorbeeldinstructie om de benodigde software te installeren en daarbij tevens een database dump terug te zetten (te restoren).
+Het voorbeeld hier beschreven is voor de BAG PostGIS download, maar zal hetzelfde zijn voor andere NLExtract downloads, zoals de BGT en de BRK.
 Met dank aan Geert Doornbos voor opstellen van deze instructie.
 
 We beschrijven de volgende stappen:
@@ -25,7 +25,7 @@ We beschrijven de volgende stappen:
 Database Dump Downloaden
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-Maak een nieuwe folder met bijvoorbeeld de naam 'NLExtract'. Dit is gewoon een locatie om de dumps die gedownload worden te bewaren.
+Maak een nieuwe map met bijvoorbeeld de naam 'NLExtract'. Dit is gewoon een locatie om de dumps die gedownload worden te bewaren.
 
 .. image:: _static/images/nlextractimg(1).png
     :alt: lege map aanmaken
@@ -36,12 +36,12 @@ Ga naar de pagina (zoals beschreven in :ref:`NLExtract Download Service <nlextra
     :alt: dump downloaden
 
 Kies 'link opslaan als' op 'bag-laatst.backup' via het contextmenu (rechter muisknop) en plaats het bestand in de zojuist gemaakte map 'NLExtract'.
-Afhankelijk van de netwerkverbinding kan dit even duren, het bestand is groter dan 2 GB.
+Afhankelijk van de netwerkverbinding kan dit even duren, want het bestand is groter dan 2 GB.
 
 .. image:: _static/images/nlextractimg(4).png
     :alt: dump gedownload
 
-Eventueel bag-amstelveen.backup downloaden om te testen met een kleiner bestand. 
+Je kunt eventueel bag-amstelveen.backup downloaden om te testen met een kleiner bestand. 
 
 |
 |
@@ -57,12 +57,12 @@ We kiezen hier het installatieprogramma (32 of 64 bit - zie <Win>+<Break>) voor 
 .. image:: _static/images/nlextractimg(3).png
     :alt: PostgreSQL downloaden
 
-Het gedownloade bestand uitvoeren en de installatie begint.
+Voer het gedownloade bestand uit en de installatie begint.
 
 .. image:: _static/images/nlextractimg(5).png
     :alt: start installatie postgresql
 
-Er wordt gevraagd waar het programma geinstalleerd moet worden.
+Er wordt gevraagd waar het programma geïnstalleerd moet worden.
     
 .. image:: _static/images/nlextractimg(6).png
     :alt: program files
@@ -74,17 +74,17 @@ een eigen map.
 .. image:: _static/images/nlextractimg(7).png
     :alt: data files
     
-Kies een wachtwoord voor superuser 'postgres' en onthoud deze. Gebruikersnaam 'postgres' en het wachtwoord vormen de combinatie om op een later tijdstip toegang tot PostgreSQL te krijgen.
+Kies een wachtwoord voor de hoofdgebruiker 'postgres' en onthoud deze. De gebruikersnaam 'postgres' en het wachtwoord vormen de combinatie om op een later tijdstip toegang tot PostgreSQL te krijgen.
 
 .. image:: _static/images/nlextractimg(8).png
-    :alt: superuser password
+    :alt: hoofdgebruiker password
 
 Behoud het standaard poortnummer.
 
 .. image:: _static/images/nlextractimg(9).png
     :alt: standard port number
     
-'Default locale' is prima.
+De 'Default locale' is prima.
 
 .. image:: _static/images/nlextractimg(10).png
     :alt: default locale
@@ -94,12 +94,12 @@ Alles is gereed om de installatie te beginnen.
 .. image:: _static/images/nlextractimg(11).png
     :alt: start install
 
-Als het goed is zal de installatie vlot verlopen. 
+Als het goed is, zal de installatie vlot verlopen. 
     
 .. image:: _static/images/nlextractimg(12).png
     :alt: fast install
     
-Nu is PostgreSQL geinstalleerd. Het laatste scherm biedt de mogelijkheid om uitbreidingen toe te voegen. We laten het vinkje aan staan zodat we PostGIS kunnen installeren, dat hierna wordt beschreven.
+Nu is PostgreSQL geïnstalleerd. Het laatste scherm biedt de mogelijkheid om uitbreidingen toe te voegen. We laten het vinkje voor de Stack Builder aan staan, zodat we PostGIS kunnen installeren. Dit wordt hierna beschreven.
 
 .. image:: _static/images/nlextractimg(13).png
     :alt: extensions
@@ -112,7 +112,7 @@ Nu is PostgreSQL geinstalleerd. Het laatste scherm biedt de mogelijkheid om uitb
 PostGIS Installeren
 ~~~~~~~~~~~~~~~~~~~
 
-PostGIS is de uitbreiding op PostgreSQL dat het mogelijk maakt om data met geometrische / geografische gegevens op te slaan en te verwerken.
+PostGIS is de uitbreiding op PostgreSQL die het mogelijk maakt om data met geometrische / geografische gegevens op te slaan en te verwerken.
 
 We zien het beginscherm van de Application Stack Builder, dat in navolging op de PostgreSQL wordt uitgevoerd. Eventueel kan deze ook handmatig worden gestart. 
 
@@ -137,7 +137,7 @@ Nu wordt gevraagd akkoord te gaan met de licentievoorwaarden.
 .. image:: _static/images/nlextractimg(17).png
     :alt: alternate text
     
-Voor het gemak vinken we de keuze 'create spatial database' aan. Het is in deze instructie de bedoeling om direct een database aan te maken die kan dienen om de dump (back-up) terug te zetten. Het kan uiteraard ook op een later moment.
+Voor het gemak vinken we de keuze 'Create spatial database' aan. Het is in deze instructie de bedoeling om direct een database aan te maken die kan dienen om de dump (back-up) terug te zetten. Het kan uiteraard ook op een later moment, bijv. wanneer je een tweede database dump wilt terugzetten.
 
 .. image:: _static/images/nlextractimg(52).png
     :alt: alternate text
@@ -152,7 +152,7 @@ Op het volgende scherm wordt de gebruikersnaam en het wachtwoord gevraagd. Hierm
 .. image:: _static/images/nlextractimg(20).png
     :alt: alternate text
 
-Nu wordt PostGIS geinstalleerd. Dit verloopt redelijk vlot.
+Nu wordt PostGIS geïnstalleerd. Dit verloopt redelijk vlot.
     
 .. image:: _static/images/nlextractimg(22).png
     :alt: alternate text
@@ -177,7 +177,7 @@ De installatie van PostGIS is geslaagd en de database is aangemaakt.
 .. image:: _static/images/nlextractimg(26).png
     :alt: alternate text
 
-De Stack builder geeft aan dat alle aangevinkte uitbreidingen zijn geinstalleerd.
+De Stack Builder geeft aan dat alle aangevinkte uitbreidingen zijn geïnstalleerd.
     
 .. image:: _static/images/nlextractimg(27).png
     :alt: alternate text
@@ -190,7 +190,7 @@ De Stack builder geeft aan dat alle aangevinkte uitbreidingen zijn geinstalleerd
 PgAdmin III - BAG login toevoegen
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-De tool pgAdmin III is geinstalleerd tijdens de installatie van PostgreSQL. Zoek deze op in het menu (of druk op de Windows toets en type 'pgadmin') en start het programma. 
+De tool pgAdmin III is geïnstalleerd tijdens de installatie van PostgreSQL. Zoek deze op in het menu (of druk op de Windows toets en type 'pgadmin') en start het programma. 
 
 .. image:: _static/images/nlextractimg(28).png
     :alt: alternate text
@@ -200,22 +200,22 @@ Nadat pgAdmin III is geopend, maak een verbinding (Connect) met de PostgreSQL se
 .. image:: _static/images/nlextractimg(29).png
     :alt: alternate text
 
-Voer het wachtwoord in dat behoort bij login 'postgres'.    
+Voer het wachtwoord in dat behoort bij de gebruiker 'postgres'.
 
 .. image:: _static/images/nlextractimg(30).png
     :alt: alternate text
     
-Maak een nieuwe 'login' aan. Het is de bedoeling om een login te hebben die past bij de terug te zetten database dump, zoals in deze instructie de bedoeling is. 
+Maak een nieuwe 'login' aan. Dit is een gebruiker van de database. Het is de bedoeling om een login te hebben die past bij de terug te zetten database dump, zoals in deze instructie staat beschreven. 
  
 .. image:: _static/images/nlextractimg(31).png
     :alt: alternate text
 
-De nieuwe login krijgt de naam 'basuser'.
+De nieuwe login krijgt de naam 'basuser'. Natuurlijk kun je ook een andere naam kiezen.
 
 .. image:: _static/images/nlextractimg(53).png
     :alt: alternate text
     
-Kies een wachtoord voor deze login, vul deze twee keer in en onthoud deze. Sluit af met 'Ok'.
+Kies een wachtwoord voor deze login, vul deze twee keer in en onthoud deze. Sluit af met 'OK'.
     
 .. image:: _static/images/nlextractimg(34).png
     :alt: alternate text
@@ -247,12 +247,12 @@ We noemen de database 'bagdb'. Kies de zojuist gemaakte inlog 'baguser' als eige
 
 Er is nu een nieuwe database aangemaakt, echter bevat deze nog geen PostGIS mogelijkheden.
 Hiervoor gaan we een uitbreiding toevoegen aan de database.
-Kies 'New Extension' in het contextmenu  (rechter muisknop) op 'Extensions', binnen de node 'bagdb'.
+Kies 'New Extension' in het contextmenu  (rechter muisknop) op 'Extensions', binnen de database 'bagdb'.
 
 .. image:: _static/images/nlextractimg(61).png
     :alt: alternate text
 
-Kies in het scherm de extensie 'postgis'.
+Kies in het scherm de uitbreiding 'postgis'.
 
 .. image:: _static/images/nlextractimg(62).png
     :alt: postgis extension
@@ -260,7 +260,7 @@ Kies in het scherm de extensie 'postgis'.
 .. image:: _static/images/nlextractimg(63).png
     :alt: postgis extension public schema
 
-Klik op 'Ok' en de uitbreiding 'postgis' zal zichtbaar worden.
+Klik op 'OK' en de uitbreiding 'postgis' zal zichtbaar worden.
 
 |
 |
@@ -275,7 +275,7 @@ Kies optie 'Restore' middels het contextmenu (rechter muisknop) op de zojuiste g
 .. image:: _static/images/nlextractimg(58).png
     :alt: alternate text
 
-Kies als 'Filename' het eerder gedownloade bestand 'bag-laatst.backup' en kies als 'Roleuser' de eerder aangemaakte login 'basuser'. 
+Kies als 'Filename' het eerder gedownloade bestand 'bag-laatst.backup' en kies als 'Rolename' de eerder aangemaakte login 'basuser'. 
 
 .. image:: _static/images/nlextractimg(59).png
     :alt: alternate text
@@ -302,6 +302,8 @@ De database is klaar voor gebruik:
 
 .. image:: _static/images/nlextractimg(49).png
     :alt: pgAdmin restore complete
+
+De data bevindt zich in het schema 'bagactueel'. Houd hiermee rekening als je de BAG-data gebruikt in bijv. QGIS of een andere applicatie.
 
 |
 |
