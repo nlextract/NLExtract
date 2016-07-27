@@ -49,7 +49,7 @@ Bag-extract downloaden
 
 - download NLExtract, zie laatste versie op: http://www.nlextract.nl/file-cabinet
 - of snapshot (huidige repo versie) via git: git clone http://github.com/opengeogroep/NLExtract.git
-- of snapshot als .zip: https://github.com/opengeogroep/NLExtract/zipball/master
+- of snapshot als .zip: https://github.com/nlextract/NLExtract/zipball/master
 
 Afhankelijkheden
 ----------------
@@ -168,7 +168,7 @@ Installatie (Linux)
 Installatie (Windows)
 ---------------------
 
-De installatie van Bag-extract op Windows werd in het verleden gekenmerkt door lastige installaties, vanwege het feit dat open source ontwikkeling op Windows gefragmenteerd plaatsvindt. Tegenwoordig is het een stuk gemakkelijker om Bag-extract aan de praat te krijgen. Als je zelf Bag-extract wilt uitvoeren, voer dan onderstaande beschrijving uit. Voor het gebruiken van de PostGIS-dump, volg dan de instructie die door Geert Doornbos beschikbaar is gesteld (`work in progress <https://github.com/opengeogroep/NLExtract/issues/186>`_).
+De installatie van Bag-extract op Windows werd in het verleden gekenmerkt door lastige installaties, vanwege het feit dat open source ontwikkeling op Windows gefragmenteerd plaatsvindt. Tegenwoordig is het een stuk gemakkelijker om Bag-extract aan de praat te krijgen. Als je zelf Bag-extract wilt uitvoeren, voer dan onderstaande beschrijving uit. Voor het gebruiken van de PostGIS-dump, volg dan de instructie die door Geert Doornbos beschikbaar is gesteld (`work in progress <https://github.com/nlextract/NLExtract/issues/186>`_).
 
 Benodigdheden:
 

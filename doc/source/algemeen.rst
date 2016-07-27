@@ -7,7 +7,7 @@ Algemeen
 
 Hieronder staat algemene informatie over het hoe en waarom van NLExtract.
 Zie ook de website: http://nlextract.nl en de ontwikkeling
-`NLExtract GitHub <https://github.com/opengeogroep/NLExtract>`_.
+`NLExtract GitHub <https://github.com/nlextract/NLExtract>`_.
 
 Voor commerciële ondersteuning zoals gespecialiseerde extracties, downloads en andere
 services neem :ref:`contact` met ons op.

@@ -21,7 +21,7 @@
 #    so right in the middle of a square of ResX, ResY size
 #    the original UL needs to be adapted with a 0.5 pixel size in X and -0.5 in Y
 #
-# See also https://github.com/opengeogroep/NLExtract/issues/123
+# See also https://github.com/nlextract/NLExtract/issues/123
 # Example:
 #  Upper left coord (from CSV):
 #  130000,625000

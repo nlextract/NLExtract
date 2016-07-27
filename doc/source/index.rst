@@ -11,7 +11,7 @@ Je kunt dit document in verschillende formaten downloaden zoals
 in `PDF <https://media.readthedocs.org/pdf/nlextract/latest/nlextract.pdf>`_.
 Zie https://readthedocs.org/projects/nlextract/downloads.
 
-NLExtract wordt ontwikkeld via de `NLExtract GitHub <https://github.com/opengeogroep/NLExtract>`_ .
+NLExtract wordt ontwikkeld via de `NLExtract GitHub <https://github.com/nlextract/NLExtract>`_ .
 
 
 Inhoud:

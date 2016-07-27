@@ -31,10 +31,10 @@ om te zetten naar hanteerbare formaten, zoals PostGIS. Tevens bevat Top10-extrac
 
 TOP10NL (v1.2) wordt geleverd door het Kadaster als een .zip file van plm 2 GB. Voor de landsdekkende
 versies zijn er 2 soorten .zip-bestanden, een op basis van kaartbladen en een .zip file op basis van
-"GML FileChunks" waarbij de totale GML is opgedeeld in files van 300 MB. Zie `Bestandswijzer_GML_TOP10NL_2012.pdf <https://github.com/opengeogroep/NLExtract/raw/master/top10nl/doc/Bestandswijzer_GML_TOP10NL_2012.pdf>`_ voor de kaartbladindeling.
+"GML FileChunks" waarbij de totale GML is opgedeeld in files van 300 MB. Zie `Bestandswijzer_GML_TOP10NL_2012.pdf <https://github.com/nlextract/NLExtract/raw/master/top10nl/doc/Bestandswijzer_GML_TOP10NL_2012.pdf>`_ voor de kaartbladindeling.
 
 Er zijn 13 typen TOP10NL objecten. Zie voor de beschrijving van de structuur en verdere bijzonderheden voor de GML bestandsindeling in
-`BRT_Catalogus_Productspecificaties.pdf <https://github.com/opengeogroep/NLExtract/raw/master/top10nl/doc/1.2/BRT_Catalogus_Productspecificaties.pdf>`_ (nog gebaseerd op versie 1.1.1).
+`BRT_Catalogus_Productspecificaties.pdf <https://github.com/nlextract/NLExtract/raw/master/top10nl/doc/1.2/BRT_Catalogus_Productspecificaties.pdf>`_ (nog gebaseerd op versie 1.1.1).
 
 TOP10NL downloaden
 ------------------
@@ -66,7 +66,7 @@ Omdat NLExtract voortdurend in ontwikkeling is, kun je ook de actuele broncode, 
 en op dezelfde manier gebruiken als een versie:
 
 - snapshot via git: git clone http://github.com/opengeogroep/NLExtract.git
-- snapshot als .zip: https://github.com/opengeogroep/NLExtract/archive/master.zip
+- snapshot als .zip: https://github.com/nlextract/NLExtract/archive/master.zip
 
 Ontwerp
 -------

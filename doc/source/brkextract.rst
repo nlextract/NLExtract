@@ -42,7 +42,7 @@ Omdat NLExtract voortdurend in ontwikkeling is, kun je ook de actuele broncode, 
 en op dezelfde manier gebruiken als een versie:
 
 - snapshot via git: git clone http://github.com/opengeogroep/NLExtract.git
-- snapshot als .zip: https://github.com/opengeogroep/NLExtract/archive/master.zip
+- snapshot als .zip: https://github.com/nlextract/NLExtract/archive/master.zip
 
 Ontwerp
 -------

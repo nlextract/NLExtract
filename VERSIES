@@ -10,7 +10,7 @@ ONGEPLAND
 v1.2.0 - apr.2016 - GEPLAND
 
 Zie GitHub Milestones:
-https://github.com/opengeogroep/NLExtract/milestones
+https://github.com/nlextract/NLExtract/milestones
 
 v1.1.4 - 9.jan.2014 - HUIDIGE VERSIE
 Werd weer tijd, veel fixes, ook veel via Pull requests, dank! Features in:
@@ -42,7 +42,7 @@ Bonne bladen scripts
 v1.1.3 - 13.dec.2012
 Aantal bugfixes op 1.1.2 en verbeteringen in het algemeen.
 Zie milestone issues die in deze release zitten:
-https://github.com/opengeogroep/NLExtract/issues?milestone=6&state=closed
+https://github.com/nlextract/NLExtract/issues?milestone=6&state=closed
 
 Onder andere:
 
@@ -56,7 +56,7 @@ Bugs opgelost
 
 v1.1.2 - 16.okt.2012
 De issues (werk-items) voor deze release zijn hier te vinden:
-https://github.com/opengeogroep/NLExtract/issues?milestone=5&state=closed
+https://github.com/nlextract/NLExtract/issues?milestone=5&state=closed
 
 Algemeen
 - begin gemaakt documentatie op http://nlextract.readthedocs.org
@@ -81,7 +81,7 @@ Top10NL Extract
 v1.1.1 - 20.juni.2012
 Vooral bugfixes in BAG-Extract. Top10NL en BGT extractie uitstellen tot v1.1.2
 De gesloten issues zijn hier te vinden:
-https://github.com/opengeogroep/NLExtract/issues?milestone=4&page=1&state=closed
+https://github.com/nlextract/NLExtract/issues?milestone=4&page=1&state=closed
 Samengevat:
 - bugfix waardoor in v1.1.0 multipolygons voor woonplaatsen null waren
 - geovlak toevoegen aan VIEWs voor Verblijfsobject
@@ -100,9 +100,9 @@ bijgekomen:
 Sowieso is GDAL met OGR Python-bindings een goede stap voor volgende NLExtract versies.
 
 Dit is de eerste versie die GitHub Milestones gebruikt. De naam vd Milestone is het versie nummer (hier v1.1.0).
-Zie https://github.com/opengeogroep/NLExtract/issues/milestones?state=closed
+Zie https://github.com/nlextract/NLExtract/issues/milestones?state=closed
 Alle issues die meegenomen zijn vind je hier:
-https://github.com/opengeogroep/NLExtract/issues?milestone=1&state=closed
+https://github.com/nlextract/NLExtract/issues?milestone=1&state=closed
 
 Specifieke issues opgelost in v1.1.0
 

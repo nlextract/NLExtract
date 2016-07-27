@@ -296,7 +296,7 @@ CREATE VIEW verblijfsobjectactueelbestaand AS
         AND verblijfsobject.verblijfsobjectstatus  <> 'Verblijfsobject ingetrokken');
 
 -- JvdB removed AND verblijfsobject.verblijfsobjectstatus  <> 'Verblijfsobject gevormd', see issue #173
--- https://github.com/opengeogroep/NLExtract/issues/173  23.3.16
+-- https://github.com/nlextract/NLExtract/issues/173  23.3.16
 --
 
 DROP VIEW IF EXISTS woonplaatsactueel;

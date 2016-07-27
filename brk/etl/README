@@ -11,7 +11,7 @@ Om gebruik te maken van Stetl moet de externe GitHub submodule externals/stetl
 aanwezig zijn.
 
 Bij het klonen van de GitHub komt Stetl als volgt mee:
-git clone --recursive https://github.com/opengeogroep/NLExtract.git
+git clone --recursive https://github.com/nlextract/NLExtract.git
 Stetl komt dan mee, hoeft niet apart geinstalleerd, alleen de Stetl-dependencies.
 
 Dependencies Stetl installeren:

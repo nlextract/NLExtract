@@ -15,7 +15,7 @@ target="${id}.tar.gz"
 /bin/rm -f ${target} > /dev/null 2>&1
 
 # get clone from git into version dir
-git clone  --recursive https://github.com/opengeogroep/NLExtract.git ${id}
+git clone  --recursive https://github.com/nlextract/NLExtract.git ${id}
 
 # Take only relevant dirs
 excludes="--exclude=.git --exclude=externals/stetl/.git  --exclude=3d --exclude=ahn2 --exclude=bag/build --exclude=bag/dist --exclude=bgt/data --exclude=bgt/doc --exclude=bonnebladen --exclude=doc --exclude=opentopo --exclude=tools --exclude=top10nl/test --exclude=top10nl/doc"

@@ -72,7 +72,7 @@
                      <bag_LVC:identificatie>0855300000001319</bag_LVC:identificatie>
                  </bag_LVC:gerelateerdeOpenbareRuimte>
                 <!--  Wanneer nummeraanduiding een gerelateerdewoonplaats heeft moet die gebruikt worden ipv via openbareruimte!
-                  Zie issue: https://github.com/opengeogroep/NLExtract/issues/54   -->
+                  Zie issue: https://github.com/nlextract/NLExtract/issues/54   -->
                  <bag_LVC:gerelateerdeWoonplaats>
                       <bag_LVC:identificatie>3454</bag_LVC:identificatie>
                   </bag_LVC:gerelateerdeWoonplaats>

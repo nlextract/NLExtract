@@ -41,7 +41,7 @@ INSERT INTO adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeg
     n.huisnummertoevoeging,
     n.postcode,
 -- Wanneer nummeraanduiding een gerelateerdewoonplaats heeft moet die gebruikt worden ipv via openbareruimte!
--- Zie issue: https://github.com/opengeogroep/NLExtract/issues/54
+-- Zie issue: https://github.com/nlextract/NLExtract/issues/54
     (CASE
       WHEN wp2.woonplaatsnaam IS NULL THEN w.woonplaatsnaam ELSE wp2.woonplaatsnaam END),
     (CASE
@@ -64,7 +64,7 @@ INSERT INTO adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeg
     JOIN provincie_gemeenteactueelbestaand p
     ON (g.gemeentecode = p.gemeentecode)
     -- Wanneer nummeraanduiding een gerelateerdewoonplaats heeft moet die gebruikt worden ipv via openbareruimte!
-    -- Zie issue: https://github.com/opengeogroep/NLExtract/issues/54
+    -- Zie issue: https://github.com/nlextract/NLExtract/issues/54
     LEFT OUTER JOIN woonplaatsactueelbestaand wp2
     ON (n.gerelateerdewoonplaats = wp2.identificatie)
     LEFT OUTER JOIN gemeente_woonplaatsactueelbestaand  g2
@@ -72,7 +72,7 @@ INSERT INTO adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeg
     LEFT OUTER JOIN provincie_gemeenteactueelbestaand p2
     ON (g2.gemeentecode = p2.gemeentecode);
 
-      -- 26.06.12 JvdB Vervangen implicit JOINs by real JOINs n.a.v. https://github.com/opengeogroep/NLExtract/issues/54
+      -- 26.06.12 JvdB Vervangen implicit JOINs by real JOINs n.a.v. https://github.com/nlextract/NLExtract/issues/54
        -- FROM
         -- 	(SELECT identificatie,  geopunt, hoofdadres from verblijfsobjectactueelbestaand) v,
         -- 	(SELECT identificatie,  huisnummer, huisletter, huisnummertoevoeging, postcode, gerelateerdeopenbareruimte, gerelateerdewoonplaats from nummeraanduidingactueelbestaand) n,
@@ -97,7 +97,7 @@ INSERT INTO adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeg
 	n.huisnummertoevoeging,
 	n.postcode,
    -- Wanneer nummeraanduiding een gerelateerdewoonplaats heeft moet die gebruikt worden ipv via openbareruimte!
-   -- Zie issue: https://github.com/opengeogroep/NLExtract/issues/54
+   -- Zie issue: https://github.com/nlextract/NLExtract/issues/54
     (CASE
       WHEN wp2.woonplaatsnaam IS NULL THEN w.woonplaatsnaam ELSE wp2.woonplaatsnaam END),
     (CASE
@@ -121,7 +121,7 @@ INSERT INTO adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeg
    JOIN provincie_gemeenteactueelbestaand p
    ON (g.gemeentecode = p.gemeentecode)
    -- Wanneer nummeraanduiding een gerelateerdewoonplaats heeft moet die gebruikt worden ipv via openbareruimte!
-   -- Zie issue: https://github.com/opengeogroep/NLExtract/issues/54
+   -- Zie issue: https://github.com/nlextract/NLExtract/issues/54
    LEFT OUTER JOIN woonplaatsactueelbestaand wp2
    ON (n.gerelateerdewoonplaats = wp2.identificatie)
    LEFT OUTER JOIN gemeente_woonplaatsactueelbestaand  g2
@@ -130,7 +130,7 @@ INSERT INTO adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeg
    ON (g2.gemeentecode = p2.gemeentecode);
 
 
- -- 26.06.12 JvdB Vervangen implicit JOINs by real JOINs n.a.v. https://github.com/opengeogroep/NLExtract/issues/54
+ -- 26.06.12 JvdB Vervangen implicit JOINs by real JOINs n.a.v. https://github.com/nlextract/NLExtract/issues/54
  -- FROM
 -- 	(SELECT identificatie,  geovlak, hoofdadres from ligplaatsactueelbestaand) l,
 -- 	(SELECT identificatie,  huisnummer, huisletter, huisnummertoevoeging, postcode, gerelateerdeopenbareruimte from nummeraanduidingactueelbestaand) n,
@@ -155,7 +155,7 @@ INSERT INTO adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeg
 	n.huisnummertoevoeging,
 	n.postcode,
    -- Wanneer nummeraanduiding een gerelateerdewoonplaats heeft moet die gebruikt worden ipv via openbareruimte!
-   -- Zie issue: https://github.com/opengeogroep/NLExtract/issues/54
+   -- Zie issue: https://github.com/nlextract/NLExtract/issues/54
     (CASE
      WHEN wp2.woonplaatsnaam IS NULL THEN w.woonplaatsnaam ELSE wp2.woonplaatsnaam END),
     (CASE
@@ -179,7 +179,7 @@ INSERT INTO adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeg
    JOIN provincie_gemeenteactueelbestaand p
    ON (g.gemeentecode = p.gemeentecode)
    -- Wanneer nummeraanduiding een gerelateerdewoonplaats heeft moet die gebruikt worden ipv via openbareruimte!
-   -- Zie issue: https://github.com/opengeogroep/NLExtract/issues/54
+   -- Zie issue: https://github.com/nlextract/NLExtract/issues/54
    LEFT OUTER JOIN woonplaatsactueelbestaand wp2
    ON (n.gerelateerdewoonplaats = wp2.identificatie)
    LEFT OUTER JOIN gemeente_woonplaatsactueelbestaand  g2
@@ -262,7 +262,7 @@ JOIN
 ON
     (g.gemeentecode = p.gemeentecode)
     -- Wanneer nummeraanduiding een gerelateerdewoonplaats heeft moet die gebruikt worden ipv via openbareruimte!
-    -- Zie issue: https://github.com/opengeogroep/NLExtract/issues/54
+    -- Zie issue: https://github.com/nlextract/NLExtract/issues/54
 LEFT OUTER JOIN
     woonplaatsactueelbestaand wp2
 ON
@@ -332,7 +332,7 @@ JOIN
 ON
     (g.gemeentecode = p.gemeentecode)
     -- Wanneer nummeraanduiding een gerelateerdewoonplaats heeft moet die gebruikt worden ipv via openbareruimte!
-    -- Zie issue: https://github.com/opengeogroep/NLExtract/issues/54
+    -- Zie issue: https://github.com/nlextract/NLExtract/issues/54
 LEFT OUTER JOIN
     woonplaatsactueelbestaand wp2
 ON
@@ -403,7 +403,7 @@ JOIN
 ON
     (g.gemeentecode = p.gemeentecode)
     -- Wanneer nummeraanduiding een gerelateerdewoonplaats heeft moet die gebruikt worden ipv via openbareruimte!
-    -- Zie issue: https://github.com/opengeogroep/NLExtract/issues/54
+    -- Zie issue: https://github.com/nlextract/NLExtract/issues/54
 LEFT OUTER JOIN
     woonplaatsactueelbestaand wp2
 ON

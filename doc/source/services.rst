@@ -62,7 +62,7 @@ NLExtract Apps
 In aanbouw. Basis link is http://app.nlextract.nl
 
 Heb je zelf een mooie app op basis NLExtract? Misschien wil je die toevoegen. Dit loopt
-de `NLExtract GitHub <https://github.com/opengeogroep/NLExtract>`_.
+de `NLExtract GitHub <https://github.com/nlextract/NLExtract>`_.
 
 
 
