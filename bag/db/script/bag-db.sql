@@ -58,16 +58,9 @@ CREATE TABLE woonplaats (
   woonplaatsNaam VARCHAR(80),
   woonplaatsStatus woonplaatsStatus,
   geom_valid BOOLEAN,
-  geovlak geometry,
-
-  CONSTRAINT enforce_dims_geometrie CHECK ((st_ndims(geovlak) = 2)),
-  CONSTRAINT enforce_geotype_geometrie CHECK (
-          ((geometrytype(geovlak) = 'MULTIPOLYGON'::text) OR (geovlak IS NULL))),
-  CONSTRAINT enforce_srid_geometrie CHECK ((st_srid(geovlak) = 28992)),
+  geovlak geometry(MultiPolygon, 28992),
   PRIMARY KEY (gid)
 ) WITH (OIDS=true);
--- werkt niet met PG schema
--- SELECT AddGeometryColumn('public', 'woonplaats', 'geovlak', 28992, 'MULTIPOLYGON', 2);
 
 DROP TABLE IF EXISTS openbareruimte CASCADE;
 DROP TYPE IF EXISTS openbareRuimteStatus;
@@ -137,15 +130,9 @@ CREATE TABLE ligplaats (
   hoofdadres NUMERIC(16),
   ligplaatsStatus ligplaatsStatus,
   geom_valid BOOLEAN,
-  geovlak geometry,
-  CONSTRAINT enforce_dims_geometrie CHECK ((st_ndims(geovlak) = 3)),
-  CONSTRAINT enforce_geotype_geometrie CHECK (
-          ((geometrytype(geovlak) = 'POLYGON'::text) OR (geovlak IS NULL))),
-  CONSTRAINT enforce_srid_geometrie CHECK ((st_srid(geovlak) = 28992)),
+  geovlak geometry(PolygonZ, 28992),
   PRIMARY KEY (gid)
 ) WITH (OIDS=true);
--- werkt niet met PG schema
--- SELECT AddGeometryColumn('public', 'ligplaats', 'geovlak', 28992, 'POLYGON', 3);
 
 DROP TABLE IF EXISTS standplaats CASCADE;
 DROP TYPE IF EXISTS standplaatsStatus;
@@ -164,15 +151,9 @@ CREATE TABLE standplaats (
   hoofdadres NUMERIC(16),
   standplaatsStatus standplaatsStatus,
   geom_valid BOOLEAN,
-  geovlak geometry,
-  CONSTRAINT enforce_dims_geometrie CHECK ((st_ndims(geovlak) = 3)),
-  CONSTRAINT enforce_geotype_geometrie CHECK (
-          ((geometrytype(geovlak) = 'POLYGON'::text) OR (geovlak IS NULL))),
-  CONSTRAINT enforce_srid_geometrie CHECK ((st_srid(geovlak) = 28992)),
+  geovlak geometry(PolygonZ, 28992),
   PRIMARY KEY (gid)
 ) WITH (OIDS=true);
--- werkt niet met PG schema
--- SELECT AddGeometryColumn('public', 'standplaats', 'geovlak', 28992, 'POLYGON', 3);
 
 DROP TABLE IF EXISTS verblijfsobject CASCADE;
 DROP TYPE IF EXISTS verblijfsobjectStatus;
@@ -192,23 +173,10 @@ CREATE TABLE verblijfsobject (
   verblijfsobjectStatus verblijfsobjectStatus,
   oppervlakteVerblijfsobject NUMERIC(6),
   geom_valid BOOLEAN,
-  geopunt geometry,
-  geovlak geometry,
-  CONSTRAINT enforce_dims_punt CHECK ((st_ndims(geopunt) = 3)),
-  CONSTRAINT enforce_geotype_punt CHECK (
-          ((geometrytype(geopunt) = 'POINT'::text) OR (geopunt IS NULL))),
-  CONSTRAINT enforce_srid_punt CHECK ((st_srid(geopunt) = 28992)),
-
-  CONSTRAINT enforce_dims_vlak CHECK ((st_ndims(geovlak) = 3)),
-  CONSTRAINT enforce_geotype_vlak CHECK (
-          ((geometrytype(geovlak) = 'POLYGON'::text) OR (geovlak IS NULL))),
-  CONSTRAINT enforce_srid_vlak CHECK ((st_srid(geovlak) = 28992)),
+  geopunt geometry(PointZ, 28992),
+  geovlak geometry(PolygonZ, 28992),
   PRIMARY KEY (gid)
 ) WITH (OIDS=true);
--- werkt niet met PG schema
--- SELECT AddGeometryColumn('public', 'verblijfsobject', 'geopunt', 28992, 'POINT', 3);
--- SELECT AddGeometryColumn('public', 'verblijfsobject', 'geovlak', 28992, 'POLYGON', 3);
--- UPDATE verblijfsobject SET geopunt = ST_Force_3D(ST_Centroid(geovlak)) WHERE geopunt is  null and geovlak is not null;
 
 DROP TABLE IF EXISTS pand CASCADE;
 DROP TYPE IF EXISTS pandStatus;
@@ -227,18 +195,11 @@ CREATE TABLE pand (
   pandStatus pandStatus,
   bouwjaar NUMERIC(4),
   geom_valid BOOLEAN,
-  geovlak geometry,
-  CONSTRAINT enforce_dims_geometrie CHECK ((st_ndims(geovlak) = 3)),
-  CONSTRAINT enforce_geotype_geometrie CHECK (
-          ((geometrytype(geovlak) = 'POLYGON'::text) OR (geovlak IS NULL))),
-  CONSTRAINT enforce_srid_geometrie CHECK ((st_srid(geovlak) = 28992)),
+  geovlak geometry(PolygonZ, 28992),
   PRIMARY KEY (gid)
 
 ) WITH (OIDS=true);
 -- UPDATE pand SET geom_valid = ST_IsValid(geovlak);
-
--- werkt niet met PG schema
--- SELECT AddGeometryColumn('public', 'pand', 'geovlak', 28992, 'POLYGON', 3);
 
 
 --

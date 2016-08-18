@@ -25,11 +25,8 @@ CREATE TABLE adres (
     adresseerbaarobject numeric(16,0),
     nummeraanduiding numeric(16,0),
     nevenadres BOOLEAN DEFAULT FALSE,
-    geopunt geometry,
-    textsearchable_adres tsvector,
-    CONSTRAINT enforce_dims_punt CHECK ((st_ndims(geopunt) = 3)),
-    CONSTRAINT enforce_geotype_punt CHECK (((geometrytype(geopunt) = 'POINT'::text) OR (geopunt IS NULL))),
-    CONSTRAINT enforce_srid_punt CHECK ((st_srid(geopunt) = 28992))
+    geopunt geometry(PointZ, 28992),
+    textsearchable_adres tsvector
 );
 
 -- Insert (actuele+bestaande) data uit combinatie van BAG tabellen: Verblijfplaats
