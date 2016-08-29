@@ -10,7 +10,7 @@
 drop table if exists gemeente;
 
 create table gemeente as
-  select gw.gemeentecode,gp.gemeentenaam,ST_Multi(ST_Union(w.geovlak)) as geovlak
+  select gw.gemeentecode,gp.gemeentenaam,ST_Multi(ST_Union(w.geovlak))::geometry(MultiPolygon, 28992) as geovlak
   from gemeente_woonplaatsactueelbestaand as gw, woonplaatsactueelbestaand as w, provincie_gemeenteactueelbestaand as gp
   where gw.woonplaatscode = w.identificatie and gw.gemeentecode = gp.gemeentecode
   group by gw.gemeentecode,gp.gemeentenaam;
@@ -27,7 +27,7 @@ CREATE INDEX gemeente_naam ON gemeente USING btree (gemeentenaam);
 drop table if exists provincie;
 
 create table provincie as
-  select provinciecode,provincienaam,ST_Multi(ST_Union(gemeente.geovlak)) as geovlak
+  select provinciecode,provincienaam,ST_Multi(ST_Union(gemeente.geovlak))::geometry(MultiPolygon, 28992) as geovlak
   from
   	provincie_gemeenteactueelbestaand,
   	gemeente
