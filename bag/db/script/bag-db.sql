@@ -9,7 +9,7 @@
 -- Systeem tabellen
 -- Meta informatie, handig om te weten, wat en wanneer is ingelezen
 -- bagextract.py zal bijv leverings info en BAG leverings datum inserten
-DROP TABLE IF EXISTS nlx_bag_info;
+DROP TABLE IF EXISTS nlx_bag_info CASCADE;
 CREATE TABLE nlx_bag_info (
   gid serial,
   tijdstempel timestamp default current_timestamp,
@@ -27,7 +27,7 @@ INSERT INTO nlx_bag_info (sleutel,waarde)
 -- Systeem tabellen
 -- Actie log, handig om fouten en timings te analyseren
 -- en iha voortgang op afstand te monitoren
-DROP TABLE IF EXISTS nlx_bag_log;
+DROP TABLE IF EXISTS nlx_bag_log CASCADE;
 CREATE TABLE nlx_bag_log (
   gid serial,
   tijdstempel timestamp default current_timestamp,
@@ -42,7 +42,7 @@ INSERT INTO nlx_bag_log (actie, bestand) VALUES ('schema aangemaakt', 'bag-db.sq
 
 -- BAG _ruwe import tabellen
 DROP TABLE IF EXISTS woonplaats CASCADE;
-DROP TYPE IF EXISTS woonplaatsStatus;
+DROP TYPE IF EXISTS woonplaatsStatus CASCADE;
 CREATE TYPE woonplaatsStatus AS ENUM ('Woonplaats aangewezen', 'Woonplaats ingetrokken');
 CREATE TABLE woonplaats (
   gid SERIAL,
@@ -60,7 +60,7 @@ CREATE TABLE woonplaats (
   geom_valid BOOLEAN,
   geovlak geometry(MultiPolygon, 28992),
   PRIMARY KEY (gid)
-) WITH (OIDS=true);
+) ;
 
 DROP TABLE IF EXISTS openbareruimte CASCADE;
 DROP TYPE IF EXISTS openbareRuimteStatus;
@@ -87,9 +87,9 @@ CREATE TABLE openbareruimte (
 );
 
 DROP TABLE IF EXISTS nummeraanduiding CASCADE;
-DROP TYPE IF EXISTS nummeraanduidingStatus;
+DROP TYPE IF EXISTS nummeraanduidingStatus  CASCADE;
 CREATE TYPE nummeraanduidingStatus AS ENUM ('Naamgeving uitgegeven', 'Naamgeving ingetrokken');
-DROP TYPE IF EXISTS typeAdresseerbaarObject;
+DROP TYPE IF EXISTS typeAdresseerbaarObject  CASCADE;
 CREATE TYPE typeAdresseerbaarObject AS ENUM ('Verblijfsobject', 'Standplaats', 'Ligplaats');
 CREATE TABLE nummeraanduiding (
   gid SERIAL,
@@ -114,7 +114,7 @@ CREATE TABLE nummeraanduiding (
 );
 
 DROP TABLE IF EXISTS ligplaats CASCADE;
-DROP TYPE IF EXISTS ligplaatsStatus;
+DROP TYPE IF EXISTS ligplaatsStatus  CASCADE;
 CREATE TYPE ligplaatsStatus AS ENUM ('Plaats aangewezen', 'Plaats ingetrokken');
 CREATE TABLE ligplaats (
   gid SERIAL,
@@ -132,10 +132,10 @@ CREATE TABLE ligplaats (
   geom_valid BOOLEAN,
   geovlak geometry(PolygonZ, 28992),
   PRIMARY KEY (gid)
-) WITH (OIDS=true);
+) ;
 
 DROP TABLE IF EXISTS standplaats CASCADE;
-DROP TYPE IF EXISTS standplaatsStatus;
+DROP TYPE IF EXISTS standplaatsStatus CASCADE;
 CREATE TYPE standplaatsStatus AS ENUM ('Plaats aangewezen', 'Plaats ingetrokken');
 CREATE TABLE standplaats (
   gid SERIAL,
@@ -153,10 +153,10 @@ CREATE TABLE standplaats (
   geom_valid BOOLEAN,
   geovlak geometry(PolygonZ, 28992),
   PRIMARY KEY (gid)
-) WITH (OIDS=true);
+) ;
 
 DROP TABLE IF EXISTS verblijfsobject CASCADE;
-DROP TYPE IF EXISTS verblijfsobjectStatus;
+DROP TYPE IF EXISTS verblijfsobjectStatus CASCADE;
 CREATE TYPE verblijfsobjectStatus AS ENUM ('Verblijfsobject gevormd', 'Niet gerealiseerd verblijfsobject', 'Verblijfsobject in gebruik (niet ingemeten)', 'Verblijfsobject in gebruik', 'Verblijfsobject ingetrokken', 'Verblijfsobject buiten gebruik');
 CREATE TABLE verblijfsobject (
   gid SERIAL,
@@ -176,10 +176,10 @@ CREATE TABLE verblijfsobject (
   geopunt geometry(PointZ, 28992),
   geovlak geometry(PolygonZ, 28992),
   PRIMARY KEY (gid)
-) WITH (OIDS=true);
+) ;
 
 DROP TABLE IF EXISTS pand CASCADE;
-DROP TYPE IF EXISTS pandStatus;
+DROP TYPE IF EXISTS pandStatus CASCADE;
 CREATE TYPE pandStatus AS ENUM ('Bouwvergunning verleend', 'Niet gerealiseerd pand', 'Bouw gestart', 'Pand in gebruik (niet ingemeten)', 'Pand in gebruik', 'Sloopvergunning verleend', 'Pand gesloopt', 'Pand buiten gebruik');
 CREATE TABLE pand (
   gid SERIAL,
@@ -198,7 +198,7 @@ CREATE TABLE pand (
   geovlak geometry(PolygonZ, 28992),
   PRIMARY KEY (gid)
 
-) WITH (OIDS=true);
+) ;
 -- UPDATE pand SET geom_valid = ST_IsValid(geovlak);
 
 
@@ -241,7 +241,7 @@ CREATE TABLE adresseerbaarobjectnevenadres (
 
 -- Een Verblijfsobject kan meerdere gebruiksdoelen hebben
 DROP TABLE IF EXISTS verblijfsobjectgebruiksdoel CASCADE;
-DROP TYPE IF EXISTS gebruiksdoelVerblijfsobject;
+DROP TYPE IF EXISTS gebruiksdoelVerblijfsobject CASCADE;
 CREATE TYPE gebruiksdoelVerblijfsobject AS ENUM (
 'woonfunctie','bijeenkomstfunctie','celfunctie','gezondheidszorgfunctie','industriefunctie','kantoorfunctie',
 'logiesfunctie','onderwijsfunctie','sportfunctie','winkelfunctie','overige gebruiksfunctie'
@@ -298,7 +298,7 @@ CREATE INDEX
 -- Woonplaats;Woonplaats code;Ingangsdatum WPL;Einddatum WPL;Gemeente;Gemeente code;
 --     Ingangsdatum nieuwe gemeente;Gemeente beeindigd per
 DROP TABLE IF EXISTS gemeente_woonplaats CASCADE;
-DROP TYPE IF EXISTS gemeenteWoonplaatsStatus;
+DROP TYPE IF EXISTS gemeenteWoonplaatsStatus CASCADE;
 CREATE TYPE gemeenteWoonplaatsStatus AS ENUM (
 'voorlopig','definitief'
 );

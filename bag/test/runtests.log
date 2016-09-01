@@ -1,5 +1,5 @@
 DEBUG: Configuratiebestand is /Users/just/project/ogg/nlextract/git/bag/extract.conf
-Waarschuwing! met dit commando worden database tabellen opnieuw aangemaakt. Doorgaan? ([N]/j): INFO: Start 2015-10-18 15:37:26
+Waarschuwing! met dit commando worden database tabellen opnieuw aangemaakt. Doorgaan? ([N]/j): INFO: Start 2016-09-01 11:00:10
 INFO: alle database tabellen weggooien en opnieuw aanmaken...
 INFO: Probeer te verbinden...
 DEBUG: verbonden met de database 'bag', schema 'public', connId=5
@@ -16,20 +16,7 @@ DEBUG: database commit ok connId=5
 INFO: Negeer bestand: /Users/just/project/ogg/nlextract/git/bag/db/data/.DS_Store
 DEBUG: reusing db connection
 DEBUG: database commit ok connId=5
-INFO: Negeer bestand: /Users/just/project/ogg/nlextract/git/bag/db/data/Gemeentenalfabetischperprovincie2015.xls
-DEBUG: reusing db connection
-DEBUG: database commit ok connId=5
 INFO: Negeer bestand: /Users/just/project/ogg/nlextract/git/bag/db/data/README
-DEBUG: reusing db connection
-DEBUG: database commit ok connId=5
-INFO: process_csv: verwerk cbs-gemeentenperprovincie-2015.csv 
-INFO: Insert objectCount=393
-DEBUG: verbonden met de database 'bag', schema 'public', connId=7
-DEBUG: database commit ok connId=7
-DEBUG: verbonden met de database 'bag', schema 'public', connId=8
-DEBUG: database commit ok connId=8
-DEBUG: reusing db connection
-DEBUG: database commit ok connId=5
 DEBUG: reusing db connection
 DEBUG: database commit ok connId=5
 INFO: process_zip: verwerk gem-wpl-relatie-03-lvc-xml-07032014.zip 
@@ -40,7 +27,7 @@ INFO: START: parseXML
 INFO: END: parseXML tijd=0.0 sec
 DEBUG: reusing db connection
 DEBUG: database commit ok connId=5
-DEBUG: reusing db connection
+DEBUG: verbonden met de database 'bag', schema 'public', connId=7
 DEBUG: database commit ok connId=7
 DEBUG: reusing db connection
 DEBUG: database commit ok connId=7
@@ -49,7 +36,7 @@ DEBUG: reusing db connection
 DEBUG: database commit ok connId=7
 DEBUG: reusing db connection
 DEBUG: database commit ok connId=7
-INFO: END: objCreate - objs=7589 tijd=2.0 sec
+INFO: END: objCreate - objs=7589 tijd=1.0 sec
 DEBUG: reusing db connection
 DEBUG: database commit ok connId=7
 INFO: START: dbStart mode = Nieuw
@@ -66,15 +53,33 @@ DEBUG: reusing db connection
 DEBUG: database commit ok connId=5
 DEBUG: reusing db connection
 DEBUG: database commit ok connId=5
-INFO: Views aanmaken...
-INFO: SQL van file = /Users/just/project/ogg/nlextract/git/bag/db/script/bag-view-actueel-bestaand.sql uitvoeren...
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk gemeentelijke-indeling.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: Processed objectCount=771
 DEBUG: verbonden met de database 'bag', schema 'public', connId=6
 DEBUG: database commit ok connId=6
-DEBUG: database connectie 6 gesloten
+INFO: Objects inserted=771 updated=0 unchanged=0
+DEBUG: verbonden met de database 'bag', schema 'public', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: Negeer bestand: /Users/just/project/ogg/nlextract/git/bag/db/data/gemeentelijke-indeling.xsd
+INFO: Views aanmaken...
+INFO: SQL van file = /Users/just/project/ogg/nlextract/git/bag/db/script/bag-view-actueel-bestaand.sql uitvoeren...
+DEBUG: verbonden met de database 'bag', schema 'public', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
 INFO: SQL uitgevoerd OK
-INFO: End 2015-10-18 15:37:29
+INFO: End 2016-09-01 11:00:12
 DEBUG: Configuratiebestand is /Users/just/project/ogg/nlextract/git/bag/extract.conf
-INFO: Start 2015-10-18 15:37:30
+INFO: Start 2016-09-01 11:00:12
 INFO: alle database tabellen weggooien en opnieuw aanmaken...
 INFO: Probeer te verbinden...
 DEBUG: verbonden met de database 'bag', schema 'public', connId=5
@@ -91,20 +96,7 @@ DEBUG: database commit ok connId=5
 INFO: Negeer bestand: /Users/just/project/ogg/nlextract/git/bag/db/data/.DS_Store
 DEBUG: reusing db connection
 DEBUG: database commit ok connId=5
-INFO: Negeer bestand: /Users/just/project/ogg/nlextract/git/bag/db/data/Gemeentenalfabetischperprovincie2015.xls
-DEBUG: reusing db connection
-DEBUG: database commit ok connId=5
 INFO: Negeer bestand: /Users/just/project/ogg/nlextract/git/bag/db/data/README
-DEBUG: reusing db connection
-DEBUG: database commit ok connId=5
-INFO: process_csv: verwerk cbs-gemeentenperprovincie-2015.csv 
-INFO: Insert objectCount=393
-DEBUG: verbonden met de database 'bag', schema 'public', connId=7
-DEBUG: database commit ok connId=7
-DEBUG: verbonden met de database 'bag', schema 'public', connId=8
-DEBUG: database commit ok connId=8
-DEBUG: reusing db connection
-DEBUG: database commit ok connId=5
 DEBUG: reusing db connection
 DEBUG: database commit ok connId=5
 INFO: process_zip: verwerk gem-wpl-relatie-03-lvc-xml-07032014.zip 
@@ -115,7 +107,7 @@ INFO: START: parseXML
 INFO: END: parseXML tijd=0.0 sec
 DEBUG: reusing db connection
 DEBUG: database commit ok connId=5
-DEBUG: reusing db connection
+DEBUG: verbonden met de database 'bag', schema 'public', connId=7
 DEBUG: database commit ok connId=7
 DEBUG: reusing db connection
 DEBUG: database commit ok connId=7
@@ -124,7 +116,7 @@ DEBUG: reusing db connection
 DEBUG: database commit ok connId=7
 DEBUG: reusing db connection
 DEBUG: database commit ok connId=7
-INFO: END: objCreate - objs=7589 tijd=2.0 sec
+INFO: END: objCreate - objs=7589 tijd=1.0 sec
 DEBUG: reusing db connection
 DEBUG: database commit ok connId=7
 INFO: START: dbStart mode = Nieuw
@@ -141,16 +133,34 @@ DEBUG: reusing db connection
 DEBUG: database commit ok connId=5
 DEBUG: reusing db connection
 DEBUG: database commit ok connId=5
-INFO: Views aanmaken...
-INFO: SQL van file = /Users/just/project/ogg/nlextract/git/bag/db/script/bag-view-actueel-bestaand.sql uitvoeren...
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk gemeentelijke-indeling.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: Processed objectCount=771
 DEBUG: verbonden met de database 'bag', schema 'public', connId=6
 DEBUG: database commit ok connId=6
-DEBUG: database connectie 6 gesloten
+INFO: Objects inserted=771 updated=0 unchanged=0
+DEBUG: verbonden met de database 'bag', schema 'public', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: Negeer bestand: /Users/just/project/ogg/nlextract/git/bag/db/data/gemeentelijke-indeling.xsd
+INFO: Views aanmaken...
+INFO: SQL van file = /Users/just/project/ogg/nlextract/git/bag/db/script/bag-view-actueel-bestaand.sql uitvoeren...
+DEBUG: verbonden met de database 'bag', schema 'public', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
 INFO: SQL uitgevoerd OK
-INFO: End 2015-10-18 15:37:33
+INFO: End 2016-09-01 11:00:14
 DEBUG: Configuratiebestand is /Users/just/project/ogg/nlextract/git/bag/extract.conf
 running with lxml.etree
-INFO: Start 2015-10-18 15:37:33
+INFO: Start 2016-09-01 11:00:14
 DEBUG: verbonden met de database 'bag', schema 'public', connId=5
 DEBUG: database commit ok connId=5
 INFO: process: verwerk /Users/just/project/ogg/nlextract/git/bag/test/data
@@ -174,7 +184,7 @@ DEBUG: reusing db connection
 DEBUG: database commit ok connId=7
 DEBUG: reusing db connection
 DEBUG: database commit ok connId=7
-INFO: END: objCreate - objs=7359 tijd=2.0 sec
+INFO: END: objCreate - objs=7359 tijd=1.0 sec
 DEBUG: reusing db connection
 DEBUG: database commit ok connId=7
 INFO: START: dbStart mode = Nieuw
@@ -386,10 +396,10 @@ DEBUG: reusing db connection
 DEBUG: database commit ok connId=5
 DEBUG: verbonden met de database 'bag', schema 'public', connId=6
 DEBUG: database commit ok connId=6
-INFO: End 2015-10-18 15:37:37
+INFO: End 2016-09-01 11:00:16
 DEBUG: Configuratiebestand is /Users/just/project/ogg/nlextract/git/bag/extract.conf
 running with lxml.etree
-INFO: Start 2015-10-18 15:37:37
+INFO: Start 2016-09-01 11:00:16
 DEBUG: verbonden met de database 'bag', schema 'public', connId=5
 DEBUG: database commit ok connId=5
 INFO: process: verwerk /Users/just/project/ogg/nlextract/git/bag/test/datadubbel
@@ -442,9 +452,9 @@ DEBUG: reusing db connection
 DEBUG: database commit ok connId=5
 DEBUG: verbonden met de database 'bag', schema 'public', connId=6
 DEBUG: database commit ok connId=6
-INFO: End 2015-10-18 15:37:37
+INFO: End 2016-09-01 11:00:16
 DEBUG: Configuratiebestand is /Users/just/project/ogg/nlextract/git/bag/extract.conf
-INFO: Start 2015-10-18 15:37:37
+INFO: Start 2016-09-01 11:00:16
 DEBUG: verbonden met de database 'bag', schema 'public', connId=5
 DEBUG: database commit ok connId=5
 INFO: SQL van file = /Users/just/project/ogg/nlextract/git/bag/db/script/ontdubbel.sql uitvoeren...
@@ -454,11 +464,11 @@ DEBUG: database connectie 5 gesloten
 INFO: SQL uitgevoerd OK
 DEBUG: verbonden met de database 'bag', schema 'public', connId=5
 DEBUG: database commit ok connId=5
-INFO: End 2015-10-18 15:37:37
+INFO: End 2016-09-01 11:00:16
 START TEST: Mutaties
 DEBUG: Configuratiebestand is /Users/just/project/ogg/nlextract/git/bag/extract.conf
 running with lxml.etree
-INFO: Start 2015-10-18 15:37:38
+INFO: Start 2016-09-01 11:00:16
 DEBUG: verbonden met de database 'bag', schema 'public', connId=5
 DEBUG: database commit ok connId=5
 INFO: process: verwerk /Users/just/project/ogg/nlextract/git/bag/test/mutatie
@@ -545,21 +555,20 @@ DEBUG: verbonden met de database 'bag', schema 'public', connId=7
 DEBUG: database commit ok connId=7
 INFO: START: dbStart mode = Mutatie
 DEBUG: reusing db connection
+ERROR: fout not all arguments converted during string formatting voor query: INSERT INTO verblijfsobjectgebruiksdoel (identificatie,aanduidingrecordinactief,aanduidingrecordcorrectie,begindatumtijdvakgeldigheid,einddatumtijdvakgeldigheid,verblijfsobjectStatus,geom_valid,gebruiksdoelVerblijfsobject) VALUES (%s, %s, %s, %s, %s, %s) met parameters ('0003010000125985', 'FALSE', '0', '2010-07-20 00:00:00.00', None, 'Verblijfsobject in gebruik', 'True', 'woonfunctie') ['Traceback (most recent call last):\n', '  File "/Users/just/project/ogg/nlextract/git/bag/src/postgresdb.py", line 101, in uitvoeren\n    self.cursor.execute(sql, parameters)\n', 'TypeError: not all arguments converted during string formatting\n']
+DEBUG: reusing db connection
 DEBUG: database commit ok connId=6
-INFO: END: dbEnd - nieuw=1 gewijzigd=4 rels=16 tijd=0.0 sec
-INFO: ------
-DEBUG: verbonden met de database 'bag', schema 'public', connId=7
-DEBUG: database commit ok connId=7
+ERROR: fout not all arguments converted during string formatting in XML DOM processing, bestand=test-mutaties.xml ['Traceback (most recent call last):\n', '  File "/Users/just/project/ogg/nlextract/git/bag/src/bagfilereader.py", line 140, in process_xml\n    self.processor.processDOM(parsed_xml.getroot(), filenaam)\n', '  File "/Users/just/project/ogg/nlextract/git/bag/src/processor.py", line 327, in processDOM\n    bericht = self.dbStoreInsert(mode)\n', '  File "/Users/just/project/ogg/nlextract/git/bag/src/processor.py", line 356, in dbStoreInsert\n    self.database.uitvoeren(sql, relatie.inhoud[i])\n', '  File "/Users/just/project/ogg/nlextract/git/bag/src/postgresdb.py", line 101, in uitvoeren\n    self.cursor.execute(sql, parameters)\n', 'TypeError: not all arguments converted during string formatting\n']
 DEBUG: reusing db connection
 DEBUG: database commit ok connId=5
 DEBUG: verbonden met de database 'bag', schema 'public', connId=7
 DEBUG: database commit ok connId=7
-INFO: End 2015-10-18 15:37:38
+INFO: End 2016-09-01 11:00:16
 END TEST: Mutaties
 START TEST: Mutaties : slechts eenmaal verwerken
 DEBUG: Configuratiebestand is /Users/just/project/ogg/nlextract/git/bag/extract.conf
 running with lxml.etree
-INFO: Start 2015-10-18 15:37:38
+INFO: Start 2016-09-01 11:00:16
 DEBUG: verbonden met de database 'bag', schema 'public', connId=5
 DEBUG: database commit ok connId=5
 INFO: process: verwerk /Users/just/project/ogg/nlextract/git/bag/test/mutatie
@@ -611,15 +620,29 @@ DEBUG: reusing db connection
 DEBUG: database commit ok connId=5
 DEBUG: reusing db connection
 DEBUG: database commit ok connId=5
-INFO: bestand test-mutaties.xml is reeds verwerkt ==> overslaan
+INFO: process_xml: verwerk test-mutaties.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
 DEBUG: reusing db connection
 DEBUG: database commit ok connId=5
+INFO: START: objCreate (mutaties)
+INFO: END: objCreate (mutaties) - objs=5 tijd=0.0 sec
 DEBUG: verbonden met de database 'bag', schema 'public', connId=6
 DEBUG: database commit ok connId=6
-INFO: End 2015-10-18 15:37:38
+INFO: START: dbStart mode = Mutatie
+DEBUG: verbonden met de database 'bag', schema 'public', connId=6
+ERROR: fout not all arguments converted during string formatting voor query: INSERT INTO verblijfsobjectgebruiksdoel (identificatie,aanduidingrecordinactief,aanduidingrecordcorrectie,begindatumtijdvakgeldigheid,einddatumtijdvakgeldigheid,verblijfsobjectStatus,geom_valid,gebruiksdoelVerblijfsobject) VALUES (%s, %s, %s, %s, %s, %s) met parameters ('0003010000125985', 'FALSE', '0', '2010-07-20 00:00:00.00', None, 'Verblijfsobject in gebruik', 'True', 'woonfunctie') ['Traceback (most recent call last):\n', '  File "/Users/just/project/ogg/nlextract/git/bag/src/postgresdb.py", line 101, in uitvoeren\n    self.cursor.execute(sql, parameters)\n', 'TypeError: not all arguments converted during string formatting\n']
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=6
+ERROR: fout not all arguments converted during string formatting in XML DOM processing, bestand=test-mutaties.xml ['Traceback (most recent call last):\n', '  File "/Users/just/project/ogg/nlextract/git/bag/src/bagfilereader.py", line 140, in process_xml\n    self.processor.processDOM(parsed_xml.getroot(), filenaam)\n', '  File "/Users/just/project/ogg/nlextract/git/bag/src/processor.py", line 327, in processDOM\n    bericht = self.dbStoreInsert(mode)\n', '  File "/Users/just/project/ogg/nlextract/git/bag/src/processor.py", line 356, in dbStoreInsert\n    self.database.uitvoeren(sql, relatie.inhoud[i])\n', '  File "/Users/just/project/ogg/nlextract/git/bag/src/postgresdb.py", line 101, in uitvoeren\n    self.cursor.execute(sql, parameters)\n', 'TypeError: not all arguments converted during string formatting\n']
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: verbonden met de database 'bag', schema 'public', connId=7
+DEBUG: database commit ok connId=7
+INFO: End 2016-09-01 11:00:16
 END TEST: Mutaties : slechts eenmaal verwerken
 DEBUG: Configuratiebestand is /Users/just/project/ogg/nlextract/git/bag/extract.conf
-INFO: Start 2015-10-18 15:37:38
+INFO: Start 2016-09-01 11:00:17
 DEBUG: verbonden met de database 'bag', schema 'public', connId=5
 DEBUG: database commit ok connId=5
 INFO: SQL van file = /Users/just/project/ogg/nlextract/git/bag/db/script/gemeente-provincie-tabel.sql uitvoeren...
@@ -629,9 +652,9 @@ DEBUG: database connectie 5 gesloten
 INFO: SQL uitgevoerd OK
 DEBUG: verbonden met de database 'bag', schema 'public', connId=5
 DEBUG: database commit ok connId=5
-INFO: End 2015-10-18 15:37:38
+INFO: End 2016-09-01 11:00:17
 DEBUG: Configuratiebestand is /Users/just/project/ogg/nlextract/git/bag/extract.conf
-INFO: Start 2015-10-18 15:37:38
+INFO: Start 2016-09-01 11:00:17
 DEBUG: verbonden met de database 'bag', schema 'public', connId=5
 DEBUG: database commit ok connId=5
 INFO: SQL van file = /Users/just/project/ogg/nlextract/git/bag/db/script/adres-tabel.sql uitvoeren...
@@ -641,7 +664,7 @@ DEBUG: database connectie 5 gesloten
 INFO: SQL uitgevoerd OK
 DEBUG: verbonden met de database 'bag', schema 'public', connId=5
 DEBUG: database commit ok connId=5
-INFO: End 2015-10-18 15:37:38
+INFO: End 2016-09-01 11:00:17
 openbareruimte;huisnummer;huisletter;huisnummertoevoeging;postcode;woonplaats;gemeente;provincie;object_id;object_type;nevenadres;x;y;lon;lat
 Molenbochtstraat;3;;I;9901AA;Hieslum;Súdwest-Fryslân;Friesland;3010000125985;VBO;f;155000;463000;5.38720350886308;52.1551722996529
 Molenbochtstraat;5;;;9901AA;Hieslum;Súdwest-Fryslân;Friesland;3020000000001;LIG;f;252466.746775002;593751.81399051;6.84989496694573;53.3213020969032
@@ -650,7 +673,7 @@ Molenbochtstraat;98;;;9934EG;Hieslum;Súdwest-Fryslân;Friesland;7010000004212;V
 Molenbochtstraat;100;;;9934EG;Hieslum;Súdwest-Fryslân;Friesland;7010000004212;VBO;t;275466;565559;7.18434457286961;53.0633806539817
 Molenbochtstraat;1;;;9934RA;Hieslum;Súdwest-Fryslân;Friesland;10030000100100;STA;f;257939.456825101;593821.560313134;6.93201848038824;53.3209014043658
 DEBUG: Configuratiebestand is /Users/just/project/ogg/nlextract/git/bag/extract.conf
-INFO: Start 2015-10-18 15:37:39
+INFO: Start 2016-09-01 11:00:17
 DEBUG: verbonden met de database 'bag', schema 'public', connId=5
 DEBUG: database commit ok connId=5
 INFO: SQL van file = /Users/just/project/ogg/nlextract/git/bag/db/script/geocode/geocode-tabellen.sql uitvoeren...
@@ -660,9 +683,9 @@ DEBUG: database connectie 5 gesloten
 INFO: SQL uitgevoerd OK
 DEBUG: verbonden met de database 'bag', schema 'public', connId=5
 DEBUG: database commit ok connId=5
-INFO: End 2015-10-18 15:37:39
+INFO: End 2016-09-01 11:00:17
 DEBUG: Configuratiebestand is /Users/just/project/ogg/nlextract/git/bag/extract.conf
-INFO: Start 2015-10-18 15:37:39
+INFO: Start 2016-09-01 11:00:17
 DEBUG: verbonden met de database 'bag', schema 'public', connId=5
 DEBUG: database commit ok connId=5
 INFO: SQL van file = /Users/just/project/ogg/nlextract/git/bag/db/script/geocode/geocode-functies.sql uitvoeren...
@@ -672,9 +695,9 @@ DEBUG: database connectie 5 gesloten
 INFO: SQL uitgevoerd OK
 DEBUG: verbonden met de database 'bag', schema 'public', connId=5
 DEBUG: database commit ok connId=5
-INFO: End 2015-10-18 15:37:39
+INFO: End 2016-09-01 11:00:17
 DEBUG: Configuratiebestand is /Users/just/project/ogg/nlextract/git/bag/extract.conf
-INFO: Start 2015-10-18 15:37:39
+INFO: Start 2016-09-01 11:00:17
 DEBUG: verbonden met de database 'bag', schema 'public', connId=5
 DEBUG: database commit ok connId=5
 INFO: SQL van file = /Users/just/project/ogg/nlextract/git/bag/test/geocode/geocode-functies-test.sql uitvoeren...
@@ -684,4 +707,4 @@ DEBUG: database connectie 5 gesloten
 INFO: SQL uitgevoerd OK
 DEBUG: verbonden met de database 'bag', schema 'public', connId=5
 DEBUG: database commit ok connId=5
-INFO: End 2015-10-18 15:37:39
+INFO: End 2016-09-01 11:00:17
