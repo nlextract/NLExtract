@@ -607,7 +607,10 @@ class BAGrelatieAttribuut(BAGattribuut):
             sql = "INSERT INTO " + self.relatieNaam() + " "
             sql += "(identificatie,aanduidingrecordinactief,aanduidingrecordcorrectie,begindatumtijdvakgeldigheid,einddatumtijdvakgeldigheid,"
             sql += ",".join(self._extraAttributes) + ","
-            sql += self.naam() + ") VALUES (%s, %s, %s, %s, %s, %s)"
+            # Fix issue #199: het aantal toe te voegen waarden moet worden uitgebreid met het aantal
+            # waarden in self._extraAttributes.
+            sql += self.naam() + ") VALUES (%s, %s, %s, %s, %s"
+            sql += ", %s" * len(self._extraAttributes) + ", %s)"
             
             inhoud = [self._parent.attribuut('identificatie').waardeSQL(),
                       self._parent.attribuut('aanduidingRecordInactief').waardeSQL(),
