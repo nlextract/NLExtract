@@ -7,12 +7,13 @@ ONGEPLAND
 - Linked Data
 - Top10NL naar Oracle,
 
-v1.2.0 - apr.2016 - GEPLAND
+v1.2.0 - 4.okt.2016
 
-Zie GitHub Milestones:
-https://github.com/nlextract/NLExtract/milestones
+Wat zit in deze release?
+Zie de 62 (!) closed issues voor deze Milestone 1.2.0 op GitHub:
+https://github.com/nlextract/NLExtract/milestone/8
 
-v1.1.4 - 9.jan.2014 - HUIDIGE VERSIE
+v1.1.4 - 9.jan.2014
 Werd weer tijd, veel fixes, ook veel via Pull requests, dank! Features in:
 
 #107 BAG Datumtijd kolommen moeten ook decimale seconden meenemen bag-extract

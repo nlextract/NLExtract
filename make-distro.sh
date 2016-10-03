@@ -17,8 +17,17 @@ target="${id}.tar.gz"
 # get clone from git into version dir
 git clone  --recursive https://github.com/nlextract/NLExtract.git ${id}
 
+# create documentation
+pushd ${id}/doc
+make html
+/bin/rm -f make.bat Makefile
+/bin/rm -rf source
+mv build/html/* .
+/bin/rm -rf build
+popd
+
 # Take only relevant dirs
-excludes="--exclude=.git --exclude=externals/stetl/.git  --exclude=3d --exclude=ahn2 --exclude=bag/build --exclude=bag/dist --exclude=bgt/data --exclude=bgt/doc --exclude=bonnebladen --exclude=doc --exclude=opentopo --exclude=tools --exclude=top10nl/test --exclude=top10nl/doc"
+excludes="--exclude=.git --exclude=externals/stetl/.git  --exclude=3d --exclude=ahn2 --exclude=bag/build --exclude=bag/dist --exclude=bgt/data --exclude=bgt/doc --exclude=bonnebladen --exclude=opentopo --exclude=tools --exclude=top10nl/test --exclude=top10nl/doc"
 
 # create archive
 tar -zcvf ${target} ${excludes} ${id}
