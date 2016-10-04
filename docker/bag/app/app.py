@@ -6,10 +6,12 @@ app = Flask(__name__)
 
 DBNAME = 'process.db'
 
+# Returns some text indicating we're up and running
 @app.route("/")
 def root():
     return "De BAG-extract webservice draait!"
 
+# Cleans the BAG database, because a new full extract will be loaded
 # TODO: support POST only
 @app.route("/clean", methods=['GET', 'POST'])
 def clean():
@@ -21,6 +23,7 @@ def clean():
         tb = traceback.format_exc()
         return tb
 
+# Loads a BAG extract into the database
 # TODO: support POST only
 @app.route("/load/<filename>", methods=['GET', 'POST'])
 def load(filename):
@@ -32,6 +35,7 @@ def load(filename):
         tb = traceback.format_exc()
         return tb
 
+# Returns the GUID of the latest started BAG extract process
 @app.route("/latest", methods=['GET'])
 def latest():
     conn = get_db_conn()
@@ -43,6 +47,8 @@ def latest():
 
     return "0"
 
+# Returns the status of the running process based on the associated GUID
+# Returns: > (running), 0 (finished) or -1 (doesn't exist)
 @app.route("/status/<guid>", methods=['GET'])
 def status(guid):
     try:
@@ -62,6 +68,7 @@ def status(guid):
         tb = traceback.format_exc()
         return tb
 
+# Redirects to the log file of the queried process
 @app.route("/log/<guid>", methods=['GET'])
 def log(guid):
     return redirect("static/logs/proc_%s.log" % guid, code=301)
