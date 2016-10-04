@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Start our daemons
-gunicorn app:app --bind unix:/tmp/gunicorn_flask.sock -w 4 -D
+gunicorn --bind unix:/tmp/gunicorn_flask.sock -w 4 -D --pythonpath /usr/src/app app:app
 /usr/sbin/nginx
 
 # Gunicorn/Flask running on port 5000, instead of a socket

@@ -36,7 +36,6 @@ RUN /init/get-bagextract.sh
 
 # Install BAG-extract webservices
 ADD app/ /usr/src/app/
-WORKDIR /usr/src/app
 
 # Copy BAG-extract configuration
 COPY config/extract.conf /opt/nlextract/bag/extract.conf
