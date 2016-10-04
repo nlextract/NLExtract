@@ -32,6 +32,17 @@ def load(filename):
         tb = traceback.format_exc()
         return tb
 
+@app.route("/latest", methods=['GET'])
+def latest():
+    conn = get_db_conn()
+    c = conn.cursor()
+    c.execute("SELECT guid FROM process WHERE pid=(SELECT MAX(pid) FROM process)")
+    result = c.fetchone();
+    if result is not None:
+        return result[0]
+
+    return "0"
+
 @app.route("/status/<guid>", methods=['GET'])
 def status(guid):
     try:
