@@ -23,24 +23,23 @@ RUN apt-get install -y nginx-full
 #Add initialization files
 ADD init/ /init/
 
+# Replace nginx configuration
+RUN cp /init/nginx.conf /etc/nginx/nginx.conf
+
+# Install Python dependencies
+RUN chmod +x /init/pip-install.sh
+RUN /init/pip-install.sh
+
 # Add BAG-extract, using Git
 RUN chmod +x /init/get-bagextract.sh
 RUN /init/get-bagextract.sh
 
-# Install Python dependencies and BAG-extract webservices
-RUN mkdir -p /usr/src/app
-WORKDIR /usr/src/app
-
-RUN chmod +x /init/pip-install.sh
-RUN /init/pip-install.sh
-
+# Install BAG-extract webservices
 ADD app/ /usr/src/app/
+WORKDIR /usr/src/app
 
 # Copy BAG-extract configuration
 COPY config/extract.conf /opt/nlextract/bag/extract.conf
-
-# Replace nginx configuration
-RUN cp /init/nginx.conf /etc/nginx/nginx.conf
 
 EXPOSE 80
 
