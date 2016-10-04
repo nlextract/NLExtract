@@ -20,27 +20,27 @@ ENV C_INCLUDE_PATH /usr/include/gdal
 # Install nginx
 RUN apt-get install -y nginx-full
 
-#Add configuration files
-ADD config/ /config/
+#Add initialization files
+ADD init/ /init/
 
 # Add BAG-extract, using Git
-RUN chmod +x /config/get-bagextract.sh
-RUN /config/get-bagextract.sh
+RUN chmod +x /init/get-bagextract.sh
+RUN /init/get-bagextract.sh
 
 # Install Python dependencies and BAG-extract webservices
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 
-RUN chmod +x /config/pip-install.sh
-RUN /config/pip-install.sh
+RUN chmod +x /init/pip-install.sh
+RUN /init/pip-install.sh
 
 ADD app/ /usr/src/app/
 
 # Copy BAG-extract configuration
-RUN cp /config/extract.conf /opt/nlextract/bag/extract.conf
+COPY config/extract.conf /opt/nlextract/bag/extract.conf
 
 # Replace nginx configuration
-RUN cp /config/nginx.conf /etc/nginx/nginx.conf
+RUN cp /init/nginx.conf /etc/nginx/nginx.conf
 
 EXPOSE 80
 

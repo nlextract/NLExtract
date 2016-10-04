@@ -12,8 +12,9 @@ git config core.sparsecheckout true
 echo "bag/*" >> .git/info/sparse-checkout
 git pull origin master
 
-# Revert to situation of Sept. 1, 2016
-git reset --hard cb3a294 --
+# Revert to situation of Oct. 3, 2016
+# TODO: pin to the upcoming 1.2.0 release
+git reset --hard 6975c4a --
 
 # History is not needed, so remove it
 rm -rf .git
