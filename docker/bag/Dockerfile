@@ -20,7 +20,7 @@ ENV C_INCLUDE_PATH /usr/include/gdal
 # Install nginx
 RUN apt-get install -y nginx-full
 
-#Add initialization files
+# Add initialization files
 ADD init/ /init/
 
 # Replace nginx configuration
@@ -36,6 +36,7 @@ RUN /init/get-bagextract.sh
 
 # Install BAG-extract webservices
 ADD app/ /usr/src/app/
+RUN python /usr/src/app/init-db.py
 
 # Copy BAG-extract configuration
 COPY config/extract.conf /opt/nlextract/bag/extract.conf
