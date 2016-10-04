@@ -18,4 +18,3 @@ git reset --hard cb3a294 --
 # History is not needed, so remove it
 rm -rf .git
 
-
