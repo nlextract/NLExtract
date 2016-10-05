@@ -5,6 +5,7 @@ from flask import Flask, redirect
 app = Flask(__name__)
 
 DBNAME = 'process.db'
+CURDIR = os.path.dirname(os.path.abspath(__file__))
 
 # Redirects to the status page
 @app.route("/")
@@ -13,7 +14,7 @@ def root():
 
 # Cleans the BAG database, because a new full extract will be loaded
 # TODO: support POST only
-@app.route("/clean", methods=['GET', 'POST'])
+@app.route("/clean", methods=['POST'])
 def clean():
     try:
         cmd = "python /opt/nlextract/bag/src/bagextract.py -cj"
@@ -25,7 +26,7 @@ def clean():
 
 # Loads a BAG extract into the database
 # TODO: support POST only
-@app.route("/load/<filename>", methods=['GET', 'POST'])
+@app.route("/load/<filename>", methods=['POST'])
 def load(filename):
     try:
         cmd = "python /opt/nlextract/bag/src/bagextract.py -e /data/%s" % filename
@@ -60,7 +61,7 @@ def status(guid):
             return "-1"
 
         pid = result[0]
-        status = psutil.Process(int(pid)).status
+        status = psutil.Process(int(pid)).status()
         return str(status)
     except psutil.NoSuchProcess:
         return "0"
@@ -68,18 +69,24 @@ def status(guid):
         tb = traceback.format_exc()
         return tb
 
-# Redirects to the log file of the queried process
+# Gets the contents of the log file of the queried process
 @app.route("/log/<guid>", methods=['GET'])
 def log(guid):
-    return redirect("static/logs/proc_%s.log" % guid, code=301)
+    # Redirecting to static/logs isn't a good idea, because of Nginx caching. Caching could be
+    # turned off, but that defeats the idea of static files
+
+    logfile = os.path.join(CURDIR, 'static/logs', 'proc_%s.log' % guid)
+    with open(logfile, "r") as f:
+        data = f.read()
+        return data
 
 def get_db_conn():
-    filename = os.path.join(os.path.dirname(os.path.abspath(__file__)), DBNAME)
+    filename = os.path.join(CURDIR, DBNAME)
     return sqlite3.connect(filename)
 
 def start_subprocess(cmd):
     guid = uuid.uuid4()
-    logfile = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'static/logs', 'proc_%s.log' % guid)
+    logfile = os.path.join(CURDIR, 'static/logs', 'proc_%s.log' % guid)
     log = open(logfile, "w")
 
     pid = Popen(cmd.split(), stdout=log, stderr=subprocess.STDOUT).pid

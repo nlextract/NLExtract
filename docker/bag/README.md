@@ -53,7 +53,7 @@ Op Windows werkt het mounten van een volume in Docker niet heel goed. c:\Users i
 Wanneer je attacht (`docker attach bagextract`), dan zie je met `ls /data` de inhoud van je bagdata-map.
 
 ## Image stoppen
-Voer de volgende commando's uit: 
+Voer de volgende commando's uit:
 ```docker stop bagextract```
 ```docker rm bagextract```
 of

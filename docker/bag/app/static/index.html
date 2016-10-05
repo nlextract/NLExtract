@@ -1,0 +1,29 @@
+<html>
+<head>
+    <title>BAG-extract webservice</title>
+    <script type="text/javascript" src="js/scripts.js"></script>
+    <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body onload="getLatest()">
+    <h1>BAG-extract webservice</h1>
+    <div>
+        Laatste proces: <span id="latest"></span><br/>
+        <br/>
+        <button onclick="getLatest()">Ververs status</button><br/>
+        Status: <span id="status"></span><br/>
+        <br/>
+        <div id="log"></div>
+    </div>
+
+    <h2>Schoon database op</h2>
+    <div>
+        <button onclick="cleanDatabase()">Schoon database op</button>
+    </div>
+
+    <h2>Laad data</h2>
+    <div>
+        Naam van extract.zip: <input type="text" id="fileToLoad" size="65"/><br/>
+        <button onclick="loadExtract()">Laad data</button>
+    </div>
+</body>
+</html>
