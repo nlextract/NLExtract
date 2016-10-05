@@ -26,11 +26,18 @@ mv build/html/* .
 /bin/rm -rf build
 popd
 
-# Take only relevant dirs
-excludes="--exclude=.git --exclude=externals/stetl/.git  --exclude=3d --exclude=ahn2 --exclude=bag/build --exclude=bag/dist --exclude=bgt/data --exclude=bgt/doc --exclude=bonnebladen --exclude=opentopo --exclude=tools --exclude=top10nl/test --exclude=top10nl/doc"
+pushd ${id}
+# Take only relevant dirs from checked out GH sources
+# Remove dirs not to be included
+excludes="*.sh .git externals/stetl/.git  3d ahn2 bag/build bag/dist bgt/data bgt/doc bgt/style bonnebladen brk/dkk opentopo tools top10nl/test top10nl/doc"
+/bin/rm -rf ${excludes}
 
-# create archive
-tar -zcvf ${target} ${excludes} ${id}
+# Make .sh files executable
+find . -name *.sh | xargs chmod +x
+popd
 
-# target="${id}.zip"
-# zip -9 -r ${excludes} ${target} ${id}
+# create archives .tar.gz and .zip
+tar -zcvf ${target} ${id}
+
+target="${id}.zip"
+zip -r ${target} ${id}
