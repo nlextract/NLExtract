@@ -1,9 +1,9 @@
 var STATUS_MAPPING = {
     "-1": "onbekend proces",
-    "0": "proces beëindigd",
-    ">": "proces loopt"}
+    "0": "proces beëindigd"}
 var UNKNOWN_STATUS = "onbekende status";
 
+// Executes an AJAX call
 function ajax(method, url, callback) {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
@@ -17,6 +17,7 @@ function ajax(method, url, callback) {
     xhttp.send();
 }
 
+// Gets the GUID of the latest process
 function getLatest() {
     var callback = function(response) {
         document.getElementById("latest").innerText = response;
@@ -26,6 +27,7 @@ function getLatest() {
     ajax("GET", "/latest", callback);
 }
 
+// Gets the status of the given process
 function getStatus(guid) {
     var callback = function(response) {
         if (response in STATUS_MAPPING) {
@@ -38,17 +40,17 @@ function getStatus(guid) {
     ajax("GET", "/status/" + guid, callback);
 }
 
+// Gets the log file of the given process
 function getLog(guid) {
     var callback = function(response) {
         document.getElementById("log").innerText = response;
     }
-    ajax("GET", "/log/" + guid, callback);
+    var sel = document.getElementById("numlines");
+    var numlines = sel.options[sel.selectedIndex].value;
+    ajax("GET", "/log/" + guid + "/" + numlines, callback);
 }
 
-function reloadLog() {
-    getLog(document.getElementById("latest").innerText);
-}
-
+// Initializes the BAG-extract database
 function cleanDatabase() {
     var callback = function(response) {
         location.reload();
@@ -56,6 +58,7 @@ function cleanDatabase() {
     ajax("POST", "/clean", callback);
 }
 
+// Loads a new extract in the BAG-extract database
 function loadExtract() {
     var callback = function(response) {
         location.reload();

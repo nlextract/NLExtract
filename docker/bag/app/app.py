@@ -1,7 +1,7 @@
 import os, psutil, signal, sqlite3, subprocess, traceback, uuid
 from subprocess import Popen
 
-from flask import Flask, redirect
+from flask import Flask, redirect, abort
 app = Flask(__name__)
 
 DBNAME = 'process.db'
@@ -13,7 +13,6 @@ def root():
     return redirect("static", code=301)
 
 # Cleans the BAG database, because a new full extract will be loaded
-# TODO: support POST only
 @app.route("/clean", methods=['POST'])
 def clean():
     try:
@@ -25,7 +24,6 @@ def clean():
         return tb
 
 # Loads a BAG extract into the database
-# TODO: support POST only
 @app.route("/load/<filename>", methods=['POST'])
 def load(filename):
     try:
@@ -49,7 +47,7 @@ def latest():
     return "0"
 
 # Returns the status of the running process based on the associated GUID
-# Returns: > (running), 0 (finished) or -1 (doesn't exist)
+# Returns: status string (STATUS_RUNNING, etc), 0 (finished) or -1 (doesn't exist)
 @app.route("/status/<guid>", methods=['GET'])
 def status(guid):
     try:
@@ -69,16 +67,34 @@ def status(guid):
         tb = traceback.format_exc()
         return tb
 
-# Gets the contents of the log file of the queried process
+# Gets the contents of the last 10 lines of the log file of the queried process
 @app.route("/log/<guid>", methods=['GET'])
 def log(guid):
+
+    return logLines(guid, 10)
+
+# Gets the last number of lines of the log file of the queried process
+@app.route("/log/<guid>/<numlines>", methods=['GET'])
+def logLines(guid, numlines):
     # Redirecting to static/logs isn't a good idea, because of Nginx caching. Caching could be
     # turned off, but that defeats the idea of static files
 
+    try:
+        numlinesnr = int(numlines)
+    except ValueError:
+        abort(422)
+
     logfile = os.path.join(CURDIR, 'static/logs', 'proc_%s.log' % guid)
-    with open(logfile, "r") as f:
-        data = f.read()
-        return data
+    if not os.path.exists(logfile):
+        abort(404)
+
+    if numlinesnr >= 0:
+        cmd = "tail -n %d %s" % (numlinesnr, logfile)
+    else:
+        cmd = "cat %s" % (logfile)
+
+    data = subprocess.check_output(cmd.split())
+    return data
 
 def get_db_conn():
     filename = os.path.join(CURDIR, DBNAME)

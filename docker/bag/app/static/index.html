@@ -11,13 +11,24 @@
         <br/>
         <button onclick="getLatest()">Ververs status</button><br/>
         Status: <span id="status"></span><br/>
+        Aantal regels:
+            <select id="numlines">
+                <option>10</option>
+                <option>20</option>
+                <option>50</option>
+                <option>100</option>
+                <option>200</option>
+                <option>500</option>
+                <option value="-1">alles</option>
+            </select>
+        <br/>
         <br/>
         <div id="log"></div>
     </div>
 
-    <h2>Schoon database op</h2>
+    <h2>Initialiseer database</h2>
     <div>
-        <button onclick="cleanDatabase()">Schoon database op</button>
+        <button onclick="cleanDatabase()">Initialiseer database</button>
     </div>
 
     <h2>Laad data</h2>
