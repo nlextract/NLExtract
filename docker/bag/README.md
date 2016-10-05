@@ -63,11 +63,17 @@ of
 De Flask-applicatie is een work-in-progress. Meer informatie volgt later.
 De webapplicatie is benaderbaar op IP-adres op poort 80. Gebruik op Windows het commando `docker-machine ip` om het IP-adres te achterhalen. Als je in je browser naar http://<ip-adres> gaat, dien je de tekst `De BAG-extract webservice draait!` te zien.
 
+## Statuspagina
+Endpoint: geen, static
+
 ## Herinitialiseren database
 Endpoint: clean [POST]
 
 ## Laden extract (volledig of mutatie)
 Endpoint: load [POST]
+
+## Ophalen GUID laatste proces
+Endpoint: latest [GET]
 
 ## Voortgang volgen
 Endpoint: status [GET]

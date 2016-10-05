@@ -6,10 +6,10 @@ app = Flask(__name__)
 
 DBNAME = 'process.db'
 
-# Returns some text indicating we're up and running
+# Redirects to the status page
 @app.route("/")
 def root():
-    return "De BAG-extract webservice draait!"
+    return redirect("static", code=301)
 
 # Cleans the BAG database, because a new full extract will be loaded
 # TODO: support POST only
