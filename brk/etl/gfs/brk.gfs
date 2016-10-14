@@ -170,7 +170,7 @@
             <Name>sectie</Name>
             <ElementPath>kadastraleAanduiding|TypeKadastraleAanduiding|sectie</ElementPath>
             <Type>String</Type>
-            <Width>1</Width>
+            <Width>2</Width>
         </PropertyDefn>
         <PropertyDefn>
             <Name>perceelnummer</Name>
