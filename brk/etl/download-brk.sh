@@ -1,7 +1,18 @@
 #!/bin/bash
+#
+# Download BRK GML van PDOK.
+#
+# Auteurs: Just van den Broecke, Frank Steggink
+#
+# Aanroep: ./download-brk.sh [doel_directory]
+# doel_directory is optioneel, anders wordt 'leveringen/latest' gebruikt in huidige dir
+# (tbv automatische BRK verwerking op data.nlextract.nl
+#
 
-# See https://www.pdok.nl/nl/producten/pdok-downloads/basis-registratie-kadaster/kadastrale-kaart
+# Zie https://www.pdok.nl/nl/producten/pdok-downloads/basis-registratie-kadaster/kadastrale-kaart
 base_url="https://geodatastore.pdok.nl/id/dataset"
+
+# UUIDs met bijbehorende provincie tbv identificeren .zip bestand.
 datasets="ab1e23c5-cbf3-4da8-a993-9ce088cc70ed,Flevoland \
 58830183-c66d-41e7-aeb8-84ca33fe118a,Drenthe \
 55e7376d-d8a0-4f82-96a1-386782984cb3,Friesland \
@@ -17,7 +28,19 @@ b1f9fd73-7050-4af1-a48e-85fbd06e17f2,Zeeland \
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-pushd leveringen/latest
+doel_dir="${DIR}/leveringen/latest"
+
+# Evt via commandline overrulen: ./download-brk.sh [doel_directory]
+[ ! -z "$1" ] && doel_dir=$1
+
+echo "doel_dir is ${doel_dir}"
+
+if [ ! -d "${doel_dir}" ]
+then
+  echo "${doel_dir} bestaat niet!"; exit 1
+fi
+
+pushd ${doel_dir}
 for dataset in ${datasets}
 do 
   IFS=","
