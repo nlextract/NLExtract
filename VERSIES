@@ -7,10 +7,16 @@ ONGEPLAND
 - Linked Data
 - Top10NL naar Oracle,
 
+v1.2.1 - 17.okt.2016
+
+Dit is een bugfix release voor 1.2.0.
+Zie de  closed issues voor deze Milestone "Versie 1.2.1" op GitHub:
+https://github.com/nlextract/NLExtract/milestone/10
+
 v1.2.0 - 5.okt.2016
 
 Wat zit in deze release? Heel veel!
-Zie de 62 (!) closed issues voor deze Milestone 1.2.0 op GitHub:
+Zie de 62 (!) closed issues voor deze Milestone "Versie 1.2.0" op GitHub:
 https://github.com/nlextract/NLExtract/milestone/8
 
 v1.1.4 - 9.jan.2014
