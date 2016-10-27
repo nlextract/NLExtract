@@ -65,4 +65,4 @@ naar PostGIS kolom(namen). Maak eventueel een eigen GFS file en specificeer deze
 ``options/<jouw host naam>.args`` (optie 1): bijv ``gfs_template=gfs/mijnbrk.gfs`` of expliciet in optie 2.
 
 ## TODO
-* GUI
+* [GUI](https://github.com/geopython/stetl/issues/39) - funding is welkom!
