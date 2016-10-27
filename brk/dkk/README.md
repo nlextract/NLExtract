@@ -16,4 +16,4 @@ geextraheerd. Zie test/ hieronder.
 
 ## UPDATE
 
-Inmiddels (maart 2016) is de echte ETL, dankzij Frank Steggink, beschikbaar op brk/etl.
+Inmiddels (maart 2016) is de echte ETL, dankzij Frank Steggink, beschikbaar op [brk/etl](../etl).
