@@ -48,13 +48,42 @@
                 </xsl:copy>
             </c:cityObjectMember>
         </xsl:for-each>
-        <xsl:for-each select=".//imgeo:OpenbareRuimteLabel">
-            <c:cityObjectMember>
-                <xsl:copy>
-                    <xsl:copy-of select="*|@*"/>
-                </xsl:copy>
-            </c:cityObjectMember>
+        <xsl:for-each select=".//imgeo:OpenbareRuimteLabel//imgeo:positie">
+            <xsl:variable name="positieId" select="generate-id()"/>
+            <xsl:variable name="positiePos" select="position()"/>
+            <xsl:for-each select="ancestor::imgeo:OpenbareRuimteLabel">
+                <c:cityObjectMember>
+                    <xsl:call-template name="CopyOpenbareRuimteLabel">
+                        <xsl:with-param name="positieId" select="$positieId"/>
+                        <xsl:with-param name="positiePos" select="$positiePos"/>
+                    </xsl:call-template>
+                </c:cityObjectMember>
+            </xsl:for-each>
         </xsl:for-each>
+    </xsl:template>
+    
+    <!-- Kopieer het openbareruimtelabel met slechts een positie-geometrie. Pas tevens het lokaalId
+         aan door het volgnummer van de positie hierin op te nemen, zodat alle instanties van het
+         label bij het dedupliceren gehandhaafd blijft. -->
+    <xsl:template name="CopyOpenbareRuimteLabel">
+        <xsl:param name="positieId"/>
+        <xsl:param name="positiePos"/>
+        
+        <xsl:copy>
+            <xsl:for-each select="@*|node()[not(self::imgeo:positie) or self::imgeo:positie[generate-id()=$positieId]]">
+                <xsl:choose>
+                    <xsl:when test="parent::imgeo:lokaalID">
+                        <xsl:value-of select="concat(., '.', $positiePos)"/>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <xsl:call-template name="CopyOpenbareRuimteLabel">
+                            <xsl:with-param name="positieId" select="$positieId"/>
+                            <xsl:with-param name="positiePos" select="$positiePos"/>
+                        </xsl:call-template>
+                    </xsl:otherwise>
+                </xsl:choose>
+            </xsl:for-each>
+        </xsl:copy>
     </xsl:template>
 
     <xsl:template name="SplitsBGTObject">
