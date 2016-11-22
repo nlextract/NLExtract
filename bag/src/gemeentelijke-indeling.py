@@ -271,7 +271,10 @@ def parse_cbs_data(args):
             continue
 
         header = []
-        for i in range(0, 4):
+        for i in range(0, 6):
+            if not values.has_key((0, i)):
+                break
+
             value = values[(0, i)]
 
             header.append(value)
@@ -346,6 +349,24 @@ def parse_cbs_data(args):
                            'gemeentenaam'  : 1,
                            'provinciecode' : 2,
                            'provincienaam' : 3,
+                         }
+
+        # Gemeentecode	GemeentecodeGM	Gemeentenaam	Provinciecode	ProvinciecodePV	Provincienaam
+        elif(
+              header[0] == 'Gemeentecode'    and
+              header[1] == 'GemeentecodeGM'  and
+              header[2] == 'Gemeentenaam'    and
+              header[3] == 'Provinciecode'   and
+              header[4] == 'ProvinciecodePV' and
+              header[5] == 'Provincienaam'
+            ):
+                column = {
+                           'gemeentecode'    : 0,
+                           'gemeentecodegm'  : 1,
+                           'gemeentenaam'    : 2,
+                           'provinciecode'   : 3,
+                           'provinciecodepv' : 4,
+                           'provincienaam'   : 5,
                          }
 
         # Unsupported format
