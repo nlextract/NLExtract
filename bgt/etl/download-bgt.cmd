@@ -10,7 +10,7 @@ if "%1"=="" (
 :: Datum die als enddate dient
 for /f "tokens=*" %%a in ('date /t') do for %%b in (%%a) do set today=%%b
 
-:: ID's van 64x64 km gebieden om de BGT te downloaden. Let op, de ID's mogen geen voorloopnullen bevatten.
+:: ID's van 32x32 km gebieden om de BGT te downloaden. Let op, de ID's mogen geen voorloopnullen bevatten.
 set blocks=39,45,48,50,51,54,55,56,57,58,59,60,61,62,63,74,75,96,97,98,99,104,105,106,107,110,111,145,148,149,150,151,156,157,158,159,180,181,192,193,194,195,196,197,198,199,200,201,202,203,204,205,206,207,224,225,228,229,230
 
 :: Basis URL
