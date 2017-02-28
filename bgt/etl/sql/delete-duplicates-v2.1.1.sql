@@ -18,9 +18,9 @@ BEGIN
         WHERE table_schema='{schema}' AND table_name=tablename
     )
     THEN
-        EXECUTE 'CREATE TABLE _nlx_temp AS SELECT ogc_fid, lokaalid FROM ' || tablename || ' WHERE lokaalid IN (SELECT lokaalid FROM (SELECT lokaalid, COUNT(*) AS aantal FROM ' || tablename || ' GROUP BY lokaalid ORDER BY lokaalid) AS x WHERE aantal>1);';
+        EXECUTE 'CREATE TABLE _nlx_temp AS SELECT ogc_fid, a.lokaalid, a.tijdstipregistratie FROM ' || tablename || ' a JOIN (SELECT lokaalid, tijdstipregistratie FROM ' || tablename || ' GROUP BY lokaalid, tijdstipregistratie HAVING COUNT(*) > 1) b ON a.lokaalid = b.lokaalid AND a.tijdstipregistratie = b.tijdstipregistratie;';
 
-        EXECUTE 'DELETE FROM ' || tablename || ' WHERE ogc_fid IN (SELECT ogc_fid FROM _nlx_temp WHERE ogc_fid NOT IN (SELECT MIN(ogc_fid) FROM _nlx_temp GROUP BY lokaalid));';
+        EXECUTE 'DELETE FROM ' || tablename || ' WHERE ogc_fid IN (SELECT ogc_fid FROM _nlx_temp WHERE ogc_fid NOT IN (SELECT MIN(ogc_fid) FROM _nlx_temp GROUP BY lokaalid, tijdstipregistratie));';
         GET DIAGNOSTICS rowcount = ROW_COUNT;
 
         DROP TABLE IF EXISTS _nlx_temp;
@@ -75,6 +75,8 @@ SELECT _nlx_dedup_data('mast');
 SELECT _nlx_dedup_data('mast_2d_tmp');
 SELECT _nlx_dedup_data('mast_lod0');
 
+-- Nummeraanduidingsreeksen zijn niet te dedupliceren, omdat ze via panden geladen worden. Mogelijk
+-- ontstaan hierdoor toch dubbelingen. Nader onderzoeken.
 --SELECT _nlx_dedup_data('nummeraanduidingreeks');
 
 SELECT _nlx_dedup_data('onbegroeidterreindeel');
@@ -126,8 +128,10 @@ SELECT _nlx_dedup_data('pand');
 SELECT _nlx_dedup_data('pand_2d_tmp');
 SELECT _nlx_dedup_data('pand_lod0');
 
-SELECT _nlx_dedup_data('plaatsbepalingspunt');
-SELECT _nlx_dedup_data('plaatsbepalingspunt_tmp');
+-- Plaatsbepalingspunten tijdelijk uitgeschakeld, bevatten geen tijdstipregistratie en zitten niet
+-- in de dump.
+--SELECT _nlx_dedup_data('plaatsbepalingspunt');
+--SELECT _nlx_dedup_data('plaatsbepalingspunt_tmp');
 
 SELECT _nlx_dedup_data('put');
 SELECT _nlx_dedup_data('put_2d_tmp');
