@@ -4,7 +4,6 @@
 #
 # Auteur: Just van den Broecke
 
-
 #
 # $1 doel directory
 dst_dir=$1
