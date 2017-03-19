@@ -7,6 +7,15 @@ ONGEPLAND
 - Linked Data
 - Top10NL naar Oracle,
 
+v1.3.0 - gepland maart 2017
+
+Zie Milestone:
+https://github.com/nlextract/NLExtract/milestone/9
+
+O.a.
+- nieuwe BRK download PDOK #204 #213
+- BGT verwerking crash #211
+
 v1.2.1 - 17.okt.2016
 
 Dit is een bugfix release voor 1.2.0.
