@@ -54,7 +54,7 @@ Bag-extract downloaden
 Afhankelijkheden
 ----------------
 
-- PostgreSQL: relationele database, minimaal versie 9.1, optimaal is versie 9.5, zie http://www.postgresql.org
+- PostgreSQL: relationele database, minimaal versie 9.1, optimaal is versie 9.5, Aangemaakte DB moet **UTF8 encoding** hebben. zie http://www.postgresql.org
 - PostGIS: spatial extensie PostgreSQL, bijv. opslag geodata, minimaal versie 2.0, optimaal is versie 2.2, zie http://postgis.org
 - Python: versie 2, minimaal versie 2.4.3, beste is 2.7 voor lxml, geen Python 3
 - Python argparse package, voor argument parsing alleen indien Python < 2.7
@@ -123,6 +123,10 @@ Installatie (Linux)
     # CREATE EXTENSION
     postgis2=# CREATE EXTENSION postgis_topology;
     # CREATE EXTENSION
+
+    # Nieuwe database "bag" aanmaken met template "postgis2"
+    # NB belangrijk is dat de bag DB de character-set UTF8 (-E UTF8) heeft!
+    createdb --owner postgres -T postgis2 -E UTF8 bag
 
 - optioneel: Python package afhankelijkheden installeren bijv
   ::
@@ -347,6 +351,11 @@ vooral ook je PostgreSQL instellingen. Beste is om deze met standaard PSQL uit t
 
 Het resultaat van het genereren van gemeenten en provincies uit woonplaats geometrieen is nog "rommelig":
 veel kleine polygonen. Die willen we nog uitfilteren.
+
+Bij foutmeldingen als *COPY failed for table "nummeraanduiding": ERROR: value too long for type character varying(20)*
+heeft je "bag" database niet de **UTF8 character encoding** (zie boven). Check bij aanmaken, vooral op Windows,
+of je DB de character-encoding UTF8 heeft. Is later aan te passen.
+Zie ook `dit issue <https://github.com/nlextract/NLExtract/issues/217>`_.
 
 Zie http://docs.kademo.nl/project/bagextract.html voor een installatie voorbeeld.
 

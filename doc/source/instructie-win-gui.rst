@@ -236,6 +236,7 @@ PgAdmin III - BAG database aanmaken
 
 De BAG database aanmaken omvat twee stappen, namelijk een PostgreSQL database aanmaken en een PostGIS uitbreiding toevoegen aan de database.
 Open voor het aanmaken van een nieuwe database het contextmenu (rechter muisknop) op 'Databases' en kies 'New Database'.
+NB belangrijk is dat de database met de character-set UTF-8 wordt aangemaakt!
 
 .. image:: _static/images/nlextractimg(56).png
     :alt: alternate text
