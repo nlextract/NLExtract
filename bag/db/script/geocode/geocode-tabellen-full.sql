@@ -27,7 +27,7 @@ DROP TABLE IF EXISTS geo_adres CASCADE;
 CREATE TABLE geo_adres (
     verblijfsobjectgebruiksdoel character varying,
     verblijfsobjectstatus character varying,
-    verblijfsobjectid numeric(16,0),
+    adresseerbaarobject numeric(16,0),
     typeadresseerbaarobject character varying(3),
     nummeraanduiding numeric(16,0),
     nevenadres BOOLEAN DEFAULT FALSE,
@@ -49,7 +49,7 @@ CREATE TABLE geo_adres (
 );
 
 -- Insert (actuele+bestaande) data uit combinatie van BAG tabellen: Verblijfplaats
-INSERT INTO geo_adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeging, postcode, woonplaatsnaam, gemeentenaam, provincienaam, verblijfsobjectid, nummeraanduiding, verblijfsobjectgebruiksdoel, verblijfsobjectstatus, typeadresseerbaarobject, pandid, pandstatus, pandbouwjaar, geopunt)
+INSERT INTO geo_adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeging, postcode, woonplaatsnaam, gemeentenaam, provincienaam, adresseerbaarobject, nummeraanduiding, verblijfsobjectgebruiksdoel, verblijfsobjectstatus, typeadresseerbaarobject, pandid, pandstatus, pandbouwjaar, geopunt)
   SELECT
 	o.openbareruimtenaam,
 	n.huisnummer,
@@ -64,7 +64,7 @@ INSERT INTO geo_adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoe
 		WHEN p2.gemeentenaam IS NULL THEN  p.gemeentenaam ELSE  p2.gemeentenaam END),
 	(CASE
 		WHEN p2.provincienaam IS NULL THEN  p.provincienaam ELSE  p2.provincienaam END),
-	v.identificatie as verblijfsobjectid,
+	v.identificatie as adresseerbaarobject,
 	n.identificatie as nummeraanduiding,
 	ARRAY_TO_STRING(ARRAY_AGG(d.gebruiksdoelverblijfsobject ORDER BY gebruiksdoelverblijfsobject), ', ') AS verblijfsobjectgebruiksdoel,
 	v.verblijfsobjectstatus,
@@ -112,7 +112,7 @@ GROUP BY
 		WHEN p2.gemeentenaam IS NULL THEN  p.gemeentenaam ELSE  p2.gemeentenaam END),
 	(CASE
 		WHEN p2.provincienaam IS NULL THEN  p.provincienaam ELSE  p2.provincienaam END),
-	verblijfsobjectid,
+	adresseerbaarobject,
 	nummeraanduiding,
 	v.verblijfsobjectstatus,
 	typeadresseerbaarobject,
@@ -122,7 +122,7 @@ GROUP BY
 	geopunt;
 
 -- Insert (actuele+bestaande) data uit combinatie van BAG tabellen : Ligplaats
-INSERT INTO geo_adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeging, postcode, woonplaatsnaam, gemeentenaam, provincienaam, verblijfsobjectid, nummeraanduiding, verblijfsobjectgebruiksdoel, verblijfsobjectstatus, typeadresseerbaarobject, pandid, pandstatus, pandbouwjaar, geopunt)
+INSERT INTO geo_adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeging, postcode, woonplaatsnaam, gemeentenaam, provincienaam, adresseerbaarobject, nummeraanduiding, verblijfsobjectgebruiksdoel, verblijfsobjectstatus, typeadresseerbaarobject, pandid, pandstatus, pandbouwjaar, geopunt)
   SELECT
 	o.openbareruimtenaam,
 	n.huisnummer,
@@ -137,7 +137,7 @@ INSERT INTO geo_adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoe
 		WHEN p2.gemeentenaam IS NULL THEN  p.gemeentenaam ELSE  p2.gemeentenaam END),
 	(CASE
 		WHEN p2.provincienaam IS NULL THEN  p.provincienaam ELSE  p2.provincienaam END),
-	l.identificatie as verblijfsobjectid,
+	l.identificatie as adresseerbaarobject,
 	n.identificatie as nummeraanduiding,
 	'Ligplaats', -- verblijfsobjectgebruiksdoel
 	l.ligplaatsstatus, -- verblijfsobjectstatus
@@ -170,7 +170,7 @@ FROM
 	ON (g2.gemeentecode = p2.gemeentecode);
 
 -- Insert data uit combinatie van BAG tabellen : Standplaats
-INSERT INTO geo_adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeging, postcode, woonplaatsnaam, gemeentenaam, provincienaam, verblijfsobjectid, nummeraanduiding, verblijfsobjectgebruiksdoel, verblijfsobjectstatus, typeadresseerbaarobject, pandid, pandstatus, pandbouwjaar, geopunt)
+INSERT INTO geo_adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeging, postcode, woonplaatsnaam, gemeentenaam, provincienaam, adresseerbaarobject, nummeraanduiding, verblijfsobjectgebruiksdoel, verblijfsobjectstatus, typeadresseerbaarobject, pandid, pandstatus, pandbouwjaar, geopunt)
   SELECT
 	o.openbareruimtenaam,
 	n.huisnummer,
@@ -185,7 +185,7 @@ INSERT INTO geo_adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoe
 		WHEN p2.gemeentenaam IS NULL THEN  p.gemeentenaam ELSE  p2.gemeentenaam END),
 	(CASE
 		WHEN p2.provincienaam IS NULL THEN  p.provincienaam ELSE  p2.provincienaam END),
-	s.identificatie as verblijfsobjectid,
+	s.identificatie as adresseerbaarobject,
 	n.identificatie as nummeraanduiding,
 	'Standplaats', -- verblijfsobjectgebruiksdoel
 	s.standplaatsstatus, -- verblijfsobjectstatus
@@ -218,7 +218,7 @@ FROM
 	ON (g2.gemeentecode = p2.gemeentecode);
 
 -- Insert (actuele+bestaande) data uit combinatie van BAG tabellen: Nevenadressen voor Verblijfplaats
-INSERT INTO geo_adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeging, postcode, woonplaatsnaam, gemeentenaam, provincienaam, verblijfsobjectid, nummeraanduiding, nevenadres, verblijfsobjectgebruiksdoel, verblijfsobjectstatus, typeadresseerbaarobject, pandid, pandstatus, pandbouwjaar, geopunt)
+INSERT INTO geo_adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeging, postcode, woonplaatsnaam, gemeentenaam, provincienaam, adresseerbaarobject, nummeraanduiding, nevenadres, verblijfsobjectgebruiksdoel, verblijfsobjectstatus, typeadresseerbaarobject, pandid, pandstatus, pandbouwjaar, geopunt)
   SELECT
 	o.openbareruimtenaam,
 	n.huisnummer,
@@ -233,7 +233,7 @@ INSERT INTO geo_adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoe
 		WHEN p2.gemeentenaam IS NULL THEN  p.gemeentenaam ELSE  p2.gemeentenaam END),
 	(CASE
 		WHEN p2.provincienaam IS NULL THEN  p.provincienaam ELSE  p2.provincienaam END),
-	aon.identificatie as verblijfsobjectid,
+	aon.identificatie as adresseerbaarobject,
 	n.identificatie as nummeraanduiding,
 	TRUE, -- nevenadres
 	ARRAY_TO_STRING(ARRAY_AGG(d.gebruiksdoelverblijfsobject ORDER BY gebruiksdoelverblijfsobject), ', ') AS verblijfsobjectgebruiksdoel,
@@ -283,7 +283,7 @@ GROUP BY
 		WHEN p2.gemeentenaam IS NULL THEN  p.gemeentenaam ELSE  p2.gemeentenaam END),
 	(CASE
 		WHEN p2.provincienaam IS NULL THEN  p.provincienaam ELSE  p2.provincienaam END),
-	verblijfsobjectid,
+	adresseerbaarobject,
 	nummeraanduiding,
 	v.verblijfsobjectstatus,
 	typeadresseerbaarobject,
@@ -293,7 +293,7 @@ GROUP BY
 	geopunt;
 
 -- Insert (actuele+bestaande) data uit combinatie van BAG tabellen: Nevenadressen voor Ligplaats
-INSERT INTO geo_adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeging, postcode, woonplaatsnaam, gemeentenaam, provincienaam, verblijfsobjectid, nummeraanduiding, nevenadres, verblijfsobjectgebruiksdoel, verblijfsobjectstatus, typeadresseerbaarobject, pandid, pandstatus, pandbouwjaar, geopunt)
+INSERT INTO geo_adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeging, postcode, woonplaatsnaam, gemeentenaam, provincienaam, adresseerbaarobject, nummeraanduiding, nevenadres, verblijfsobjectgebruiksdoel, verblijfsobjectstatus, typeadresseerbaarobject, pandid, pandstatus, pandbouwjaar, geopunt)
   SELECT
 	o.openbareruimtenaam,
 	n.huisnummer,
@@ -303,7 +303,7 @@ INSERT INTO geo_adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoe
 	COALESCE(wp2.woonplaatsnaam,w.woonplaatsnaam),
 	COALESCE(p2.gemeentenaam,p.gemeentenaam),
 	COALESCE(p2.provincienaam,p.provincienaam),
-	aon.identificatie as verblijfsobjectid,
+	aon.identificatie as adresseerbaarobject,
 	n.identificatie as nummeraanduiding,
 	TRUE, -- nevenadres
 	'Ligplaats', -- verblijfsobjectgebruiksdoel
@@ -339,7 +339,7 @@ FROM
 	ON (g2.gemeentecode = p2.gemeentecode);
 
 -- Insert (actuele+bestaande) data uit combinatie van BAG tabellen: Nevenadressen voor Standplaats
-INSERT INTO geo_adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeging, postcode, woonplaatsnaam, gemeentenaam, provincienaam, verblijfsobjectid, nummeraanduiding, nevenadres, verblijfsobjectgebruiksdoel, verblijfsobjectstatus, typeadresseerbaarobject, pandid, pandstatus, pandbouwjaar, geopunt)
+INSERT INTO geo_adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeging, postcode, woonplaatsnaam, gemeentenaam, provincienaam, adresseerbaarobject, nummeraanduiding, nevenadres, verblijfsobjectgebruiksdoel, verblijfsobjectstatus, typeadresseerbaarobject, pandid, pandstatus, pandbouwjaar, geopunt)
   SELECT
 	o.openbareruimtenaam,
 	n.huisnummer,
@@ -349,7 +349,7 @@ INSERT INTO geo_adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoe
 	COALESCE(wp2.woonplaatsnaam,w.woonplaatsnaam),
 	COALESCE(p2.gemeentenaam,p.gemeentenaam),
 	COALESCE(p2.provincienaam,p.provincienaam),
-	aon.identificatie as verblijfsobjectid,
+	aon.identificatie as adresseerbaarobject,
 	n.identificatie as nummeraanduiding,
 	TRUE, -- nevenadres
 	'Standplaats', -- verblijfsobjectgebruiksdoel

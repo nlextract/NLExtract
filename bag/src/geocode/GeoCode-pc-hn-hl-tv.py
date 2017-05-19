@@ -59,7 +59,7 @@ row_count = sum(1 for row in SID) #Count rows
 #print 'Number of rows = ', row_count
 
 # Column Selection from database
-SEL = "nummeraanduiding, verblijfsobjectid, pandid, pandstatus, pandbouwjaar, openbareruimtenaam, postcode, huisnummer, huisletter, huisnummertoevoeging, woonplaatsnaam, gemeentenaam, provincienaam, verblijfsobjectgebruiksdoel, verblijfsobjectstatus, typeadresseerbaarobject, nevenadres, st_x(ST_transform(geopunt, 4326)), st_y(ST_transform(geopunt, 4326)), st_x(geopunt), st_y(geopunt)"
+SEL = "nummeraanduiding, adresseerbaarobject, pandid, pandstatus, pandbouwjaar, openbareruimtenaam, postcode, huisnummer, huisletter, huisnummertoevoeging, woonplaatsnaam, gemeentenaam, provincienaam, verblijfsobjectgebruiksdoel, verblijfsobjectstatus, typeadresseerbaarobject, nevenadres, st_x(ST_transform(geopunt, 4326)), st_y(ST_transform(geopunt, 4326)), st_x(geopunt), st_y(geopunt)"
 
 # Open database connection
 conn = psycopg2.connect(database="bag", user="kademo", password="kademo", host="127.0.0.1", port="5432")
@@ -67,7 +67,7 @@ cur = conn.cursor()
 
 # Write CSV header
 with io.open(OutputFile, 'a', encoding='utf-8-sig') as logfile:
-    logfile.write(u"UID;%s;nummeraanduiding;verblijfsobjectid;pandid;pandstatus;pandbouwjaar;openbareruimtenaam;postcode;huisnummer;huisletter;huisnummertoevoeging;woonplaatsnaam;gemeentenaam;provincienaam;verblijfsobjectgebruiksdoel;verblijfsobjectstatus;typeadresseerbaarobject;nevenadres;lon;lat;rd_x;rd_y;Dubbeling" % InAdres)
+    logfile.write(u"UID;%s;nummeraanduiding;adresseerbaarobject;pandid;pandstatus;pandbouwjaar;openbareruimtenaam;postcode;huisnummer;huisletter;huisnummertoevoeging;woonplaatsnaam;gemeentenaam;provincienaam;verblijfsobjectgebruiksdoel;verblijfsobjectstatus;typeadresseerbaarobject;nevenadres;lon;lat;rd_x;rd_y;Dubbeling" % InAdres)
     for item in header[4:]: #add input header minus first 4 columns
         logfile.write(u";%s" % item)
     logfile.write(u"\n")
@@ -154,7 +154,7 @@ for row in SID:
 
     for brow in rows:
         nummeraanduiding = brow[0]
-        verblijfsobjectid =  brow[1]
+        adresseerbaarobject =  brow[1]
         pandid =  brow[2]
         pandstatus =  brow[3]
         pandbouwjaar =  brow[4]
@@ -176,7 +176,7 @@ for row in SID:
         rd_y = "{:.3f}".format(Decimal(brow[20])).rstrip('0').rstrip('.').replace(".",",")
 
         #print "nummeraanduiding = ", nummeraanduiding
-        #print "verblijfsobjectid = ", verblijfsobjectid
+        #print "adresseerbaarobject = ", adresseerbaarobject
         #print "pandid = ", pandid
         #print "pandstatus = ", pandstatus
         #print "pandbouwjaar = ", pandbouwjaar
@@ -195,7 +195,7 @@ for row in SID:
         #print "rd_y = ", rd_y, "\n"
 
         with io.open(OutputFile, 'a', encoding='utf-8-sig') as logfile:
-            logfile.write(u"%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s" % (uid,req,nummeraanduiding,verblijfsobjectid,pandid,pandstatus,pandbouwjaar,openbareruimtenaam,postcode,huisnummer,huisletter,huisnummertoevoeging,woonplaatsnaam,gemeentenaam,provincienaam,verblijfsobjectgebruiksdoel,verblijfsobjectstatus,typeadresseerbaarobject,nevenadres,lon,lat,rd_x,rd_y,mult))
+            logfile.write(u"%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s" % (uid,req,nummeraanduiding,adresseerbaarobject,pandid,pandstatus,pandbouwjaar,openbareruimtenaam,postcode,huisnummer,huisletter,huisnummertoevoeging,woonplaatsnaam,gemeentenaam,provincienaam,verblijfsobjectgebruiksdoel,verblijfsobjectstatus,typeadresseerbaarobject,nevenadres,lon,lat,rd_x,rd_y,mult))
             for item in range(ncol-4):
                 logfile.write(u";%s" % row[4+item])
             logfile.write(u"\n")
