@@ -58,12 +58,9 @@ INSERT INTO geo_adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoe
 	n.postcode,
 -- Wanneer nummeraanduiding een gerelateerdewoonplaats heeft moet die gebruikt worden ipv via openbareruimte!
 -- Zie issue: https://github.com/nlextract/NLExtract/issues/54
-	(CASE
-		WHEN wp2.woonplaatsnaam IS NULL THEN w.woonplaatsnaam ELSE wp2.woonplaatsnaam END),
-	(CASE
-		WHEN p2.gemeentenaam IS NULL THEN  p.gemeentenaam ELSE  p2.gemeentenaam END),
-	(CASE
-		WHEN p2.provincienaam IS NULL THEN  p.provincienaam ELSE  p2.provincienaam END),
+	COALESCE(wp2.woonplaatsnaam,w.woonplaatsnaam),
+	COALESCE(p2.gemeentenaam,p.gemeentenaam),
+	COALESCE(p2.provincienaam,p.provincienaam),
 	v.identificatie as adresseerbaarobject,
 	n.identificatie as nummeraanduiding,
 	ARRAY_TO_STRING(ARRAY_AGG(d.gebruiksdoelverblijfsobject ORDER BY gebruiksdoelverblijfsobject), ', ') AS verblijfsobjectgebruiksdoel,
@@ -106,12 +103,9 @@ GROUP BY
 	n.huisletter,
 	n.huisnummertoevoeging,
 	n.postcode,
-	(CASE
-		WHEN wp2.woonplaatsnaam IS NULL THEN w.woonplaatsnaam ELSE wp2.woonplaatsnaam END),
-	(CASE
-		WHEN p2.gemeentenaam IS NULL THEN  p.gemeentenaam ELSE  p2.gemeentenaam END),
-	(CASE
-		WHEN p2.provincienaam IS NULL THEN  p.provincienaam ELSE  p2.provincienaam END),
+	COALESCE(wp2.woonplaatsnaam,w.woonplaatsnaam),
+	COALESCE(p2.gemeentenaam,p.gemeentenaam),
+	COALESCE(p2.provincienaam,p.provincienaam),
 	adresseerbaarobject,
 	nummeraanduiding,
 	v.verblijfsobjectstatus,
@@ -131,12 +125,9 @@ INSERT INTO geo_adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoe
 	n.postcode,
 	-- Wanneer nummeraanduiding een gerelateerdewoonplaats heeft moet die gebruikt worden ipv via openbareruimte!
 	-- Zie issue: https://github.com/nlextract/NLExtract/issues/54
-	(CASE
-		WHEN wp2.woonplaatsnaam IS NULL THEN w.woonplaatsnaam ELSE wp2.woonplaatsnaam END),
-	(CASE
-		WHEN p2.gemeentenaam IS NULL THEN  p.gemeentenaam ELSE  p2.gemeentenaam END),
-	(CASE
-		WHEN p2.provincienaam IS NULL THEN  p.provincienaam ELSE  p2.provincienaam END),
+	COALESCE(wp2.woonplaatsnaam,w.woonplaatsnaam),
+	COALESCE(p2.gemeentenaam,p.gemeentenaam),
+	COALESCE(p2.provincienaam,p.provincienaam),
 	l.identificatie as adresseerbaarobject,
 	n.identificatie as nummeraanduiding,
 	'Ligplaats', -- verblijfsobjectgebruiksdoel
@@ -179,12 +170,9 @@ INSERT INTO geo_adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoe
 	n.postcode,
 	-- Wanneer nummeraanduiding een gerelateerdewoonplaats heeft moet die gebruikt worden ipv via openbareruimte!
 	-- Zie issue: https://github.com/nlextract/NLExtract/issues/54
-	(CASE
-		WHEN wp2.woonplaatsnaam IS NULL THEN w.woonplaatsnaam ELSE wp2.woonplaatsnaam END),
-	(CASE
-		WHEN p2.gemeentenaam IS NULL THEN  p.gemeentenaam ELSE  p2.gemeentenaam END),
-	(CASE
-		WHEN p2.provincienaam IS NULL THEN  p.provincienaam ELSE  p2.provincienaam END),
+	COALESCE(wp2.woonplaatsnaam,w.woonplaatsnaam),
+	COALESCE(p2.gemeentenaam,p.gemeentenaam),
+	COALESCE(p2.provincienaam,p.provincienaam),
 	s.identificatie as adresseerbaarobject,
 	n.identificatie as nummeraanduiding,
 	'Standplaats', -- verblijfsobjectgebruiksdoel
@@ -227,12 +215,9 @@ INSERT INTO geo_adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoe
 	n.postcode,
 	-- Wanneer nummeraanduiding een gerelateerdewoonplaats heeft moet die gebruikt worden ipv via openbareruimte!
 	-- Zie issue: https://github.com/nlextract/NLExtract/issues/54
-	(CASE
-		WHEN wp2.woonplaatsnaam IS NULL THEN w.woonplaatsnaam ELSE wp2.woonplaatsnaam END),
-	(CASE
-		WHEN p2.gemeentenaam IS NULL THEN  p.gemeentenaam ELSE  p2.gemeentenaam END),
-	(CASE
-		WHEN p2.provincienaam IS NULL THEN  p.provincienaam ELSE  p2.provincienaam END),
+	COALESCE(wp2.woonplaatsnaam,w.woonplaatsnaam),
+	COALESCE(p2.gemeentenaam,p.gemeentenaam),
+	COALESCE(p2.provincienaam,p.provincienaam),
 	aon.identificatie as adresseerbaarobject,
 	n.identificatie as nummeraanduiding,
 	TRUE, -- nevenadres
@@ -277,12 +262,9 @@ GROUP BY
 	n.huisletter,
 	n.huisnummertoevoeging,
 	n.postcode,
-	(CASE
-		WHEN wp2.woonplaatsnaam IS NULL THEN w.woonplaatsnaam ELSE wp2.woonplaatsnaam END),
-	(CASE
-		WHEN p2.gemeentenaam IS NULL THEN  p.gemeentenaam ELSE  p2.gemeentenaam END),
-	(CASE
-		WHEN p2.provincienaam IS NULL THEN  p.provincienaam ELSE  p2.provincienaam END),
+	COALESCE(wp2.woonplaatsnaam,w.woonplaatsnaam),
+	COALESCE(p2.gemeentenaam,p.gemeentenaam),
+	COALESCE(p2.provincienaam,p.provincienaam),
 	adresseerbaarobject,
 	nummeraanduiding,
 	v.verblijfsobjectstatus,
