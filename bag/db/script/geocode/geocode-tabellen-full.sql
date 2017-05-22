@@ -23,8 +23,8 @@
 --
 
 -- Volledig adres
-DROP TABLE IF EXISTS geo_adres CASCADE;
-CREATE TABLE geo_adres (
+DROP TABLE IF EXISTS geo_adres_full CASCADE;
+CREATE TABLE geo_adres_full (
   verblijfsobjectgebruiksdoel character varying,
   verblijfsobjectstatus character varying,
   adresseerbaarobject numeric(16,0),
@@ -49,7 +49,7 @@ CREATE TABLE geo_adres (
 );
 
 -- Insert (actuele+bestaande) data uit combinatie van BAG tabellen: Verblijfplaats
-INSERT INTO geo_adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeging, postcode, woonplaatsnaam, gemeentenaam, provincienaam, adresseerbaarobject,
+INSERT INTO geo_adres_full (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeging, postcode, woonplaatsnaam, gemeentenaam, provincienaam, adresseerbaarobject,
                        nummeraanduiding, verblijfsobjectgebruiksdoel, verblijfsobjectstatus, typeadresseerbaarobject, pandid, pandstatus, pandbouwjaar, geopunt)
   SELECT
   	o.openbareruimtenaam,
@@ -116,7 +116,7 @@ INSERT INTO geo_adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoe
   	geopunt;
 
 -- Insert (actuele+bestaande) data uit combinatie van BAG tabellen : Ligplaats
-INSERT INTO geo_adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeging, postcode, woonplaatsnaam, gemeentenaam, provincienaam, adresseerbaarobject,
+INSERT INTO geo_adres_full (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeging, postcode, woonplaatsnaam, gemeentenaam, provincienaam, adresseerbaarobject,
                        nummeraanduiding, verblijfsobjectgebruiksdoel, verblijfsobjectstatus, typeadresseerbaarobject, pandid, pandstatus, pandbouwjaar, geopunt)
   SELECT
   	o.openbareruimtenaam,
@@ -162,7 +162,7 @@ INSERT INTO geo_adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoe
   	ON (g2.gemeentecode = p2.gemeentecode);
 
 -- Insert data uit combinatie van BAG tabellen : Standplaats
-INSERT INTO geo_adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeging, postcode, woonplaatsnaam, gemeentenaam, provincienaam, adresseerbaarobject,
+INSERT INTO geo_adres_full (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeging, postcode, woonplaatsnaam, gemeentenaam, provincienaam, adresseerbaarobject,
                        nummeraanduiding, verblijfsobjectgebruiksdoel, verblijfsobjectstatus, typeadresseerbaarobject, pandid, pandstatus, pandbouwjaar, geopunt)
   SELECT
     o.openbareruimtenaam,
@@ -208,7 +208,7 @@ INSERT INTO geo_adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoe
     ON (g2.gemeentecode = p2.gemeentecode);
 
 -- Insert (actuele+bestaande) data uit combinatie van BAG tabellen: Nevenadressen voor Verblijfplaats
-INSERT INTO geo_adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeging, postcode, woonplaatsnaam, gemeentenaam, provincienaam, adresseerbaarobject,
+INSERT INTO geo_adres_full (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeging, postcode, woonplaatsnaam, gemeentenaam, provincienaam, adresseerbaarobject,
                        nummeraanduiding, nevenadres, verblijfsobjectgebruiksdoel, verblijfsobjectstatus, typeadresseerbaarobject, pandid, pandstatus, pandbouwjaar, geopunt)
   SELECT
     o.openbareruimtenaam,
@@ -278,7 +278,7 @@ INSERT INTO geo_adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoe
     geopunt;
 
 -- Insert (actuele+bestaande) data uit combinatie van BAG tabellen: Nevenadressen voor Ligplaats
-INSERT INTO geo_adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeging, postcode, woonplaatsnaam, gemeentenaam, provincienaam, adresseerbaarobject,
+INSERT INTO geo_adres_full (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeging, postcode, woonplaatsnaam, gemeentenaam, provincienaam, adresseerbaarobject,
                        nummeraanduiding, nevenadres, verblijfsobjectgebruiksdoel, verblijfsobjectstatus, typeadresseerbaarobject, pandid, pandstatus, pandbouwjaar, geopunt)
   SELECT
     o.openbareruimtenaam,
@@ -325,7 +325,7 @@ INSERT INTO geo_adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoe
     ON (g2.gemeentecode = p2.gemeentecode);
 
 -- Insert (actuele+bestaande) data uit combinatie van BAG tabellen: Nevenadressen voor Standplaats
-INSERT INTO geo_adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeging, postcode, woonplaatsnaam, gemeentenaam, provincienaam, adresseerbaarobject,
+INSERT INTO geo_adres_full (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeging, postcode, woonplaatsnaam, gemeentenaam, provincienaam, adresseerbaarobject,
                        nummeraanduiding, nevenadres, verblijfsobjectgebruiksdoel, verblijfsobjectstatus, typeadresseerbaarobject, pandid, pandstatus, pandbouwjaar, geopunt)
   SELECT
     o.openbareruimtenaam,
@@ -372,16 +372,16 @@ INSERT INTO geo_adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoe
     ON (g2.gemeentecode = p2.gemeentecode);
 
 -- Maak indexen aan na inserten (betere performance)
-CREATE INDEX geo_adres_geom_idx ON geo_adres USING gist (geopunt);
+CREATE INDEX geo_adres_full_geom_idx ON geo_adres_full USING gist (geopunt);
 
-DROP SEQUENCE IF EXISTS geo_adres_gid_seq;
-CREATE SEQUENCE geo_adres_gid_seq;
-ALTER TABLE geo_adres ADD gid integer UNIQUE;
-ALTER TABLE geo_adres ALTER COLUMN gid SET DEFAULT NEXTVAL('geo_adres_gid_seq');
-UPDATE geo_adres SET gid = NEXTVAL('geo_adres_gid_seq');
-ALTER TABLE geo_adres ADD PRIMARY KEY (gid);
+DROP SEQUENCE IF EXISTS geo_adres_full_gid_seq;
+CREATE SEQUENCE geo_adres_full_gid_seq;
+ALTER TABLE geo_adres_full ADD gid integer UNIQUE;
+ALTER TABLE geo_adres_full ALTER COLUMN gid SET DEFAULT NEXTVAL('geo_adres_full_gid_seq');
+UPDATE geo_adres_full SET gid = NEXTVAL('geo_adres_full_gid_seq');
+ALTER TABLE geo_adres_full ADD PRIMARY KEY (gid);
 
-CREATE INDEX geo_adres_postcode_huisnummer_idx ON geo_adres USING btree (postcode,huisnummer);
+CREATE INDEX geo_adres_full_postcode_huisnummer_idx ON geo_adres_full USING btree (postcode,huisnummer);
 
 
 --
@@ -390,7 +390,7 @@ CREATE INDEX geo_adres_postcode_huisnummer_idx ON geo_adres USING btree (postcod
 DROP TABLE IF EXISTS geo_postcode6 CASCADE;
 
 CREATE table geo_postcode6 AS (
-  SELECT distinct provincienaam, gemeentenaam, woonplaatsnaam, openbareruimtenaam, postcode from geo_adres
+  SELECT distinct provincienaam, gemeentenaam, woonplaatsnaam, openbareruimtenaam, postcode from geo_adres_full
 );
 
 DROP SEQUENCE IF EXISTS geo_postcode6_id_seq;
@@ -420,7 +420,7 @@ CREATE INDEX geo_postcode6_openbareruimtenaam_idx ON geo_postcode6 USING btree (
 update geo_postcode6 AS pc6
   set geopunt =
     (SELECT ST_Force2D(geopunt)
-      from geo_adres
+      from geo_adres_full
         where postcode = pc6.postcode
         and openbareruimtenaam = pc6.openbareruimtenaam
         limit 1

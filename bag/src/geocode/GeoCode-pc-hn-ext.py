@@ -109,27 +109,27 @@ for row in SID:
 
     if hl == "" and ht == "":
         #print "PC+HN"
-        cur.execute("SELECT %s FROM geo_adres WHERE postcode = %s AND huisnummer = %s AND huisletter IS NULL AND huisnummertoevoeging IS NULL AND left(verblijfsobjectstatus, 26) = 'Verblijfsobject in gebruik'", (AsIs(SEL), row[0], row[1],))
+        cur.execute("SELECT %s FROM geo_adres_full WHERE postcode = %s AND huisnummer = %s AND huisletter IS NULL AND huisnummertoevoeging IS NULL AND left(verblijfsobjectstatus, 26) = 'Verblijfsobject in gebruik'", (AsIs(SEL), row[0], row[1],))
     elif hl == "":
         #print "PC+HN+ht"
-        cur.execute("SELECT %s FROM geo_adres WHERE postcode = %s AND huisnummer = %s AND huisletter IS NULL AND LOWER(huisnummertoevoeging) = LOWER(%s) AND left(verblijfsobjectstatus, 26) = 'Verblijfsobject in gebruik'", (AsIs(SEL), row[0], row[1], ht,))
+        cur.execute("SELECT %s FROM geo_adres_full WHERE postcode = %s AND huisnummer = %s AND huisletter IS NULL AND LOWER(huisnummertoevoeging) = LOWER(%s) AND left(verblijfsobjectstatus, 26) = 'Verblijfsobject in gebruik'", (AsIs(SEL), row[0], row[1], ht,))
     elif ht == "":
         #print "PC+HN+HL"
-        cur.execute("SELECT %s FROM geo_adres WHERE postcode = %s AND huisnummer = %s AND LOWER(huisletter) = LOWER(%s) AND huisnummertoevoeging IS NULL AND left(verblijfsobjectstatus, 26) = 'Verblijfsobject in gebruik'", (AsIs(SEL), row[0], row[1], hl,))
+        cur.execute("SELECT %s FROM geo_adres_full WHERE postcode = %s AND huisnummer = %s AND LOWER(huisletter) = LOWER(%s) AND huisnummertoevoeging IS NULL AND left(verblijfsobjectstatus, 26) = 'Verblijfsobject in gebruik'", (AsIs(SEL), row[0], row[1], hl,))
     else:
         #print "PC+HN+HL+ht"
-        cur.execute("SELECT %s FROM geo_adres WHERE postcode = %s AND huisnummer = %s AND LOWER(huisletter) = LOWER(%s) AND LOWER(huisnummertoevoeging) = LOWER(%s) AND left(verblijfsobjectstatus, 26) = 'Verblijfsobject in gebruik'", (AsIs(SEL), row[0], row[1], hl, ht,))
+        cur.execute("SELECT %s FROM geo_adres_full WHERE postcode = %s AND huisnummer = %s AND LOWER(huisletter) = LOWER(%s) AND LOWER(huisnummertoevoeging) = LOWER(%s) AND left(verblijfsobjectstatus, 26) = 'Verblijfsobject in gebruik'", (AsIs(SEL), row[0], row[1], hl, ht,))
 
     rows = cur.fetchall()
 
     if cur.rowcount < 1 and not hl == '':
         #print "No location found Trying PC+HN+(hl as ht)"
-        cur.execute("SELECT %s FROM geo_adres WHERE postcode = %s AND huisnummer = %s AND huisletter IS NULL AND LOWER(huisnummertoevoeging) = LOWER(%s) AND left(verblijfsobjectstatus, 26) = 'Verblijfsobject in gebruik'", (AsIs(SEL), row[0], row[1], hl,))
+        cur.execute("SELECT %s FROM geo_adres_full WHERE postcode = %s AND huisnummer = %s AND huisletter IS NULL AND LOWER(huisnummertoevoeging) = LOWER(%s) AND left(verblijfsobjectstatus, 26) = 'Verblijfsobject in gebruik'", (AsIs(SEL), row[0], row[1], hl,))
         rows = cur.fetchall()
 
 #    if cur.rowcount < 1 :
 #        #print "No location found Trying PC+HN only"
-#        cur.execute("SELECT %s FROM geo_adres WHERE postcode = %s AND huisnummer = %s AND huisletter IS NULL AND huisnummertoevoeging IS NULL AND left(verblijfsobjectstatus, 26) = 'Verblijfsobject in gebruik'", (AsIs(SEL), row[0], row[1],))
+#        cur.execute("SELECT %s FROM geo_adres_full WHERE postcode = %s AND huisnummer = %s AND huisletter IS NULL AND huisnummertoevoeging IS NULL AND left(verblijfsobjectstatus, 26) = 'Verblijfsobject in gebruik'", (AsIs(SEL), row[0], row[1],))
 #        rows = cur.fetchall()
 
     if cur.rowcount < 1 :
@@ -138,27 +138,27 @@ for row in SID:
 
         if hl == "" and ht == "":
             #print "PC+HN"
-            cur.execute("SELECT %s FROM geo_adres WHERE postcode = %s AND huisnummer = %s AND huisletter IS NULL AND huisnummertoevoeging IS NULL", (AsIs(SEL), row[0], row[1],))
+            cur.execute("SELECT %s FROM geo_adres_full WHERE postcode = %s AND huisnummer = %s AND huisletter IS NULL AND huisnummertoevoeging IS NULL", (AsIs(SEL), row[0], row[1],))
         elif hl == "":
             #print "PC+HN+ht"
-            cur.execute("SELECT %s FROM geo_adres WHERE postcode = %s AND huisnummer = %s AND huisletter IS NULL AND LOWER(huisnummertoevoeging) = LOWER(%s)", (AsIs(SEL), row[0], row[1], ht,))
+            cur.execute("SELECT %s FROM geo_adres_full WHERE postcode = %s AND huisnummer = %s AND huisletter IS NULL AND LOWER(huisnummertoevoeging) = LOWER(%s)", (AsIs(SEL), row[0], row[1], ht,))
         elif ht == "":
             #print "PC+HN+HL"
-            cur.execute("SELECT %s FROM geo_adres WHERE postcode = %s AND huisnummer = %s AND LOWER(huisletter) = LOWER(%s) AND huisnummertoevoeging IS NULL", (AsIs(SEL), row[0], row[1], hl,))
+            cur.execute("SELECT %s FROM geo_adres_full WHERE postcode = %s AND huisnummer = %s AND LOWER(huisletter) = LOWER(%s) AND huisnummertoevoeging IS NULL", (AsIs(SEL), row[0], row[1], hl,))
         else:
             #print "PC+HN+HL+ht"
-            cur.execute("SELECT %s FROM geo_adres WHERE postcode = %s AND huisnummer = %s AND LOWER(huisletter) = LOWER(%s) AND LOWER(huisnummertoevoeging) = LOWER(%s)", (AsIs(SEL), row[0], row[1], hl, ht,))
+            cur.execute("SELECT %s FROM geo_adres_full WHERE postcode = %s AND huisnummer = %s AND LOWER(huisletter) = LOWER(%s) AND LOWER(huisnummertoevoeging) = LOWER(%s)", (AsIs(SEL), row[0], row[1], hl, ht,))
     
         rows = cur.fetchall()
     
         if cur.rowcount < 1 and not hl == '':
             #print "No location found Trying PC+HN+(hl as ht)"
-            cur.execute("SELECT %s FROM geo_adres WHERE postcode = %s AND huisnummer = %s AND huisletter IS NULL AND LOWER(huisnummertoevoeging) = LOWER(%s)", (AsIs(SEL), row[0], row[1], hl,))
+            cur.execute("SELECT %s FROM geo_adres_full WHERE postcode = %s AND huisnummer = %s AND huisletter IS NULL AND LOWER(huisnummertoevoeging) = LOWER(%s)", (AsIs(SEL), row[0], row[1], hl,))
             rows = cur.fetchall()
     
         if cur.rowcount < 1 :
             #print "No location found Trying PC+HN only"
-            cur.execute("SELECT %s FROM geo_adres WHERE postcode = %s AND huisnummer = %s AND huisletter IS NULL AND huisnummertoevoeging IS NULL", (AsIs(SEL), row[0], row[1],))
+            cur.execute("SELECT %s FROM geo_adres_full WHERE postcode = %s AND huisnummer = %s AND huisletter IS NULL AND huisnummertoevoeging IS NULL", (AsIs(SEL), row[0], row[1],))
             rows = cur.fetchall()
     
     #print "number of location(s)", cur.rowcount, "\n"
