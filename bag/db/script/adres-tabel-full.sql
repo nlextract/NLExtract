@@ -1,18 +1,18 @@
 --
--- Maakt en vult afgeleide tabel "adres" aan met volledige adressen
+-- Maakt en vult afgeleide tabel "adres_full" aan met volledige adressen
 --
 -- De BAG bevat geen echte adressen zoals bijv. ACN (Adres Coordinaten Nederland), dwz
 -- een tabel met straat, huisnummer, woonplaats, gemeente, provincie etc.
 -- De elementen voor een compleet adres zitten wel in de (verrijkte) BAG.
--- Via SQL scripts hieronder wordt een echte "adres" tabel aangemaakt en gevuld
+-- Via SQL scripts hieronder wordt een echte "adres_full" tabel aangemaakt en gevuld
 -- uit de BAG basistabellen.
 --
 -- Auteur: Just van den Broecke
 --
 
 -- Maak  een "echte" adressen tabel
-DROP TABLE IF EXISTS adres CASCADE;
-CREATE TABLE adres (
+DROP TABLE IF EXISTS adres_full CASCADE;
+CREATE TABLE adres_full (
   openbareruimtenaam character varying(80),
   huisnummer numeric(5,0),
   huisletter character varying(1),
@@ -36,7 +36,7 @@ CREATE TABLE adres (
 );
 
 -- Insert (actuele+bestaande) data uit combinatie van BAG tabellen: Verblijfplaats
-INSERT INTO adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeging, postcode, woonplaatsnaam, gemeentenaam, provincienaam, verblijfsobjectgebruiksdoel,
+INSERT INTO adres_full (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeging, postcode, woonplaatsnaam, gemeentenaam, provincienaam, verblijfsobjectgebruiksdoel,
                    verblijfsobjectstatus, typeadresseerbaarobject, adresseerbaarobject, pandid, pandstatus, pandbouwjaar, nummeraanduiding, geopunt)
   SELECT
     o.openbareruimtenaam,
@@ -102,7 +102,7 @@ INSERT INTO adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeg
     geopunt;
 
 -- Insert (actuele+bestaande) data uit combinatie van BAG tabellen : Ligplaats
-INSERT INTO adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeging, postcode, woonplaatsnaam, gemeentenaam, provincienaam, typeadresseerbaarobject,
+INSERT INTO adres_full (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeging, postcode, woonplaatsnaam, gemeentenaam, provincienaam, typeadresseerbaarobject,
                    adresseerbaarobject, pandid, pandstatus, pandbouwjaar, nummeraanduiding, verblijfsobjectgebruiksdoel, verblijfsobjectstatus, geopunt)
   SELECT
     o.openbareruimtenaam,
@@ -146,7 +146,7 @@ INSERT INTO adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeg
     ON (g2.gemeentecode = p2.gemeentecode);
 
 -- Insert data uit combinatie van BAG tabellen : Standplaats
-INSERT INTO adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeging, postcode, woonplaatsnaam, gemeentenaam, provincienaam, typeadresseerbaarobject,
+INSERT INTO adres_full (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeging, postcode, woonplaatsnaam, gemeentenaam, provincienaam, typeadresseerbaarobject,
                    adresseerbaarobject, pandid, pandstatus, pandbouwjaar, nummeraanduiding, verblijfsobjectgebruiksdoel, verblijfsobjectstatus, geopunt)
   SELECT
     o.openbareruimtenaam,
@@ -190,7 +190,7 @@ INSERT INTO adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeg
     ON (g2.gemeentecode = p2.gemeentecode);
 
 -- NEVENADRESSEN
-INSERT INTO adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeging, postcode, woonplaatsnaam, gemeentenaam, provincienaam, typeadresseerbaarobject,
+INSERT INTO adres_full (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeging, postcode, woonplaatsnaam, gemeentenaam, provincienaam, typeadresseerbaarobject,
                    adresseerbaarobject, pandid, pandstatus, pandbouwjaar, nummeraanduiding, nevenadres, verblijfsobjectgebruiksdoel, verblijfsobjectstatus, geopunt)
   SELECT
     o.openbareruimtenaam,
@@ -257,7 +257,7 @@ INSERT INTO adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeg
     v.verblijfsobjectstatus,
     v.geopunt;
 
-INSERT INTO adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeging, postcode, woonplaatsnaam, gemeentenaam, provincienaam, typeadresseerbaarobject,
+INSERT INTO adres_full (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeging, postcode, woonplaatsnaam, gemeentenaam, provincienaam, typeadresseerbaarobject,
                    adresseerbaarobject, pandid, pandstatus, pandbouwjaar, nummeraanduiding, nevenadres, verblijfsobjectgebruiksdoel, verblijfsobjectstatus, geopunt)
   SELECT
     o.openbareruimtenaam,
@@ -300,7 +300,7 @@ INSERT INTO adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeg
     LEFT OUTER JOIN provincie_gemeenteactueelbestaand p2
     ON (g2.gemeentecode = p2.gemeentecode);
 
-INSERT INTO adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeging, postcode, woonplaatsnaam, gemeentenaam, provincienaam, typeadresseerbaarobject,
+INSERT INTO adres_full (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeging, postcode, woonplaatsnaam, gemeentenaam, provincienaam, typeadresseerbaarobject,
                    adresseerbaarobject, pandid, pandstatus, pandbouwjaar, nummeraanduiding, nevenadres, verblijfsobjectgebruiksdoel, verblijfsobjectstatus, geopunt)
  SELECT
     o.openbareruimtenaam,
@@ -345,21 +345,22 @@ INSERT INTO adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeg
 -- EINDE NEVENADRESSEN
 
 -- Vul de text vector kolom voor full text search
-UPDATE adres set textsearchable_adres = to_tsvector(openbareruimtenaam||' '||huisnummer||' '||trim(coalesce(huisletter,'')||' '||coalesce(huisnummertoevoeging,''))||' '||woonplaatsnaam);
+UPDATE adres_full set textsearchable_adres = to_tsvector(openbareruimtenaam||' '||huisnummer||' '||trim(coalesce(huisletter,'')||' '||coalesce(huisnummertoevoeging,''))||' '||woonplaatsnaam);
 
 -- Maak indexen aan na inserten (betere performance)
-CREATE INDEX adres_geom_idx ON adres USING gist (geopunt);
-CREATE INDEX adres_adreseerbaarobject ON adres USING btree (adresseerbaarobject);
-CREATE INDEX adres_nummeraanduiding ON adres USING btree (nummeraanduiding);
-CREATE INDEX adresvol_idx ON adres USING gin (textsearchable_adres);
+CREATE INDEX adres_full_geom_idx ON adres_full USING gist (geopunt);
+CREATE INDEX adres_full_adreseerbaarobject ON adres_full USING btree (adresseerbaarobject);
+CREATE INDEX adres_full_nummeraanduiding ON adres_full USING btree (nummeraanduiding);
+CREATE INDEX adres_full_pandid ON adres_full USING btree (pandid);
+CREATE INDEX adres_full_idx ON adres_full USING gin (textsearchable_adres);
 
 -- Populeert public.geometry_columns
 -- Dummy voor PostGIS 2+
 SELECT public.probe_geometry_columns();
 
-DROP SEQUENCE IF EXISTS adres_gid_seq;
-CREATE SEQUENCE adres_gid_seq;
-ALTER TABLE adres ADD gid integer UNIQUE;
-ALTER TABLE adres ALTER COLUMN gid SET DEFAULT NEXTVAL('adres_gid_seq');
-UPDATE adres SET gid = NEXTVAL('adres_gid_seq');
-ALTER TABLE adres ADD PRIMARY KEY (gid);
+DROP SEQUENCE IF EXISTS adres_full_gid_seq;
+CREATE SEQUENCE adres_full_gid_seq;
+ALTER TABLE adres_full ADD gid integer UNIQUE;
+ALTER TABLE adres_full ALTER COLUMN gid SET DEFAULT NEXTVAL('adres_full_gid_seq');
+UPDATE adres_full SET gid = NEXTVAL('adres_full_gid_seq');
+ALTER TABLE adres_full ADD PRIMARY KEY (gid);
