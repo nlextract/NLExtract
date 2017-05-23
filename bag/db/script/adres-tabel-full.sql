@@ -8,6 +8,7 @@
 -- uit de BAG basistabellen.
 --
 -- Auteur: Just van den Broecke
+-- Aanvullingen: Michel de Groot
 --
 
 -- Maak  een "echte" adressen tabel
@@ -23,6 +24,7 @@ CREATE TABLE adres_full (
   provincienaam character varying(16),
   -- 7311SZ 264 len = 178
   verblijfsobjectgebruiksdoel character varying,
+  oppervlakteverblijfsobject numeric(6,0) DEFAULT 0,
   verblijfsobjectstatus character varying,
   typeadresseerbaarobject character varying(3),
   adresseerbaarobject numeric(16,0),
@@ -37,7 +39,7 @@ CREATE TABLE adres_full (
 
 -- Insert (actuele+bestaande) data uit combinatie van BAG tabellen: Verblijfplaats
 INSERT INTO adres_full (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeging, postcode, woonplaatsnaam, gemeentenaam, provincienaam, verblijfsobjectgebruiksdoel,
-                   verblijfsobjectstatus, typeadresseerbaarobject, adresseerbaarobject, pandid, pandstatus, pandbouwjaar, nummeraanduiding, geopunt)
+                        oppervlakteverblijfsobject, verblijfsobjectstatus, typeadresseerbaarobject, adresseerbaarobject, pandid, pandstatus, pandbouwjaar, nummeraanduiding, geopunt)
   SELECT
     o.openbareruimtenaam,
     n.huisnummer,
@@ -50,6 +52,7 @@ INSERT INTO adres_full (openbareruimtenaam, huisnummer, huisletter, huisnummerto
     COALESCE(p2.gemeentenaam,p.gemeentenaam),
     COALESCE(p2.provincienaam,p.provincienaam),
     ARRAY_TO_STRING(ARRAY_AGG(d.gebruiksdoelverblijfsobject ORDER BY gebruiksdoelverblijfsobject), ', ') AS verblijfsobjectgebruiksdoel,
+    v.oppervlakteverblijfsobject,
     v.verblijfsobjectstatus,
     'VBO' as typeadresseerbaarobject,
     v.identificatie as adresseerbaarobject,
@@ -71,7 +74,7 @@ INSERT INTO adres_full (openbareruimtenaam, huisnummer, huisletter, huisnummerto
     ON (n.gerelateerdeopenbareruimte = o.identificatie)
     JOIN woonplaatsactueelbestaand w
     ON (o.gerelateerdewoonplaats = w.identificatie)
-    JOIN gemeente_woonplaatsactueelbestaand  g
+    JOIN gemeente_woonplaatsactueelbestaand g
     ON (g.woonplaatscode = w.identificatie)
     JOIN provincie_gemeenteactueelbestaand p
     ON (g.gemeentecode = p.gemeentecode)
@@ -79,7 +82,7 @@ INSERT INTO adres_full (openbareruimtenaam, huisnummer, huisletter, huisnummerto
     -- Zie issue: https://github.com/nlextract/NLExtract/issues/54
     LEFT OUTER JOIN woonplaatsactueelbestaand wp2
     ON (n.gerelateerdewoonplaats = wp2.identificatie)
-    LEFT OUTER JOIN gemeente_woonplaatsactueelbestaand  g2
+    LEFT OUTER JOIN gemeente_woonplaatsactueelbestaand g2
     ON (g2.woonplaatscode = wp2.identificatie)
     LEFT OUTER JOIN provincie_gemeenteactueelbestaand p2
     ON (g2.gemeentecode = p2.gemeentecode)
@@ -92,6 +95,7 @@ INSERT INTO adres_full (openbareruimtenaam, huisnummer, huisletter, huisnummerto
     COALESCE(wp2.woonplaatsnaam,w.woonplaatsnaam),
     COALESCE(p2.gemeentenaam,p.gemeentenaam),
     COALESCE(p2.provincienaam,p.provincienaam),
+    v.oppervlakteverblijfsobject,
     v.verblijfsobjectstatus,
     typeadresseerbaarobject,
     adresseerbaarobject,
@@ -103,7 +107,7 @@ INSERT INTO adres_full (openbareruimtenaam, huisnummer, huisletter, huisnummerto
 
 -- Insert (actuele+bestaande) data uit combinatie van BAG tabellen : Ligplaats
 INSERT INTO adres_full (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeging, postcode, woonplaatsnaam, gemeentenaam, provincienaam, typeadresseerbaarobject,
-                   adresseerbaarobject, pandid, pandstatus, pandbouwjaar, nummeraanduiding, verblijfsobjectgebruiksdoel, verblijfsobjectstatus, geopunt)
+                        adresseerbaarobject, pandid, pandstatus, pandbouwjaar, nummeraanduiding, verblijfsobjectgebruiksdoel, verblijfsobjectstatus, geopunt)
   SELECT
     o.openbareruimtenaam,
     n.huisnummer,
@@ -132,7 +136,7 @@ INSERT INTO adres_full (openbareruimtenaam, huisnummer, huisletter, huisnummerto
     ON (n.gerelateerdeopenbareruimte = o.identificatie)
     JOIN woonplaatsactueelbestaand w
     ON (o.gerelateerdewoonplaats = w.identificatie)
-    JOIN gemeente_woonplaatsactueelbestaand  g
+    JOIN gemeente_woonplaatsactueelbestaand g
     ON (g.woonplaatscode = w.identificatie)
     JOIN provincie_gemeenteactueelbestaand p
     ON (g.gemeentecode = p.gemeentecode)
@@ -140,14 +144,14 @@ INSERT INTO adres_full (openbareruimtenaam, huisnummer, huisletter, huisnummerto
     -- Zie issue: https://github.com/nlextract/NLExtract/issues/54
     LEFT OUTER JOIN woonplaatsactueelbestaand wp2
     ON (n.gerelateerdewoonplaats = wp2.identificatie)
-    LEFT OUTER JOIN gemeente_woonplaatsactueelbestaand  g2
+    LEFT OUTER JOIN gemeente_woonplaatsactueelbestaand g2
     ON (g2.woonplaatscode = wp2.identificatie)
     LEFT OUTER JOIN provincie_gemeenteactueelbestaand p2
     ON (g2.gemeentecode = p2.gemeentecode);
 
 -- Insert data uit combinatie van BAG tabellen : Standplaats
 INSERT INTO adres_full (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeging, postcode, woonplaatsnaam, gemeentenaam, provincienaam, typeadresseerbaarobject,
-                   adresseerbaarobject, pandid, pandstatus, pandbouwjaar, nummeraanduiding, verblijfsobjectgebruiksdoel, verblijfsobjectstatus, geopunt)
+                        adresseerbaarobject, pandid, pandstatus, pandbouwjaar, nummeraanduiding, verblijfsobjectgebruiksdoel, verblijfsobjectstatus, geopunt)
   SELECT
     o.openbareruimtenaam,
     n.huisnummer,
@@ -176,7 +180,7 @@ INSERT INTO adres_full (openbareruimtenaam, huisnummer, huisletter, huisnummerto
     ON (n.gerelateerdeopenbareruimte = o.identificatie)
     JOIN woonplaatsactueelbestaand w
     ON (o.gerelateerdewoonplaats = w.identificatie)
-    JOIN gemeente_woonplaatsactueelbestaand  g
+    JOIN gemeente_woonplaatsactueelbestaand g
     ON (g.woonplaatscode = w.identificatie)
     JOIN provincie_gemeenteactueelbestaand p
     ON (g.gemeentecode = p.gemeentecode)
@@ -184,14 +188,14 @@ INSERT INTO adres_full (openbareruimtenaam, huisnummer, huisletter, huisnummerto
     -- Zie issue: https://github.com/nlextract/NLExtract/issues/54
     LEFT OUTER JOIN woonplaatsactueelbestaand wp2
     ON (n.gerelateerdewoonplaats = wp2.identificatie)
-    LEFT OUTER JOIN gemeente_woonplaatsactueelbestaand  g2
+    LEFT OUTER JOIN gemeente_woonplaatsactueelbestaand g2
     ON (g2.woonplaatscode = wp2.identificatie)
     LEFT OUTER JOIN provincie_gemeenteactueelbestaand p2
     ON (g2.gemeentecode = p2.gemeentecode);
 
--- NEVENADRESSEN
-INSERT INTO adres_full (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeging, postcode, woonplaatsnaam, gemeentenaam, provincienaam, typeadresseerbaarobject,
-                   adresseerbaarobject, pandid, pandstatus, pandbouwjaar, nummeraanduiding, nevenadres, verblijfsobjectgebruiksdoel, verblijfsobjectstatus, geopunt)
+-- Insert (actuele+bestaande) data uit combinatie van BAG tabellen: Nevenadressen voor Verblijfplaats
+INSERT INTO adres_full (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeging, postcode, woonplaatsnaam, gemeentenaam, provincienaam, typeadresseerbaarobject, adresseerbaarobject,
+                        pandid, pandstatus, pandbouwjaar, nummeraanduiding, nevenadres, verblijfsobjectgebruiksdoel, oppervlakteverblijfsobject, verblijfsobjectstatus, geopunt)
   SELECT
     o.openbareruimtenaam,
     n.huisnummer,
@@ -209,6 +213,7 @@ INSERT INTO adres_full (openbareruimtenaam, huisnummer, huisletter, huisnummerto
     n.identificatie as nummeraanduiding,
     TRUE,
     ARRAY_TO_STRING(ARRAY_AGG(d.gebruiksdoelverblijfsobject ORDER BY gebruiksdoelverblijfsobject), ', ') AS verblijfsobjectgebruiksdoel,
+    v.oppervlakteverblijfsobject,
     v.verblijfsobjectstatus,
     v.geopunt
   FROM adresseerbaarobjectnevenadresactueel an
@@ -254,11 +259,13 @@ INSERT INTO adres_full (openbareruimtenaam, huisnummer, huisletter, huisnummerto
     pandbouwjaar,
     nummeraanduiding,
     nevenadres,
+    v.oppervlakteverblijfsobject,
     v.verblijfsobjectstatus,
     v.geopunt;
 
+-- Insert (actuele+bestaande) data uit combinatie van BAG tabellen: Nevenadressen voor Ligplaats
 INSERT INTO adres_full (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeging, postcode, woonplaatsnaam, gemeentenaam, provincienaam, typeadresseerbaarobject,
-                   adresseerbaarobject, pandid, pandstatus, pandbouwjaar, nummeraanduiding, nevenadres, verblijfsobjectgebruiksdoel, verblijfsobjectstatus, geopunt)
+                        adresseerbaarobject, pandid, pandstatus, pandbouwjaar, nummeraanduiding, nevenadres, verblijfsobjectgebruiksdoel, verblijfsobjectstatus, geopunt)
   SELECT
     o.openbareruimtenaam,
     n.huisnummer,
@@ -300,8 +307,9 @@ INSERT INTO adres_full (openbareruimtenaam, huisnummer, huisletter, huisnummerto
     LEFT OUTER JOIN provincie_gemeenteactueelbestaand p2
     ON (g2.gemeentecode = p2.gemeentecode);
 
+-- Insert (actuele+bestaande) data uit combinatie van BAG tabellen: Nevenadressen voor Standplaats
 INSERT INTO adres_full (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeging, postcode, woonplaatsnaam, gemeentenaam, provincienaam, typeadresseerbaarobject,
-                   adresseerbaarobject, pandid, pandstatus, pandbouwjaar, nummeraanduiding, nevenadres, verblijfsobjectgebruiksdoel, verblijfsobjectstatus, geopunt)
+                        adresseerbaarobject, pandid, pandstatus, pandbouwjaar, nummeraanduiding, nevenadres, verblijfsobjectgebruiksdoel, verblijfsobjectstatus, geopunt)
  SELECT
     o.openbareruimtenaam,
     n.huisnummer,
