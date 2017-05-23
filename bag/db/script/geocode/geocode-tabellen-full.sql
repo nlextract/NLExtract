@@ -2,6 +2,7 @@
 -- Geogecodeerde BAG adressen -en elementen, verrijkt met bestuurlijke eenheden (gemeenten, provincies).
 --
 -- Auteur: Just van den Broecke
+-- Aanvullingen: Michel de Groot
 --
 -- De tabellen hieronder zijn afgeleid van de BAG import tabellen
 -- met als doel om tabellen te bieden waarop (reverse) geocoding kan worden
@@ -11,9 +12,8 @@
 -- Gebruik:
 -- * BAG importeren via bag-extract -e <bag-levering>
 -- * BAG verrijken met gemeenten en provincies  bag-extract -q db/script/gemeente-provincie-tabel.sql
--- * geocoding tabellen laden: bag-extract -q geocode-tabellen.sql
--- * geocoding functies laden: bag-extract -q geocode-functies.sql
--- * functies aanroepen bijv. select * from  nlx_adres_voor_xy(118566, 480606);
+-- * geocoding tabellen laden: bag-extract -q geocode-tabellen-full.sql
+-- * geocoding functies gebruiken: geocode\GeoCode-pc-hn-ext.py of geocode\GeoCode-pc-hn-hl-tv.py
 --
 -- Tip: houdt de bag import data en geocoding tabellen gescheiden
 -- door gebruik PostgreSQL schema's. Het beste is om de BAG in te lezen in apart schema
@@ -26,6 +26,7 @@
 DROP TABLE IF EXISTS geo_adres_full CASCADE;
 CREATE TABLE geo_adres_full (
   verblijfsobjectgebruiksdoel character varying,
+  oppervlakteverblijfsobject numeric(6,0) DEFAULT 0,
   verblijfsobjectstatus character varying,
   adresseerbaarobject numeric(16,0),
   typeadresseerbaarobject character varying(3),
@@ -50,7 +51,7 @@ CREATE TABLE geo_adres_full (
 
 -- Insert (actuele+bestaande) data uit combinatie van BAG tabellen: Verblijfplaats
 INSERT INTO geo_adres_full (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeging, postcode, woonplaatsnaam, gemeentenaam, provincienaam, adresseerbaarobject,
-                       nummeraanduiding, verblijfsobjectgebruiksdoel, verblijfsobjectstatus, typeadresseerbaarobject, pandid, pandstatus, pandbouwjaar, geopunt)
+                       nummeraanduiding, verblijfsobjectgebruiksdoel, oppervlakteverblijfsobject, verblijfsobjectstatus, typeadresseerbaarobject, pandid, pandstatus, pandbouwjaar, geopunt)
   SELECT
   	o.openbareruimtenaam,
   	n.huisnummer,
@@ -65,6 +66,7 @@ INSERT INTO geo_adres_full (openbareruimtenaam, huisnummer, huisletter, huisnumm
   	v.identificatie as adresseerbaarobject,
   	n.identificatie as nummeraanduiding,
   	ARRAY_TO_STRING(ARRAY_AGG(d.gebruiksdoelverblijfsobject ORDER BY gebruiksdoelverblijfsobject), ', ') AS verblijfsobjectgebruiksdoel,
+  	v.oppervlakteverblijfsobject,
   	v.verblijfsobjectstatus,
   	'VBO', -- typeadresseerbaarobject
   	pv.identificatie as pandid,
@@ -108,6 +110,7 @@ INSERT INTO geo_adres_full (openbareruimtenaam, huisnummer, huisletter, huisnumm
   	COALESCE(p2.provincienaam,p.provincienaam),
   	adresseerbaarobject,
   	nummeraanduiding,
+  	v.oppervlakteverblijfsobject,
   	v.verblijfsobjectstatus,
   	typeadresseerbaarobject,
   	pandid,
@@ -209,7 +212,7 @@ INSERT INTO geo_adres_full (openbareruimtenaam, huisnummer, huisletter, huisnumm
 
 -- Insert (actuele+bestaande) data uit combinatie van BAG tabellen: Nevenadressen voor Verblijfplaats
 INSERT INTO geo_adres_full (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeging, postcode, woonplaatsnaam, gemeentenaam, provincienaam, adresseerbaarobject,
-                       nummeraanduiding, nevenadres, verblijfsobjectgebruiksdoel, verblijfsobjectstatus, typeadresseerbaarobject, pandid, pandstatus, pandbouwjaar, geopunt)
+                       nummeraanduiding, nevenadres, verblijfsobjectgebruiksdoel, oppervlakteverblijfsobject, verblijfsobjectstatus, typeadresseerbaarobject, pandid, pandstatus, pandbouwjaar, geopunt)
   SELECT
     o.openbareruimtenaam,
     n.huisnummer,
@@ -225,6 +228,7 @@ INSERT INTO geo_adres_full (openbareruimtenaam, huisnummer, huisletter, huisnumm
     n.identificatie as nummeraanduiding,
     TRUE, -- nevenadres
     ARRAY_TO_STRING(ARRAY_AGG(d.gebruiksdoelverblijfsobject ORDER BY gebruiksdoelverblijfsobject), ', ') AS verblijfsobjectgebruiksdoel,
+    v.oppervlakteverblijfsobject,
     v.verblijfsobjectstatus,
     'VBO', -- typeadresseerbaarobject
     pv.identificatie as pandid,
@@ -270,6 +274,7 @@ INSERT INTO geo_adres_full (openbareruimtenaam, huisnummer, huisletter, huisnumm
     COALESCE(p2.provincienaam,p.provincienaam),
     adresseerbaarobject,
     nummeraanduiding,
+    v.oppervlakteverblijfsobject,
     v.verblijfsobjectstatus,
     typeadresseerbaarobject,
     pandid,
