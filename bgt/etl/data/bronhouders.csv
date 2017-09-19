@@ -1,0 +1,475 @@
+bronhouder;Type;Naam;CBScode;Vervallen;opmerking
+G0003;G;Appingedam;GM0003;;
+G0005;G;Bedum;GM0005;;
+G0007;G;Bellingwedde;GM0007;;
+G0009;G;Ten Boer;GM0009;;
+G0010;G;Delfzijl;GM0010;;
+G0014;G;Groningen;GM0014;;
+G0015;G;Grootegast;GM0015;;
+G0017;G;Haren;GM0017;;
+G0018;G;Hoogezand-Sappemeer;GM0018;;
+G0022;G;Leek;GM0022;;
+G0024;G;Loppersum;GM0024;;
+G0025;G;Marum;GM0025;;
+G0034;G;Almere;GM0034;;
+G0037;G;Stadskanaal;GM0037;;
+G0040;G;Slochteren;GM0040;;
+G0047;G;Veendam;GM0047;;
+G0048;G;Vlagtwedde;GM0048;;
+G0050;G;Zeewolde;GM0050;;
+G0051;G;Skarsterlân;GM0051;TRUE;** vervallen per 01-01-2014
+G0053;G;Winsum;GM0053;;
+G0055;G;Boarnsterhim;GM0055;TRUE;** vervallen per 01-01-2014
+G0056;G;Zuidhorn;GM0056;;
+G0058;G;Dongeradeel;GM0058;;
+G0059;G;Achtkarspelen;GM0059;;
+G0060;G;Ameland;GM0060;;
+G0063;G;het Bildt;GM0063;;
+G0070;G;Franekeradeel;GM0070;;
+G0072;G;Harlingen;GM0072;;
+G0074;G;Heerenveen;GM0074;;
+G0079;G;Kollumerland en Nieuwkruisland;GM0079;;
+G0080;G;Leeuwarden;GM0080;;
+G0081;G;Leeuwarderadeel;GM0081;;
+G0082;G;Lemsterland;GM0082;TRUE;** vervallen per 01-01-2014
+G0085;G;Ooststellingwerf;GM0085;;
+G0086;G;Opsterland;GM0086;;
+G0088;G;Schiermonnikoog;GM0088;;
+G0090;G;Smallingerland;GM0090;;
+G0093;G;Terschelling;GM0093;;
+G0096;G;Vlieland;GM0096;;
+G0098;G;Weststellingwerf;GM0098;;
+G0106;G;Assen;GM0106;;
+G0109;G;Coevorden;GM0109;;
+G0114;G;Emmen;GM0114;;
+G0118;G;Hoogeveen;GM0118;;
+G0119;G;Meppel;GM0119;;
+G0140;G;Littenseradiel;GM0140;;
+G0141;G;Almelo;GM0141;;
+G0147;G;Borne;GM0147;;
+G0148;G;Dalfsen;GM0148;;
+G0150;G;Deventer;GM0150;;
+G0153;G;Enschede;GM0153;;
+G0158;G;Haaksbergen;GM0158;;
+G0160;G;Hardenberg;GM0160;;
+G0163;G;Hellendoorn;GM0163;;
+G0164;G;Hengelo;GM0164;;
+G0166;G;Kampen;GM0166;;
+G0168;G;Losser;GM0168;;
+G0171;G;Noordoostpolder;GM0171;;
+G0173;G;Oldenzaal;GM0173;;
+G0175;G;Ommen;GM0175;;
+G0177;G;Raalte;GM0177;;
+G0180;G;Staphorst;GM0180;;
+G0183;G;Tubbergen;GM0183;;
+G0184;G;Urk;GM0184;;
+G0189;G;Wierden;GM0189;;
+G0193;G;Zwolle;GM0193;;
+G0196;G;Rijnwaarden;GM0196;;
+G0197;G;Aalten;GM0197;;
+G1924;G;Goeree-Overflakkee;GM1924;TRUE;** toegevoegd per 01-01-2013
+G1927;G;Molenwaard;GM1927;TRUE;** toegevoegd per 01-01-2013
+G0200;G;Apeldoorn;GM0200;;
+G0202;G;Arnhem;GM0202;;
+G0203;G;Barneveld;GM0203;;
+G0209;G;Beuningen;GM0209;;
+G0213;G;Brummen;GM0213;;
+G0214;G;Buren;GM0214;;
+G0216;G;Culemborg;GM0216;;
+G0221;G;Doesburg;GM0221;;
+G0222;G;Doetinchem;GM0222;;
+G0225;G;Druten;GM0225;;
+G0226;G;Duiven;GM0226;;
+G0228;G;Ede;GM0228;;
+G0230;G;Elburg;GM0230;;
+G0232;G;Epe;GM0232;;
+G0233;G;Ermelo;GM0233;;
+G0236;G;Geldermalsen;GM0236;;
+G0241;G;Groesbeek;GM0241;TRUE;** vervallen per 01-01-2016
+G0243;G;Harderwijk;GM0243;;
+G0244;G;Hattem;GM0244;;
+G0246;G;Heerde;GM0246;;
+G0252;G;Heumen;GM0252;;
+G0262;G;Lochem;GM0262;;
+G0263;G;Maasdriel;GM0263;;
+G0265;G;Millingen aan de Rijn;GM0265;TRUE;** vervallen per 01-01-2015
+G0267;G;Nijkerk;GM0267;;
+G0268;G;Nijmegen;GM0268;;
+G0269;G;Oldebroek;GM0269;;
+G0273;G;Putten;GM0273;;
+G0274;G;Renkum;GM0274;;
+G0275;G;Rheden;GM0275;;
+G0277;G;Rozendaal;GM0277;;
+G0279;G;Scherpenzeel;GM0279;;
+G0281;G;Tiel;GM0281;;
+G0282;G;Ubbergen;GM0282;TRUE;** vervallen per 01-01-2015
+G0285;G;Voorst;GM0285;;
+G0289;G;Wageningen;GM0289;;
+G0293;G;Westervoort;GM0293;;
+G0294;G;Winterswijk;GM0294;;
+G0296;G;Wijchen;GM0296;;
+G0297;G;Zaltbommel;GM0297;;
+G0299;G;Zevenaar;GM0299;;
+G0301;G;Zutphen;GM0301;;
+G0302;G;Nunspeet;GM0302;;
+G0303;G;Dronten;GM0303;;
+G0304;G;Neerijnen;GM0304;;
+G0307;G;Amersfoort;GM0307;;
+G0308;G;Baarn;GM0308;;
+G0310;G;De Bilt;GM0310;;
+G0312;G;Bunnik;GM0312;;
+G0313;G;Bunschoten;GM0313;;
+G0317;G;Eemnes;GM0317;;
+G0321;G;Houten;GM0321;;
+G0327;G;Leusden;GM0327;;
+G0331;G;Lopik;GM0331;;
+G0335;G;Montfoort;GM0335;;
+G0339;G;Renswoude;GM0339;;
+G0340;G;Rhenen;GM0340;;
+G0342;G;Soest;GM0342;;
+G0344;G;Utrecht;GM0344;;
+G0345;G;Veenendaal;GM0345;;
+G0351;G;Woudenberg;GM0351;;
+G0352;G;Wijk bij Duurstede;GM0352;;
+G0353;G;IJsselstein;GM0353;;
+G0355;G;Zeist;GM0355;;
+G0356;G;Nieuwegein;GM0356;;
+G0358;G;Aalsmeer;GM0358;;
+G0361;G;Alkmaar;GM0361;;
+G0362;G;Amstelveen;GM0362;;
+G0363;G;Amsterdam;GM0363;;
+G0365;G;Graft-De Rijp;GM0365;TRUE;** vervallen per 01-01-2015
+G0370;G;Beemster;GM0370;;
+G0373;G;Bergen (NH.);GM0373;;
+G0375;G;Beverwijk;GM0375;;
+G0376;G;Blaricum;GM0376;;
+G0377;G;Bloemendaal;GM0377;;
+G0381;G;Bussum;GM0381;TRUE;** vervallen per 01-01-2016
+G0383;G;Castricum;GM0383;;
+G0384;G;Diemen;GM0384;;
+G0385;G;Edam-Volendam;GM0385;;
+G0388;G;Enkhuizen;GM0388;;
+G0392;G;Haarlem;GM0392;;
+G0393;G;Haarlemmerliede en Spaarnwoude;GM0393;;
+G0394;G;Haarlemmermeer;GM0394;;
+G0395;G;Harenkarspel;GM0395;TRUE;** vervallen per 01-01-2013
+G0396;G;Heemskerk;GM0396;;
+G0397;G;Heemstede;GM0397;;
+G0398;G;Heerhugowaard;GM0398;;
+G0399;G;Heiloo;GM0399;;
+G0400;G;Den Helder;GM0400;;
+G0402;G;Hilversum;GM0402;;
+G0405;G;Hoorn;GM0405;;
+G0406;G;Huizen;GM0406;;
+G0415;G;Landsmeer;GM0415;;
+G0416;G;Langedijk;GM0416;;
+G0417;G;Laren;GM0417;;
+G0420;G;Medemblik;GM0420;;
+G0424;G;Muiden;GM0424;TRUE;** vervallen per 01-01-2016
+G0425;G;Naarden;GM0425;TRUE;** vervallen per 01-01-2016
+G0431;G;Oostzaan;GM0431;;
+G0432;G;Opmeer;GM0432;;
+G0437;G;Ouder-Amstel;GM0437;;
+G0439;G;Purmerend;GM0439;;
+G0441;G;Schagen;GM0441;;
+G0448;G;Texel;GM0448;;
+G0450;G;Uitgeest;GM0450;;
+G0451;G;Uithoorn;GM0451;;
+G0453;G;Velsen;GM0453;;
+G0457;G;Weesp;GM0457;;
+G0458;G;Schermer;GM0458;TRUE;** vervallen per 01-01-2015
+G0473;G;Zandvoort;GM0473;;
+G0476;G;Zijpe;GM0476;;** vervallen per 01-01-2013
+G0478;G;Zeevang;GM0478;;** vervallen per 01-01-2016
+G0479;G;Zaanstad;GM0479;;
+G0482;G;Alblasserdam;GM0482;;
+G0484;G;Alphen aan den Rijn;GM0484;;
+G0489;G;Barendrecht;GM0489;;
+G0491;G;Bergambacht;GM0491;TRUE;** vervallen per 01-01-2015
+G0498;G;Drechterland;GM0498;;
+G0499;G;Boskoop;GM0499;TRUE;** vervallen per 01-01-2014
+G0501;G;Brielle;GM0501;;
+G0502;G;Capelle aan den IJssel;GM0502;;
+G0503;G;Delft;GM0503;;
+G0504;G;Dirksland;GM0504;TRUE;** vervallen per 01-01-2013
+G0505;G;Dordrecht;GM0505;;
+G0511;G;Goedereede;GM0511;TRUE;** vervallen per 01-01-2013
+G0512;G;Gorinchem;GM0512;;
+G0513;G;Gouda;GM0513;;
+G0518;G;'s-Gravenhage;GM0518;;
+G0523;G;Hardinxveld-Giessendam;GM0523;;
+G0530;G;Hellevoetsluis;GM0530;;
+G0531;G;Hendrik-Ido-Ambacht;GM0531;;
+G0532;G;Stede Broec;GM0532;;
+G0534;G;Hillegom;GM0534;;
+G0537;G;Katwijk;GM0537;;
+G0542;G;Krimpen aan den IJssel;GM0542;;
+G0545;G;Leerdam;GM0545;;
+G0546;G;Leiden;GM0546;;
+G0547;G;Leiderdorp;GM0547;;
+G0553;G;Lisse;GM0553;;
+G0556;G;Maassluis;GM0556;;
+G0559;G;Middelharnis;GM0559;TRUE;** vervallen per 01-01-2013
+G0568;G;Bernisse;GM0568;;** vervallen per 01-01-2015
+G0569;G;Nieuwkoop;GM0569;;
+G0571;G;Nieuw-Lekkerland;GM0571;TRUE;** vervallen per 01-01-2013
+G0575;G;Noordwijk;GM0575;;
+G0576;G;Noordwijkerhout;GM0576;;
+G0579;G;Oegstgeest;GM0579;;
+G0580;G;Oostflakkee;GM0580;TRUE;** vervallen per 01-01-2013
+G0584;G;Oud-Beijerland;GM0584;;
+G0585;G;Binnenmaas;GM0585;;
+G0588;G;Korendijk;GM0588;;
+G0589;G;Oudewater;GM0589;;
+G0590;G;Papendrecht;GM0590;;
+G0597;G;Ridderkerk;GM0597;;
+G0599;G;Rotterdam;GM0599;;
+G0603;G;Rijswijk;GM0603;;
+G0606;G;Schiedam;GM0606;;
+G0608;G;Schoonhoven;GM0608;TRUE;** vervallen per 01-01-2015
+G0610;G;Sliedrecht;GM0610;;
+G0611;G;Cromstrijen;GM0611;;
+G0612;G;Spijkenisse;GM0612;TRUE;** vervallen per 01-01-2015
+G0613;G;Albrandswaard;GM0613;;
+G0614;G;Westvoorne;GM0614;;
+G0617;G;Strijen;GM0617;;
+G0620;G;Vianen;GM0620;;
+G0622;G;Vlaardingen;GM0622;;
+G0623;G;Vlist;GM0623;TRUE;** vervallen per 01-01-2015
+G0626;G;Voorschoten;GM0626;;
+G0627;G;Waddinxveen;GM0627;;
+G0629;G;Wassenaar;GM0629;;
+G0632;G;Woerden;GM0632;;
+G0637;G;Zoetermeer;GM0637;;
+G0638;G;Zoeterwoude;GM0638;;
+G0642;G;Zwijndrecht;GM0642;;
+G0643;G;Nederlek;GM0643;TRUE;** vervallen per 01-01-2015
+G0644;G;Ouderkerk;GM0644;TRUE;** vervallen per 01-01-2015
+G0653;G;Gaasterlân-Sleat;GM0653;TRUE;** vervallen per 01-01-2014
+G0654;G;Borsele;GM0654;;
+G0664;G;Goes;GM0664;;
+G0668;G;West Maas en Waal;GM0668;;
+G0677;G;Hulst;GM0677;;
+G0678;G;Kapelle;GM0678;;
+G0687;G;Middelburg;GM0687;;
+G0689;G;Giessenlanden;GM0689;;
+G0693;G;Graafstroom;GM0693;TRUE;** vervallen per 01-01-2013
+G0694;G;Liesveld;GM0694;TRUE;** vervallen per 01-01-2013
+G0703;G;Reimerswaal;GM0703;;
+G0707;G;Zederik;GM0707;;
+G0715;G;Terneuzen;GM0715;;
+G0716;G;Tholen;GM0716;;
+G0717;G;Veere;GM0717;;
+G0718;G;Vlissingen;GM0718;;
+G0733;G;Lingewaal;GM0733;;
+G0736;G;De Ronde Venen;GM0736;;
+G0737;G;Tytsjerksteradiel;GM0737;;
+G0738;G;Aalburg;GM0738;;
+G0743;G;Asten;GM0743;;
+G0744;G;Baarle-Nassau;GM0744;;
+G0748;G;Bergen op Zoom;GM0748;;
+G0753;G;Best;GM0753;;
+G0755;G;Boekel;GM0755;;
+G0756;G;Boxmeer;GM0756;;
+G0757;G;Boxtel;GM0757;;
+G0758;G;Breda;GM0758;;
+G0762;G;Deurne;GM0762;;
+G0765;G;Pekela;GM0765;;
+G0766;G;Dongen;GM0766;;
+G0770;G;Eersel;GM0770;;
+G0772;G;Eindhoven;GM0772;;
+G0777;G;Etten-Leur;GM0777;;
+G0779;G;Geertruidenberg;GM0779;;
+G0784;G;Gilze en Rijen;GM0784;;
+G0785;G;Goirle;GM0785;;
+G0786;G;Grave;GM0786;;
+G0788;G;Haaren;GM0788;;
+G0794;G;Helmond;GM0794;;
+G0796;G;'s-Hertogenbosch;GM0796;;
+G0797;G;Heusden;GM0797;;
+G0798;G;Hilvarenbeek;GM0798;;
+G0809;G;Loon op Zand;GM0809;;
+G0815;G;Mill en Sint Hubert;GM0815;;
+G0820;G;Nuenen, Gerwen en Nederwetten;GM0820;;
+G0823;G;Oirschot;GM0823;;
+G0824;G;Oisterwijk;GM0824;;
+G0826;G;Oosterhout;GM0826;;
+G0828;G;Oss;GM0828;;
+G0840;G;Rucphen;GM0840;;
+G0844;G;Schijndel;GM0844;TRUE;** vervallen per 01-01-2017
+G0845;G;Sint-Michielsgestel;GM0845;;
+G0846;G;Sint-Oedenrode;GM0846;TRUE;** vervallen per 01-01-2017
+G0847;G;Someren;GM0847;;
+G0848;G;Son en Breugel;GM0848;;
+G0851;G;Steenbergen;GM0851;;
+G0852;G;Waterland;GM0852;;
+G0855;G;Tilburg;GM0855;;
+G0856;G;Uden;GM0856;;
+G0858;G;Valkenswaard;GM0858;;
+G0860;G;Veghel;GM0860;TRUE;** vervallen per 01-01-2017
+G0861;G;Veldhoven;GM0861;;
+G0865;G;Vught;GM0865;;
+G0866;G;Waalre;GM0866;;
+G0867;G;Waalwijk;GM0867;;
+G0870;G;Werkendam;GM0870;;
+G0873;G;Woensdrecht;GM0873;;
+G0874;G;Woudrichem;GM0874;;
+G0879;G;Zundert;GM0879;;
+G0880;G;Wormerland;GM0880;;
+G0881;G;Onderbanken;GM0881;;
+G0882;G;Landgraaf;GM0882;;
+G0888;G;Beek;GM0888;;
+G0889;G;Beesel;GM0889;;
+G0893;G;Bergen (L.);GM0893;;
+G0899;G;Brunssum;GM0899;;
+G0907;G;Gennep;GM0907;;
+G0917;G;Heerlen;GM0917;;
+G0928;G;Kerkrade;GM0928;;
+G0935;G;Maastricht;GM0935;;
+G0938;G;Meerssen;GM0938;;
+G0944;G;Mook en Middelaar;GM0944;;
+G0946;G;Nederweert;GM0946;;
+G0951;G;Nuth;GM0951;;
+G0957;G;Roermond;GM0957;;
+G0962;G;Schinnen;GM0962;;
+G0965;G;Simpelveld;GM0965;;
+G0971;G;Stein;GM0971;;
+G0981;G;Vaals;GM0981;;
+G0983;G;Venlo;GM0983;;
+G0984;G;Venray;GM0984;;
+G0986;G;Voerendaal;GM0986;;
+G0988;G;Weert;GM0988;;
+G0994;G;Valkenburg aan de Geul;GM0994;;
+G0995;G;Lelystad;GM0995;;
+G1507;G;Horst aan de Maas;GM1507;;
+G1509;G;Oude IJsselstreek;GM1509;;
+G1525;G;Teylingen;GM1525;;
+G1581;G;Utrechtse Heuvelrug;GM1581;;
+G1586;G;Oost Gelre;GM1586;;
+G1598;G;Koggenland;GM1598;;
+G1621;G;Lansingerland;GM1621;;
+G1640;G;Leudal;GM1640;;
+G1641;G;Maasgouw;GM1641;;
+G1651;G;Eemsmond;GM1651;;
+G1652;G;Gemert-Bakel;GM1652;;
+G1655;G;Halderberge;GM1655;;
+G1658;G;Heeze-Leende;GM1658;;
+G1659;G;Laarbeek;GM1659;;
+G1663;G;De Marne;GM1663;;
+G1667;G;Reusel-De Mierden;GM1667;;
+G1669;G;Roerdalen;GM1669;;
+G1671;G;Maasdonk;GM1671;TRUE;** vervallen per 01-01-2015
+G1672;G;Rijnwoude;GM1672;TRUE;** vervallen per 01-01-2014
+G1674;G;Roosendaal;GM1674;;
+G1676;G;Schouwen-Duiveland;GM1676;;
+G1680;G;Aa en Hunze;GM1680;;
+G1681;G;Borger-Odoorn;GM1681;;
+G1684;G;Cuijk;GM1684;;
+G1685;G;Landerd;GM1685;;
+G1690;G;De Wolden;GM1690;;
+G1695;G;Noord-Beveland;GM1695;;
+G1696;G;Wijdemeren;GM1696;;
+G1699;G;Noordenveld;GM1699;;
+G1700;G;Twenterand;GM1700;;
+G1701;G;Westerveld;GM1701;;
+G1702;G;Sint Anthonis;GM1702;;
+G1705;G;Lingewaard;GM1705;;
+G1706;G;Cranendonck;GM1706;;
+G1708;G;Steenwijkerland;GM1708;;
+G1709;G;Moerdijk;GM1709;;
+G1711;G;Echt-Susteren;GM1711;;
+G1714;G;Sluis;GM1714;;
+G1719;G;Drimmelen;GM1719;;
+G1721;G;Bernheze;GM1721;;
+G1722;G;Ferwerderadiel;GM1722;;
+G1723;G;Alphen-Chaam;GM1723;;
+G1724;G;Bergeijk;GM1724;;
+G1728;G;Bladel;GM1728;;
+G1729;G;Gulpen-Wittem;GM1729;;
+G1730;G;Tynaarlo;GM1730;;
+G1731;G;Midden-Drenthe;GM1731;;
+G1734;G;Overbetuwe;GM1734;;
+G1735;G;Hof van Twente;GM1735;;
+G1740;G;Neder-Betuwe;GM1740;;
+G1742;G;Rijssen-Holten;GM1742;;
+G1771;G;Geldrop-Mierlo;GM1771;;
+G1773;G;Olst-Wijhe;GM1773;;
+G1774;G;Dinkelland;GM1774;;
+G1783;G;Westland;GM1783;;
+G1842;G;Midden-Delfland;GM1842;;
+G1859;G;Berkelland;GM1859;;
+G1876;G;Bronckhorst;GM1876;;
+G1883;G;Sittard-Geleen;GM1883;;
+G1884;G;Kaag en Braassem;GM1884;;
+G1891;G;Dantumadiel;GM1891;;
+G1892;G;Zuidplas;GM1892;;
+G1894;G;Peel en Maas;GM1894;;
+G1895;G;Oldambt;GM1895;;
+G1896;G;Zwartewaterland;GM1896;;
+G1900;G;Súdwest Fryslân;GM1900;;
+G1901;G;Bodegraven-Reeuwijk;GM1901;;
+G1903;G;Eijsden-Margraten;GM1903;;
+G1904;G;Stichtse Vecht;GM1904;;
+G1908;G;Menameradiel;GM1908;;
+G1911;G;Hollands Kroon;GM1911;;
+G1916;G;Leidschendam-Voorburg;GM1916;;
+G1921;G;De Friese Meren;GM1921;TRUE;** vervallen per 01-01-2016
+G1926;G;Pijnacker-Nootdorp;GM1926;;
+G1955;G;Montferland;GM1955;;
+G1987;G;Menterwolde;GM1987;;
+G1930;G;Nissewaard;GM1930;;** toegevoegd per 01-01-2015
+G1931;G;Krimpenerwaard;GM1931;;** toegevoegd per 01-01-2015
+G1940;G;De Fryske Marren;GM1940;;** toegevoegd per 01-01-2016
+G1942;G;Gooise Meren;GM1942;;** toegevoegd per 01-01-2016
+G1945;G;Berg en Dal;GM1945;;** toegevoegd per 01-01-2016
+G1948;G;Meierijstad;GM1948;;** toegevoegd per 01-01-2017
+P0020;P;Groningen;20;;
+P0021;P;Friesland;21;;
+P0022;P;Drenthe;22;;
+P0023;P;Overijssel;23;;
+P0024;P;Flevoland;24;;
+P0025;P;Gelderland;25;;
+P0026;P;Utrecht;26;;
+P0027;P;Noord-Holland;27;;
+P0028;P;Zuid-Holland;28;;
+P0029;P;Zeeland;29;;
+P0030;P;Noord-Brabant;30;;
+P0031;P;Limburg;31;;
+W0151;W;Waterschap Groot Salland;0151;TRUE;** vervallen per 01-01-2016
+W0152;W;Waterschap Rijn en IJssel;0152;;
+W0153;W;Waterschap Veluwe;0153;TRUE;** vervallen per 01-01-2013
+W0154;W;Waterschap Vallei & Eem;0154;TRUE;** vervallen per 01-01-2013
+W0155;W;Hoogheemraadschap Amstel, Gooi en Vecht;0155;;
+W0201;W;Waterschap Regge en Dinkel;0201;TRUE;** vervallen per 01-01-2014
+W0372;W;Hoogheemraadschap van Delfland;0372;;
+W0524;W;Waterschap Zeeuwse Eilanden;0524;TRUE;** vervallen per 01-01-2011
+W0524;W;Waterschap Zeeuws-Vlaanderen;0524;TRUE;** vervallen per 01-01-2011
+W0539;W;Waterschap De Dommel;0539;;
+W0585;W;Waterschap Roer en Overmaas;0585;TRUE;** vervallen per 01-01-2017
+W0621;W;Waterschap Rivierenland;0621;;
+W0616;W;Hoogheemraadschap van Rijnland;0616;;
+W0636;W;Hoogheemraadschap De Stichtse Rijnlanden;0636;;
+W0638;W;Waterschap Peel en Maasvallei;0638;TRUE;** vervallen per 01-01-2017
+W0646;W;Waterschap Hunze en Aa's;0646;;
+W0647;W;Waterschap Noorderzijlvest;0647;;
+W0648;W;Waterschap Reest en Wieden;0648;TRUE;** vervallen per 01-01-2016
+W0649;W;Waterschap Velt en Vecht;0649;TRUE;** vervallen per 01-01-2014
+W0650;W;Waterschap Zuiderzeeland;0650;;
+W0651;W;Hoogheemraadschap Hollands Noorderkwartier;0651;;
+W0652;W;Waterschap Brabantse Delta;0652;;
+W0653;W;Wetterskip Fryslân;0653;;
+W0654;W;Waterschap Aa en Maas;0654;;
+W0655;W;Waterschap Hollandse Delta;0655;;
+W0656;W;Hoogheemraadschap van Schieland en de Krimpenerwaard;0656;;
+W0659;W;Waterschapsbedrijf Limburg;0659;TRUE;** vervallen per 01-01-2017
+W0661;W;Waterschap Scheldestromen;0661;;
+W0662;W;Waterschap Vallei en Veluwe;0662;;** nieuw per 01-01-2013
+W0663;W;Waterschap Vechtstromen;0663;;** nieuw per 01-01-2014
+W0664;W;Waterschap Drents Overijsselse Delta;0664;;** nieuw per 01-01-2016
+W0665;W;Waterschap Limburg;0665;;** nieuw per 01-01-2017
+L0001;L;Economische Zaken (EZ);;;
+L0002;L;Ministerie Infrastructuur en Milieu (RWS) ;;;
+L0003;L;Ministerie van Defensie;;;
+L0004;L;Prorail;;;
+K0001;L;Kadaster;;;
+S0001;L;Samenwerkingsverband voor Bronhouders;;;
