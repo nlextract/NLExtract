@@ -6,10 +6,10 @@
     <meta charset="utf-8" />
     <meta name="author" content="Just van den Broecke">
 
-    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+    <link rel="stylesheet" href="https://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
     <link rel="stylesheet" href="leaflet-gps-1.0.0/leaflet-gps.min.css" />
 
-    <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+    <script src="https://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
     <!-- by https://github.com/stefanocudini/leaflet-gps  -->
     <script src="leaflet-gps-1.0.0/leaflet-gps.min.js"></script>
 
@@ -39,12 +39,12 @@
     // Layer defs
     var opentopo = L.tileLayer(
         // 'http://ws.nlextract.nl/gwc/service/tms/1.0.0/opentopo@EPSG:900913@png/{z}/{x}/{y}.png',
-        'http://s.map5.nl/map/gast/tiles/opentopo/EPSG900913/{z}/{x}/{y}.jpeg', {
+        'https://s.map5.nl/map/gast/tiles/opentopo/EPSG900913/{z}/{x}/{y}.jpeg', {
         // tms: true,
         maxZoom: 18,
         continuousWorld: true,
         detectRetina: false,
-        attribution: 'CC by CA <a href="http://www.opentopo.nl">OpenTopo</a> - <a href=http://openstreetmap.org>OpenStreetMap</a>'
+        attribution: 'CC by CA <a href="http://www.opentopo.nl">OpenTopo</a> - <a href=https://openstreetmap.org>OpenStreetMap</a>'
     });
 
     var eu = L.tileLayer(
@@ -91,7 +91,7 @@
          maxZoom: 16,
          continuousWorld: true,
          detectRetina: false,
-         attribution: '<a href="http://hiking.waymarkedtrails.org">hiking.waymarkedtrails.org</a>'
+         attribution: '<a href="https://hiking.waymarkedtrails.org">hiking.waymarkedtrails.org</a>'
      });
 
 //    var clouds = L.tileLayer('http://{s}.tile.openweathermap.org/map/clouds/{z}/{x}/{y}.png', {

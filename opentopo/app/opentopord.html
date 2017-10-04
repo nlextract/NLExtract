@@ -6,9 +6,9 @@
     <meta charset="utf-8"/>
     <meta name="author" content="Just van den Broecke, proj4leaflet by Bart van den Eijnden">
 
-    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css"/>
     <!--[if lte IE 8]>
-    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.ie.css"/>
+    <link rel="stylesheet" href="https://cdn.leafletjs.com/leaflet-0.7.3/leaflet.ie.css"/>
     <![endif]-->
     <style>
         html, body {
@@ -25,7 +25,7 @@
 </head>
 <body>
 <div id="map"></div>
-<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+<script src="https://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
 <script src="proj4js/proj4js-compressed.js"></script>
 <!-- Thanks to Bart vd E -->
 <script src="proj4leaflet/proj4leaflet.js"></script>
@@ -39,7 +39,7 @@
             });
 
     // var url = 'http://ws.nlextract.nl/gwc/service/tms/1.0.0/opentopo@nlGridSetPDOK@png/{z}/{x}/{y}.png';
-    var url = 'http://s.map5.nl/map/gast/tms/1.0.0/opentopo/EPSG28992/{z}/{x}/{y}.jpeg';
+    var url = 'https://s.map5.nl/map/gast/tms/1.0.0/opentopo/EPSG28992/{z}/{x}/{y}.jpeg';
     var map = new L.Map('map', {
         continuousWorld: true,
         crs: RD,
@@ -50,7 +50,7 @@
                 maxZoom: 13,
                 detectRetina: false,
                 continuousWorld: true,
-                attribution: 'CC by CA <a href="http://www.opentopo.nl">OpenTopo</a> - <a href=http://openstreetmap.org>OpenStreetMap</a>'
+                attribution: 'CC by CA <a href="http://www.opentopo.nl">OpenTopo</a> - <a href=https://openstreetmap.org>OpenStreetMap</a>'
             })
         ],
         center: new L.LatLng(52, 5.3),
