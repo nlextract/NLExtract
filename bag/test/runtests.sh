@@ -53,6 +53,9 @@ $BAG_EXTRACT -v -q $DB_DIR/script/gemeente-provincie-tabel.sql
 # Maak een "ACN-achtig" adres met alles erin
 $BAG_EXTRACT -v -q $DB_DIR/script/adres-tabel.sql
 
+# Maak een uitgebreid adres met alles erin
+$BAG_EXTRACT -v -q $DB_DIR/script/adres-tabel-full.sql
+
 # Adressen CSV uit adres-tabel
 ./adres2csv.sh
 
