@@ -7,14 +7,27 @@ ONGEPLAND
 - Linked Data
 - Top10NL naar Oracle,
 
-v1.3.0 - gepland maart 2017
+v1.3.0 - 6.nov.2017
 
 Zie Milestone:
 https://github.com/nlextract/NLExtract/milestone/9
 
-O.a.
-- nieuwe BRK download PDOK #204 #213
-- BGT verwerking crash #211
+Issues solved:
+
+BAG
+#218 extra velden BAG adres tabel en in CSV dump bag-extract
+#224  extra velden BAG adres tabel en in CSV dump en geocoderen van CSV bestanden bag-extract
+#92 Laden van BAG views duurt lang in QGis bag-extract
+
+BGT
+#210 Lokale wijziging Stetl xmlelementreader.py op data.nlextract.nl? bgt-extract
+#211 BGT verwerking crash
+#221  Volledig extract BGT/BRK gebruiken ipv tiles bgt-extract brk-extract
+
+BRK
+#221  Volledig extract BGT/BRK gebruiken ipv tiles bgt-extract brk-extract
+#204 Gewijzigde download BRK brk-extract
+#213  BRK ETL fixen voor nieuwe PDOK Downloads per 1.1.17 brk-extract
 
 v1.2.1 - 17.okt.2016
 
