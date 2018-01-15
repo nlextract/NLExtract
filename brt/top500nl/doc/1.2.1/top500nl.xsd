@@ -1,0 +1,789 @@
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:brt="http://register.geostandaarden.nl/gmlapplicatieschema/brt-algemeen/1.2.0" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:top500nl="http://register.geostandaarden.nl/gmlapplicatieschema/top500nl/1.2.1" elementFormDefault="qualified" targetNamespace="http://register.geostandaarden.nl/gmlapplicatieschema/top500nl/1.2.1" version="1.2.1">
+  <import namespace="http://register.geostandaarden.nl/gmlapplicatieschema/brt-algemeen/1.2.0" schemaLocation="http://register.geostandaarden.nl/gmlapplicatieschema/brt-algemeen/1.2.0/brt-algemeen.xsd"/>
+  <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+  <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+  <element name="FeatureCollectionT500NL" substitutionGroup="gml:AbstractGML" type="top500nl:FeatureCollectionT500NLType"/>
+  <complexType name="FeatureCollectionT500NLType">
+    <complexContent>
+      <extension base="gml:AbstractGMLType">
+        <sequence>
+          <element maxOccurs="unbounded" minOccurs="0" name="FeatureMember">
+            <complexType>
+              <complexContent>
+                <extension base="gml:AbstractFeatureMemberType">
+                  <sequence minOccurs="0">
+                    <element ref="top500nl:_Top500nlObject"/>
+                  </sequence>
+                  <attributeGroup ref="gml:AssociationAttributeGroup"/>
+                </extension>
+              </complexContent>
+            </complexType>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="FeatureCollectionT500NLPropertyType">
+    <sequence minOccurs="0">
+      <element ref="top500nl:FeatureCollectionT500NL"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="FunctioneelGebied" substitutionGroup="top500nl:_Top500nlObject" type="top500nl:FunctioneelGebiedType">
+    <annotation>
+      <documentation>Begrensd en benoemd gebied dat door een functionele eenheid beschreven wordt</documentation>
+    </annotation>
+  </element>
+  <complexType name="FunctioneelGebiedType">
+    <complexContent>
+      <extension base="top500nl:_Top500nlObjectType">
+        <sequence>
+          <element name="typeFunctioneelGebied" type="gml:CodeType">
+            <annotation>
+              <documentation>Het soort functioneel gebied.</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="soortnaam" type="string">
+            <annotation>
+              <documentation>Verdere specificatie van het type functioneel gebied.</documentation>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="naamNL" type="string">
+            <annotation>
+              <documentation>De Nederlandse naam van het functionele gebied.</documentation>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="naamFries" type="string">
+            <annotation>
+              <documentation>De Friese naam van het functionele gebied.</documentation>
+            </annotation>
+          </element>
+          <element name="geometrie" type="brt:BRTVlakMultivlakOfPuntPropertyType">
+            <annotation>
+              <documentation>De punt-, vlak- of multivlakgeometrie van een functioneel gebied object.</documentation>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="FunctioneelGebiedPropertyType">
+    <sequence minOccurs="0">
+      <element ref="top500nl:FunctioneelGebied"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="Gebouw" substitutionGroup="top500nl:_Top500nlObject" type="top500nl:GebouwType">
+    <annotation>
+      <documentation>Vrijstaande, overdekte en geheel of gedeeltelijk met wanden omsloten toegankelijke ruimte, die direct of indirect met de grond is verbonden</documentation>
+    </annotation>
+  </element>
+  <complexType name="GebouwType">
+    <complexContent>
+      <extension base="top500nl:_Top500nlObjectType">
+        <sequence>
+          <element name="geometrie" type="gml:PointPropertyType">
+            <annotation>
+              <documentation>De punt- of vlakgeometrie van een gebouw object</documentation>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="naam" type="string">
+            <annotation>
+              <documentation>Naam van het gebouw</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="soortnaam" type="string">
+            <annotation>
+              <documentation>Nadere specificatie van het type gebouw.</documentation>
+            </annotation>
+          </element>
+          <element name="status" type="gml:CodeType">
+            <annotation>
+              <documentation>De gebruiksstatus van het object</documentation>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" name="typeGebouw" type="gml:CodeType">
+            <annotation>
+              <documentation>Het oorspronkelijk gebruiksdoel van het gebouw.</documentation>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="GebouwPropertyType">
+    <sequence minOccurs="0">
+      <element ref="top500nl:Gebouw"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="GeografischGebied" substitutionGroup="top500nl:_Top500nlObject" type="top500nl:GeografischGebiedType">
+    <annotation>
+      <documentation>Begrensd en benoemd gebied dat door een geografische eenheid beschreven wordt
+NOTE Woonplaatsen en andere aan wonen en werken gerelateerde gebieden zijn in de objectklasse Plaats opgenomen.</documentation>
+    </annotation>
+  </element>
+  <complexType name="GeografischGebiedType">
+    <complexContent>
+      <extension base="top500nl:_Top500nlObjectType">
+        <sequence>
+          <element name="typeGeografischGebied" type="gml:CodeType">
+            <annotation>
+              <documentation>Het soort geografisch gebied</documentation>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="naamNL" type="string">
+            <annotation>
+              <documentation>De Nederlandse naam van het geografisch gebied.</documentation>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="naamFries" type="string">
+            <annotation>
+              <documentation>De Friese naam van het geografisch gebied.</documentation>
+            </annotation>
+          </element>
+          <element name="geometrie" type="brt:BRTVlakMultivlakOfPuntPropertyType">
+            <annotation>
+              <documentation>De punt- of vlakgeometrie van een geografisch gebied object.</documentation>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="GeografischGebiedPropertyType">
+    <sequence minOccurs="0">
+      <element ref="top500nl:GeografischGebied"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="Hoogte" substitutionGroup="top500nl:_Top500nlObject" type="top500nl:HoogteType">
+    <annotation>
+      <documentation>Virtuele objecten met informatie over de hoogte van het terrein of de diepte van het water
+NOTE Onder de klasse Hoogte vallen de hoogte- en dieptelijnen alsmede hoogte- en dieptepunten</documentation>
+    </annotation>
+  </element>
+  <complexType name="HoogteType">
+    <complexContent>
+      <extension base="top500nl:_Top500nlObjectType">
+        <sequence>
+          <element name="typeHoogte" type="gml:CodeType">
+            <annotation>
+              <documentation>Het soort hoogte object, bijv. hoogtlijn</documentation>
+            </annotation>
+          </element>
+          <element name="hoogte" type="double">
+            <annotation>
+              <documentation>Hoogte van het object t.o.v. NAP in meters met een nauwkeurigheid van 1 decimeter. / De diepte van het water</documentation>
+            </annotation>
+          </element>
+          <element name="referentievlak" type="gml:CodeType">
+            <annotation>
+              <documentation>Referentievlak ten opzichte waarvan de hoogten gedefinieerd zijn.</documentation>
+            </annotation>
+          </element>
+          <element name="geometrie" type="brt:BRTLijnOfPuntPropertyType">
+            <annotation>
+              <documentation>De lijn- of puntgeometrie van een hoogte object</documentation>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="HoogtePropertyType">
+    <sequence minOccurs="0">
+      <element ref="top500nl:Hoogte"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="Inrichtingselement" substitutionGroup="top500nl:_Top500nlObject" type="top500nl:InrichtingselementType">
+    <annotation>
+      <documentation>Ruimtelijk object, punt- of lijnvormig, al dan niet ter detaillering dan wel ter inrichting van de overige benoemde ruimtelijke objecten of andere inrichtingselementen</documentation>
+    </annotation>
+  </element>
+  <complexType name="InrichtingselementType">
+    <complexContent>
+      <extension base="top500nl:_Top500nlObjectType">
+        <sequence>
+          <element name="typeInrichtingselement" type="gml:CodeType">
+            <annotation>
+              <documentation>Het soort inrichtingselement</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="soortnaam" type="string">
+            <annotation>
+              <documentation>De klasse waartoe het inrichtingselement behoort</documentation>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="naam" type="string">
+            <annotation>
+              <documentation>De naam van het inrichtingselement</documentation>
+            </annotation>
+          </element>
+          <element name="geometrie" type="brt:BRTLijnOfPuntPropertyType">
+            <annotation>
+              <documentation>De punt- of lijngeometrie van een inrichtingelement.</documentation>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="InrichtingselementPropertyType">
+    <sequence minOccurs="0">
+      <element ref="top500nl:Inrichtingselement"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="Plaats" substitutionGroup="top500nl:_Top500nlObject" type="top500nl:PlaatsType">
+    <annotation>
+      <documentation>geografische gebied gekenmerkt door een concentratie van gebouwen gebruikt voor wonen een werken
+NOTE Voorbeelden zijn woonkernen, gehuchten en stadsdelen, al dan niet omsloten met blauwe of witte plaatsnaamborden.</documentation>
+    </annotation>
+  </element>
+  <complexType name="PlaatsType">
+    <complexContent>
+      <extension base="top500nl:_Top500nlObjectType">
+        <sequence>
+          <element name="typeGebied" type="gml:CodeType">
+            <annotation>
+              <documentation>Aanduiding van het type plaats.</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="aantalinwoners" type="integer">
+            <annotation>
+              <documentation>Aantal inwoners van de plaats.</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="naamOfficieel" type="string">
+            <annotation>
+              <documentation>De officiële naam van de plaats.</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="naamNL" type="string">
+            <annotation>
+              <documentation>De Nederlandse naam van de plaats.</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="naamFries" type="string">
+            <annotation>
+              <documentation>De Friese naam van de plaats.</documentation>
+            </annotation>
+          </element>
+          <element name="geometrie" type="brt:BRTVlakMultivlakOfPuntPropertyType">
+            <annotation>
+              <documentation>De vlak- of puntgeometrie van de plaats.</documentation>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="PlaatsPropertyType">
+    <sequence minOccurs="0">
+      <element ref="top500nl:Plaats"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="PlanTopografie" substitutionGroup="top500nl:_Top500nlObject" type="top500nl:PlanTopografieType">
+    <annotation>
+      <documentation>ruimtelijk object dat wel gepland is, maar nog niet in uitvoering is; meestal een groot infrastructureel object
+NOTE Voorbeelden zijn: nieuwe spoorbanen, snelwegen en kanalen</documentation>
+    </annotation>
+  </element>
+  <complexType name="PlanTopografieType">
+    <complexContent>
+      <extension base="top500nl:_Top500nlObjectType">
+        <sequence>
+          <element name="typeObject" type="gml:CodeType">
+            <annotation>
+              <documentation>Het type of soort gepland object.</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="naam" type="string">
+            <annotation>
+              <documentation>De naam van het geplande object.</documentation>
+            </annotation>
+          </element>
+          <element name="geometrie" type="brt:BRTVlakLijnOfPuntPropertyType">
+            <annotation>
+              <documentation>De vlak-, lijn- of puntgeometrie van het geplande object.</documentation>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="PlanTopografiePropertyType">
+    <sequence minOccurs="0">
+      <element ref="top500nl:PlanTopografie"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="RegistratiefGebied" substitutionGroup="top500nl:_Top500nlObject" type="top500nl:RegistratiefGebiedType">
+    <annotation>
+      <documentation>Op basis van wet- en regelgeving afgebakend gebied dat als eenheid geldt van politieke/bestuurlijke verantwoordelijkheid of voor bedrijfsvoering.</documentation>
+    </annotation>
+  </element>
+  <complexType name="RegistratiefGebiedType">
+    <complexContent>
+      <extension base="top500nl:_Top500nlObjectType">
+        <sequence>
+          <element name="typeRegistratiefGebied" type="gml:CodeType">
+            <annotation>
+              <documentation>Het soort registratief gebied</documentation>
+            </annotation>
+          </element>
+          <element name="naamOfficieel" type="string">
+            <annotation>
+              <documentation>De officiële naam van het registratieve gebied.</documentation>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="naamNL" type="string">
+            <annotation>
+              <documentation>De Nederlandse naam van een registratief gebied.</documentation>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="naamFries" type="string">
+            <annotation>
+              <documentation>De Friese naam van een registratief gebied.</documentation>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="nummer" type="string">
+            <annotation>
+              <documentation>Het administratieve nummer van het registratief gebied.</documentation>
+            </annotation>
+          </element>
+          <element name="geometrie" type="brt:BRTVlakOfMultivlakPropertyType">
+            <annotation>
+              <documentation>De vlak- of multivlakgeometrie van een registratief gebied.</documentation>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="RegistratiefGebiedPropertyType">
+    <sequence minOccurs="0">
+      <element ref="top500nl:RegistratiefGebied"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="Spoorbaandeel" substitutionGroup="top500nl:_Top500nlObject" type="top500nl:SpoorbaandeelType">
+    <annotation>
+      <documentation>Kleinste functioneel onafhankelijk stukje spoorbaan met gelijkblijvende homogene eigenschappen en relaties dat er binnen een spoorwegnet wordt onderscheiden</documentation>
+    </annotation>
+  </element>
+  <complexType name="SpoorbaandeelType">
+    <complexContent>
+      <extension base="top500nl:_Top500nlObjectType">
+        <sequence>
+          <element name="typeInfrastructuur" type="gml:CodeType">
+            <annotation>
+              <documentation>Aanduiding of het object een verbinding of een kruising is. Kruising is meestal een wissel.</documentation>
+            </annotation>
+          </element>
+          <element name="typeSpoorbaan" type="gml:CodeType">
+            <annotation>
+              <documentation>Het soort vervoermiddel waarvoor het spoorbaandeel bestemd is.</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="fysiekVoorkomen" type="gml:CodeType">
+            <annotation>
+              <documentation>De plaats waar het object zich bevindt t.o.v. andere constructies.</documentation>
+            </annotation>
+          </element>
+          <element name="spoorbreedte" type="gml:CodeType">
+            <annotation>
+              <documentation>De breedteklasse van het spoor</documentation>
+            </annotation>
+          </element>
+          <element name="aantalSporen" type="gml:CodeType">
+            <annotation>
+              <documentation>Het aantal sporen van het spoorbaandeel</documentation>
+            </annotation>
+          </element>
+          <element name="vervoerfunctie" type="gml:CodeType">
+            <annotation>
+              <documentation>De functie waarvoor het spoor gebruikt wordt (of werd)</documentation>
+            </annotation>
+          </element>
+          <element name="elektrificatie" type="brt:BRTJaNeeWaardeType">
+            <annotation>
+              <documentation>Aanduiding of het spoorbaandeel geëlektrificeerd is of niet.</documentation>
+            </annotation>
+          </element>
+          <element name="status" type="gml:CodeType">
+            <annotation>
+              <documentation>De gebruiksstatus van het object</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="brugnaam" type="string">
+            <annotation>
+              <documentation>De naam van een spoorbrug</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="tunnelnaam" type="string">
+            <annotation>
+              <documentation>Naam van een spoortunnel</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="baanvaknaam" type="string">
+            <annotation>
+              <documentation>De naam van het baanvak.</documentation>
+            </annotation>
+          </element>
+          <element name="geometrie" type="gml:CurvePropertyType">
+            <annotation>
+              <documentation>De lijngeometrie van een spoorbaandeel</documentation>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="SpoorbaandeelPropertyType">
+    <sequence minOccurs="0">
+      <element ref="top500nl:Spoorbaandeel"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="Terrein" substitutionGroup="top500nl:_Top500nlObject" type="top500nl:TerreinType">
+    <annotation>
+      <documentation>Zichtbaar begrensd stuk grond, niet zijnde een van de andere opdelende ruimtelijke objecten (wegdeel of waterdeel)</documentation>
+    </annotation>
+  </element>
+  <complexType name="TerreinType">
+    <complexContent>
+      <extension base="top500nl:_Top500nlObjectType">
+        <sequence>
+          <element name="geometrieVlak" type="gml:SurfacePropertyType">
+            <annotation>
+              <documentation>De vlakgeometrie van een terrein object.</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="naam" type="string">
+            <annotation>
+              <documentation>De naam die eventueel voor het terrrein in gebruik is.</documentation>
+            </annotation>
+          </element>
+          <element name="typeLandgebruik" type="gml:CodeType">
+            <annotation>
+              <documentation>De gebruiksbestemming van het terrein.</documentation>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="voorkomen" type="gml:CodeType">
+            <annotation>
+              <documentation>Aanduiding dat er riet op het terrein voorkomt of dat het drassig/moerassig is.</documentation>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="TerreinPropertyType">
+    <sequence minOccurs="0">
+      <element ref="top500nl:Terrein"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="Waterdeel" substitutionGroup="top500nl:_Top500nlObject" type="top500nl:WaterdeelType">
+    <annotation>
+      <documentation>grondoppervlak in principe bedekt met water
+NOTE Voorbeelden zijn: rivier, kanaal, beek, zee, meer, oppervlaktewater in algemene zin. Objecten die in het kader van de waterhuishouding periodiek met water zijn bedekt, vallen hier ook onder.</documentation>
+    </annotation>
+  </element>
+  <complexType name="WaterdeelType">
+    <complexContent>
+      <extension base="top500nl:_Top500nlObjectType">
+        <sequence>
+          <element name="typeWater" type="gml:CodeType">
+            <annotation>
+              <documentation>Aanduiding of het object een verbinding, een kruising of iets anders</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="breedteklasse" type="gml:CodeType">
+            <annotation>
+              <documentation>De breedte van het water ingedeeld in klassen.</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="fysiekVoorkomen" type="gml:CodeType">
+            <annotation>
+              <documentation>De plaats waar het object zich bevindt t.o.v. andere constructies.</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="voorkomen" type="gml:CodeType">
+            <annotation>
+              <documentation>Aanduiding dat er riet op het waterdeel voorkomt</documentation>
+            </annotation>
+          </element>
+          <element name="getijdeinvloed" type="brt:BRTJaNeeWaardeType">
+            <annotation>
+              <documentation>Aanduiding voor het geven van de stroomrichting(en) van (natuurlijke) waterlopen.</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="vaarwegklasse" type="gml:CodeType">
+            <annotation>
+              <documentation>CEMT klasses van vaarwegen, welke gebaseerd zijn op de afmetingen en laadvermogen van standaardschepen en duwstellen voor de binnen- en riviervaart in West-Europa. De klasses I t/m VII zijn in 1992 bepaald door de Conferentie van Europese Ministers van Verkeer (C.E.M.T.). Naderhand is klasse 0 (vaarwegen kleiner dan die van klasse I) daaraan toegevoegd. Klasse VII komt in Nederland niet voor.</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="naamOfficieel" type="string">
+            <annotation>
+              <documentation>De officiele naam van het water.</documentation>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="naamNL" type="string">
+            <annotation>
+              <documentation>De Nederlandse naam van het water.</documentation>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="naamFries" type="string">
+            <annotation>
+              <documentation>De Friese naam van het water</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="isBAGnaam" type="brt:BRTJaNeeWaardeType">
+            <annotation>
+              <documentation>Aanduiding of de naam afkomstig is uit de BAG</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="sluisnaam" type="string">
+            <annotation>
+              <documentation>De naam van de sluis</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="brugnaam" type="string">
+            <annotation>
+              <documentation>De naam van een brug</documentation>
+            </annotation>
+          </element>
+          <element name="geometrie" type="brt:BRTVlakOfLijnPropertyType">
+            <annotation>
+              <documentation>De punt-, lijn- of vlakgeometrie van een waterdeel object</documentation>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="WaterdeelPropertyType">
+    <sequence minOccurs="0">
+      <element ref="top500nl:Waterdeel"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="Wegdeel" substitutionGroup="top500nl:_Top500nlObject" type="top500nl:WegdeelType">
+    <annotation>
+      <documentation>Kleinste functioneel onafhankelijk stukje weg met gelijkblijvende, homogene eigenschappen en relaties voor wegverkeer en vliegverkeer te land</documentation>
+    </annotation>
+  </element>
+  <complexType name="WegdeelType">
+    <complexContent>
+      <extension base="top500nl:_Top500nlObjectType">
+        <sequence>
+          <element name="typeInfrastructuur" type="gml:CodeType">
+            <annotation>
+              <documentation>Aanduiding of het object een verbinding, een kruising of iets anders is.</documentation>
+            </annotation>
+          </element>
+          <element name="typeWeg" type="gml:CodeType">
+            <annotation>
+              <documentation>Het soort weg</documentation>
+            </annotation>
+          </element>
+          <element name="hoofdverkeersgebruik" type="gml:CodeType">
+            <annotation>
+              <documentation>Soort verkeer waarvoor een weg bestemd is</documentation>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="fysiekVoorkomen" type="gml:CodeType">
+            <annotation>
+              <documentation>Fysiek voorkomen: De plaats waar het object zich bevindt t.o.v. andere constructies.</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="verhardingsbreedteklasse" type="gml:CodeType">
+            <annotation>
+              <documentation>De breedte van de verharding, ingedeeld in klassen</documentation>
+            </annotation>
+          </element>
+          <element name="gescheidenRijbaan" type="brt:BRTJaNeeWaardeType">
+            <annotation>
+              <documentation>Aanduiding of het object onderdeel uitmaakt van een weg met gescheiden rijbanen</documentation>
+            </annotation>
+          </element>
+          <element name="verhardingstype" type="gml:CodeType">
+            <annotation>
+              <documentation>Het type verharding van een wegdeel</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="aantalRijstroken" type="integer">
+            <annotation>
+              <documentation>Het aantal onderverdelingen van een wegdeel d.m.v. strepen, verschil in verharding of kleur.</documentation>
+            </annotation>
+          </element>
+          <element name="status" type="gml:CodeType">
+            <annotation>
+              <documentation>De gebruiksstatus van het object.</documentation>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="naam" type="string">
+            <annotation>
+              <documentation>De naam van het wegdeel</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="isBAGnaam" type="brt:BRTJaNeeWaardeType">
+            <annotation>
+              <documentation>Aanduiding of de naam afkomstig is uit de BAG
+n</documentation>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="aWegnummer" type="string">
+            <annotation>
+              <documentation>Nummering van de rijkswegen (autosnelwegen) behorende tot het nationale wegenstelsel</documentation>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="nWegnummer" type="string">
+            <annotation>
+              <documentation>Nummering van de provinciale wegen behorende tot het nationale wegenstelsel en nummering van rijkswegen die nog niet de status van autosnelweg hebben.</documentation>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="eWegnummer" type="string">
+            <annotation>
+              <documentation>Nummering van de rijkswegen, die een Europese aansluiting op buitenlandse doorgaande wegen vormen</documentation>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="sWegnummer" type="string">
+            <annotation>
+              <documentation>Nummering van lokale doorgaande wegen binnen / rond de gemeente Amsterdam.</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="afritnummer" type="string">
+            <annotation>
+              <documentation>Afritnummering op autosnelweg, vastgesteld door Rijkswaterstaat</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="afritnaam" type="string">
+            <annotation>
+              <documentation>Afritbenaming op autosnelweg, vastgesteld door Rijkswaterstaat</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="knooppuntnaam" type="string">
+            <annotation>
+              <documentation>Naam van een knooppunt</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="brugnaam" type="string">
+            <annotation>
+              <documentation>De naam van een brug.</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="tunnelnaam" type="string">
+            <annotation>
+              <documentation>Naam van de tunnel</documentation>
+            </annotation>
+          </element>
+          <element name="geometrie" type="brt:BRTLijnOfPuntPropertyType">
+            <annotation>
+              <documentation>De geometrie van een wegdeel (lijn of punt)</documentation>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="WegdeelPropertyType">
+    <sequence minOccurs="0">
+      <element ref="top500nl:Wegdeel"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element abstract="true" name="_Top500nlObject" substitutionGroup="gml:AbstractFeature" type="top500nl:_Top500nlObjectType">
+    <annotation>
+      <documentation>De gemeenschappelijke eigenschappen van een TOP500NL object
+NOTE De abstracte klasse _Top500nlObject  heeft alle attributen die TOP500NL objecten gemeenschappelijk hebben, zoals identificatie</documentation>
+    </annotation>
+  </element>
+  <complexType abstract="true" name="_Top500nlObjectType">
+    <complexContent>
+      <extension base="gml:AbstractFeatureType">
+        <sequence>
+          <element name="identificatie">
+            <annotation>
+              <documentation>Unieke identificatie van het object binnen het domein van NEN 3610.
+-- Source --
+NEN 3610:2011</documentation>
+            </annotation>
+            <complexType>
+              <sequence>
+                <element ref="brt:NEN3610ID"/>
+              </sequence>
+            </complexType>
+          </element>
+          <element name="brontype" type="gml:CodeType">
+            <annotation>
+              <documentation>Aanduiding welk soort bron is gebruikt.</documentation>
+            </annotation>
+          </element>
+          <element name="bronactualiteit" type="date">
+            <annotation>
+              <documentation>Datum van de gebruikte bron.</documentation>
+            </annotation>
+          </element>
+          <element name="bronbeschrijving" type="string">
+            <annotation>
+              <documentation>Beschrijving van de gebruikte bron.</documentation>
+            </annotation>
+          </element>
+          <element name="bronnauwkeurigheid" type="double">
+            <annotation>
+              <documentation>Nauwkeurigheid van de gebruikte bron in meters.</documentation>
+            </annotation>
+          </element>
+          <element name="objectBeginTijd" type="date">
+            <annotation>
+              <documentation>Object begintijd: Tijdstip waarop het object in de registratie is ontstaan
+NOTE Dit tijdstip moet altijd gelijk zijn aan het tijdstipregistratie van het eerste voorkomen van het object.
+Er zijn verschillende datatypes voor de representatie van een tijdstip: Afhankelijk van de gebruikerswensen m.b.t. granulariteit kan o.a. worden gekozen uit types TM_Instant, Date of DateTime.
+-- Source --
+NEN 3610:2011</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="objectEindTijd" type="date">
+            <annotation>
+              <documentation>Object eindtijd: Tijdstip waarop het object in de registratie niet meer geldig is
+NOTE Er zijn verschillende datatypes voor de representatie van een tijdstip: Afhankelijk van de gebruikerswensen m.b.t. granulariteit kan o.a. worden gekozen uit types TM_Instant, Date of DateTime.
+-- Source --
+NEN 3610:2011</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="visualisatieCode" type="integer">
+            <annotation>
+              <documentation>Code op basis waarvan een gebruiker het object kan visualiseren.</documentation>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="_Top500nlObjectPropertyType">
+    <sequence minOccurs="0">
+      <element ref="top500nl:_Top500nlObject"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+</schema>

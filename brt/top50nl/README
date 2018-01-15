@@ -1,0 +1,11 @@
+NLExtract/TOP50NL - Extractie en visualisatie van TOP50NL
+
+Algemeen
+--------
+NLExtract/TOP50NL, kortweg Top50Extract bevat tools de TOP50NL geleverd door Het Kadaster (GML)
+om te zetten naar hanteerbare formaten zoals PostGIS.
+
+Documentatie vind je op: http://nlextract.readthedocs.org
+
+Belangrijke wijzigingen:
+* 15-01-2018: initiële versie
