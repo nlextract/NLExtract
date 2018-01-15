@@ -1,5 +1,5 @@
 -- Auteur: Frank Steggink
--- Doel: script om Top10NL tabellen te verwijderen.
+-- Doel: script om TOP50NL tabellen te verwijderen.
 -- Zowel de originele als de opgesplitste tabellen worden hiermee verwijderd.
 
 SET search_path={schema},public;

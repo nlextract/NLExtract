@@ -28,7 +28,7 @@ set options_file=options\default.args
 :: options\<hostnaam>.args. 
 if exist options\%COMPUTERNAME%.args set options_file=options\%COMPUTERNAME%.args
 
-:: Evt via commandline overrulen: etl-top10nl.cmd <mijn optiebestand>
+:: Evt via commandline overrulen: etl-top50nl.cmd <mijn optiebestand>
 if not "%~1"=="" set options_file=%1
 
 :: Uiteindelijke commando. Kan ook gewoon "stetl -c conf\etl-top50nl-v1.1.cfg -a ..." worden indien Stetl installed

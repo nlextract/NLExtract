@@ -29,7 +29,7 @@ host_options_file=options/`hostname`.args
 
 [ -f "$host_options_file" ] && options_file=$host_options_file
 
-# Evt via commandline overrulen: etl-top10nl.sh <my options file>
+# Evt via commandline overrulen: etl-top50nl.sh <my options file>
 [ -f "$1" ] && options_file=$1
 
 # Uiteindelijke commando. Kan ook gewoon "stetl -c conf/etl-top50nl-v1.1.cfg -a ..." worden indien Stetl installed

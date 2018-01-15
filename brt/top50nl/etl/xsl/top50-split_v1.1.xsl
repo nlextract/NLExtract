@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!--
-Voorbewerking Top10NL GML Objecten
+Voorbewerking TOP50NL GML Objecten
 
-Auteur: Just van den Broecke
-
-Aangepast voor Top10NL versie 1.1.1 en 1.2 door Frank Steggink
+Auteur: Just van den Broecke en Frank Steggink
 
 Dit XSLT script doet een voorbewerking op de ruwe TOP50NL GML zoals door Het Kadaster
 geleverd. Dit is nodig omdat GDAL ogr2ogr niet alle mogelijkheden van GML goed aankan.
@@ -118,7 +116,6 @@ van deze objecten bevat slechts een geometrie.
                 <xsl:with-param name="geometrie" select="top50nl:geometrie"/>
             </xsl:call-template>
         </xsl:for-each>
-
     </xsl:template>
 
     <!-- Splits FunctioneelGebied: heeft geometrie.vlak, geometrie.multivlak of geometrie.punt -->
