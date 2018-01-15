@@ -1057,17 +1057,17 @@
     <PropertyDefn>
       <Name>naamNL</Name>
       <ElementPath>naamNL</ElementPath>
-      <Type>StringList</Type>
+      <Type>String</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>naamFries</Name>
       <ElementPath>naamFries</ElementPath>
-      <Type>StringList</Type>
+      <Type>String</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>nummer</Name>
       <ElementPath>nummer</ElementPath>
-      <Type>StringList</Type>
+      <Type>String</Type>
     </PropertyDefn>
     <!--Einde properties van RegistratiefGebied-->
   </GMLFeatureClass>
@@ -1169,12 +1169,12 @@
     <PropertyDefn>
       <Name>naamNL</Name>
       <ElementPath>naamNL</ElementPath>
-      <Type>StringList</Type>
+      <Type>String</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>naamFries</Name>
       <ElementPath>naamFries</ElementPath>
-      <Type>StringList</Type>
+      <Type>String</Type>
     </PropertyDefn>
     <!--Einde properties van Relief-->
   </GMLFeatureClass>
@@ -1633,12 +1633,12 @@
     <PropertyDefn>
       <Name>typeWeg</Name>
       <ElementPath>typeWeg</ElementPath>
-      <Type>StringList</Type>
+      <Type>String</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>hoofdverkeersgebruik</Name>
       <ElementPath>hoofdverkeersgebruik</ElementPath>
-      <Type>StringList</Type>
+      <Type>String</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>fysiekVoorkomen</Name>
@@ -1707,25 +1707,25 @@
     <PropertyDefn>
       <Name>afritnaam</Name>
       <ElementPath>afritnaam</ElementPath>
-      <Type>String</Type>
+      <Type>StringList</Type>
       <Width>250</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>knooppuntnaam</Name>
       <ElementPath>knooppuntnaam</ElementPath>
-      <Type>String</Type>
+      <Type>StringList</Type>
       <Width>250</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>brugnaam</Name>
       <ElementPath>brugnaam</ElementPath>
-      <Type>String</Type>
+      <Type>StringList</Type>
       <Width>250</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>tunnelnaam</Name>
       <ElementPath>tunnelnaam</ElementPath>
-      <Type>String</Type>
+      <Type>StringList</Type>
       <Width>250</Width>
     </PropertyDefn>
     <!--Einde properties van Wegdeel-->
@@ -1811,12 +1811,12 @@
     <PropertyDefn>
       <Name>typeWeg</Name>
       <ElementPath>typeWeg</ElementPath>
-      <Type>StringList</Type>
+      <Type>String</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>hoofdverkeersgebruik</Name>
       <ElementPath>hoofdverkeersgebruik</ElementPath>
-      <Type>StringList</Type>
+      <Type>String</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>fysiekVoorkomen</Name>
@@ -1885,25 +1885,25 @@
     <PropertyDefn>
       <Name>afritnaam</Name>
       <ElementPath>afritnaam</ElementPath>
-      <Type>String</Type>
+      <Type>StringList</Type>
       <Width>250</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>knooppuntnaam</Name>
       <ElementPath>knooppuntnaam</ElementPath>
-      <Type>String</Type>
+      <Type>StringList</Type>
       <Width>250</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>brugnaam</Name>
       <ElementPath>brugnaam</ElementPath>
-      <Type>String</Type>
+      <Type>StringList</Type>
       <Width>250</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>tunnelnaam</Name>
       <ElementPath>tunnelnaam</ElementPath>
-      <Type>String</Type>
+      <Type>StringList</Type>
       <Width>250</Width>
     </PropertyDefn>
     <!--Einde properties van Wegdeel-->
