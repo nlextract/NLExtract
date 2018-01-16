@@ -1,28 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!--
-Voorbewerking Top10NL GML Objecten
+Voorbewerking TOP10NL GML Objecten
 
 Auteur: Just van den Broecke
 
-Aangepast voor Top10NL versie 1.1.1 en 1.2 door Frank Steggink
+Aangepast voor TOP10NL versie 1.1.1 en 1.2 door Frank Steggink
 
-Dit XSLT script doet een voorbewerking op de ruwe Top10NL GML zoals door Het Kadaster
-geleverd. Dit is nodig omdat GDAL ogr2ogr niet alle mogelijkheden van GML goed aankan
+Dit XSLT script doet een voorbewerking op de ruwe TOP10NL GML zoals door Het Kadaster
+geleverd. Dit is nodig, omdat GDAL ogr2ogr niet alle mogelijkheden van GML goed aankan
 en omdat met ingang van versie 1.2 de plaats van de geometrie in een feature is gewijzigd.
 
-Voornamelijk gaat het om meerdere geometrie-attributen per Top10 Object. Het interne
+Voornamelijk gaat het om meerdere geometrie-attributen per TOP10NL object. Het interne
 GDAL model kent maar 1 geometrie per feature. Daarnaast is het bij visualiseren bijv.
 met SLDs voor een WMS vaak het handigst om 1 geometrie per laag te hebben. Dit geldt ook
 als we bijvoorbeeld een OGR conversie naar ESRI Shapefile willen doen met ogr2ogr.
 
-Dit script splitst objecten uit Top10NL uit in geometrie-specifieke objecten.
+Dit script splitst objecten uit TOP10NL uit in geometrie-specifieke objecten.
 Bijvoorbeeld een weg (objecttype Wegdeel) heeft twee geometrie-attributen. Het attribuut
 hoofdGeometrie kan weer een vlak, lijn of punt bevatten en het attribuut hartGeometrie kan
 een lijn of punt bevatten. Na uitsplitsen ontstaan max. 5 verschillende objecttypen, namelijk
-Wegdeel_Vlak, Wegdeel_Lijn, Wegdeel_hartLijn etc. Ieder van deze objecten bevat slechts een
+Wegdeel_Vlak, Wegdeel_Lijn, Wegdeel_hartLijn, etc. Ieder van deze objecten bevat slechts één
 geometrie.
 
+TODO: vanaf versie 2.0 ondersteunt GDAL meerdere geometrieën per feature. Deze stylesheet
+houdt hier nog geen rekening mee.
 -->
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:xalan="http://xml.apache.org/xalan" exclude-result-prefixes="xalan"
