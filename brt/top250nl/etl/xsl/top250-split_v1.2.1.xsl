@@ -1,23 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!--
-Voorbewerking top250nl GML Objecten
+Voorbewerking TOP250NL GML Objecten
 
 Auteur: Just van den Broecke en Frank Steggink
 
-Dit XSLT script doet een voorbewerking op de ruwe top250nl GML zoals door Het Kadaster
-geleverd. Dit is nodig omdat GDAL ogr2ogr niet alle mogelijkheden van GML goed aankan.
+Dit XSLT script doet een voorbewerking op de ruwe TOP250NL GML zoals door Het Kadaster
+geleverd. Dit is nodig, omdat GDAL ogr2ogr niet alle mogelijkheden van GML goed aankan.
 
-Voornamelijk gaat het om meerdere geometrie-attributen per TOP100 Object. Het interne
+Voornamelijk gaat het om meerdere geometrie-attributen per TOP250NL object. Het interne
 GDAL model kent maar 1 geometrie per feature. Daarnaast is het bij visualiseren bijv.
 met SLDs voor een WMS vaak het handigst om 1 geometrie per laag te hebben. Dit geldt ook
 als we bijvoorbeeld een OGR conversie naar ESRI Shapefile willen doen met ogr2ogr.
 
-Dit script splitst objecten uit top250nl uit in geometrie-specifieke objecten.
-Bijvoorbeeld een weg (objecttype Wegdeel) kan een vlak of lijn  bevatten. Na uitsplitsen
-ontstaan max. 2 verschillende objecttypen, namelijk Wegdeel_Vlak en Wegdeel_Lijn. Ieder
-van deze objecten bevat slechts een geometrie.
+Dit script splitst objecten uit TOP250NL uit in geometrie-specifieke objecten.
+Bijvoorbeeld een weg (objecttype Wegdeel) kan een lijn of punt bevatten. Na uitsplitsen
+ontstaan max. 2 verschillende objecttypen, namelijk Wegdeel_Lijn en Wegdeel_Punt. Ieder
+van deze objecten bevat slechts één geometrie.
 
+TODO: vanaf versie 2.0 ondersteunt GDAL meerdere geometrieën per feature. Deze stylesheet
+houdt hier nog geen rekening mee.
 -->
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:xalan="http://xml.apache.org/xalan" exclude-result-prefixes="xalan"
