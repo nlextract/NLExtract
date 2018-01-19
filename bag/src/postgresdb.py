@@ -57,6 +57,7 @@ class Database:
                 self.maak_schema()
 
             self.zet_schema()
+            self.zet_tijdzone();
             Log.log.debug("verbonden met de database '%s', schema '%s', connId=%d" % (self.config.database, self.config.schema, self.connection.fileno()))
         except Exception as e:
             raise (e)
@@ -75,6 +76,9 @@ class Database:
             # Always set search path to our schema
             self.uitvoeren('SET search_path TO %s,public' % self.config.schema)
             # self.connection.close()
+
+    def zet_tijdzone(self,tijdzone='Europe/Amsterdam'):
+        self.uitvoeren("SET time zone '%s'" % tijdzone)
 
     def has_log_actie(self, actie, bestand="n.v.t", error=False):
         sql = "SELECT * FROM nlx_bag_log WHERE bestand = %s AND actie = %s AND error = %s"
