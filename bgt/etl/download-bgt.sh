@@ -14,7 +14,7 @@ do
   echo "Downloading BGT-blok ${block} ..."
   block_url="https://downloads.pdok.nl/service/extract.zip?extractname=bgt&extractset=citygml&excludedtypes=plaatsbepalingspunt&history=true&tiles=%7B%22layers%22%3A%5B%7B%22aggregateLevel%22%3A4%2C%22codes%22%3A%5B${block}%5D%7D%5D%7D&enddate=${today}"
 
-  ${DIR}/robust-download.sh ${block_url} bgt_${block}.zip
+  bash ${DIR}/robust-download.sh ${block_url} bgt_${block}.zip
 done
 
 popd 
