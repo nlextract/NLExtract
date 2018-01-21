@@ -18,7 +18,7 @@ CREATE TABLE nlx_bag_info (
 );
 
 INSERT INTO nlx_bag_info (sleutel,waarde)
-        VALUES ('schema_versie', '1.3.0');
+        VALUES ('schema_versie', '1.4.0');
 INSERT INTO nlx_bag_info (sleutel,waarde)
         VALUES ('software_versie', '1.1.4');
 INSERT INTO nlx_bag_info (sleutel,waarde)
