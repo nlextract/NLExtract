@@ -248,7 +248,7 @@ CREATE TYPE gebruiksdoelVerblijfsobject AS ENUM (
 );
 CREATE TABLE verblijfsobjectgebruiksdoel (
   gid serial,
-  identificatie VARCHAR(16,0),
+  identificatie VARCHAR(16),
   aanduidingrecordinactief boolean,
   aanduidingrecordcorrectie integer,
   begindatumtijdvakgeldigheid TIMESTAMP WITH TIME ZONE,
