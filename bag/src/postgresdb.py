@@ -57,7 +57,7 @@ class Database:
                 self.maak_schema()
 
             self.zet_schema()
-            self.zet_tijdzone();
+            self.zet_tijdzone()
             Log.log.debug("verbonden met de database '%s', schema '%s', connId=%d" % (self.config.database, self.config.schema, self.connection.fileno()))
         except Exception as e:
             raise (e)
