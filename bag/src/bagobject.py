@@ -40,7 +40,7 @@ class BAGObject:
     def __init__(self, tag="", naam="", objectType=""):
         self.attributen = {}
         self.attributen_volgorde = []
-        self.voegToe(BAGnumeriekAttribuut(16, "identificatie", "bag_LVC:identificatie"))
+        self.voegToe(BAGstringAttribuut(16, "identificatie", "bag_LVC:identificatie"))
         self.voegToe(BAGbooleanAttribuut("aanduidingRecordInactief", "bag_LVC:aanduidingRecordInactief"))
         self.voegToe(BAGintegerAttribuut("aanduidingRecordCorrectie","bag_LVC:aanduidingRecordCorrectie"))
         self.voegToe(BAGbooleanAttribuut("officieel", "bag_LVC:officieel"))
@@ -290,7 +290,7 @@ class OpenbareRuimte(BAGObject):
         self.voegToe(BAGstringAttribuut(80, "openbareRuimteNaam", "bag_LVC:openbareRuimteNaam"))
         self.voegToe(BAGenumAttribuut(OpenbareRuimte.openbareRuimteStatusTypes, "openbareRuimteStatus", "bag_LVC:openbareruimteStatus"))
         self.voegToe(BAGenumAttribuut(OpenbareRuimte.openbareRuimteTypes, "openbareRuimteType","bag_LVC:openbareRuimteType"))
-        self.voegToe(BAGnumeriekAttribuut(16, "gerelateerdeWoonplaats",
+        self.voegToe(BAGstringAttribuut(16, "gerelateerdeWoonplaats",
                                                    "bag_LVC:gerelateerdeWoonplaats/bag_LVC:identificatie"))
         self.voegToe(BAGattribuut(80, "verkorteOpenbareRuimteNaam",
                                                        "nen5825:VerkorteOpenbareruimteNaam"))
@@ -313,9 +313,9 @@ class Nummeraanduiding(BAGObject):
                                         "bag_LVC:nummeraanduidingStatus"))
         self.voegToe(BAGenumAttribuut(Nummeraanduiding.verblijfsobjectTypes, "typeAdresseerbaarObject",
                                         "bag_LVC:typeAdresseerbaarObject"))
-        self.voegToe(BAGnumeriekAttribuut(16, "gerelateerdeOpenbareRuimte",
+        self.voegToe(BAGstringAttribuut(16, "gerelateerdeOpenbareRuimte",
                                                    "bag_LVC:gerelateerdeOpenbareRuimte/bag_LVC:identificatie"))
-        self.voegToe(BAGnumeriekAttribuut(16, "gerelateerdeWoonplaats",
+        self.voegToe(BAGstringAttribuut(16, "gerelateerdeWoonplaats",
                                                    "bag_LVC:gerelateerdeWoonplaats/bag_LVC:identificatie"))
 
     def getAdresseerbaarObject(self):
@@ -344,7 +344,7 @@ class Nummeraanduiding(BAGObject):
 class BAGadresseerbaarObject(BAGObject):
     def __init__(self, tag, naam, objectType):
         BAGObject.__init__(self, tag, naam, objectType)
-        self.voegToe(BAGnumeriekAttribuut(16, "hoofdadres",
+        self.voegToe(BAGstringAttribuut(16, "hoofdadres",
                                        "bag_LVC:gerelateerdeAdressen/bag_LVC:hoofdadres/bag_LVC:identificatie"))
         self.relaties.append(BAGrelatieAttribuut(self, "adresseerbaarobjectnevenadres",
                                               16, "nevenadres",
@@ -408,7 +408,7 @@ class Verblijfsobject(BAGadresseerbaarObject):
         self.voegToe(BAGnumeriekAttribuut(6, "oppervlakteVerblijfsobject",
                                         "bag_LVC:oppervlakteVerblijfsobject"))
         # Het eerste gerelateerde pand (in principe kunnen er meer zijn, zie relatie)
-        # self.voegToe(BAGnumeriekAttribuut(16, "gerelateerdPand1", "bag_LVC:gerelateerdPand/bag_LVC:identificatie"))
+        # self.voegToe(BAGstringAttribuut(16, "gerelateerdPand1", "bag_LVC:gerelateerdPand/bag_LVC:identificatie"))
         # Het eerste verblijfsdoel  (in principe kunnen er meer zijn, zie relatie)
         # self.voegToe(BAGnumeriekAttribuut(50, "gebruiksdoelVerblijfsobject1", "bag_LVC:gebruiksdoelVerblijfsobject"))
         self.voegToe(BAGpoint(3, "geopunt", "bag_LVC:verblijfsobjectGeometrie"))
@@ -522,7 +522,8 @@ class BAGObjectFabriek:
     #--------------------------------------------------------------------------------------------------------
     def getBAGObjectBijIdentificatie(self, identificatie):
         obj = None
-        id_str = str(identificatie)
+        id_int = int(identificatie)
+        id_str = str(id_int)
         if len(id_str) == 4:
             obj = Woonplaats()
         elif id_str[3:5] == "30":
@@ -587,7 +588,7 @@ class BAGRelatie(BAGObject):
     def __init__(self, tag="", naam="", objectType=""):
         self.attributen = {}
         self.attributen_volgorde = []
-        self.voegToe(BAGnumeriekAttribuut(16, "identificatie", "bag_LVC:identificatie"))
+        self.voegToe(BAGstringAttribuut(16, "identificatie", "bag_LVC:identificatie"))
         self.voegToe(BAGbooleanAttribuut("aanduidingRecordInactief", "bag_LVC:aanduidingRecordInactief"))
         self.voegToe(BAGintegerAttribuut("aanduidingRecordCorrectie","bag_LVC:aanduidingRecordCorrectie"))
         self.voegToe(BAGdatetimeAttribuut("begindatumTijdvakGeldigheid","bag_LVC:tijdvakgeldigheid/bagtype:begindatumTijdvakGeldigheid"))
@@ -607,7 +608,7 @@ class BAGRelatie(BAGObject):
 class VerblijfsObjectPand(BAGRelatie):
     def __init__(self):
         BAGRelatie.__init__(self, "", "verblijfsobjectpand", "")
-        self.voegToe(BAGnumeriekAttribuut(16, "gerelateerdpand", "bag_LVC:gerelateerdPand"))
+        self.voegToe(BAGstringAttribuut(16, "gerelateerdpand", "bag_LVC:gerelateerdPand"))
 
 #--------------------------------------------------------------------------------------------------------
 # Class         AdresseerbaarObjectNevenAdres
@@ -616,7 +617,7 @@ class VerblijfsObjectPand(BAGRelatie):
 class AdresseerbaarObjectNevenAdres(BAGRelatie):
     def __init__(self):
         BAGRelatie.__init__(self, "", "adresseerbaarobjectnevenadres", "")
-        self.voegToe(BAGnumeriekAttribuut(16, "nevenadres", "bag_LVC:nevenadres"))
+        self.voegToe(BAGstringAttribuut(16, "nevenadres", "bag_LVC:nevenadres"))
 
 #--------------------------------------------------------------------------------------------------------
 # Class         VerblijfsObjectGebruiksdoel 
