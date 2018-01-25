@@ -306,7 +306,7 @@ CREATE TABLE gemeente_woonplaats (
   gid serial,
   begindatumtijdvakgeldigheid TIMESTAMP WITH TIME ZONE,
   einddatumtijdvakgeldigheid TIMESTAMP WITH TIME ZONE,
-  woonplaatscode numeric(4),
+  woonplaatscode varchar(16),
   gemeentecode numeric(4),
   status gemeenteWoonplaatsStatus,
   PRIMARY KEY (gid)
