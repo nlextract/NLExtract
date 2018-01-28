@@ -115,7 +115,10 @@ create or replace view kast_2dactueelbestaand as select * from kast_2d where ein
 drop table kast_2d_tmp;
 
 -- Kunstwerkdeel
-create table kunstwerkdeel_2d as select ogc_fid, case when bgt_type = 'hoogspanningsmast' and st_dimension(wkb_geometry) = 0 then wkb_geometry::geometry(MULTIPOINT, 28992) else null end geometry_multipunt, case when bgt_type = 'hoogspanningsmast' and st_dimension(wkb_geometry) = 2 then st_forcecurve(wkb_geometry)::geometry(MULTISURFACE, 28992) else null end geometry_multivlak, case when bgt_type <> 'hoogspanningsmast' and st_dimension(wkb_geometry) = 1 and st_geometrytype(wkb_geometry) <> 'ST_CircularString' then st_forcecurve(wkb_geometry)::geometry(COMPOUNDCURVE, 28992) when bgt_type <> 'hoogspanningsmast' and st_dimension(wkb_geometry) = 1 and st_geometrytype(wkb_geometry) = 'ST_CircularString' then st_geomfromtext('COMPOUNDCURVE(' || st_astext(wkb_geometry) || ')', 28992)::geometry(COMPOUNDCURVE, 28992) else null end geometry_lijn, case when bgt_type <> 'hoogspanningsmast' and st_dimension(wkb_geometry) = 2 then st_forcecurve(wkb_geometry)::geometry(CURVEPOLYGON, 28992) else null end geometry_vlak, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, bgt_type, plus_type from kunstwerkdeel_2d_tmp;
+-- Note that some hoogspanningsmast features are curve polygons, and some other features are multi
+-- surfaces. This is invalid, but these geometries are converted nonetheless. This should be
+-- reported though;
+create table kunstwerkdeel_2d as select ogc_fid, case when st_geometrytype(wkb_geometry) = 'ST_MultiPoint' then wkb_geometry::geometry(MULTIPOINT, 28992) else null end geometry_multipunt, case when st_geometrytype(wkb_geometry) = 'ST_MultiPolygon' or st_geometrytype(wkb_geometry) = 'ST_MultiSurface' then st_forcecurve(wkb_geometry)::geometry(MULTISURFACE, 28992) else null end geometry_multivlak, case when st_geometrytype(wkb_geometry) = 'ST_CircularString' then st_geomfromtext('COMPOUNDCURVE(' || st_astext(wkb_geometry) || ')', 28992)::geometry(COMPOUNDCURVE, 28992) when st_geometrytype(wkb_geometry) = 'ST_CompoundCurve' or st_geometrytype(wkb_geometry) = 'ST_LineString' then st_forcecurve(wkb_geometry)::geometry(COMPOUNDCURVE, 28992) else null end geometry_lijn, case when st_geometrytype(wkb_geometry) = 'ST_CurvePolygon' or st_geometrytype(wkb_geometry) = 'ST_Polygon' then st_forcecurve(wkb_geometry)::geometry(CURVEPOLYGON, 28992) else null end geometry_vlak, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, bgt_type, plus_type from kunstwerkdeel_2d_tmp;
 
 alter table kunstwerkdeel_2d add primary key (ogc_fid);
 create index kunstwerkdeel_2d_geometry_multipunt_geom_idx on kunstwerkdeel_2d using gist((geometry_multipunt::geometry(MULTIPOINT, 28992)));
@@ -130,6 +133,15 @@ create or replace view kunstwerkdeel_2dactueel as select * from kunstwerkdeel_2d
 create or replace view kunstwerkdeel_2dactueelbestaand as select * from kunstwerkdeel_2d where eindregistratie is null and bgt_status = 'bestaand' and plus_status <> 'plan' and plus_status <> 'historie';
 
 drop table kunstwerkdeel_2d_tmp;
+
+-- Report invalid geometry types for kunstwerkdeel
+select bgt_type, st_geometrytype(geometry_multipunt), count(*) from kunstwerkdeel_2d where bgt_type <> 'hoogspanningsmast' and geometry_multipunt is not null group by bgt_type, st_geometrytype(geometry_multipunt)
+union all
+select bgt_type, st_geometrytype(geometry_multivlak), count(*) from kunstwerkdeel_2d where bgt_type <> 'hoogspanningsmast' and geometry_multivlak is not null group by bgt_type, st_geometrytype(geometry_multivlak)
+union all
+select bgt_type, st_geometrytype(geometry_lijn), count(*) from kunstwerkdeel_2d where bgt_type = 'hoogspanningsmast' and geometry_lijn is not null group by bgt_type, st_geometrytype(geometry_lijn)
+union all
+select bgt_type, st_geometrytype(geometry_vlak), count(*) from kunstwerkdeel_2d where bgt_type = 'hoogspanningsmast' and geometry_vlak is not null group by bgt_type, st_geometrytype(geometry_vlak);
 
 -- Mast
 create table mast_2d as select ogc_fid, wkb_geometry geometry_punt, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, bgt_type, plus_type from mast_2d_tmp;
