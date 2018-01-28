@@ -11,7 +11,7 @@
     <GeomPropertyDefn>
       <Name>geometry_kruinlijn</Name>
       <ElementPath>kruinlijnWegdeel</ElementPath>
-      <Type>CompoundCurve</Type>
+      <GeometryType>9</GeometryType>
     </GeomPropertyDefn>
     <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
@@ -139,7 +139,7 @@
     <GeomPropertyDefn>
       <Name>geometry_kruinlijn</Name>
       <ElementPath>kruinlijnOndersteunendWegdeel</ElementPath>
-      <Type>CompoundCurve</Type>
+      <GeometryType>9</GeometryType>
     </GeomPropertyDefn>
     <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
@@ -267,7 +267,7 @@
     <GeomPropertyDefn>
       <Name>geometry_kruinlijn</Name>
       <ElementPath>kruinlijnOnbegroeidTerreindeel</ElementPath>
-      <Type>CompoundCurve</Type>
+      <GeometryType>9</GeometryType>
     </GeomPropertyDefn>
     <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
@@ -383,7 +383,7 @@
     <GeomPropertyDefn>
       <Name>geometry_kruinlijn</Name>
       <ElementPath>kruinlijnBegroeidTerreindeel</ElementPath>
-      <Type>CompoundCurve</Type>
+      <GeometryType>9</GeometryType>
     </GeomPropertyDefn>
     <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>

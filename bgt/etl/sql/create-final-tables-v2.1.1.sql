@@ -30,7 +30,8 @@ create table begroeidterreindeel_2d as select ogc_fid, geometry_vlak, geometry_k
 
 alter table begroeidterreindeel_2d add primary key (ogc_fid);
 create index begroeidterreindeel_2d_geometry_vlak_geom_idx on begroeidterreindeel_2d using gist((geometry_vlak::geometry(CURVEPOLYGON, 28992)));
-create index begroeidterreindeel_2d_geometry_kruinlijn_geom_idx on begroeidterreindeel_2d using gist((geometry_kruinlijn::geometry(COMPOUNDCURVE, 28992)));
+-- TODO: should be compoundcurve, find solution for missing ST_ForceCurve in PostGIS 2.1
+create index begroeidterreindeel_2d_geometry_kruinlijn_geom_idx on begroeidterreindeel_2d using gist((geometry_kruinlijn::geometry(GEOMETRY, 28992)));
 create index begroeidterreindeel_2d_eindregistratie_idx on begroeidterreindeel_2d (eindregistratie);
 create index begroeidterreindeel_2d_bgt_status_idx on begroeidterreindeel_2d (bgt_status);
 create index begroeidterreindeel_2d_plus_status_idx on begroeidterreindeel_2d (plus_status);
@@ -184,7 +185,8 @@ create table onbegroeidterreindeel_2d as select ogc_fid, geometry_vlak, geometry
 
 alter table onbegroeidterreindeel_2d add primary key (ogc_fid);
 create index onbegroeidterreindeel_2d_geometry_vlak_geom_idx on onbegroeidterreindeel_2d using gist((geometry_vlak::geometry(CURVEPOLYGON, 28992)));
-create index onbegroeidterreindeel_2d_geometry_kruinlijn_geom_idx on onbegroeidterreindeel_2d using gist((geometry_kruinlijn::geometry(COMPOUNDCURVE, 28992)));
+-- TODO: should be compoundcurve, find solution for missing ST_ForceCurve in PostGIS 2.1
+create index onbegroeidterreindeel_2d_geometry_kruinlijn_geom_idx on onbegroeidterreindeel_2d using gist((geometry_kruinlijn::geometry(GEOMETRY, 28992)));
 create index onbegroeidterreindeel_2d_eindregistratie_idx on onbegroeidterreindeel_2d (eindregistratie);
 create index onbegroeidterreindeel_2d_bgt_status_idx on onbegroeidterreindeel_2d (bgt_status);
 create index onbegroeidterreindeel_2d_plus_status_idx on onbegroeidterreindeel_2d (plus_status);
@@ -213,7 +215,8 @@ create table ondersteunendwegdeel_2d as select ogc_fid, geometry_vlak, geometry_
 
 alter table ondersteunendwegdeel_2d add primary key (ogc_fid);
 create index ondersteunendwegdeel_2d_geometry_vlak_geom_idx on ondersteunendwegdeel_2d using gist((geometry_vlak::geometry(CURVEPOLYGON, 28992)));
-create index ondersteunendwegdeel_2d_geometry_kruinlijn_geom_idx on ondersteunendwegdeel_2d using gist((geometry_kruinlijn::geometry(COMPOUNDCURVE, 28992)));
+-- TODO: should be compoundcurve, find solution for missing ST_ForceCurve in PostGIS 2.1
+create index ondersteunendwegdeel_2d_geometry_kruinlijn_geom_idx on ondersteunendwegdeel_2d using gist((geometry_kruinlijn::geometry(GEOMETRY, 28992)));
 create index ondersteunendwegdeel_2d_eindregistratie_idx on ondersteunendwegdeel_2d (eindregistratie);
 create index ondersteunendwegdeel_2d_bgt_status_idx on ondersteunendwegdeel_2d (bgt_status);
 create index ondersteunendwegdeel_2d_plus_status_idx on ondersteunendwegdeel_2d (plus_status);
@@ -569,7 +572,8 @@ create table wegdeel_2d as select ogc_fid, geometry_vlak, geometry_kruinlijn, na
 
 alter table wegdeel_2d add primary key (ogc_fid);
 create index wegdeel_2d_geometry_vlak_geom_idx on wegdeel_2d using gist((geometry_vlak::geometry(CURVEPOLYGON, 28992)));
-create index wegdeel_2d_geometry_kruinlijn_geom_idx on wegdeel_2d using gist((geometry_kruinlijn::geometry(COMPOUNDCURVE, 28992)));
+-- TODO: should be compoundcurve, find solution for missing ST_ForceCurve in PostGIS 2.1
+create index wegdeel_2d_geometry_kruinlijn_geom_idx on wegdeel_2d using gist((geometry_kruinlijn::geometry(GEOMETRY, 28992)));
 create index wegdeel_2d_eindregistratie_idx on wegdeel_2d (eindregistratie);
 create index wegdeel_2d_bgt_status_idx on wegdeel_2d (bgt_status);
 create index wegdeel_2d_plus_status_idx on wegdeel_2d (plus_status);
