@@ -11,6 +11,48 @@ LANGUAGE sql;
 
 -- Usage: SELECT _nlx_parse_version(postgis_lib_version());
 
+-- Function to force a geometry to its curved representation. This way, similar functionality to
+-- ST_ForceCurve is available in PostGIS 2.0 and 2.1, and also circular strings are converted to
+-- compound curves.
+DO
+$do$
+BEGIN
+IF (SELECT _nlx_parse_version(postgis_lib_version())) >= 20200 THEN
+	CREATE OR REPLACE FUNCTION _nlx_force_curve(geometry geometry)
+	RETURNS geometry AS
+	$$
+		SELECT CASE
+			WHEN st_geometrytype(geometry) = 'ST_CircularString' THEN
+				st_geomfromtext('COMPOUNDCURVE(' || st_astext(geometry) || ')', st_srid(geometry))
+			ELSE
+				st_forcecurve(geometry)
+			END AS result;
+	$$
+	LANGUAGE sql;
+ELSE
+	CREATE OR REPLACE FUNCTION _nlx_force_curve(geometry geometry)
+	RETURNS geometry AS
+	$$
+		SELECT CASE
+			WHEN st_geometrytype(geometry) = 'ST_CircularString' THEN
+				st_geomfromtext('COMPOUNDCURVE(' || st_astext(geometry) || ')', st_srid(geometry))
+			WHEN st_geometrytype(geometry) = 'ST_LineString' THEN
+				st_geomfromtext('COMPOUNDCURVE(' || substr(st_astext(geometry), 10) || ')', st_srid(geometry))
+			WHEN st_geometrytype(geometry) = 'ST_Polygon' THEN
+				st_geomfromtext('CURVEPOLYGON(' || substr(st_astext(geometry), 7) || ')', st_srid(geometry))
+			WHEN st_geometrytype(geometry) = 'ST_MultiLineString' THEN
+				st_geomfromtext('MULTICURVE(' || substr(st_astext(geometry), 15) || ')', st_srid(geometry))
+			WHEN st_geometrytype(geometry) = 'ST_MultiPolygon' THEN
+				st_geomfromtext('MULTISURFACE(' || substr(st_astext(geometry), 12) || ')', st_srid(geometry))
+			ELSE
+				geometry
+			END AS result;
+	$$
+	LANGUAGE sql;
+END IF;
+END
+$do$;
+
 -- Bak
 create table bak_2d as select ogc_fid, wkb_geometry geometry_punt, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, bgt_type, plus_type from bak_2d_tmp;
 
@@ -26,12 +68,11 @@ create or replace view bak_2dactueelbestaand as select * from bak_2d where eindr
 drop table bak_2d_tmp;
 
 -- Begroeid terreindeel
-create table begroeidterreindeel_2d as select ogc_fid, geometry_vlak, geometry_kruinlijn, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, bgt_fysiekvoorkomen, plus_fysiekvoorkomen, cast(begroeidterreindeeloptalud as boolean) from begroeidterreindeel_2d_tmp;
+create table begroeidterreindeel_2d as select ogc_fid, geometry_vlak, _nlx_force_curve(geometry_kruinlijn)::geometry(COMPOUNDCURVE, 28992) geometry_kruinlijn, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, bgt_fysiekvoorkomen, plus_fysiekvoorkomen, cast(begroeidterreindeeloptalud as boolean) from begroeidterreindeel_2d_tmp;
 
 alter table begroeidterreindeel_2d add primary key (ogc_fid);
 create index begroeidterreindeel_2d_geometry_vlak_geom_idx on begroeidterreindeel_2d using gist((geometry_vlak::geometry(CURVEPOLYGON, 28992)));
--- TODO: should be compoundcurve, find solution for missing ST_ForceCurve in PostGIS 2.1
-create index begroeidterreindeel_2d_geometry_kruinlijn_geom_idx on begroeidterreindeel_2d using gist((geometry_kruinlijn::geometry(GEOMETRY, 28992)));
+create index begroeidterreindeel_2d_geometry_kruinlijn_geom_idx on begroeidterreindeel_2d using gist((geometry_kruinlijn::geometry(COMPOUNDCURVE, 28992)));
 create index begroeidterreindeel_2d_eindregistratie_idx on begroeidterreindeel_2d (eindregistratie);
 create index begroeidterreindeel_2d_bgt_status_idx on begroeidterreindeel_2d (bgt_status);
 create index begroeidterreindeel_2d_plus_status_idx on begroeidterreindeel_2d (plus_status);
@@ -126,28 +167,16 @@ create or replace view kast_2dactueelbestaand as select * from kast_2d where ein
 drop table kast_2d_tmp;
 
 -- Kunstwerkdeel
-DO
-$do$
-BEGIN
-IF (SELECT _nlx_parse_version(postgis_lib_version())) >= 20200 THEN
-    -- Note that some hoogspanningsmast features are curve polygons, and some other features are multi
-    -- surfaces. This is invalid, but these geometries are converted nonetheless. This should be
-    -- reported though.
-    create table kunstwerkdeel_2d as select ogc_fid, case when st_geometrytype(wkb_geometry) = 'ST_MultiPoint' then wkb_geometry::geometry(MULTIPOINT, 28992) else null::geometry(MULTIPOINT, 28992) end geometry_multipunt, case when st_geometrytype(wkb_geometry) = 'ST_MultiPolygon' or st_geometrytype(wkb_geometry) = 'ST_MultiSurface' then st_forcecurve(wkb_geometry)::geometry(MULTISURFACE, 28992) else null::geometry(MULTISURFACE, 28992) end geometry_multivlak, case when st_geometrytype(wkb_geometry) = 'ST_CircularString' then st_geomfromtext('COMPOUNDCURVE(' || st_astext(wkb_geometry) || ')', 28992)::geometry(COMPOUNDCURVE, 28992) when st_geometrytype(wkb_geometry) = 'ST_CompoundCurve' or st_geometrytype(wkb_geometry) = 'ST_LineString' then st_forcecurve(wkb_geometry)::geometry(COMPOUNDCURVE, 28992) else null::geometry(COMPOUNDCURVE, 28992) end geometry_lijn, case when st_geometrytype(wkb_geometry) = 'ST_CurvePolygon' or st_geometrytype(wkb_geometry) = 'ST_Polygon' then st_forcecurve(wkb_geometry)::geometry(CURVEPOLYGON, 28992) else null::geometry(CURVEPOLYGON, 28992) end geometry_vlak, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, bgt_type, plus_type from kunstwerkdeel_2d_tmp;
-
-    create index kunstwerkdeel_2d_geometry_multipunt_geom_idx on kunstwerkdeel_2d using gist((geometry_multipunt::geometry(MULTIPOINT, 28992)));
-    create index kunstwerkdeel_2d_geometry_multivlak_geom_idx on kunstwerkdeel_2d using gist((geometry_multivlak::geometry(MULTISURFACE, 28992)));
-    create index kunstwerkdeel_2d_geometry_lijn_geom_idx on kunstwerkdeel_2d using gist((geometry_lijn::geometry(COMPOUNDCURVE, 28992)));
-    create index kunstwerkdeel_2d_geometry_vlak_geom_idx on kunstwerkdeel_2d using gist((geometry_vlak::geometry(CURVEPOLYGON, 28992)));
-ELSE
-    create table kunstwerkdeel_2d as select ogc_fid, wkb_geometry geometry, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, bgt_type, plus_type from kunstwerkdeel_2d_tmp;
-
-    create index kunstwerkdeel_2d_geometry_geom_idx on kunstwerkdeel_2d using gist((geometry::geometry(GEOMETRY, 28992)));
-END IF;
-END
-$do$;
+-- Note that some hoogspanningsmast features are curve polygons, and some other features are multi
+-- surfaces. This is invalid, but these geometries are converted nonetheless. This should be
+-- reported though.
+create table kunstwerkdeel_2d as select ogc_fid, case when st_geometrytype(wkb_geometry) = 'ST_MultiPoint' then wkb_geometry::geometry(MULTIPOINT, 28992) else null::geometry(MULTIPOINT, 28992) end geometry_multipunt, case when st_geometrytype(wkb_geometry) = 'ST_MultiPolygon' or st_geometrytype(wkb_geometry) = 'ST_MultiSurface' then _nlx_force_curve(wkb_geometry)::geometry(MULTISURFACE, 28992) else null::geometry(MULTISURFACE, 28992) end geometry_multivlak, case when st_geometrytype(wkb_geometry) = 'ST_CircularString' or st_geometrytype(wkb_geometry) = 'ST_CompoundCurve' or st_geometrytype(wkb_geometry) = 'ST_LineString' then _nlx_force_curve(wkb_geometry)::geometry(COMPOUNDCURVE, 28992) else null::geometry(COMPOUNDCURVE, 28992) end geometry_lijn, case when st_geometrytype(wkb_geometry) = 'ST_CurvePolygon' or st_geometrytype(wkb_geometry) = 'ST_Polygon' then _nlx_force_curve(wkb_geometry)::geometry(CURVEPOLYGON, 28992) else null::geometry(CURVEPOLYGON, 28992) end geometry_vlak, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, bgt_type, plus_type from kunstwerkdeel_2d_tmp;
 
 alter table kunstwerkdeel_2d add primary key (ogc_fid);
+create index kunstwerkdeel_2d_geometry_multipunt_geom_idx on kunstwerkdeel_2d using gist((geometry_multipunt::geometry(MULTIPOINT, 28992)));
+create index kunstwerkdeel_2d_geometry_multivlak_geom_idx on kunstwerkdeel_2d using gist((geometry_multivlak::geometry(MULTISURFACE, 28992)));
+create index kunstwerkdeel_2d_geometry_lijn_geom_idx on kunstwerkdeel_2d using gist((geometry_lijn::geometry(COMPOUNDCURVE, 28992)));
+create index kunstwerkdeel_2d_geometry_vlak_geom_idx on kunstwerkdeel_2d using gist((geometry_vlak::geometry(CURVEPOLYGON, 28992)));
 create index kunstwerkdeel_2d_eindregistratie_idx on kunstwerkdeel_2d (eindregistratie);
 create index kunstwerkdeel_2d_bgt_status_idx on kunstwerkdeel_2d (bgt_status);
 create index kunstwerkdeel_2d_plus_status_idx on kunstwerkdeel_2d (plus_status);
@@ -158,6 +187,7 @@ create or replace view kunstwerkdeel_2dactueelbestaand as select * from kunstwer
 drop table kunstwerkdeel_2d_tmp;
 
 -- Report invalid geometry types for kunstwerkdeel
+-- TODO: separate step / pipeline
 select bgt_type, st_geometrytype(geometry_multipunt), count(*) from kunstwerkdeel_2d where bgt_type <> 'hoogspanningsmast' and geometry_multipunt is not null group by bgt_type, st_geometrytype(geometry_multipunt)
 union all
 select bgt_type, st_geometrytype(geometry_multivlak), count(*) from kunstwerkdeel_2d where bgt_type <> 'hoogspanningsmast' and geometry_multivlak is not null group by bgt_type, st_geometrytype(geometry_multivlak)
@@ -181,12 +211,11 @@ create or replace view mast_2dactueelbestaand as select * from mast_2d where ein
 drop table mast_2d_tmp;
 
 -- Onbegroeid terreindeel
-create table onbegroeidterreindeel_2d as select ogc_fid, geometry_vlak, geometry_kruinlijn, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, bgt_fysiekvoorkomen, plus_fysiekvoorkomen, cast(onbegroeidterreindeeloptalud as boolean) from onbegroeidterreindeel_2d_tmp;
+create table onbegroeidterreindeel_2d as select ogc_fid, geometry_vlak, _nlx_force_curve(geometry_kruinlijn)::geometry(COMPOUNDCURVE, 28992) geometry_kruinlijn, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, bgt_fysiekvoorkomen, plus_fysiekvoorkomen, cast(onbegroeidterreindeeloptalud as boolean) from onbegroeidterreindeel_2d_tmp;
 
 alter table onbegroeidterreindeel_2d add primary key (ogc_fid);
 create index onbegroeidterreindeel_2d_geometry_vlak_geom_idx on onbegroeidterreindeel_2d using gist((geometry_vlak::geometry(CURVEPOLYGON, 28992)));
--- TODO: should be compoundcurve, find solution for missing ST_ForceCurve in PostGIS 2.1
-create index onbegroeidterreindeel_2d_geometry_kruinlijn_geom_idx on onbegroeidterreindeel_2d using gist((geometry_kruinlijn::geometry(GEOMETRY, 28992)));
+create index onbegroeidterreindeel_2d_geometry_kruinlijn_geom_idx on onbegroeidterreindeel_2d using gist((geometry_kruinlijn::geometry(COMPOUNDCURVE, 28992)));
 create index onbegroeidterreindeel_2d_eindregistratie_idx on onbegroeidterreindeel_2d (eindregistratie);
 create index onbegroeidterreindeel_2d_bgt_status_idx on onbegroeidterreindeel_2d (bgt_status);
 create index onbegroeidterreindeel_2d_plus_status_idx on onbegroeidterreindeel_2d (plus_status);
@@ -211,12 +240,11 @@ create or replace view ondersteunendwaterdeel_2dactueelbestaand as select * from
 drop table ondersteunendwaterdeel_2d_tmp;
 
 -- Ondersteunend wegdeel
-create table ondersteunendwegdeel_2d as select ogc_fid, geometry_vlak, geometry_kruinlijn, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, bgt_functie, plus_functie, bgt_fysiekvoorkomen, plus_fysiekvoorkomen, cast(ondersteunendwegdeeloptalud as boolean) from ondersteunendwegdeel_2d_tmp;
+create table ondersteunendwegdeel_2d as select ogc_fid, geometry_vlak, _nlx_force_curve(geometry_kruinlijn)::geometry(COMPOUNDCURVE, 28992) geometry_kruinlijn, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, bgt_functie, plus_functie, bgt_fysiekvoorkomen, plus_fysiekvoorkomen, cast(ondersteunendwegdeeloptalud as boolean) from ondersteunendwegdeel_2d_tmp;
 
 alter table ondersteunendwegdeel_2d add primary key (ogc_fid);
 create index ondersteunendwegdeel_2d_geometry_vlak_geom_idx on ondersteunendwegdeel_2d using gist((geometry_vlak::geometry(CURVEPOLYGON, 28992)));
--- TODO: should be compoundcurve, find solution for missing ST_ForceCurve in PostGIS 2.1
-create index ondersteunendwegdeel_2d_geometry_kruinlijn_geom_idx on ondersteunendwegdeel_2d using gist((geometry_kruinlijn::geometry(GEOMETRY, 28992)));
+create index ondersteunendwegdeel_2d_geometry_kruinlijn_geom_idx on ondersteunendwegdeel_2d using gist((geometry_kruinlijn::geometry(COMPOUNDCURVE, 28992)));
 create index ondersteunendwegdeel_2d_eindregistratie_idx on ondersteunendwegdeel_2d (eindregistratie);
 create index ondersteunendwegdeel_2d_bgt_status_idx on ondersteunendwegdeel_2d (bgt_status);
 create index ondersteunendwegdeel_2d_plus_status_idx on ondersteunendwegdeel_2d (plus_status);
@@ -297,23 +325,11 @@ create or replace view overigbouwwerk_2dactueelbestaand as select * from overigb
 drop table overigbouwwerk_2d_tmp;
 
 -- Overige scheiding
-DO
-$do$
-BEGIN
-IF (SELECT _nlx_parse_version(postgis_lib_version())) >= 20200 THEN
-    create table overigescheiding_2d as select ogc_fid, case when st_dimension(wkb_geometry) = 1 and st_geometrytype(wkb_geometry) <> 'ST_CircularString' then st_forcecurve(wkb_geometry)::geometry(COMPOUNDCURVE, 28992) when st_dimension(wkb_geometry) = 1 and st_geometrytype(wkb_geometry) = 'ST_CircularString' then st_geomfromtext('COMPOUNDCURVE(' || st_astext(wkb_geometry) || ')', 28992)::geometry(COMPOUNDCURVE, 28992) else null::geometry(COMPOUNDCURVE, 28992) end geometry_lijn, case when st_dimension(wkb_geometry) = 2 then st_forcecurve(wkb_geometry)::geometry(CURVEPOLYGON, 28992) else null::geometry(CURVEPOLYGON, 28992) end geometry_vlak, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, plus_type from overigescheiding_2d_tmp;
-
-    create index overigescheiding_2d_geometry_lijn_geom_idx on overigescheiding_2d using gist((geometry_lijn::geometry(COMPOUNDCURVE, 28992)));
-    create index overigescheiding_2d_geometry_vlak_geom_idx on overigescheiding_2d using gist((geometry_vlak::geometry(CURVEPOLYGON, 28992)));
-ELSE
-    create table overigescheiding_2d as select ogc_fid, wkb_geometry geometry, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, plus_type from overigescheiding_2d_tmp;
-
-    create index overigescheiding_2d_geometry_geom_idx on overigescheiding_2d using gist((geometry::geometry(GEOMETRY, 28992)));
-END IF;
-END
-$do$;
+create table overigescheiding_2d as select ogc_fid, case when st_dimension(wkb_geometry) = 1 then _nlx_force_curve(wkb_geometry)::geometry(COMPOUNDCURVE, 28992) else null::geometry(COMPOUNDCURVE, 28992) end geometry_lijn, case when st_dimension(wkb_geometry) = 2 then _nlx_force_curve(wkb_geometry)::geometry(CURVEPOLYGON, 28992) else null::geometry(CURVEPOLYGON, 28992) end geometry_vlak, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, plus_type from overigescheiding_2d_tmp;
 
 alter table overigescheiding_2d add primary key (ogc_fid);
+create index overigescheiding_2d_geometry_lijn_geom_idx on overigescheiding_2d using gist((geometry_lijn::geometry(COMPOUNDCURVE, 28992)));
+create index overigescheiding_2d_geometry_vlak_geom_idx on overigescheiding_2d using gist((geometry_vlak::geometry(CURVEPOLYGON, 28992)));
 create index overigescheiding_2d_eindregistratie_idx on overigescheiding_2d (eindregistratie);
 create index overigescheiding_2d_bgt_status_idx on overigescheiding_2d (bgt_status);
 create index overigescheiding_2d_plus_status_idx on overigescheiding_2d (plus_status);
@@ -375,23 +391,11 @@ create or replace view put_2dactueelbestaand as select * from put_2d where eindr
 drop table put_2d_tmp;
 
 -- Scheiding
-DO
-$do$
-BEGIN
-IF (SELECT _nlx_parse_version(postgis_lib_version())) >= 20200 THEN
-    create table scheiding_2d as select ogc_fid, case when st_dimension(wkb_geometry) = 1 and st_geometrytype(wkb_geometry) <> 'ST_CircularString' then st_forcecurve(wkb_geometry)::geometry(COMPOUNDCURVE, 28992) when st_dimension(wkb_geometry) = 1 and st_geometrytype(wkb_geometry) = 'ST_CircularString' then st_geomfromtext('COMPOUNDCURVE(' || st_astext(wkb_geometry) || ')', 28992)::geometry(COMPOUNDCURVE, 28992) else null::geometry(COMPOUNDCURVE, 28992) end geometry_lijn, case when st_dimension(wkb_geometry) = 2 then st_forcecurve(wkb_geometry)::geometry(CURVEPOLYGON, 28992) else null::geometry(CURVEPOLYGON, 28992) end geometry_vlak, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, bgt_type, plus_type from scheiding_2d_tmp;
-
-    create index scheiding_2d_geometry_lijn_geom_idx on scheiding_2d using gist((geometry_lijn::geometry(COMPOUNDCURVE, 28992)));
-    create index scheiding_2d_geometry_vlak_geom_idx on scheiding_2d using gist((geometry_vlak::geometry(CURVEPOLYGON, 28992)));
-ELSE
-    create table scheiding_2d as select ogc_fid, wkb_geometry geometry, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, bgt_type, plus_type from scheiding_2d_tmp;
-
-    create index scheiding_2d_geometry_geom_idx on scheiding_2d using gist((geometry::geometry(GEOMETRY, 28992)));
-END IF;
-END
-$do$;
+create table scheiding_2d as select ogc_fid, case when st_dimension(wkb_geometry) = 1 then _nlx_force_curve(wkb_geometry)::geometry(COMPOUNDCURVE, 28992) else null::geometry(COMPOUNDCURVE, 28992) end geometry_lijn, case when st_dimension(wkb_geometry) = 2 then _nlx_force_curve(wkb_geometry)::geometry(CURVEPOLYGON, 28992) else null::geometry(CURVEPOLYGON, 28992) end geometry_vlak, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, bgt_type, plus_type from scheiding_2d_tmp;
 
 alter table scheiding_2d add primary key (ogc_fid);
+create index scheiding_2d_geometry_lijn_geom_idx on scheiding_2d using gist((geometry_lijn::geometry(COMPOUNDCURVE, 28992)));
+create index scheiding_2d_geometry_vlak_geom_idx on scheiding_2d using gist((geometry_vlak::geometry(CURVEPOLYGON, 28992)));
 create index scheiding_2d_eindregistratie_idx on scheiding_2d (eindregistratie);
 create index scheiding_2d_bgt_status_idx on scheiding_2d (bgt_status);
 create index scheiding_2d_plus_status_idx on scheiding_2d (plus_status);
@@ -402,23 +406,11 @@ create or replace view scheiding_2dactueelbestaand as select * from scheiding_2d
 drop table scheiding_2d_tmp;
 
 -- Sensor
-DO
-$do$
-BEGIN
-IF (SELECT _nlx_parse_version(postgis_lib_version())) >= 20200 THEN
-    create table sensor_2d as select ogc_fid, case when st_dimension(wkb_geometry) = 1 and st_geometrytype(wkb_geometry) <> 'ST_CircularString' then st_forcecurve(wkb_geometry)::geometry(COMPOUNDCURVE, 28992) when st_dimension(wkb_geometry) = 1 and st_geometrytype(wkb_geometry) = 'ST_CircularString' then st_geomfromtext('COMPOUNDCURVE(' || st_astext(wkb_geometry) || ')', 28992)::geometry(COMPOUNDCURVE, 28992) else null::geometry(COMPOUNDCURVE, 28992) end geometry_lijn, case when st_dimension(wkb_geometry) = 0 then wkb_geometry::geometry(POINT, 28992) else null::geometry(POINT, 28992) end geometry_punt, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, bgt_type, plus_type from sensor_2d_tmp;
-
-    create index sensor_2d_geometry_lijn_geom_idx on sensor_2d using gist((geometry_lijn::geometry(COMPOUNDCURVE, 28992)));
-    create index sensor_2d_geometry_punt_geom_idx on sensor_2d using gist((geometry_punt::geometry(POINT, 28992)));
-ELSE
-    create table sensor_2d as select ogc_fid, wkb_geometry geometry, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, bgt_type, plus_type from sensor_2d_tmp;
-
-    create index sensor_2d_geometry_geom_idx on sensor_2d using gist((geometry::geometry(GEOMETRY, 28992)));
-END IF;
-END
-$do$;
+create table sensor_2d as select ogc_fid, case when st_dimension(wkb_geometry) = 1 then _nlx_force_curve(wkb_geometry)::geometry(COMPOUNDCURVE, 28992) else null::geometry(COMPOUNDCURVE, 28992) end geometry_lijn, case when st_dimension(wkb_geometry) = 0 then wkb_geometry::geometry(POINT, 28992) else null::geometry(POINT, 28992) end geometry_punt, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, bgt_type, plus_type from sensor_2d_tmp;
 
 alter table sensor_2d add primary key (ogc_fid);
+create index sensor_2d_geometry_lijn_geom_idx on sensor_2d using gist((geometry_lijn::geometry(COMPOUNDCURVE, 28992)));
+create index sensor_2d_geometry_punt_geom_idx on sensor_2d using gist((geometry_punt::geometry(POINT, 28992)));
 create index sensor_2d_eindregistratie_idx on sensor_2d (eindregistratie);
 create index sensor_2d_bgt_status_idx on sensor_2d (bgt_status);
 create index sensor_2d_plus_status_idx on sensor_2d (plus_status);
@@ -485,24 +477,12 @@ create or replace view tunneldeel_2dactueelbestaand as select * from tunneldeel_
 drop table tunneldeel_2d_tmp;
 
 -- Vegetatieobject
-DO
-$do$
-BEGIN
-IF (SELECT _nlx_parse_version(postgis_lib_version())) >= 20200 THEN
-    create table vegetatieobject_2d as select ogc_fid, case when st_dimension(wkb_geometry) = 1 and st_geometrytype(wkb_geometry) <> 'ST_CircularString' then st_forcecurve(wkb_geometry)::geometry(COMPOUNDCURVE, 28992) when st_dimension(wkb_geometry) = 1 and st_geometrytype(wkb_geometry) = 'ST_CircularString' then st_geomfromtext('COMPOUNDCURVE(' || st_astext(wkb_geometry) || ')', 28992)::geometry(COMPOUNDCURVE, 28992) else null::geometry(COMPOUNDCURVE, 28992) end geometry_lijn, case when st_dimension(wkb_geometry) = 0 then wkb_geometry::geometry(POINT, 28992) else null::geometry(POINT, 28992) end geometry_punt, case when st_dimension(wkb_geometry) = 2 then st_forcecurve(wkb_geometry)::geometry(CURVEPOLYGON, 28992) else null::geometry(CURVEPOLYGON, 28992) end geometry_vlak, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, bgt_type, plus_type from vegetatieobject_2d_tmp;
-
-    create index vegetatieobject_2d_geometry_lijn_geom_idx on vegetatieobject_2d using gist((geometry_lijn::geometry(COMPOUNDCURVE, 28992)));
-    create index vegetatieobject_2d_geometry_punt_geom_idx on vegetatieobject_2d using gist((geometry_punt::geometry(POINT, 28992)));
-    create index vegetatieobject_2d_geometry_vlak_geom_idx on vegetatieobject_2d using gist((geometry_vlak::geometry(CURVEPOLYGON, 28992)));
-ELSE
-    create table vegetatieobject_2d as select ogc_fid, wkb_geometry geometry, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, bgt_type, plus_type from vegetatieobject_2d_tmp;
-
-    create index vegetatieobject_2d_geometry_geom_idx on vegetatieobject_2d using gist((geometry::geometry(GEOMETRY, 28992)));
-END IF;
-END
-$do$;
+create table vegetatieobject_2d as select ogc_fid, case when st_dimension(wkb_geometry) = 1 then _nlx_force_curve(wkb_geometry)::geometry(COMPOUNDCURVE, 28992) else null::geometry(COMPOUNDCURVE, 28992) end geometry_lijn, case when st_dimension(wkb_geometry) = 0 then wkb_geometry::geometry(POINT, 28992) else null::geometry(POINT, 28992) end geometry_punt, case when st_dimension(wkb_geometry) = 2 then _nlx_force_curve(wkb_geometry)::geometry(CURVEPOLYGON, 28992) else null::geometry(CURVEPOLYGON, 28992) end geometry_vlak, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, bgt_type, plus_type from vegetatieobject_2d_tmp;
 
 alter table vegetatieobject_2d add primary key (ogc_fid);
+create index vegetatieobject_2d_geometry_lijn_geom_idx on vegetatieobject_2d using gist((geometry_lijn::geometry(COMPOUNDCURVE, 28992)));
+create index vegetatieobject_2d_geometry_punt_geom_idx on vegetatieobject_2d using gist((geometry_punt::geometry(POINT, 28992)));
+create index vegetatieobject_2d_geometry_vlak_geom_idx on vegetatieobject_2d using gist((geometry_vlak::geometry(CURVEPOLYGON, 28992)));
 create index vegetatieobject_2d_eindregistratie_idx on vegetatieobject_2d (eindregistratie);
 create index vegetatieobject_2d_bgt_status_idx on vegetatieobject_2d (bgt_status);
 create index vegetatieobject_2d_plus_status_idx on vegetatieobject_2d (plus_status);
@@ -527,23 +507,11 @@ create or replace view waterdeel_2dactueelbestaand as select * from waterdeel_2d
 drop table waterdeel_2d_tmp;
 
 -- Waterinrichtingselement
-DO
-$do$
-BEGIN
-IF (SELECT _nlx_parse_version(postgis_lib_version())) >= 20200 THEN
-    create table waterinrichtingselement_2d as select ogc_fid, case when st_dimension(wkb_geometry) = 1 and st_geometrytype(wkb_geometry) <> 'ST_CircularString' then st_forcecurve(wkb_geometry)::geometry(COMPOUNDCURVE, 28992) when st_dimension(wkb_geometry) = 1 and st_geometrytype(wkb_geometry) = 'ST_CircularString' then st_geomfromtext('COMPOUNDCURVE(' || st_astext(wkb_geometry) || ')', 28992)::geometry(COMPOUNDCURVE, 28992) else null::geometry(COMPOUNDCURVE, 28992) end geometry_lijn, case when st_dimension(wkb_geometry) = 0 then wkb_geometry::geometry(POINT, 28992) else null::geometry(POINT, 28992) end geometry_punt, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, bgt_type, plus_type from waterinrichtingselement_2d_tmp;
-
-    create index waterinrichtingselement_2d_geometry_lijn_geom_idx on waterinrichtingselement_2d using gist((geometry_lijn::geometry(COMPOUNDCURVE, 28992)));
-    create index waterinrichtingselement_2d_geometry_punt_geom_idx on waterinrichtingselement_2d using gist((geometry_punt::geometry(POINT, 28992)));
-ELSE
-    create table waterinrichtingselement_2d as select ogc_fid, wkb_geometry geometry, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, bgt_type, plus_type from waterinrichtingselement_2d_tmp;
-
-    create index waterinrichtingselement_2d_geometry_geom_idx on waterinrichtingselement_2d using gist((geometry::geometry(GEOMETRY, 28992)));
-END IF;
-END
-$do$;
+create table waterinrichtingselement_2d as select ogc_fid, case when st_dimension(wkb_geometry) = 1 then _nlx_force_curve(wkb_geometry)::geometry(COMPOUNDCURVE, 28992) else null::geometry(COMPOUNDCURVE, 28992) end geometry_lijn, case when st_dimension(wkb_geometry) = 0 then wkb_geometry::geometry(POINT, 28992) else null::geometry(POINT, 28992) end geometry_punt, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, bgt_type, plus_type from waterinrichtingselement_2d_tmp;
 
 alter table waterinrichtingselement_2d add primary key (ogc_fid);
+create index waterinrichtingselement_2d_geometry_lijn_geom_idx on waterinrichtingselement_2d using gist((geometry_lijn::geometry(COMPOUNDCURVE, 28992)));
+create index waterinrichtingselement_2d_geometry_punt_geom_idx on waterinrichtingselement_2d using gist((geometry_punt::geometry(POINT, 28992)));
 create index waterinrichtingselement_2d_eindregistratie_idx on waterinrichtingselement_2d (eindregistratie);
 create index waterinrichtingselement_2d_bgt_status_idx on waterinrichtingselement_2d (bgt_status);
 create index waterinrichtingselement_2d_plus_status_idx on waterinrichtingselement_2d (plus_status);
@@ -568,12 +536,11 @@ create or replace view waterschap_2dactueelbestaand as select * from waterschap_
 drop table waterschap_2d_tmp;
 
 -- Wegdeel
-create table wegdeel_2d as select ogc_fid, geometry_vlak, geometry_kruinlijn, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, bgt_functie, plus_functie, bgt_fysiekvoorkomen, plus_fysiekvoorkomen, cast(wegdeeloptalud as boolean) from wegdeel_2d_tmp;
+create table wegdeel_2d as select ogc_fid, geometry_vlak, _nlx_force_curve(geometry_kruinlijn)::geometry(COMPOUNDCURVE, 28992) geometry_kruinlijn, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, bgt_functie, plus_functie, bgt_fysiekvoorkomen, plus_fysiekvoorkomen, cast(wegdeeloptalud as boolean) from wegdeel_2d_tmp;
 
 alter table wegdeel_2d add primary key (ogc_fid);
 create index wegdeel_2d_geometry_vlak_geom_idx on wegdeel_2d using gist((geometry_vlak::geometry(CURVEPOLYGON, 28992)));
--- TODO: should be compoundcurve, find solution for missing ST_ForceCurve in PostGIS 2.1
-create index wegdeel_2d_geometry_kruinlijn_geom_idx on wegdeel_2d using gist((geometry_kruinlijn::geometry(GEOMETRY, 28992)));
+create index wegdeel_2d_geometry_kruinlijn_geom_idx on wegdeel_2d using gist((geometry_kruinlijn::geometry(COMPOUNDCURVE, 28992)));
 create index wegdeel_2d_eindregistratie_idx on wegdeel_2d (eindregistratie);
 create index wegdeel_2d_bgt_status_idx on wegdeel_2d (bgt_status);
 create index wegdeel_2d_plus_status_idx on wegdeel_2d (plus_status);
@@ -584,24 +551,12 @@ create or replace view wegdeel_2dactueelbestaand as select * from wegdeel_2d whe
 drop table wegdeel_2d_tmp;
 
 -- Weginrichtingselement
-DO
-$do$
-BEGIN
-IF (SELECT _nlx_parse_version(postgis_lib_version())) >= 20200 THEN
-    create table weginrichtingselement_2d as select ogc_fid, case when st_dimension(wkb_geometry) = 1 and st_geometrytype(wkb_geometry) <> 'ST_CircularString' then st_forcecurve(wkb_geometry)::geometry(COMPOUNDCURVE, 28992) when st_dimension(wkb_geometry) = 1 and st_geometrytype(wkb_geometry) = 'ST_CircularString' then st_geomfromtext('COMPOUNDCURVE(' || st_astext(wkb_geometry) || ')', 28992)::geometry(COMPOUNDCURVE, 28992) else null::geometry(COMPOUNDCURVE, 28992) end geometry_lijn, case when st_dimension(wkb_geometry) = 0 then wkb_geometry::geometry(POINT, 28992) else null::geometry(POINT, 28992) end geometry_punt, case when st_dimension(wkb_geometry) = 2 then st_forcecurve(wkb_geometry)::geometry(CURVEPOLYGON, 28992) else null::geometry(CURVEPOLYGON, 28992) end geometry_vlak, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, bgt_type, plus_type from weginrichtingselement_2d_tmp;
-
-    create index weginrichtingselement_2d_geometry_lijn_geom_idx on weginrichtingselement_2d using gist((geometry_lijn::geometry(COMPOUNDCURVE, 28992)));
-    create index weginrichtingselement_2d_geometry_punt_geom_idx on weginrichtingselement_2d using gist((geometry_punt::geometry(POINT, 28992)));
-    create index weginrichtingselement_2d_geometry_vlak_geom_idx on weginrichtingselement_2d using gist((geometry_vlak::geometry(CURVEPOLYGON, 28992)));
-ELSE
-    create table weginrichtingselement_2d as select ogc_fid, wkb_geometry geometry, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, bgt_type, plus_type from weginrichtingselement_2d_tmp;
-
-    create index weginrichtingselement_2d_geometry_geom_idx on weginrichtingselement_2d using gist((geometry::geometry(GEOMETRY, 28992)));
-END IF;
-END
-$do$;
+create table weginrichtingselement_2d as select ogc_fid, case when st_dimension(wkb_geometry) = 1 then _nlx_force_curve(wkb_geometry)::geometry(COMPOUNDCURVE, 28992) else null::geometry(COMPOUNDCURVE, 28992) end geometry_lijn, case when st_dimension(wkb_geometry) = 0 then wkb_geometry::geometry(POINT, 28992) else null::geometry(POINT, 28992) end geometry_punt, case when st_dimension(wkb_geometry) = 2 then _nlx_force_curve(wkb_geometry)::geometry(CURVEPOLYGON, 28992) else null::geometry(CURVEPOLYGON, 28992) end geometry_vlak, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, bgt_type, plus_type from weginrichtingselement_2d_tmp;
 
 alter table weginrichtingselement_2d add primary key (ogc_fid);
+create index weginrichtingselement_2d_geometry_lijn_geom_idx on weginrichtingselement_2d using gist((geometry_lijn::geometry(COMPOUNDCURVE, 28992)));
+create index weginrichtingselement_2d_geometry_punt_geom_idx on weginrichtingselement_2d using gist((geometry_punt::geometry(POINT, 28992)));
+create index weginrichtingselement_2d_geometry_vlak_geom_idx on weginrichtingselement_2d using gist((geometry_vlak::geometry(CURVEPOLYGON, 28992)));
 create index weginrichtingselement_2d_eindregistratie_idx on weginrichtingselement_2d (eindregistratie);
 create index weginrichtingselement_2d_bgt_status_idx on weginrichtingselement_2d (bgt_status);
 create index weginrichtingselement_2d_plus_status_idx on weginrichtingselement_2d (plus_status);
@@ -625,5 +580,6 @@ create or replace view wijk_2dactueelbestaand as select * from wijk_2d where ein
 
 drop table wijk_2d_tmp;
 
--- Cleanup function
+-- Cleanup functions
 DROP FUNCTION _nlx_parse_version(version VARCHAR);
+DROP FUNCTION _nlx_force_curve(geometry geometry);
