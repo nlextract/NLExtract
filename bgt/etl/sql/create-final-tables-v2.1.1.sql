@@ -354,7 +354,7 @@ create or replace view paal_2dactueelbestaand as select * from paal_2d where ein
 drop table paal_2d_tmp;
 
 -- Pand
-create table pand_2d as select ogc_fid, geometry_vlak, geometry_nummeraanduiding, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, identificatiebagpnd, tekst, hoek, identificatiebagvbolaagstehuisnummer, identificatiebagvbohoogstehuisnummer from pand_2d_tmp;
+create table pand_2d as select ogc_fid, geometry_vlak, geometry_nummeraanduiding, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, identificatiebagpnd, nummeraanduidingtekst, nummeraanduidinghoek, identificatiebagvbolaagstehuisnummer, identificatiebagvbohoogstehuisnummer from pand_2d_tmp;
 
 alter table pand_2d add primary key (ogc_fid);
 create index pand_2d_geometry_vlak_geom_idx on pand_2d using gist((geometry_vlak::geometry(MULTISURFACE, 28992)));

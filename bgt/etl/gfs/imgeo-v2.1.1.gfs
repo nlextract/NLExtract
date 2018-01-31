@@ -793,13 +793,13 @@
       <Width>16</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>tekst</Name>
+      <Name>nummeraanduidingtekst</Name>
       <ElementPath>nummeraanduidingreeks|Nummeraanduidingreeks|nummeraanduidingreeks|Label|tekst</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>hoek</Name>
+      <Name>nummeraanduidinghoek</Name>
       <ElementPath>nummeraanduidingreeks|Nummeraanduidingreeks|nummeraanduidingreeks|Label|positie|Labelpositie|hoek</ElementPath>
       <Type>Real</Type>
     </PropertyDefn>
