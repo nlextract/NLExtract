@@ -22,8 +22,8 @@ CREATE TABLE adres (
     gemeentenaam character varying(80),
     provincienaam character varying(16),
     typeadresseerbaarobject character varying(3),
-    adresseerbaarobject numeric(16,0),
-    nummeraanduiding numeric(16,0),
+    adresseerbaarobject varchar(16),
+    nummeraanduiding varchar(16),
     nevenadres BOOLEAN DEFAULT FALSE,
     geopunt geometry(PointZ, 28992),
     textsearchable_adres tsvector

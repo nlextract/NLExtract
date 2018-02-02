@@ -134,7 +134,9 @@ def main():
             # from bagobject import VerblijfsObjectPand, AdresseerbaarObjectNevenAdres, VerblijfsObjectGebruiksdoel, Woonplaats, OpenbareRuimte, Nummeraanduiding, Ligplaats, Standplaats, Verblijfsobject, Pand
             myreader = BAGFileReader(BAGConfig.config.bagextract_home + '/db/data')
             myreader.process()
-            Log.log.info("Views aanmaken...")
+            Log.log.info("Post processing en views aanmaken...")
+            db_script = os.path.realpath(BAGConfig.config.bagextract_home + '/db/script/bag-gemeentecode-postprocess.sql')
+            database.file_uitvoeren(db_script)
             db_script = os.path.realpath(BAGConfig.config.bagextract_home + '/db/script/bag-view-actueel-bestaand.sql')
             database.file_uitvoeren(db_script)
             # Print end time
