@@ -95,17 +95,17 @@
     <ParentClass>Top10Object</ParentClass>
     <ElementPath>FunctioneelGebied</ElementPath>
     <GeomPropertyDefn>
-      <Name>geometry_vlak</Name>
+      <Name>geometrie_vlak</Name>
       <ElementPath>geometrie|BRTVlakMultivlakOfPunt|vlakGeometrie</ElementPath>
       <Type>Polygon</Type>
     </GeomPropertyDefn>
     <GeomPropertyDefn>
-      <Name>geometry_multivlak</Name>
+      <Name>geometrie_multivlak</Name>
       <ElementPath>geometrie|BRTVlakMultivlakOfPunt|multivlakGeometrie</ElementPath>
       <Type>MultiPolygon</Type>
     </GeomPropertyDefn>
     <GeomPropertyDefn>
-      <Name>geometry_punt</Name>
+      <Name>geometrie_punt</Name>
       <ElementPath>geometrie|BRTVlakMultivlakOfPunt|puntGeometrie</ElementPath>
       <Type>Point</Type>
     </GeomPropertyDefn>
@@ -137,12 +137,12 @@
     <ParentClass>Top10Object</ParentClass>
     <ElementPath>Gebouw</ElementPath>
     <GeomPropertyDefn>
-      <Name>geometry_vlak</Name>
+      <Name>geometrie_vlak</Name>
       <ElementPath>geometrie|BRTVlakOfPunt|vlakGeometrie</ElementPath>
       <Type>Polygon</Type>
     </GeomPropertyDefn>
     <GeomPropertyDefn>
-      <Name>geometry_punt</Name>
+      <Name>geometrie_punt</Name>
       <ElementPath>geometrie|BRTVlakOfPunt|puntGeometrie</ElementPath>
       <Type>Point</Type>
     </GeomPropertyDefn>
@@ -201,17 +201,17 @@
     <ParentClass>Top10Object</ParentClass>
     <ElementPath>GeografischGebied</ElementPath>
     <GeomPropertyDefn>
-      <Name>geometry_vlak</Name>
+      <Name>geometrie_vlak</Name>
       <ElementPath>geometrie|BRTVlakMultivlakOfPunt|vlakGeometrie</ElementPath>
       <Type>Polygon</Type>
     </GeomPropertyDefn>
     <GeomPropertyDefn>
-      <Name>geometry_multivlak</Name>
+      <Name>geometrie_multivlak</Name>
       <ElementPath>geometrie|BRTVlakMultivlakOfPunt|multivlakGeometrie</ElementPath>
       <Type>MultiPolygon</Type>
     </GeomPropertyDefn>
     <GeomPropertyDefn>
-      <Name>geometry_punt</Name>
+      <Name>geometrie_punt</Name>
       <ElementPath>geometrie|BRTVlakMultivlakOfPunt|puntGeometrie</ElementPath>
       <Type>Point</Type>
     </GeomPropertyDefn>
@@ -237,12 +237,12 @@
     <ParentClass>Top10Object</ParentClass>
     <ElementPath>Hoogte</ElementPath>
     <GeomPropertyDefn>
-      <Name>geometry_lijn</Name>
+      <Name>geometrie_lijn</Name>
       <ElementPath>geometrie|BRTLijnOfPunt|lijnGeometrie</ElementPath>
       <Type>LineString</Type>
     </GeomPropertyDefn>
     <GeomPropertyDefn>
-      <Name>geometry_punt</Name>
+      <Name>geometrie_punt</Name>
       <ElementPath>geometrie|BRTLijnOfPunt|puntGeometrie</ElementPath>
       <Type>Point</Type>
     </GeomPropertyDefn>
@@ -269,12 +269,12 @@
     <ParentClass>Top10Object</ParentClass>
     <ElementPath>Inrichtingselement</ElementPath>
     <GeomPropertyDefn>
-      <Name>geometry_lijn</Name>
+      <Name>geometrie_lijn</Name>
       <ElementPath>geometrie|BRTLijnOfPunt|lijnGeometrie</ElementPath>
       <Type>LineString</Type>
     </GeomPropertyDefn>
     <GeomPropertyDefn>
-      <Name>geometry_punt</Name>
+      <Name>geometrie_punt</Name>
       <ElementPath>geometrie|BRTLijnOfPunt|puntGeometrie</ElementPath>
       <Type>Point</Type>
     </GeomPropertyDefn>
@@ -321,17 +321,17 @@
     <ParentClass>Top10Object</ParentClass>
     <ElementPath>Plaats</ElementPath>
     <GeomPropertyDefn>
-      <Name>geometry_vlak</Name>
+      <Name>geometrie_vlak</Name>
       <ElementPath>geometrie|BRTVlakMultivlakOfPunt|vlakGeometrie</ElementPath>
       <Type>Polygon</Type>
     </GeomPropertyDefn>
     <GeomPropertyDefn>
-      <Name>geometry_multivlak</Name>
+      <Name>geometrie_multivlak</Name>
       <ElementPath>geometrie|BRTVlakMultivlakOfPunt|multivlakGeometrie</ElementPath>
       <Type>MultiPolygon</Type>
     </GeomPropertyDefn>
     <GeomPropertyDefn>
-      <Name>geometry_punt</Name>
+      <Name>geometrie_punt</Name>
       <ElementPath>geometrie|BRTVlakMultivlakOfPunt|puntGeometrie</ElementPath>
       <Type>Point</Type>
     </GeomPropertyDefn>
@@ -382,17 +382,17 @@
     <ParentClass>Top10Object</ParentClass>
     <ElementPath>PlanTopografie</ElementPath>
     <GeomPropertyDefn>
-      <Name>geometry_vlak</Name>
+      <Name>geometrie_vlak</Name>
       <ElementPath>geometrie|BRTVlakLijnOfPunt|vlakGeometrie</ElementPath>
       <Type>Polygon</Type>
     </GeomPropertyDefn>
     <GeomPropertyDefn>
-      <Name>geometry_lijn</Name>
+      <Name>geometrie_lijn</Name>
       <ElementPath>geometrie|BRTVlakLijnOfPunt|lijnGeometrie</ElementPath>
       <Type>LineString</Type>
     </GeomPropertyDefn>
     <GeomPropertyDefn>
-      <Name>geometry_punt</Name>
+      <Name>geometrie_punt</Name>
       <ElementPath>geometrie|BRTVlakLijnOfPunt|puntGeometrie</ElementPath>
       <Type>Point</Type>
     </GeomPropertyDefn>
@@ -414,12 +414,12 @@
     <ParentClass>Top10Object</ParentClass>
     <ElementPath>RegistratiefGebied</ElementPath>
     <GeomPropertyDefn>
-      <Name>geometry_vlak</Name>
+      <Name>geometrie_vlak</Name>
       <ElementPath>geometrie|BRTVlakOfMultivlak|vlakGeometrie</ElementPath>
       <Type>Polygon</Type>
     </GeomPropertyDefn>
     <GeomPropertyDefn>
-      <Name>geometry_multivlak</Name>
+      <Name>geometrie_multivlak</Name>
       <ElementPath>geometrie|BRTVlakOfMultivlak|multivlakGeometrie</ElementPath>
       <Type>MultiPolygon</Type>
     </GeomPropertyDefn>
@@ -456,16 +456,16 @@
     <ParentClass>Top10Object</ParentClass>
     <ElementPath>Relief</ElementPath>
     <GeomPropertyDefn>
-      <Name>geometry_lijn</Name>
+      <Name>geometrie_lijn</Name>
       <ElementPath>lijnGeometrie</ElementPath>
       <Type>LineString</Type>
     </GeomPropertyDefn>
     <GeomPropertyDefn>
-      <Name>geometry_hogezijde</Name>
+      <Name>geometrie_hogezijde</Name>
       <ElementPath>taludGeometrie|BRTHogeEnLageZijde|hogeZijde</ElementPath>
       <Type>LineString</Type>
     </GeomPropertyDefn><GeomPropertyDefn>
-      <Name>geometry_lagezijde</Name>
+      <Name>geometrie_lagezijde</Name>
       <ElementPath>taludGeometrie|BRTHogeEnLageZijde|lageZijde</ElementPath>
       <Type>LineString</Type>
     </GeomPropertyDefn>
@@ -498,12 +498,12 @@
     <ParentClass>Top10Object</ParentClass>
     <ElementPath>Spoorbaandeel</ElementPath>
     <GeomPropertyDefn>
-      <Name>geometry_lijn</Name>
+      <Name>geometrie_lijn</Name>
       <ElementPath>geometrie|BRTLijnOfPunt|lijnGeometrie</ElementPath>
       <Type>LineString</Type>
     </GeomPropertyDefn>
     <GeomPropertyDefn>
-      <Name>geometry_punt</Name>
+      <Name>geometrie_punt</Name>
       <ElementPath>geometrie|BRTLijnOfPunt|puntGeometrie</ElementPath>
       <Type>Point</Type>
     </GeomPropertyDefn>
@@ -583,7 +583,7 @@
     <ParentClass>Top10Object</ParentClass>
     <ElementPath>Terrein</ElementPath>
     <GeomPropertyDefn>
-      <Name>geometry_vlak</Name>
+      <Name>geometrie_vlak</Name>
       <ElementPath>geometrieVlak</ElementPath>
       <Type>Polygon</Type>
     </GeomPropertyDefn>
@@ -620,17 +620,17 @@
     <ParentClass>Top10Object</ParentClass>
     <ElementPath>Waterdeel</ElementPath>
     <GeomPropertyDefn>
-      <Name>geometry_vlak</Name>
+      <Name>geometrie_vlak</Name>
       <ElementPath>geometrie|BRTVlakLijnOfPunt|vlakGeometrie</ElementPath>
       <Type>Polygon</Type>
     </GeomPropertyDefn>
     <GeomPropertyDefn>
-      <Name>geometry_lijn</Name>
+      <Name>geometrie_lijn</Name>
       <ElementPath>geometrie|BRTVlakLijnOfPunt|lijnGeometrie</ElementPath>
       <Type>LineString</Type>
     </GeomPropertyDefn>
     <GeomPropertyDefn>
-      <Name>geometry_punt</Name>
+      <Name>geometrie_punt</Name>
       <ElementPath>geometrie|BRTVlakLijnOfPunt|puntGeometrie</ElementPath>
       <Type>Point</Type>
     </GeomPropertyDefn>
@@ -726,27 +726,27 @@
     <ParentClass>Top10Object</ParentClass>
     <ElementPath>Wegdeel</ElementPath>
     <GeomPropertyDefn>
-      <Name>geometry_vlak</Name>
+      <Name>geometrie_vlak</Name>
       <ElementPath>hoofdGeometrie|BRTVlakLijnOfPunt|vlakGeometrie</ElementPath>
       <Type>Polygon</Type>
     </GeomPropertyDefn>
     <GeomPropertyDefn>
-      <Name>geometry_lijn</Name>
+      <Name>geometrie_lijn</Name>
       <ElementPath>hoofdGeometrie|BRTVlakLijnOfPunt|lijnGeometrie</ElementPath>
       <Type>LineString</Type>
     </GeomPropertyDefn>
     <GeomPropertyDefn>
-      <Name>geometry_punt</Name>
+      <Name>geometrie_punt</Name>
       <ElementPath>hoofdGeometrie|BRTVlakLijnOfPunt|puntGeometrie</ElementPath>
       <Type>Point</Type>
     </GeomPropertyDefn>
     <GeomPropertyDefn>
-      <Name>geometry_hartpunt</Name>
+      <Name>geometrie_hartpunt</Name>
       <ElementPath>hartGeometrie|BRTLijnOfPunt|puntGeometrie</ElementPath>
       <Type>Point</Type>
     </GeomPropertyDefn>
     <GeomPropertyDefn>
-      <Name>geometry_hartlijn</Name>
+      <Name>geometrie_hartlijn</Name>
       <ElementPath>hartGeometrie|BRTLijnOfPunt|lijnGeometrie</ElementPath>
       <Type>LineString</Type>
     </GeomPropertyDefn>
