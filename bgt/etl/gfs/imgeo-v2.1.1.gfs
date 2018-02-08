@@ -1,15 +1,15 @@
 <GMLFeatureClassList>
   <!--Dit GFS-bestand is gegenereerd met make-gfs.xsl-->
   <GMLFeatureClass>
-    <Name>Wegdeel_2D_tmp</Name>
+    <Name>Wegdeel_tmp</Name>
     <ElementPath>TrafficArea</ElementPath>
     <GeomPropertyDefn>
-      <Name>geometry_vlak</Name>
+      <Name>geometrie_vlak</Name>
       <ElementPath>geometrie2dWegdeel</ElementPath>
       <Type>CurvePolygon</Type>
     </GeomPropertyDefn>
     <GeomPropertyDefn>
-      <Name>geometry_kruinlijn</Name>
+      <Name>geometrie_kruinlijn</Name>
       <ElementPath>kruinlijnWegdeel</ElementPath>
       <GeometryType>9</GeometryType>
     </GeomPropertyDefn>
@@ -95,7 +95,7 @@
       <Width>255</Width>
     </PropertyDefn>
     <!--Einde properties van BGTObject-->
-    <!--Begin properties van Wegdeel_2D_tmp-->
+    <!--Begin properties van Wegdeel_tmp-->
     <PropertyDefn>
       <Name>bgt_functie</Name>
       <ElementPath>function</ElementPath>
@@ -126,18 +126,18 @@
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
-    <!--Einde properties van Wegdeel_2D_tmp-->
+    <!--Einde properties van Wegdeel_tmp-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>OndersteunendWegdeel_2D_tmp</Name>
+    <Name>OndersteunendWegdeel_tmp</Name>
     <ElementPath>AuxiliaryTrafficArea</ElementPath>
     <GeomPropertyDefn>
-      <Name>geometry_vlak</Name>
+      <Name>geometrie_vlak</Name>
       <ElementPath>geometrie2dOndersteunendWegdeel</ElementPath>
       <Type>CurvePolygon</Type>
     </GeomPropertyDefn>
     <GeomPropertyDefn>
-      <Name>geometry_kruinlijn</Name>
+      <Name>geometrie_kruinlijn</Name>
       <ElementPath>kruinlijnOndersteunendWegdeel</ElementPath>
       <GeometryType>9</GeometryType>
     </GeomPropertyDefn>
@@ -223,7 +223,7 @@
       <Width>255</Width>
     </PropertyDefn>
     <!--Einde properties van BGTObject-->
-    <!--Begin properties van OndersteunendWegdeel_2D_tmp-->
+    <!--Begin properties van OndersteunendWegdeel_tmp-->
     <PropertyDefn>
       <Name>bgt_functie</Name>
       <ElementPath>function</ElementPath>
@@ -254,18 +254,18 @@
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
-    <!--Einde properties van OndersteunendWegdeel_2D_tmp-->
+    <!--Einde properties van OndersteunendWegdeel_tmp-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>OnbegroeidTerreindeel_2D_tmp</Name>
+    <Name>OnbegroeidTerreindeel_tmp</Name>
     <ElementPath>OnbegroeidTerreindeel</ElementPath>
     <GeomPropertyDefn>
-      <Name>geometry_vlak</Name>
+      <Name>geometrie_vlak</Name>
       <ElementPath>geometrie2dOnbegroeidTerreindeel</ElementPath>
       <Type>CurvePolygon</Type>
     </GeomPropertyDefn>
     <GeomPropertyDefn>
-      <Name>geometry_kruinlijn</Name>
+      <Name>geometrie_kruinlijn</Name>
       <ElementPath>kruinlijnOnbegroeidTerreindeel</ElementPath>
       <GeometryType>9</GeometryType>
     </GeomPropertyDefn>
@@ -351,7 +351,7 @@
       <Width>255</Width>
     </PropertyDefn>
     <!--Einde properties van BGTObject-->
-    <!--Begin properties van OnbegroeidTerreindeel_2D_tmp-->
+    <!--Begin properties van OnbegroeidTerreindeel_tmp-->
     <PropertyDefn>
       <Name>bgt_fysiekVoorkomen</Name>
       <ElementPath>bgt-fysiekVoorkomen</ElementPath>
@@ -370,18 +370,18 @@
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
-    <!--Einde properties van OnbegroeidTerreindeel_2D_tmp-->
+    <!--Einde properties van OnbegroeidTerreindeel_tmp-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>BegroeidTerreindeel_2D_tmp</Name>
+    <Name>BegroeidTerreindeel_tmp</Name>
     <ElementPath>PlantCover</ElementPath>
     <GeomPropertyDefn>
-      <Name>geometry_vlak</Name>
+      <Name>geometrie_vlak</Name>
       <ElementPath>geometrie2dBegroeidTerreindeel</ElementPath>
       <Type>CurvePolygon</Type>
     </GeomPropertyDefn>
     <GeomPropertyDefn>
-      <Name>geometry_kruinlijn</Name>
+      <Name>geometrie_kruinlijn</Name>
       <ElementPath>kruinlijnBegroeidTerreindeel</ElementPath>
       <GeometryType>9</GeometryType>
     </GeomPropertyDefn>
@@ -467,7 +467,7 @@
       <Width>255</Width>
     </PropertyDefn>
     <!--Einde properties van BGTObject-->
-    <!--Begin properties van BegroeidTerreindeel_2D_tmp-->
+    <!--Begin properties van BegroeidTerreindeel_tmp-->
     <PropertyDefn>
       <Name>bgt_fysiekVoorkomen</Name>
       <ElementPath>class</ElementPath>
@@ -486,10 +486,10 @@
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
-    <!--Einde properties van BegroeidTerreindeel_2D_tmp-->
+    <!--Einde properties van BegroeidTerreindeel_tmp-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Waterdeel_2D_tmp</Name>
+    <Name>Waterdeel_tmp</Name>
     <ElementPath>Waterdeel</ElementPath>
     <GeometryType>10</GeometryType>
     <SRSName>EPSG:28992</SRSName>
@@ -574,7 +574,7 @@
       <Width>255</Width>
     </PropertyDefn>
     <!--Einde properties van BGTObject-->
-    <!--Begin properties van Waterdeel_2D_tmp-->
+    <!--Begin properties van Waterdeel_tmp-->
     <PropertyDefn>
       <Name>bgt_type</Name>
       <ElementPath>class</ElementPath>
@@ -587,10 +587,10 @@
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
-    <!--Einde properties van Waterdeel_2D_tmp-->
+    <!--Einde properties van Waterdeel_tmp-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>OndersteunendWaterdeel_2D_tmp</Name>
+    <Name>OndersteunendWaterdeel_tmp</Name>
     <ElementPath>OndersteunendWaterdeel</ElementPath>
     <GeometryType>10</GeometryType>
     <SRSName>EPSG:28992</SRSName>
@@ -675,7 +675,7 @@
       <Width>255</Width>
     </PropertyDefn>
     <!--Einde properties van BGTObject-->
-    <!--Begin properties van OndersteunendWaterdeel_2D_tmp-->
+    <!--Begin properties van OndersteunendWaterdeel_tmp-->
     <PropertyDefn>
       <Name>bgt_type</Name>
       <ElementPath>class</ElementPath>
@@ -688,18 +688,18 @@
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
-    <!--Einde properties van OndersteunendWaterdeel_2D_tmp-->
+    <!--Einde properties van OndersteunendWaterdeel_tmp-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Pand_2D_tmp</Name>
+    <Name>Pand_tmp</Name>
     <ElementPath>BuildingPart</ElementPath>
     <GeomPropertyDefn>
-      <Name>geometry_vlak</Name>
+      <Name>geometrie_vlak</Name>
       <ElementPath>geometrie2dGrondvlak</ElementPath>
       <Type>MultiSurface</Type>
     </GeomPropertyDefn>
     <GeomPropertyDefn>
-      <Name>geometry_nummeraanduiding</Name>
+      <Name>geometrie_nummeraanduiding</Name>
       <ElementPath>nummeraanduidingreeks|Nummeraanduidingreeks|nummeraanduidingreeks|Label|positie|Labelpositie|plaatsingspunt</ElementPath>
       <Type>Point</Type>
     </GeomPropertyDefn>
@@ -785,7 +785,7 @@
       <Width>255</Width>
     </PropertyDefn>
     <!--Einde properties van BGTObject-->
-    <!--Begin properties van Pand_2D_tmp-->
+    <!--Begin properties van Pand_tmp-->
     <PropertyDefn>
       <Name>identificatieBAGPND</Name>
       <ElementPath>identificatieBAGPND</ElementPath>
@@ -815,10 +815,10 @@
       <Type>String</Type>
       <Width>16</Width>
     </PropertyDefn>
-    <!--Einde properties van Pand_2D_tmp-->
+    <!--Einde properties van Pand_tmp-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Spoor_2D_tmp</Name>
+    <Name>Spoor_tmp</Name>
     <ElementPath>Railway</ElementPath>
     <GeometryType>9</GeometryType>
     <SRSName>EPSG:28992</SRSName>
@@ -903,7 +903,7 @@
       <Width>255</Width>
     </PropertyDefn>
     <!--Einde properties van BGTObject-->
-    <!--Begin properties van Spoor_2D_tmp-->
+    <!--Begin properties van Spoor_tmp-->
     <PropertyDefn>
       <Name>bgt_functie</Name>
       <ElementPath>function</ElementPath>
@@ -916,10 +916,10 @@
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
-    <!--Einde properties van Spoor_2D_tmp-->
+    <!--Einde properties van Spoor_tmp-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>OverigBouwwerk_2D_tmp</Name>
+    <Name>OverigBouwwerk_tmp</Name>
     <ElementPath>OverigBouwwerk</ElementPath>
     <GeometryType>12</GeometryType>
     <SRSName>EPSG:28992</SRSName>
@@ -1004,7 +1004,7 @@
       <Width>255</Width>
     </PropertyDefn>
     <!--Einde properties van BGTObject-->
-    <!--Begin properties van OverigBouwwerk_2D_tmp-->
+    <!--Begin properties van OverigBouwwerk_tmp-->
     <PropertyDefn>
       <Name>bgt_type</Name>
       <ElementPath>bgt-type</ElementPath>
@@ -1017,10 +1017,10 @@
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
-    <!--Einde properties van OverigBouwwerk_2D_tmp-->
+    <!--Einde properties van OverigBouwwerk_tmp-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Kunstwerkdeel_2D_tmp</Name>
+    <Name>Kunstwerkdeel_tmp</Name>
     <ElementPath>Kunstwerkdeel</ElementPath>
     <GeometryType>0</GeometryType>
     <SRSName>EPSG:28992</SRSName>
@@ -1105,7 +1105,7 @@
       <Width>255</Width>
     </PropertyDefn>
     <!--Einde properties van BGTObject-->
-    <!--Begin properties van Kunstwerkdeel_2D_tmp-->
+    <!--Begin properties van Kunstwerkdeel_tmp-->
     <PropertyDefn>
       <Name>bgt_type</Name>
       <ElementPath>bgt-type</ElementPath>
@@ -1118,10 +1118,10 @@
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
-    <!--Einde properties van Kunstwerkdeel_2D_tmp-->
+    <!--Einde properties van Kunstwerkdeel_tmp-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Overbruggingsdeel_2D_tmp</Name>
+    <Name>Overbruggingsdeel_tmp</Name>
     <ElementPath>BridgeConstructionElement</ElementPath>
     <GeometryType>10</GeometryType>
     <SRSName>EPSG:28992</SRSName>
@@ -1206,7 +1206,7 @@
       <Width>255</Width>
     </PropertyDefn>
     <!--Einde properties van BGTObject-->
-    <!--Begin properties van Overbruggingsdeel_2D_tmp-->
+    <!--Begin properties van Overbruggingsdeel_tmp-->
     <PropertyDefn>
       <Name>typeOverbruggingsdeel</Name>
       <ElementPath>class</ElementPath>
@@ -1225,10 +1225,10 @@
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
-    <!--Einde properties van Overbruggingsdeel_2D_tmp-->
+    <!--Einde properties van Overbruggingsdeel_tmp-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Tunneldeel_2D_tmp</Name>
+    <Name>Tunneldeel_tmp</Name>
     <ElementPath>TunnelPart</ElementPath>
     <GeometryType>10</GeometryType>
     <SRSName>EPSG:28992</SRSName>
@@ -1315,7 +1315,7 @@
     <!--Einde properties van BGTObject-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Scheiding_2D_tmp</Name>
+    <Name>Scheiding_tmp</Name>
     <ElementPath>Scheiding</ElementPath>
     <GeometryType>0</GeometryType>
     <SRSName>EPSG:28992</SRSName>
@@ -1400,7 +1400,7 @@
       <Width>255</Width>
     </PropertyDefn>
     <!--Einde properties van BGTObject-->
-    <!--Begin properties van Scheiding_2D_tmp-->
+    <!--Begin properties van Scheiding_tmp-->
     <PropertyDefn>
       <Name>bgt_type</Name>
       <ElementPath>bgt-type</ElementPath>
@@ -1413,10 +1413,10 @@
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
-    <!--Einde properties van Scheiding_2D_tmp-->
+    <!--Einde properties van Scheiding_tmp-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>OverigeScheiding_2D_tmp</Name>
+    <Name>OverigeScheiding_tmp</Name>
     <ElementPath>OverigeScheiding</ElementPath>
     <GeometryType>0</GeometryType>
     <SRSName>EPSG:28992</SRSName>
@@ -1501,17 +1501,17 @@
       <Width>255</Width>
     </PropertyDefn>
     <!--Einde properties van BGTObject-->
-    <!--Begin properties van OverigeScheiding_2D_tmp-->
+    <!--Begin properties van OverigeScheiding_tmp-->
     <PropertyDefn>
       <Name>plus_type</Name>
       <ElementPath>plus-type</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
-    <!--Einde properties van OverigeScheiding_2D_tmp-->
+    <!--Einde properties van OverigeScheiding_tmp-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>FunctioneelGebied_2D_tmp</Name>
+    <Name>FunctioneelGebied_tmp</Name>
     <ElementPath>FunctioneelGebied</ElementPath>
     <GeometryType>10</GeometryType>
     <SRSName>EPSG:28992</SRSName>
@@ -1596,7 +1596,7 @@
       <Width>255</Width>
     </PropertyDefn>
     <!--Einde properties van BGTObject-->
-    <!--Begin properties van FunctioneelGebied_2D_tmp-->
+    <!--Begin properties van FunctioneelGebied_tmp-->
     <PropertyDefn>
       <Name>bgt_type</Name>
       <ElementPath>bgt-type</ElementPath>
@@ -1615,10 +1615,10 @@
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
-    <!--Einde properties van FunctioneelGebied_2D_tmp-->
+    <!--Einde properties van FunctioneelGebied_tmp-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>OngeclassificeerdObject_2D_tmp</Name>
+    <Name>OngeclassificeerdObject_tmp</Name>
     <ElementPath>OngeclassificeerdObject</ElementPath>
     <GeometryType>10</GeometryType>
     <SRSName>EPSG:28992</SRSName>
@@ -1868,7 +1868,7 @@
     <!--Einde properties van Plaatsbepalingspunt_tmp-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>GebouwInstallatie_2D_tmp</Name>
+    <Name>GebouwInstallatie_tmp</Name>
     <ElementPath>BuildingInstallation</ElementPath>
     <GeometryType>10</GeometryType>
     <SRSName>EPSG:28992</SRSName>
@@ -1953,7 +1953,7 @@
       <Width>255</Width>
     </PropertyDefn>
     <!--Einde properties van BGTObject-->
-    <!--Begin properties van GebouwInstallatie_2D_tmp-->
+    <!--Begin properties van GebouwInstallatie_tmp-->
     <PropertyDefn>
       <Name>bgt_type</Name>
       <ElementPath>function</ElementPath>
@@ -1966,10 +1966,10 @@
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
-    <!--Einde properties van GebouwInstallatie_2D_tmp-->
+    <!--Einde properties van GebouwInstallatie_tmp-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Bak_2D_tmp</Name>
+    <Name>Bak_tmp</Name>
     <ElementPath>Bak</ElementPath>
     <GeometryType>1</GeometryType>
     <SRSName>EPSG:28992</SRSName>
@@ -2070,7 +2070,7 @@
     <!--Einde properties van Inrichtingselement-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Bord_2D_tmp</Name>
+    <Name>Bord_tmp</Name>
     <ElementPath>Bord</ElementPath>
     <GeometryType>1</GeometryType>
     <SRSName>EPSG:28992</SRSName>
@@ -2171,7 +2171,7 @@
     <!--Einde properties van Inrichtingselement-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Installatie_2D_tmp</Name>
+    <Name>Installatie_tmp</Name>
     <ElementPath>Installatie</ElementPath>
     <GeometryType>1</GeometryType>
     <SRSName>EPSG:28992</SRSName>
@@ -2272,7 +2272,7 @@
     <!--Einde properties van Inrichtingselement-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Kast_2D_tmp</Name>
+    <Name>Kast_tmp</Name>
     <ElementPath>Kast</ElementPath>
     <GeometryType>1</GeometryType>
     <SRSName>EPSG:28992</SRSName>
@@ -2373,7 +2373,7 @@
     <!--Einde properties van Inrichtingselement-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Mast_2D_tmp</Name>
+    <Name>Mast_tmp</Name>
     <ElementPath>Mast</ElementPath>
     <GeometryType>1</GeometryType>
     <SRSName>EPSG:28992</SRSName>
@@ -2474,7 +2474,7 @@
     <!--Einde properties van Inrichtingselement-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Paal_2D_tmp</Name>
+    <Name>Paal_tmp</Name>
     <ElementPath>Paal</ElementPath>
     <GeometryType>1</GeometryType>
     <SRSName>EPSG:28992</SRSName>
@@ -2573,17 +2573,17 @@
       <Width>255</Width>
     </PropertyDefn>
     <!--Einde properties van Inrichtingselement-->
-    <!--Begin properties van Paal_2D_tmp-->
+    <!--Begin properties van Paal_tmp-->
     <PropertyDefn>
       <Name>hectometeraanduiding</Name>
       <ElementPath>hectometeraanduiding</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
-    <!--Einde properties van Paal_2D_tmp-->
+    <!--Einde properties van Paal_tmp-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Put_2D_tmp</Name>
+    <Name>Put_tmp</Name>
     <ElementPath>Put</ElementPath>
     <GeometryType>1</GeometryType>
     <SRSName>EPSG:28992</SRSName>
@@ -2684,7 +2684,7 @@
     <!--Einde properties van Inrichtingselement-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Sensor_2D_tmp</Name>
+    <Name>Sensor_tmp</Name>
     <ElementPath>Sensor</ElementPath>
     <GeometryType>0</GeometryType>
     <SRSName>EPSG:28992</SRSName>
@@ -2785,7 +2785,7 @@
     <!--Einde properties van Inrichtingselement-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Straatmeubilair_2D_tmp</Name>
+    <Name>Straatmeubilair_tmp</Name>
     <ElementPath>Straatmeubilair</ElementPath>
     <GeometryType>1</GeometryType>
     <SRSName>EPSG:28992</SRSName>
@@ -2886,7 +2886,7 @@
     <!--Einde properties van Inrichtingselement-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Waterinrichtingselement_2D_tmp</Name>
+    <Name>Waterinrichtingselement_tmp</Name>
     <ElementPath>Waterinrichtingselement</ElementPath>
     <GeometryType>0</GeometryType>
     <SRSName>EPSG:28992</SRSName>
@@ -2987,7 +2987,7 @@
     <!--Einde properties van Inrichtingselement-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Weginrichtingselement_2D_tmp</Name>
+    <Name>Weginrichtingselement_tmp</Name>
     <ElementPath>Weginrichtingselement</ElementPath>
     <GeometryType>0</GeometryType>
     <SRSName>EPSG:28992</SRSName>
@@ -3088,7 +3088,7 @@
     <!--Einde properties van Inrichtingselement-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>VegetatieObject_2D_tmp</Name>
+    <Name>VegetatieObject_tmp</Name>
     <ElementPath>SolitaryVegetationObject</ElementPath>
     <GeometryType>0</GeometryType>
     <SRSName>EPSG:28992</SRSName>
@@ -3173,7 +3173,7 @@
       <Width>255</Width>
     </PropertyDefn>
     <!--Einde properties van BGTObject-->
-    <!--Begin properties van VegetatieObject_2D_tmp-->
+    <!--Begin properties van VegetatieObject_tmp-->
     <PropertyDefn>
       <Name>bgt_type</Name>
       <ElementPath>class</ElementPath>
@@ -3186,10 +3186,10 @@
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
-    <!--Einde properties van VegetatieObject_2D_tmp-->
+    <!--Einde properties van VegetatieObject_tmp-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Buurt_2D_tmp</Name>
+    <Name>Buurt_tmp</Name>
     <ElementPath>Buurt</ElementPath>
     <GeometryType>12</GeometryType>
     <SRSName>EPSG:28992</SRSName>
@@ -3284,7 +3284,7 @@
     <!--Einde properties van RegistratiefGebied-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>OpenbareRuimte_2D_tmp</Name>
+    <Name>OpenbareRuimte_tmp</Name>
     <ElementPath>OpenbareRuimte</ElementPath>
     <GeometryType>12</GeometryType>
     <SRSName>EPSG:28992</SRSName>
@@ -3379,7 +3379,7 @@
     <!--Einde properties van RegistratiefGebied-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Stadsdeel_2D_tmp</Name>
+    <Name>Stadsdeel_tmp</Name>
     <ElementPath>Stadsdeel</ElementPath>
     <GeometryType>12</GeometryType>
     <SRSName>EPSG:28992</SRSName>
@@ -3474,7 +3474,7 @@
     <!--Einde properties van RegistratiefGebied-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Waterschap_2D_tmp</Name>
+    <Name>Waterschap_tmp</Name>
     <ElementPath>Waterschap</ElementPath>
     <GeometryType>12</GeometryType>
     <SRSName>EPSG:28992</SRSName>
@@ -3569,7 +3569,7 @@
     <!--Einde properties van RegistratiefGebied-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Wijk_2D_tmp</Name>
+    <Name>Wijk_tmp</Name>
     <ElementPath>Wijk</ElementPath>
     <GeometryType>12</GeometryType>
     <SRSName>EPSG:28992</SRSName>

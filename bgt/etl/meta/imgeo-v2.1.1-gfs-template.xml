@@ -93,16 +93,16 @@
     </PropertyDefn>
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Wegdeel_2D_tmp</Name>
+    <Name>Wegdeel_tmp</Name>
     <ParentClass>BGTObject</ParentClass>
     <ElementPath>TrafficArea</ElementPath>
     <GeomPropertyDefn>
-      <Name>geometry_vlak</Name>
+      <Name>geometrie_vlak</Name>
       <ElementPath>geometrie2dWegdeel</ElementPath>
       <Type>CurvePolygon</Type>
     </GeomPropertyDefn>
     <GeomPropertyDefn>
-      <Name>geometry_kruinlijn</Name>
+      <Name>geometrie_kruinlijn</Name>
       <ElementPath>kruinlijnWegdeel</ElementPath>
       <GeometryType>9</GeometryType>
     </GeomPropertyDefn>
@@ -138,16 +138,16 @@
     </PropertyDefn>
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>OndersteunendWegdeel_2D_tmp</Name>
+    <Name>OndersteunendWegdeel_tmp</Name>
     <ParentClass>BGTObject</ParentClass>
     <ElementPath>AuxiliaryTrafficArea</ElementPath>
     <GeomPropertyDefn>
-      <Name>geometry_vlak</Name>
+      <Name>geometrie_vlak</Name>
       <ElementPath>geometrie2dOndersteunendWegdeel</ElementPath>
       <Type>CurvePolygon</Type>
     </GeomPropertyDefn>
     <GeomPropertyDefn>
-      <Name>geometry_kruinlijn</Name>
+      <Name>geometrie_kruinlijn</Name>
       <ElementPath>kruinlijnOndersteunendWegdeel</ElementPath>
       <GeometryType>9</GeometryType>
     </GeomPropertyDefn>
@@ -183,16 +183,16 @@
     </PropertyDefn>
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>OnbegroeidTerreindeel_2D_tmp</Name>
+    <Name>OnbegroeidTerreindeel_tmp</Name>
     <ParentClass>BGTObject</ParentClass>
     <ElementPath>OnbegroeidTerreindeel</ElementPath>
     <GeomPropertyDefn>
-      <Name>geometry_vlak</Name>
+      <Name>geometrie_vlak</Name>
       <ElementPath>geometrie2dOnbegroeidTerreindeel</ElementPath>
       <Type>CurvePolygon</Type>
     </GeomPropertyDefn>
     <GeomPropertyDefn>
-      <Name>geometry_kruinlijn</Name>
+      <Name>geometrie_kruinlijn</Name>
       <ElementPath>kruinlijnOnbegroeidTerreindeel</ElementPath>
       <GeometryType>9</GeometryType>
     </GeomPropertyDefn>
@@ -216,16 +216,16 @@
     </PropertyDefn>
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>BegroeidTerreindeel_2D_tmp</Name>
+    <Name>BegroeidTerreindeel_tmp</Name>
     <ParentClass>BGTObject</ParentClass>
     <ElementPath>PlantCover</ElementPath>
     <GeomPropertyDefn>
-      <Name>geometry_vlak</Name>
+      <Name>geometrie_vlak</Name>
       <ElementPath>geometrie2dBegroeidTerreindeel</ElementPath>
       <Type>CurvePolygon</Type>
     </GeomPropertyDefn>
     <GeomPropertyDefn>
-      <Name>geometry_kruinlijn</Name>
+      <Name>geometrie_kruinlijn</Name>
       <ElementPath>kruinlijnBegroeidTerreindeel</ElementPath>
       <GeometryType>9</GeometryType>
     </GeomPropertyDefn>
@@ -249,7 +249,7 @@
     </PropertyDefn>
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Waterdeel_2D_tmp</Name>
+    <Name>Waterdeel_tmp</Name>
     <ParentClass>BGTObject</ParentClass>
     <ElementPath>Waterdeel</ElementPath>
     <GeometryType>10</GeometryType>
@@ -267,7 +267,7 @@
     </PropertyDefn>
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>OndersteunendWaterdeel_2D_tmp</Name>
+    <Name>OndersteunendWaterdeel_tmp</Name>
     <ParentClass>BGTObject</ParentClass>
     <ElementPath>OndersteunendWaterdeel</ElementPath>
     <GeometryType>10</GeometryType>
@@ -285,16 +285,16 @@
     </PropertyDefn>
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Pand_2D_tmp</Name>
+    <Name>Pand_tmp</Name>
     <ParentClass>BGTObject</ParentClass>
     <ElementPath>BuildingPart</ElementPath>
     <GeomPropertyDefn>
-      <Name>geometry_vlak</Name>
+      <Name>geometrie_vlak</Name>
       <ElementPath>geometrie2dGrondvlak</ElementPath>
       <Type>MultiSurface</Type>
     </GeomPropertyDefn>
     <GeomPropertyDefn>
-      <Name>geometry_nummeraanduiding</Name>
+      <Name>geometrie_nummeraanduiding</Name>
       <ElementPath>nummeraanduidingreeks|Nummeraanduidingreeks|nummeraanduidingreeks|Label|positie|Labelpositie|plaatsingspunt</ElementPath>
       <Type>Point</Type>
     </GeomPropertyDefn>
@@ -329,7 +329,7 @@
     </PropertyDefn>
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Spoor_2D_tmp</Name>
+    <Name>Spoor_tmp</Name>
     <ParentClass>BGTObject</ParentClass>
     <ElementPath>Railway</ElementPath>
     <GeometryType>9</GeometryType>
@@ -347,7 +347,7 @@
     </PropertyDefn>
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>OverigBouwwerk_2D_tmp</Name>
+    <Name>OverigBouwwerk_tmp</Name>
     <ParentClass>BGTObject</ParentClass>
     <ElementPath>OverigBouwwerk</ElementPath>
     <GeometryType>12</GeometryType>
@@ -365,7 +365,7 @@
     </PropertyDefn>
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Kunstwerkdeel_2D_tmp</Name>
+    <Name>Kunstwerkdeel_tmp</Name>
     <ParentClass>BGTObject</ParentClass>
     <ElementPath>Kunstwerkdeel</ElementPath>
     <GeometryType>0</GeometryType>
@@ -383,7 +383,7 @@
     </PropertyDefn>
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Overbruggingsdeel_2D_tmp</Name>
+    <Name>Overbruggingsdeel_tmp</Name>
     <ParentClass>BGTObject</ParentClass>
     <ElementPath>BridgeConstructionElement</ElementPath>
     <GeometryType>10</GeometryType>
@@ -407,13 +407,13 @@
     </PropertyDefn>
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Tunneldeel_2D_tmp</Name>
+    <Name>Tunneldeel_tmp</Name>
     <ParentClass>BGTObject</ParentClass>
     <ElementPath>TunnelPart</ElementPath>
     <GeometryType>10</GeometryType>
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Scheiding_2D_tmp</Name>
+    <Name>Scheiding_tmp</Name>
     <ParentClass>BGTObject</ParentClass>
     <ElementPath>Scheiding</ElementPath>
     <GeometryType>0</GeometryType>
@@ -431,7 +431,7 @@
     </PropertyDefn>
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>OverigeScheiding_2D_tmp</Name>
+    <Name>OverigeScheiding_tmp</Name>
     <ParentClass>BGTObject</ParentClass>
     <ElementPath>OverigeScheiding</ElementPath>
     <GeometryType>0</GeometryType>
@@ -443,7 +443,7 @@
     </PropertyDefn>
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>FunctioneelGebied_2D_tmp</Name>
+    <Name>FunctioneelGebied_tmp</Name>
     <ParentClass>BGTObject</ParentClass>
     <ElementPath>FunctioneelGebied</ElementPath>
     <GeometryType>10</GeometryType>
@@ -467,7 +467,7 @@
     </PropertyDefn>
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>OngeclassificeerdObject_2D_tmp</Name>
+    <Name>OngeclassificeerdObject_tmp</Name>
     <ParentClass>BGTObject</ParentClass>
     <ElementPath>OngeclassificeerdObject</ElementPath>
     <GeometryType>10</GeometryType>
@@ -531,7 +531,7 @@
     </PropertyDefn>
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>GebouwInstallatie_2D_tmp</Name>
+    <Name>GebouwInstallatie_tmp</Name>
     <ParentClass>BGTObject</ParentClass>
     <ElementPath>BuildingInstallation</ElementPath>
     <GeometryType>10</GeometryType>
@@ -565,37 +565,37 @@
     </PropertyDefn>
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Bak_2D_tmp</Name>
+    <Name>Bak_tmp</Name>
     <ParentClass>Inrichtingselement</ParentClass>
     <ElementPath>Bak</ElementPath>
     <GeometryType>1</GeometryType>
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Bord_2D_tmp</Name>
+    <Name>Bord_tmp</Name>
     <ParentClass>Inrichtingselement</ParentClass>
     <ElementPath>Bord</ElementPath>
     <GeometryType>1</GeometryType>
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Installatie_2D_tmp</Name>
+    <Name>Installatie_tmp</Name>
     <ParentClass>Inrichtingselement</ParentClass>
     <ElementPath>Installatie</ElementPath>
     <GeometryType>1</GeometryType>
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Kast_2D_tmp</Name>
+    <Name>Kast_tmp</Name>
     <ParentClass>Inrichtingselement</ParentClass>
     <ElementPath>Kast</ElementPath>
     <GeometryType>1</GeometryType>
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Mast_2D_tmp</Name>
+    <Name>Mast_tmp</Name>
     <ParentClass>Inrichtingselement</ParentClass>
     <ElementPath>Mast</ElementPath>
     <GeometryType>1</GeometryType>
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Paal_2D_tmp</Name>
+    <Name>Paal_tmp</Name>
     <ParentClass>Inrichtingselement</ParentClass>
     <ElementPath>Paal</ElementPath>
     <GeometryType>1</GeometryType>
@@ -607,37 +607,37 @@
     </PropertyDefn>
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Put_2D_tmp</Name>
+    <Name>Put_tmp</Name>
     <ParentClass>Inrichtingselement</ParentClass>
     <ElementPath>Put</ElementPath>
     <GeometryType>1</GeometryType>
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Sensor_2D_tmp</Name>
+    <Name>Sensor_tmp</Name>
     <ParentClass>Inrichtingselement</ParentClass>
     <ElementPath>Sensor</ElementPath>
     <GeometryType>0</GeometryType>
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Straatmeubilair_2D_tmp</Name>
+    <Name>Straatmeubilair_tmp</Name>
     <ParentClass>Inrichtingselement</ParentClass>
     <ElementPath>Straatmeubilair</ElementPath>
     <GeometryType>1</GeometryType>
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Waterinrichtingselement_2D_tmp</Name>
+    <Name>Waterinrichtingselement_tmp</Name>
     <ParentClass>Inrichtingselement</ParentClass>
     <ElementPath>Waterinrichtingselement</ElementPath>
     <GeometryType>0</GeometryType>
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Weginrichtingselement_2D_tmp</Name>
+    <Name>Weginrichtingselement_tmp</Name>
     <ParentClass>Inrichtingselement</ParentClass>
     <ElementPath>Weginrichtingselement</ElementPath>
     <GeometryType>0</GeometryType>
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>VegetatieObject_2D_tmp</Name>
+    <Name>VegetatieObject_tmp</Name>
     <ParentClass>BGTObject</ParentClass>
     <ElementPath>SolitaryVegetationObject</ElementPath>
     <GeometryType>0</GeometryType>
@@ -665,31 +665,31 @@
     </PropertyDefn>
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Buurt_2D_tmp</Name>
+    <Name>Buurt_tmp</Name>
     <ParentClass>RegistratiefGebied</ParentClass>
     <ElementPath>Buurt</ElementPath>
     <GeometryType>12</GeometryType>
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>OpenbareRuimte_2D_tmp</Name>
+    <Name>OpenbareRuimte_tmp</Name>
     <ParentClass>RegistratiefGebied</ParentClass>
     <ElementPath>OpenbareRuimte</ElementPath>
     <GeometryType>12</GeometryType>
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Stadsdeel_2D_tmp</Name>
+    <Name>Stadsdeel_tmp</Name>
     <ParentClass>RegistratiefGebied</ParentClass>
     <ElementPath>Stadsdeel</ElementPath>
     <GeometryType>12</GeometryType>
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Waterschap_2D_tmp</Name>
+    <Name>Waterschap_tmp</Name>
     <ParentClass>RegistratiefGebied</ParentClass>
     <ElementPath>Waterschap</ElementPath>
     <GeometryType>12</GeometryType>
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Wijk_2D_tmp</Name>
+    <Name>Wijk_tmp</Name>
     <ParentClass>RegistratiefGebied</ParentClass>
     <ElementPath>Wijk</ElementPath>
     <GeometryType>12</GeometryType>
