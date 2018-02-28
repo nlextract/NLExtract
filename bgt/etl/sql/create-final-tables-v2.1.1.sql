@@ -30,22 +30,22 @@ IF (SELECT _nlx_parse_version(postgis_lib_version())) >= 20200 THEN
 	$$
 	LANGUAGE sql;
 ELSE
-	CREATE OR REPLACE FUNCTION _nlx_force_curve(geometry geometry)
+	CREATE OR REPLACE FUNCTION _nlx_force_curve(geometry)
 	RETURNS geometry AS
 	$$
 		SELECT CASE
-			WHEN st_geometrytype(geometry) = 'ST_CircularString' THEN
-				st_geomfromtext('COMPOUNDCURVE(' || st_astext(geometry) || ')', st_srid(geometry))
-			WHEN st_geometrytype(geometry) = 'ST_LineString' THEN
-				st_geomfromtext('COMPOUNDCURVE(' || substr(st_astext(geometry), 10) || ')', st_srid(geometry))
-			WHEN st_geometrytype(geometry) = 'ST_Polygon' THEN
-				st_geomfromtext('CURVEPOLYGON(' || substr(st_astext(geometry), 7) || ')', st_srid(geometry))
-			WHEN st_geometrytype(geometry) = 'ST_MultiLineString' THEN
-				st_geomfromtext('MULTICURVE(' || substr(st_astext(geometry), 15) || ')', st_srid(geometry))
-			WHEN st_geometrytype(geometry) = 'ST_MultiPolygon' THEN
-				st_geomfromtext('MULTISURFACE(' || substr(st_astext(geometry), 12) || ')', st_srid(geometry))
+			WHEN st_geometrytype($1) = 'ST_CircularString' THEN
+				st_geomfromtext('COMPOUNDCURVE(' || st_astext($1) || ')', st_srid($1))
+			WHEN st_geometrytype($1) = 'ST_LineString' THEN
+				st_geomfromtext('COMPOUNDCURVE(' || substr(st_astext($1), 10) || ')', st_srid($1))
+			WHEN st_geometrytype($1) = 'ST_Polygon' THEN
+				st_geomfromtext('CURVEPOLYGON(' || substr(st_astext($1), 7) || ')', st_srid($1))
+			WHEN st_geometrytype($1) = 'ST_MultiLineString' THEN
+				st_geomfromtext('MULTICURVE(' || substr(st_astext($1), 15) || ')', st_srid($1))
+			WHEN st_geometrytype($1) = 'ST_MultiPolygon' THEN
+				st_geomfromtext('MULTISURFACE(' || substr(st_astext($1), 12) || ')', st_srid($1))
 			ELSE
-				geometry
+				$1
 			END AS result;
 	$$
 	LANGUAGE sql;
