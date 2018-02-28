@@ -2,7 +2,7 @@
 set time zone 'Europe/Amsterdam';
 
 -- Function to parse PostGIS version number
-CREATE OR REPLACE FUNCTION _nlx_parse_version(version VARCHAR)
+CREATE OR REPLACE FUNCTION _nlx_parse_version(VARCHAR)
 RETURNS integer AS
 $$
     SELECT split_part($1, '.', 1)::integer * 10000 + split_part($1, '.', 2)::integer * 100 + split_part($1, '.', 3)::integer AS result;
@@ -18,14 +18,14 @@ DO
 $do$
 BEGIN
 IF (SELECT _nlx_parse_version(postgis_lib_version())) >= 20200 THEN
-	CREATE OR REPLACE FUNCTION _nlx_force_curve(geometry geometry)
+	CREATE OR REPLACE FUNCTION _nlx_force_curve(geometry)
 	RETURNS geometry AS
 	$$
 		SELECT CASE
-			WHEN st_geometrytype(geometry) = 'ST_CircularString' THEN
-				st_geomfromtext('COMPOUNDCURVE(' || st_astext(geometry) || ')', st_srid(geometry))
+			WHEN st_geometrytype($1) = 'ST_CircularString' THEN
+				st_geomfromtext('COMPOUNDCURVE(' || st_astext($1) || ')', st_srid($1))
 			ELSE
-				st_forcecurve(geometry)
+				st_forcecurve($1)
 			END AS result;
 	$$
 	LANGUAGE sql;
