@@ -37,9 +37,9 @@ ELSE
 			WHEN st_geometrytype($1) = 'ST_CircularString' THEN
 				st_geomfromtext('COMPOUNDCURVE(' || st_astext($1) || ')', st_srid($1))
 			WHEN st_geometrytype($1) = 'ST_LineString' THEN
-				st_geomfromtext('COMPOUNDCURVE(' || substr(st_astext($1), 10) || ')', st_srid($1))
+				st_geomfromtext('COMPOUNDCURVE(' || substr(st_astext($1), 11) || ')', st_srid($1))
 			WHEN st_geometrytype($1) = 'ST_Polygon' THEN
-				st_geomfromtext('CURVEPOLYGON(' || substr(st_astext($1), 7) || ')', st_srid($1))
+				st_geomfromtext('CURVEPOLYGON' || substr(st_astext($1), 8), st_srid($1))
 			WHEN st_geometrytype($1) = 'ST_MultiLineString' THEN
 				st_geomfromtext('MULTICURVE(' || substr(st_astext($1), 15) || ')', st_srid($1))
 			WHEN st_geometrytype($1) = 'ST_MultiPolygon' THEN
