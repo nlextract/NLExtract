@@ -8,4 +8,5 @@ om te zetten naar hanteerbare formaten zoals PostGIS.
 Documentatie vind je op: http://nlextract.readthedocs.org
 
 Belangrijke wijzigingen:
-* 15-01-2018: initiële versie
+* 15-01-2018: initiële versie.
+* 01-03-2018: Top100Extract omgebouwd naar OGR-only versie, zonder XSLT.

@@ -1,6 +1,5 @@
 Top10NL inlezen met Stetl (www.stetl.org) ETL framework.
-door: Just van den Broecke,
-GFS en XSLT door Just van den Broecke en Frank Steggink
+door: Just van den Broecke en Frank Steggink
 
 Deze map bevat de ETL configuratie en commando om via Stetl
 Top10NL vanuit de bron GML bestanden naar verschillende outputs weg te schrijven.

@@ -12,3 +12,4 @@ Belangrijke wijzigingen:
 * 03-12-2014: onder "etl" map staat laatste versie Top10NL inlezen op basis Stetl ETL
 framework, www.stetl.org
 * 21-12-2015: ondersteuning voor TOP10NL versie 1.2 toegevoegd; oude inleesprocedure (in bin-dir) verwijderd.
+* 24-01-2018: Top10Extract omgebouwd naar OGR-only versie, zonder XSLT.
