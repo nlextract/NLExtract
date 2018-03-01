@@ -1,14 +1,5 @@
 -- Bijwerken multiattributen gebouw
---update gebouw_vlak set typegebouw='(2:gemeentehuis,huizenblok)' where typegebouw='(2:huizenblok,gemeentehuis)';
---update gebouw_punt set typegebouw='(2:gemeentehuis,huizenblok)' where typegebouw='(2:huizenblok,gemeentehuis)';
---update gebouw_vlak set typegebouw='(1:stationsgebouw)' where typegebouw='(2:stationsgebouw,stationsgebouw)';
---update gebouw_punt set typegebouw='(1:stationsgebouw)' where typegebouw='(2:stationsgebouw,stationsgebouw)';
---update gebouw_vlak set typegebouw='(2:kasteel,toren)' where typegebouw='(2:toren,kasteel)';
---update gebouw_punt set typegebouw='(2:kasteel,toren)' where typegebouw='(2:toren,kasteel)';
---update gebouw_vlak set typegebouw='(2:stationsgebouw,toren)' where typegebouw='(2:toren,stationsgebouw)';
---update gebouw_punt set typegebouw='(2:stationsgebouw,toren)' where typegebouw='(2:toren,stationsgebouw)';
---update gebouw_vlak set typegebouw='(2:parkeerdak, parkeerdek, parkeergarage,stationsgebouw)' where typegebouw='(3:stationsgebouw,parkeerdak, parkeerdek, parkeergarage,stationsgebouw)';
---update gebouw_punt set typegebouw='(2:parkeerdak, parkeerdek, parkeergarage,stationsgebouw)' where typegebouw='(3:stationsgebouw,parkeerdak, parkeerdek, parkeergarage,stationsgebouw)';
-
--- Bijwerken multiattributen terrein
---update terrein_vlak set voorkomen='(2:dras, moerassig,met riet)' where voorkomen='(2:met riet,dras, moerassig)';
+update gebouw set typegebouw='(2:religieus gebouw,school)' where typegebouw='(2:school,religieus gebouw)';
+update gebouw set typegebouw='(2:religieus gebouw,sporthal)' where typegebouw='(2:sporthal,religieus gebouw)';
+update gebouw set typegebouw='(2:religieus gebouw,toren)' where typegebouw='(2:toren,religieus gebouw)';
+update gebouw set typegebouw='(3:religieus gebouw,sporthal,zwembad)' where typegebouw='(3:sporthal,zwembad,religieus gebouw)';

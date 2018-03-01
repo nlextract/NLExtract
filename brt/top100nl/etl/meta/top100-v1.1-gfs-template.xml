@@ -76,6 +76,22 @@
   <GMLFeatureClass>
     <Name>FunctioneelGebied</Name>
     <ParentClass>Top100Object</ParentClass>
+    <ElementPath>FunctioneelGebied</ElementPath>
+    <GeomPropertyDefn>
+      <Name>geometrie_vlak</Name>
+      <ElementPath>geometrie|VlakMultivlakOfPunt|vlakGeometrie</ElementPath>
+      <Type>Polygon</Type>
+    </GeomPropertyDefn>
+    <GeomPropertyDefn>
+      <Name>geometrie_multivlak</Name>
+      <ElementPath>geometrie|VlakMultivlakOfPunt|multivlakGeometrie</ElementPath>
+      <Type>MultiPolygon</Type>
+    </GeomPropertyDefn>
+    <GeomPropertyDefn>
+      <Name>geometrie_punt</Name>
+      <ElementPath>geometrie|VlakMultivlakOfPunt|puntGeometrie</ElementPath>
+      <Type>Point</Type>
+    </GeomPropertyDefn>
     <PropertyDefn>
       <Name>typeFunctioneelGebied</Name>
       <ElementPath>typeFunctioneelGebied</ElementPath>
@@ -94,20 +110,19 @@
     </PropertyDefn>
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>FunctioneelGebied_Punt</Name>
-    <ElementPath>FunctioneelGebied_Punt</ElementPath>
-    <GeometryType>1</GeometryType>
-    <ParentClass>FunctioneelGebied</ParentClass>
-  </GMLFeatureClass>
-  <GMLFeatureClass>
-    <Name>FunctioneelGebied_Vlak</Name>
-    <ElementPath>FunctioneelGebied_Vlak</ElementPath>
-    <GeometryType>6</GeometryType>
-    <ParentClass>FunctioneelGebied</ParentClass>
-  </GMLFeatureClass>
-  <GMLFeatureClass>
     <Name>Gebouw</Name>
     <ParentClass>Top100Object</ParentClass>
+    <ElementPath>Gebouw</ElementPath>
+    <GeomPropertyDefn>
+      <Name>geometrie_vlak</Name>
+      <ElementPath>geometrie|VlakOfPunt|vlakGeometrie</ElementPath>
+      <Type>Polygon</Type>
+    </GeomPropertyDefn>
+    <GeomPropertyDefn>
+      <Name>geometrie_punt</Name>
+      <ElementPath>geometrie|VlakOfPunt|puntGeometrie</ElementPath>
+      <Type>Point</Type>
+    </GeomPropertyDefn>
     <PropertyDefn>
       <Name>typeGebouw</Name>
       <ElementPath>typeGebouw</ElementPath>
@@ -142,20 +157,24 @@
     </PropertyDefn>
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Gebouw_Punt</Name>
-    <ElementPath>Gebouw_Punt</ElementPath>
-    <GeometryType>1</GeometryType>
-    <ParentClass>Gebouw</ParentClass>
-  </GMLFeatureClass>
-  <GMLFeatureClass>
-    <Name>Gebouw_Vlak</Name>
-    <ElementPath>Gebouw_Vlak</ElementPath>
-    <GeometryType>3</GeometryType>
-    <ParentClass>Gebouw</ParentClass>
-  </GMLFeatureClass>
-  <GMLFeatureClass>
     <Name>GeografischGebied</Name>
     <ParentClass>Top100Object</ParentClass>
+    <ElementPath>GeografischGebied</ElementPath>
+    <GeomPropertyDefn>
+      <Name>geometrie_vlak</Name>
+      <ElementPath>geometrie|VlakMultivlakOfPunt|vlakGeometrie</ElementPath>
+      <Type>Polygon</Type>
+    </GeomPropertyDefn>
+    <GeomPropertyDefn>
+      <Name>geometrie_multivlak</Name>
+      <ElementPath>geometrie|VlakMultivlakOfPunt|multivlakGeometrie</ElementPath>
+      <Type>MultiPolygon</Type>
+    </GeomPropertyDefn>
+    <GeomPropertyDefn>
+      <Name>geometrie_punt</Name>
+      <ElementPath>geometrie|VlakMultivlakOfPunt|puntGeometrie</ElementPath>
+      <Type>Point</Type>
+    </GeomPropertyDefn>
     <PropertyDefn>
       <Name>typeGeografischGebied</Name>
       <ElementPath>typeGeografischGebied</ElementPath>
@@ -185,20 +204,19 @@
     </PropertyDefn>
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>GeografischGebied_Punt</Name>
-    <ElementPath>GeografischGebied_Punt</ElementPath>
-    <GeometryType>1</GeometryType>
-    <ParentClass>GeografischGebied</ParentClass>
-  </GMLFeatureClass>
-  <GMLFeatureClass>
-    <Name>GeografischGebied_Vlak</Name>
-    <ElementPath>GeografischGebied_Vlak</ElementPath>
-    <GeometryType>6</GeometryType>
-    <ParentClass>GeografischGebied</ParentClass>
-  </GMLFeatureClass>
-  <GMLFeatureClass>
     <Name>Hoogte</Name>
     <ParentClass>Top100Object</ParentClass>
+    <ElementPath>Hoogte</ElementPath>
+    <GeomPropertyDefn>
+      <Name>geometrie_lijn</Name>
+      <ElementPath>geometrie|LijnOfPunt|lijnGeometrie</ElementPath>
+      <Type>LineString</Type>
+    </GeomPropertyDefn>
+    <GeomPropertyDefn>
+      <Name>geometrie_punt</Name>
+      <ElementPath>geometrie|LijnOfPunt|puntGeometrie</ElementPath>
+      <Type>Point</Type>
+    </GeomPropertyDefn>
     <PropertyDefn>
       <Name>typeHoogte</Name>
       <ElementPath>typeHoogte</ElementPath>
@@ -212,20 +230,19 @@
     </PropertyDefn>
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Hoogte_Punt</Name>
-    <ElementPath>Hoogte_Punt</ElementPath>
-    <GeometryType>1</GeometryType>
-    <ParentClass>Hoogte</ParentClass>
-  </GMLFeatureClass>
-  <GMLFeatureClass>
-    <Name>Hoogte_Lijn</Name>
-    <ElementPath>Hoogte_Lijn</ElementPath>
-    <GeometryType>2</GeometryType>
-    <ParentClass>Hoogte</ParentClass>
-  </GMLFeatureClass>
-  <GMLFeatureClass>
     <Name>Inrichtingselement</Name>
     <ParentClass>Top100Object</ParentClass>
+    <ElementPath>Inrichtingselement</ElementPath>
+    <GeomPropertyDefn>
+      <Name>geometrie_lijn</Name>
+      <ElementPath>geometrie|LijnOfPunt|lijnGeometrie</ElementPath>
+      <Type>LineString</Type>
+    </GeomPropertyDefn>
+    <GeomPropertyDefn>
+      <Name>geometrie_punt</Name>
+      <ElementPath>geometrie|LijnOfPunt|puntGeometrie</ElementPath>
+      <Type>Point</Type>
+    </GeomPropertyDefn>
     <PropertyDefn>
       <Name>typeInrichtingsElement</Name>
       <ElementPath>typeInrichtingsElement</ElementPath>
@@ -260,20 +277,19 @@
     </PropertyDefn>
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Inrichtingselement_Punt</Name>
-    <ElementPath>Inrichtingselement_Punt</ElementPath>
-    <GeometryType>1</GeometryType>
-    <ParentClass>Inrichtingselement</ParentClass>
-  </GMLFeatureClass>
-  <GMLFeatureClass>
-    <Name>Inrichtingselement_Lijn</Name>
-    <ElementPath>Inrichtingselement_Lijn</ElementPath>
-    <GeometryType>2</GeometryType>
-    <ParentClass>Inrichtingselement</ParentClass>
-  </GMLFeatureClass>
-  <GMLFeatureClass>
     <Name>RegistratiefGebied</Name>
     <ParentClass>Top100Object</ParentClass>
+    <ElementPath>RegistratiefGebied</ElementPath>
+    <GeomPropertyDefn>
+      <Name>geometrie_vlak</Name>
+      <ElementPath>geometrie|VlakOfMultivlak|vlakGeometrie</ElementPath>
+      <Type>Polygon</Type>
+    </GeomPropertyDefn>
+    <GeomPropertyDefn>
+      <Name>geometrie_multivlak</Name>
+      <ElementPath>geometrie|VlakOfMultivlak|multivlakGeometrie</ElementPath>
+      <Type>MultiPolygon</Type>
+    </GeomPropertyDefn>
     <PropertyDefn>
       <Name>typeRegistratiefGebied</Name>
       <ElementPath>typeRegistratiefGebied</ElementPath>
@@ -297,14 +313,14 @@
     </PropertyDefn>
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>RegistratiefGebied_Vlak</Name>
-    <ElementPath>RegistratiefGebied_Vlak</ElementPath>
-    <GeometryType>6</GeometryType>
-    <ParentClass>RegistratiefGebied</ParentClass>
-  </GMLFeatureClass>
-  <GMLFeatureClass>
     <Name>Relief</Name>
     <ParentClass>Top100Object</ParentClass>
+    <ElementPath>Relief</ElementPath>
+    <GeomPropertyDefn>
+      <Name>geometrie_lijn</Name>
+      <ElementPath>geometrie</ElementPath>
+      <Type>LineString</Type>
+    </GeomPropertyDefn>
     <PropertyDefn>
       <Name>typeRelief</Name>
       <ElementPath>typeRelief</ElementPath>
@@ -340,14 +356,14 @@
     </PropertyDefn>
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Relief_Lijn</Name>
-    <ElementPath>Relief_Lijn</ElementPath>
-    <GeometryType>2</GeometryType>
-    <ParentClass>Relief</ParentClass>
-  </GMLFeatureClass>
-  <GMLFeatureClass>
     <Name>Spoorbaandeel</Name>
     <ParentClass>Top100Object</ParentClass>
+    <ElementPath>Spoorbaandeel</ElementPath>
+    <GeomPropertyDefn>
+      <Name>geometrie_lijn</Name>
+      <ElementPath>geometrie</ElementPath>
+      <Type>LineString</Type>
+    </GeomPropertyDefn>
     <PropertyDefn>
       <Name>typeSpoorbaan</Name>
       <ElementPath>typeSpoorbaan</ElementPath>
@@ -378,14 +394,14 @@
     </PropertyDefn>
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Spoorbaandeel_Lijn</Name>
-    <ElementPath>Spoorbaandeel_Lijn</ElementPath>
-    <GeometryType>2</GeometryType>
-    <ParentClass>Spoorbaandeel</ParentClass>
-  </GMLFeatureClass>
-  <GMLFeatureClass>
     <Name>Terrein</Name>
     <ParentClass>Top100Object</ParentClass>
+    <ElementPath>Terrein</ElementPath>
+    <GeomPropertyDefn>
+      <Name>geometrie_vlak</Name>
+      <ElementPath>geometrie</ElementPath>
+      <Type>Polygon</Type>
+    </GeomPropertyDefn>
     <PropertyDefn>
       <Name>typeLandgebruik</Name>
       <ElementPath>typeLandgebruik</ElementPath>
@@ -394,14 +410,19 @@
     </PropertyDefn>
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Terrein_Vlak</Name>
-    <ElementPath>Terrein_Vlak</ElementPath>
-    <GeometryType>3</GeometryType>
-    <ParentClass>Terrein</ParentClass>
-  </GMLFeatureClass>
-  <GMLFeatureClass>
     <Name>Waterdeel</Name>
     <ParentClass>Top100Object</ParentClass>
+    <ElementPath>Waterdeel</ElementPath>
+    <GeomPropertyDefn>
+      <Name>geometrie_vlak</Name>
+      <ElementPath>geometrie|VlakOfLijn|vlakGeometrie</ElementPath>
+      <Type>Polygon</Type>
+    </GeomPropertyDefn>
+    <GeomPropertyDefn>
+      <Name>geometrie_lijn</Name>
+      <ElementPath>geometrie|VlakOfLijn|lijnGeometrie</ElementPath>
+      <Type>LineString</Type>
+    </GeomPropertyDefn>
     <PropertyDefn>
       <Name>typeWater</Name>
       <ElementPath>typeWater</ElementPath>
@@ -426,20 +447,19 @@
     </PropertyDefn>
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Waterdeel_Lijn</Name>
-    <ElementPath>Waterdeel_Lijn</ElementPath>
-    <GeometryType>2</GeometryType>
-    <ParentClass>Waterdeel</ParentClass>
-  </GMLFeatureClass>
-  <GMLFeatureClass>
-    <Name>Waterdeel_Vlak</Name>
-    <ElementPath>Waterdeel_Vlak</ElementPath>
-    <GeometryType>3</GeometryType>
-    <ParentClass>Waterdeel</ParentClass>
-  </GMLFeatureClass>
-  <GMLFeatureClass>
     <Name>Wegdeel</Name>
     <ParentClass>Top100Object</ParentClass>
+    <ElementPath>Wegdeel</ElementPath>
+    <GeomPropertyDefn>
+      <Name>geometrie_vlak</Name>
+      <ElementPath>geometrie|VlakOfLijn|vlakGeometrie</ElementPath>
+      <Type>Polygon</Type>
+    </GeomPropertyDefn>
+    <GeomPropertyDefn>
+      <Name>geometrie_lijn</Name>
+      <ElementPath>geometrie|VlakOfLijn|lijnGeometrie</ElementPath>
+      <Type>LineString</Type>
+    </GeomPropertyDefn>
     <PropertyDefn>
       <Name>typeInfrastructuur</Name>
       <ElementPath>typeInfrastructuur</ElementPath>
@@ -544,17 +564,5 @@
       <Type>StringList</Type>
       <Width>250</Width>
     </PropertyDefn>
-  </GMLFeatureClass>
-  <GMLFeatureClass>
-    <Name>Wegdeel_Lijn</Name>
-    <ElementPath>Wegdeel_Lijn</ElementPath>
-    <GeometryType>2</GeometryType>
-    <ParentClass>Wegdeel</ParentClass>
-  </GMLFeatureClass>
-  <GMLFeatureClass>
-    <Name>Wegdeel_Vlak</Name>
-    <ElementPath>Wegdeel_Vlak</ElementPath>
-    <GeometryType>3</GeometryType>
-    <ParentClass>Wegdeel</ParentClass>
   </GMLFeatureClass>
 </GMLFeatureClassList>
