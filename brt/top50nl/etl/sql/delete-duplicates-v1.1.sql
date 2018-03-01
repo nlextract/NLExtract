@@ -25,26 +25,18 @@ END;
 $$
 LANGUAGE plpgsql;
 
-SELECT _nlx_dedup_data('functioneelgebied_punt');
-SELECT _nlx_dedup_data('functioneelgebied_vlak');
-SELECT _nlx_dedup_data('gebouw_punt');
-SELECT _nlx_dedup_data('gebouw_vlak');
-SELECT _nlx_dedup_data('geografischgebied_punt');
-SELECT _nlx_dedup_data('geografischgebied_vlak');
-SELECT _nlx_dedup_data('hoogte_lijn');
-SELECT _nlx_dedup_data('hoogte_punt');
-SELECT _nlx_dedup_data('inrichtingselement_lijn');
-SELECT _nlx_dedup_data('inrichtingselement_punt');
-SELECT _nlx_dedup_data('registratiefgebied_vlak');
-SELECT _nlx_dedup_data('relief_lijn');
-SELECT _nlx_dedup_data('spoorbaandeel_lijn');
-SELECT _nlx_dedup_data('terrein_vlak');
-SELECT _nlx_dedup_data('waterdeel_lijn');
-SELECT _nlx_dedup_data('waterdeel_vlak');
-SELECT _nlx_dedup_data('wegdeel_lijn');
-SELECT _nlx_dedup_data('wegdeel_vlak');
+SELECT _nlx_dedup_data('functioneelgebied');
+SELECT _nlx_dedup_data('gebouw');
+SELECT _nlx_dedup_data('geografischgebied');
+SELECT _nlx_dedup_data('hoogte');
+SELECT _nlx_dedup_data('inrichtingselement');
+SELECT _nlx_dedup_data('registratiefgebied');
+SELECT _nlx_dedup_data('relief');
+SELECT _nlx_dedup_data('spoorbaandeel');
+SELECT _nlx_dedup_data('terrein');
+SELECT _nlx_dedup_data('waterdeel');
+SELECT _nlx_dedup_data('wegdeel');
 
 DROP FUNCTION _nlx_dedup_data(tablename VARCHAR);
 
 SET search_path="$user",public;
-
