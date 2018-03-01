@@ -40,7 +40,6 @@ SELECT _nlx_dedup_data('plantopografie_lijn');
 SELECT _nlx_dedup_data('plantopografie_punt');
 SELECT _nlx_dedup_data('plantopografie_vlak');
 SELECT _nlx_dedup_data('registratiefgebied_vlak');
-SELECT _nlx_dedup_data('relief_lijn');
 SELECT _nlx_dedup_data('spoorbaandeel_lijn');
 SELECT _nlx_dedup_data('terrein_vlak');
 SELECT _nlx_dedup_data('waterdeel_lijn');

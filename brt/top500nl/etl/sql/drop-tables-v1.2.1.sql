@@ -35,9 +35,6 @@ DROP TABLE IF EXISTS	plantopografie_vlak;
 DROP TABLE IF EXISTS	registratiefgebied;
 DROP TABLE IF EXISTS	registratiefgebied_vlak;
 
-DROP TABLE IF EXISTS	relief;
-DROP TABLE IF EXISTS	relief_lijn;
-
 DROP TABLE IF EXISTS	spoorbaandeel;
 DROP TABLE IF EXISTS	spoorbaandeel_lijn;
 
