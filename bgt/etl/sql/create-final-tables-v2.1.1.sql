@@ -54,7 +54,7 @@ END
 $do$;
 
 -- Bak
-create table bak as select ogc_fid, wkb_geometry geometrie_punt, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, bgt_type, plus_type from bak_tmp;
+create table bak as select ogc_fid, wkb_geometry geometrie_punt, gml_id, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, bgt_type, plus_type from bak_tmp;
 
 alter table bak add primary key (ogc_fid);
 create index bak_geometrie_punt_geom_idx on bak using gist((geometrie_punt::geometry(POINT, 28992)));
@@ -68,7 +68,7 @@ create or replace view bakactueelbestaand as select * from bak where eindregistr
 drop table bak_tmp;
 
 -- Begroeid terreindeel
-create table begroeidterreindeel as select ogc_fid, geometrie_vlak, geometrie_kruinlijn, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, bgt_fysiekvoorkomen, plus_fysiekvoorkomen, cast(begroeidterreindeeloptalud as boolean) from begroeidterreindeel_tmp;
+create table begroeidterreindeel as select ogc_fid, geometrie_vlak, geometrie_kruinlijn, gml_id, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, bgt_fysiekvoorkomen, plus_fysiekvoorkomen, cast(begroeidterreindeeloptalud as boolean) from begroeidterreindeel_tmp;
 
 alter table begroeidterreindeel add primary key (ogc_fid);
 create index begroeidterreindeel_geometrie_vlak_geom_idx on begroeidterreindeel using gist((geometrie_vlak::geometry(CURVEPOLYGON, 28992)));
@@ -83,7 +83,7 @@ create or replace view begroeidterreindeelactueelbestaand as select * from begro
 drop table begroeidterreindeel_tmp;
 
 -- Bord
-create table bord as select ogc_fid, wkb_geometry geometrie_punt, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, bgt_type, plus_type from bord_tmp;
+create table bord as select ogc_fid, wkb_geometry geometrie_punt, gml_id, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, bgt_type, plus_type from bord_tmp;
 
 alter table bord add primary key (ogc_fid);
 create index bord_geometrie_punt_geom_idx on bord using gist((geometrie_punt::geometry(POINT, 28992)));
@@ -97,7 +97,7 @@ create or replace view bordactueelbestaand as select * from bord where eindregis
 drop table bord_tmp;
 
 -- Buurt
-create table buurt as select ogc_fid, wkb_geometry geometrie_vlak, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, naam from buurt_tmp;
+create table buurt as select ogc_fid, wkb_geometry geometrie_vlak, gml_id, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, naam from buurt_tmp;
 
 alter table buurt add primary key (ogc_fid);
 create index buurt_geometrie_vlak_geom_idx on buurt using gist((geometrie_vlak::geometry(MULTISURFACE, 28992)));
@@ -111,7 +111,7 @@ create or replace view buurtactueelbestaand as select * from buurt where eindreg
 drop table buurt_tmp;
 
 -- Functioneel gebied
-create table functioneelgebied as select ogc_fid, wkb_geometry geometrie_vlak, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, bgt_type, plus_type, naam from functioneelgebied_tmp;
+create table functioneelgebied as select ogc_fid, wkb_geometry geometrie_vlak, gml_id, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, bgt_type, plus_type, naam from functioneelgebied_tmp;
 
 alter table functioneelgebied add primary key (ogc_fid);
 create index functioneelgebied_geometrie_vlak_geom_idx on functioneelgebied using gist((geometrie_vlak::geometry(CURVEPOLYGON, 28992)));
@@ -125,7 +125,7 @@ create or replace view functioneelgebiedactueelbestaand as select * from functio
 drop table functioneelgebied_tmp;
 
 -- Gebouwinstallatie
-create table gebouwinstallatie as select ogc_fid, wkb_geometry geometrie_vlak, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, bgt_type, plus_type from gebouwinstallatie_tmp;
+create table gebouwinstallatie as select ogc_fid, wkb_geometry geometrie_vlak, gml_id, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, bgt_type, plus_type from gebouwinstallatie_tmp;
 
 alter table gebouwinstallatie add primary key (ogc_fid);
 create index gebouwinstallatie_geometrie_vlak_geom_idx on gebouwinstallatie using gist((geometrie_vlak::geometry(CURVEPOLYGON, 28992)));
@@ -139,7 +139,7 @@ create or replace view gebouwinstallatieactueelbestaand as select * from gebouwi
 drop table gebouwinstallatie_tmp;
 
 -- Installatie
-create table installatie as select ogc_fid, wkb_geometry geometrie_punt, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, bgt_type, plus_type from installatie_tmp;
+create table installatie as select ogc_fid, wkb_geometry geometrie_punt, gml_id, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, bgt_type, plus_type from installatie_tmp;
 
 alter table installatie add primary key (ogc_fid);
 create index installatie_geometrie_punt_geom_idx on installatie using gist((geometrie_punt::geometry(POINT, 28992)));
@@ -153,7 +153,7 @@ create or replace view installatieactueelbestaand as select * from installatie w
 drop table installatie_tmp;
 
 -- Kast
-create table kast as select ogc_fid, wkb_geometry geometrie_punt, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, bgt_type, plus_type from kast_tmp;
+create table kast as select ogc_fid, wkb_geometry geometrie_punt, gml_id, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, bgt_type, plus_type from kast_tmp;
 
 alter table kast add primary key (ogc_fid);
 create index kast_geometrie_punt_geom_idx on kast using gist((geometrie_punt::geometry(POINT, 28992)));
@@ -170,7 +170,7 @@ drop table kast_tmp;
 -- Note that some hoogspanningsmast features are curve polygons, and some other features are multi
 -- surfaces. This is invalid, but these geometries are converted nonetheless. This should be
 -- reported though.
-create table kunstwerkdeel as select ogc_fid, case when st_geometrytype(wkb_geometry) = 'ST_MultiPoint' then wkb_geometry::geometry(MULTIPOINT, 28992) else null::geometry(MULTIPOINT, 28992) end geometrie_multipunt, case when st_geometrytype(wkb_geometry) = 'ST_MultiPolygon' or st_geometrytype(wkb_geometry) = 'ST_MultiSurface' then _nlx_force_curve(wkb_geometry)::geometry(MULTISURFACE, 28992) else null::geometry(MULTISURFACE, 28992) end geometrie_multivlak, case when st_geometrytype(wkb_geometry) = 'ST_CircularString' or st_geometrytype(wkb_geometry) = 'ST_CompoundCurve' or st_geometrytype(wkb_geometry) = 'ST_LineString' then _nlx_force_curve(wkb_geometry)::geometry(COMPOUNDCURVE, 28992) else null::geometry(COMPOUNDCURVE, 28992) end geometrie_lijn, case when st_geometrytype(wkb_geometry) = 'ST_CurvePolygon' or st_geometrytype(wkb_geometry) = 'ST_Polygon' then _nlx_force_curve(wkb_geometry)::geometry(CURVEPOLYGON, 28992) else null::geometry(CURVEPOLYGON, 28992) end geometrie_vlak, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, bgt_type, plus_type from kunstwerkdeel_tmp;
+create table kunstwerkdeel as select ogc_fid, case when st_geometrytype(wkb_geometry) = 'ST_MultiPoint' then wkb_geometry::geometry(MULTIPOINT, 28992) else null::geometry(MULTIPOINT, 28992) end geometrie_multipunt, case when st_geometrytype(wkb_geometry) = 'ST_MultiPolygon' or st_geometrytype(wkb_geometry) = 'ST_MultiSurface' then _nlx_force_curve(wkb_geometry)::geometry(MULTISURFACE, 28992) else null::geometry(MULTISURFACE, 28992) end geometrie_multivlak, case when st_geometrytype(wkb_geometry) = 'ST_CircularString' or st_geometrytype(wkb_geometry) = 'ST_CompoundCurve' or st_geometrytype(wkb_geometry) = 'ST_LineString' then _nlx_force_curve(wkb_geometry)::geometry(COMPOUNDCURVE, 28992) else null::geometry(COMPOUNDCURVE, 28992) end geometrie_lijn, case when st_geometrytype(wkb_geometry) = 'ST_CurvePolygon' or st_geometrytype(wkb_geometry) = 'ST_Polygon' then _nlx_force_curve(wkb_geometry)::geometry(CURVEPOLYGON, 28992) else null::geometry(CURVEPOLYGON, 28992) end geometrie_vlak, gml_id, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, bgt_type, plus_type from kunstwerkdeel_tmp;
 
 alter table kunstwerkdeel add primary key (ogc_fid);
 create index kunstwerkdeel_geometrie_multipunt_geom_idx on kunstwerkdeel using gist((geometrie_multipunt::geometry(MULTIPOINT, 28992)));
@@ -197,7 +197,7 @@ union all
 select bgt_type, st_geometrytype(geometrie_vlak), count(*) from kunstwerkdeel where bgt_type = 'hoogspanningsmast' and geometrie_vlak is not null group by bgt_type, st_geometrytype(geometrie_vlak);
 
 -- Mast
-create table mast as select ogc_fid, wkb_geometry geometrie_punt, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, bgt_type, plus_type from mast_tmp;
+create table mast as select ogc_fid, wkb_geometry geometrie_punt, gml_id, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, bgt_type, plus_type from mast_tmp;
 
 alter table mast add primary key (ogc_fid);
 create index mast_geometrie_punt_geom_idx on mast using gist((geometrie_punt::geometry(POINT, 28992)));
@@ -211,7 +211,7 @@ create or replace view mastactueelbestaand as select * from mast where eindregis
 drop table mast_tmp;
 
 -- Onbegroeid terreindeel
-create table onbegroeidterreindeel as select ogc_fid, geometrie_vlak, geometrie_kruinlijn, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, bgt_fysiekvoorkomen, plus_fysiekvoorkomen, cast(onbegroeidterreindeeloptalud as boolean) from onbegroeidterreindeel_tmp;
+create table onbegroeidterreindeel as select ogc_fid, geometrie_vlak, geometrie_kruinlijn, gml_id, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, bgt_fysiekvoorkomen, plus_fysiekvoorkomen, cast(onbegroeidterreindeeloptalud as boolean) from onbegroeidterreindeel_tmp;
 
 alter table onbegroeidterreindeel add primary key (ogc_fid);
 create index onbegroeidterreindeel_geometrie_vlak_geom_idx on onbegroeidterreindeel using gist((geometrie_vlak::geometry(CURVEPOLYGON, 28992)));
@@ -226,7 +226,7 @@ create or replace view onbegroeidterreindeelactueelbestaand as select * from onb
 drop table onbegroeidterreindeel_tmp;
 
 -- Ondersteunend waterdeel
-create table ondersteunendwaterdeel as select ogc_fid, wkb_geometry geometrie_vlak, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, bgt_type, plus_type from ondersteunendwaterdeel_tmp;
+create table ondersteunendwaterdeel as select ogc_fid, wkb_geometry geometrie_vlak, gml_id, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, bgt_type, plus_type from ondersteunendwaterdeel_tmp;
 
 alter table ondersteunendwaterdeel add primary key (ogc_fid);
 create index ondersteunendwaterdeel_geometrie_vlak_geom_idx on ondersteunendwaterdeel using gist((geometrie_vlak::geometry(CURVEPOLYGON, 28992)));
@@ -240,7 +240,7 @@ create or replace view ondersteunendwaterdeelactueelbestaand as select * from on
 drop table ondersteunendwaterdeel_tmp;
 
 -- Ondersteunend wegdeel
-create table ondersteunendwegdeel as select ogc_fid, geometrie_vlak, geometrie_kruinlijn, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, bgt_functie, plus_functie, bgt_fysiekvoorkomen, plus_fysiekvoorkomen, cast(ondersteunendwegdeeloptalud as boolean) from ondersteunendwegdeel_tmp;
+create table ondersteunendwegdeel as select ogc_fid, geometrie_vlak, geometrie_kruinlijn, gml_id, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, bgt_functie, plus_functie, bgt_fysiekvoorkomen, plus_fysiekvoorkomen, cast(ondersteunendwegdeeloptalud as boolean) from ondersteunendwegdeel_tmp;
 
 alter table ondersteunendwegdeel add primary key (ogc_fid);
 create index ondersteunendwegdeel_geometrie_vlak_geom_idx on ondersteunendwegdeel using gist((geometrie_vlak::geometry(CURVEPOLYGON, 28992)));
@@ -255,7 +255,7 @@ create or replace view ondersteunendwegdeelactueelbestaand as select * from onde
 drop table ondersteunendwegdeel_tmp;
 
 -- Ongeclassificeerd object
-create table ongeclassificeerdobject as select ogc_fid, wkb_geometry geometrie_vlak, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status from ongeclassificeerdobject_tmp;
+create table ongeclassificeerdobject as select ogc_fid, wkb_geometry geometrie_vlak, gml_id, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status from ongeclassificeerdobject_tmp;
 
 alter table ongeclassificeerdobject add primary key (ogc_fid);
 create index ongeclassificeerdobject_geometrie_vlak_geom_idx on ongeclassificeerdobject using gist((geometrie_vlak::geometry(CURVEPOLYGON, 28992)));
@@ -269,7 +269,7 @@ create or replace view ongeclassificeerdobjectactueelbestaand as select * from o
 drop table ongeclassificeerdobject_tmp;
 
 -- Openbare ruimte
-create table openbareruimte as select ogc_fid, wkb_geometry geometrie_vlak, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, naam from openbareruimte_tmp;
+create table openbareruimte as select ogc_fid, wkb_geometry geometrie_vlak, gml_id, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, naam from openbareruimte_tmp;
 
 alter table openbareruimte add primary key (ogc_fid);
 create index openbareruimte_geometrie_vlak_geom_idx on openbareruimte using gist((geometrie_vlak::geometry(MULTISURFACE, 28992)));
@@ -283,7 +283,7 @@ create or replace view openbareruimteactueelbestaand as select * from openbareru
 drop table openbareruimte_tmp;
 
 -- Openbare-ruimtelabel
-create table openbareruimtelabel as select ogc_fid, wkb_geometry geometrie_punt, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, identificatiebagopr, tekst, hoek, openbareruimtetype from openbareruimtelabel_tmp;
+create table openbareruimtelabel as select ogc_fid, wkb_geometry geometrie_punt, gml_id, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, identificatiebagopr, tekst, hoek, openbareruimtetype from openbareruimtelabel_tmp;
 
 alter table openbareruimtelabel add primary key (ogc_fid);
 create index openbareruimtelabel_geometrie_punt_geom_idx on openbareruimtelabel using gist((geometrie_punt::geometry(POINT, 28992)));
@@ -297,7 +297,7 @@ create or replace view openbareruimtelabelactueelbestaand as select * from openb
 drop table openbareruimtelabel_tmp;
 
 -- Overbruggingsdeel
-create table overbruggingsdeel as select ogc_fid, wkb_geometry geometrie_vlak, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, typeoverbruggingsdeel, hoortbijtypeoverbrugging, cast(overbruggingisbeweegbaar as boolean) from overbruggingsdeel_tmp;
+create table overbruggingsdeel as select ogc_fid, wkb_geometry geometrie_vlak, gml_id, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, typeoverbruggingsdeel, hoortbijtypeoverbrugging, cast(overbruggingisbeweegbaar as boolean) from overbruggingsdeel_tmp;
 
 alter table overbruggingsdeel add primary key (ogc_fid);
 create index overbruggingsdeel_geometrie_vlak_geom_idx on overbruggingsdeel using gist((geometrie_vlak::geometry(CURVEPOLYGON, 28992)));
@@ -311,7 +311,7 @@ create or replace view overbruggingsdeelactueelbestaand as select * from overbru
 drop table overbruggingsdeel_tmp;
 
 -- Overig bouwwerk
-create table overigbouwwerk as select ogc_fid, wkb_geometry geometrie_vlak, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, bgt_type, plus_type from overigbouwwerk_tmp;
+create table overigbouwwerk as select ogc_fid, wkb_geometry geometrie_vlak, gml_id, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, bgt_type, plus_type from overigbouwwerk_tmp;
 
 alter table overigbouwwerk add primary key (ogc_fid);
 create index overigbouwwerk_geometrie_vlak_geom_idx on overigbouwwerk using gist((geometrie_vlak::geometry(MULTISURFACE, 28992)));
@@ -325,7 +325,7 @@ create or replace view overigbouwwerkactueelbestaand as select * from overigbouw
 drop table overigbouwwerk_tmp;
 
 -- Overige scheiding
-create table overigescheiding as select ogc_fid, case when st_dimension(wkb_geometry) = 1 then _nlx_force_curve(wkb_geometry)::geometry(COMPOUNDCURVE, 28992) else null::geometry(COMPOUNDCURVE, 28992) end geometrie_lijn, case when st_dimension(wkb_geometry) = 2 then _nlx_force_curve(wkb_geometry)::geometry(CURVEPOLYGON, 28992) else null::geometry(CURVEPOLYGON, 28992) end geometrie_vlak, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, plus_type from overigescheiding_tmp;
+create table overigescheiding as select ogc_fid, case when st_dimension(wkb_geometry) = 1 then _nlx_force_curve(wkb_geometry)::geometry(COMPOUNDCURVE, 28992) else null::geometry(COMPOUNDCURVE, 28992) end geometrie_lijn, case when st_dimension(wkb_geometry) = 2 then _nlx_force_curve(wkb_geometry)::geometry(CURVEPOLYGON, 28992) else null::geometry(CURVEPOLYGON, 28992) end geometrie_vlak, gml_id, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, plus_type from overigescheiding_tmp;
 
 alter table overigescheiding add primary key (ogc_fid);
 create index overigescheiding_geometrie_lijn_geom_idx on overigescheiding using gist((geometrie_lijn::geometry(COMPOUNDCURVE, 28992)));
@@ -340,7 +340,7 @@ create or replace view overigescheidingactueelbestaand as select * from overiges
 drop table overigescheiding_tmp;
 
 -- Paal
-create table paal as select ogc_fid, wkb_geometry geometrie_punt, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, bgt_type, plus_type from paal_tmp;
+create table paal as select ogc_fid, wkb_geometry geometrie_punt, gml_id, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, bgt_type, plus_type from paal_tmp;
 
 alter table paal add primary key (ogc_fid);
 create index paal_geometrie_punt_geom_idx on paal using gist((geometrie_punt::geometry(POINT, 28992)));
@@ -354,7 +354,7 @@ create or replace view paalactueelbestaand as select * from paal where eindregis
 drop table paal_tmp;
 
 -- Pand
-create table pand as select ogc_fid, geometrie_vlak, geometrie_nummeraanduiding, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, identificatiebagpnd, nummeraanduidingtekst, nummeraanduidinghoek, identificatiebagvbolaagstehuisnummer, identificatiebagvbohoogstehuisnummer from pand_tmp;
+create table pand as select ogc_fid, geometrie_vlak, geometrie_nummeraanduiding, gml_id, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, identificatiebagpnd, nummeraanduidingtekst, nummeraanduidinghoek, identificatiebagvbolaagstehuisnummer, identificatiebagvbohoogstehuisnummer from pand_tmp;
 
 alter table pand add primary key (ogc_fid);
 create index pand_geometrie_vlak_geom_idx on pand using gist((geometrie_vlak::geometry(MULTISURFACE, 28992)));
@@ -369,7 +369,7 @@ create or replace view pandactueelbestaand as select * from pand where eindregis
 drop table pand_tmp;
 
 -- Plaatsbepalingspunt
-create table plaatsbepalingspunt as select ogc_fid, wkb_geometry geometrie_punt, namespace, lokaalid, nauwkeurigheid, cast(datuminwinning as date), inwinnendeinstantie, inwinningsmethode from plaatsbepalingspunt_tmp;
+create table plaatsbepalingspunt as select ogc_fid, wkb_geometry geometrie_punt, gml_id, namespace, lokaalid, nauwkeurigheid, cast(datuminwinning as date), inwinnendeinstantie, inwinningsmethode from plaatsbepalingspunt_tmp;
 
 alter table plaatsbepalingspunt add primary key (ogc_fid);
 create index plaatsbepalingspunt_geometrie_punt_geom_idx on plaatsbepalingspunt using gist((geometrie_punt::geometry(POINT, 28992)));
@@ -377,7 +377,7 @@ create index plaatsbepalingspunt_geometrie_punt_geom_idx on plaatsbepalingspunt 
 drop table plaatsbepalingspunt_tmp;
 
 -- Put
-create table put as select ogc_fid, wkb_geometry geometrie_punt, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, bgt_type, plus_type from put_tmp;
+create table put as select ogc_fid, wkb_geometry geometrie_punt, gml_id, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, bgt_type, plus_type from put_tmp;
 
 alter table put add primary key (ogc_fid);
 create index put_geometrie_punt_geom_idx on put using gist((geometrie_punt::geometry(POINT, 28992)));
@@ -391,7 +391,7 @@ create or replace view putactueelbestaand as select * from put where eindregistr
 drop table put_tmp;
 
 -- Scheiding
-create table scheiding as select ogc_fid, case when st_dimension(wkb_geometry) = 1 then _nlx_force_curve(wkb_geometry)::geometry(COMPOUNDCURVE, 28992) else null::geometry(COMPOUNDCURVE, 28992) end geometrie_lijn, case when st_dimension(wkb_geometry) = 2 then _nlx_force_curve(wkb_geometry)::geometry(CURVEPOLYGON, 28992) else null::geometry(CURVEPOLYGON, 28992) end geometrie_vlak, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, bgt_type, plus_type from scheiding_tmp;
+create table scheiding as select ogc_fid, case when st_dimension(wkb_geometry) = 1 then _nlx_force_curve(wkb_geometry)::geometry(COMPOUNDCURVE, 28992) else null::geometry(COMPOUNDCURVE, 28992) end geometrie_lijn, case when st_dimension(wkb_geometry) = 2 then _nlx_force_curve(wkb_geometry)::geometry(CURVEPOLYGON, 28992) else null::geometry(CURVEPOLYGON, 28992) end geometrie_vlak, gml_id, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, bgt_type, plus_type from scheiding_tmp;
 
 alter table scheiding add primary key (ogc_fid);
 create index scheiding_geometrie_lijn_geom_idx on scheiding using gist((geometrie_lijn::geometry(COMPOUNDCURVE, 28992)));
@@ -406,7 +406,7 @@ create or replace view scheidingactueelbestaand as select * from scheiding where
 drop table scheiding_tmp;
 
 -- Sensor
-create table sensor as select ogc_fid, case when st_dimension(wkb_geometry) = 1 then _nlx_force_curve(wkb_geometry)::geometry(COMPOUNDCURVE, 28992) else null::geometry(COMPOUNDCURVE, 28992) end geometrie_lijn, case when st_dimension(wkb_geometry) = 0 then wkb_geometry::geometry(POINT, 28992) else null::geometry(POINT, 28992) end geometrie_punt, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, bgt_type, plus_type from sensor_tmp;
+create table sensor as select ogc_fid, case when st_dimension(wkb_geometry) = 1 then _nlx_force_curve(wkb_geometry)::geometry(COMPOUNDCURVE, 28992) else null::geometry(COMPOUNDCURVE, 28992) end geometrie_lijn, case when st_dimension(wkb_geometry) = 0 then wkb_geometry::geometry(POINT, 28992) else null::geometry(POINT, 28992) end geometrie_punt, gml_id, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, bgt_type, plus_type from sensor_tmp;
 
 alter table sensor add primary key (ogc_fid);
 create index sensor_geometrie_lijn_geom_idx on sensor using gist((geometrie_lijn::geometry(COMPOUNDCURVE, 28992)));
@@ -421,7 +421,7 @@ create or replace view sensoractueelbestaand as select * from sensor where eindr
 drop table sensor_tmp;
 
 -- Spoor
-create table spoor as select ogc_fid, wkb_geometry geometrie_lijn, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, bgt_functie, plus_functie from spoor_tmp;
+create table spoor as select ogc_fid, wkb_geometry geometrie_lijn, gml_id, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, bgt_functie, plus_functie from spoor_tmp;
 
 alter table spoor add primary key (ogc_fid);
 create index spoor_geometrie_lijn_geom_idx on spoor using gist((geometrie_lijn::geometry(COMPOUNDCURVE, 28992)));
@@ -435,7 +435,7 @@ create or replace view spooractueelbestaand as select * from spoor where eindreg
 drop table spoor_tmp;
 
 -- Stadsdeel
-create table stadsdeel as select ogc_fid, wkb_geometry geometrie_vlak, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, naam from stadsdeel_tmp;
+create table stadsdeel as select ogc_fid, wkb_geometry geometrie_vlak, gml_id, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, naam from stadsdeel_tmp;
 
 alter table stadsdeel add primary key (ogc_fid);
 create index stadsdeel_geometrie_vlak_geom_idx on stadsdeel using gist((geometrie_vlak::geometry(MULTISURFACE, 28992)));
@@ -449,7 +449,7 @@ create or replace view stadsdeelactueelbestaand as select * from stadsdeel where
 drop table stadsdeel_tmp;
 
 -- Straatmeubilair
-create table straatmeubilair as select ogc_fid, wkb_geometry geometrie_punt, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, bgt_type, plus_type from straatmeubilair_tmp;
+create table straatmeubilair as select ogc_fid, wkb_geometry geometrie_punt, gml_id, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, bgt_type, plus_type from straatmeubilair_tmp;
 
 alter table straatmeubilair add primary key (ogc_fid);
 create index straatmeubilair_geometrie_punt_geom_idx on straatmeubilair using gist((geometrie_punt::geometry(POINT, 28992)));
@@ -463,7 +463,7 @@ create or replace view straatmeubilairactueelbestaand as select * from straatmeu
 drop table straatmeubilair_tmp;
 
 -- Tunneldeel
-create table tunneldeel as select ogc_fid, wkb_geometry geometrie_vlak, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status from tunneldeel_tmp;
+create table tunneldeel as select ogc_fid, wkb_geometry geometrie_vlak, gml_id, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status from tunneldeel_tmp;
 
 alter table tunneldeel add primary key (ogc_fid);
 create index tunneldeel_geometrie_vlak_geom_idx on tunneldeel using gist((geometrie_vlak::geometry(CURVEPOLYGON, 28992)));
@@ -477,7 +477,7 @@ create or replace view tunneldeelactueelbestaand as select * from tunneldeel whe
 drop table tunneldeel_tmp;
 
 -- Vegetatieobject
-create table vegetatieobject as select ogc_fid, case when st_dimension(wkb_geometry) = 1 then _nlx_force_curve(wkb_geometry)::geometry(COMPOUNDCURVE, 28992) else null::geometry(COMPOUNDCURVE, 28992) end geometrie_lijn, case when st_dimension(wkb_geometry) = 0 then wkb_geometry::geometry(POINT, 28992) else null::geometry(POINT, 28992) end geometrie_punt, case when st_dimension(wkb_geometry) = 2 then _nlx_force_curve(wkb_geometry)::geometry(CURVEPOLYGON, 28992) else null::geometry(CURVEPOLYGON, 28992) end geometrie_vlak, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, bgt_type, plus_type from vegetatieobject_tmp;
+create table vegetatieobject as select ogc_fid, case when st_dimension(wkb_geometry) = 1 then _nlx_force_curve(wkb_geometry)::geometry(COMPOUNDCURVE, 28992) else null::geometry(COMPOUNDCURVE, 28992) end geometrie_lijn, case when st_dimension(wkb_geometry) = 0 then wkb_geometry::geometry(POINT, 28992) else null::geometry(POINT, 28992) end geometrie_punt, case when st_dimension(wkb_geometry) = 2 then _nlx_force_curve(wkb_geometry)::geometry(CURVEPOLYGON, 28992) else null::geometry(CURVEPOLYGON, 28992) end geometrie_vlak, gml_id, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, bgt_type, plus_type from vegetatieobject_tmp;
 
 alter table vegetatieobject add primary key (ogc_fid);
 create index vegetatieobject_geometrie_lijn_geom_idx on vegetatieobject using gist((geometrie_lijn::geometry(COMPOUNDCURVE, 28992)));
@@ -493,7 +493,7 @@ create or replace view vegetatieobjectactueelbestaand as select * from vegetatie
 drop table vegetatieobject_tmp;
 
 -- Waterdeel
-create table waterdeel as select ogc_fid, wkb_geometry geometrie_vlak, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, bgt_type, plus_type from waterdeel_tmp;
+create table waterdeel as select ogc_fid, wkb_geometry geometrie_vlak, gml_id, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, bgt_type, plus_type from waterdeel_tmp;
 
 alter table waterdeel add primary key (ogc_fid);
 create index waterdeel_geometrie_vlak_geom_idx on waterdeel using gist((geometrie_vlak::geometry(CURVEPOLYGON, 28992)));
@@ -507,7 +507,7 @@ create or replace view waterdeelactueelbestaand as select * from waterdeel where
 drop table waterdeel_tmp;
 
 -- Waterinrichtingselement
-create table waterinrichtingselement as select ogc_fid, case when st_dimension(wkb_geometry) = 1 then _nlx_force_curve(wkb_geometry)::geometry(COMPOUNDCURVE, 28992) else null::geometry(COMPOUNDCURVE, 28992) end geometrie_lijn, case when st_dimension(wkb_geometry) = 0 then wkb_geometry::geometry(POINT, 28992) else null::geometry(POINT, 28992) end geometrie_punt, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, bgt_type, plus_type from waterinrichtingselement_tmp;
+create table waterinrichtingselement as select ogc_fid, case when st_dimension(wkb_geometry) = 1 then _nlx_force_curve(wkb_geometry)::geometry(COMPOUNDCURVE, 28992) else null::geometry(COMPOUNDCURVE, 28992) end geometrie_lijn, case when st_dimension(wkb_geometry) = 0 then wkb_geometry::geometry(POINT, 28992) else null::geometry(POINT, 28992) end geometrie_punt, gml_id, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, bgt_type, plus_type from waterinrichtingselement_tmp;
 
 alter table waterinrichtingselement add primary key (ogc_fid);
 create index waterinrichtingselement_geometrie_lijn_geom_idx on waterinrichtingselement using gist((geometrie_lijn::geometry(COMPOUNDCURVE, 28992)));
@@ -522,7 +522,7 @@ create or replace view waterinrichtingselementactueelbestaand as select * from w
 drop table waterinrichtingselement_tmp;
 
 -- Waterschap
-create table waterschap as select ogc_fid, wkb_geometry geometrie_vlak, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, naam from waterschap_tmp;
+create table waterschap as select ogc_fid, wkb_geometry geometrie_vlak, gml_id, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, naam from waterschap_tmp;
 
 alter table waterschap add primary key (ogc_fid);
 create index waterschap_geometrie_vlak_geom_idx on waterschap using gist((geometrie_vlak::geometry(MULTISURFACE, 28992)));
@@ -536,7 +536,7 @@ create or replace view waterschapactueelbestaand as select * from waterschap whe
 drop table waterschap_tmp;
 
 -- Wegdeel
-create table wegdeel as select ogc_fid, geometrie_vlak, geometrie_kruinlijn, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, bgt_functie, plus_functie, bgt_fysiekvoorkomen, plus_fysiekvoorkomen, cast(wegdeeloptalud as boolean) from wegdeel_tmp;
+create table wegdeel as select ogc_fid, geometrie_vlak, geometrie_kruinlijn, gml_id, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, bgt_functie, plus_functie, bgt_fysiekvoorkomen, plus_fysiekvoorkomen, cast(wegdeeloptalud as boolean) from wegdeel_tmp;
 
 alter table wegdeel add primary key (ogc_fid);
 create index wegdeel_geometrie_vlak_geom_idx on wegdeel using gist((geometrie_vlak::geometry(CURVEPOLYGON, 28992)));
@@ -551,7 +551,7 @@ create or replace view wegdeelactueelbestaand as select * from wegdeel where ein
 drop table wegdeel_tmp;
 
 -- Weginrichtingselement
-create table weginrichtingselement as select ogc_fid, case when st_dimension(wkb_geometry) = 1 then _nlx_force_curve(wkb_geometry)::geometry(COMPOUNDCURVE, 28992) else null::geometry(COMPOUNDCURVE, 28992) end geometrie_lijn, case when st_dimension(wkb_geometry) = 0 then wkb_geometry::geometry(POINT, 28992) else null::geometry(POINT, 28992) end geometrie_punt, case when st_dimension(wkb_geometry) = 2 then _nlx_force_curve(wkb_geometry)::geometry(CURVEPOLYGON, 28992) else null::geometry(CURVEPOLYGON, 28992) end geometrie_vlak, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, bgt_type, plus_type from weginrichtingselement_tmp;
+create table weginrichtingselement as select ogc_fid, case when st_dimension(wkb_geometry) = 1 then _nlx_force_curve(wkb_geometry)::geometry(COMPOUNDCURVE, 28992) else null::geometry(COMPOUNDCURVE, 28992) end geometrie_lijn, case when st_dimension(wkb_geometry) = 0 then wkb_geometry::geometry(POINT, 28992) else null::geometry(POINT, 28992) end geometrie_punt, case when st_dimension(wkb_geometry) = 2 then _nlx_force_curve(wkb_geometry)::geometry(CURVEPOLYGON, 28992) else null::geometry(CURVEPOLYGON, 28992) end geometrie_vlak, gml_id, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, bgt_type, plus_type from weginrichtingselement_tmp;
 
 alter table weginrichtingselement add primary key (ogc_fid);
 create index weginrichtingselement_geometrie_lijn_geom_idx on weginrichtingselement using gist((geometrie_lijn::geometry(COMPOUNDCURVE, 28992)));
@@ -567,7 +567,7 @@ create or replace view weginrichtingselementactueelbestaand as select * from weg
 drop table weginrichtingselement_tmp;
 
 -- Wijk
-create table wijk as select ogc_fid, wkb_geometry geometrie_vlak, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, naam from wijk_tmp;
+create table wijk as select ogc_fid, wkb_geometry geometrie_vlak, gml_id, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, naam from wijk_tmp;
 
 alter table wijk add primary key (ogc_fid);
 create index wijk_geometrie_vlak_geom_idx on wijk using gist((geometrie_vlak::geometry(MULTISURFACE, 28992)));

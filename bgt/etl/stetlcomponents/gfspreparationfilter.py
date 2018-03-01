@@ -47,6 +47,9 @@ class GfsPreparationFilter(Filter):
                 <xsl:apply-templates select="@* | node()" />
             </xsl:copy>
         </xsl:template>
+        <xsl:template match="PropertyDefn[Name/text()='gml_id']">
+            <!-- Skip this property, since it will be taken care of by ogr2ogr -->
+        </xsl:template>
       </xsl:stylesheet>
     """
 

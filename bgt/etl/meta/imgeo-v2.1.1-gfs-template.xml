@@ -17,6 +17,12 @@
     <Name>IMGeoObject</Name>
     <ParentClass>GmlObject</ParentClass>
     <PropertyDefn>
+      <!-- This field is automatically added by ogr2ogr, but not for files which don't contain any data -->
+      <Name>gml_id</Name>
+      <ElementPath>@gml:id</ElementPath>
+      <Type>String</Type>
+    </PropertyDefn>
+    <PropertyDefn>
       <Name>namespace</Name>
       <ElementPath>identificatie|NEN3610ID|namespace</ElementPath>
       <Type>String</Type>
