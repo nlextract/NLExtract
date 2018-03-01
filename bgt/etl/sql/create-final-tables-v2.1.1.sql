@@ -68,7 +68,7 @@ create or replace view bakactueelbestaand as select * from bak where eindregistr
 drop table bak_tmp;
 
 -- Begroeid terreindeel
-create table begroeidterreindeel as select ogc_fid, geometrie_vlak, _nlx_force_curve(geometrie_kruinlijn)::geometry(COMPOUNDCURVE, 28992) geometrie_kruinlijn, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, bgt_fysiekvoorkomen, plus_fysiekvoorkomen, cast(begroeidterreindeeloptalud as boolean) from begroeidterreindeel_tmp;
+create table begroeidterreindeel as select ogc_fid, geometrie_vlak, geometrie_kruinlijn, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, bgt_fysiekvoorkomen, plus_fysiekvoorkomen, cast(begroeidterreindeeloptalud as boolean) from begroeidterreindeel_tmp;
 
 alter table begroeidterreindeel add primary key (ogc_fid);
 create index begroeidterreindeel_geometrie_vlak_geom_idx on begroeidterreindeel using gist((geometrie_vlak::geometry(CURVEPOLYGON, 28992)));
@@ -211,7 +211,7 @@ create or replace view mastactueelbestaand as select * from mast where eindregis
 drop table mast_tmp;
 
 -- Onbegroeid terreindeel
-create table onbegroeidterreindeel as select ogc_fid, geometrie_vlak, _nlx_force_curve(geometrie_kruinlijn)::geometry(COMPOUNDCURVE, 28992) geometrie_kruinlijn, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, bgt_fysiekvoorkomen, plus_fysiekvoorkomen, cast(onbegroeidterreindeeloptalud as boolean) from onbegroeidterreindeel_tmp;
+create table onbegroeidterreindeel as select ogc_fid, geometrie_vlak, geometrie_kruinlijn, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, bgt_fysiekvoorkomen, plus_fysiekvoorkomen, cast(onbegroeidterreindeeloptalud as boolean) from onbegroeidterreindeel_tmp;
 
 alter table onbegroeidterreindeel add primary key (ogc_fid);
 create index onbegroeidterreindeel_geometrie_vlak_geom_idx on onbegroeidterreindeel using gist((geometrie_vlak::geometry(CURVEPOLYGON, 28992)));
@@ -240,7 +240,7 @@ create or replace view ondersteunendwaterdeelactueelbestaand as select * from on
 drop table ondersteunendwaterdeel_tmp;
 
 -- Ondersteunend wegdeel
-create table ondersteunendwegdeel as select ogc_fid, geometrie_vlak, _nlx_force_curve(geometrie_kruinlijn)::geometry(COMPOUNDCURVE, 28992) geometrie_kruinlijn, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, bgt_functie, plus_functie, bgt_fysiekvoorkomen, plus_fysiekvoorkomen, cast(ondersteunendwegdeeloptalud as boolean) from ondersteunendwegdeel_tmp;
+create table ondersteunendwegdeel as select ogc_fid, geometrie_vlak, geometrie_kruinlijn, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, bgt_functie, plus_functie, bgt_fysiekvoorkomen, plus_fysiekvoorkomen, cast(ondersteunendwegdeeloptalud as boolean) from ondersteunendwegdeel_tmp;
 
 alter table ondersteunendwegdeel add primary key (ogc_fid);
 create index ondersteunendwegdeel_geometrie_vlak_geom_idx on ondersteunendwegdeel using gist((geometrie_vlak::geometry(CURVEPOLYGON, 28992)));
@@ -536,7 +536,7 @@ create or replace view waterschapactueelbestaand as select * from waterschap whe
 drop table waterschap_tmp;
 
 -- Wegdeel
-create table wegdeel as select ogc_fid, geometrie_vlak, _nlx_force_curve(geometrie_kruinlijn)::geometry(COMPOUNDCURVE, 28992) geometrie_kruinlijn, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, bgt_functie, plus_functie, bgt_fysiekvoorkomen, plus_fysiekvoorkomen, cast(wegdeeloptalud as boolean) from wegdeel_tmp;
+create table wegdeel as select ogc_fid, geometrie_vlak, geometrie_kruinlijn, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, bgt_functie, plus_functie, bgt_fysiekvoorkomen, plus_fysiekvoorkomen, cast(wegdeeloptalud as boolean) from wegdeel_tmp;
 
 alter table wegdeel add primary key (ogc_fid);
 create index wegdeel_geometrie_vlak_geom_idx on wegdeel using gist((geometrie_vlak::geometry(CURVEPOLYGON, 28992)));
