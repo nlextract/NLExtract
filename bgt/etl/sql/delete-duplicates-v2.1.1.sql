@@ -30,55 +30,46 @@ END;
 $$
 LANGUAGE plpgsql;
 
-SELECT _nlx_dedup_data('bak_2d_tmp');
-SELECT _nlx_dedup_data('begroeidterreindeel_2d_tmp');
-SELECT _nlx_dedup_data('begroeidterreindeel_kruinlijn_tmp');
-SELECT _nlx_dedup_data('bord_2d_tmp');
-SELECT _nlx_dedup_data('buurt_2d_tmp');
-SELECT _nlx_dedup_data('functioneelgebied_2d_tmp');
-SELECT _nlx_dedup_data('gebouwinstallatie_2d_tmp');
-SELECT _nlx_dedup_data('installatie_2d_tmp');
-SELECT _nlx_dedup_data('kast_2d_tmp');
-SELECT _nlx_dedup_data('kunstwerkdeel_2d_tmp');
-SELECT _nlx_dedup_data('mast_2d_tmp');
-
--- Nummeraanduidingsreeksen zijn niet te dedupliceren, omdat ze via panden geladen worden. Mogelijk
--- ontstaan hierdoor toch dubbelingen. Nader onderzoeken.
---SELECT _nlx_dedup_data('nummeraanduidingreeks');
-
-SELECT _nlx_dedup_data('onbegroeidterreindeel_2d_tmp');
-SELECT _nlx_dedup_data('onbegroeidterreindeel_kruinlijn_tmp');
-SELECT _nlx_dedup_data('ondersteunendwaterdeel_2d_tmp');
-SELECT _nlx_dedup_data('ondersteunendwegdeel_2d_tmp');
-SELECT _nlx_dedup_data('ondersteunendwegdeel_kruinlijn_tmp');
-SELECT _nlx_dedup_data('ongeclassificeerdobject_2d_tmp');
-SELECT _nlx_dedup_data('openbareruimte_2d_tmp');
+SELECT _nlx_dedup_data('bak_tmp');
+SELECT _nlx_dedup_data('begroeidterreindeel_tmp');
+SELECT _nlx_dedup_data('bord_tmp');
+SELECT _nlx_dedup_data('buurt_tmp');
+SELECT _nlx_dedup_data('functioneelgebied_tmp');
+SELECT _nlx_dedup_data('gebouwinstallatie_tmp');
+SELECT _nlx_dedup_data('installatie_tmp');
+SELECT _nlx_dedup_data('kast_tmp');
+SELECT _nlx_dedup_data('kunstwerkdeel_tmp');
+SELECT _nlx_dedup_data('mast_tmp');
+SELECT _nlx_dedup_data('onbegroeidterreindeel_tmp');
+SELECT _nlx_dedup_data('ondersteunendwaterdeel_tmp');
+SELECT _nlx_dedup_data('ondersteunendwegdeel_tmp');
+SELECT _nlx_dedup_data('ongeclassificeerdobject_tmp');
+SELECT _nlx_dedup_data('openbareruimte_tmp');
 SELECT _nlx_dedup_data('openbareruimtelabel');
-SELECT _nlx_dedup_data('overbruggingsdeel_2d_tmp');
-SELECT _nlx_dedup_data('overigbouwwerk_2d_tmp');
-SELECT _nlx_dedup_data('overigescheiding_2d_tmp');
-SELECT _nlx_dedup_data('paal_2d_tmp');
-SELECT _nlx_dedup_data('pand_2d_tmp');
+SELECT _nlx_dedup_data('overbruggingsdeel_tmp');
+SELECT _nlx_dedup_data('overigbouwwerk_tmp');
+SELECT _nlx_dedup_data('overigescheiding_tmp');
+SELECT _nlx_dedup_data('paal_tmp');
+SELECT _nlx_dedup_data('pand_tmp');
 
 -- Plaatsbepalingspunten tijdelijk uitgeschakeld, bevatten geen tijdstipregistratie en zitten niet
 -- in de dump.
 --SELECT _nlx_dedup_data('plaatsbepalingspunt');
 
-SELECT _nlx_dedup_data('put_2d_tmp');
-SELECT _nlx_dedup_data('scheiding_2d_tmp');
-SELECT _nlx_dedup_data('sensor_2d_tmp');
-SELECT _nlx_dedup_data('spoor_2d_tmp');
-SELECT _nlx_dedup_data('stadsdeel_2d_tmp');
-SELECT _nlx_dedup_data('straatmeubilair_2d_tmp');
-SELECT _nlx_dedup_data('tunneldeel_2d_tmp');
-SELECT _nlx_dedup_data('vegetatieobject_2d_tmp');
-SELECT _nlx_dedup_data('waterdeel_2d_tmp');
-SELECT _nlx_dedup_data('waterinrichtingselement_2d_tmp');
-SELECT _nlx_dedup_data('waterschap_2d_tmp');
-SELECT _nlx_dedup_data('wegdeel_2d_tmp');
-SELECT _nlx_dedup_data('wegdeel_kruinlijn_tmp');
-SELECT _nlx_dedup_data('weginrichtingselement_2d_tmp');
-SELECT _nlx_dedup_data('wijk_2d_tmp');
+SELECT _nlx_dedup_data('put_tmp');
+SELECT _nlx_dedup_data('scheiding_tmp');
+SELECT _nlx_dedup_data('sensor_tmp');
+SELECT _nlx_dedup_data('spoor_tmp');
+SELECT _nlx_dedup_data('stadsdeel_tmp');
+SELECT _nlx_dedup_data('straatmeubilair_tmp');
+SELECT _nlx_dedup_data('tunneldeel_tmp');
+SELECT _nlx_dedup_data('vegetatieobject_tmp');
+SELECT _nlx_dedup_data('waterdeel_tmp');
+SELECT _nlx_dedup_data('waterinrichtingselement_tmp');
+SELECT _nlx_dedup_data('waterschap_tmp');
+SELECT _nlx_dedup_data('wegdeel_tmp');
+SELECT _nlx_dedup_data('weginrichtingselement_tmp');
+SELECT _nlx_dedup_data('wijk_tmp');
 
 DROP FUNCTION _nlx_dedup_data(tablename VARCHAR);
 
