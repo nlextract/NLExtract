@@ -40,7 +40,7 @@
         </PropertyDefn>
     </GMLFeatureClass>
     <GMLFeatureClass>
-        <Name>Bebouwing</Name>
+        <Name>Bebouwing_tmp</Name>
         <ElementPath>Bebouwing</ElementPath>
         <GeometryType>2</GeometryType>
         <SRSName>urn:ogc:def:crs:EPSG::28992</SRSName>
@@ -92,7 +92,7 @@
         </PropertyDefn>
     </GMLFeatureClass> 
     <GMLFeatureClass>
-        <Name>KadastraleGrens</Name>
+        <Name>KadastraleGrens_tmp</Name>
         <ElementPath>KadastraleGrens</ElementPath>
         <GeometryType>2</GeometryType>
         <SRSName>urn:ogc:def:crs:EPSG::28992</SRSName>
@@ -133,9 +133,8 @@
         </PropertyDefn>
     </GMLFeatureClass> 
     <GMLFeatureClass>
-        <Name>Perceel</Name>
+        <Name>Perceel_tmp</Name>
         <ElementPath>Perceel</ElementPath>
-        <!--<GeometryType>1</GeometryType>-->
         <SRSName>urn:ogc:def:crs:EPSG::28992</SRSName>
         <DatasetSpecificInfo>
             <ExtentXMin>10000</ExtentXMin>

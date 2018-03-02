@@ -35,10 +35,9 @@ $$
 LANGUAGE plpgsql;
 
 SELECT _nlx_dedup_data('annotatie');
-SELECT _nlx_dedup_data('bebouwing');
-SELECT _nlx_dedup_data('kadastralegrens');
-
-SELECT _nlx_dedup_data('perceel');
+SELECT _nlx_dedup_data('bebouwing_tmp');
+SELECT _nlx_dedup_data('kadastralegrens_tmp');
+SELECT _nlx_dedup_data('perceel_tmp');
 
 DROP FUNCTION _nlx_dedup_data(tablename VARCHAR);
 
