@@ -33,17 +33,11 @@ class GfsPreparationFilter(Filter):
             </xsl:copy>
         </xsl:template>
         <xsl:template match="GMLFeatureClass">
-            <!-- Filter on particular element -->
-            <xsl:if test="ElementPath/text()='$elemtype'">
-                <xsl:copy>
-                    <xsl:apply-templates select="@* | node()" />
-                </xsl:copy>
-            </xsl:if>
+$elemtypes
         </xsl:template>
         <xsl:template match="DatasetSpecificInfo">
             <xsl:copy>
-                <!-- Add feature count -->
-                <FeatureCount>$featurecount</FeatureCount>
+$featurecounts            
                 <xsl:apply-templates select="@* | node()" />
             </xsl:copy>
         </xsl:template>
@@ -51,6 +45,21 @@ class GfsPreparationFilter(Filter):
             <!-- Skip this property, since it will be taken care of by ogr2ogr -->
         </xsl:template>
       </xsl:stylesheet>
+    """
+    
+    TEST_ELEMTYPE = """
+            <xsl:if test="ElementPath/text()='%s'">
+                <xsl:copy>
+                    <xsl:apply-templates select="@* | node()" />
+                </xsl:copy>
+            </xsl:if>
+    """
+    
+    TEST_FEATURECOUNT = """
+                <xsl:if test="../ElementPath/text()='%s'">
+                    <!-- Add feature count -->
+                    <FeatureCount>%d</FeatureCount>
+                </xsl:if>
     """
 
     # Start attribute config meta
@@ -103,15 +112,14 @@ class GfsPreparationFilter(Filter):
         log.info('calling ogrinfo')
         output_ogrinfo = self.execute_ogrinfo(input_gml)
 
-        # 2. Parse the output from ogrinfo, result will be a list of feature names and counts.
-        # TODO: check if the feature types and counts in files with multiple feature types are captured correctly.
-        # This will be necessary for TOP10NL.
+        # 2. Parse the output from ogrinfo, result will be a dictionary of feature names and counts.
         log.info('parsing ogrinfo output')
-        subst_dict = self.parse_ogrinfo_output(output_ogrinfo)
+        feature_counts = self.parse_ogrinfo_output(output_ogrinfo)
+        log.info('\n' + str(feature_counts))
 
         # 3. Prepare the XSLT used for the tranformation. Substitute the element types and feature counts.
         log.info('preparing XSLT template')
-        formatted_xslt = self.prepare_xslt_template(subst_dict)
+        formatted_xslt = self.prepare_xslt_template(feature_counts)
 
         # 4. Transform the input_gfs with the prepared XSLT.
         log.info('transforming input GFS')
@@ -145,16 +153,20 @@ class GfsPreparationFilter(Filter):
         return result
 
     def parse_ogrinfo_output(self, output_ogrinfo):
-        pattern = re.compile('.*Layer name: (\w+:)?(?P<elemtype>\w+).*Feature Count: (?P<featurecount>[0-9]+).*', re.S)
-        m = pattern.match(output_ogrinfo)
-        if m is not None:
-            subst_dict = m.groupdict()
-        else:
-            subst_dict = {'elemtype': '_nlextract_dummy_', 'featurecount': '0'}
+        pattern = re.compile('Layer name: (\w+:)?(?P<elemtype>\w+).*?Feature Count: (?P<featurecount>[0-9]+)', re.S)
+        matches = pattern.findall(output_ogrinfo)
+        feature_counts = dict([(m[1], int(m[2])) for m in matches])
+        
+        return feature_counts
 
-        return subst_dict
-
-    def prepare_xslt_template(self, subst_dict):
+    def prepare_xslt_template(self, feature_counts):
+        elemtypes = [self.TEST_ELEMTYPE % key for key in feature_counts.iterkeys()]
+        featurecounts = [self.TEST_FEATURECOUNT % item for item in feature_counts.iteritems()]
+    
+        subst_dict = {}
+        subst_dict['elemtypes'] = ''.join(elemtypes)
+        subst_dict['featurecounts'] = ''.join(featurecounts)
+    
         template = Template(self.XSLT_TEMPLATE)
         formatted_xslt = template.safe_substitute(subst_dict)
 
