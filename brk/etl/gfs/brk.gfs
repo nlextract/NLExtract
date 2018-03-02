@@ -111,7 +111,7 @@
         <PropertyDefn>
             <Name>lokaalID</Name>
             <ElementPath>identificatie|NEN3610ID|lokaalID</ElementPath>
-            <Type>Real</Type>
+            <Type>Integer</Type>
         </PropertyDefn>
         <PropertyDefn>
             <Name>type</Name>
