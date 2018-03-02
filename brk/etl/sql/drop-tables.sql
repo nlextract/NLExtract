@@ -3,6 +3,10 @@
 
 SET search_path={schema},public;
 
+DROP TABLE IF EXISTS    bebouwing_tmp;
+DROP TABLE IF EXISTS    kadastralegrens_tmp;
+DROP TABLE IF EXISTS    perceel_tmp;
+
 DROP TABLE IF EXISTS    annotatie;
 DROP TABLE IF EXISTS    bebouwing;
 DROP TABLE IF EXISTS    kadastralegrens;
