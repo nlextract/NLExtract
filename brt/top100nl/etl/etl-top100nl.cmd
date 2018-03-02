@@ -9,6 +9,8 @@
 
 setlocal
 
+set NLX_HOME=../../..
+
 :: Gebruik Stetl meegeleverd met NLExtract (kan in theorie ook Stetl via pip install stetl zijn)
 if "%STETL_HOME%"=="" (
     set STETL_HOME=../../../externals/stetl
@@ -16,9 +18,9 @@ if "%STETL_HOME%"=="" (
 
 :: Nodig voor imports
 if "%PYTHONPATH%"=="" (
-    set PYTHONPATH=%STETL_HOME%
+    set PYTHONPATH=%STETL_HOME%;%NLX_HOME%
 ) else (
-    set PYTHONPATH=%STETL_HOME%;%PYTHONPATH%
+    set PYTHONPATH=%STETL_HOME%;%NLX_HOME%;%PYTHONPATH%
 )
 
 :: Default argumenten/opties

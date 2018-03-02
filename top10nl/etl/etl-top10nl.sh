@@ -8,6 +8,8 @@
 # Author: Just van den Broecke
 #
 
+NLX_HOME=../..
+
 # Gebruik Stetl meegeleverd met NLExtract (kan in theorie ook Stetl via pip install stetl zijn)
 if [ -z "$STETL_HOME" ]; then
   STETL_HOME=../../externals/stetl
@@ -15,9 +17,9 @@ fi
 
 # Nodig voor imports
 if [ -z "$PYTHONPATH" ]; then
-  export PYTHONPATH=$STETL_HOME
+  export PYTHONPATH=$STETL_HOME:$NLX_HOME
 else
-  export PYTHONPATH=$STETL_HOME:$PYTHONPATH
+  export PYTHONPATH=$STETL_HOME:$NLX_HOME:$PYTHONPATH
 fi
 
 # Default arguments/options
