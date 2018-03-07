@@ -16,7 +16,7 @@ create index bebouwing_geometrie_geom_idx on bebouwing using gist(geometrie);
 drop table bebouwing_tmp;
 
 -- KadastraleGrens
-create table kadastralegrens as select ogc_fid, gml_id, namespace, lokaalid, type, logischtijdstipontstaan::timestamptz, logischtijdstipvervallen::timestamptz, wkb_geometry as geometrie from kadastralegrens_tmp;
+create table kadastralegrens as select ogc_fid, gml_id, namespace, lokaalid::bigint, type, logischtijdstipontstaan::timestamptz, logischtijdstipvervallen::timestamptz, wkb_geometry as geometrie from kadastralegrens_tmp;
 
 alter table kadastralegrens add primary key (ogc_fid);
 alter table kadastralegrens alter column gml_id set not null;
