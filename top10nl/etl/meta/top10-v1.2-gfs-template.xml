@@ -91,7 +91,7 @@
     </PropertyDefn>
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>FunctioneelGebied</Name>
+    <Name>FunctioneelGebied_tmp</Name>
     <ParentClass>Top10Object</ParentClass>
     <ElementPath>FunctioneelGebied</ElementPath>
     <GeomPropertyDefn>
@@ -133,7 +133,7 @@
     </PropertyDefn>
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Gebouw</Name>
+    <Name>Gebouw_tmp</Name>
     <ParentClass>Top10Object</ParentClass>
     <ElementPath>Gebouw</ElementPath>
     <GeomPropertyDefn>
@@ -197,7 +197,7 @@
     </PropertyDefn>
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>GeografischGebied</Name>
+    <Name>GeografischGebied_tmp</Name>
     <ParentClass>Top10Object</ParentClass>
     <ElementPath>GeografischGebied</ElementPath>
     <GeomPropertyDefn>
@@ -233,7 +233,7 @@
     </PropertyDefn>
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Hoogte</Name>
+    <Name>Hoogte_tmp</Name>
     <ParentClass>Top10Object</ParentClass>
     <ElementPath>Hoogte</ElementPath>
     <GeomPropertyDefn>
@@ -265,7 +265,7 @@
     </PropertyDefn>
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Inrichtingselement</Name>
+    <Name>Inrichtingselement_tmp</Name>
     <ParentClass>Top10Object</ParentClass>
     <ElementPath>Inrichtingselement</ElementPath>
     <GeomPropertyDefn>
@@ -317,7 +317,7 @@
     </PropertyDefn>
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Plaats</Name>
+    <Name>Plaats_tmp</Name>
     <ParentClass>Top10Object</ParentClass>
     <ElementPath>Plaats</ElementPath>
     <GeomPropertyDefn>
@@ -378,7 +378,7 @@
     </PropertyDefn>
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>PlanTopografie</Name>
+    <Name>PlanTopografie_tmp</Name>
     <ParentClass>Top10Object</ParentClass>
     <ElementPath>PlanTopografie</ElementPath>
     <GeomPropertyDefn>
@@ -410,7 +410,7 @@
     </PropertyDefn>
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>RegistratiefGebied</Name>
+    <Name>RegistratiefGebied_tmp</Name>
     <ParentClass>Top10Object</ParentClass>
     <ElementPath>RegistratiefGebied</ElementPath>
     <GeomPropertyDefn>
@@ -452,7 +452,7 @@
     </PropertyDefn>
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Relief</Name>
+    <Name>Relief_tmp</Name>
     <ParentClass>Top10Object</ParentClass>
     <ElementPath>Relief</ElementPath>
     <GeomPropertyDefn>
@@ -494,7 +494,7 @@
     </PropertyDefn>
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Spoorbaandeel</Name>
+    <Name>Spoorbaandeel_tmp</Name>
     <ParentClass>Top10Object</ParentClass>
     <ElementPath>Spoorbaandeel</ElementPath>
     <GeomPropertyDefn>
@@ -579,7 +579,7 @@
     </PropertyDefn>
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Terrein</Name>
+    <Name>Terrein_tmp</Name>
     <ParentClass>Top10Object</ParentClass>
     <ElementPath>Terrein</ElementPath>
     <GeomPropertyDefn>
@@ -616,7 +616,7 @@
     </PropertyDefn>
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Waterdeel</Name>
+    <Name>Waterdeel_tmp</Name>
     <ParentClass>Top10Object</ParentClass>
     <ElementPath>Waterdeel</ElementPath>
     <GeomPropertyDefn>
@@ -722,7 +722,7 @@
     </PropertyDefn>
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Wegdeel</Name>
+    <Name>Wegdeel_tmp</Name>
     <ParentClass>Top10Object</ParentClass>
     <ElementPath>Wegdeel</ElementPath>
     <GeomPropertyDefn>
