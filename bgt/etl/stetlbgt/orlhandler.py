@@ -78,19 +78,19 @@ class OrlHandler(Filter):
                             self.duplicateOrl(xf, elem)
 
                             # Clean up the original element and the node of its previous sibling
-							# (https://www.ibm.com/developerworks/xml/library/x-hiperfparse/)
+                            # (https://www.ibm.com/developerworks/xml/library/x-hiperfparse/)
                             elem.clear()
                             while elem.getprevious() is not None:
                                 del elem.getparent()[0]
 
                     del context
-                   
+
             xf.flush()
 
         # Delete the old file and rename the new file
         os.remove(packet.data)
         os.rename(self.temp_file, packet.data)
-                   
+
         # Return the original packet, since this contains the name of the GML file which is being loaded
         return packet
 
@@ -104,11 +104,11 @@ class OrlHandler(Filter):
                     if prevTag == '{http://www.geostandaarden.nl/imgeo/2.1}OpenbareRuimteLabel':
                         # We're processing a document with openbareruimtelabels, quit
                         result = True
-                       
+
                     break
 
                 prevTag = elem.tag
-               
+
             del context
 
         return result
@@ -118,10 +118,10 @@ class OrlHandler(Filter):
         out_elem = deepcopy(elem)
         ns = {'imgeo': 'http://www.geostandaarden.nl/imgeo/2.1'}
         count = int(out_elem.xpath('count(//imgeo:positie)', namespaces=ns))
-       
+
         for i in range(0, count):
             out_elem = deepcopy(elem)
-           
+
             # Remove all position elements except for the i'th. This is done by first collecting all positions into
             # a list, then remove the position from that list which should be kept, and then remove all other positions
             # from the XML element.
@@ -129,6 +129,5 @@ class OrlHandler(Filter):
             del positions[i]
             for pos in positions:
                 pos.getparent().remove(pos)
-           
+
             xf.write(out_elem)
-       

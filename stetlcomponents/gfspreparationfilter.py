@@ -37,7 +37,7 @@ $elemtypes
         </xsl:template>
         <xsl:template match="DatasetSpecificInfo">
             <xsl:copy>
-$featurecounts            
+$featurecounts
                 <xsl:apply-templates select="@* | node()" />
             </xsl:copy>
         </xsl:template>
@@ -46,7 +46,7 @@ $featurecounts
         </xsl:template>
       </xsl:stylesheet>
     """
-    
+
     TEST_ELEMTYPE = """
             <xsl:if test="ElementPath/text()='%s'">
                 <xsl:copy>
@@ -54,7 +54,7 @@ $featurecounts
                 </xsl:copy>
             </xsl:if>
     """
-    
+
     TEST_FEATURECOUNT = """
                 <xsl:if test="../ElementPath/text()='%s'">
                     <!-- Add feature count -->
@@ -156,17 +156,17 @@ $featurecounts
         pattern = re.compile('Layer name: (\w+:)?(?P<elemtype>\w+).*?Feature Count: (?P<featurecount>[0-9]+)', re.S)
         matches = pattern.findall(output_ogrinfo)
         feature_counts = dict([(m[1], int(m[2])) for m in matches])
-        
+
         return feature_counts
 
     def prepare_xslt_template(self, feature_counts):
         elemtypes = [self.TEST_ELEMTYPE % key for key in feature_counts.iterkeys()]
         featurecounts = [self.TEST_FEATURECOUNT % item for item in feature_counts.iteritems()]
-    
+
         subst_dict = {}
         subst_dict['elemtypes'] = ''.join(elemtypes)
         subst_dict['featurecounts'] = ''.join(featurecounts)
-    
+
         template = Template(self.XSLT_TEMPLATE)
         formatted_xslt = template.safe_substitute(subst_dict)
 
