@@ -25,7 +25,7 @@ create index kadastralegrens_geometrie_geom_idx on kadastralegrens using gist(ge
 drop table kadastralegrens_tmp;
 
 -- Perceel
-create table perceel as select ogc_fid, gml_id, namespace, lokaalid, logischtijdstipontstaan::timestamptz, gemeente, sectie, perceelnummer, kadastralegrootte, perceelnummerrotatie, deltax, deltay, begrenzing, plaatscoordinaten from perceel_tmp;
+create table perceel as select ogc_fid, gml_id, namespace, lokaalid, logischtijdstipontstaan::timestamptz, cast(gemeente || sectie || lpad(cast(perceelnummer as character varying(5)), 5, '00000') || 'G0000' as character varying(256)) as kad_key, gemeente, sectie, perceelnummer, kadastralegrootte, perceelnummerrotatie, deltax, deltay, begrenzing, plaatscoordinaten from perceel_tmp;
 
 alter table perceel add primary key (ogc_fid);
 alter table perceel alter column gml_id set not null;
