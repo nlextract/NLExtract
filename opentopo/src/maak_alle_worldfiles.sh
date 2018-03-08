@@ -1,6 +1,4 @@
 #!/bin/sh
-#
-#
 
 doc_dir=../doc
 wfiles_dir=../worldfiles
@@ -12,6 +10,7 @@ for reso in $resos; do
    out_dir="${wfiles_dir}/wfiles${reso}pixkm"
 
    echo "START: reso=$reso: args = $csv_file $out_dir"
+   mkdir -p $out_dir
    python csv2worldfiles.py $csv_file $out_dir
    echo "END: reso=$reso: args = $csv_file $out_dir"
 done
