@@ -51,7 +51,7 @@ def read_csv(file_path):
    Parse CSV file into record (dict) array.
    NB raw version: CSV needs to have first line with fieldnames.
    Taken from Stetl fileinput.CsvFileInput
-   
+
    """
     # Init CSV reader
     print('Open CSV file: %s', file_path)
@@ -64,11 +64,11 @@ def read_csv(file_path):
         while True:
             csv_arr.append(next_record)
             next_record = csv_reader.next()
-    
+
         print("CSV row nr %d read: %s" % (csv_reader.line_num - 1, next_record))
-    except Exception, e:
+    except Exception:
         file_p.close()
-    
+
     return csv_arr
 
 
@@ -96,8 +96,8 @@ def make_worldfile(record, out_dir):
     pixel_size_y = float(record['ResY'])
 
     # UL x, y moet in midden pixel size
-    ul_x += rnd_float(pixel_size_x/2)
-    ul_y -= rnd_float(pixel_size_y/2)
+    ul_x += rnd_float(pixel_size_x / 2)
+    ul_y -= rnd_float(pixel_size_y / 2)
 
     out_file = out_dir + os.path.sep + blad_name + '.wld'
     print 'out_file=%s blad: %s x=%f y=%f' % (out_file, blad_name, ul_x, ul_y)
@@ -123,6 +123,7 @@ def main():
     # generate worldfile for each record
     for record in records:
         make_worldfile(record, out_dir)
+
 
 if __name__ == "__main__":
     main()

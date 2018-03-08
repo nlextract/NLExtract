@@ -2,6 +2,7 @@
 
 __author__ = 'just'
 
+
 def get_line_contains(f, s):
     line = ''
     # data section reached?
@@ -11,6 +12,7 @@ def get_line_contains(f, s):
             break
 
     return line
+
 
 def gen_worldfile(f_in):
     # Entry format
@@ -47,6 +49,7 @@ def gen_worldfile(f_in):
     f_out.write(str(ul_y) + '\n')
     f_out.close()
 
+
 def main():
 
     f_in = open('index_800pixkm.dat', 'r')
@@ -55,6 +58,7 @@ def main():
         gen_worldfile(f_in)
 
     f_in.close()
+
 
 if __name__ == "__main__":
     main()
