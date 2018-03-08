@@ -13,7 +13,6 @@ class ThreeDExporter:
     @abstractmethod
     def addBuilding(self, id, poly, min_height, avg_height):
         pass
-        
 
     # Exporteert de data die de exporter bevat
     @abstractmethod

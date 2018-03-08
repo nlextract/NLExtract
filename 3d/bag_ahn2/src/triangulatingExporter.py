@@ -6,7 +6,7 @@
 import itertools
 import triangle
 
-from abc import ABCMeta, abstractmethod
+from abc import ABCMeta
 from threeDExporter import ThreeDExporter
 
 
@@ -18,7 +18,6 @@ class TriangulatingExporter(ThreeDExporter):
         for n in range(len(poly)):
             del poly[n][-1]
         return poly
-        
 
     # Geeft een coordinaat terug die in de opgegeven ring valt. Dit is een coordinaat binnen de eerste driehoek na
     # triangulatie van de ring. De ring bevat geen gaten (anders was het wel een polygoon).
@@ -26,12 +25,13 @@ class TriangulatingExporter(ThreeDExporter):
         segments = []
         vertmarks = []
         segmarks = []
-        
+
         for i in range(len(ring) - 1):
-            segments.append([int(i), int(i+1)])
+            segments.append([int(i), int(i + 1)])
             vertmarks.append([0])
             segmarks.append([0])
-        segments.append([int(i+1),int(0)])
+
+        segments.append([int(i + 1), int(0)])
         vertmarks.append([0])
         segmarks.append([0])
 
@@ -44,10 +44,9 @@ class TriangulatingExporter(ThreeDExporter):
         a = v[tri[0]]
         b = v[tri[1]]
         c = v[tri[2]]
-        
-        return [(a[0]+b[0]+c[0])/3,(a[1]+b[1]+c[1])/3]
-        
-        
+
+        return [(a[0] + b[0] + c[0]) / 3, (a[1] + b[1] + c[1]) / 3]
+
     # Trianguleert de opgegeven polygon
     def triangulatePolygon(self, poly):
         poly = self.stripLastCoordinate(poly)
@@ -59,22 +58,22 @@ class TriangulatingExporter(ThreeDExporter):
         c = 0
         for p in range(len(poly)):
             for i in range(len(poly[p]) - 1):
-                segments.append([int(c+i), int(c+i+1)])
-            segments.append([int(c+i+1),int(c)])
+                segments.append([int(c + i), int(c + i + 1)])
+            segments.append([int(c + i + 1), int(c)])
             c = len(segments)
-            
+
             # Vertex en segment markers
             # Nummer bij vertexes en segments moet overeen komen
             for i in range(len(poly[p])):
                 vertmarks.append([p])
                 segmarks.append([p])
-            
+
             if p > 0:
                 # Gat
                 holes.append(self.getHolePoint(poly[p]))
 
-        allverts = list(itertools.chain.from_iterable(poly))       
-                
+        allverts = list(itertools.chain.from_iterable(poly))
+
         if len(holes) > 0:
             pol = {'vertices': allverts, 'segments': segments, 'vertex_markers': vertmarks, 'segment_markers': segmarks, 'holes': holes}
         else:
@@ -83,9 +82,8 @@ class TriangulatingExporter(ThreeDExporter):
 
         result['triangles'] = self.correctTriangles(result['triangles'], result['vertices'])
         result['segments'] = self.correctSegments(result['segments'])
-        
-        return result
 
+        return result
 
     # Corrigeert driehoeken: zorg ervoor dat ze CW lopen. Dit zorgt ervoor dat de surface normal van de vloervlakken
     # naar beneden wijzen en van de dakvlakken (die andersom georienteerd zijn) naar boven.
@@ -99,9 +97,8 @@ class TriangulatingExporter(ThreeDExporter):
             if sum < 0:
                 # Keer de volgorde van de vertices om
                 tris[t] = [tri[0], tri[2], tri[1]]
-        
+
         return tris
-        
 
     # Corrigeert segmenten: zorg ervoor dat de normalen van de muurvlakken die hieruit worden gegenereerd naar
     # buiten wijzen.
