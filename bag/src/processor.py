@@ -15,14 +15,16 @@ __date__ = "$Jun 14, 2011 11:11:01 AM$"
  OpenGeoGroep.nl
 """
 
-import os, sys
+import os
+import sys
 from collections import defaultdict
 from bagobject import BAGObjectFabriek
 from bagconfig import BAGConfig
-from bestuurlijkobject import BestuurlijkObjectFabriek,GemeentelijkeIndelingFabriek
+from bestuurlijkobject import BestuurlijkObjectFabriek, GemeentelijkeIndelingFabriek
 from postgresdb import Database
 from log import Log
-from etree import etree,stripschema,stripNS
+from etree import etree, stripschema, stripNS
+
 
 class Processor:
     def __init__(self):
@@ -39,13 +41,12 @@ class Processor:
         Log.log.info("alle tabellen weggooien en opnieuw aanmaken in database '%s', schema '%s'..." % (BAGConfig.config.database, BAGConfig.config.schema))
         try:
             self.database.initialiseer(db_script)
-        except Exception as e:
+        except Exception:
             Log.log.fatal("Kan geen verbinding maken met de database")
             sys.exit()
 
         Log.log.info("Initieele data (bijv. gemeenten/provincies) inlezen...")
         from bagfilereader import BAGFileReader
-        # from bagobject import VerblijfsObjectPand, AdresseerbaarObjectNevenAdres, VerblijfsObjectGebruiksdoel, Woonplaats, OpenbareRuimte, Nummeraanduiding, Ligplaats, Standplaats, Verblijfsobject, Pand
         myreader = BAGFileReader(BAGConfig.config.bagextract_home + '/db/data')
         myreader.process()
 
@@ -90,7 +91,9 @@ class Processor:
         doc_tag = stripschema(node.tag)
 
         # XML schema:
-        # <gemeentelijke_indeling xmlns="http://nlextract.nl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://nlextract.nl gemeentelijke-indeling.xsd">
+        # <gemeentelijke_indeling
+        #     xmlns="http://nlextract.nl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        #     xsi:schemaLocation="http://nlextract.nl gemeentelijke-indeling.xsd">
         #   ...
         #   <indeling jaar="2016">
         #     ...
@@ -109,28 +112,29 @@ class Processor:
         if doc_tag == 'gemeentelijke_indeling':
             for indelingNode in node:
                 if stripschema(indelingNode.tag) == 'indeling':
-                   jaar = indelingNode.get('jaar')
+                    # Ongebruikt:
+                    # jaar = indelingNode.get('jaar')
 
-                   for provincieNode in indelingNode:
-                       if stripschema(provincieNode.tag) == 'provincie':
-                           provinciecode = provincieNode.get('code')
-                           provincienaam = provincieNode.get('naam')
+                    for provincieNode in indelingNode:
+                        if stripschema(provincieNode.tag) == 'provincie':
+                            provinciecode = provincieNode.get('code')
+                            provincienaam = provincieNode.get('naam')
 
-                           for gemeenteNode in provincieNode:
-                               if stripschema(gemeenteNode.tag) == 'gemeente':
-                                   gemeentecode = gemeenteNode.get('code')
-                                   gemeentenaam = gemeenteNode.get('naam')
-                                   begindatum   = gemeenteNode.get('begindatum')
-                                   einddatum    = gemeenteNode.get('einddatum')
+                            for gemeenteNode in provincieNode:
+                                if stripschema(gemeenteNode.tag) == 'gemeente':
+                                    gemeentecode = gemeenteNode.get('code')
+                                    gemeentenaam = gemeenteNode.get('naam')
+                                    begindatum = gemeenteNode.get('begindatum')
+                                    einddatum = gemeenteNode.get('einddatum')
 
-                                   provincie_gemeente[provinciecode][gemeentecode] = {
-                                                                                      'provinciecode' : provinciecode,
-                                                                                      'provincienaam' : provincienaam,
-                                                                                      'gemeentecode'  : gemeentecode,
-                                                                                      'gemeentenaam'  : gemeentenaam,
-                                                                                      'begindatum'    : begindatum,
-                                                                                      'einddatum'     : einddatum,
-                                                                                     }
+                                    provincie_gemeente[provinciecode][gemeentecode] = {
+                                        'provinciecode': provinciecode,
+                                        'provincienaam': provincienaam,
+                                        'gemeentecode': gemeentecode,
+                                        'gemeentenaam': gemeentenaam,
+                                        'begindatum': begindatum,
+                                        'einddatum': einddatum,
+                                    }
 
             for provinciecode in sorted(provincie_gemeente.keys()):
                 for gemeentecode in sorted(provincie_gemeente[provinciecode].keys()):
@@ -183,7 +187,7 @@ class Processor:
         # 'BAG-GWR-Deelbestand-LVC': Koppeltabel Gemeente-Woonplaats-Relatie (alleen in BAG na plm aug 2012)
         if doc_tag == 'BAG-Extract-Deelbestand-LVC' or doc_tag == 'BAG-GWR-Deelbestand-LVC':
             mode = 'Nieuw'
-            #firstchild moet zijn 'antwoord'
+            # firstchild moet zijn 'antwoord'
             for childNode in node:
                 if stripschema(childNode.tag) == 'antwoord':
                     # Antwoord bevat twee childs: vraag en producten
@@ -225,7 +229,7 @@ class Processor:
         elif doc_tag == 'BAG-Mutaties-Deelbestand-LVC':
             mode = 'Mutatie'
 
-            #firstchild moet zijn 'antwoord'
+            # firstchild moet zijn 'antwoord'
             for childNode in node:
                 if stripschema(childNode.tag) == 'antwoord':
                     # Antwoord bevat twee childs: vraag en producten
@@ -345,7 +349,7 @@ class Processor:
                 bagObject.maakInsertSQL()
             try:
                 self.database.uitvoeren(bagObject.sql, bagObject.inhoud)
-            except (Exception), e:
+            except Exception:
                 # Heeft geen zin om door te gaan
                 Log.log.error("database fout bij insert, ik stop met dit bestand")
                 break
@@ -368,7 +372,7 @@ class Processor:
         try:
             from cStringIO import StringIO
             Log.log.info("running with cStringIO")
-        except:
+        except Exception:
             from StringIO import StringIO
             Log.log.info("running with StringIO")
 
@@ -438,26 +442,26 @@ class Processor:
 # TODO mogelijke versnelling met StringIO en concatenatie met COPY ipv INSERT
 # http://stackoverflow.com/questions/8144002/use-binary-copy-table-from-with-psycopg2/8150329#8150329
 # ## Find the best implementation available on this platform
-#try:
-#    from cStringIO import StringIO
-#    print("running with cStringIO")
-#except:
-#    from StringIO import StringIO
-#    print("running with StringIO")
+# try:
+#     from cStringIO import StringIO
+#     print("running with cStringIO")
+# except:
+#     from StringIO import StringIO
+#     print("running with StringIO")
 #
-## Writing to a buffer
-#output = StringIO()
-#output.write('This goes into the buffer. ')
-#print >>output, 'And so does this.'
+# # Writing to a buffer
+# output = StringIO()
+# output.write('This goes into the buffer. ')
+# print >>output, 'And so does this.'
 #
-## Retrieve the value written
-#print output.getvalue()
+# # Retrieve the value written
+# print output.getvalue()
 #
-#output.close() # discard buffer memory
+# output.close() # discard buffer memory
 #
-## Initialize a read buffer
-#input = StringIO('Inital value for read buffer')
+# # Initialize a read buffer
+# input = StringIO('Inital value for read buffer')
 #
-## Read from the buffer
-#print input.read()
+# # Read from the buffer
+# print input.read()
 #

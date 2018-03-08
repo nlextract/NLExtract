@@ -25,6 +25,7 @@ __date__ = "Dec 25, 2011 3:46:27 PM$"
 import datetime
 import time
 
+
 def getDate(node):
     """
     Maak een datum object van een XML datum/tijd
@@ -53,6 +54,7 @@ def getNumber(node):
             return node
     return None
 
+
 class BestuurlijkObject:
     def __init__(self):
         self.id = None
@@ -63,7 +65,7 @@ class GemeenteWoonplaats(BestuurlijkObject):
     Klasse Gemeente
     """
 
-    def __init__(self,record):
+    def __init__(self, record):
         # TODO: De csv is niet volledig gevuld, controleer of een record wel het minimaal aantal objecten bevat.
         # Woonplaats;Woonplaats code;Ingangsdatum WPL;Einddatum WPL;Gemeente;Gemeente code;
         # Ingangsdatum nieuwe gemeente;Aansluitdatum;Bijzonderheden;Nieuwe code Gemeente;
@@ -74,11 +76,11 @@ class GemeenteWoonplaats(BestuurlijkObject):
         #     ;Gemeente;Gemeente code;Ingangsdatum nieuwe gemeente;Gemeente beeindigd per
         # (8 kolommen)
         # Dirty! Dit kan vast makkelijker, mijn python tekortkoming blijkt hier ;-)
-        emptylist = [None,None,None,None,None,None,None,None]
+        emptylist = [None, None, None, None, None, None, None, None]
         record.extend(emptylist)
         # Stel de lengte van het record object in op 12
         if record[0]:
-            #print record
+            # print record
             self.tag = "gem_LVC:GemeenteWoonplaats"
             self.naam = "gemeente_woonplaats"
             self.type = 'G_W'
@@ -96,7 +98,7 @@ class GemeenteWoonplaats(BestuurlijkObject):
             # self.behandeld = record[11]
 
     def __repr__(self):
-       return "<GemeenteWoonplaats('%s','%s', '%s')>" % (self.naam, self.gemeentecode, self.woonplaatscode)
+        return "<GemeenteWoonplaats('%s','%s', '%s')>" % (self.naam, self.gemeentecode, self.woonplaatscode)
 
     def insert(self):
         self.sql = """INSERT INTO gemeente_woonplaats (
@@ -110,8 +112,9 @@ class GemeenteWoonplaats(BestuurlijkObject):
             einddatum_gemeente)
             VALUES (%s, %s, %s, %s, %s, %s, %s, %s)"""
         self.valuelist = (self.woonplaatsnaam, self.woonplaatscode, self.begindatum_woonplaats,
-            self.einddatum_woonplaats,self.gemeentenaam, self.gemeentecode, self.begindatum_gemeente,
-            self.einddatum_gemeente)
+                          self.einddatum_woonplaats, self.gemeentenaam, self.gemeentecode, self.begindatum_gemeente,
+                          self.einddatum_gemeente)
+
 
 # Creeer een BestuurlijkObject uit een CSV header+record
 def BestuurlijkObjectFabriek(cols, record):
@@ -121,14 +124,17 @@ def BestuurlijkObjectFabriek(cols, record):
 
     return bestuurlijkOBject
 
+
 class GemeentelijkeIndeling(BestuurlijkObject):
     """
     Verrijking: GemeentelijkeIndeling
     """
 
-    def __init__(self,obj):
+    def __init__(self, obj):
         # XML schema:
-        # <gemeentelijke_indeling xmlns="http://nlextract.nl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://nlextract.nl gemeentelijke-indeling.xsd">
+        # <gemeentelijke_indeling
+        #     xmlns="http://nlextract.nl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        #     xsi:schemaLocation="http://nlextract.nl gemeentelijke-indeling.xsd">
         #   ...
         #   <indeling jaar="2016">
         #     ...
@@ -155,13 +161,14 @@ class GemeentelijkeIndeling(BestuurlijkObject):
         self.naam = 'provincie_gemeente'
         self.provinciecode = obj['provinciecode']
         self.provincienaam = obj['provincienaam']
-        self.gemeentecode  = obj['gemeentecode']
-        self.gemeentenaam  = obj['gemeentenaam']
-        self.begindatum    = obj['begindatum']
-        self.einddatum     = obj['einddatum']
+        self.gemeentecode = obj['gemeentecode']
+        self.gemeentenaam = obj['gemeentenaam']
+        self.begindatum = obj['begindatum']
+        self.einddatum = obj['einddatum']
 
     def __repr__(self):
-        return "<ProvincieGemeente('%s', '%s', '%s', '%s', '%s', '%s', '%s')>" % (self.naam, self.provinciecode, self.provincienaam, self.gemeentecode, self.gemeentenaam, self.begindatum, self.einddatum)
+        return "<ProvincieGemeente('%s', '%s', '%s', '%s', '%s', '%s', '%s')>" % (
+            self.naam, self.provinciecode, self.provincienaam, self.gemeentecode, self.gemeentenaam, self.begindatum, self.einddatum)
 
     def exists(self):
         self.sql = """SELECT gid
@@ -178,7 +185,7 @@ class GemeentelijkeIndeling(BestuurlijkObject):
         if self.einddatum:
             and_einddatum = ' AND einddatum = %s'
             valuelist.append(self.einddatum)
-        
+
         self.sql = """SELECT gid
                         FROM provincie_gemeente
                        WHERE provinciecode = %s
@@ -186,8 +193,8 @@ class GemeentelijkeIndeling(BestuurlijkObject):
                          AND gemeentecode = %s
                          AND gemeentenaam = %s
                          AND begindatum = %s"""
-        self.sql +=      and_einddatum
-        self.sql +=  ' LIMIT 1'
+        self.sql += and_einddatum
+        self.sql += ' LIMIT 1'
         self.valuelist = valuelist
 
     def update(self):
@@ -210,6 +217,7 @@ class GemeentelijkeIndeling(BestuurlijkObject):
                                   einddatum)
                            VALUES (%s, %s, %s, %s, %s, %s)"""
         self.valuelist = (self.provinciecode, self.provincienaam, self.gemeentecode, self.gemeentenaam, self.begindatum, self.einddatum)
+
 
 def GemeentelijkeIndelingFabriek(obj):
     bestuurlijkObject = None

@@ -6,16 +6,17 @@ from bagconfig import BAGConfig
 
 from threading import Thread
 from wx.lib.pubsub import pub
-from etree import etree,stripschema,stripNS
+from etree import etree, stripNS
 
 # From: http://www.blog.pythonlibrary.org/2014/01/29/wxpython-creating-a-file-downloading-app/
 # Adapted by Just van den Broecke: progress with MBs, cancellation etc.
+
 
 ########################################################################
 class DownloadThread(Thread):
     """Downloading thread"""
 
-    #----------------------------------------------------------------------
+    # ----------------------------------------------------------------------
     def __init__(self, url, fsize, local_path):
         """Constructor"""
         Thread.__init__(self)
@@ -25,7 +26,7 @@ class DownloadThread(Thread):
         self.cancelTransfer = False
         self.start()
 
-    #----------------------------------------------------------------------
+    # ----------------------------------------------------------------------
     def run(self):
         """
         Run the worker thread
@@ -63,32 +64,34 @@ class DownloadThread(Thread):
 
         wx.CallAfter(pub.sendMessage, "done.transfer", msg=total_size)
 
-    #----------------------------------------------------------------------
+    # ----------------------------------------------------------------------
     def onCancelTransfer(self):
         """"""
         self.cancelTransfer = True
+
 
 ########################################################################
 class MyGauge(wx.Gauge):
     """"""
 
-    #----------------------------------------------------------------------
+    # ----------------------------------------------------------------------
     def __init__(self, parent, range):
         """Constructor"""
         wx.Gauge.__init__(self, parent, range=range, size=wx.Size(300, 24))
 
         pub.subscribe(self.onUpdateProgress, "update.transfer")
 
-    #----------------------------------------------------------------------
+    # ----------------------------------------------------------------------
     def onUpdateProgress(self, msg):
         """"""
         self.SetValue(msg)
+
 
 ########################################################################
 class BAGDownloadPanel(scrolled.ScrolledPanel):
     """"""
 
-    #----------------------------------------------------------------------
+    # ----------------------------------------------------------------------
     def __init__(self, parent):
         """Constructor"""
         scrolled.ScrolledPanel.__init__(self, parent)
@@ -108,7 +111,7 @@ class BAGDownloadPanel(scrolled.ScrolledPanel):
 
         self.downloadMeta()
 
-        meta_txt = wx.StaticText(self, label="BAG datum=%s   grootte=%d MB (plm 1.5GB)" % (self.extract_datum, self.extract_fsize/(1024*1024)))
+        meta_txt = wx.StaticText(self, label="BAG datum=%s   grootte=%d MB (plm 1.5GB)" % (self.extract_datum, self.extract_fsize / (1024 * 1024)))
 
         # create the widgets
         lbl = wx.StaticText(self, label="Download URL: %s" % self.extract_url)
@@ -116,8 +119,8 @@ class BAGDownloadPanel(scrolled.ScrolledPanel):
         btn.Bind(wx.EVT_BUTTON, self.onDownload)
 
         # layout the widgets
-        meta_sizer.Add(meta_txt, 0, wx.ALL|wx.CENTER, 5)
-        dl_sizer.Add(lbl, 0, wx.ALL|wx.CENTER, 5)
+        meta_sizer.Add(meta_txt, 0, wx.ALL | wx.CENTER, 5)
+        dl_sizer.Add(lbl, 0, wx.ALL | wx.CENTER, 5)
         dl_sizer.Add(btn, 0, wx.ALL, 5)
 
         self.main_sizer.Add(meta_sizer, 0, wx.EXPAND)
@@ -143,7 +146,7 @@ class BAGDownloadPanel(scrolled.ScrolledPanel):
         self.extract_fsize = long(node.xpath("//feed/entry/link/@length")[0])
         self.extract_url = node.xpath("//feed/entry/link/@href")[0]
 
-    #----------------------------------------------------------------------
+    # ----------------------------------------------------------------------
     def onDownload(self, event):
         """
         Update display with downloading gauges
@@ -177,11 +180,11 @@ class BAGDownloadPanel(scrolled.ScrolledPanel):
             btn = wx.Button(self, label="Cancel")
             btn.Bind(wx.EVT_BUTTON, self.onCancelDownload)
 
-            sizer.Add(lbl, 0, wx.ALL|wx.CENTER, 5)
-            sizer.Add(gauge, 0, wx.ALL|wx.EXPAND, 5)
-            sizer.Add(self.dl_progress, 0, wx.ALL|wx.CENTER, 5)
+            sizer.Add(lbl, 0, wx.ALL | wx.CENTER, 5)
+            sizer.Add(gauge, 0, wx.ALL | wx.EXPAND, 5)
+            sizer.Add(self.dl_progress, 0, wx.ALL | wx.CENTER, 5)
             self.main_sizer.Add(sizer, 0, wx.EXPAND)
-            self.main_sizer.Add(btn, 1, wx.ALL|wx.CENTER, 5)
+            self.main_sizer.Add(btn, 1, wx.ALL | wx.CENTER, 5)
 
             self.Layout()
             pub.subscribe(self.onDownloadUpdate, "update.transfer")
@@ -192,19 +195,19 @@ class BAGDownloadPanel(scrolled.ScrolledPanel):
         except Exception, e:
             print "Error: ", e
 
-    #----------------------------------------------------------------------
+    # ----------------------------------------------------------------------
     def onDownloadUpdate(self, msg):
         sz = long(msg)
         progress_char = self.progress_chars[self.progress_count % 4]
-        self.dl_progress.SetLabel('%d MB %s' % (sz/(1024*1024), progress_char))
+        self.dl_progress.SetLabel('%d MB %s' % (sz / (1024 * 1024), progress_char))
         self.progress_count += 1
 
-    #----------------------------------------------------------------------
+    # ----------------------------------------------------------------------
     def onDownloadDone(self, msg):
         sz = long(msg)
-        self.dl_progress.SetLabel('%d MB KLAAR!' % (sz/(1024*1024)))
+        self.dl_progress.SetLabel('%d MB KLAAR!' % (sz / (1024 * 1024)))
 
-    #----------------------------------------------------------------------
+    # ----------------------------------------------------------------------
     def onCancelDownload(self, event):
         """
         Cancel download in progress.
@@ -212,10 +215,11 @@ class BAGDownloadPanel(scrolled.ScrolledPanel):
         wx.CallAfter(pub.sendMessage, "cancel.transfer")
         self.parent.Close()
 
+
 class BAGDownloaderFrame(wx.Frame):
     """"""
 
-    #----------------------------------------------------------------------
+    # ----------------------------------------------------------------------
     def __init__(self):
         """Constructor"""
         wx.Frame.__init__(self, None, title="BAG Bron Bestand Downloader", size=(800, 400))

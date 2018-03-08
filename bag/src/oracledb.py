@@ -15,7 +15,7 @@ __date__ = "$Dec 21, 2011 00:00:01 AM$"
  Datum:        21 december 2011
 """
 import cx_Oracle
-from bagconfig import BAGConfig
+
 
 class Database:
     def __init__(self, args):
@@ -69,7 +69,7 @@ class Database:
 
     def verbind(self, initdb=False):
         try:
-            self.dsn = cx_Oracle.makedsn(self.host,self.port,self.sid)
+            self.dsn = cx_Oracle.makedsn(self.host, self.port, self.sid)
             self.connection = cx_Oracle.Connection(self.user, self.password, self.dsn)
             self.cursor = self.connection.cursor()
 

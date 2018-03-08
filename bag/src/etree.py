@@ -34,9 +34,10 @@ def stripschema(tag):
     try:
         # Niet alle tags hebben NS
         tag = tag.split('}')[-1]
-    except:
+    except Exception:
         pass
     return tag
+
 
 def tagVolledigeNS(old, nsmap):
     tags = []
@@ -44,6 +45,7 @@ def tagVolledigeNS(old, nsmap):
         sep = tag.split(':')
         tags.append('{%s}%s' % (nsmap[sep[0]], sep[1]))
     return '/'.join(tags)
+
 
 # http://wiki.tei-c.org/index.php/Remove-Namespaces.xsl
 xslt_strip_ns = '''<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
@@ -70,6 +72,7 @@ xslt_strip_ns = '''<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/19
 '''
 
 xslt_doc = None
+
 
 # Haal alle Namespaces recursief uit een node
 # Handig om bijv. XPath expressies los te laten

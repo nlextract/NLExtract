@@ -1,8 +1,10 @@
 __author__ = "miblon"
 __date__ = "$Jun 13, 2011 11:34:17 AM$"
 
-from time import *
-import sys, traceback
+from time import strftime, localtime, time
+import sys
+import traceback
+
 
 # Standard output log writer
 class StdOutput:
