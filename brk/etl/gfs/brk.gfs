@@ -177,7 +177,7 @@
             <Type>Integer</Type>
         </PropertyDefn>
         <PropertyDefn>
-            <Name>waarde</Name>
+            <Name>kadastraleGrootte</Name>
             <ElementPath>kadastraleGrootte|TypeOppervlak|waarde</ElementPath>
             <Type>Integer</Type>
         </PropertyDefn>
