@@ -10,4 +10,3 @@ R = dataset.GetRasterBand(1)
 # B = dataset.GetRasterBand(3)
 
 print 'Initial nodata values (RGB):\t', R.GetNoDataValue()
-
