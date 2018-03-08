@@ -20,9 +20,9 @@ fi
 
 # Nodig voor imports
 if [ -z "$PYTHONPATH" ]; then
-  export PYTHONPATH=$STETL_HOME:$NLX_HOME
+  export PYTHONPATH=$STETL_HOME:$NLX_HOME:.
 else
-  export PYTHONPATH=$STETL_HOME:$NLX_HOME:$PYTHONPATH
+  export PYTHONPATH=$STETL_HOME:$NLX_HOME:.:$PYTHONPATH
 fi
 
 # Default arguments/options
