@@ -1,6 +1,7 @@
 -- Auteur: Frank Steggink
--- Doel: script om BGT / IMGeo tabellen te verwijderen.
--- Zowel de originele als de opgesplitste tabellen worden hiermee verwijderd.
+-- Doel: script om BGT / IMGeo tabellen te verwijderen. De definitieve tabellen worden niet nu al verwijderd, maar pas
+-- bij het uitvoeren van create-final-tables, zodat de oude data nog aanwezig blijft i.g.v. een calamiteit. Eventueel
+-- kunnen ze vooraf apart worden verwijderd door het uitvoeren van het script drop-final-tables.
 
 SET search_path={schema},public;
 
