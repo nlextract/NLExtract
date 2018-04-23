@@ -345,15 +345,18 @@ drop index openbareruimte_tijdstipregistratie;
 
 -- openbareruimtelabel
 create index openbareruimtelabel_lokaalid on openbareruimtelabel(lokaalid);
+create index openbareruimtelabel_tijdstipregistratie on openbareruimtelabel(tijdstipregistratie);
 
-create table openbareruimtelabel_tmp as select row_number() over (order by lokaalid, tijdstipregistratie) id, lokaalid, tijdstipregistratie, eindregistratie from openbareruimtelabel where lokaalid in (select lokaalid from openbareruimtelabel where eindregistratie is null group by lokaalid having count(*) > 1) order by lokaalid, tijdstipregistratie;
+create table openbareruimtelabel_unique as
+select distinct namespace, lokaalid, objectbegintijd, objecteindtijd, tijdstipregistratie, eindregistratie, lv_publicatiedatum from openbareruimtelabel;
+
+create table openbareruimtelabel_tmp as select row_number() over (order by lokaalid, tijdstipregistratie) id, lokaalid, tijdstipregistratie, eindregistratie from openbareruimtelabel_unique where lokaalid in (select lokaalid from openbareruimtelabel_unique where eindregistratie is null group by lokaalid having count(*) > 1) order by lokaalid, tijdstipregistratie;
 
 update openbareruimtelabel_tmp a set eindregistratie=b.tijdstipregistratie from openbareruimtelabel_tmp b where a.lokaalid=b.lokaalid and b.id=a.id+1 and a.eindregistratie is null;
 
 update openbareruimtelabel a set eindregistratie=b.eindregistratie from openbareruimtelabel_tmp b where a.lokaalid=b.lokaalid and a.tijdstipregistratie=b.tijdstipregistratie and a.eindregistratie is null and b.eindregistratie is not null;
 drop table openbareruimtelabel_tmp;
 
-create index openbareruimtelabel_tijdstipregistratie on openbareruimtelabel(tijdstipregistratie);
 create table openbareruimtelabel_tmp as select lokaalid, max(objecteindtijd) objecteindtijd, max(eindregistratie) eindregistratie from openbareruimtelabel where objecteindtijd is not null and eindregistratie is not null group by lokaalid;
 create index openbareruimtelabel_tmp_lokaalid on openbareruimtelabel_tmp(lokaalid);
 
@@ -363,6 +366,7 @@ from openbareruimtelabel_tmp b
 where a.lokaalid=b.lokaalid and a.eindregistratie is null;
 
 drop table openbareruimtelabel_tmp;
+drop table openbareruimtelabel_unique;
 drop index openbareruimtelabel_lokaalid;
 drop index openbareruimtelabel_tijdstipregistratie;
 
