@@ -1,9 +1,6 @@
 # Default options for NLextracts Stetl extract command
 # These values are substituted into the ETL conf in <project>/conf/default.cfg, see the {arg} strings there
 
-# INPUT: downloaded GML files, point to directory or file(s) pattern
-input_dir=data
-
 # OUTPUT: PostGIS settings
 host=localhost
 port=5432
@@ -30,9 +27,6 @@ filename_match=*.gml
 # OPTIONS
 # Temp dir voor GFS
 temp_dir=temp
-
-# GFS template: bepaalt mapping van GML-velden naar PostGIS table kolommen
-gfs_template=gfs/default.gfs
 
 # OPTION: attribuut waarden bijv typeWeg die meerdere keren in XML voorkomen, wat daarmee te doen
 # Zie ogr2ogr opties

@@ -65,6 +65,6 @@ host_options_file=options/`hostname`.args
 
 # Uiteindelijke commando. Kan ook gewoon "stetl -c conf/etl-top10nl-v1.2.cfg -a ..." worden indien Stetl installed
 # python $STETL_HOME/stetl/main.py -c conf/etl-top10nl-v1.2.cfg -a "$pg_options temp_dir=temp max_features=$max_features gml_files=$gml_files $multi $spatial_extent"
-python $STETL_HOME/stetl/main.py -c $PROJECT/etl/conf/etl.cfg -a $options_file
+python $STETL_HOME/stetl/main.py -c $PROJECT/etl/conf/default.cfg -a $options_file -a "input_dir=${DATA} gfs_template=${PROJECTETL}/gfs/default.gfs"
 
 popd >/dev/null
