@@ -1,2 +1,3 @@
-default.cfg
-imgeo v2.1.1
+default:
+
+top10nl v1.2
