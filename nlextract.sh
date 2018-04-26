@@ -1,12 +1,37 @@
 #!/bin/bash
 #
-# ETL voor Top10NL GML met gebruik Stetl.
+# ETL voor NLExtract GML met gebruik Stetl.
 #
 # Dit is een front-end/wrapper shell-script om uiteindelijk Stetl met een configuratie
-# (etl-top10nl.cfg) en parameters (options/myoptions.args) aan te roepen.
+# (project/etl/conf/default.cfg) en parameters (options/default.args) aan te roepen.
 #
 # Author: Just van den Broecke
 #
+mkdir -p temp
+
+POSITIONAL=()
+while [[ $# -gt 0 ]]
+do
+key="$1"
+
+case $key in
+    -p|--project)
+    PROJECT="$2"
+    shift # past argument
+    shift # past value
+    ;;
+    -d|--data)
+    DATA="$2"
+    shift # past argument
+    shift # past value
+    ;;
+    *)    # unknown option
+    POSITIONAL+=("$1") # save it in an array for later
+    shift # past argument
+    ;;
+esac
+done
+set -- "${POSITIONAL[@]}" # restore positional parameters
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 pushd $DIR >/dev/null
@@ -25,9 +50,6 @@ else
   export PYTHONPATH=$STETL_HOME:$NLX_HOME:$PYTHONPATH
 fi
 
-#TODO:
-#parse project
-
 # Default arguments/options
 options_file=options/default.args
 
@@ -42,6 +64,6 @@ host_options_file=options/`hostname`.args
 
 # Uiteindelijke commando. Kan ook gewoon "stetl -c conf/etl-top10nl-v1.2.cfg -a ..." worden indien Stetl installed
 # python $STETL_HOME/stetl/main.py -c conf/etl-top10nl-v1.2.cfg -a "$pg_options temp_dir=temp max_features=$max_features gml_files=$gml_files $multi $spatial_extent"
-python $STETL_HOME/stetl/main.py -c $project/etl/conf/etl.cfg -a $options_file
+python $STETL_HOME/stetl/main.py -c $PROJECT/etl/conf/etl.cfg -a $options_file
 
 popd >/dev/null
