@@ -37,6 +37,7 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 pushd $DIR >/dev/null
 
 NLX_HOME=.
+PROJECTETL=$PROJECT/etl
 
 # Gebruik Stetl meegeleverd met NLExtract (kan in theorie ook Stetl via pip install stetl zijn)
 if [ -z "$STETL_HOME" ]; then
@@ -45,12 +46,12 @@ fi
 
 # Nodig voor imports
 if [ -z "$PYTHONPATH" ]; then
-  export PYTHONPATH=$STETL_HOME:$NLX_HOME
+  export PYTHONPATH=$STETL_HOME:$NLX_HOME:$PROJECTETL
 else
-  export PYTHONPATH=$STETL_HOME:$NLX_HOME:$PYTHONPATH
+  export PYTHONPATH=$STETL_HOME:$NLX_HOME:$PROJECTETL:$PYTHONPATH
 fi
 
-# Default arguments/options
+# Default arguments/optionsproject
 options_file=options/default.args
 
 # Optionally overules default options file by using a host-based file options/<your hostname>.args
