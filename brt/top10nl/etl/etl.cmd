@@ -14,7 +14,7 @@ set NLX_HOME=../..
 
 :: Gebruik Stetl meegeleverd met NLExtract (kan in theorie ook Stetl via pip install stetl zijn)
 if "%STETL_HOME%"=="" (
-    set STETL_HOME=../../externals/stetl
+    set STETL_HOME=../../../externals/stetl
 )
 
 :: Nodig voor imports
