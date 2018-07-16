@@ -26,5 +26,5 @@ cd stetl
 git checkout master && git pull
 cd ..
 git add stetl
-git commit -m "updating Stetl to latest”
+git commit -m "updating Stetl to latest"
 git push
