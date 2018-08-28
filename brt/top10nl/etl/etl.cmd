@@ -10,7 +10,7 @@
 setlocal
 pushd %~dp0
 
-set NLX_HOME=../..
+set NLX_HOME=../../..
 
 :: Gebruik Stetl meegeleverd met NLExtract (kan in theorie ook Stetl via pip install stetl zijn)
 if "%STETL_HOME%"=="" (
