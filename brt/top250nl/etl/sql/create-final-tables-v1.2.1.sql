@@ -1,5 +1,24 @@
 -- Create final tables in TOP250NL schema
 
+-- Function to conditionally rename a column
+CREATE OR REPLACE FUNCTION _nlx_renamecolumn(tbl VARCHAR, oldname VARCHAR, newname VARCHAR)
+RETURNS bool AS
+$$
+BEGIN
+
+    IF EXISTS (SELECT 1
+            FROM information_schema.columns
+            WHERE table_schema='{schema}' AND table_name=tbl AND column_name=oldname) THEN
+        EXECUTE FORMAT('ALTER TABLE %s RENAME COLUMN %s TO %s', tbl, oldname, newname);
+        RETURN TRUE;
+    ELSE
+        RETURN FALSE;
+    END IF;
+
+END;
+$$
+LANGUAGE plpgsql;
+
 -- Functioneel gebied
 create table functioneelgebied as select ogc_fid, gml_id, namespace, lokaalid, brontype, bronactualiteit::date, bronbeschrijving, bronnauwkeurigheid, objectbegintijd::date, objecteindtijd::date, visualisatiecode, typefunctioneelgebied, soortnaam, naamnl, naamfries, case when geometrie_vlak is not null then st_multi(geometrie_vlak)::geometry(MULTIPOLYGON, 28992) else geometrie_multivlak end geometrie_multivlak, geometrie_punt from functioneelgebied_tmp;
 
@@ -11,7 +30,9 @@ create index functioneelgebied_geometrie_punt_geom_idx on functioneelgebied usin
 drop table functioneelgebied_tmp;
 
 -- Gebouw
-create table gebouw as select ogc_fid, gml_id, namespace, lokaalid, brontype, bronactualiteit::date, bronbeschrijving, bronnauwkeurigheid, objectbegintijd::date, objecteindtijd::date, visualisatiecode, typegebouw, fysiekvoorkomen, hoogteklasse, hoogte, status, soortnaam, naam, wkb_geometry geometrie_punt from gebouw_tmp;
+select _nlx_renamecolumn('gebouw_tmp', 'wkb_geometry', 'geometrie_punt');
+
+create table gebouw as select ogc_fid, gml_id, namespace, lokaalid, brontype, bronactualiteit::date, bronbeschrijving, bronnauwkeurigheid, objectbegintijd::date, objecteindtijd::date, visualisatiecode, typegebouw, fysiekvoorkomen, hoogteklasse, hoogte, status, soortnaam, naam, geometrie_punt from gebouw_tmp;
 
 alter table gebouw add primary key (ogc_fid);
 alter table gebouw alter column gml_id set not null;
@@ -80,7 +101,9 @@ create index registratiefgebied_geometrie_multivlak_geom_idx on registratiefgebi
 drop table registratiefgebied_tmp;
 
 -- Relief
-create table relief as select ogc_fid, gml_id, namespace, lokaalid, brontype, bronactualiteit::date, bronbeschrijving, bronnauwkeurigheid, objectbegintijd::date, objecteindtijd::date, visualisatiecode, typerelief, hoogteklasse, wkb_geometry geometrie_lijn from relief_tmp;
+select _nlx_renamecolumn('relief_tmp', 'wkb_geometry', 'geometrie_lijn');
+
+create table relief as select ogc_fid, gml_id, namespace, lokaalid, brontype, bronactualiteit::date, bronbeschrijving, bronnauwkeurigheid, objectbegintijd::date, objecteindtijd::date, visualisatiecode, typerelief, hoogteklasse, geometrie_lijn from relief_tmp;
 
 alter table relief add primary key (ogc_fid);
 alter table relief alter column gml_id set not null;
@@ -89,7 +112,9 @@ create index relief_geometrie_lijn_geom_idx on relief using gist((geometrie_lijn
 drop table relief_tmp;
 
 -- Spoorbaandeel
-create table spoorbaandeel as select ogc_fid, gml_id, namespace, lokaalid, brontype, bronactualiteit::date, bronbeschrijving, bronnauwkeurigheid, objectbegintijd::date, objecteindtijd::date, visualisatiecode, typeinfrastructuur, typespoorbaan, fysiekvoorkomen, spoorbreedte, aantalsporen, vervoerfunctie, elektrificatie, status, brugnaam, tunnelnaam, baanvaknaam, wkb_geometry geometrie_lijn from spoorbaandeel_tmp;
+select _nlx_renamecolumn('spoorbaandeel_tmp', 'wkb_geometry', 'geometrie_lijn');
+
+create table spoorbaandeel as select ogc_fid, gml_id, namespace, lokaalid, brontype, bronactualiteit::date, bronbeschrijving, bronnauwkeurigheid, objectbegintijd::date, objecteindtijd::date, visualisatiecode, typeinfrastructuur, typespoorbaan, fysiekvoorkomen, spoorbreedte, aantalsporen, vervoerfunctie, elektrificatie, status, brugnaam, tunnelnaam, baanvaknaam, geometrie_lijn from spoorbaandeel_tmp;
 
 alter table spoorbaandeel add primary key (ogc_fid);
 alter table spoorbaandeel alter column gml_id set not null;
@@ -98,7 +123,9 @@ create index spoorbaandeel_geometrie_lijn_geom_idx on spoorbaandeel using gist((
 drop table spoorbaandeel_tmp;
 
 -- Terrein
-create table terrein as select ogc_fid, gml_id, namespace, lokaalid, brontype, bronactualiteit::date, bronbeschrijving, bronnauwkeurigheid, objectbegintijd::date, objecteindtijd::date, visualisatiecode, typelandgebruik, naam, voorkomen, wkb_geometry geometrie_vlak from terrein_tmp;
+select _nlx_renamecolumn('terrein_tmp', 'wkb_geometry', 'geometrie_vlak');
+
+create table terrein as select ogc_fid, gml_id, namespace, lokaalid, brontype, bronactualiteit::date, bronbeschrijving, bronnauwkeurigheid, objectbegintijd::date, objecteindtijd::date, visualisatiecode, typelandgebruik, naam, voorkomen, geometrie_vlak from terrein_tmp;
 
 alter table terrein add primary key (ogc_fid);
 alter table terrein alter column gml_id set not null;
@@ -125,3 +152,6 @@ create index wegdeel_geometrie_lijn_geom_idx on wegdeel using gist((geometrie_li
 create index wegdeel_geometrie_punt_geom_idx on wegdeel using gist((geometrie_punt::geometry(POINT, 28992)));
 
 drop table wegdeel_tmp;
+
+-- Cleanup functions
+DROP FUNCTION _nlx_renamecolumn(tbl VARCHAR, oldname VARCHAR, newname VARCHAR);

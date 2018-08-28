@@ -1,5 +1,24 @@
 -- Create final tables in TOP10NL schema
 
+-- Function to conditionally rename a column
+CREATE OR REPLACE FUNCTION _nlx_renamecolumn(tbl VARCHAR, oldname VARCHAR, newname VARCHAR)
+RETURNS bool AS
+$$
+BEGIN
+
+    IF EXISTS (SELECT 1
+            FROM information_schema.columns
+            WHERE table_schema='{schema}' AND table_name=tbl AND column_name=oldname) THEN
+        EXECUTE FORMAT('ALTER TABLE %s RENAME COLUMN %s TO %s', tbl, oldname, newname);
+        RETURN TRUE;
+    ELSE
+        RETURN FALSE;
+    END IF;
+
+END;
+$$
+LANGUAGE plpgsql;
+
 -- Functioneel gebied
 create table functioneelgebied as select ogc_fid, gml_id, namespace, lokaalid, brontype, bronactualiteit::date, bronbeschrijving, bronnauwkeurigheid, objectbegintijd::date, objecteindtijd::date, tijdstipregistratie::date, eindregistratie::date, tdncode, visualisatiecode, mutatietype, typefunctioneelgebied, soortnaam, naamnl, naamfries, case when geometrie_vlak is not null then st_multi(geometrie_vlak)::geometry(MULTIPOLYGON, 28992) else geometrie_multivlak end geometrie_multivlak, geometrie_punt from functioneelgebied_tmp;
 
@@ -102,7 +121,9 @@ create index spoorbaandeel_geometrie_punt_geom_idx on spoorbaandeel using gist((
 drop table spoorbaandeel_tmp;
 
 -- Terrein
-create table terrein as select ogc_fid, gml_id, namespace, lokaalid, brontype, bronactualiteit::date, bronbeschrijving, bronnauwkeurigheid, objectbegintijd::date, objecteindtijd::date, tijdstipregistratie::date, eindregistratie::date, tdncode, visualisatiecode, mutatietype, typelandgebruik, fysiekvoorkomen, voorkomen, hoogteniveau, naam, wkb_geometry geometrie_vlak from terrein_tmp;
+select _nlx_renamecolumn('terrein_tmp', 'wkb_geometry', 'geometrie_vlak');
+
+create table terrein as select ogc_fid, gml_id, namespace, lokaalid, brontype, bronactualiteit::date, bronbeschrijving, bronnauwkeurigheid, objectbegintijd::date, objecteindtijd::date, tijdstipregistratie::date, eindregistratie::date, tdncode, visualisatiecode, mutatietype, typelandgebruik, fysiekvoorkomen, voorkomen, hoogteniveau, naam, geometrie_vlak from terrein_tmp;
 
 alter table terrein add primary key (ogc_fid);
 alter table terrein alter column gml_id set not null;
@@ -133,3 +154,6 @@ create index wegdeel_geometrie_hartlijn_geom_idx on wegdeel using gist((geometri
 create index wegdeel_geometrie_hartpunt_geom_idx on wegdeel using gist((geometrie_hartpunt::geometry(POINT, 28992)));
 
 drop table wegdeel_tmp;
+
+-- Cleanup functions
+DROP FUNCTION _nlx_renamecolumn(tbl VARCHAR, oldname VARCHAR, newname VARCHAR);
