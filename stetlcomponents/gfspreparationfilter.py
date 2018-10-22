@@ -53,10 +53,19 @@ $featurecounts
                     <xsl:apply-templates select="@* | node()" />
                 </xsl:copy>
             </xsl:if>
+            <xsl:if test="not(ElementPath) and Name/text()='%s'">
+                <xsl:copy>
+                    <xsl:apply-templates select="@* | node()" />
+                </xsl:copy>
+            </xsl:if>
     """
 
     TEST_FEATURECOUNT = """
                 <xsl:if test="../ElementPath/text()='%s'">
+                    <!-- Add feature count -->
+                    <FeatureCount>%d</FeatureCount>
+                </xsl:if>
+                <xsl:if test="not(../ElementPath) and ../Name/text()='%s'">
                     <!-- Add feature count -->
                     <FeatureCount>%d</FeatureCount>
                 </xsl:if>
@@ -160,8 +169,8 @@ $featurecounts
         return feature_counts
 
     def prepare_xslt_template(self, feature_counts):
-        elemtypes = [self.TEST_ELEMTYPE % key for key in feature_counts.iterkeys()]
-        featurecounts = [self.TEST_FEATURECOUNT % item for item in feature_counts.iteritems()]
+        elemtypes = [self.TEST_ELEMTYPE % (key, key) for key in feature_counts.iterkeys()]
+        featurecounts = [self.TEST_FEATURECOUNT % (key, value, key, value) for key, value in feature_counts.iteritems()]
 
         subst_dict = {}
         subst_dict['elemtypes'] = ''.join(elemtypes)
