@@ -71,7 +71,7 @@ class BAGFileReader:
         filenaam = os.path.basename(file_path)
 
         # Overslaan als bestand al (succesvol) verwerkt is: bijv bij herstart of reeds verwerkte mutaties
-        if self.database.has_log_actie('verwerkt', filenaam, False):
+        if filenaam != 'Leveringsdocument-BAG-Mutaties.xml' and self.database.has_log_actie('verwerkt', filenaam, False):
             Log.log.info("bestand %s is reeds verwerkt ==> overslaan" % filenaam)
             self.database.log_actie('overgeslagen', filenaam, 'reeds verwerkt', True)
             return
