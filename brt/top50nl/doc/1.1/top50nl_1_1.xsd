@@ -1,0 +1,996 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:top50nl="http://www.kadaster.nl/top50nl/1.1" elementFormDefault="qualified" targetNamespace="http://www.kadaster.nl/top50nl/1.1" version="1.1">
+  <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+  <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+  <simpleType name="BreedteklasseWaterT50Type">
+    <restriction base="string">
+      <enumeration value="0,5 - 3 meter"/>
+      <enumeration value="3 - 6 meter"/>
+      <enumeration value="&gt; 6 meter"/>
+    </restriction>
+  </simpleType>
+  <element name="FeatureCollectionTop50" substitutionGroup="gml:AbstractGML" type="top50nl:FeatureCollectionTop50Type"/>
+  <complexType name="FeatureCollectionTop50Type">
+    <complexContent>
+      <extension base="gml:AbstractGMLType">
+        <sequence>
+          <element maxOccurs="unbounded" minOccurs="0" name="FeatureMember">
+            <complexType>
+              <complexContent>
+                <extension base="gml:AbstractFeatureMemberType">
+                  <sequence minOccurs="0">
+                    <element ref="top50nl:_Top50nlObject"/>
+                  </sequence>
+                  <attributeGroup ref="gml:AssociationAttributeGroup"/>
+                </extension>
+              </complexContent>
+            </complexType>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="FeatureCollectionTop50PropertyType">
+    <sequence minOccurs="0">
+      <element ref="top50nl:FeatureCollectionTop50"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="FunctieReliefT50Type">
+    <restriction base="string">
+      <enumeration value="geluid weren"/>
+    </restriction>
+  </simpleType>
+  <element name="FunctioneelGebied" substitutionGroup="top50nl:_Top50nlObject" type="top50nl:FunctioneelGebiedType"/>
+  <complexType name="FunctioneelGebiedType">
+    <complexContent>
+      <extension base="top50nl:_Top50nlObjectType">
+        <sequence>
+          <element name="typeFunctioneelGebied" type="top50nl:TypeFunctioneelGebiedT50Type"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="naamNL" type="string"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="naamFries" type="string"/>
+          <element name="geometrie" type="top50nl:VlakMultivlakOfPuntPropertyType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="FunctioneelGebiedPropertyType">
+    <sequence minOccurs="0">
+      <element ref="top50nl:FunctioneelGebied"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="FysiekVoorkomenGebouwT50Type">
+    <restriction base="string">
+      <enumeration value="overkluisd"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="FysiekVoorkomenSpoorT50Type">
+    <restriction base="string">
+      <enumeration value="in tunnel"/>
+      <enumeration value="op beweegbaar deel van brug"/>
+      <enumeration value="op vast deel van brug"/>
+      <enumeration value="overkluisd"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="FysiekVoorkomenWaterT50Type">
+    <annotation>
+      <documentation>De relatie dat een object heeft  t.o.v. andere constructies.</documentation>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="in sluis"/>
+      <enumeration value="op brug"/>
+      <enumeration value="in duiker"/>
+      <enumeration value="in afsluitbare duiker"/>
+      <enumeration value="in grondduiker"/>
+      <enumeration value="in afsluitbare grondduiker"/>
+      <enumeration value="overkluisd"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="FysiekVoorkomenWegT50Type">
+    <annotation>
+      <documentation>De relatie dat een object heeft  t.o.v. andere constructies.</documentation>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="op vast deel van brug">
+        <annotation>
+          <documentation>Gelegen op een niet beweegbaar deel van een kunstwerk dat een verbinding vormt door middel van een overspanning</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="op beweegbaar deel van brug">
+        <annotation>
+          <documentation>Gelegen op een beweegbaar deel van een kunstwerk dat een verbinding vormt door middel van een overspanning</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="op knooppuntverbinding">
+        <annotation>
+          <documentation>Gelegen op een verbinding tussen twee wegen op een verkeersknooppunt, zoals een klaverblad</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="op oprit / afrit">
+        <annotation>
+          <documentation>Gelegen op een oprit of afrit van een auto(snel)weg</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="op vrijliggende baan">
+        <annotation>
+          <documentation>Gelegen op een vrijliggende baan</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="overkluisd">
+        <annotation>
+          <documentation>Overbouwd door gebouwen, zodanig dat de orthogonale projectie van de gebouwen op of over het object valt</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="in tunnel">
+        <annotation>
+          <documentation>Gelegen in een kunstmatig aangelegde, onderaardse of door een berg geboorde kokervormige doorgang</documentation>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <element name="Gebouw" substitutionGroup="top50nl:_Top50nlObject" type="top50nl:GebouwType"/>
+  <complexType name="GebouwType">
+    <complexContent>
+      <extension base="top50nl:_Top50nlObjectType">
+        <sequence>
+          <element minOccurs="0" name="fysiekVoorkomen" type="top50nl:FysiekVoorkomenGebouwT50Type"/>
+          <element name="geometrie" type="top50nl:VlakOfPuntPropertyType"/>
+          <element minOccurs="0" name="hoogte" type="double"/>
+          <element name="hoogteklasse" type="top50nl:HoogteklasseGebouwT50Type"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="naamFries" type="string"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="naamNL" type="string"/>
+          <element maxOccurs="unbounded" name="typeGebouw" type="top50nl:TypeGebouwT50Type"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="GebouwPropertyType">
+    <sequence minOccurs="0">
+      <element ref="top50nl:Gebouw"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="GeografischGebied" substitutionGroup="top50nl:_Top50nlObject" type="top50nl:GeografischGebiedType"/>
+  <complexType name="GeografischGebiedType">
+    <complexContent>
+      <extension base="top50nl:_Top50nlObjectType">
+        <sequence>
+          <element name="typeGeografischGebied" type="top50nl:TypeGeografischGebiedT50Type"/>
+          <element minOccurs="0" name="aantalInwoners" type="integer"/>
+          <element name="naamOfficieel" type="string"/>
+          <element maxOccurs="unbounded" name="naamNL" type="string"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="naamFries" type="string"/>
+          <element name="geometrie" type="top50nl:VlakMultivlakOfPuntPropertyType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="GeografischGebiedPropertyType">
+    <sequence minOccurs="0">
+      <element ref="top50nl:GeografischGebied"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="HoofdverkeersgebruikT50Type">
+    <restriction base="string">
+      <enumeration value="snelverkeer"/>
+      <enumeration value="gemengd verkeer"/>
+      <enumeration value="busverkeer"/>
+      <enumeration value="fietsers, bromfietsers"/>
+      <enumeration value="voetgangers"/>
+      <enumeration value="vliegverkeer"/>
+      <enumeration value="overig"/>
+    </restriction>
+  </simpleType>
+  <element name="Hoogte" substitutionGroup="top50nl:_Top50nlObject" type="top50nl:HoogteType">
+    <annotation>
+      <documentation>Virtuele objecten met informatie over de hoogte van het terrein of de diepte van het water
+NOTE Onder de klasse Hoogte vallen de hoogte- en dieptelijnen alsmede hoogte- en dieptepunten</documentation>
+    </annotation>
+  </element>
+  <complexType name="HoogteType">
+    <complexContent>
+      <extension base="top50nl:_Top50nlObjectType">
+        <sequence>
+          <element name="geometrie" type="top50nl:LijnOfPuntPropertyType"/>
+          <element name="hoogte" type="double"/>
+          <element name="typeHoogte" type="top50nl:TypeHoogteT50Type"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="HoogtePropertyType">
+    <sequence minOccurs="0">
+      <element ref="top50nl:Hoogte"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="HoogteklasseGebouwT50Type">
+    <restriction base="string">
+      <enumeration value="laagbouw"/>
+      <enumeration value="hoogbouw"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="HoogteklasseReliefT50Type">
+    <restriction base="string">
+      <enumeration value="1 - 2,5 meter"/>
+      <enumeration value="&gt; 2,5 meter"/>
+      <enumeration value="&gt; 1 meter"/>
+    </restriction>
+  </simpleType>
+  <element name="Inrichtingselement" substitutionGroup="top50nl:_Top50nlObject" type="top50nl:InrichtingselementType"/>
+  <complexType name="InrichtingselementType">
+    <complexContent>
+      <extension base="top50nl:_Top50nlObjectType">
+        <sequence>
+          <element name="geometrie" type="top50nl:LijnOfPuntPropertyType"/>
+          <element name="hoogteNiveau" type="integer"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="naamFries" type="string"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="naamNL" type="string"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="nummer" type="string"/>
+          <element name="status" type="top50nl:StatusT50Type"/>
+          <element name="typeInrichtingsElement" type="top50nl:TypeInrichtingselementT50Type"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="InrichtingselementPropertyType">
+    <sequence minOccurs="0">
+      <element ref="top50nl:Inrichtingselement"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="JaNeeType">
+    <restriction base="string">
+      <enumeration value="ja"/>
+      <enumeration value="nee"/>
+    </restriction>
+  </simpleType>
+  <element name="LijnOfPunt" substitutionGroup="gml:AbstractObject" type="top50nl:LijnOfPuntType"/>
+  <complexType name="LijnOfPuntType">
+    <choice>
+      <element name="lijnGeometrie" type="gml:CurvePropertyType"/>
+      <element name="puntGeometrie" type="gml:PointPropertyType"/>
+    </choice>
+  </complexType>
+  <complexType name="LijnOfPuntPropertyType">
+    <sequence>
+      <element ref="top50nl:LijnOfPunt"/>
+    </sequence>
+  </complexType>
+  <element name="NEN3610ID" substitutionGroup="gml:AbstractObject" type="top50nl:NEN3610IDType">
+    <annotation>
+      <documentation>identificatiegegevens voor de universeel unieke identificatie van een object
+NOTE De combinatie van ‘namespace’ van een registratie, lokale identificatie en versie informatie maken een object uniek identificeerbaar. Met de informatie van deze klasse kan daardoor met zekerheid worden verwezen naar het geïdentificeerde object.
+-- Source --
+NEN 3610:2011</documentation>
+    </annotation>
+  </element>
+  <complexType name="NEN3610IDType">
+    <sequence>
+      <element name="namespace" type="string">
+        <annotation>
+          <documentation>unieke verwijzing naar een registratie van objecten
+NOTE Het attribuut &amp;lsquo;namespace&amp;rsquo; is een unieke verwijzing naar de registratie die de identificatie uitdeelt. Deze lijst van registraties wordt beheerd binnen de context van NEN 3610. Binnen Nederland zal deze namespace vrijwel altijd met &amp;lsquo;NL.&amp;rsquo; beginnen.
+De volgende karakters mogen in een namespace aanduiding voorkomen: {&amp;rdquo;A&amp;rdquo;&amp;hellip;&amp;rdquo;Z&amp;rdquo;, &amp;ldquo;a&amp;rdquo;&amp;hellip;&amp;rdquo;z&amp;rdquo;,    &amp;rdquo;0&amp;rdquo;&amp;hellip;&amp;rdquo;9&amp;rdquo;, &amp;ldquo;_&amp;rdquo;,    &amp;ldquo;- &amp;ldquo;,    &amp;ldquo;,&amp;rdquo;,    &amp;rdquo;.&amp;rdquo;}
+-- Source --
+NEN 3610:2011</documentation>
+        </annotation>
+      </element>
+      <element name="lokaalID" type="string">
+        <annotation>
+          <documentation>unieke identificatiecode binnen een registratie
+NOTE &amp;lsquo;LokaalId&amp;rsquo; is de identificatiecode die een object heeft binnen een (lokale) registratie.
+De volgende karakters mogen in een lokaalID voorkomen: {&amp;rdquo;A&amp;rdquo;&amp;hellip;&amp;rdquo;Z&amp;rdquo;,   &amp;ldquo;a&amp;rdquo;&amp;hellip;&amp;rdquo;z&amp;rdquo;, &amp;rdquo;0&amp;rdquo;&amp;hellip;&amp;rdquo;9&amp;rdquo;,    &amp;ldquo;_&amp;rdquo;,    &amp;ldquo;-&amp;ldquo;, &amp;ldquo;,&amp;rdquo;,    &amp;rdquo;.&amp;rdquo;}.
+-- Source --
+NEN 3610:2011</documentation>
+        </annotation>
+      </element>
+      <element minOccurs="0" name="versie" type="string">
+        <annotation>
+          <documentation>versie-aanduiding van een object
+NOTE Het attribuut &amp;lsquo;versie&amp;rsquo; maakt geen deel uit van de identificatie van het object maar kan worden gebruikt om verschillende versies van hetzelfde object te identificeren.
+-- Source --
+NEN 3610:2011</documentation>
+        </annotation>
+      </element>
+    </sequence>
+  </complexType>
+  <element name="RegistratiefGebied" substitutionGroup="top50nl:_Top50nlObject" type="top50nl:RegistratiefGebiedType">
+    <annotation>
+      <documentation>Registratief gebied
+NOTE Op basis van wet- en regelgeving afgebakend gebied dat als eenheid geldt van politieke/bestuurlijke verantwoordelijkheid of voor bedrijfsvoering.</documentation>
+    </annotation>
+  </element>
+  <complexType name="RegistratiefGebiedType">
+    <complexContent>
+      <extension base="top50nl:_Top50nlObjectType">
+        <sequence>
+          <element name="geometrie" type="top50nl:VlakOfMultivlakPropertyType"/>
+          <element minOccurs="0" name="naamFries" type="string"/>
+          <element minOccurs="0" name="naamNL" type="string"/>
+          <element minOccurs="0" name="nummer" type="string"/>
+          <element name="typeRegistratiefGebied" type="top50nl:TypeRegistratiefGebiedT50Type"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="RegistratiefGebiedPropertyType">
+    <sequence minOccurs="0">
+      <element ref="top50nl:RegistratiefGebied"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="Relief" substitutionGroup="top50nl:_Top50nlObject" type="top50nl:ReliefType">
+    <annotation>
+      <documentation>Reliëf  objecten
+NOTE Onder de klasse Relief vallen objecten die een hoogteverschil in het terrein kenmerken, zoals dijken en taluds</documentation>
+    </annotation>
+  </element>
+  <complexType name="ReliefType">
+    <complexContent>
+      <extension base="top50nl:_Top50nlObjectType">
+        <sequence>
+          <element name="typeRelief" type="top50nl:TypeReliefT50Type"/>
+          <element minOccurs="0" name="hoogteklasse" type="top50nl:HoogteklasseReliefT50Type"/>
+          <element minOccurs="0" name="functie" type="top50nl:FunctieReliefT50Type"/>
+          <element minOccurs="0" name="naamFries" type="string"/>
+          <element minOccurs="0" name="naamNL" type="string"/>
+          <element name="hoogteniveau" type="integer"/>
+          <element name="geometrie" type="gml:CurvePropertyType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="ReliefPropertyType">
+    <sequence minOccurs="0">
+      <element ref="top50nl:Relief"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="Spoorbaandeel" substitutionGroup="top50nl:_Top50nlObject" type="top50nl:SpoorbaandeelType"/>
+  <complexType name="SpoorbaandeelType">
+    <complexContent>
+      <extension base="top50nl:_Top50nlObjectType">
+        <sequence>
+          <element name="aantalSporen" type="integer"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="fysiekVoorkomen" type="top50nl:FysiekVoorkomenSpoorT50Type"/>
+          <element name="geometrie" type="gml:CurvePropertyType"/>
+          <element name="hoogteniveau" type="integer"/>
+          <element name="status" type="top50nl:StatusT50Type"/>
+          <element name="typeSpoorbaan" type="top50nl:TypeSpoorbaanT50Type"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="SpoorbaandeelPropertyType">
+    <sequence minOccurs="0">
+      <element ref="top50nl:Spoorbaandeel"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="StatusT50Type">
+    <restriction base="string">
+      <enumeration value="realisatie: nog niet in uitvoering"/>
+      <enumeration value="realisatie: in uitvoering"/>
+      <enumeration value="in gebruik"/>
+      <enumeration value="buiten gebruik"/>
+      <enumeration value="onbekend"/>
+    </restriction>
+  </simpleType>
+  <element name="Terrein" substitutionGroup="top50nl:_Top50nlObject" type="top50nl:TerreinType"/>
+  <complexType name="TerreinType">
+    <complexContent>
+      <extension base="top50nl:_Top50nlObjectType">
+        <sequence>
+          <element name="geometrie" type="gml:SurfacePropertyType"/>
+          <element name="typeLandgebruik" type="top50nl:TypeLandgebruikT50Type"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="TerreinPropertyType">
+    <sequence minOccurs="0">
+      <element ref="top50nl:Terrein"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <simpleType name="TypeBronT50Type">
+    <annotation>
+      <documentation>Het type van de gebruikte brongegevens.</documentation>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="externe data">
+        <annotation>
+          <documentation>Data afkomstig uit andere bronnen dan TOP10NL</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="TOP10NL">
+        <annotation>
+          <documentation>Ontstaan door automatische generalisatie van TOP10NL data</documentation>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="TypeFunctioneelGebiedT50Type">
+    <restriction base="string">
+      <enumeration value="arboretum"/>
+      <enumeration value="bedrijventerrein"/>
+      <enumeration value="begraafplaats"/>
+      <enumeration value="bungalowpark"/>
+      <enumeration value="camping, kampeerterrein"/>
+      <enumeration value="circuit"/>
+      <enumeration value="crossbaan"/>
+      <enumeration value="dierentuin, safaripark"/>
+      <enumeration value="emplacement"/>
+      <enumeration value="erebegraafplaats"/>
+      <enumeration value="gaswinning"/>
+      <enumeration value="groeve"/>
+      <enumeration value="haven"/>
+      <enumeration value="heemtuin"/>
+      <enumeration value="helikopterlandingsterrein"/>
+      <enumeration value="jachthaven"/>
+      <enumeration value="mijn"/>
+      <enumeration value="militair oefengebied, schietterrein"/>
+      <enumeration value="mosselbank"/>
+      <enumeration value="natuurgebied, natuurreservaat"/>
+      <enumeration value="oliewinning"/>
+      <enumeration value="openluchtmuseum"/>
+      <enumeration value="openluchttheater"/>
+      <enumeration value="park"/>
+      <enumeration value="pinetum"/>
+      <enumeration value="productie-installatie"/>
+      <enumeration value="recreatiegebied"/>
+      <enumeration value="renbaan"/>
+      <enumeration value="skibaan"/>
+      <enumeration value="sluizencomplex"/>
+      <enumeration value="sportterrein, sportcomplex"/>
+      <enumeration value="stortplaats"/>
+      <enumeration value="tennispark"/>
+      <enumeration value="verzorgingsplaats"/>
+      <enumeration value="vliegveld, luchthaven"/>
+      <enumeration value="volkstuinen"/>
+      <enumeration value="wildwissel"/>
+      <enumeration value="windturbinepark"/>
+      <enumeration value="woonwagencentrum"/>
+      <enumeration value="zandwinning"/>
+      <enumeration value="zenderpark"/>
+      <enumeration value="zoutwinning"/>
+      <enumeration value="zuiveringsinstallatie"/>
+      <enumeration value="zweefvliegveldterrein"/>
+      <enumeration value="ijsbaan"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="TypeGebouwT50Type">
+    <restriction base="string">
+      <enumeration value="bezoekerscentrum"/>
+      <enumeration value="brandtoren"/>
+      <enumeration value="bunker"/>
+      <enumeration value="crematorium"/>
+      <enumeration value="deelraadsecretarie"/>
+      <enumeration value="dok"/>
+      <enumeration value="elektriciteitscentrale"/>
+      <enumeration value="fabriek"/>
+      <enumeration value="fort"/>
+      <enumeration value="gascompressiestation"/>
+      <enumeration value="gemaal"/>
+      <enumeration value="gemeentehuis"/>
+      <enumeration value="gevangenis"/>
+      <enumeration value="grenskantoor"/>
+      <enumeration value="hotel"/>
+      <enumeration value="huizenblok"/>
+      <enumeration value="hulpsecretarie"/>
+      <enumeration value="kapel"/>
+      <enumeration value="kas, warenhuis"/>
+      <enumeration value="kasteel"/>
+      <enumeration value="kerk"/>
+      <enumeration value="kerncentrale, kernreactor"/>
+      <enumeration value="kliniek, inrichting, sanatorium"/>
+      <enumeration value="klokkentoren"/>
+      <enumeration value="klooster, abdij"/>
+      <enumeration value="koeltoren"/>
+      <enumeration value="koepel"/>
+      <enumeration value="kunstijsbaan"/>
+      <enumeration value="lichttoren"/>
+      <enumeration value="luchtwachttoren"/>
+      <enumeration value="manege"/>
+      <enumeration value="metrostation"/>
+      <enumeration value="militair gebouw"/>
+      <enumeration value="motel"/>
+      <enumeration value="museum"/>
+      <enumeration value="observatorium"/>
+      <enumeration value="overheidsgebouw"/>
+      <enumeration value="paleis"/>
+      <enumeration value="parkeerdak, parkeerdek, parkeergarage"/>
+      <enumeration value="peilmeetstation"/>
+      <enumeration value="politiebureau"/>
+      <enumeration value="pompstation"/>
+      <enumeration value="postkantoor"/>
+      <enumeration value="psychiatrisch ziekenhuis, psychiatrisch centrum"/>
+      <enumeration value="radarpost"/>
+      <enumeration value="radartoren"/>
+      <enumeration value="radiotoren, televisietoren"/>
+      <enumeration value="recreatiecentrum"/>
+      <enumeration value="reddingboothuisje"/>
+      <enumeration value="reddinghuisje, schuilhut"/>
+      <enumeration value="religieus gebouw"/>
+      <enumeration value="remise"/>
+      <enumeration value="ruïne"/>
+      <enumeration value="schaapskooi"/>
+      <enumeration value="school"/>
+      <enumeration value="schoorsteen"/>
+      <enumeration value="sporthal"/>
+      <enumeration value="stadion"/>
+      <enumeration value="stadskantoor"/>
+      <enumeration value="tank"/>
+      <enumeration value="tankstation"/>
+      <enumeration value="telecommunicatietoren"/>
+      <enumeration value="toren"/>
+      <enumeration value="transformatorstation"/>
+      <enumeration value="treinstation"/>
+      <enumeration value="uitzichttoren"/>
+      <enumeration value="universiteit"/>
+      <enumeration value="veiling"/>
+      <enumeration value="verkeerstoren"/>
+      <enumeration value="vuurtoren"/>
+      <enumeration value="waterradmolen"/>
+      <enumeration value="watertoren"/>
+      <enumeration value="wegenwachtstation"/>
+      <enumeration value="wegrestaurant"/>
+      <enumeration value="werf"/>
+      <enumeration value="windmolen"/>
+      <enumeration value="windmolen: korenmolen"/>
+      <enumeration value="windmolen: watermolen"/>
+      <enumeration value="windturbine"/>
+      <enumeration value="zendtoren"/>
+      <enumeration value="ziekenhuis"/>
+      <enumeration value="zwembad"/>
+      <enumeration value="overig"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="TypeGeografischGebiedT50Type">
+    <restriction base="string">
+      <enumeration value="bosgebied"/>
+      <enumeration value="buurtschap"/>
+      <enumeration value="eiland"/>
+      <enumeration value="geul, vaargeul"/>
+      <enumeration value="huizengroep"/>
+      <enumeration value="kaap, hoek"/>
+      <enumeration value="plaats, bewoond oord"/>
+      <enumeration value="terp"/>
+      <enumeration value="woonwijk"/>
+      <enumeration value="zeegat, zeearm"/>
+      <enumeration value="overig"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="TypeHoogteT50Type">
+    <restriction base="string">
+      <enumeration value="dieptelijn"/>
+      <enumeration value="dieptepunt"/>
+      <enumeration value="hoogtelijn"/>
+      <enumeration value="hoogtepunt"/>
+      <enumeration value="hoogwaterlijn"/>
+      <enumeration value="laagwaterlijn"/>
+      <enumeration value="peil:winterpeil"/>
+      <enumeration value="peil:zomerpeil"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="TypeInfrastructuurWegT50Type">
+    <restriction base="string">
+      <enumeration value="verbinding"/>
+      <enumeration value="overig verkeersgebied"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="TypeInrichtingselementT50Type">
+    <restriction base="string">
+      <enumeration value="aanlegsteiger"/>
+      <enumeration value="baak"/>
+      <enumeration value="bomenrij"/>
+      <enumeration value="boom"/>
+      <enumeration value="boortoren"/>
+      <enumeration value="brug"/>
+      <enumeration value="dam, koedam"/>
+      <enumeration value="dukdalf"/>
+      <enumeration value="gedenkteken, monument"/>
+      <enumeration value="geluidswering"/>
+      <enumeration value="golfmeetpaal"/>
+      <enumeration value="GPS kernnetpunt"/>
+      <enumeration value="grenspunt"/>
+      <enumeration value="heg, haag"/>
+      <enumeration value="hekwerk"/>
+      <enumeration value="helikopterlandingsplatform"/>
+      <enumeration value="hoogspanningsleiding"/>
+      <enumeration value="hoogspanningsmast"/>
+      <enumeration value="hunebed"/>
+      <enumeration value="kaap"/>
+      <enumeration value="kabelbaan"/>
+      <enumeration value="kabelbaanmast"/>
+      <enumeration value="kilometerpaal"/>
+      <enumeration value="kilometerpaal spoorweg"/>
+      <enumeration value="kilometerpaal water"/>
+      <enumeration value="kilometerraaibord"/>
+      <enumeration value="kilometerraaipaal"/>
+      <enumeration value="kruis"/>
+      <enumeration value="laadperron"/>
+      <enumeration value="licht, lichtopstand"/>
+      <enumeration value="markant object"/>
+      <enumeration value="muur"/>
+      <enumeration value="oliepompinstallatie"/>
+      <enumeration value="paal"/>
+      <enumeration value="paalwerk"/>
+      <enumeration value="peilschaal"/>
+      <enumeration value="pijler"/>
+      <enumeration value="radarpost"/>
+      <enumeration value="radiotelescoop"/>
+      <enumeration value="RD punt"/>
+      <enumeration value="recreatiepier"/>
+      <enumeration value="schietbaan"/>
+      <enumeration value="schoorsteen"/>
+      <enumeration value="seinmast"/>
+      <enumeration value="sluisdeur"/>
+      <enumeration value="station"/>
+      <enumeration value="stormvloedkering"/>
+      <enumeration value="strandpaal"/>
+      <enumeration value="strekdam, krib, golfbreker"/>
+      <enumeration value="stuw"/>
+      <enumeration value="tol"/>
+      <enumeration value="toren"/>
+      <enumeration value="verkeersgeleider"/>
+      <enumeration value="vlampijp"/>
+      <enumeration value="wegafsluiting"/>
+      <enumeration value="wegwijzer"/>
+      <enumeration value="windmolentje"/>
+      <enumeration value="windturbine"/>
+      <enumeration value="zendmast"/>
+      <enumeration value="overig"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="TypeLandgebruikT50Type">
+    <restriction base="string">
+      <enumeration value="aanlegsteiger"/>
+      <enumeration value="akkerland"/>
+      <enumeration value="basaltblokken, steenglooiing"/>
+      <enumeration value="bebouwd gebied"/>
+      <enumeration value="boomgaard"/>
+      <enumeration value="boomkwekerij"/>
+      <enumeration value="bos: gemengd bos"/>
+      <enumeration value="bos: griend"/>
+      <enumeration value="bos: loofbos"/>
+      <enumeration value="bos: naaldbos"/>
+      <enumeration value="dodenakker"/>
+      <enumeration value="fruitkwekerij"/>
+      <enumeration value="grasland"/>
+      <enumeration value="heide"/>
+      <enumeration value="kassengebied"/>
+      <enumeration value="laadperron"/>
+      <enumeration value="populieren"/>
+      <enumeration value="spoorbaanlichaam"/>
+      <enumeration value="zand"/>
+      <enumeration value="overig"/>
+      <enumeration value="ongedefinieerd">
+        <annotation>
+          <documentation>ruimte tussen 2 weglijnen van direct naast elkaar gelegen wegen</documentation>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="TypeRegistratiefGebiedT50Type">
+    <restriction base="string">
+      <enumeration value="land"/>
+      <enumeration value="provincie"/>
+      <enumeration value="gemeente"/>
+      <enumeration value="enclave"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="TypeReliefT50Type">
+    <restriction base="string">
+      <enumeration value="dijk"/>
+      <enumeration value="kade, wal"/>
+      <enumeration value="talud, hoogteverschil"/>
+      <enumeration value="steile rand, aardrand"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="TypeSpoorbaanT50Type">
+    <restriction base="string">
+      <enumeration value="trein"/>
+      <enumeration value="metro"/>
+      <enumeration value="sneltram"/>
+      <enumeration value="tram"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="TypeVerhardingT50Type">
+    <restriction base="string">
+      <enumeration value="verhard"/>
+      <enumeration value="half verhard"/>
+      <enumeration value="onverhard"/>
+      <enumeration value="onbekend"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="TypeWaterT50Type">
+    <restriction base="string">
+      <enumeration value="waterloop"/>
+      <enumeration value="meer, plas, ven, vijver"/>
+      <enumeration value="greppel, droge sloot"/>
+      <enumeration value="zee"/>
+      <enumeration value="droogvallend"/>
+      <enumeration value="bron, wel"/>
+      <enumeration value="overig"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="TypeWegT50Type">
+    <annotation>
+      <documentation>Specificatie van het soort weg</documentation>
+    </annotation>
+    <restriction base="string">
+      <enumeration value="startbaan, landingsbaan">
+        <annotation>
+          <documentation>Strook grond waar vliegtuigen kunnen opstijgen en/of landen</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="rolbaan, platform">
+        <annotation>
+          <documentation>Afgebakende taxibaan op een vliegveld (rolbaan) / Terrein voor geparkeerd staande vliegtuigen (platform)</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="autosnelweg">
+        <annotation>
+          <documentation>Weg met gescheiden rijbanen en ongelijkvloerse kruisingen, daartoe aangeduid met het betreffende verkeersbord.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="hoofdweg">
+        <annotation>
+          <documentation>Verharde weg die is aangeduid met een E-nummer, maar niet met een A-nummer, of verharde weg die onderdeel is van een verbindingsroute tussen grotere plaatsen, wat blijkt uit blauwe
+ANWB-borden, dan wel onderdeel is van een route om eindigende A of E-routes tot een gesloten netwerk te completeren</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="regionale weg">
+        <annotation>
+          <documentation>Verharde weg die een verbinding vormt tussen bewoonde oorden, tussen wijken binnen een dorp of stad, en daartoe bewegwijzerd zijn met blauwe ANWB-borden of lokale borden</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="lokale weg">
+        <annotation>
+          <documentation>Weg van lokaal belang tussen bewegwijzerde routes</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="straat">
+        <annotation>
+          <documentation>Weg van zeer plaatselijk belang / Weg met speciale bestemming</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="veerverbinding">
+        <annotation>
+          <documentation>Verbinding tussen twee oevers waar voertuigen en personen door een vaartuig overgezet worden.</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="parkeerplaats">
+        <annotation>
+          <documentation>Parkeergelegenheid voor meerdere voertuigen in de openlucht</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="parkeerplaats: carpool">
+        <annotation>
+          <documentation>Parkeerplaats voor personenwagens langs doorgaande wegen t.b.v. carpoolers</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="parkeerplaats: P+R">
+        <annotation>
+          <documentation>Parkeergelegenheid ten behoeve van het overstappen op het openbaar vervoer</documentation>
+        </annotation>
+      </enumeration>
+      <enumeration value="overig">
+        <annotation>
+          <documentation>De waarde van het objectkenmerk is bekend, maar anders dan de genoemde waarden</documentation>
+        </annotation>
+      </enumeration>
+    </restriction>
+  </simpleType>
+  <simpleType name="VerhardingsbreedteklasseT50Type">
+    <restriction base="string">
+      <enumeration value="&gt; 7 meter"/>
+      <enumeration value="4 - 7 meter"/>
+      <enumeration value="2 - 4 meter"/>
+      <enumeration value="&lt; 2 meter"/>
+    </restriction>
+  </simpleType>
+  <element name="VlakMultivlakOfPunt" substitutionGroup="gml:AbstractObject" type="top50nl:VlakMultivlakOfPuntType"/>
+  <complexType name="VlakMultivlakOfPuntType">
+    <choice>
+      <element name="vlakGeometrie" type="gml:SurfacePropertyType"/>
+      <element name="multivlakGeometrie" type="gml:MultiSurfacePropertyType"/>
+      <element name="puntGeometrie" type="gml:PointPropertyType"/>
+    </choice>
+  </complexType>
+  <complexType name="VlakMultivlakOfPuntPropertyType">
+    <sequence>
+      <element ref="top50nl:VlakMultivlakOfPunt"/>
+    </sequence>
+  </complexType>
+  <element name="VlakOfLijn" substitutionGroup="gml:AbstractObject" type="top50nl:VlakOfLijnType"/>
+  <complexType name="VlakOfLijnType">
+    <choice>
+      <element name="lijnGeometrie" type="gml:CurvePropertyType"/>
+      <element name="vlakGeometrie" type="gml:SurfacePropertyType"/>
+    </choice>
+  </complexType>
+  <complexType name="VlakOfLijnPropertyType">
+    <sequence>
+      <element ref="top50nl:VlakOfLijn"/>
+    </sequence>
+  </complexType>
+  <element name="VlakOfMultivlak" substitutionGroup="gml:AbstractObject" type="top50nl:VlakOfMultivlakType"/>
+  <complexType name="VlakOfMultivlakType">
+    <choice>
+      <element name="vlakGeometrie" type="gml:SurfacePropertyType"/>
+      <element name="multivlakGeometrie" type="gml:MultiSurfacePropertyType"/>
+    </choice>
+  </complexType>
+  <complexType name="VlakOfMultivlakPropertyType">
+    <sequence>
+      <element ref="top50nl:VlakOfMultivlak"/>
+    </sequence>
+  </complexType>
+  <element name="VlakOfPunt" substitutionGroup="gml:AbstractObject" type="top50nl:VlakOfPuntType"/>
+  <complexType name="VlakOfPuntType">
+    <choice>
+      <element name="vlakGeometrie" type="gml:SurfacePropertyType"/>
+      <element name="puntGeometrie" type="gml:PointPropertyType"/>
+    </choice>
+  </complexType>
+  <complexType name="VlakOfPuntPropertyType">
+    <sequence>
+      <element ref="top50nl:VlakOfPunt"/>
+    </sequence>
+  </complexType>
+  <element name="Waterdeel" substitutionGroup="top50nl:_Top50nlObject" type="top50nl:WaterdeelType">
+    <annotation>
+      <documentation>grondoppervlak in principe bedekt met water
+NOTE Voorbeelden zijn: rivier, kanaal, beek, zee, meer, oppervlaktewater in algemene zin. Objecten die in het kader van de waterhuishouding periodiek met water zijn bedekt, vallen hier ook onder.</documentation>
+    </annotation>
+  </element>
+  <complexType name="WaterdeelType">
+    <complexContent>
+      <extension base="top50nl:_Top50nlObjectType">
+        <sequence>
+          <element name="typeWater" type="top50nl:TypeWaterT50Type"/>
+          <element minOccurs="0" name="breedteklasse" type="top50nl:BreedteklasseWaterT50Type"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="fysiekVoorkomen" type="top50nl:FysiekVoorkomenWaterT50Type"/>
+          <element name="hoogteniveau" type="integer"/>
+          <element minOccurs="0" name="geometrie" type="top50nl:VlakOfLijnPropertyType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="WaterdeelPropertyType">
+    <sequence minOccurs="0">
+      <element ref="top50nl:Waterdeel"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="Wegdeel" substitutionGroup="top50nl:_Top50nlObject" type="top50nl:WegdeelType">
+    <annotation>
+      <documentation>gebaand gedeelte voor het wegverkeer en vliegverkeer te land
+NOTE Onder de klasse Weg vallen ook start- en landingsbanen voor vliegverkeer.
+-- Source --
+NEN 3610:2011</documentation>
+    </annotation>
+  </element>
+  <complexType name="WegdeelType">
+    <complexContent>
+      <extension base="top50nl:_Top50nlObjectType">
+        <sequence>
+          <element name="typeInfrastructuur" type="top50nl:TypeInfrastructuurWegT50Type"/>
+          <element name="typeWeg" type="top50nl:TypeWegT50Type">
+            <annotation>
+              <documentation>Specificatie van het soort weg</documentation>
+            </annotation>
+          </element>
+          <element name="hoofdverkeersgebruik" type="top50nl:HoofdverkeersgebruikT50Type"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="fysiekVoorkomen" type="top50nl:FysiekVoorkomenWegT50Type">
+            <annotation>
+              <documentation>Fysiek voorkomen: De relatie dat een object heeft  t.o.v. andere constructies.</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="verhardingsbreedteklasse" type="top50nl:VerhardingsbreedteklasseT50Type"/>
+          <element name="gescheidenRijbaan" type="top50nl:JaNeeType"/>
+          <element name="typeVerharding" type="top50nl:TypeVerhardingT50Type"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="straatnaamNL" type="string">
+            <annotation>
+              <documentation>Nederlandse straatnaam</documentation>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="straatnaamFries" type="string">
+            <annotation>
+              <documentation>Friese straatnaam</documentation>
+            </annotation>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="aWegnummer" type="string"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="eWegnummer" type="string"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="nWegnummer" type="string"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="sWegnummer" type="string"/>
+          <element minOccurs="0" name="afritnummer" type="string"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="afritnaam" type="string"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="knooppuntnaam" type="string"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="brugnaam" type="string"/>
+          <element maxOccurs="unbounded" minOccurs="0" name="tunnelnaam" type="string"/>
+          <element name="hoogteniveau" type="integer"/>
+          <element name="geometrie" type="top50nl:VlakOfLijnPropertyType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="WegdeelPropertyType">
+    <sequence minOccurs="0">
+      <element ref="top50nl:Wegdeel"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element abstract="true" name="_Top50nlObject" substitutionGroup="gml:AbstractFeature" type="top50nl:_Top50nlObjectType">
+    <annotation>
+      <documentation>De gemeenschappelijke eigenschappen van een TOP50NL object
+NOTE De abstracte klasse _Top50nlObject  heeft alle attributen die TOP50NL objecten gemeenschappelijk hebben, zoals identificatie</documentation>
+    </annotation>
+  </element>
+  <complexType abstract="true" name="_Top50nlObjectType">
+    <complexContent>
+      <extension base="gml:AbstractFeatureType">
+        <sequence>
+          <element name="identificatie">
+            <annotation>
+              <documentation>Unieke identificatie van het object binnen het domein van NEN 3610.
+-- Source --
+NEN 3610:2011</documentation>
+            </annotation>
+            <complexType>
+              <sequence>
+                <element ref="top50nl:NEN3610ID"/>
+              </sequence>
+            </complexType>
+          </element>
+          <element name="objectBeginTijd" type="dateTime">
+            <annotation>
+              <documentation>Object begintijd: tijdstip waarop het object in de registratie is ontstaan
+NOTE Dit tijdstip moet altijd gelijk zijn aan het tijdstipregistratie van het eerste voorkomen van het object.
+Er zijn verschillende datatypes voor de representatie van een tijdstip: Afhankelijk van de gebruikerswensen m.b.t. granulariteit kan o.a. worden gekozen uit types TM_Instant, Date of DateTime.
+-- Source --
+NEN 3610:2011</documentation>
+            </annotation>
+          </element>
+          <element minOccurs="0" name="objectEindTijd" type="dateTime">
+            <annotation>
+              <documentation>Object eindtijd: tijdstip waarop het object in de registratie niet meer geldig is
+NOTE Er zijn verschillende datatypes voor de representatie van een tijdstip: Afhankelijk van de gebruikerswensen m.b.t. granulariteit kan o.a. worden gekozen uit types TM_Instant, Date of DateTime.
+-- Source --
+NEN 3610:2011</documentation>
+            </annotation>
+          </element>
+          <element name="brontype" type="top50nl:TypeBronT50Type"/>
+          <element name="bronbeschrijving" type="string"/>
+          <element name="bronactualiteit" type="date"/>
+          <element minOccurs="0" name="tdnCode" type="integer"/>
+          <element minOccurs="0" name="visualisatieCode" type="integer"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="_Top50nlObjectPropertyType">
+    <sequence minOccurs="0">
+      <element ref="top50nl:_Top50nlObject"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+</schema>

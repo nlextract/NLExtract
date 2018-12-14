@@ -32,7 +32,7 @@
 # Datum:        24 november 2009
 #
 # Ministerie van Volkshuisvesting, Ruimtelijke Ordening en Milieubeheer
-#------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
 import wx
 import wx.lib.newevent as NE
 import wx.grid
@@ -44,7 +44,7 @@ from postgresdb import Database
 from bagfilereader import BAGFileReader
 from raadpleeggui import BAGRaadpleeg
 from loggui import LogScherm, AsyncLogScherm
-from bagconfig import *
+from bagconfig import BAGConfig, os
 from log import Log
 
 
@@ -53,6 +53,7 @@ from log import Log
 LocalEvent, EVT_LOCAL = NE.NewCommandEvent()
 EVT_ID_MENU_ENABLE = wx.NewId()
 EVT_ID_MENU_DISABLE = wx.NewId()
+
 
 # Generic Local worker thread that dis/enables main menu
 class WorkerThread(threading.Thread):
@@ -76,9 +77,9 @@ class WorkerThread(threading.Thread):
             Log.log.set_output(self.app.logScherm)
 
 
-#------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
 # BAGExtractGUI toont het hoofdscherm van de NLExtract-BAG tool
-#------------------------------------------------------------------------------    
+# ------------------------------------------------------------------------------
 class BAGExtractGUI(wx.Frame):
     # Constructor
     # Maakt het logscherm voor het tonen van de voortgang en resultaten van diverse acties en
@@ -99,9 +100,9 @@ class BAGExtractGUI(wx.Frame):
         BAGConfig(None, home_path=bagextract_home)
         self.database = Database()
 
-    #------------------------------------------------------------------------------
+    # ------------------------------------------------------------------------------
     # Laat hoofdscherm zien
-    #------------------------------------------------------------------------------
+    # ------------------------------------------------------------------------------
     def hoofdScherm(self):
 
         self.CenterOnScreen()
@@ -176,9 +177,9 @@ class BAGExtractGUI(wx.Frame):
         for i in range(count):
             self.menuBalk.EnableTop(i, enabled)
 
-    #------------------------------------------------------------------------------
+    # ------------------------------------------------------------------------------
     # Pak een extract of mutatiebestand uit.
-    #------------------------------------------------------------------------------    
+    # ------------------------------------------------------------------------------
     # def bestandUnzipExtract(self, event):
     #     fileDialoog = wx.FileDialog(self,
     #                                 "Selecteer bestand",
@@ -196,9 +197,9 @@ class BAGExtractGUI(wx.Frame):
     #         log("")
     #         log.sluit()
 
-    #------------------------------------------------------------------------------
+    # ------------------------------------------------------------------------------
     # Laad een BAG Extract bestand in de database.
-    #------------------------------------------------------------------------------
+    # ------------------------------------------------------------------------------
     def bestandLaadExtractDir(self, event):
         dialoog = wx.DirDialog(self,
                                "Selecteer directory met BAG Extract bestanden",
@@ -208,9 +209,9 @@ class BAGExtractGUI(wx.Frame):
         if dialoog.ShowModal() == wx.ID_OK:
             self.bestandLaadExtractBestandOfDir(dialoog.GetPath())
 
-    #------------------------------------------------------------------------------
+    # ------------------------------------------------------------------------------
     # Laadt een BAG Extract bestand in de database.
-    #------------------------------------------------------------------------------    
+    # ------------------------------------------------------------------------------
     def bestandLaadExtractBestand(self, event):
         # for obj in bagObjecten:
         #     if not obj.controleerTabel():
@@ -231,9 +232,9 @@ class BAGExtractGUI(wx.Frame):
         if dialoog.ShowModal() == wx.ID_OK:
             self.bestandLaadExtractBestandOfDir(dialoog.GetPath())
 
-    #------------------------------------------------------------------------------
+    # ------------------------------------------------------------------------------
     # Laadt een BAG Extract bestand in de database.
-    #------------------------------------------------------------------------------
+    # ------------------------------------------------------------------------------
     def bestandLaadExtractBestandOfDir(self, file_or_dir_path):
 
         def worker():
@@ -249,17 +250,17 @@ class BAGExtractGUI(wx.Frame):
 
         WorkerThread(self, worker).start()
 
-    #------------------------------------------------------------------------------
+    # ------------------------------------------------------------------------------
     # Download de BAG Extract bron data (van PDOK).
-    #------------------------------------------------------------------------------
+    # ------------------------------------------------------------------------------
     def bestandDownloadBAGBron(self, event):
         # http://www.blog.pythonlibrary.org/2014/01/29/wxpython-creating-a-file-downloading-app/
         from bagdownloadgui import BAGDownloaderFrame
         BAGDownloaderFrame()
 
-    #------------------------------------------------------------------------------
+    # ------------------------------------------------------------------------------
     # Toon configuratiegegevens uit BAG.conf.
-    #------------------------------------------------------------------------------    
+    # ------------------------------------------------------------------------------
     def bestandEditConfiguratie(self, event):
         editor = ConfigEditorPanel(self)
         editor.ShowModal()
@@ -280,16 +281,16 @@ class BAGExtractGUI(wx.Frame):
         # info.Description += "\n"
         # wx.AboutBox(info)
 
-    #------------------------------------------------------------------------------    
+    # ------------------------------------------------------------------------------
     # Sluit de applicatie.
-    #------------------------------------------------------------------------------    
+    # ------------------------------------------------------------------------------
     def bestandSluitBAGExtractplus(self, event):
         self.Close()
 
-    #------------------------------------------------------------------------------    
+    # ------------------------------------------------------------------------------
     # Initialiseer de NLExtract-BAG database. Eerst vragen we of de gebruiker echt
     # wil dat de eventuele huidige inhoud van de database wordt gewist.
-    #------------------------------------------------------------------------------    
+    # ------------------------------------------------------------------------------
     def databaseInitialiseer(self, event):
         dialoog = wx.MessageDialog(self,
                                    "WAARSCHUWING: Deze actie verwijdert de gehele huidige inhoud van de database '%s' in schema '%s'. Wilt u doorgaan?" % (BAGConfig.config.database, BAGConfig.config.schema),
@@ -300,17 +301,17 @@ class BAGExtractGUI(wx.Frame):
             # Do in separate thread
             WorkerThread(self, Processor().dbInit).start()
 
-    #------------------------------------------------------------------------------
+    # ------------------------------------------------------------------------------
     # Start het databaseRaadpleeg scherm voor het zoeken en raadplegen van BAG objecten.
-    #------------------------------------------------------------------------------
+    # ------------------------------------------------------------------------------
     def databaseRaadpleeg(self, event):
         raadpleeg = BAGRaadpleeg(self)
         raadpleeg.ShowModal()
         Log.log.set_output(self.logScherm)
 
-    #------------------------------------------------------------------------------
+    # ------------------------------------------------------------------------------
     # Maakt en vult de tabel 'adres' vanuit BAG tabellen (VIEWS).
-    #------------------------------------------------------------------------------
+    # ------------------------------------------------------------------------------
     def databaseMaakAdressen(self, event):
 
         def worker():
@@ -327,9 +328,9 @@ class BAGExtractGUI(wx.Frame):
 
         WorkerThread(self, worker).start()
 
-    #------------------------------------------------------------------------------
+    # ------------------------------------------------------------------------------
     # Toon de logging van uitgevoerde NLExtract-BAG acties in de database
-    #------------------------------------------------------------------------------    
+    # ------------------------------------------------------------------------------
     def databaseToonLogging(self, event):
         class LogGridPanel(wx.Dialog):
             def __init__(self, parent):
@@ -368,11 +369,11 @@ class BAGExtractGUI(wx.Frame):
         logPanel = LogGridPanel(self)
         logPanel.ShowModal()
 
-    #------------------------------------------------------------------------------    
-    # Toon informatie over de NLExtract-BAG applicatie 
-    #------------------------------------------------------------------------------    
+    # ------------------------------------------------------------------------------
+    # Toon informatie over de NLExtract-BAG applicatie
+    # ------------------------------------------------------------------------------
     def infoBAGExtractGUI(self, event):
-        from versie import __version__, __date__
+        from versie import __version__
 
         info = wx.AboutDialogInfo()
         info.Name = "NLExtract-BAG"
@@ -393,6 +394,7 @@ class BAGExtractGUI(wx.Frame):
         info.Copyright += "project (2011) als commandline versie. De GUI is in 2015 toegevoegd.\n"
         info.WebSite = ("http://nlextract.nl", "NLExtract Project")
         wx.AboutBox(info)
+
 
 # App opbrengen
 app = wx.App(0)

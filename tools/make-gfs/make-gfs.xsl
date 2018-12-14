@@ -31,7 +31,20 @@
                 <xsl:copy-of select="//SpatialInfo/*"/>
                 <xsl:call-template name="CopyProperties">
                     <xsl:with-param name="featureClass" select="."/>
-                </xsl:call-template>                
+                </xsl:call-template>
+            </GMLFeatureClass>
+        </xsl:if>
+        <xsl:if test="GeomPropertyDefn">
+            <GMLFeatureClass>
+                <xsl:copy-of select="Name"/>
+                <xsl:copy-of select="ElementPath"/>
+                <xsl:for-each select="GeomPropertyDefn">
+                    <xsl:copy-of select="."/>
+                </xsl:for-each>
+                <xsl:copy-of select="//SpatialInfo/*"/>
+                <xsl:call-template name="CopyProperties">
+                    <xsl:with-param name="featureClass" select="."/>
+                </xsl:call-template>
             </GMLFeatureClass>
         </xsl:if>
     </xsl:template>

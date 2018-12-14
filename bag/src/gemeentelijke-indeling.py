@@ -41,16 +41,17 @@ import copy
 import datetime
 import pyExcelerator
 from collections import defaultdict
-from etree import etree,stripschema
+from etree import etree, stripschema
 
 # Nodig om output naar console/file van strings goed te krijgen
 # http://www.saltycrane.com/blog/2008/11/python-unicodeencodeerror-ascii-codec-cant-encode-character/
 # anders bijv. deze fout: 'ascii' codec can't encode character u'\xbf' in position 42: ordinal not in range(128)
 reload(sys)
-sys.setdefaultencoding( "utf-8" )
+sys.setdefaultencoding("utf-8")
+
 
 class ArgParser(argparse.ArgumentParser):
-     def error(self, message):
+    def error(self, message):
         print(message)
         print("")
         show_help()
@@ -64,11 +65,11 @@ def hash():
 def parse_gemeentelijke_indeling(args):
     if not os.access(args.input, os.R_OK):
         if args.verbose:
-            print("Error: Cannot read file: "+ args.input)
+            print("Error: Cannot read file: " + args.input)
         return
 
     if args.verbose:
-        print("Parsing XML file: "+ args.input)
+        print("Parsing XML file: " + args.input)
 
     try:
         # XML doc parsen naar etree object
@@ -82,49 +83,49 @@ def parse_gemeentelijke_indeling(args):
     root = parsed_xml.getroot()
 
     if stripschema(root.tag) == 'gemeentelijke_indeling':
-       if len(root.attrib):
-           gemeentelijke_indeling['attributes'] = root.attrib
+        if len(root.attrib):
+            gemeentelijke_indeling['attributes'] = root.attrib
 
-       if len(root.nsmap):
-           gemeentelijke_indeling['nsmap'] = root.nsmap
+        if len(root.nsmap):
+            gemeentelijke_indeling['nsmap'] = root.nsmap
 
-       for indelingNode in root:
-           if stripschema(indelingNode.tag) == 'indeling':
-               jaar = indelingNode.get('jaar')
+        for indelingNode in root:
+            if stripschema(indelingNode.tag) == 'indeling':
+                jaar = indelingNode.get('jaar')
 
-               indeling = hash()
+                indeling = hash()
 
-               indeling['attributes']['jaar'] = jaar
+                indeling['attributes']['jaar'] = jaar
 
-               for provincieNode in indelingNode:
-                   if stripschema(provincieNode.tag) == 'provincie':
-                       provinciecode = provincieNode.get('code')
-                       provincienaam = provincieNode.get('naam')
+                for provincieNode in indelingNode:
+                    if stripschema(provincieNode.tag) == 'provincie':
+                        provinciecode = provincieNode.get('code')
+                        provincienaam = provincieNode.get('naam')
 
-                       provincie = hash()
+                        provincie = hash()
 
-                       provincie['attributes']['code'] = provinciecode
-                       provincie['attributes']['naam'] = provincienaam
+                        provincie['attributes']['code'] = provinciecode
+                        provincie['attributes']['naam'] = provincienaam
 
-                       for gemeenteNode in provincieNode:
-                           if stripschema(gemeenteNode.tag) == 'gemeente':
-                               gemeentecode = gemeenteNode.get('code')
-                               gemeentenaam = gemeenteNode.get('naam')
-                               begindatum   = gemeenteNode.get('begindatum')
-                               einddatum    = gemeenteNode.get('einddatum')
+                        for gemeenteNode in provincieNode:
+                            if stripschema(gemeenteNode.tag) == 'gemeente':
+                                gemeentecode = gemeenteNode.get('code')
+                                gemeentenaam = gemeenteNode.get('naam')
+                                begindatum = gemeenteNode.get('begindatum')
+                                einddatum = gemeenteNode.get('einddatum')
 
-                               gemeente = hash()
+                                gemeente = hash()
 
-                               gemeente['attributes']['code']       = gemeentecode
-                               gemeente['attributes']['naam']       = gemeentenaam
-                               gemeente['attributes']['begindatum'] = begindatum
-                               gemeente['attributes']['einddatum']  = einddatum
+                                gemeente['attributes']['code'] = gemeentecode
+                                gemeente['attributes']['naam'] = gemeentenaam
+                                gemeente['attributes']['begindatum'] = begindatum
+                                gemeente['attributes']['einddatum'] = einddatum
 
-                               provincie['gemeente'][gemeentecode] = gemeente
+                                provincie['gemeente'][gemeentecode] = gemeente
 
-                       indeling['provincie'][provinciecode] = provincie
+                        indeling['provincie'][provinciecode] = provincie
 
-               gemeentelijke_indeling['indeling'][jaar] = indeling
+                gemeentelijke_indeling['indeling'][jaar] = indeling
 
     return gemeentelijke_indeling
 
@@ -133,7 +134,7 @@ def write_gemeentelijke_indeling(args, gemeentelijke_indeling):
     if args.verbose:
         print("Building XML structure...")
 
-    if gemeentelijke_indeling.has_key('nsmap'):
+    if 'nsmap' in gemeentelijke_indeling:
         root = etree.Element("gemeentelijke_indeling", nsmap=gemeentelijke_indeling['nsmap'])
     else:
         root = etree.Element("gemeentelijke_indeling")
@@ -162,10 +163,8 @@ def write_gemeentelijke_indeling(args, gemeentelijke_indeling):
 
                 attributes = ['code', 'naam', 'begindatum', 'einddatum']
                 for attribute in attributes:
-                    if(
-                        gemeentelijke_indeling['indeling'][jaar]['provincie'][provinciecode]['gemeente'][gemeentecode]['attributes'].has_key(attribute) and
-                        gemeentelijke_indeling['indeling'][jaar]['provincie'][provinciecode]['gemeente'][gemeentecode]['attributes'][attribute] != None
-                      ):
+                    if (attribute in gemeentelijke_indeling['indeling'][jaar]['provincie'][provinciecode]['gemeente'][gemeentecode]['attributes'] and
+                            gemeentelijke_indeling['indeling'][jaar]['provincie'][provinciecode]['gemeente'][gemeentecode]['attributes'][attribute] is not None):
                         gemeente.set(attribute, gemeentelijke_indeling['indeling'][jaar]['provincie'][provinciecode]['gemeente'][gemeentecode]['attributes'][attribute])
 
                     provincie.append(gemeente)
@@ -188,26 +187,26 @@ def write_gemeentelijke_indeling(args, gemeentelijke_indeling):
 
 def end_gemeente(args, gemeentelijke_indeling, provincie_map):
     gemeentecode = strip_leading_zeros(args.code)
-    einddatum    = args.date
+    einddatum = args.date
 
     jaar = get_last_year(gemeentelijke_indeling)
 
     provinciecode = strip_leading_zeros(args.prov)
     provincienaam = args.prov
 
-    if not re.search("^\d+$", args.prov) and provincie_map['name2code'].has_key(args.prov):
+    if not re.search("^\d+$", args.prov) and args.prov in provincie_map['name2code']:
         provinciecode = provincie_map['name2code'][args.prov]
         provincienaam = provincie_map['code2name'][provinciecode]
 
-    if( gemeentelijke_indeling['indeling'].has_key(jaar) and
-        gemeentelijke_indeling['indeling'][jaar]['provincie'].has_key(provinciecode) and
-        gemeentelijke_indeling['indeling'][jaar]['provincie'][provinciecode]['gemeente'].has_key(gemeentecode)
-      ):
+    if (jaar in gemeentelijke_indeling['indeling'] and
+            provinciecode in gemeentelijke_indeling['indeling'][jaar]['provincie'] and
+            gemeentecode in gemeentelijke_indeling['indeling'][jaar]['provincie'][provinciecode]['gemeente']):
         gemeentenaam = gemeentelijke_indeling['indeling'][jaar]['provincie'][provinciecode]['gemeente'][gemeentecode]['attributes']['naam']
-        begindatum   = gemeentelijke_indeling['indeling'][jaar]['provincie'][provinciecode]['gemeente'][gemeentecode]['attributes']['begindatum']
+        begindatum = gemeentelijke_indeling['indeling'][jaar]['provincie'][provinciecode]['gemeente'][gemeentecode]['attributes']['begindatum']
 
         if args.verbose:
-            print("Setting einddatum for gemeente %s (%s) [%s/%s] in provincie %s (%s)" % (gemeentenaam, gemeentecode, begindatum, einddatum, provincienaam, provinciecode))
+            print("Setting einddatum for gemeente %s (%s) [%s/%s] in provincie %s (%s)" % (
+                gemeentenaam, gemeentecode, begindatum, einddatum, provincienaam, provinciecode))
 
         gemeentelijke_indeling['indeling'][jaar]['provincie'][provinciecode]['gemeente'][gemeentecode]['attributes']['einddatum'] = einddatum
 
@@ -217,28 +216,27 @@ def end_gemeente(args, gemeentelijke_indeling, provincie_map):
 def add_gemeente(args, gemeentelijke_indeling, provincie_map):
     gemeentecode = strip_leading_zeros(args.code)
     gemeentenaam = args.name
-    begindatum   = args.date
+    begindatum = args.date
 
     jaar = get_last_year(gemeentelijke_indeling)
 
     provinciecode = strip_leading_zeros(args.prov)
     provincienaam = args.prov
 
-    if not re.search("^\d+$", args.prov) and provincie_map['name2code'].has_key(args.prov):
+    if not re.search("^\d+$", args.prov) and args.prov in provincie_map['name2code']:
         provinciecode = provincie_map['name2code'][args.prov]
         provincienaam = provincie_map['code2name'][provinciecode]
 
-    if( gemeentelijke_indeling['indeling'].has_key(jaar) and
-        gemeentelijke_indeling['indeling'][jaar]['provincie'].has_key(provinciecode) and
-    not gemeentelijke_indeling['indeling'][jaar]['provincie'][provinciecode]['gemeente'].has_key(gemeentecode)
-      ):
+    if (jaar in gemeentelijke_indeling['indeling'] and
+            provinciecode in gemeentelijke_indeling['indeling'][jaar]['provincie'] and
+            gemeentecode not in gemeentelijke_indeling['indeling'][jaar]['provincie'][provinciecode]['gemeente']):
         gemeente = hash()
 
         gemeente['attributes'] = {
-                                   'code'       : gemeentecode,
-                                   'naam'       : gemeentenaam,
-                                   'begindatum' : begindatum,
-                                 }
+            'code': gemeentecode,
+            'naam': gemeentenaam,
+            'begindatum': begindatum,
+        }
 
         if args.verbose:
             print("Adding gemeente %s (%s) [%s] to provincie %s (%s)" % (gemeentenaam, gemeentecode, begindatum, provincienaam, provinciecode))
@@ -251,7 +249,7 @@ def add_gemeente(args, gemeentelijke_indeling, provincie_map):
 def parse_cbs_data(args):
     if not os.access(args.file, os.R_OK):
         if args.verbose:
-            print("Error: Cannot read CBS data file: "+ args.file)
+            print("Error: Cannot read CBS data file: " + args.file)
         return
 
     if args.verbose:
@@ -272,7 +270,7 @@ def parse_cbs_data(args):
 
         header = []
         for i in range(0, 6):
-            if not values.has_key((0, i)):
+            if (0, i) not in values:
                 break
 
             value = values[(0, i)]
@@ -281,116 +279,104 @@ def parse_cbs_data(args):
 
         column = {}
 
-        # Gemeentecode	Gemeentenaam	Provincienaam	Provinciecode
-        if(
-            header[0] == 'Gemeentecode'  and
-            header[1] == 'Gemeentenaam'  and
-            header[2] == 'Provincienaam' and
-            header[3] == 'Provinciecode'
-          ):
-                column = {
-                           'gemeentecode'  : 0,
-                           'gemeentenaam'  : 1,
-                           'provincienaam' : 2,
-                           'provinciecode' : 3,
-                         }
+        # Gemeentecode    Gemeentenaam    Provincienaam    Provinciecode
+        if (header[0] == 'Gemeentecode' and
+                header[1] == 'Gemeentenaam' and
+                header[2] == 'Provincienaam' and
+                header[3] == 'Provinciecode'):
+            column = {
+                'gemeentecode': 0,
+                'gemeentenaam': 1,
+                'provincienaam': 2,
+                'provinciecode': 3,
+            }
 
-        # Gemeentecode	Provinciecode	Gemeentenaam	Provincienaam
-        elif(
-              header[0] == 'Gemeentecode'  and
+        # Gemeentecode    Provinciecode    Gemeentenaam    Provincienaam
+        elif (header[0] == 'Gemeentecode' and
               header[1] == 'Provinciecode' and
-              header[2] == 'Gemeentenaam'  and
-              header[3] == 'Provincienaam'
-            ):
-                column = {
-                           'gemeentecode'  : 0,
-                           'provinciecode' : 1,
-                           'gemeentenaam'  : 2,
-                           'provincienaam' : 3,
-                         }
+              header[2] == 'Gemeentenaam' and
+              header[3] == 'Provincienaam'):
+            column = {
+                'gemeentecode': 0,
+                'provinciecode': 1,
+                'gemeentenaam': 2,
+                'provincienaam': 3,
+            }
 
-        # prov_Gemcode	provcode	Gemcodel	provcodel
-        elif(
-              header[0] == 'prov_Gemcode' and
-              header[1] == 'provcode'     and
-              header[2] == 'Gemcodel'     and
-              header[3] == 'provcodel'
-            ):
-                column = {
-                           'gemeentecode'  : 0,
-                           'provinciecode' : 1,
-                           'gemeentenaam'  : 2,
-                           'provincienaam' : 3,
-                         }
-
-        # Gemcode	provcode	Gemcodel	provcodel
-        elif(
-              header[0] == 'Gemcode'  and
+        # prov_Gemcode    provcode    Gemcodel    provcodel
+        elif (header[0] == 'prov_Gemcode' and
               header[1] == 'provcode' and
               header[2] == 'Gemcodel' and
-              header[3] == 'provcodel'
-            ):
-                column = {
-                           'gemeentecode'  : 0,
-                           'provinciecode' : 1,
-                           'gemeentenaam'  : 2,
-                           'provincienaam' : 3,
-                         }
+              header[3] == 'provcodel'):
+            column = {
+                'gemeentecode': 0,
+                'provinciecode': 1,
+                'gemeentenaam': 2,
+                'provincienaam': 3,
+            }
 
-        # Gemcode	Gemcodel	provcode	provcodel
-        elif(
-              header[0] == 'Gemcode'  and
+        # Gemcode    provcode    Gemcodel    provcodel
+        elif (header[0] == 'Gemcode' and
+              header[1] == 'provcode' and
+              header[2] == 'Gemcodel' and
+              header[3] == 'provcodel'):
+            column = {
+                'gemeentecode': 0,
+                'provinciecode': 1,
+                'gemeentenaam': 2,
+                'provincienaam': 3,
+            }
+
+        # Gemcode    Gemcodel    provcode    provcodel
+        elif (header[0] == 'Gemcode' and
               header[1] == 'Gemcodel' and
               header[2] == 'provcode' and
-              header[3] == 'provcodel'
-            ):
-                column = {
-                           'gemeentecode'  : 0,
-                           'gemeentenaam'  : 1,
-                           'provinciecode' : 2,
-                           'provincienaam' : 3,
-                         }
+              header[3] == 'provcodel'):
+            column = {
+                'gemeentecode': 0,
+                'gemeentenaam': 1,
+                'provinciecode': 2,
+                'provincienaam': 3,
+            }
 
-        # Gemeentecode	GemeentecodeGM	Gemeentenaam	Provinciecode	ProvinciecodePV	Provincienaam
-        elif(
-              header[0] == 'Gemeentecode'    and
-              header[1] == 'GemeentecodeGM'  and
-              header[2] == 'Gemeentenaam'    and
-              header[3] == 'Provinciecode'   and
+        # Gemeentecode    GemeentecodeGM    Gemeentenaam    Provinciecode    ProvinciecodePV    Provincienaam
+        elif (header[0] == 'Gemeentecode' and
+              header[1] == 'GemeentecodeGM' and
+              header[2] == 'Gemeentenaam' and
+              header[3] == 'Provinciecode' and
               header[4] == 'ProvinciecodePV' and
-              header[5] == 'Provincienaam'
-            ):
-                column = {
-                           'gemeentecode'    : 0,
-                           'gemeentecodegm'  : 1,
-                           'gemeentenaam'    : 2,
-                           'provinciecode'   : 3,
-                           'provinciecodepv' : 4,
-                           'provincienaam'   : 5,
-                         }
+              header[5] == 'Provincienaam'):
+            column = {
+                'gemeentecode': 0,
+                'gemeentecodegm': 1,
+                'gemeentenaam': 2,
+                'provinciecode': 3,
+                'provinciecodepv': 4,
+                'provincienaam': 5,
+            }
 
         # Unsupported format
         else:
             if args.verbose:
                 order = ""
 
-                i = 0;
+                i = 0
                 for col in header:
                     if i > 0:
                         print(" | ")
 
                     print(col)
 
-                    i += 1;
+                    i += 1
 
                 print("Error: Unsupported header order: %s" % order)
 
             return
 
-        row_max = len(values)/len(column)
+        row_max = len(values) / len(column)
 
         for row in range(1, row_max):
-            record = {};
+            record = {}
 
             columns = ['gemeentecode', 'gemeentenaam', 'provinciecode', 'provincienaam']
             for key in columns:
@@ -398,38 +384,36 @@ def parse_cbs_data(args):
 
                 record[key] = value
 
-            if(
-                not record.has_key('gemeentecode') and
-                not record.has_key('gemeentenaam') and
-                not record.has_key('provinciecode') and
-                not record.has_key('provincienaam')
-              ):
+            if ('gemeentecode' not in record and
+                    'gemeentenaam' not in record and
+                    'provinciecode' not in record and
+                    'provincienaam' not in record):
                 if args.verbose:
                     print("Empty row, stoppping here.")
                 break
 
-            if not record.has_key('gemeentecode'):
+            if 'gemeentecode' not in record:
                 if args.verbose:
                     print("Empty 'gemeentecode' column (%s), stoppping here." % column['gemeentecode'])
                 break
-            if not record.has_key('gemeentenaam'):
+            if 'gemeentenaam' not in record:
                 if args.verbose:
                     print("Empty 'gemeentenaam' column (%s), stoppping here." % column['gemeentenaam'])
                 break
-            if not record.has_key('provinciecode'):
+            if 'provinciecode' not in record:
                 if args.verbose:
                     print("Empty 'provinciecode' column (%s), stoppping here." % column['provinciecode'])
                 break
-            if not record.has_key('provincienaam'):
+            if 'provincienaam' not in record:
                 if args.verbose:
                     print("Empty 'provincienaam' column (%s), stoppping here." % column['provincienaam'])
                 break
 
             columns = ['gemeentecode', 'provinciecode']
             for key in columns:
-                record[key] = strip_leading_zeros(record[key]);
+                record[key] = strip_leading_zeros(record[key])
 
-            cbs_data[record['provinciecode']][record['gemeentecode']] = record;
+            cbs_data[record['provinciecode']][record['gemeentecode']] = record
 
         break
 
@@ -452,11 +436,11 @@ def add_cbs_data(args, gemeentelijke_indeling, cbs_data):
 
         for gemeentecode in sorted(indeling['provincie'][provinciecode]['gemeente'], key=int):
             gemeentenaam = indeling['provincie'][provinciecode]['gemeente'][gemeentecode]['attributes']['naam']
-            begindatum   = indeling['provincie'][provinciecode]['gemeente'][gemeentecode]['attributes']['begindatum']
-            einddatum    = indeling['provincie'][provinciecode]['gemeente'][gemeentecode]['attributes']['einddatum']
+            begindatum = indeling['provincie'][provinciecode]['gemeente'][gemeentecode]['attributes']['begindatum']
+            einddatum = indeling['provincie'][provinciecode]['gemeente'][gemeentecode]['attributes']['einddatum']
 
             # Remove municipalities that ended in the previous year
-            if einddatum != None:
+            if einddatum is not None:
                 compare = compare_datum_and_year(args, einddatum, jaar)
                 if compare == -1:
                     if args.verbose:
@@ -465,8 +449,8 @@ def add_cbs_data(args, gemeentelijke_indeling, cbs_data):
                     del indeling['provincie'][provinciecode]['gemeente'][gemeentecode]
 
             # Add einddatum attribute to municipalities that ended this year
-            elif not cbs_data[provinciecode].has_key(gemeentecode):
-                einddatum = jaar +"-01-01"
+            elif gemeentecode not in cbs_data[provinciecode]:
+                einddatum = jaar + "-01-01"
 
                 if args.verbose:
                     print("Setting einddatum for gemeente %s (%s) [%s|%s] in provincie %s (%s)" % (gemeentenaam, gemeentecode, begindatum, einddatum, provincienaam, provinciecode))
@@ -475,9 +459,9 @@ def add_cbs_data(args, gemeentelijke_indeling, cbs_data):
 
         for gemeentecode in sorted(cbs_data[provinciecode], key=int):
             # Add municipalities created this year
-            if not indeling['provincie'][provinciecode]['gemeente'].has_key(gemeentecode):
+            if gemeentecode not in indeling['provincie'][provinciecode]['gemeente']:
                 gemeentenaam = cbs_data[provinciecode][gemeentecode]['gemeentenaam']
-                begindatum   = jaar +"-01-01"
+                begindatum = jaar + "-01-01"
 
                 if args.verbose:
                     print("Adding gemeente %s (%s) [%s] to provincie %s (%s)" % (gemeentenaam, gemeentecode, begindatum, provincienaam, provinciecode))
@@ -485,10 +469,10 @@ def add_cbs_data(args, gemeentelijke_indeling, cbs_data):
                 gemeente = hash()
 
                 gemeente['attributes'] = {
-                                           'code'       : gemeentecode,
-                                           'naam'       : gemeentenaam,
-                                           'begindatum' : begindatum,
-                                         }
+                    'code': gemeentecode,
+                    'naam': gemeentenaam,
+                    'begindatum': begindatum,
+                }
 
                 indeling['provincie'][provinciecode]['gemeente'][gemeentecode] = gemeente
 
@@ -500,9 +484,9 @@ def add_cbs_data(args, gemeentelijke_indeling, cbs_data):
 def compare_datum_and_year(args, datum, year):
     match = re.match("^(\d{4})-(\d{2})-(\d{2})$", datum)
     if match:
-        datum_year  = match.group(1)
+        datum_year = match.group(1)
         datum_month = match.group(2)
-        datum_day   = match.group(3)
+        datum_day = match.group(3)
 
         date1 = datetime.date(int(datum_year), int(datum_month), int(datum_day))
     else:
@@ -559,15 +543,15 @@ def display_provincie_map(args, provincie_map):
         name = provincie_map['code2name'][code]
 
         length = {
-                   'code': len(code),
-                   'name': len(name),
-                 }
+            'code': len(code),
+            'name': len(name),
+        }
 
         for column in columns:
             if length[column] > longest[column]:
                 longest[column] = length[column]
 
-    box_top    = "┌"
+    box_top = "┌"
     box_middle = "├"
     box_bottom = "└"
 
@@ -575,16 +559,14 @@ def display_provincie_map(args, provincie_map):
 
     i = 0
     for column in columns:
-        box_top    += "─"+ ("─" * longest[column]) +"─"
-        box_middle += "─"+ ("─" * longest[column]) +"─"
-        box_bottom += "─"+ ("─" * longest[column]) +"─"
+        box_top += "─" + ("─" * longest[column]) + "─"
+        box_middle += "─" + ("─" * longest[column]) + "─"
+        box_bottom += "─" + ("─" * longest[column]) + "─"
 
-        l = longest[column]
+        header += " " + column.title() + (" " * (longest[column] - len(column))) + " "
 
-        header += " "+ column.title() + (" " * (longest[column] - len(column))) +" "
-
-        if i < (len(columns)-1):
-            box_top    += "┬"
+        if i < (len(columns) - 1):
+            box_top += "┬"
             box_middle += "┼"
             box_bottom += "┴"
 
@@ -592,7 +574,7 @@ def display_provincie_map(args, provincie_map):
 
         i += 1
 
-    box_top    += "┐ ┌"
+    box_top += "┐ ┌"
     box_middle += "┤ ├"
     box_bottom += "┘ └"
 
@@ -600,16 +582,14 @@ def display_provincie_map(args, provincie_map):
 
     i = 0
     for column in sorted(columns, reverse=True):
-        box_top    += "─"+ ("─" * longest[column]) +"─"
-        box_middle += "─"+ ("─" * longest[column]) +"─"
-        box_bottom += "─"+ ("─" * longest[column]) +"─"
+        box_top += "─" + ("─" * longest[column]) + "─"
+        box_middle += "─" + ("─" * longest[column]) + "─"
+        box_bottom += "─" + ("─" * longest[column]) + "─"
 
-        l = longest[column]
+        header += " " + column.title() + (" " * (longest[column] - len(column))) + " "
 
-        header += " "+ column.title() + (" " * (longest[column] - len(column))) +" "
-
-        if i < (len(columns)-1):
-            box_top    += "┬"
+        if i < (len(columns) - 1):
+            box_top += "┬"
             box_middle += "┼"
             box_bottom += "┴"
 
@@ -617,12 +597,11 @@ def display_provincie_map(args, provincie_map):
 
         i += 1
 
-    box_top    += "┐"
+    box_top += "┐"
     box_middle += "┤"
     box_bottom += "┘"
 
     header += "│"
-
 
     print(box_top)
     print(header)
@@ -664,9 +643,9 @@ def display_provincie_map(args, provincie_map):
 
     i = 0
     for row in code2name_rows:
-        print(code2name_rows[i]+" "+name2code_rows[i])
+        print(code2name_rows[i] + " " + name2code_rows[i])
 
-        if i < (len(code2name_rows)-1):
+        if i < (len(code2name_rows) - 1):
             print(box_middle)
 
         i += 1
@@ -675,7 +654,7 @@ def display_provincie_map(args, provincie_map):
 
 
 def show_help():
-    print("Usage: "+ os.path.basename(__file__) +" <ACTION> -i <PATH> [-o <PATH>] [OPTIONS]")
+    print("Usage: " + os.path.basename(__file__) + " <ACTION> -i <PATH> [-o <PATH>] [OPTIONS]")
     print("")
     print("Actions:")
     print("--add-cbs-data          Add CBS spreadsheet data for next year")
@@ -729,27 +708,27 @@ def main():
                                               --input bag/db/data/gemeentelijke-indeling.xml \
                                               --verbose
     """
-    parser = ArgParser(usage=os.path.basename(__file__)+' <ACTION> -i <PATH> [-o <PATH>] [OPTIONS]', add_help=False)
+    parser = ArgParser(usage=os.path.basename(__file__) + ' <ACTION> -i <PATH> [-o <PATH>] [OPTIONS]', add_help=False)
 
     group = parser.add_mutually_exclusive_group(required=True)
-    group.add_argument('--add-cbs-data',   action='store_true',   help='Add CBS spreadsheet data for next year (Requires option: --file)')
-    group.add_argument('--end-gemeente',   action='store_true',   help='Set einddatum attribute for gemeente (Requires option: --code, --date, --prov)')
-    group.add_argument('--add-gemeente',   action='store_true',   help='Create new gemeente element (Requires option: --code, --name, --date, --prov)')
-    group.add_argument('--provincie-map',  action='store_true',   help='Display provicie map (code & name)')
+    group.add_argument('--add-cbs-data', action='store_true', help='Add CBS spreadsheet data for next year (Requires option: --file)')
+    group.add_argument('--end-gemeente', action='store_true', help='Set einddatum attribute for gemeente (Requires option: --code, --date, --prov)')
+    group.add_argument('--add-gemeente', action='store_true', help='Create new gemeente element (Requires option: --code, --name, --date, --prov)')
+    group.add_argument('--provincie-map', action='store_true', help='Display provicie map (code & name)')
 
-    parser.add_argument('-i', '--input',   metavar='<PATH>',      help='Path to gemeentelijke-indeling XML file to read', required=True)
-    parser.add_argument('-o', '--output',  metavar='<PATH>',      help='Path to gemeentelijke-indeling XML file to write')
-    parser.add_argument('-f', '--file',    metavar='<PATH>',      help='Path to CBS Excel spreadsheet to process')
+    parser.add_argument('-i', '--input', metavar='<PATH>', help='Path to gemeentelijke-indeling XML file to read', required=True)
+    parser.add_argument('-o', '--output', metavar='<PATH>', help='Path to gemeentelijke-indeling XML file to write')
+    parser.add_argument('-f', '--file', metavar='<PATH>', help='Path to CBS Excel spreadsheet to process')
 
-    parser.add_argument('-C', '--code',    metavar='<NUMBER>',    help='Numerical gemeentecode')
-    parser.add_argument('-N', '--name',    metavar='<STRING>',    help='Alphanumerical gemeentenaam')
-    parser.add_argument('-D', '--date',    metavar='<DATE>',      help='Date in YYYY-MM-DD format')
-    parser.add_argument('-P', '--prov',    metavar='<NAME|CODE>', help='Parent provincie of gemeente')
+    parser.add_argument('-C', '--code', metavar='<NUMBER>', help='Numerical gemeentecode')
+    parser.add_argument('-N', '--name', metavar='<STRING>', help='Alphanumerical gemeentenaam')
+    parser.add_argument('-D', '--date', metavar='<DATE>', help='Date in YYYY-MM-DD format')
+    parser.add_argument('-P', '--prov', metavar='<NAME|CODE>', help='Parent provincie of gemeente')
 
-    parser.add_argument('-n', '--dry-run', action='store_true',   help='Don\'t overwrite the file, display instead')
-    parser.add_argument('-d', '--debug',   action='store_true',   help='Enable debug output')
-    parser.add_argument('-v', '--verbose', action='store_true',   help='Enable verbose output')
-    parser.add_argument('-h', '--help',    action='store_true',   help='Display this usage information')
+    parser.add_argument('-n', '--dry-run', action='store_true', help='Don\'t overwrite the file, display instead')
+    parser.add_argument('-d', '--debug', action='store_true', help='Enable debug output')
+    parser.add_argument('-v', '--verbose', action='store_true', help='Enable verbose output')
+    parser.add_argument('-h', '--help', action='store_true', help='Display this usage information')
 
     args = parser.parse_args()
 
@@ -785,11 +764,9 @@ def main():
     if not args.output:
         args.output = args.input
 
-
     gemeentelijke_indeling = parse_gemeentelijke_indeling(args)
 
     provincie_map = get_provincie_map(args, gemeentelijke_indeling)
-
 
     if args.provincie_map:
         display_provincie_map(args, provincie_map)
@@ -805,7 +782,6 @@ def main():
     else:
         parser.error("Unsupported option")
 
-
     write_gemeentelijke_indeling(args, gemeentelijke_indeling)
 
     sys.exit()
@@ -813,4 +789,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-

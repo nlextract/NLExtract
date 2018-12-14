@@ -1,9 +1,18 @@
 <GMLFeatureClassList>
   <!--Dit GFS-bestand is gegenereerd met make-gfs.xsl-->
   <GMLFeatureClass>
-    <Name>Wegdeel_2D_tmp</Name>
-    <ElementPath>TrafficArea_2D</ElementPath>
-    <GeometryType>3</GeometryType>
+    <Name>Wegdeel_tmp</Name>
+    <ElementPath>TrafficArea</ElementPath>
+    <GeomPropertyDefn>
+      <Name>geometrie_vlak</Name>
+      <ElementPath>geometrie2dWegdeel</ElementPath>
+      <Type>CurvePolygon</Type>
+    </GeomPropertyDefn>
+    <GeomPropertyDefn>
+      <Name>geometrie_kruinlijn</Name>
+      <ElementPath>kruinlijnWegdeel</ElementPath>
+      <Type>CompoundCurve</Type>
+    </GeomPropertyDefn>
     <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
       <ExtentXMin>10000</ExtentXMin>
@@ -12,6 +21,12 @@
       <ExtentYMax>625000</ExtentYMax>
     </DatasetSpecificInfo>
     <!--Begin properties van IMGeoObject-->
+    <PropertyDefn>
+      <!-- This field is automatically added by ogr2ogr, but not for files which don't contain any data -->
+      <Name>gml_id</Name>
+      <ElementPath>@gml:id</ElementPath>
+      <Type>String</Type>
+    </PropertyDefn>
     <PropertyDefn>
       <Name>namespace</Name>
       <ElementPath>identificatie|NEN3610ID|namespace</ElementPath>
@@ -86,7 +101,7 @@
       <Width>255</Width>
     </PropertyDefn>
     <!--Einde properties van BGTObject-->
-    <!--Begin properties van Wegdeel-->
+    <!--Begin properties van Wegdeel_tmp-->
     <PropertyDefn>
       <Name>bgt_functie</Name>
       <ElementPath>function</ElementPath>
@@ -117,12 +132,21 @@
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
-    <!--Einde properties van Wegdeel-->
+    <!--Einde properties van Wegdeel_tmp-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Wegdeel_kruinlijn_tmp</Name>
-    <ElementPath>TrafficArea_kruinlijn</ElementPath>
-    <GeometryType>2</GeometryType>
+    <Name>OndersteunendWegdeel_tmp</Name>
+    <ElementPath>AuxiliaryTrafficArea</ElementPath>
+    <GeomPropertyDefn>
+      <Name>geometrie_vlak</Name>
+      <ElementPath>geometrie2dOndersteunendWegdeel</ElementPath>
+      <Type>CurvePolygon</Type>
+    </GeomPropertyDefn>
+    <GeomPropertyDefn>
+      <Name>geometrie_kruinlijn</Name>
+      <ElementPath>kruinlijnOndersteunendWegdeel</ElementPath>
+      <Type>CompoundCurve</Type>
+    </GeomPropertyDefn>
     <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
       <ExtentXMin>10000</ExtentXMin>
@@ -131,6 +155,12 @@
       <ExtentYMax>625000</ExtentYMax>
     </DatasetSpecificInfo>
     <!--Begin properties van IMGeoObject-->
+    <PropertyDefn>
+      <!-- This field is automatically added by ogr2ogr, but not for files which don't contain any data -->
+      <Name>gml_id</Name>
+      <ElementPath>@gml:id</ElementPath>
+      <Type>String</Type>
+    </PropertyDefn>
     <PropertyDefn>
       <Name>namespace</Name>
       <ElementPath>identificatie|NEN3610ID|namespace</ElementPath>
@@ -205,126 +235,7 @@
       <Width>255</Width>
     </PropertyDefn>
     <!--Einde properties van BGTObject-->
-    <!--Begin properties van Wegdeel-->
-    <PropertyDefn>
-      <Name>bgt_functie</Name>
-      <ElementPath>function</ElementPath>
-      <Type>String</Type>
-      <Width>255</Width>
-    </PropertyDefn>
-    <PropertyDefn>
-      <Name>plus_functie</Name>
-      <ElementPath>plus-functieWegdeel</ElementPath>
-      <Type>String</Type>
-      <Width>255</Width>
-    </PropertyDefn>
-    <PropertyDefn>
-      <Name>bgt_fysiekVoorkomen</Name>
-      <ElementPath>surfaceMaterial</ElementPath>
-      <Type>String</Type>
-      <Width>255</Width>
-    </PropertyDefn>
-    <PropertyDefn>
-      <Name>plus_fysiekVoorkomen</Name>
-      <ElementPath>plus-fysiekVoorkomenWegdeel</ElementPath>
-      <Type>String</Type>
-      <Width>255</Width>
-    </PropertyDefn>
-    <PropertyDefn>
-      <Name>wegdeelOpTalud</Name>
-      <ElementPath>wegdeelOpTalud</ElementPath>
-      <Type>String</Type>
-      <Width>5</Width>
-    </PropertyDefn>
-    <!--Einde properties van Wegdeel-->
-  </GMLFeatureClass>
-  <GMLFeatureClass>
-    <Name>OndersteunendWegdeel_2D_tmp</Name>
-    <ElementPath>AuxiliaryTrafficArea_2D</ElementPath>
-    <GeometryType>3</GeometryType>
-    <SRSName>EPSG:28992</SRSName>
-    <DatasetSpecificInfo>
-      <ExtentXMin>10000</ExtentXMin>
-      <ExtentXMax>280000</ExtentXMax>
-      <ExtentYMin>300000</ExtentYMin>
-      <ExtentYMax>625000</ExtentYMax>
-    </DatasetSpecificInfo>
-    <!--Begin properties van IMGeoObject-->
-    <PropertyDefn>
-      <Name>namespace</Name>
-      <ElementPath>identificatie|NEN3610ID|namespace</ElementPath>
-      <Type>String</Type>
-      <Width>8</Width>
-    </PropertyDefn>
-    <PropertyDefn>
-      <Name>lokaalID</Name>
-      <ElementPath>identificatie|NEN3610ID|lokaalID</ElementPath>
-      <Type>String</Type>
-      <Width>38</Width>
-    </PropertyDefn>
-    <!--Einde properties van IMGeoObject-->
-    <!--Begin properties van BGTObject-->
-    <PropertyDefn>
-      <Name>objectBeginTijd</Name>
-      <ElementPath>creationDate</ElementPath>
-      <Type>String</Type>
-      <Width>10</Width>
-    </PropertyDefn>
-    <PropertyDefn>
-      <Name>objectEindTijd</Name>
-      <ElementPath>terminationDate</ElementPath>
-      <Type>String</Type>
-      <Width>10</Width>
-    </PropertyDefn>
-    <PropertyDefn>
-      <Name>tijdstipRegistratie</Name>
-      <ElementPath>tijdstipRegistratie</ElementPath>
-      <Type>String</Type>
-      <Width>23</Width>
-    </PropertyDefn>
-    <PropertyDefn>
-      <Name>eindRegistratie</Name>
-      <ElementPath>eindRegistratie</ElementPath>
-      <Type>String</Type>
-      <Width>23</Width>
-    </PropertyDefn>
-    <PropertyDefn>
-      <Name>LV_publicatiedatum</Name>
-      <ElementPath>LV-publicatiedatum</ElementPath>
-      <Type>String</Type>
-      <Width>23</Width>
-    </PropertyDefn>
-    <PropertyDefn>
-      <Name>bronhouder</Name>
-      <ElementPath>bronhouder</ElementPath>
-      <Type>String</Type>
-      <Width>5</Width>
-    </PropertyDefn>
-    <PropertyDefn>
-      <Name>inOnderzoek</Name>
-      <ElementPath>inOnderzoek</ElementPath>
-      <Type>String</Type>
-      <Width>5</Width>
-    </PropertyDefn>
-    <PropertyDefn>
-      <Name>relatieveHoogteligging</Name>
-      <ElementPath>relatieveHoogteligging</ElementPath>
-      <Type>Integer</Type>
-    </PropertyDefn>
-    <PropertyDefn>
-      <Name>bgt_status</Name>
-      <ElementPath>bgt-status</ElementPath>
-      <Type>String</Type>
-      <Width>255</Width>
-    </PropertyDefn>
-    <PropertyDefn>
-      <Name>plus_status</Name>
-      <ElementPath>plus-status</ElementPath>
-      <Type>String</Type>
-      <Width>255</Width>
-    </PropertyDefn>
-    <!--Einde properties van BGTObject-->
-    <!--Begin properties van OndersteunendWegdeel-->
+    <!--Begin properties van OndersteunendWegdeel_tmp-->
     <PropertyDefn>
       <Name>bgt_functie</Name>
       <ElementPath>function</ElementPath>
@@ -355,12 +266,21 @@
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
-    <!--Einde properties van OndersteunendWegdeel-->
+    <!--Einde properties van OndersteunendWegdeel_tmp-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>OndersteunendWegdeel_kruinlijn_tmp</Name>
-    <ElementPath>AuxiliaryTrafficArea_kruinlijn</ElementPath>
-    <GeometryType>2</GeometryType>
+    <Name>OnbegroeidTerreindeel_tmp</Name>
+    <ElementPath>OnbegroeidTerreindeel</ElementPath>
+    <GeomPropertyDefn>
+      <Name>geometrie_vlak</Name>
+      <ElementPath>geometrie2dOnbegroeidTerreindeel</ElementPath>
+      <Type>CurvePolygon</Type>
+    </GeomPropertyDefn>
+    <GeomPropertyDefn>
+      <Name>geometrie_kruinlijn</Name>
+      <ElementPath>kruinlijnOnbegroeidTerreindeel</ElementPath>
+      <Type>CompoundCurve</Type>
+    </GeomPropertyDefn>
     <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
       <ExtentXMin>10000</ExtentXMin>
@@ -369,6 +289,12 @@
       <ExtentYMax>625000</ExtentYMax>
     </DatasetSpecificInfo>
     <!--Begin properties van IMGeoObject-->
+    <PropertyDefn>
+      <!-- This field is automatically added by ogr2ogr, but not for files which don't contain any data -->
+      <Name>gml_id</Name>
+      <ElementPath>@gml:id</ElementPath>
+      <Type>String</Type>
+    </PropertyDefn>
     <PropertyDefn>
       <Name>namespace</Name>
       <ElementPath>identificatie|NEN3610ID|namespace</ElementPath>
@@ -443,126 +369,7 @@
       <Width>255</Width>
     </PropertyDefn>
     <!--Einde properties van BGTObject-->
-    <!--Begin properties van OndersteunendWegdeel-->
-    <PropertyDefn>
-      <Name>bgt_functie</Name>
-      <ElementPath>function</ElementPath>
-      <Type>String</Type>
-      <Width>255</Width>
-    </PropertyDefn>
-    <PropertyDefn>
-      <Name>plus_functie</Name>
-      <ElementPath>plus-functieOndersteunendWegdeel</ElementPath>
-      <Type>String</Type>
-      <Width>255</Width>
-    </PropertyDefn>
-    <PropertyDefn>
-      <Name>bgt_fysiekVoorkomen</Name>
-      <ElementPath>surfaceMaterial</ElementPath>
-      <Type>String</Type>
-      <Width>255</Width>
-    </PropertyDefn>
-    <PropertyDefn>
-      <Name>plus_fysiekVoorkomen</Name>
-      <ElementPath>plus-fysiekVoorkomenOndersteunendWegdeel</ElementPath>
-      <Type>String</Type>
-      <Width>255</Width>
-    </PropertyDefn>
-    <PropertyDefn>
-      <Name>ondersteunendWegdeelOpTalud</Name>
-      <ElementPath>ondersteunendWegdeelOpTalud</ElementPath>
-      <Type>String</Type>
-      <Width>5</Width>
-    </PropertyDefn>
-    <!--Einde properties van OndersteunendWegdeel-->
-  </GMLFeatureClass>
-  <GMLFeatureClass>
-    <Name>OnbegroeidTerreindeel_2D_tmp</Name>
-    <ElementPath>OnbegroeidTerreindeel_2D</ElementPath>
-    <GeometryType>3</GeometryType>
-    <SRSName>EPSG:28992</SRSName>
-    <DatasetSpecificInfo>
-      <ExtentXMin>10000</ExtentXMin>
-      <ExtentXMax>280000</ExtentXMax>
-      <ExtentYMin>300000</ExtentYMin>
-      <ExtentYMax>625000</ExtentYMax>
-    </DatasetSpecificInfo>
-    <!--Begin properties van IMGeoObject-->
-    <PropertyDefn>
-      <Name>namespace</Name>
-      <ElementPath>identificatie|NEN3610ID|namespace</ElementPath>
-      <Type>String</Type>
-      <Width>8</Width>
-    </PropertyDefn>
-    <PropertyDefn>
-      <Name>lokaalID</Name>
-      <ElementPath>identificatie|NEN3610ID|lokaalID</ElementPath>
-      <Type>String</Type>
-      <Width>38</Width>
-    </PropertyDefn>
-    <!--Einde properties van IMGeoObject-->
-    <!--Begin properties van BGTObject-->
-    <PropertyDefn>
-      <Name>objectBeginTijd</Name>
-      <ElementPath>creationDate</ElementPath>
-      <Type>String</Type>
-      <Width>10</Width>
-    </PropertyDefn>
-    <PropertyDefn>
-      <Name>objectEindTijd</Name>
-      <ElementPath>terminationDate</ElementPath>
-      <Type>String</Type>
-      <Width>10</Width>
-    </PropertyDefn>
-    <PropertyDefn>
-      <Name>tijdstipRegistratie</Name>
-      <ElementPath>tijdstipRegistratie</ElementPath>
-      <Type>String</Type>
-      <Width>23</Width>
-    </PropertyDefn>
-    <PropertyDefn>
-      <Name>eindRegistratie</Name>
-      <ElementPath>eindRegistratie</ElementPath>
-      <Type>String</Type>
-      <Width>23</Width>
-    </PropertyDefn>
-    <PropertyDefn>
-      <Name>LV_publicatiedatum</Name>
-      <ElementPath>LV-publicatiedatum</ElementPath>
-      <Type>String</Type>
-      <Width>23</Width>
-    </PropertyDefn>
-    <PropertyDefn>
-      <Name>bronhouder</Name>
-      <ElementPath>bronhouder</ElementPath>
-      <Type>String</Type>
-      <Width>5</Width>
-    </PropertyDefn>
-    <PropertyDefn>
-      <Name>inOnderzoek</Name>
-      <ElementPath>inOnderzoek</ElementPath>
-      <Type>String</Type>
-      <Width>5</Width>
-    </PropertyDefn>
-    <PropertyDefn>
-      <Name>relatieveHoogteligging</Name>
-      <ElementPath>relatieveHoogteligging</ElementPath>
-      <Type>Integer</Type>
-    </PropertyDefn>
-    <PropertyDefn>
-      <Name>bgt_status</Name>
-      <ElementPath>bgt-status</ElementPath>
-      <Type>String</Type>
-      <Width>255</Width>
-    </PropertyDefn>
-    <PropertyDefn>
-      <Name>plus_status</Name>
-      <ElementPath>plus-status</ElementPath>
-      <Type>String</Type>
-      <Width>255</Width>
-    </PropertyDefn>
-    <!--Einde properties van BGTObject-->
-    <!--Begin properties van OnbegroeidTerreindeel-->
+    <!--Begin properties van OnbegroeidTerreindeel_tmp-->
     <PropertyDefn>
       <Name>bgt_fysiekVoorkomen</Name>
       <ElementPath>bgt-fysiekVoorkomen</ElementPath>
@@ -581,12 +388,21 @@
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
-    <!--Einde properties van OnbegroeidTerreindeel-->
+    <!--Einde properties van OnbegroeidTerreindeel_tmp-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>OnbegroeidTerreindeel_kruinlijn_tmp</Name>
-    <ElementPath>OnbegroeidTerreindeel_kruinlijn</ElementPath>
-    <GeometryType>2</GeometryType>
+    <Name>BegroeidTerreindeel_tmp</Name>
+    <ElementPath>PlantCover</ElementPath>
+    <GeomPropertyDefn>
+      <Name>geometrie_vlak</Name>
+      <ElementPath>geometrie2dBegroeidTerreindeel</ElementPath>
+      <Type>CurvePolygon</Type>
+    </GeomPropertyDefn>
+    <GeomPropertyDefn>
+      <Name>geometrie_kruinlijn</Name>
+      <ElementPath>kruinlijnBegroeidTerreindeel</ElementPath>
+      <Type>CompoundCurve</Type>
+    </GeomPropertyDefn>
     <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
       <ExtentXMin>10000</ExtentXMin>
@@ -595,6 +411,12 @@
       <ExtentYMax>625000</ExtentYMax>
     </DatasetSpecificInfo>
     <!--Begin properties van IMGeoObject-->
+    <PropertyDefn>
+      <!-- This field is automatically added by ogr2ogr, but not for files which don't contain any data -->
+      <Name>gml_id</Name>
+      <ElementPath>@gml:id</ElementPath>
+      <Type>String</Type>
+    </PropertyDefn>
     <PropertyDefn>
       <Name>namespace</Name>
       <ElementPath>identificatie|NEN3610ID|namespace</ElementPath>
@@ -669,114 +491,7 @@
       <Width>255</Width>
     </PropertyDefn>
     <!--Einde properties van BGTObject-->
-    <!--Begin properties van OnbegroeidTerreindeel-->
-    <PropertyDefn>
-      <Name>bgt_fysiekVoorkomen</Name>
-      <ElementPath>bgt-fysiekVoorkomen</ElementPath>
-      <Type>String</Type>
-      <Width>255</Width>
-    </PropertyDefn>
-    <PropertyDefn>
-      <Name>plus_fysiekVoorkomen</Name>
-      <ElementPath>plus-fysiekVoorkomen</ElementPath>
-      <Type>String</Type>
-      <Width>255</Width>
-    </PropertyDefn>
-    <PropertyDefn>
-      <Name>onbegroeidTerreindeelOpTalud</Name>
-      <ElementPath>onbegroeidTerreindeelOpTalud</ElementPath>
-      <Type>String</Type>
-      <Width>5</Width>
-    </PropertyDefn>
-    <!--Einde properties van OnbegroeidTerreindeel-->
-  </GMLFeatureClass>
-  <GMLFeatureClass>
-    <Name>BegroeidTerreindeel_2D_tmp</Name>
-    <ElementPath>PlantCover_2D</ElementPath>
-    <GeometryType>3</GeometryType>
-    <SRSName>EPSG:28992</SRSName>
-    <DatasetSpecificInfo>
-      <ExtentXMin>10000</ExtentXMin>
-      <ExtentXMax>280000</ExtentXMax>
-      <ExtentYMin>300000</ExtentYMin>
-      <ExtentYMax>625000</ExtentYMax>
-    </DatasetSpecificInfo>
-    <!--Begin properties van IMGeoObject-->
-    <PropertyDefn>
-      <Name>namespace</Name>
-      <ElementPath>identificatie|NEN3610ID|namespace</ElementPath>
-      <Type>String</Type>
-      <Width>8</Width>
-    </PropertyDefn>
-    <PropertyDefn>
-      <Name>lokaalID</Name>
-      <ElementPath>identificatie|NEN3610ID|lokaalID</ElementPath>
-      <Type>String</Type>
-      <Width>38</Width>
-    </PropertyDefn>
-    <!--Einde properties van IMGeoObject-->
-    <!--Begin properties van BGTObject-->
-    <PropertyDefn>
-      <Name>objectBeginTijd</Name>
-      <ElementPath>creationDate</ElementPath>
-      <Type>String</Type>
-      <Width>10</Width>
-    </PropertyDefn>
-    <PropertyDefn>
-      <Name>objectEindTijd</Name>
-      <ElementPath>terminationDate</ElementPath>
-      <Type>String</Type>
-      <Width>10</Width>
-    </PropertyDefn>
-    <PropertyDefn>
-      <Name>tijdstipRegistratie</Name>
-      <ElementPath>tijdstipRegistratie</ElementPath>
-      <Type>String</Type>
-      <Width>23</Width>
-    </PropertyDefn>
-    <PropertyDefn>
-      <Name>eindRegistratie</Name>
-      <ElementPath>eindRegistratie</ElementPath>
-      <Type>String</Type>
-      <Width>23</Width>
-    </PropertyDefn>
-    <PropertyDefn>
-      <Name>LV_publicatiedatum</Name>
-      <ElementPath>LV-publicatiedatum</ElementPath>
-      <Type>String</Type>
-      <Width>23</Width>
-    </PropertyDefn>
-    <PropertyDefn>
-      <Name>bronhouder</Name>
-      <ElementPath>bronhouder</ElementPath>
-      <Type>String</Type>
-      <Width>5</Width>
-    </PropertyDefn>
-    <PropertyDefn>
-      <Name>inOnderzoek</Name>
-      <ElementPath>inOnderzoek</ElementPath>
-      <Type>String</Type>
-      <Width>5</Width>
-    </PropertyDefn>
-    <PropertyDefn>
-      <Name>relatieveHoogteligging</Name>
-      <ElementPath>relatieveHoogteligging</ElementPath>
-      <Type>Integer</Type>
-    </PropertyDefn>
-    <PropertyDefn>
-      <Name>bgt_status</Name>
-      <ElementPath>bgt-status</ElementPath>
-      <Type>String</Type>
-      <Width>255</Width>
-    </PropertyDefn>
-    <PropertyDefn>
-      <Name>plus_status</Name>
-      <ElementPath>plus-status</ElementPath>
-      <Type>String</Type>
-      <Width>255</Width>
-    </PropertyDefn>
-    <!--Einde properties van BGTObject-->
-    <!--Begin properties van BegroeidTerreindeel-->
+    <!--Begin properties van BegroeidTerreindeel_tmp-->
     <PropertyDefn>
       <Name>bgt_fysiekVoorkomen</Name>
       <ElementPath>class</ElementPath>
@@ -795,12 +510,12 @@
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
-    <!--Einde properties van BegroeidTerreindeel-->
+    <!--Einde properties van BegroeidTerreindeel_tmp-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>BegroeidTerreindeel_kruinlijn_tmp</Name>
-    <ElementPath>PlantCover_kruinlijn</ElementPath>
-    <GeometryType>2</GeometryType>
+    <Name>Waterdeel_tmp</Name>
+    <ElementPath>Waterdeel</ElementPath>
+    <GeometryType>10</GeometryType>
     <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
       <ExtentXMin>10000</ExtentXMin>
@@ -809,6 +524,12 @@
       <ExtentYMax>625000</ExtentYMax>
     </DatasetSpecificInfo>
     <!--Begin properties van IMGeoObject-->
+    <PropertyDefn>
+      <!-- This field is automatically added by ogr2ogr, but not for files which don't contain any data -->
+      <Name>gml_id</Name>
+      <ElementPath>@gml:id</ElementPath>
+      <Type>String</Type>
+    </PropertyDefn>
     <PropertyDefn>
       <Name>namespace</Name>
       <ElementPath>identificatie|NEN3610ID|namespace</ElementPath>
@@ -883,114 +604,7 @@
       <Width>255</Width>
     </PropertyDefn>
     <!--Einde properties van BGTObject-->
-    <!--Begin properties van BegroeidTerreindeel-->
-    <PropertyDefn>
-      <Name>bgt_fysiekVoorkomen</Name>
-      <ElementPath>class</ElementPath>
-      <Type>String</Type>
-      <Width>255</Width>
-    </PropertyDefn>
-    <PropertyDefn>
-      <Name>plus_fysiekVoorkomen</Name>
-      <ElementPath>plus-fysiekVoorkomen</ElementPath>
-      <Type>String</Type>
-      <Width>255</Width>
-    </PropertyDefn>
-    <PropertyDefn>
-      <Name>begroeidTerreindeelOpTalud</Name>
-      <ElementPath>begroeidTerreindeelOpTalud</ElementPath>
-      <Type>String</Type>
-      <Width>5</Width>
-    </PropertyDefn>
-    <!--Einde properties van BegroeidTerreindeel-->
-  </GMLFeatureClass>
-  <GMLFeatureClass>
-    <Name>Waterdeel_2D_tmp</Name>
-    <ElementPath>Waterdeel_2D</ElementPath>
-    <GeometryType>3</GeometryType>
-    <SRSName>EPSG:28992</SRSName>
-    <DatasetSpecificInfo>
-      <ExtentXMin>10000</ExtentXMin>
-      <ExtentXMax>280000</ExtentXMax>
-      <ExtentYMin>300000</ExtentYMin>
-      <ExtentYMax>625000</ExtentYMax>
-    </DatasetSpecificInfo>
-    <!--Begin properties van IMGeoObject-->
-    <PropertyDefn>
-      <Name>namespace</Name>
-      <ElementPath>identificatie|NEN3610ID|namespace</ElementPath>
-      <Type>String</Type>
-      <Width>8</Width>
-    </PropertyDefn>
-    <PropertyDefn>
-      <Name>lokaalID</Name>
-      <ElementPath>identificatie|NEN3610ID|lokaalID</ElementPath>
-      <Type>String</Type>
-      <Width>38</Width>
-    </PropertyDefn>
-    <!--Einde properties van IMGeoObject-->
-    <!--Begin properties van BGTObject-->
-    <PropertyDefn>
-      <Name>objectBeginTijd</Name>
-      <ElementPath>creationDate</ElementPath>
-      <Type>String</Type>
-      <Width>10</Width>
-    </PropertyDefn>
-    <PropertyDefn>
-      <Name>objectEindTijd</Name>
-      <ElementPath>terminationDate</ElementPath>
-      <Type>String</Type>
-      <Width>10</Width>
-    </PropertyDefn>
-    <PropertyDefn>
-      <Name>tijdstipRegistratie</Name>
-      <ElementPath>tijdstipRegistratie</ElementPath>
-      <Type>String</Type>
-      <Width>23</Width>
-    </PropertyDefn>
-    <PropertyDefn>
-      <Name>eindRegistratie</Name>
-      <ElementPath>eindRegistratie</ElementPath>
-      <Type>String</Type>
-      <Width>23</Width>
-    </PropertyDefn>
-    <PropertyDefn>
-      <Name>LV_publicatiedatum</Name>
-      <ElementPath>LV-publicatiedatum</ElementPath>
-      <Type>String</Type>
-      <Width>23</Width>
-    </PropertyDefn>
-    <PropertyDefn>
-      <Name>bronhouder</Name>
-      <ElementPath>bronhouder</ElementPath>
-      <Type>String</Type>
-      <Width>5</Width>
-    </PropertyDefn>
-    <PropertyDefn>
-      <Name>inOnderzoek</Name>
-      <ElementPath>inOnderzoek</ElementPath>
-      <Type>String</Type>
-      <Width>5</Width>
-    </PropertyDefn>
-    <PropertyDefn>
-      <Name>relatieveHoogteligging</Name>
-      <ElementPath>relatieveHoogteligging</ElementPath>
-      <Type>Integer</Type>
-    </PropertyDefn>
-    <PropertyDefn>
-      <Name>bgt_status</Name>
-      <ElementPath>bgt-status</ElementPath>
-      <Type>String</Type>
-      <Width>255</Width>
-    </PropertyDefn>
-    <PropertyDefn>
-      <Name>plus_status</Name>
-      <ElementPath>plus-status</ElementPath>
-      <Type>String</Type>
-      <Width>255</Width>
-    </PropertyDefn>
-    <!--Einde properties van BGTObject-->
-    <!--Begin properties van Waterdeel-->
+    <!--Begin properties van Waterdeel_tmp-->
     <PropertyDefn>
       <Name>bgt_type</Name>
       <ElementPath>class</ElementPath>
@@ -1003,12 +617,12 @@
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
-    <!--Einde properties van Waterdeel-->
+    <!--Einde properties van Waterdeel_tmp-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>OndersteunendWaterdeel_2D_tmp</Name>
-    <ElementPath>OndersteunendWaterdeel_2D</ElementPath>
-    <GeometryType>3</GeometryType>
+    <Name>OndersteunendWaterdeel_tmp</Name>
+    <ElementPath>OndersteunendWaterdeel</ElementPath>
+    <GeometryType>10</GeometryType>
     <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
       <ExtentXMin>10000</ExtentXMin>
@@ -1017,6 +631,12 @@
       <ExtentYMax>625000</ExtentYMax>
     </DatasetSpecificInfo>
     <!--Begin properties van IMGeoObject-->
+    <PropertyDefn>
+      <!-- This field is automatically added by ogr2ogr, but not for files which don't contain any data -->
+      <Name>gml_id</Name>
+      <ElementPath>@gml:id</ElementPath>
+      <Type>String</Type>
+    </PropertyDefn>
     <PropertyDefn>
       <Name>namespace</Name>
       <ElementPath>identificatie|NEN3610ID|namespace</ElementPath>
@@ -1091,7 +711,7 @@
       <Width>255</Width>
     </PropertyDefn>
     <!--Einde properties van BGTObject-->
-    <!--Begin properties van OndersteunendWaterdeel-->
+    <!--Begin properties van OndersteunendWaterdeel_tmp-->
     <PropertyDefn>
       <Name>bgt_type</Name>
       <ElementPath>class</ElementPath>
@@ -1104,12 +724,21 @@
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
-    <!--Einde properties van OndersteunendWaterdeel-->
+    <!--Einde properties van OndersteunendWaterdeel_tmp-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Pand_2D_tmp</Name>
-    <ElementPath>BuildingPart_2D</ElementPath>
-    <GeometryType>6</GeometryType>
+    <Name>Pand_tmp</Name>
+    <ElementPath>BuildingPart</ElementPath>
+    <GeomPropertyDefn>
+      <Name>geometrie_vlak</Name>
+      <ElementPath>geometrie2dGrondvlak</ElementPath>
+      <Type>MultiSurface</Type>
+    </GeomPropertyDefn>
+    <GeomPropertyDefn>
+      <Name>geometrie_nummeraanduiding</Name>
+      <ElementPath>nummeraanduidingreeks|Nummeraanduidingreeks|nummeraanduidingreeks|Label|positie|Labelpositie|plaatsingspunt</ElementPath>
+      <Type>Point</Type>
+    </GeomPropertyDefn>
     <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
       <ExtentXMin>10000</ExtentXMin>
@@ -1118,6 +747,12 @@
       <ExtentYMax>625000</ExtentYMax>
     </DatasetSpecificInfo>
     <!--Begin properties van IMGeoObject-->
+    <PropertyDefn>
+      <!-- This field is automatically added by ogr2ogr, but not for files which don't contain any data -->
+      <Name>gml_id</Name>
+      <ElementPath>@gml:id</ElementPath>
+      <Type>String</Type>
+    </PropertyDefn>
     <PropertyDefn>
       <Name>namespace</Name>
       <ElementPath>identificatie|NEN3610ID|namespace</ElementPath>
@@ -1192,55 +827,42 @@
       <Width>255</Width>
     </PropertyDefn>
     <!--Einde properties van BGTObject-->
-    <!--Begin properties van Pand-->
+    <!--Begin properties van Pand_tmp-->
     <PropertyDefn>
       <Name>identificatieBAGPND</Name>
       <ElementPath>identificatieBAGPND</ElementPath>
       <Type>String</Type>
       <Width>16</Width>
     </PropertyDefn>
-    <!--Einde properties van Pand-->
-  </GMLFeatureClass>
-  <GMLFeatureClass>
-    <Name>Nummeraanduidingreeks</Name>
-    <GeometryType>1</GeometryType>
-    <SRSName>EPSG:28992</SRSName>
-    <DatasetSpecificInfo>
-      <ExtentXMin>10000</ExtentXMin>
-      <ExtentXMax>280000</ExtentXMax>
-      <ExtentYMin>300000</ExtentYMin>
-      <ExtentYMax>625000</ExtentYMax>
-    </DatasetSpecificInfo>
-    <!--Begin properties van Nummeraanduidingreeks-->
     <PropertyDefn>
-      <Name>tekst</Name>
-      <ElementPath>nummeraanduidingreeks|Label|tekst</ElementPath>
+      <Name>nummeraanduidingtekst</Name>
+      <ElementPath>nummeraanduidingreeks|Nummeraanduidingreeks|nummeraanduidingreeks|Label|tekst</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
     <PropertyDefn>
-      <Name>hoek</Name>
-      <ElementPath>nummeraanduidingreeks|Label|positie|Labelpositie|hoek</ElementPath>
+      <Name>nummeraanduidinghoek</Name>
+      <ElementPath>nummeraanduidingreeks|Nummeraanduidingreeks|nummeraanduidingreeks|Label|positie|Labelpositie|hoek</ElementPath>
       <Type>Real</Type>
     </PropertyDefn>
     <PropertyDefn>
       <Name>identificatieBAGVBOLaagsteHuisnummer</Name>
-      <ElementPath>identificatieBAGVBOLaagsteHuisnummer</ElementPath>
+      <ElementPath>nummeraanduidingreeks|Nummeraanduidingreeks|identificatieBAGVBOLaagsteHuisnummer</ElementPath>
       <Type>String</Type>
       <Width>16</Width>
     </PropertyDefn>
     <PropertyDefn>
       <Name>identificatieBAGVBOHoogsteHuisnummer</Name>
-      <ElementPath>identificatieBAGVBOHoogsteHuisnummer</ElementPath>
+      <ElementPath>nummeraanduidingreeks|Nummeraanduidingreeks|identificatieBAGVBOHoogsteHuisnummer</ElementPath>
       <Type>String</Type>
       <Width>16</Width>
     </PropertyDefn>
-    <!--Einde properties van Nummeraanduidingreeks-->
+    <!--Einde properties van Pand_tmp-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Spoor_2D_tmp</Name>
-    <ElementPath>Railway_2D</ElementPath>
-    <GeometryType>2</GeometryType>
+    <Name>Spoor_tmp</Name>
+    <ElementPath>Railway</ElementPath>
+    <GeometryType>9</GeometryType>
     <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
       <ExtentXMin>10000</ExtentXMin>
@@ -1249,6 +871,12 @@
       <ExtentYMax>625000</ExtentYMax>
     </DatasetSpecificInfo>
     <!--Begin properties van IMGeoObject-->
+    <PropertyDefn>
+      <!-- This field is automatically added by ogr2ogr, but not for files which don't contain any data -->
+      <Name>gml_id</Name>
+      <ElementPath>@gml:id</ElementPath>
+      <Type>String</Type>
+    </PropertyDefn>
     <PropertyDefn>
       <Name>namespace</Name>
       <ElementPath>identificatie|NEN3610ID|namespace</ElementPath>
@@ -1323,7 +951,7 @@
       <Width>255</Width>
     </PropertyDefn>
     <!--Einde properties van BGTObject-->
-    <!--Begin properties van Spoor-->
+    <!--Begin properties van Spoor_tmp-->
     <PropertyDefn>
       <Name>bgt_functie</Name>
       <ElementPath>function</ElementPath>
@@ -1336,12 +964,12 @@
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
-    <!--Einde properties van Spoor-->
+    <!--Einde properties van Spoor_tmp-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>OverigBouwwerk_2D_tmp</Name>
-    <ElementPath>OverigBouwwerk_2D</ElementPath>
-    <GeometryType>6</GeometryType>
+    <Name>OverigBouwwerk_tmp</Name>
+    <ElementPath>OverigBouwwerk</ElementPath>
+    <GeometryType>12</GeometryType>
     <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
       <ExtentXMin>10000</ExtentXMin>
@@ -1350,6 +978,12 @@
       <ExtentYMax>625000</ExtentYMax>
     </DatasetSpecificInfo>
     <!--Begin properties van IMGeoObject-->
+    <PropertyDefn>
+      <!-- This field is automatically added by ogr2ogr, but not for files which don't contain any data -->
+      <Name>gml_id</Name>
+      <ElementPath>@gml:id</ElementPath>
+      <Type>String</Type>
+    </PropertyDefn>
     <PropertyDefn>
       <Name>namespace</Name>
       <ElementPath>identificatie|NEN3610ID|namespace</ElementPath>
@@ -1424,7 +1058,7 @@
       <Width>255</Width>
     </PropertyDefn>
     <!--Einde properties van BGTObject-->
-    <!--Begin properties van OverigBouwwerk-->
+    <!--Begin properties van OverigBouwwerk_tmp-->
     <PropertyDefn>
       <Name>bgt_type</Name>
       <ElementPath>bgt-type</ElementPath>
@@ -1437,11 +1071,11 @@
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
-    <!--Einde properties van OverigBouwwerk-->
+    <!--Einde properties van OverigBouwwerk_tmp-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Kunstwerkdeel_2D_tmp</Name>
-    <ElementPath>Kunstwerkdeel_2D</ElementPath>
+    <Name>Kunstwerkdeel_tmp</Name>
+    <ElementPath>Kunstwerkdeel</ElementPath>
     <GeometryType>0</GeometryType>
     <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
@@ -1452,6 +1086,12 @@
     </DatasetSpecificInfo>
     <!--Begin properties van IMGeoObject-->
     <PropertyDefn>
+      <!-- This field is automatically added by ogr2ogr, but not for files which don't contain any data -->
+      <Name>gml_id</Name>
+      <ElementPath>@gml:id</ElementPath>
+      <Type>String</Type>
+    </PropertyDefn>
+    <PropertyDefn>
       <Name>namespace</Name>
       <ElementPath>identificatie|NEN3610ID|namespace</ElementPath>
       <Type>String</Type>
@@ -1525,7 +1165,7 @@
       <Width>255</Width>
     </PropertyDefn>
     <!--Einde properties van BGTObject-->
-    <!--Begin properties van Kunstwerkdeel-->
+    <!--Begin properties van Kunstwerkdeel_tmp-->
     <PropertyDefn>
       <Name>bgt_type</Name>
       <ElementPath>bgt-type</ElementPath>
@@ -1538,12 +1178,12 @@
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
-    <!--Einde properties van Kunstwerkdeel-->
+    <!--Einde properties van Kunstwerkdeel_tmp-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Overbruggingsdeel_2D_tmp</Name>
-    <ElementPath>BridgeConstructionElement_2D</ElementPath>
-    <GeometryType>3</GeometryType>
+    <Name>Overbruggingsdeel_tmp</Name>
+    <ElementPath>BridgeConstructionElement</ElementPath>
+    <GeometryType>10</GeometryType>
     <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
       <ExtentXMin>10000</ExtentXMin>
@@ -1552,6 +1192,12 @@
       <ExtentYMax>625000</ExtentYMax>
     </DatasetSpecificInfo>
     <!--Begin properties van IMGeoObject-->
+    <PropertyDefn>
+      <!-- This field is automatically added by ogr2ogr, but not for files which don't contain any data -->
+      <Name>gml_id</Name>
+      <ElementPath>@gml:id</ElementPath>
+      <Type>String</Type>
+    </PropertyDefn>
     <PropertyDefn>
       <Name>namespace</Name>
       <ElementPath>identificatie|NEN3610ID|namespace</ElementPath>
@@ -1626,7 +1272,7 @@
       <Width>255</Width>
     </PropertyDefn>
     <!--Einde properties van BGTObject-->
-    <!--Begin properties van Overbruggingsdeel-->
+    <!--Begin properties van Overbruggingsdeel_tmp-->
     <PropertyDefn>
       <Name>typeOverbruggingsdeel</Name>
       <ElementPath>class</ElementPath>
@@ -1645,12 +1291,12 @@
       <Type>String</Type>
       <Width>5</Width>
     </PropertyDefn>
-    <!--Einde properties van Overbruggingsdeel-->
+    <!--Einde properties van Overbruggingsdeel_tmp-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Tunneldeel_2D_tmp</Name>
-    <ElementPath>TunnelPart_2D</ElementPath>
-    <GeometryType>3</GeometryType>
+    <Name>Tunneldeel_tmp</Name>
+    <ElementPath>TunnelPart</ElementPath>
+    <GeometryType>10</GeometryType>
     <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
       <ExtentXMin>10000</ExtentXMin>
@@ -1659,6 +1305,12 @@
       <ExtentYMax>625000</ExtentYMax>
     </DatasetSpecificInfo>
     <!--Begin properties van IMGeoObject-->
+    <PropertyDefn>
+      <!-- This field is automatically added by ogr2ogr, but not for files which don't contain any data -->
+      <Name>gml_id</Name>
+      <ElementPath>@gml:id</ElementPath>
+      <Type>String</Type>
+    </PropertyDefn>
     <PropertyDefn>
       <Name>namespace</Name>
       <ElementPath>identificatie|NEN3610ID|namespace</ElementPath>
@@ -1735,8 +1387,8 @@
     <!--Einde properties van BGTObject-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Scheiding_2D_tmp</Name>
-    <ElementPath>Scheiding_2D</ElementPath>
+    <Name>Scheiding_tmp</Name>
+    <ElementPath>Scheiding</ElementPath>
     <GeometryType>0</GeometryType>
     <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
@@ -1747,6 +1399,12 @@
     </DatasetSpecificInfo>
     <!--Begin properties van IMGeoObject-->
     <PropertyDefn>
+      <!-- This field is automatically added by ogr2ogr, but not for files which don't contain any data -->
+      <Name>gml_id</Name>
+      <ElementPath>@gml:id</ElementPath>
+      <Type>String</Type>
+    </PropertyDefn>
+    <PropertyDefn>
       <Name>namespace</Name>
       <ElementPath>identificatie|NEN3610ID|namespace</ElementPath>
       <Type>String</Type>
@@ -1820,7 +1478,7 @@
       <Width>255</Width>
     </PropertyDefn>
     <!--Einde properties van BGTObject-->
-    <!--Begin properties van Scheiding-->
+    <!--Begin properties van Scheiding_tmp-->
     <PropertyDefn>
       <Name>bgt_type</Name>
       <ElementPath>bgt-type</ElementPath>
@@ -1833,11 +1491,11 @@
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
-    <!--Einde properties van Scheiding-->
+    <!--Einde properties van Scheiding_tmp-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>OverigeScheiding_2D_tmp</Name>
-    <ElementPath>OverigeScheiding_2D</ElementPath>
+    <Name>OverigeScheiding_tmp</Name>
+    <ElementPath>OverigeScheiding</ElementPath>
     <GeometryType>0</GeometryType>
     <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
@@ -1848,6 +1506,12 @@
     </DatasetSpecificInfo>
     <!--Begin properties van IMGeoObject-->
     <PropertyDefn>
+      <!-- This field is automatically added by ogr2ogr, but not for files which don't contain any data -->
+      <Name>gml_id</Name>
+      <ElementPath>@gml:id</ElementPath>
+      <Type>String</Type>
+    </PropertyDefn>
+    <PropertyDefn>
       <Name>namespace</Name>
       <ElementPath>identificatie|NEN3610ID|namespace</ElementPath>
       <Type>String</Type>
@@ -1921,19 +1585,19 @@
       <Width>255</Width>
     </PropertyDefn>
     <!--Einde properties van BGTObject-->
-    <!--Begin properties van OverigeScheiding-->
+    <!--Begin properties van OverigeScheiding_tmp-->
     <PropertyDefn>
       <Name>plus_type</Name>
       <ElementPath>plus-type</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
-    <!--Einde properties van OverigeScheiding-->
+    <!--Einde properties van OverigeScheiding_tmp-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>FunctioneelGebied_2D_tmp</Name>
-    <ElementPath>FunctioneelGebied_2D</ElementPath>
-    <GeometryType>3</GeometryType>
+    <Name>FunctioneelGebied_tmp</Name>
+    <ElementPath>FunctioneelGebied</ElementPath>
+    <GeometryType>10</GeometryType>
     <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
       <ExtentXMin>10000</ExtentXMin>
@@ -1943,6 +1607,12 @@
     </DatasetSpecificInfo>
     <!--Begin properties van IMGeoObject-->
     <PropertyDefn>
+      <!-- This field is automatically added by ogr2ogr, but not for files which don't contain any data -->
+      <Name>gml_id</Name>
+      <ElementPath>@gml:id</ElementPath>
+      <Type>String</Type>
+    </PropertyDefn>
+    <PropertyDefn>
       <Name>namespace</Name>
       <ElementPath>identificatie|NEN3610ID|namespace</ElementPath>
       <Type>String</Type>
@@ -2016,7 +1686,7 @@
       <Width>255</Width>
     </PropertyDefn>
     <!--Einde properties van BGTObject-->
-    <!--Begin properties van FunctioneelGebied-->
+    <!--Begin properties van FunctioneelGebied_tmp-->
     <PropertyDefn>
       <Name>bgt_type</Name>
       <ElementPath>bgt-type</ElementPath>
@@ -2035,12 +1705,12 @@
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
-    <!--Einde properties van FunctioneelGebied-->
+    <!--Einde properties van FunctioneelGebied_tmp-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>OngeclassificeerdObject_2D_tmp</Name>
-    <ElementPath>OngeclassificeerdObject_2D</ElementPath>
-    <GeometryType>3</GeometryType>
+    <Name>OngeclassificeerdObject_tmp</Name>
+    <ElementPath>OngeclassificeerdObject</ElementPath>
+    <GeometryType>10</GeometryType>
     <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
       <ExtentXMin>10000</ExtentXMin>
@@ -2049,6 +1719,12 @@
       <ExtentYMax>625000</ExtentYMax>
     </DatasetSpecificInfo>
     <!--Begin properties van IMGeoObject-->
+    <PropertyDefn>
+      <!-- This field is automatically added by ogr2ogr, but not for files which don't contain any data -->
+      <Name>gml_id</Name>
+      <ElementPath>@gml:id</ElementPath>
+      <Type>String</Type>
+    </PropertyDefn>
     <PropertyDefn>
       <Name>namespace</Name>
       <ElementPath>identificatie|NEN3610ID|namespace</ElementPath>
@@ -2136,6 +1812,12 @@
       <ExtentYMax>625000</ExtentYMax>
     </DatasetSpecificInfo>
     <!--Begin properties van IMGeoObject-->
+    <PropertyDefn>
+      <!-- This field is automatically added by ogr2ogr, but not for files which don't contain any data -->
+      <Name>gml_id</Name>
+      <ElementPath>@gml:id</ElementPath>
+      <Type>String</Type>
+    </PropertyDefn>
     <PropertyDefn>
       <Name>namespace</Name>
       <ElementPath>identificatie|NEN3610ID|namespace</ElementPath>
@@ -2249,6 +1931,12 @@
     </DatasetSpecificInfo>
     <!--Begin properties van IMGeoObject-->
     <PropertyDefn>
+      <!-- This field is automatically added by ogr2ogr, but not for files which don't contain any data -->
+      <Name>gml_id</Name>
+      <ElementPath>@gml:id</ElementPath>
+      <Type>String</Type>
+    </PropertyDefn>
+    <PropertyDefn>
       <Name>namespace</Name>
       <ElementPath>identificatie|NEN3610ID|namespace</ElementPath>
       <Type>String</Type>
@@ -2288,9 +1976,9 @@
     <!--Einde properties van Plaatsbepalingspunt_tmp-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>GebouwInstallatie_2D_tmp</Name>
-    <ElementPath>BuildingInstallation_2D</ElementPath>
-    <GeometryType>3</GeometryType>
+    <Name>GebouwInstallatie_tmp</Name>
+    <ElementPath>BuildingInstallation</ElementPath>
+    <GeometryType>10</GeometryType>
     <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
       <ExtentXMin>10000</ExtentXMin>
@@ -2299,6 +1987,12 @@
       <ExtentYMax>625000</ExtentYMax>
     </DatasetSpecificInfo>
     <!--Begin properties van IMGeoObject-->
+    <PropertyDefn>
+      <!-- This field is automatically added by ogr2ogr, but not for files which don't contain any data -->
+      <Name>gml_id</Name>
+      <ElementPath>@gml:id</ElementPath>
+      <Type>String</Type>
+    </PropertyDefn>
     <PropertyDefn>
       <Name>namespace</Name>
       <ElementPath>identificatie|NEN3610ID|namespace</ElementPath>
@@ -2373,7 +2067,7 @@
       <Width>255</Width>
     </PropertyDefn>
     <!--Einde properties van BGTObject-->
-    <!--Begin properties van GebouwInstallatie-->
+    <!--Begin properties van GebouwInstallatie_tmp-->
     <PropertyDefn>
       <Name>bgt_type</Name>
       <ElementPath>function</ElementPath>
@@ -2386,11 +2080,11 @@
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
-    <!--Einde properties van GebouwInstallatie-->
+    <!--Einde properties van GebouwInstallatie_tmp-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Bak_2D_tmp</Name>
-    <ElementPath>Bak_2D</ElementPath>
+    <Name>Bak_tmp</Name>
+    <ElementPath>Bak</ElementPath>
     <GeometryType>1</GeometryType>
     <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
@@ -2400,6 +2094,12 @@
       <ExtentYMax>625000</ExtentYMax>
     </DatasetSpecificInfo>
     <!--Begin properties van IMGeoObject-->
+    <PropertyDefn>
+      <!-- This field is automatically added by ogr2ogr, but not for files which don't contain any data -->
+      <Name>gml_id</Name>
+      <ElementPath>@gml:id</ElementPath>
+      <Type>String</Type>
+    </PropertyDefn>
     <PropertyDefn>
       <Name>namespace</Name>
       <ElementPath>identificatie|NEN3610ID|namespace</ElementPath>
@@ -2490,8 +2190,8 @@
     <!--Einde properties van Inrichtingselement-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Bord_2D_tmp</Name>
-    <ElementPath>Bord_2D</ElementPath>
+    <Name>Bord_tmp</Name>
+    <ElementPath>Bord</ElementPath>
     <GeometryType>1</GeometryType>
     <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
@@ -2501,6 +2201,12 @@
       <ExtentYMax>625000</ExtentYMax>
     </DatasetSpecificInfo>
     <!--Begin properties van IMGeoObject-->
+    <PropertyDefn>
+      <!-- This field is automatically added by ogr2ogr, but not for files which don't contain any data -->
+      <Name>gml_id</Name>
+      <ElementPath>@gml:id</ElementPath>
+      <Type>String</Type>
+    </PropertyDefn>
     <PropertyDefn>
       <Name>namespace</Name>
       <ElementPath>identificatie|NEN3610ID|namespace</ElementPath>
@@ -2591,8 +2297,8 @@
     <!--Einde properties van Inrichtingselement-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Installatie_2D_tmp</Name>
-    <ElementPath>Installatie_2D</ElementPath>
+    <Name>Installatie_tmp</Name>
+    <ElementPath>Installatie</ElementPath>
     <GeometryType>1</GeometryType>
     <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
@@ -2602,6 +2308,12 @@
       <ExtentYMax>625000</ExtentYMax>
     </DatasetSpecificInfo>
     <!--Begin properties van IMGeoObject-->
+    <PropertyDefn>
+      <!-- This field is automatically added by ogr2ogr, but not for files which don't contain any data -->
+      <Name>gml_id</Name>
+      <ElementPath>@gml:id</ElementPath>
+      <Type>String</Type>
+    </PropertyDefn>
     <PropertyDefn>
       <Name>namespace</Name>
       <ElementPath>identificatie|NEN3610ID|namespace</ElementPath>
@@ -2692,8 +2404,8 @@
     <!--Einde properties van Inrichtingselement-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Kast_2D_tmp</Name>
-    <ElementPath>Kast_2D</ElementPath>
+    <Name>Kast_tmp</Name>
+    <ElementPath>Kast</ElementPath>
     <GeometryType>1</GeometryType>
     <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
@@ -2703,6 +2415,12 @@
       <ExtentYMax>625000</ExtentYMax>
     </DatasetSpecificInfo>
     <!--Begin properties van IMGeoObject-->
+    <PropertyDefn>
+      <!-- This field is automatically added by ogr2ogr, but not for files which don't contain any data -->
+      <Name>gml_id</Name>
+      <ElementPath>@gml:id</ElementPath>
+      <Type>String</Type>
+    </PropertyDefn>
     <PropertyDefn>
       <Name>namespace</Name>
       <ElementPath>identificatie|NEN3610ID|namespace</ElementPath>
@@ -2793,8 +2511,8 @@
     <!--Einde properties van Inrichtingselement-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Mast_2D_tmp</Name>
-    <ElementPath>Mast_2D</ElementPath>
+    <Name>Mast_tmp</Name>
+    <ElementPath>Mast</ElementPath>
     <GeometryType>1</GeometryType>
     <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
@@ -2804,6 +2522,12 @@
       <ExtentYMax>625000</ExtentYMax>
     </DatasetSpecificInfo>
     <!--Begin properties van IMGeoObject-->
+    <PropertyDefn>
+      <!-- This field is automatically added by ogr2ogr, but not for files which don't contain any data -->
+      <Name>gml_id</Name>
+      <ElementPath>@gml:id</ElementPath>
+      <Type>String</Type>
+    </PropertyDefn>
     <PropertyDefn>
       <Name>namespace</Name>
       <ElementPath>identificatie|NEN3610ID|namespace</ElementPath>
@@ -2894,8 +2618,8 @@
     <!--Einde properties van Inrichtingselement-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Paal_2D_tmp</Name>
-    <ElementPath>Paal_2D</ElementPath>
+    <Name>Paal_tmp</Name>
+    <ElementPath>Paal</ElementPath>
     <GeometryType>1</GeometryType>
     <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
@@ -2905,6 +2629,12 @@
       <ExtentYMax>625000</ExtentYMax>
     </DatasetSpecificInfo>
     <!--Begin properties van IMGeoObject-->
+    <PropertyDefn>
+      <!-- This field is automatically added by ogr2ogr, but not for files which don't contain any data -->
+      <Name>gml_id</Name>
+      <ElementPath>@gml:id</ElementPath>
+      <Type>String</Type>
+    </PropertyDefn>
     <PropertyDefn>
       <Name>namespace</Name>
       <ElementPath>identificatie|NEN3610ID|namespace</ElementPath>
@@ -2993,18 +2723,18 @@
       <Width>255</Width>
     </PropertyDefn>
     <!--Einde properties van Inrichtingselement-->
-    <!--Begin properties van Paal-->
+    <!--Begin properties van Paal_tmp-->
     <PropertyDefn>
       <Name>hectometeraanduiding</Name>
       <ElementPath>hectometeraanduiding</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
-    <!--Einde properties van Paal-->
+    <!--Einde properties van Paal_tmp-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Put_2D_tmp</Name>
-    <ElementPath>Put_2D</ElementPath>
+    <Name>Put_tmp</Name>
+    <ElementPath>Put</ElementPath>
     <GeometryType>1</GeometryType>
     <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
@@ -3015,6 +2745,12 @@
     </DatasetSpecificInfo>
     <!--Begin properties van IMGeoObject-->
     <PropertyDefn>
+      <!-- This field is automatically added by ogr2ogr, but not for files which don't contain any data -->
+      <Name>gml_id</Name>
+      <ElementPath>@gml:id</ElementPath>
+      <Type>String</Type>
+    </PropertyDefn>
+    <PropertyDefn>
       <Name>namespace</Name>
       <ElementPath>identificatie|NEN3610ID|namespace</ElementPath>
       <Type>String</Type>
@@ -3104,8 +2840,8 @@
     <!--Einde properties van Inrichtingselement-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Sensor_2D_tmp</Name>
-    <ElementPath>Sensor_2D</ElementPath>
+    <Name>Sensor_tmp</Name>
+    <ElementPath>Sensor</ElementPath>
     <GeometryType>0</GeometryType>
     <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
@@ -3116,6 +2852,12 @@
     </DatasetSpecificInfo>
     <!--Begin properties van IMGeoObject-->
     <PropertyDefn>
+      <!-- This field is automatically added by ogr2ogr, but not for files which don't contain any data -->
+      <Name>gml_id</Name>
+      <ElementPath>@gml:id</ElementPath>
+      <Type>String</Type>
+    </PropertyDefn>
+    <PropertyDefn>
       <Name>namespace</Name>
       <ElementPath>identificatie|NEN3610ID|namespace</ElementPath>
       <Type>String</Type>
@@ -3205,8 +2947,8 @@
     <!--Einde properties van Inrichtingselement-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Straatmeubilair_2D_tmp</Name>
-    <ElementPath>Straatmeubilair_2D</ElementPath>
+    <Name>Straatmeubilair_tmp</Name>
+    <ElementPath>Straatmeubilair</ElementPath>
     <GeometryType>1</GeometryType>
     <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
@@ -3217,106 +2959,11 @@
     </DatasetSpecificInfo>
     <!--Begin properties van IMGeoObject-->
     <PropertyDefn>
-      <Name>namespace</Name>
-      <ElementPath>identificatie|NEN3610ID|namespace</ElementPath>
+      <!-- This field is automatically added by ogr2ogr, but not for files which don't contain any data -->
+      <Name>gml_id</Name>
+      <ElementPath>@gml:id</ElementPath>
       <Type>String</Type>
-      <Width>8</Width>
     </PropertyDefn>
-    <PropertyDefn>
-      <Name>lokaalID</Name>
-      <ElementPath>identificatie|NEN3610ID|lokaalID</ElementPath>
-      <Type>String</Type>
-      <Width>38</Width>
-    </PropertyDefn>
-    <!--Einde properties van IMGeoObject-->
-    <!--Begin properties van BGTObject-->
-    <PropertyDefn>
-      <Name>objectBeginTijd</Name>
-      <ElementPath>creationDate</ElementPath>
-      <Type>String</Type>
-      <Width>10</Width>
-    </PropertyDefn>
-    <PropertyDefn>
-      <Name>objectEindTijd</Name>
-      <ElementPath>terminationDate</ElementPath>
-      <Type>String</Type>
-      <Width>10</Width>
-    </PropertyDefn>
-    <PropertyDefn>
-      <Name>tijdstipRegistratie</Name>
-      <ElementPath>tijdstipRegistratie</ElementPath>
-      <Type>String</Type>
-      <Width>23</Width>
-    </PropertyDefn>
-    <PropertyDefn>
-      <Name>eindRegistratie</Name>
-      <ElementPath>eindRegistratie</ElementPath>
-      <Type>String</Type>
-      <Width>23</Width>
-    </PropertyDefn>
-    <PropertyDefn>
-      <Name>LV_publicatiedatum</Name>
-      <ElementPath>LV-publicatiedatum</ElementPath>
-      <Type>String</Type>
-      <Width>23</Width>
-    </PropertyDefn>
-    <PropertyDefn>
-      <Name>bronhouder</Name>
-      <ElementPath>bronhouder</ElementPath>
-      <Type>String</Type>
-      <Width>5</Width>
-    </PropertyDefn>
-    <PropertyDefn>
-      <Name>inOnderzoek</Name>
-      <ElementPath>inOnderzoek</ElementPath>
-      <Type>String</Type>
-      <Width>5</Width>
-    </PropertyDefn>
-    <PropertyDefn>
-      <Name>relatieveHoogteligging</Name>
-      <ElementPath>relatieveHoogteligging</ElementPath>
-      <Type>Integer</Type>
-    </PropertyDefn>
-    <PropertyDefn>
-      <Name>bgt_status</Name>
-      <ElementPath>bgt-status</ElementPath>
-      <Type>String</Type>
-      <Width>255</Width>
-    </PropertyDefn>
-    <PropertyDefn>
-      <Name>plus_status</Name>
-      <ElementPath>plus-status</ElementPath>
-      <Type>String</Type>
-      <Width>255</Width>
-    </PropertyDefn>
-    <!--Einde properties van BGTObject-->
-    <!--Begin properties van Inrichtingselement-->
-    <PropertyDefn>
-      <Name>bgt_type</Name>
-      <ElementPath>function</ElementPath>
-      <Type>String</Type>
-      <Width>255</Width>
-    </PropertyDefn>
-    <PropertyDefn>
-      <Name>plus_type</Name>
-      <ElementPath>plus-type</ElementPath>
-      <Type>String</Type>
-      <Width>255</Width>
-    </PropertyDefn>
-    <!--Einde properties van Inrichtingselement-->
-  </GMLFeatureClass>
-  <GMLFeatureClass>
-    <Name>Waterinrichtingselement_2D_tmp</Name>
-    <ElementPath>Waterinrichtingselement_2D</ElementPath>
-    <GeometryType>0</GeometryType>
-    <SRSName>EPSG:28992</SRSName>
-    <DatasetSpecificInfo>
-      <ExtentXMin>10000</ExtentXMin>
-      <ExtentXMax>280000</ExtentXMax>
-      <ExtentYMin>300000</ExtentYMin>
-      <ExtentYMax>625000</ExtentYMax>
-    </DatasetSpecificInfo>
-    <!--Begin properties van IMGeoObject-->
     <PropertyDefn>
       <Name>namespace</Name>
       <ElementPath>identificatie|NEN3610ID|namespace</ElementPath>
@@ -3407,8 +3054,8 @@
     <!--Einde properties van Inrichtingselement-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Weginrichtingselement_2D_tmp</Name>
-    <ElementPath>Weginrichtingselement_2D</ElementPath>
+    <Name>Waterinrichtingselement_tmp</Name>
+    <ElementPath>Waterinrichtingselement</ElementPath>
     <GeometryType>0</GeometryType>
     <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
@@ -3418,6 +3065,12 @@
       <ExtentYMax>625000</ExtentYMax>
     </DatasetSpecificInfo>
     <!--Begin properties van IMGeoObject-->
+    <PropertyDefn>
+      <!-- This field is automatically added by ogr2ogr, but not for files which don't contain any data -->
+      <Name>gml_id</Name>
+      <ElementPath>@gml:id</ElementPath>
+      <Type>String</Type>
+    </PropertyDefn>
     <PropertyDefn>
       <Name>namespace</Name>
       <ElementPath>identificatie|NEN3610ID|namespace</ElementPath>
@@ -3508,8 +3161,8 @@
     <!--Einde properties van Inrichtingselement-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>VegetatieObject_2D_tmp</Name>
-    <ElementPath>SolitaryVegetationObject_2D</ElementPath>
+    <Name>Weginrichtingselement_tmp</Name>
+    <ElementPath>Weginrichtingselement</ElementPath>
     <GeometryType>0</GeometryType>
     <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
@@ -3519,6 +3172,12 @@
       <ExtentYMax>625000</ExtentYMax>
     </DatasetSpecificInfo>
     <!--Begin properties van IMGeoObject-->
+    <PropertyDefn>
+      <!-- This field is automatically added by ogr2ogr, but not for files which don't contain any data -->
+      <Name>gml_id</Name>
+      <ElementPath>@gml:id</ElementPath>
+      <Type>String</Type>
+    </PropertyDefn>
     <PropertyDefn>
       <Name>namespace</Name>
       <ElementPath>identificatie|NEN3610ID|namespace</ElementPath>
@@ -3593,7 +3252,114 @@
       <Width>255</Width>
     </PropertyDefn>
     <!--Einde properties van BGTObject-->
-    <!--Begin properties van VegetatieObject-->
+    <!--Begin properties van Inrichtingselement-->
+    <PropertyDefn>
+      <Name>bgt_type</Name>
+      <ElementPath>function</ElementPath>
+      <Type>String</Type>
+      <Width>255</Width>
+    </PropertyDefn>
+    <PropertyDefn>
+      <Name>plus_type</Name>
+      <ElementPath>plus-type</ElementPath>
+      <Type>String</Type>
+      <Width>255</Width>
+    </PropertyDefn>
+    <!--Einde properties van Inrichtingselement-->
+  </GMLFeatureClass>
+  <GMLFeatureClass>
+    <Name>VegetatieObject_tmp</Name>
+    <ElementPath>SolitaryVegetationObject</ElementPath>
+    <GeometryType>0</GeometryType>
+    <SRSName>EPSG:28992</SRSName>
+    <DatasetSpecificInfo>
+      <ExtentXMin>10000</ExtentXMin>
+      <ExtentXMax>280000</ExtentXMax>
+      <ExtentYMin>300000</ExtentYMin>
+      <ExtentYMax>625000</ExtentYMax>
+    </DatasetSpecificInfo>
+    <!--Begin properties van IMGeoObject-->
+    <PropertyDefn>
+      <!-- This field is automatically added by ogr2ogr, but not for files which don't contain any data -->
+      <Name>gml_id</Name>
+      <ElementPath>@gml:id</ElementPath>
+      <Type>String</Type>
+    </PropertyDefn>
+    <PropertyDefn>
+      <Name>namespace</Name>
+      <ElementPath>identificatie|NEN3610ID|namespace</ElementPath>
+      <Type>String</Type>
+      <Width>8</Width>
+    </PropertyDefn>
+    <PropertyDefn>
+      <Name>lokaalID</Name>
+      <ElementPath>identificatie|NEN3610ID|lokaalID</ElementPath>
+      <Type>String</Type>
+      <Width>38</Width>
+    </PropertyDefn>
+    <!--Einde properties van IMGeoObject-->
+    <!--Begin properties van BGTObject-->
+    <PropertyDefn>
+      <Name>objectBeginTijd</Name>
+      <ElementPath>creationDate</ElementPath>
+      <Type>String</Type>
+      <Width>10</Width>
+    </PropertyDefn>
+    <PropertyDefn>
+      <Name>objectEindTijd</Name>
+      <ElementPath>terminationDate</ElementPath>
+      <Type>String</Type>
+      <Width>10</Width>
+    </PropertyDefn>
+    <PropertyDefn>
+      <Name>tijdstipRegistratie</Name>
+      <ElementPath>tijdstipRegistratie</ElementPath>
+      <Type>String</Type>
+      <Width>23</Width>
+    </PropertyDefn>
+    <PropertyDefn>
+      <Name>eindRegistratie</Name>
+      <ElementPath>eindRegistratie</ElementPath>
+      <Type>String</Type>
+      <Width>23</Width>
+    </PropertyDefn>
+    <PropertyDefn>
+      <Name>LV_publicatiedatum</Name>
+      <ElementPath>LV-publicatiedatum</ElementPath>
+      <Type>String</Type>
+      <Width>23</Width>
+    </PropertyDefn>
+    <PropertyDefn>
+      <Name>bronhouder</Name>
+      <ElementPath>bronhouder</ElementPath>
+      <Type>String</Type>
+      <Width>5</Width>
+    </PropertyDefn>
+    <PropertyDefn>
+      <Name>inOnderzoek</Name>
+      <ElementPath>inOnderzoek</ElementPath>
+      <Type>String</Type>
+      <Width>5</Width>
+    </PropertyDefn>
+    <PropertyDefn>
+      <Name>relatieveHoogteligging</Name>
+      <ElementPath>relatieveHoogteligging</ElementPath>
+      <Type>Integer</Type>
+    </PropertyDefn>
+    <PropertyDefn>
+      <Name>bgt_status</Name>
+      <ElementPath>bgt-status</ElementPath>
+      <Type>String</Type>
+      <Width>255</Width>
+    </PropertyDefn>
+    <PropertyDefn>
+      <Name>plus_status</Name>
+      <ElementPath>plus-status</ElementPath>
+      <Type>String</Type>
+      <Width>255</Width>
+    </PropertyDefn>
+    <!--Einde properties van BGTObject-->
+    <!--Begin properties van VegetatieObject_tmp-->
     <PropertyDefn>
       <Name>bgt_type</Name>
       <ElementPath>class</ElementPath>
@@ -3606,12 +3372,12 @@
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
-    <!--Einde properties van VegetatieObject-->
+    <!--Einde properties van VegetatieObject_tmp-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Buurt_2D_tmp</Name>
-    <ElementPath>Buurt_2D</ElementPath>
-    <GeometryType>6</GeometryType>
+    <Name>Buurt_tmp</Name>
+    <ElementPath>Buurt</ElementPath>
+    <GeometryType>12</GeometryType>
     <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
       <ExtentXMin>10000</ExtentXMin>
@@ -3620,6 +3386,12 @@
       <ExtentYMax>625000</ExtentYMax>
     </DatasetSpecificInfo>
     <!--Begin properties van IMGeoObject-->
+    <PropertyDefn>
+      <!-- This field is automatically added by ogr2ogr, but not for files which don't contain any data -->
+      <Name>gml_id</Name>
+      <ElementPath>@gml:id</ElementPath>
+      <Type>String</Type>
+    </PropertyDefn>
     <PropertyDefn>
       <Name>namespace</Name>
       <ElementPath>identificatie|NEN3610ID|namespace</ElementPath>
@@ -3704,9 +3476,9 @@
     <!--Einde properties van RegistratiefGebied-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>OpenbareRuimte_2D_tmp</Name>
-    <ElementPath>OpenbareRuimte_2D</ElementPath>
-    <GeometryType>6</GeometryType>
+    <Name>OpenbareRuimte_tmp</Name>
+    <ElementPath>OpenbareRuimte</ElementPath>
+    <GeometryType>12</GeometryType>
     <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
       <ExtentXMin>10000</ExtentXMin>
@@ -3715,6 +3487,12 @@
       <ExtentYMax>625000</ExtentYMax>
     </DatasetSpecificInfo>
     <!--Begin properties van IMGeoObject-->
+    <PropertyDefn>
+      <!-- This field is automatically added by ogr2ogr, but not for files which don't contain any data -->
+      <Name>gml_id</Name>
+      <ElementPath>@gml:id</ElementPath>
+      <Type>String</Type>
+    </PropertyDefn>
     <PropertyDefn>
       <Name>namespace</Name>
       <ElementPath>identificatie|NEN3610ID|namespace</ElementPath>
@@ -3799,9 +3577,9 @@
     <!--Einde properties van RegistratiefGebied-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Stadsdeel_2D_tmp</Name>
-    <ElementPath>Stadsdeel_2D</ElementPath>
-    <GeometryType>6</GeometryType>
+    <Name>Stadsdeel_tmp</Name>
+    <ElementPath>Stadsdeel</ElementPath>
+    <GeometryType>12</GeometryType>
     <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
       <ExtentXMin>10000</ExtentXMin>
@@ -3810,6 +3588,12 @@
       <ExtentYMax>625000</ExtentYMax>
     </DatasetSpecificInfo>
     <!--Begin properties van IMGeoObject-->
+    <PropertyDefn>
+      <!-- This field is automatically added by ogr2ogr, but not for files which don't contain any data -->
+      <Name>gml_id</Name>
+      <ElementPath>@gml:id</ElementPath>
+      <Type>String</Type>
+    </PropertyDefn>
     <PropertyDefn>
       <Name>namespace</Name>
       <ElementPath>identificatie|NEN3610ID|namespace</ElementPath>
@@ -3894,9 +3678,9 @@
     <!--Einde properties van RegistratiefGebied-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Waterschap_2D_tmp</Name>
-    <ElementPath>Waterschap_2D</ElementPath>
-    <GeometryType>6</GeometryType>
+    <Name>Waterschap_tmp</Name>
+    <ElementPath>Waterschap</ElementPath>
+    <GeometryType>12</GeometryType>
     <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
       <ExtentXMin>10000</ExtentXMin>
@@ -3905,6 +3689,12 @@
       <ExtentYMax>625000</ExtentYMax>
     </DatasetSpecificInfo>
     <!--Begin properties van IMGeoObject-->
+    <PropertyDefn>
+      <!-- This field is automatically added by ogr2ogr, but not for files which don't contain any data -->
+      <Name>gml_id</Name>
+      <ElementPath>@gml:id</ElementPath>
+      <Type>String</Type>
+    </PropertyDefn>
     <PropertyDefn>
       <Name>namespace</Name>
       <ElementPath>identificatie|NEN3610ID|namespace</ElementPath>
@@ -3989,9 +3779,9 @@
     <!--Einde properties van RegistratiefGebied-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Wijk_2D_tmp</Name>
-    <ElementPath>Wijk_2D</ElementPath>
-    <GeometryType>6</GeometryType>
+    <Name>Wijk_tmp</Name>
+    <ElementPath>Wijk</ElementPath>
+    <GeometryType>12</GeometryType>
     <SRSName>EPSG:28992</SRSName>
     <DatasetSpecificInfo>
       <ExtentXMin>10000</ExtentXMin>
@@ -4000,6 +3790,12 @@
       <ExtentYMax>625000</ExtentYMax>
     </DatasetSpecificInfo>
     <!--Begin properties van IMGeoObject-->
+    <PropertyDefn>
+      <!-- This field is automatically added by ogr2ogr, but not for files which don't contain any data -->
+      <Name>gml_id</Name>
+      <ElementPath>@gml:id</ElementPath>
+      <Type>String</Type>
+    </PropertyDefn>
     <PropertyDefn>
       <Name>namespace</Name>
       <ElementPath>identificatie|NEN3610ID|namespace</ElementPath>

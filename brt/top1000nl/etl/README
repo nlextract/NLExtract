@@ -1,0 +1,53 @@
+TOP1000NL inlezen met Stetl (www.stetl.org) ETL framework.
+door: Just van den Broecke en Frank Steggink
+
+Deze map bevat de ETL configuratie en commando om via Stetl
+TOP1000NL vanuit de bron GML bestanden naar verschillende outputs weg te schrijven.
+Standaard is dit PostGIS, maar omdat output via ogr2ogr verloopt kan dit
+elke output zijn die ogr2ogr ondersteunt, bijv SHP, GeoJSON of GeoPackage, in theorie ook bijv Oracle.
+
+Om gebruik te maken van Stetl moet de externe GitHub submodule externals/stetl
+aanwezig zijn.
+
+Bij het klonen van de GitHub komt Stetl als volgt mee:
+git clone --recursive https://github.com/nlextract/NLExtract.git
+Stetl komt dan mee, hoeft niet apart geinstalleerd, alleen de Stetl-dependencies.
+
+Dependencies Stetl installeren:
+http://www.stetl.org/en/latest/install.html
+
+Meer over Stetl: http://stetl.org
+
+Commando
+--------
+
+./etl-top1000nl.sh
+Windows: etl-top1000nl.cmd
+
+Gebruikt default opties (database params etc) uit options/default.args.
+
+Stetl configuratie, hoeft niet gewijzigd, alleen indien bijv andere output gewenst:
+conf/etl-top1000nl-v1.2.0.cfg
+
+Opties/argumenten
+-----------------
+
+Een aantal opties kunnen op 2 manieren vervangen worden:
+
+1- Impliciet: Overrule default opties (database params etc) met een eigen lokale file gebaseerd op
+lokale hostnaam: options/<jouw host naam>.args
+
+2- Expliciet op command line via  ./etl-top1000nl.sh <mijn opties file>.args
+                                  etl-top1000nl.cmd <mijn opties file>.args
+
+Indien methode 2 gebruikt wordt, prevaleert deze boven 1 en de default opties!
+
+Database mapping
+----------------
+gfs/top1000-v1.2.0.gfs is de GDAL/OGR "GFS Template" en bepaalt de mapping van GML elementen/attributen
+naar PostGIS kolom(namen). Maak eventueel een eigen GFS file en specificeer deze in je
+options/<jouw host naam>.args: bijv gfs_template=gfs/mijntop1000.gfs
+
+TODO
+----
+* GUI

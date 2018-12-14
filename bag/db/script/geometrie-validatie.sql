@@ -13,7 +13,7 @@
 --
 -- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-CREATE OR REPLACE FUNCTION validateGeometry(tabel text, identificatie numeric(16,0), geom geometry)
+CREATE OR REPLACE FUNCTION validateGeometry(tabel text, identificatie varchar(16), geom geometry)
   RETURNS geometry AS
 $BODY$DECLARE
 

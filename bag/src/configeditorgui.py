@@ -1,8 +1,10 @@
 import wx
 
-_ = wx.GetTranslation
 import wx.propgrid as wxpg
 from bagconfig import BAGConfig
+
+_ = wx.GetTranslation
+
 
 # Simpel paneel om NLExtract BAG config settings te bewerken
 class ConfigEditorPanel(wx.Dialog):
@@ -14,8 +16,7 @@ class ConfigEditorPanel(wx.Dialog):
         # Difference between using PropertyGridManager vs PropertyGrid is that
         # the manager supports multiple pages and a description box.
         self.pg = pg = wxpg.PropertyGridManager(panel,
-                                                style=wxpg.PG_SPLITTER_AUTO_CENTER |
-                                                      wxpg.PG_AUTO_SORT )
+                                                style=wxpg.PG_SPLITTER_AUTO_CENTER | wxpg.PG_AUTO_SORT)
         pg.AddPage("BAG Extract Config")
 
         pg.Append(wxpg.PropertyCategory("BAG Extract Config"))
@@ -54,5 +55,3 @@ class ConfigEditorPanel(wx.Dialog):
         BAGConfig.config.port = props['Database poort']
         BAGConfig.config.save()
         print str(props)
-
-

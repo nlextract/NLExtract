@@ -18,6 +18,7 @@ except ImportError:
 from log import Log
 from bagconfig import BAGConfig
 
+
 class Database:
     def __init__(self):
         # Lees de configuratie uit globaal BAGConfig object
@@ -45,11 +46,11 @@ class Database:
         try:
             # Connect using configured parameters
             self.connection = psycopg2.connect(
-                        database=self.config.database,
-                        user=self.config.user,
-                        host=self.config.host,
-                        port=self.config.port,
-                        password=self.config.password)
+                database=self.config.database,
+                user=self.config.user,
+                host=self.config.host,
+                port=self.config.port,
+                password=self.config.password)
 
             self.cursor = self.connection.cursor()
 
@@ -57,6 +58,7 @@ class Database:
                 self.maak_schema()
 
             self.zet_schema()
+            self.zet_tijdzone()
             Log.log.debug("verbonden met de database '%s', schema '%s', connId=%d" % (self.config.database, self.config.schema, self.connection.fileno()))
         except Exception as e:
             raise (e)
@@ -76,19 +78,22 @@ class Database:
             self.uitvoeren('SET search_path TO %s,public' % self.config.schema)
             # self.connection.close()
 
+    def zet_tijdzone(self, tijdzone='Europe/Amsterdam'):
+        self.uitvoeren("SET time zone '%s'" % tijdzone)
+
     def has_log_actie(self, actie, bestand="n.v.t", error=False):
         sql = "SELECT * FROM nlx_bag_log WHERE bestand = %s AND actie = %s AND error = %s"
         parameters = (bestand, actie, error)
         return self.tx_uitvoeren(sql, parameters)
 
     def log_actie(self, actie, bestand="n.v.t", bericht='geen', error=False):
-        sql  = "INSERT INTO nlx_bag_log(actie, bestand, error, bericht) VALUES (%s, %s, %s, %s)"
+        sql = "INSERT INTO nlx_bag_log(actie, bestand, error, bericht) VALUES (%s, %s, %s, %s)"
         parameters = (actie, bestand, error, bericht)
         self.tx_uitvoeren(sql, parameters)
 
     def log_meta(self, sleutel, waarde, replace=True):
         if replace:
-            sql  = "DELETE FROM nlx_bag_info WHERE sleutel = '%s'" % sleutel
+            sql = "DELETE FROM nlx_bag_info WHERE sleutel = '%s'" % sleutel
             self.tx_uitvoeren(sql)
 
         sql = "INSERT INTO nlx_bag_info(sleutel, waarde) VALUES (%s, %s)"
@@ -104,7 +109,7 @@ class Database:
 
             # Log.log.debug(self.cursor.statusmessage)
         except Exception as e:
-            Log.log.error("fout %s voor query: %s met parameters %s" % (str(e), str(sql), str(parameters))  )
+            Log.log.error("fout %s voor query: %s met parameters %s" % (str(e), str(sql), str(parameters)))
             self.log_actie("uitvoeren_db", "n.v.t", "fout=%s" % str(e), True)
             raise
 
@@ -118,7 +123,7 @@ class Database:
             self.connection.commit()
             return rows
         except (psycopg2.Error,), foutmelding:
-            Log.log.error("*** FOUT *** Kan SQL-statement '%s' niet uitvoeren:\n %s" %(sql, foutmelding))
+            Log.log.error("*** FOUT *** Kan SQL-statement '%s' niet uitvoeren:\n %s" % (sql, foutmelding))
             return []
 
     def file_uitvoeren(self, sqlfile):

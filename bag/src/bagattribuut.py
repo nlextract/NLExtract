@@ -12,7 +12,7 @@ __date__ = "Jan 9, 2012 3:46:27 PM$"
  OpenGeoGroep.nl
 """
 from log import Log
-from etree import etree, tagVolledigeNS, stripschema
+from etree import etree, tagVolledigeNS
 
 import sys
 
@@ -22,7 +22,6 @@ except ImportError:
     print("FATAAL: GDAL Python bindings zijn niet beschikbaar, installeer bijv met 'apt-get install python-gdal'")
     sys.exit(-1)
 
-from string import maketrans  # Required to call maketrans function.
 
 # Geef de waarde van een textnode in XML
 def getText(nodelist):
@@ -31,8 +30,8 @@ def getText(nodelist):
         rc = rc + node.text
     return rc
 
-
 # TODO: werking van deze functie controleren en vergelijken met origineel
+
 
 # Geef de waardes van alle elementen met de gegeven tag binnen de XML (parent).
 def getValues(parent, tag):
@@ -57,7 +56,7 @@ def getValue(parent, tag):
 # Bevat         - tag
 #               - naam
 #               - waarde
-#--------------------------------------------------------------------------------------------------------
+# --------------------------------------------------------------------------------------------------------
 class BAGattribuut:
     # Constructor
     def __init__(self, lengte, naam, tag):
@@ -138,16 +137,17 @@ class BAGattribuut:
         print "- %-27s: %s" % (self._naam, self._waarde)
 
 
-#--------------------------------------------------------------------------------------------------------
+# --------------------------------------------------------------------------------------------------------
 # Class BAGstringAttribuut
 # Afgeleid van BAGattribuut
 # Omschrijving Bevat een string waarde
-#--------------------------------------------------------------------------------------------------------
+# --------------------------------------------------------------------------------------------------------
 class BAGstringAttribuut(BAGattribuut):
     # Nodig om allerlei nare characters te verwijderen die bijv COPY
     # kunnen beinvloeden
     #    inputChars = "\\\n~"
     #    outputChars = "/ ."
+    # from string import maketrans  # Required to call maketrans function.
     # translatieTabel = maketrans(inputChars, outputChars)
     # Geeft problemen met niet-ASCII range unicode chars!!
     # dus voorlopig even handmatig
@@ -186,13 +186,14 @@ class BAGstringAttribuut(BAGattribuut):
 
 #
 #            except:
-#                Log.log.warn("Fout in translate: waarde=%s tag=%s id=%s type=%s" % (self._waarde, self._naam, self._parentObj.objectType(), self._parentObj.identificatie()) )
+#                Log.log.warn("Fout in translate: waarde=%s tag=%s id=%s type=%s" %
+#                    (self._waarde, self._naam, self._parentObj.objectType(), self._parentObj.identificatie()) )
 
-#--------------------------------------------------------------------------------------------------------
+# --------------------------------------------------------------------------------------------------------
 # Class         BAGenumAttribuut
 # Afgeleid van  BAGattribuut
 # Omschrijving  Bevat een of meerdere waarden binnen een restrictie
-#--------------------------------------------------------------------------------------------------------
+# --------------------------------------------------------------------------------------------------------
 class BAGenumAttribuut(BAGattribuut):
     # Constructor
     def __init__(self, lijst, naam, tag):
@@ -234,11 +235,11 @@ class BAGnumeriekAttribuut(BAGattribuut):
         return "NUMERIC(%d)" % (self._lengte)
 
 
-#--------------------------------------------------------------------------------------------------------
+# --------------------------------------------------------------------------------------------------------
 # Class BAGintegerAttribuut
 # Afgeleid van BAGattribuut
 # Omschrijving Bevat een numerieke waarde
-#--------------------------------------------------------------------------------------------------------
+# --------------------------------------------------------------------------------------------------------
 class BAGintegerAttribuut(BAGattribuut):
     # Constructor
     def __init__(self, naam, tag):
@@ -257,11 +258,11 @@ class BAGintegerAttribuut(BAGattribuut):
         return "INTEGER"
 
 
-#--------------------------------------------------------------------------------------------------------
+# --------------------------------------------------------------------------------------------------------
 # Class BAGdatumAttribuut
 # Afgeleid van BAGattribuut
 # Omschrijving Bevat een waarheid attribuut
-#--------------------------------------------------------------------------------------------------------
+# --------------------------------------------------------------------------------------------------------
 class BAGbooleanAttribuut(BAGattribuut):
     # Constructor
     def __init__(self, naam, tag):
@@ -286,22 +287,22 @@ class BAGbooleanAttribuut(BAGattribuut):
             Log.log.error("Onverwachte boolean waarde: '%s'" % (self._waarde))
 
 
-#--------------------------------------------------------------------------------------------------------
+# --------------------------------------------------------------------------------------------------------
 # Class BAGdatetimeAttribuut
 # Afgeleid van BAGattribuut
 # Omschrijving Bevat een DatumTijd attribuut
 #         <xs:simpleType name="DatumTijd">
-#        		<xs:annotation>
-#        			<xs:documentation>formaat JJJJMMDDUUMMSSmm</xs:documentation>
-#        		</xs:annotation>
-#        		<xs:restriction base="xs:token">
-#        			<xs:minLength value="8"/>
-#        			<xs:maxLength value="16"/>
-#        			<xs:pattern value="[0-2][0-9][0-9][0-9][0-1][0-9][0-3][0-9][0-2][0-9][0-5][0-9][0-5][0-9][0-9][0-9]"/>
-#        		</xs:restriction>
-#        	</xs:simpleType>
+#                <xs:annotation>
+#                    <xs:documentation>formaat JJJJMMDDUUMMSSmm</xs:documentation>
+#                </xs:annotation>
+#                <xs:restriction base="xs:token">
+#                    <xs:minLength value="8"/>
+#                    <xs:maxLength value="16"/>
+#                    <xs:pattern value="[0-2][0-9][0-9][0-9][0-1][0-9][0-3][0-9][0-2][0-9][0-5][0-9][0-5][0-9][0-9][0-9]"/>
+#                </xs:restriction>
+#            </xs:simpleType>
 #
-#--------------------------------------------------------------------------------------------------------
+# --------------------------------------------------------------------------------------------------------
 class BAGdatetimeAttribuut(BAGattribuut):
     # Constructor
     def __init__(self, naam, tag):
@@ -344,11 +345,11 @@ class BAGdatetimeAttribuut(BAGattribuut):
             self._waarde = None
 
 
-#--------------------------------------------------------------------------------------------------------
+# --------------------------------------------------------------------------------------------------------
 # Class BAGdateAttribuut
 # Afgeleid van BAGattribuut
 # Omschrijving Bevat een datum (jaar) attribuut
-#--------------------------------------------------------------------------------------------------------
+# --------------------------------------------------------------------------------------------------------
 class BAGdateAttribuut(BAGattribuut):
     # Constructor
     def __init__(self, naam, tag):
@@ -372,11 +373,11 @@ class BAGdateAttribuut(BAGattribuut):
             self._waarde = None
 
 
-#--------------------------------------------------------------------------------------------------------
+# --------------------------------------------------------------------------------------------------------
 # Class         BAGgeoAttribuut
 # Afgeleid van  BAGattribuut
 # Omschrijving  Bevat een geometrie attribuut
-#--------------------------------------------------------------------------------------------------------
+# --------------------------------------------------------------------------------------------------------
 class BAGgeoAttribuut(BAGattribuut):
     def __init__(self, dimensie, naam, tag):
         self._dimensie = dimensie
@@ -429,11 +430,11 @@ class BAGgeoAttribuut(BAGattribuut):
         return ""
 
 
-#--------------------------------------------------------------------------------------------------------
+# --------------------------------------------------------------------------------------------------------
 # Class         BAGpoint
 # Afgeleid van  BAGgeoAttribuut
 # Omschrijving  Bevat een Puntgeometrie attribuut (geometrie van een verblijfsobject)
-#--------------------------------------------------------------------------------------------------------
+# --------------------------------------------------------------------------------------------------------
 class BAGpoint(BAGgeoAttribuut):
     # Attribuut soort
     def soort(self):
@@ -461,17 +462,17 @@ class BAGpoint(BAGgeoAttribuut):
                         gmlStr = etree.tostring(gmlNode)
                         self._geometrie = ogr.CreateGeometryFromGML(str(gmlStr))
                         self._geometrie = self._geometrie.Centroid()
-        except:
+        except Exception:
             Log.log.error("ik kan hier echt geen POINT van maken: %s (en zet dit op 0,0,0)" % str(point.text))
             # self._waarde = "POINT(0 0 0)"
 
 
-#--------------------------------------------------------------------------------------------------------
+# --------------------------------------------------------------------------------------------------------
 # Class         BAGpolygoon
 # Afgeleid van  BAGgeoAttribuut
 # Omschrijving  Bevat een Polygoongeometrie attribuut (pand, ligplaats, standplaats of woonplaats)
 #               De dimensie (2D of 3D) is variabel.
-#--------------------------------------------------------------------------------------------------------
+# --------------------------------------------------------------------------------------------------------
 class BAGpolygoon(BAGgeoAttribuut):
     # Attribuut soort
     def soort(self):
@@ -487,11 +488,11 @@ class BAGpolygoon(BAGgeoAttribuut):
                 self._geometrie = ogr.CreateGeometryFromGML(str(gmlStr))
 
 
-#--------------------------------------------------------------------------------------------------------
+# --------------------------------------------------------------------------------------------------------
 # Class         BAGmultiPolygoon
 # Afgeleid van  BAGpolygoon
 # Omschrijving  Bevat een MultiPolygoongeometrie attribuut (woonplaats)
-#--------------------------------------------------------------------------------------------------------
+# --------------------------------------------------------------------------------------------------------
 class BAGmultiPolygoon(BAGpolygoon):
     # Attribuut soort
     def soort(self):
@@ -520,18 +521,18 @@ class BAGmultiPolygoon(BAGpolygoon):
                 self._geometrie = ogr.CreateGeometryFromGML(str(gmlStr))
                 if self._geometrie is None:
                     Log.log.warn("Null MultiSurface in BAGmultiPolygoon: tag=%s parent=%s" % (
-                    self._tag, self._parentObj.identificatie()))
+                        self._tag, self._parentObj.identificatie()))
 
         if self._geometrie is None:
             Log.log.warn("Null geometrie in BAGmultiPolygoon: tag=%s identificatie=%s" % (
-            self._tag, self._parentObj.identificatie()))
+                self._tag, self._parentObj.identificatie()))
 
 
-#--------------------------------------------------------------------------------------------------------
+# --------------------------------------------------------------------------------------------------------
 # Class         BAGgeometrieValidatie
 # Afgeleid van  BAGattribuut
 # Omschrijving  Bevat de validatie waarde (true,false) van een geometrie attribuut
-#--------------------------------------------------------------------------------------------------------
+# --------------------------------------------------------------------------------------------------------
 class BAGgeometrieValidatie(BAGattribuut):
     def __init__(self, naam, naam_geo_attr):
         BAGattribuut.__init__(self, -1, naam, None)
@@ -559,11 +560,11 @@ class BAGgeometrieValidatie(BAGattribuut):
         return ""
 
 
-#--------------------------------------------------------------------------------------------------------
+# --------------------------------------------------------------------------------------------------------
 # Class         BAGrelatieAttribuut
 # Afgeleid van  BAGattribuut
 # Omschrijving  Bevat een attribuut dat meer dan 1 waarde kan hebben.
-#--------------------------------------------------------------------------------------------------------
+# --------------------------------------------------------------------------------------------------------
 class BAGrelatieAttribuut(BAGattribuut):
     # Constructor
     def __init__(self, parent, relatieNaam, lengte, naam, tag, extraAttributes):
@@ -611,7 +612,7 @@ class BAGrelatieAttribuut(BAGattribuut):
             # waarden in self._extraAttributes.
             sql += self.naam() + ") VALUES (%s, %s, %s, %s, %s"
             sql += ", %s" * len(self._extraAttributes) + ", %s)"
-            
+
             inhoud = [self._parent.attribuut('identificatie').waardeSQL(),
                       self._parent.attribuut('aanduidingRecordInactief').waardeSQL(),
                       self._parent.attribuut('aanduidingRecordCorrectie').waardeSQL(),
@@ -630,11 +631,11 @@ class BAGrelatieAttribuut(BAGattribuut):
     # Maak insert SQL voor deze relatie
     def maakCopySQL(self):
         velden = ["identificatie", "aanduidingrecordinactief", "aanduidingrecordcorrectie", "begindatumtijdvakgeldigheid",
-            "einddatumtijdvakgeldigheid"]
+                  "einddatumtijdvakgeldigheid"]
         velden += self._extraAttributes
         velden.append(self.naam())
         self.velden = tuple(velden)
-        
+
         self.sql = ""
         for waarde in self._waarde:
             self.sql += self._parent.attribuut('identificatie').waardeSQL() + "~"
@@ -647,14 +648,14 @@ class BAGrelatieAttribuut(BAGattribuut):
             if not einddatumWaardeSQL or einddatumWaardeSQL is '':
                 einddatumWaardeSQL = '\\\N'
             self.sql += einddatumWaardeSQL + "~"
-                
+
             for attr in self._extraAttributes:
                 # Ook de extra attributen kunnen leeg zijn
                 if self._parent.heeftAttribuut(attr):
                     attrWaarde = self._parent.attribuut(attr).waardeSQL()
                 else:
                     attrWaarde = ''
-                    
+
                 if not attrWaarde or attrWaarde is '':
                     attrWaarde = '\\\N'
                 self.sql += attrWaarde + "~"
@@ -703,11 +704,11 @@ class BAGrelatieAttribuut(BAGattribuut):
                 print "- %-27s  %s" % ("", waarde)
 
 
-#--------------------------------------------------------------------------------------------------------
+# --------------------------------------------------------------------------------------------------------
 # Class         BAGenumRelatieAttribuut
 # Afgeleid van  BAGrelatieAttribuut
 # Omschrijving  Bevat een relatie attribuut van type enum.
-#--------------------------------------------------------------------------------------------------------
+# --------------------------------------------------------------------------------------------------------
 class BAGenumRelatieAttribuut(BAGrelatieAttribuut):
     # Constructor
     def __init__(self, parent, relatieNaam, naam, tag, extraAttributes, lijst):
@@ -724,4 +725,3 @@ class BAGenumRelatieAttribuut(BAGrelatieAttribuut):
     def sqlinit(self):
         return "DROP TYPE IF EXISTS %s;\nCREATE TYPE %s AS ENUM ('%s');\n" % (
             self._naam, self._naam, "', '".join(self._lijst))
-
