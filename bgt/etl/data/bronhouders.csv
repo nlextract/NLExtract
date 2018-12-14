@@ -1,29 +1,36 @@
 bronhouder;type_bronhouder;naam;cbs_code;vervallen;opmerking
 G0003;G;Appingedam;GM0003;;
-G0005;G;Bedum;GM0005;;
-G0009;G;Ten Boer;GM0009;;
+G0005;G;Bedum;GM0005;t;** vervallen per 01-01-2019
+G0007;G;Bellingwedde;GM0007;t;** vervallen per 01-01-2018
+G0009;G;Ten Boer;GM0009;t;** vervallen per 01-01-2019
 G0010;G;Delfzijl;GM0010;;
 G0014;G;Groningen;GM0014;;
-G0015;G;Grootegast;GM0015;;
-G0017;G;Haren;GM0017;;
-G0022;G;Leek;GM0022;;
+G0015;G;Grootegast;GM0015;t;** vervallen per 01-01-2019
+G0017;G;Haren;GM0017;t;** vervallen per 01-01-2019
+G0018;G;Hoogezand-Sappemeer;GM0018;t;** vervallen per 01-01-2018
+G0022;G;Leek;GM0022;t;** vervallen per 01-01-2019
 G0024;G;Loppersum;GM0024;;
-G0025;G;Marum;GM0025;;
+G0025;G;Marum;GM0025;t;** vervallen per 01-01-2019
 G0034;G;Almere;GM0034;;
 G0037;G;Stadskanaal;GM0037;;
+G0040;G;Slochteren;GM0040;t;** vervallen per 01-01-2018
 G0047;G;Veendam;GM0047;;
+G0048;G;Vlagtwedde;GM0048;t;** vervallen per 01-01-2018
 G0050;G;Zeewolde;GM0050;;
 G0051;G;Skarsterlân;GM0051;t;** vervallen per 01-01-2014
-G0053;G;Winsum;GM0053;;
+G0053;G;Winsum;GM0053;t;** vervallen per 01-01-2019
 G0055;G;Boarnsterhim;GM0055;t;** vervallen per 01-01-2014
-G0056;G;Zuidhorn;GM0056;;
-G0058;G;Dongeradeel;GM0058;;
+G0056;G;Zuidhorn;GM0056;t;** vervallen per 01-01-2019
+G0058;G;Dongeradeel;GM0058;t;** vervallen per 01-01-2019
 G0059;G;Achtkarspelen;GM0059;;
 G0060;G;Ameland;GM0060;;
+G0063;G;het Bildt;GM0063;t;** vervallen per 01-01-2018
+G0070;G;Franekeradeel;GM0070;t;** vervallen per 01-01-2018
 G0072;G;Harlingen;GM0072;;
 G0074;G;Heerenveen;GM0074;;
-G0079;G;Kollumerland en Nieuwkruisland;GM0079;;
+G0079;G;Kollumerland en Nieuwkruisland;GM0079;t;** vervallen per 01-01-2019
 G0080;G;Leeuwarden;GM0080;;
+G0081;G;Leeuwarderadeel;GM0081;t;** vervallen per 01-01-2018
 G0082;G;Lemsterland;GM0082;t;** vervallen per 01-01-2014
 G0085;G;Ooststellingwerf;GM0085;;
 G0086;G;Opsterland;GM0086;;
@@ -37,6 +44,7 @@ G0109;G;Coevorden;GM0109;;
 G0114;G;Emmen;GM0114;;
 G0118;G;Hoogeveen;GM0118;;
 G0119;G;Meppel;GM0119;;
+G0140;G;Littenseradiel;GM0140;t;** vervallen per 01-01-2018
 G0141;G;Almelo;GM0141;;
 G0147;G;Borne;GM0147;;
 G0148;G;Dalfsen;GM0148;;
@@ -57,9 +65,8 @@ G0183;G;Tubbergen;GM0183;;
 G0184;G;Urk;GM0184;;
 G0189;G;Wierden;GM0189;;
 G0193;G;Zwolle;GM0193;;
+G0196;G;Rijnwaarden;GM0196;t;** vervallen per 01-01-2018
 G0197;G;Aalten;GM0197;;
-G1924;G;Goeree-Overflakkee;GM1924;t;** toegevoegd per 01-01-2013
-G1927;G;Molenwaard;GM1927;t;** toegevoegd per 01-01-2013
 G0200;G;Apeldoorn;GM0200;;
 G0202;G;Arnhem;GM0202;;
 G0203;G;Barneveld;GM0203;;
@@ -75,7 +82,7 @@ G0228;G;Ede;GM0228;;
 G0230;G;Elburg;GM0230;;
 G0232;G;Epe;GM0232;;
 G0233;G;Ermelo;GM0233;;
-G0236;G;Geldermalsen;GM0236;;
+G0236;G;Geldermalsen;GM0236;t;** vervallen per 01-01-2019
 G0241;G;Groesbeek;GM0241;t;** vervallen per 01-01-2016
 G0243;G;Harderwijk;GM0243;;
 G0244;G;Hattem;GM0244;;
@@ -104,7 +111,7 @@ G0299;G;Zevenaar;GM0299;;
 G0301;G;Zutphen;GM0301;;
 G0302;G;Nunspeet;GM0302;;
 G0303;G;Dronten;GM0303;;
-G0304;G;Neerijnen;GM0304;;
+G0304;G;Neerijnen;GM0304;t;** vervallen per 01-01-2019
 G0307;G;Amersfoort;GM0307;;
 G0308;G;Baarn;GM0308;;
 G0310;G;De Bilt;GM0310;;
@@ -141,7 +148,7 @@ G0384;G;Diemen;GM0384;;
 G0385;G;Edam-Volendam;GM0385;;
 G0388;G;Enkhuizen;GM0388;;
 G0392;G;Haarlem;GM0392;;
-G0393;G;Haarlemmerliede en Spaarnwoude;GM0393;;
+G0393;G;Haarlemmerliede en Spaarnwoude;GM0393;t;** vervallen per 01-01-2019
 G0394;G;Haarlemmermeer;GM0394;;
 G0395;G;Harenkarspel;GM0395;t;** vervallen per 01-01-2013
 G0396;G;Heemskerk;GM0396;;
@@ -195,7 +202,7 @@ G0532;G;Stede Broec;GM0532;;
 G0534;G;Hillegom;GM0534;;
 G0537;G;Katwijk;GM0537;;
 G0542;G;Krimpen aan den IJssel;GM0542;;
-G0545;G;Leerdam;GM0545;;
+G0545;G;Leerdam;GM0545;t;** vervallen per 01-01-2019
 G0546;G;Leiden;GM0546;;
 G0547;G;Leiderdorp;GM0547;;
 G0553;G;Lisse;GM0553;;
@@ -205,12 +212,12 @@ G0568;G;Bernisse;GM0568;;** vervallen per 01-01-2015
 G0569;G;Nieuwkoop;GM0569;;
 G0571;G;Nieuw-Lekkerland;GM0571;t;** vervallen per 01-01-2013
 G0575;G;Noordwijk;GM0575;;
-G0576;G;Noordwijkerhout;GM0576;;
+G0576;G;Noordwijkerhout;GM0576;t;** vervallen per 01-01-2019
 G0579;G;Oegstgeest;GM0579;;
 G0580;G;Oostflakkee;GM0580;t;** vervallen per 01-01-2013
-G0584;G;Oud-Beijerland;GM0584;;
-G0585;G;Binnenmaas;GM0585;;
-G0588;G;Korendijk;GM0588;;
+G0584;G;Oud-Beijerland;GM0584;t;** vervallen per 01-01-2019
+G0585;G;Binnenmaas;GM0585;t;** vervallen per 01-01-2019
+G0588;G;Korendijk;GM0588;t;** vervallen per 01-01-2019
 G0589;G;Oudewater;GM0589;;
 G0590;G;Papendrecht;GM0590;;
 G0597;G;Ridderkerk;GM0597;;
@@ -219,12 +226,12 @@ G0603;G;Rijswijk;GM0603;;
 G0606;G;Schiedam;GM0606;;
 G0608;G;Schoonhoven;GM0608;t;** vervallen per 01-01-2015
 G0610;G;Sliedrecht;GM0610;;
-G0611;G;Cromstrijen;GM0611;;
+G0611;G;Cromstrijen;GM0611;t;** vervallen per 01-01-2019
 G0612;G;Spijkenisse;GM0612;t;** vervallen per 01-01-2015
 G0613;G;Albrandswaard;GM0613;;
 G0614;G;Westvoorne;GM0614;;
-G0617;G;Strijen;GM0617;;
-G0620;G;Vianen;GM0620;;
+G0617;G;Strijen;GM0617;t;** vervallen per 01-01-2019
+G0620;G;Vianen;GM0620;t;** vervallen per 01-01-2019
 G0622;G;Vlaardingen;GM0622;;
 G0623;G;Vlist;GM0623;t;** vervallen per 01-01-2015
 G0626;G;Voorschoten;GM0626;;
@@ -243,19 +250,19 @@ G0668;G;West Maas en Waal;GM0668;;
 G0677;G;Hulst;GM0677;;
 G0678;G;Kapelle;GM0678;;
 G0687;G;Middelburg;GM0687;;
-G0689;G;Giessenlanden;GM0689;;
+G0689;G;Giessenlanden;GM0689;t;** vervallen per 01-01-2019
 G0693;G;Graafstroom;GM0693;t;** vervallen per 01-01-2013
 G0694;G;Liesveld;GM0694;t;** vervallen per 01-01-2013
 G0703;G;Reimerswaal;GM0703;;
-G0707;G;Zederik;GM0707;;
+G0707;G;Zederik;GM0707;t;** vervallen per 01-01-2019
 G0715;G;Terneuzen;GM0715;;
 G0716;G;Tholen;GM0716;;
 G0717;G;Veere;GM0717;;
 G0718;G;Vlissingen;GM0718;;
-G0733;G;Lingewaal;GM0733;;
+G0733;G;Lingewaal;GM0733;t;** vervallen per 01-01-2019
 G0736;G;De Ronde Venen;GM0736;;
 G0737;G;Tytsjerksteradiel;GM0737;;
-G0738;G;Aalburg;GM0738;;
+G0738;G;Aalburg;GM0738;t;** vervallen per 01-01-2019
 G0743;G;Asten;GM0743;;
 G0744;G;Baarle-Nassau;GM0744;;
 G0748;G;Bergen op Zoom;GM0748;;
@@ -302,12 +309,12 @@ G0861;G;Veldhoven;GM0861;;
 G0865;G;Vught;GM0865;;
 G0866;G;Waalre;GM0866;;
 G0867;G;Waalwijk;GM0867;;
-G0870;G;Werkendam;GM0870;;
+G0870;G;Werkendam;GM0870;t;** vervallen per 01-01-2019
 G0873;G;Woensdrecht;GM0873;;
-G0874;G;Woudrichem;GM0874;;
+G0874;G;Woudrichem;GM0874;t;** vervallen per 01-01-2019
 G0879;G;Zundert;GM0879;;
 G0880;G;Wormerland;GM0880;;
-G0881;G;Onderbanken;GM0881;;
+G0881;G;Onderbanken;GM0881;t;** vervallen per 01-01-2019
 G0882;G;Landgraaf;GM0882;;
 G0888;G;Beek;GM0888;;
 G0889;G;Beesel;GM0889;;
@@ -320,9 +327,9 @@ G0935;G;Maastricht;GM0935;;
 G0938;G;Meerssen;GM0938;;
 G0944;G;Mook en Middelaar;GM0944;;
 G0946;G;Nederweert;GM0946;;
-G0951;G;Nuth;GM0951;;
+G0951;G;Nuth;GM0951;t;** vervallen per 01-01-2019
 G0957;G;Roermond;GM0957;;
-G0962;G;Schinnen;GM0962;;
+G0962;G;Schinnen;GM0962;t;** vervallen per 01-01-2019
 G0965;G;Simpelveld;GM0965;;
 G0971;G;Stein;GM0971;;
 G0981;G;Vaals;GM0981;;
@@ -341,12 +348,12 @@ G1598;G;Koggenland;GM1598;;
 G1621;G;Lansingerland;GM1621;;
 G1640;G;Leudal;GM1640;;
 G1641;G;Maasgouw;GM1641;;
-G1651;G;Eemsmond;GM1651;;
+G1651;G;Eemsmond;GM1651;t;** vervallen per 01-01-2019
 G1652;G;Gemert-Bakel;GM1652;;
 G1655;G;Halderberge;GM1655;;
 G1658;G;Heeze-Leende;GM1658;;
 G1659;G;Laarbeek;GM1659;;
-G1663;G;De Marne;GM1663;;
+G1663;G;De Marne;GM1663;t;** vervallen per 01-01-2019
 G1667;G;Reusel-De Mierden;GM1667;;
 G1669;G;Roerdalen;GM1669;;
 G1671;G;Maasdonk;GM1671;t;** vervallen per 01-01-2015
@@ -372,7 +379,7 @@ G1711;G;Echt-Susteren;GM1711;;
 G1714;G;Sluis;GM1714;;
 G1719;G;Drimmelen;GM1719;;
 G1721;G;Bernheze;GM1721;;
-G1722;G;Ferwerderadiel;GM1722;;
+G1722;G;Ferwerderadiel;GM1722;t;** vervallen per 01-01-2019
 G1723;G;Alphen-Chaam;GM1723;;
 G1724;G;Bergeijk;GM1724;;
 G1728;G;Bladel;GM1728;;
@@ -401,17 +408,38 @@ G1900;G;Súdwest Fryslân;GM1900;;
 G1901;G;Bodegraven-Reeuwijk;GM1901;;
 G1903;G;Eijsden-Margraten;GM1903;;
 G1904;G;Stichtse Vecht;GM1904;;
+G1908;G;Menameradiel;GM1908;t;** vervallen per 01-01-2018
 G1911;G;Hollands Kroon;GM1911;;
 G1916;G;Leidschendam-Voorburg;GM1916;;
 G1921;G;De Friese Meren;GM1921;t;** vervallen per 01-01-2016
+G1924;G;Goeree-Overflakkee;GM1924;t;** toegevoegd per 01-01-2013
 G1926;G;Pijnacker-Nootdorp;GM1926;;
-G1955;G;Montferland;GM1955;;
+G1927;G;Molenwaard;GM1927;t;** vervallen per 01-01-2019
 G1930;G;Nissewaard;GM1930;;** toegevoegd per 01-01-2015
 G1931;G;Krimpenerwaard;GM1931;;** toegevoegd per 01-01-2015
 G1940;G;De Fryske Marren;GM1940;;** toegevoegd per 01-01-2016
 G1942;G;Gooise Meren;GM1942;;** toegevoegd per 01-01-2016
 G1945;G;Berg en Dal;GM1945;;** toegevoegd per 01-01-2016
 G1948;G;Meierijstad;GM1948;;** toegevoegd per 01-01-2017
+G1949;G;Waadhoeke;GM1949;;** toegevoegd per 01-01-2018
+G1950;G;Westerwolde;GM1950;;** toegevoegd per 01-01-2018
+G1952;G;Midden-Groningen ;GM1952;;** toegevoegd per 01-01-2018
+G1954;G;Beekdaelen;GM1954;;** toegevoegd per 01-01-2019
+G1955;G;Montferland;GM1955;;
+G1959;G;Altena;GM1959;;** toegevoegd per 01-01-2018
+G1960;G;West Betuwe;GM1960;;** toegevoegd per 01-01-2017
+G1961;G;Vijfheerenlanden;GM1961;;** toegevoegd per 01-01-2016
+G1963;G;Hoeksche Waard;GM1963;;** toegevoegd per 01-01-2015
+G1966;G;Het Hogeland;GM1966;;** toegevoegd per 01-01-2014
+G1969;G;Westerkwartier;GM1969;;** toegevoegd per 01-01-2013
+G1970;G;Noardeast-Fryslân;GM1970;;** toegevoegd per 01-01-2012
+G1978;G;Molenlanden;GM1978;;** toegevoegd per 01-01-2011
+G1987;G;Menterwolde;GM1987;t;** vervallen per 01-01-2018
+K0001;L;Kadaster;;t;** vervallen per 01-01-2018
+L0001;L;Ministerie van Landbouw, Natuur en Voedselkwaliteit (LNV);;;
+L0002;L;Ministerie van Infrastructuur en Waterstaat (IenW);;;
+L0003;L;Ministerie van Defensie;;;
+L0004;L;Prorail;;;
 P0020;P;Groningen;20;;
 P0021;P;Friesland;21;;
 P0022;P;Drenthe;22;;
@@ -424,55 +452,36 @@ P0028;P;Zuid-Holland;28;;
 P0029;P;Zeeland;29;;
 P0030;P;Noord-Brabant;30;;
 P0031;P;Limburg;31;;
-W0151;W;Waterschap Groot Salland;0151;t;** vervallen per 01-01-2016
-W0152;W;Waterschap Rijn en IJssel;0152;;
-W0153;W;Waterschap Veluwe;0153;t;** vervallen per 01-01-2013
-W0154;W;Waterschap Vallei & Eem;0154;t;** vervallen per 01-01-2013
-W0155;W;Hoogheemraadschap Amstel, Gooi en Vecht;0155;;
-W0201;W;Waterschap Regge en Dinkel;0201;t;** vervallen per 01-01-2014
-W0372;W;Hoogheemraadschap van Delfland;0372;;
-W0524;W;Waterschap Zeeuwse Eilanden;0524;t;** vervallen per 01-01-2011
-W0524;W;Waterschap Zeeuws-Vlaanderen;0524;t;** vervallen per 01-01-2011
-W0539;W;Waterschap De Dommel;0539;;
-W0585;W;Waterschap Roer en Overmaas;0585;t;** vervallen per 01-01-2017
-W0621;W;Waterschap Rivierenland;0621;;
-W0616;W;Hoogheemraadschap van Rijnland;0616;;
-W0636;W;Hoogheemraadschap De Stichtse Rijnlanden;0636;;
-W0638;W;Waterschap Peel en Maasvallei;0638;t;** vervallen per 01-01-2017
-W0646;W;Waterschap Hunze en Aa's;0646;;
-W0647;W;Waterschap Noorderzijlvest;0647;;
-W0648;W;Waterschap Reest en Wieden;0648;t;** vervallen per 01-01-2016
-W0649;W;Waterschap Velt en Vecht;0649;t;** vervallen per 01-01-2014
-W0650;W;Waterschap Zuiderzeeland;0650;;
-W0651;W;Hoogheemraadschap Hollands Noorderkwartier;0651;;
-W0652;W;Waterschap Brabantse Delta;0652;;
-W0653;W;Wetterskip Fryslân;0653;;
-W0654;W;Waterschap Aa en Maas;0654;;
-W0655;W;Waterschap Hollandse Delta;0655;;
-W0656;W;Hoogheemraadschap van Schieland en de Krimpenerwaard;0656;;
-W0659;W;Waterschapsbedrijf Limburg;0659;t;** vervallen per 01-01-2017
-W0661;W;Waterschap Scheldestromen;0661;;
-W0662;W;Waterschap Vallei en Veluwe;0662;;** nieuw per 01-01-2013
-W0663;W;Waterschap Vechtstromen;0663;;** nieuw per 01-01-2014
-W0664;W;Waterschap Drents Overijsselse Delta;0664;;** nieuw per 01-01-2016
-W0665;W;Waterschap Limburg;0665;;** nieuw per 01-01-2017
-L0003;L;Ministerie van Defensie;;;
-L0004;L;Prorail;;;
 S0001;L;Samenwerkingsverband voor Bronhouders;;;
-G1949;G;Waadhoeke;GM1949;;** toegevoegd per 01-01-2018
-G1950;G;Westerwolde;GM1950;;** toegevoegd per 01-01-2018
-G1952;G;Midden-Groningen ;GM1952;;** toegevoegd per 01-01-2018
-G0007;G;Bellingwedde;GM0007;t;** vervallen per 01-01-2018
-G0018;G;Hoogezand-Sappemeer;GM0018;t;** vervallen per 01-01-2018
-G0040;G;Slochteren;GM0040;t;** vervallen per 01-01-2018
-G0048;G;Vlagtwedde;GM0048;t;** vervallen per 01-01-2018
-G0063;G;het Bildt;GM0063;t;** vervallen per 01-01-2018
-G0070;G;Franekeradeel;GM0070;t;** vervallen per 01-01-2018
-G0081;G;Leeuwarderadeel;GM0081;t;** vervallen per 01-01-2018
-G0140;G;Littenseradiel;GM0140;t;** vervallen per 01-01-2018
-G0196;G;Rijnwaarden;GM0196;t;** vervallen per 01-01-2018
-G1908;G;Menameradiel;GM1908;t;** vervallen per 01-01-2018
-G1987;G;Menterwolde;GM1987;t;** vervallen per 01-01-2018
-L0001;L;Ministerie van Landbouw, Natuur en Voedselkwaliteit (LNV);;;
-K0001;L;Kadaster;;t;** vervallen per 01-01-2018
-L0002;L;Ministerie van Infrastructuur en Waterstaat (IenW);;;
+W0151;W;Waterschap Groot Salland;151;t;** vervallen per 01-01-2016
+W0152;W;Waterschap Rijn en IJssel;152;;
+W0153;W;Waterschap Veluwe;153;t;** vervallen per 01-01-2013
+W0154;W;Waterschap Vallei & Eem;154;t;** vervallen per 01-01-2013
+W0155;W;Hoogheemraadschap Amstel, Gooi en Vecht;155;;
+W0201;W;Waterschap Regge en Dinkel;201;t;** vervallen per 01-01-2014
+W0372;W;Hoogheemraadschap van Delfland;372;;
+W0524;W;Waterschap Zeeuwse Eilanden;524;t;** vervallen per 01-01-2011
+W0524;W;Waterschap Zeeuws-Vlaanderen;524;t;** vervallen per 01-01-2011
+W0539;W;Waterschap De Dommel;539;;
+W0585;W;Waterschap Roer en Overmaas;585;t;** vervallen per 01-01-2017
+W0616;W;Hoogheemraadschap van Rijnland;616;;
+W0621;W;Waterschap Rivierenland;621;;
+W0636;W;Hoogheemraadschap De Stichtse Rijnlanden;636;;
+W0638;W;Waterschap Peel en Maasvallei;638;t;** vervallen per 01-01-2017
+W0646;W;Waterschap Hunze en Aa's;646;;
+W0647;W;Waterschap Noorderzijlvest;647;;
+W0648;W;Waterschap Reest en Wieden;648;t;** vervallen per 01-01-2016
+W0649;W;Waterschap Velt en Vecht;649;t;** vervallen per 01-01-2014
+W0650;W;Waterschap Zuiderzeeland;650;;
+W0651;W;Hoogheemraadschap Hollands Noorderkwartier;651;;
+W0652;W;Waterschap Brabantse Delta;652;;
+W0653;W;Wetterskip Fryslân;653;;
+W0654;W;Waterschap Aa en Maas;654;;
+W0655;W;Waterschap Hollandse Delta;655;;
+W0656;W;Hoogheemraadschap van Schieland en de Krimpenerwaard;656;;
+W0659;W;Waterschapsbedrijf Limburg;659;t;** vervallen per 01-01-2017
+W0661;W;Waterschap Scheldestromen;661;;
+W0662;W;Waterschap Vallei en Veluwe;662;;** nieuw per 01-01-2013
+W0663;W;Waterschap Vechtstromen;663;;** nieuw per 01-01-2014
+W0664;W;Waterschap Drents Overijsselse Delta;664;;** nieuw per 01-01-2016
+W0665;W;Waterschap Limburg;665;;** nieuw per 01-01-2017
