@@ -428,7 +428,7 @@ drop table overigescheiding_tmp;
 select _nlx_renamecolumn('paal_tmp', 'wkb_geometry', 'geometrie_punt');
 
 drop table if exists paal cascade;
-create table paal as select ogc_fid, geometrie_punt, gml_id, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, bgt_type, plus_type from paal_tmp;
+create table paal as select ogc_fid, geometrie_punt, gml_id, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, bgt_type, plus_type, hectometeraanduiding from paal_tmp;
 
 alter table paal add primary key (ogc_fid);
 alter table paal alter column gml_id set not null;
