@@ -8,6 +8,7 @@
 @echo off
 
 setlocal
+pushd %~dp0
 
 set NLX_HOME=../..
 
@@ -18,9 +19,9 @@ if "%STETL_HOME%"=="" (
 
 :: Nodig voor imports
 if "%PYTHONPATH%"=="" (
-    set PYTHONPATH=%STETL_HOME%;%NLX_HOME%
+    set PYTHONPATH=%STETL_HOME%;%NLX_HOME%;.
 ) else (
-    set PYTHONPATH=%STETL_HOME%;%NLX_HOME%;%PYTHONPATH%
+    set PYTHONPATH=%STETL_HOME%;%NLX_HOME%;.;%PYTHONPATH%
 )
 
 :: Default argumenten/opties
@@ -36,4 +37,5 @@ if not "%~1"=="" set options_file=%1
 :: Uiteindelijke commando. Kan ook gewoon "stetl -c etl-imgeo-v2.1.1.cfg -a ..." worden indien Stetl installed
 python %STETL_HOME%\stetl\main.py -c conf\etl-imgeo-v2.1.1.cfg -a %options_file%
 
+popd
 endlocal

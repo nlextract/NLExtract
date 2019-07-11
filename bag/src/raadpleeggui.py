@@ -13,7 +13,7 @@
 # Datum:        24 november 2009
 #
 # Ministerie van Volkshuisvesting, Ruimtelijke Ordening en Milieubeheer
-#------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
 import wx
 import wx.richtext as rt
 from log import Log
@@ -21,11 +21,12 @@ from loggui import LogScherm
 from postgresdb import Database
 from bagobject import BAGObjectFabriek
 
-#------------------------------------------------------------------------------
+
+# ------------------------------------------------------------------------------
 # Links op het scherm wordt een aantal uitklapbare panels getoond voor de
 # verschillende zoekopties. De class BAGZoekPanel is de basisclass voor deze
 # uitklapbare panels.
-#------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
 class BAGZoekPanel(wx.Panel):
     # Constructor
     def __init__(self, raadpleegScherm, titel):
@@ -47,18 +48,18 @@ class BAGZoekPanel(wx.Panel):
         self.cp.Expand()
 
     # Wanneen een panel wordt open- of dichtgeklapt, wordt de functie 'toonVerberg' uitgevoerd.
-    # Wanneer een panel wordt opengeklapt, moeten de overige panels worden dichtgeklapt.        
+    # Wanneer een panel wordt opengeklapt, moeten de overige panels worden dichtgeklapt.
     def toonVerberg(self, event=None):
         if self.cp.IsExpanded():
             for panel in self.raadpleegScherm.panels:
-                if panel.titel <> self.titel and panel.cp.IsExpanded():
+                if panel.titel != self.titel and panel.cp.IsExpanded():
                     panel.cp.Collapse()
         self.raadpleegScherm.toonPanels()
 
 
-#------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
 # Uitklapbaar zoekpanel voor het zoeken op identificatie.
-#------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
 class BAGZoekOpIdentificatie(BAGZoekPanel):
     def __init__(self, raadpleegScherm):
         BAGZoekPanel.__init__(self, raadpleegScherm, "Zoek op identificatie")
@@ -88,9 +89,10 @@ class BAGZoekOpIdentificatie(BAGZoekPanel):
         else:
             self.logScherm("Geen object van type %s gevonden bij deze gegevens" % obj.objectType())
 
-#------------------------------------------------------------------------------
+
+# ------------------------------------------------------------------------------
 # Uitklapbaar zoekpanel voor het zoeken op postcode, huisnummer.
-#------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
 class BAGZoekOpPostcode(BAGZoekPanel):
     # Constructor
     def __init__(self, raadpleegScherm):
@@ -123,10 +125,10 @@ class BAGZoekOpPostcode(BAGZoekPanel):
             self.raadpleegScherm.boom.SelectItem(self.raadpleegScherm.boom.GetFirstVisibleItem())
 
 
-#------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
 # Uitklapbaar zoekpanel voor het zoeken op adres (woonplaats, openbare ruimte,
 # huisnummer).
-#------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
 class BAGZoekOpAdres(BAGZoekPanel):
     # Constructor
     def __init__(self, raadpleegScherm):
@@ -163,9 +165,9 @@ class BAGZoekOpAdres(BAGZoekPanel):
             self.raadpleegScherm.boom.SelectItem(self.raadpleegScherm.boom.GetFirstVisibleItem())
 
 
-#------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
 # Uitklapbaar zoekpanel voor het zoeken op coordinaten.
-#------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
 class BAGZoekOpCoordinaten(BAGZoekPanel):
     # Constructor
     def __init__(self, raadpleegScherm):
@@ -227,11 +229,11 @@ class BAGZoekOpCoordinaten(BAGZoekPanel):
         self.logScherm("Geen objecten gevonden op deze coordinaten")
 
 
-#------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
 # BAGBoom toont de resultaten van een zoekopdracht in een boomstructuur.
 # Door items in de boomstructuur te openen, kunnen gerelateerde objecten
 # worden geraadpleegd.
-#------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
 class BAGBoom(wx.TreeCtrl):
     # Constructor
     def __init__(self, raadpleegScherm, positie, afmeting):
@@ -256,14 +258,14 @@ class BAGBoom(wx.TreeCtrl):
         self.SetPyData(item, obj)
         self.SetItemImage(item, self.plaatjeFolder, wx.TreeItemIcon_Normal)
         self.SetItemImage(item, self.plaatjeFolderOpen, wx.TreeItemIcon_Expanded)
-        if objectType <> "WPL":
+        if objectType != "WPL":
             self.SetItemHasChildren(item, True)
         return item
 
     # Private functie voor het initialiseren van een object bij een item in de boom.
     # Bij het item in de boom wordt het BAG-object als PyData opgeslagen in de boom.
     # De gerelateerde objecten van dat BAG-object worden toegevoegd aan de boom als
-    # child-elementen van het item. 
+    # child-elementen van het item.
     def _initObject(self, item):
         if not self.GetPyData(item):
             # Initialiseer het BAG-object
@@ -353,11 +355,11 @@ class BAGBoom(wx.TreeCtrl):
             return None
 
 
-#------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
 # BAGView toont de gegevens van een voorkomen of van de levenscyclus in tekstvorm.
 # Hiertoe gebruiken we een RichTextCtrl voor het gebruik van verschillende fonts
 # en kleuren.
-#------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
 class BAGView(rt.RichTextCtrl):
     # Constructor
     def __init__(self, raadpleegScherm, positie, afmeting):
@@ -372,7 +374,7 @@ class BAGView(rt.RichTextCtrl):
         self.Bind(wx.EVT_BUTTON, self.toonLevenscyclus, self.toonLevenscyclusKnop)
         self.toonLevenscyclusKnop.Hide()
 
-    # Toon 1 object/voorkomen 
+    # Toon 1 object/voorkomen
     def toonObject(self, bagObject):
         self.Clear()
         self.bagObject = bagObject
@@ -389,10 +391,10 @@ class BAGView(rt.RichTextCtrl):
                     waarde = 'aanwezig'
                 self.WriteText(" - %-27s: %s\n" % (attribuut.naam(), waarde))
             else:
-                naam = attribuut.naam()
+                # naam = attribuut.naam()
                 for waarde in attribuut.waarde():
                     self.WriteText(" - %-27s: %s\n" % (attribuut.naam(), waarde))
-                    naam = ""
+                    # naam = ""
         self.toonLevenscyclusKnop.Show(True)
         self.toonLevenscyclusKnop.Raise()
         self.toonLevenscyclusKnop.MoveXY(10, self.GetSize().GetHeight() - 30)
@@ -429,7 +431,7 @@ class BAGView(rt.RichTextCtrl):
             self.BeginBold()
             self.WriteText("%s. van %s tot %s\n" % (str(v + 1), begindatum, einddatum))
             self.EndBold()
-            if levenscyclus[v].opmerking <> "":
+            if levenscyclus[v].opmerking != "":
                 self.BeginTextColour((255, 0, 0))
                 self.WriteText("*** %s\n" % (levenscyclus[v].opmerking))
                 self.EndTextColour()
@@ -438,34 +440,34 @@ class BAGView(rt.RichTextCtrl):
             while a < len(levenscyclus[v].attributen):
                 if levenscyclus[v].attributen[a].enkelvoudig():
                     self.WriteText(" - %-27s: " % (levenscyclus[v].attributen[a].naam()))
-                    if laatsteActieve <> -1 and levenscyclus[v].aanduidingRecordInactief.waarde() == "N" and \
-                                    levenscyclus[v].attributen[a].waarde() <> levenscyclus[laatsteActieve].attributen[
-                                a].waarde():
+                    if (laatsteActieve != -1 and
+                            levenscyclus[v].aanduidingRecordInactief.waarde() == "N" and
+                            levenscyclus[v].attributen[a].waarde() != levenscyclus[laatsteActieve].attributen[a].waarde()):
                         self.BeginTextColour((0, 0, 255))
                         self.WriteText("%s\n" % (levenscyclus[v].attributen[a].waarde()))
                         self.EndTextColour()
                     else:
                         self.WriteText("%s\n" % (levenscyclus[v].attributen[a].waarde()))
                 else:
-                    naam = levenscyclus[v].attributen[a].naam()
+                    # naam = levenscyclus[v].attributen[a].naam()
                     for waarde in levenscyclus[v].attributen[a].waarde():
                         self.WriteText(" - %-27s: %s\n" % (levenscyclus[v].attributen[a].naam(), waarde))
-                        naam = ""
+                        # naam = ""
                 a += 1
             if levenscyclus[v].aanduidingRecordInactief.waarde() == "N":
                 laatsteActieve = v
             v += 1
         self.toonLevenscyclusKnop.Hide()
 
-    # Maak de view leeg        
+    # Maak de view leeg
     def maakLeeg(self):
         self.Clear()
         self.toonLevenscyclusKnop.Hide()
 
 
-#------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
 # BAGKaart toont een kaart met een object en zijn omgeving
-#------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
 class BAGKaart(wx.Panel):
     # Constructor
     def __init__(self, raadpleegScherm, positie, afmeting):
@@ -628,13 +630,12 @@ class BAGKaart(wx.Panel):
 
     # Geef de X-coordinaat op de kaart die overeenkomt met de cursor positie.
     def cursorPositieX(self):
-        return self.centerX + (
-                                  wx.GetMousePosition().x - self.GetScreenPosition().x - self.GetSize().GetWidth() / 2) * self.schaal
+        return self.centerX + (wx.GetMousePosition().x - self.GetScreenPosition().x - self.GetSize().GetWidth() / 2) * self.schaal
 
     # Geef de Y-coordinaat op de kaart die overeenkomt met de cursor positie.
     def cursorPositieY(self):
-        return self.centerY + (((
-                                    wx.GetMousePosition().y - self.GetScreenPosition().y - self.GetSize().GetHeight()) * -1) - self.GetSize().GetHeight() / 2) * self.schaal
+        height = self.GetSize().GetHeight()
+        return self.centerY + (((wx.GetMousePosition().y - self.GetScreenPosition().y - height) * -1) - height / 2) * self.schaal
 
     # Toon van een gevonden BAG-object de geometrie in de kaart, tezamen met de geometrieen van
     # omliggende objecten.
@@ -782,7 +783,7 @@ class BAGKaart(wx.Panel):
             rechthoek = "POLYGON((%f %f 0.0, %f %f 0.0, %f %f 0.0, %f %f 0.0, %f %f 0.0))" % (
                 lX, lY, rX, lY, rX, rY, lX, rY, lX, lY)
 
-            # Zoek panden in de omgeving                
+            # Zoek panden in de omgeving
             sql = "SELECT geovlak, pandstatus"
             sql += "  FROM pandactueelbestaand"
             sql += " WHERE geovlak && GeomFromEWKT('SRID=28992;" + rechthoek + "')"
@@ -868,11 +869,9 @@ class BAGKaart(wx.Panel):
         self.Refresh()
 
 
-        #------------------------------------------------------------------------------
-
-
+# ------------------------------------------------------------------------------
 # BAGRaadpleeg toont een scherm voor het zoeken en raadplegen van BAG-objecten.
-#------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
 class BAGRaadpleeg(wx.Dialog):
     # Constructor
     def __init__(self, parent):

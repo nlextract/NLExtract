@@ -1,4 +1,4 @@
-#------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
 # Naam:         libLog.py
 # Omschrijving: Generieke functies voor logging binnen BAG Extract+
 # Auteur:       Matthijs van der Deijl
@@ -12,9 +12,10 @@
 # Datum:        24 november 2009
 #
 # Ministerie van Volkshuisvesting, Ruimtelijke Ordening en Milieubeheer
-#------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
 
 import wx
+
 
 # Simple logscherm: tekst in tekstpanel
 class LogScherm:
@@ -37,15 +38,18 @@ class LogScherm:
         self.text_ctrl.Refresh()
         self.text_ctrl.Update()
 
+
 # See http://www.blog.pythonlibrary.org/2010/05/22/wxpython-and-threads/
 # (use events when in multithreaded mode)
 
 # Define notification event for thread completion
 EVT_SCHRIJF_ID = wx.NewId()
 
+
 def EVT_SCHRIJF(win, func):
     """Define Result Event."""
     win.Connect(-1, -1, EVT_SCHRIJF_ID, func)
+
 
 class SchrijfEvent(wx.PyEvent):
     """Simple event to carry arbitrary result data."""
@@ -54,6 +58,7 @@ class SchrijfEvent(wx.PyEvent):
         wx.PyEvent.__init__(self)
         self.SetEventType(EVT_SCHRIJF_ID)
         self.tekst = tekst
+
 
 class AsyncLogScherm(LogScherm):
     def __init__(self, text_ctrl):
@@ -64,7 +69,7 @@ class AsyncLogScherm(LogScherm):
 
     def on_schrijf_event(self, evt):
         self.schrijf(evt.tekst)
-        
+
     def __call__(self, tekst):
         # Ipv direct schrijven stuur "schrijf" event
         wx.PostEvent(self.text_ctrl, SchrijfEvent(tekst))

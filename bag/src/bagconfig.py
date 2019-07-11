@@ -7,7 +7,7 @@
 # Datum:        24 november 2009
 #
 # Ministerie van Volkshuisvesting, Ruimtelijke Ordening en Milieubeheer
-#------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
 import sys
 import os
 
@@ -42,7 +42,7 @@ class BAGConfig:
         self.configdict = ConfigParser()
         try:
             self.configdict.read(self.config_file)
-        except:
+        except Exception:
             Log.log.fatal("" + str(self.config_file) + " kan niet worden ingelezen")
 
         try:
@@ -57,7 +57,7 @@ class BAGConfig:
             if self.configdict.has_option(None, 'port'):
                 self.port = self.configdict.defaults()['port']
 
-        except:
+        except Exception:
             Log.log.fatal("Configuratiebestand " + str(self.config_file) + " is niet volledig")
 
         # Assign Singleton (of heeft Python daar namespaces voor?) (Java achtergrond)
@@ -88,9 +88,8 @@ class BAGConfig:
                 if args.password:
                     self.password = args.password
 
-        except:
+        except Exception:
             Log.log.fatal(" het overrulen van configuratiebestand " + str(self.config_file) + " via commandline loopt spaak")
-
 
     def save(self):
         section = self.configdict.defaults()

@@ -7,7 +7,7 @@ __date__ = "$Jun 11, 2011 3:46:27 PM$"
  Auteurs:       Stefan de Konink (initial), Just van den Broecke
 """
 
-import argparse #apt-get install python-argparse
+import argparse  # apt-get install python-argparse
 import sys
 import os
 from postgresdb import Database
@@ -19,32 +19,34 @@ from bagconfig import BAGConfig
 # http://www.saltycrane.com/blog/2008/11/python-unicodeencodeerror-ascii-codec-cant-encode-character/
 # anders bijv. deze fout: 'ascii' codec can't encode character u'\xbf' in position 42: ordinal not in range(128)
 reload(sys)
-sys.setdefaultencoding( "utf-8" )
+sys.setdefaultencoding("utf-8")
+
 
 class ArgParser(argparse.ArgumentParser):
-     def error(self, message):
+    def error(self, message):
         print (message)
         self.print_help()
         sys.exit(2)
-        
-## {{{ http://code.activestate.com/recipes/541096/ (r1)
+
+
+# {{{ http://code.activestate.com/recipes/541096/ (r1)
 def confirm(prompt=None, resp=False):
-    """prompt voor ja of nee reactie. 
+    """prompt voor ja of nee reactie.
 
     'resp' bevat de default waarde wanneer een gebruiker een ENTER geeft
 
     >>> confirm(prompt='Create Directory?', resp=True)
-    Create Directory? [y]|n: 
+    Create Directory? [y]|n:
     True
     >>> confirm(prompt='Create Directory?', resp=False)
-    Create Directory? [n]|y: 
+    Create Directory? [n]|y:
     False
     >>> confirm(prompt='Create Directory?', resp=False)
     Create Directory? [n]|y: y
     True
 
     """
-    
+
     if prompt is None:
         prompt = 'Bevestig'
 
@@ -52,7 +54,7 @@ def confirm(prompt=None, resp=False):
         prompt = '%s ([%s]/%s): ' % (prompt, 'J', 'n')
     else:
         prompt = '%s ([%s]/%s): ' % (prompt, 'N', 'j')
-        
+
     while True:
         ans = raw_input(prompt)
         if not ans:
@@ -64,12 +66,12 @@ def confirm(prompt=None, resp=False):
             return True
         if ans == 'n' or ans == 'N':
             return False
-## end of http://code.activestate.com/recipes/541096/ }}}
+# end of http://code.activestate.com/recipes/541096/ }}}
 
 
 def main():
     """
-    Voorbeelden: 
+    Voorbeelden:
         1. Initialiseer een database:
             python bagextract.py -H localhost -d bag -U postgres -W postgres -c
 
@@ -89,7 +91,7 @@ def main():
 
     """
     parser = ArgParser(description='bag-extract, commandline tool voor het extraheren en inlezen van BAG bestanden',
-        epilog="Configureer de database in extract.conf of geef eigen versie van extract.conf via -f of geef parameters via commando regel expliciet op")
+                       epilog="Configureer de database in extract.conf of geef eigen versie van extract.conf via -f of geef parameters via commando regel expliciet op")
     parser.add_argument('-c', '--dbinit', action='store_true', help='verwijdert (DROP TABLE) alle tabellen en maakt (CREATE TABLE) nieuwe tabellen aan')
     parser.add_argument('-j', '--ja', action='store_true', help='bevestig alle prompts')
     parser.add_argument('-d', '--database', metavar='<naam>', help='geef naam van de database')
@@ -107,7 +109,7 @@ def main():
 
     # Initialiseer
     args = parser.parse_args()
-    
+
     # Initialize singleton Log object so we can use one global instance
     Log(args)
 
@@ -126,7 +128,7 @@ def main():
             Log.log.info("alle database tabellen weggooien en opnieuw aanmaken...")
             try:
                 database.initialiseer(db_script)
-            except Exception as e:
+            except Exception:
                 Log.log.fatal("Kan geen verbinding maken met de database")
                 sys.exit()
             Log.log.info("Initieele data (bijv. gemeenten/provincies) inlezen...")

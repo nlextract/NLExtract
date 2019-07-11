@@ -1,0 +1,5 @@
+[flake8]
+ignore = 
+exclude = doc,externals,bonnebladen\bin\gdalsetnull.py
+max-line-length = 160
+max-complexity = 38

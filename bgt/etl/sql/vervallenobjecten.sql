@@ -1,0 +1,41 @@
+create table fixeindregistratie_vervallenobjecten(type varchar, lokaalid varchar, tijdstipregistratie timestamptz, lv_publicatiedatum timestamptz);
+
+insert into fixeindregistratie_vervallenobjecten select 'bak', lokaalid, tijdstipregistratie, lv_publicatiedatum from bak_tofix;
+insert into fixeindregistratie_vervallenobjecten select 'begroeidterreindeel', lokaalid, tijdstipregistratie, lv_publicatiedatum from begroeidterreindeel_tofix;
+insert into fixeindregistratie_vervallenobjecten select 'bord', lokaalid, tijdstipregistratie, lv_publicatiedatum from bord_tofix;
+insert into fixeindregistratie_vervallenobjecten select 'buurt', lokaalid, tijdstipregistratie, lv_publicatiedatum from buurt_tofix;
+insert into fixeindregistratie_vervallenobjecten select 'functioneelgebied', lokaalid, tijdstipregistratie, lv_publicatiedatum from functioneelgebied_tofix;
+insert into fixeindregistratie_vervallenobjecten select 'gebouwinstallatie', lokaalid, tijdstipregistratie, lv_publicatiedatum from gebouwinstallatie_tofix;
+insert into fixeindregistratie_vervallenobjecten select 'installatie', lokaalid, tijdstipregistratie, lv_publicatiedatum from installatie_tofix;
+insert into fixeindregistratie_vervallenobjecten select 'kast', lokaalid, tijdstipregistratie, lv_publicatiedatum from kast_tofix;
+insert into fixeindregistratie_vervallenobjecten select 'kunstwerkdeel', lokaalid, tijdstipregistratie, lv_publicatiedatum from kunstwerkdeel_tofix;
+insert into fixeindregistratie_vervallenobjecten select 'mast', lokaalid, tijdstipregistratie, lv_publicatiedatum from mast_tofix;
+insert into fixeindregistratie_vervallenobjecten select 'onbegroeidterreindeel', lokaalid, tijdstipregistratie, lv_publicatiedatum from onbegroeidterreindeel_tofix;
+insert into fixeindregistratie_vervallenobjecten select 'ondersteunendwaterdeel', lokaalid, tijdstipregistratie, lv_publicatiedatum from ondersteunendwaterdeel_tofix;
+insert into fixeindregistratie_vervallenobjecten select 'ondersteunendwegdeel', lokaalid, tijdstipregistratie, lv_publicatiedatum from ondersteunendwegdeel_tofix;
+insert into fixeindregistratie_vervallenobjecten select 'ongeclassificeerdobject', lokaalid, tijdstipregistratie, lv_publicatiedatum from ongeclassificeerdobject_tofix;
+insert into fixeindregistratie_vervallenobjecten select 'openbareruimte', lokaalid, tijdstipregistratie, lv_publicatiedatum from openbareruimte_tofix;
+insert into fixeindregistratie_vervallenobjecten select 'openbareruimtelabel', lokaalid, tijdstipregistratie, lv_publicatiedatum from openbareruimtelabel_tofix;
+insert into fixeindregistratie_vervallenobjecten select 'overbruggingsdeel', lokaalid, tijdstipregistratie, lv_publicatiedatum from overbruggingsdeel_tofix;
+insert into fixeindregistratie_vervallenobjecten select 'overigbouwwerk', lokaalid, tijdstipregistratie, lv_publicatiedatum from overigbouwwerk_tofix;
+insert into fixeindregistratie_vervallenobjecten select 'overigescheiding', lokaalid, tijdstipregistratie, lv_publicatiedatum from overigescheiding_tofix;
+insert into fixeindregistratie_vervallenobjecten select 'paal', lokaalid, tijdstipregistratie, lv_publicatiedatum from paal_tofix;
+insert into fixeindregistratie_vervallenobjecten select 'pand', lokaalid, tijdstipregistratie, lv_publicatiedatum from pand_tofix;
+insert into fixeindregistratie_vervallenobjecten select 'put', lokaalid, tijdstipregistratie, lv_publicatiedatum from put_tofix;
+insert into fixeindregistratie_vervallenobjecten select 'scheiding', lokaalid, tijdstipregistratie, lv_publicatiedatum from scheiding_tofix;
+insert into fixeindregistratie_vervallenobjecten select 'sensor', lokaalid, tijdstipregistratie, lv_publicatiedatum from sensor_tofix;
+insert into fixeindregistratie_vervallenobjecten select 'spoor', lokaalid, tijdstipregistratie, lv_publicatiedatum from spoor_tofix;
+insert into fixeindregistratie_vervallenobjecten select 'stadsdeel', lokaalid, tijdstipregistratie, lv_publicatiedatum from stadsdeel_tofix;
+insert into fixeindregistratie_vervallenobjecten select 'straatmeubilair', lokaalid, tijdstipregistratie, lv_publicatiedatum from straatmeubilair_tofix;
+insert into fixeindregistratie_vervallenobjecten select 'tunneldeel', lokaalid, tijdstipregistratie, lv_publicatiedatum from tunneldeel_tofix;
+insert into fixeindregistratie_vervallenobjecten select 'vegetatieobject', lokaalid, tijdstipregistratie, lv_publicatiedatum from vegetatieobject_tofix;
+insert into fixeindregistratie_vervallenobjecten select 'waterdeel', lokaalid, tijdstipregistratie, lv_publicatiedatum from waterdeel_tofix;
+insert into fixeindregistratie_vervallenobjecten select 'waterinrichtingselement', lokaalid, tijdstipregistratie, lv_publicatiedatum from waterinrichtingselement_tofix;
+insert into fixeindregistratie_vervallenobjecten select 'waterschap', lokaalid, tijdstipregistratie, lv_publicatiedatum from waterschap_tofix;
+insert into fixeindregistratie_vervallenobjecten select 'wegdeel', lokaalid, tijdstipregistratie, lv_publicatiedatum from wegdeel_tofix;
+insert into fixeindregistratie_vervallenobjecten select 'weginrichtingselement', lokaalid, tijdstipregistratie, lv_publicatiedatum from weginrichtingselement_tofix;
+insert into fixeindregistratie_vervallenobjecten select 'wijk', lokaalid, tijdstipregistratie, lv_publicatiedatum from wijk_tofix;
+
+\copy fixeindregistratie_vervallenobjecten to 'd:\temp\fixeindregistratie_vervallenobjecten.csv' csv header;
+
+select type, count(*) aantal from fixeindregistratie_vervallenobjecten group by type order by type;
