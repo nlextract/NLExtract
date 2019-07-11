@@ -8,6 +8,7 @@
 @echo off
 
 setlocal
+pushd %~dp0
 
 :: Gebruik Stetl meegeleverd met NLExtract (kan in theorie ook Stetl via pip install stetl zijn)
 if "%STETL_HOME%"=="" (
@@ -34,4 +35,5 @@ if not "%~1"=="" set options_file=%1
 :: Uiteindelijke commando. Kan ook gewoon "stetl -c conf\etl-top1000nl-v1.2.0.cfg -a ..." worden indien Stetl installed
 python %STETL_HOME%\stetl\main.py -c conf\etl-top1000nl-v1.2.0.cfg -a %options_file%
 
+popd
 endlocal

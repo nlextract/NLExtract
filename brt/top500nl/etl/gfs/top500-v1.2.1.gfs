@@ -1,7 +1,7 @@
 <GMLFeatureClassList>
   <!--Dit GFS-bestand is gegenereerd met make-gfs.xsl-->
   <GMLFeatureClass>
-    <Name>FunctioneelGebied</Name>
+    <Name>FunctioneelGebied_tmp</Name>
     <ElementPath>FunctioneelGebied</ElementPath>
     <GeomPropertyDefn>
       <Name>geometrie_vlak</Name>
@@ -105,7 +105,7 @@
     <!--Einde properties van FunctioneelGebied-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Gebouw</Name>
+    <Name>Gebouw_tmp</Name>
     <ElementPath>Gebouw</ElementPath>
     <GeomPropertyDefn>
       <Name>geometrie_punt</Name>
@@ -199,7 +199,7 @@
     <!--Einde properties van Gebouw-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>GeografischGebied</Name>
+    <Name>GeografischGebied_tmp</Name>
     <ElementPath>GeografischGebied</ElementPath>
     <GeomPropertyDefn>
       <Name>geometrie_vlak</Name>
@@ -297,7 +297,7 @@
     <!--Einde properties van GeografischGebied-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Hoogte</Name>
+    <Name>Hoogte_tmp</Name>
     <ElementPath>Hoogte</ElementPath>
     <GeomPropertyDefn>
       <Name>geometrie_lijn</Name>
@@ -391,7 +391,7 @@
     <!--Einde properties van Hoogte-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Inrichtingselement</Name>
+    <Name>Inrichtingselement_tmp</Name>
     <ElementPath>Inrichtingselement</ElementPath>
     <GeomPropertyDefn>
       <Name>geometrie_lijn</Name>
@@ -485,7 +485,7 @@
     <!--Einde properties van Inrichtingselement-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Plaats</Name>
+    <Name>Plaats_tmp</Name>
     <ElementPath>Plaats</ElementPath>
     <GeomPropertyDefn>
       <Name>geometrie_vlak</Name>
@@ -596,7 +596,7 @@
     <!--Einde properties van Plaats-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>PlanTopografie</Name>
+    <Name>PlanTopografie_tmp</Name>
     <ElementPath>PlanTopografie</ElementPath>
     <GeomPropertyDefn>
       <Name>geometrie_vlak</Name>
@@ -690,7 +690,7 @@
     <!--Einde properties van PlanTopografie-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>RegistratiefGebied</Name>
+    <Name>RegistratiefGebied_tmp</Name>
     <ElementPath>RegistratiefGebied</ElementPath>
     <GeomPropertyDefn>
       <Name>geometrie_vlak</Name>
@@ -794,7 +794,7 @@
     <!--Einde properties van RegistratiefGebied-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Spoorbaandeel</Name>
+    <Name>Spoorbaandeel_tmp</Name>
     <ElementPath>Spoorbaandeel</ElementPath>
     <GeomPropertyDefn>
       <Name>geometrie_lijn</Name>
@@ -931,7 +931,7 @@
     <!--Einde properties van Spoorbaandeel-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Terrein</Name>
+    <Name>Terrein_tmp</Name>
     <ElementPath>Terrein</ElementPath>
     <GeomPropertyDefn>
       <Name>geometrie_vlak</Name>
@@ -1020,7 +1020,7 @@
     <!--Einde properties van Terrein-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Waterdeel</Name>
+    <Name>Waterdeel_tmp</Name>
     <ElementPath>Waterdeel</ElementPath>
     <GeomPropertyDefn>
       <Name>geometrie_vlak</Name>
@@ -1166,7 +1166,7 @@
     <!--Einde properties van Waterdeel-->
   </GMLFeatureClass>
   <GMLFeatureClass>
-    <Name>Wegdeel</Name>
+    <Name>Wegdeel_tmp</Name>
     <ElementPath>Wegdeel</ElementPath>
     <GeomPropertyDefn>
       <Name>geometrie_lijn</Name>

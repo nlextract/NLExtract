@@ -16,7 +16,7 @@ from postgresdb import Database
 
 try:
     from cStringIO import StringIO
-except:
+except Exception:
     from StringIO import StringIO
 
 
@@ -31,6 +31,7 @@ def fname_key(filenaam):
     start_datum = filenaam[11:15] + filenaam[9:11] + filenaam[7:9]
     eind_datum = filenaam[20:24] + filenaam[18:20] + filenaam[16:18]
     return filenaam[0:7] + start_datum + '-' + eind_datum + filenaam[24:]
+
 
 class BAGFileReader:
 
@@ -68,7 +69,7 @@ class BAGFileReader:
 
     def process_file(self, file_path, file_buf=None):
         filenaam = os.path.basename(file_path)
-        
+
         # Overslaan als bestand al (succesvol) verwerkt is: bijv bij herstart of reeds verwerkte mutaties
         if self.database.has_log_actie('verwerkt', filenaam, False):
             Log.log.info("bestand %s is reeds verwerkt ==> overslaan" % filenaam)
@@ -145,7 +146,7 @@ class BAGFileReader:
 
     def process_csv(self, file_resource, filenaam):
         Log.log.info("process_csv: verwerk %s " % filenaam)
-        
+
         file_object = open(file_resource, "rb")
         csv_reader = csv.reader(file_object, delimiter=';', quoting=csv.QUOTE_NONE)
         self.processor.processCSV(csv_reader, filenaam)
@@ -161,4 +162,3 @@ class BAGFileReader:
             self.process_file(naam, StringIO(zip_file.read(naam)))
 
         self.database.log_actie('verwerkt', filenaam, 'verwerkt OK')
-

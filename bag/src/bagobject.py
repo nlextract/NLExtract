@@ -26,15 +26,17 @@ __date__ = "Dec 21, 2011 3:46:27 PM$"
  OpenGeoGroep.nl
 """
 
-from bagattribuut import *
-from log import Log
+from bagattribuut import BAGattribuut, BAGbooleanAttribuut, BAGdateAttribuut, BAGdatetimeAttribuut, BAGenumAttribuut, BAGenumRelatieAttribuut
+from bagattribuut import BAGgeometrieValidatie, BAGintegerAttribuut, BAGmultiPolygoon, BAGnumeriekAttribuut, BAGpoint, BAGpolygoon, BAGrelatieAttribuut
+from bagattribuut import BAGstringAttribuut
 from etree import stripschema
 
-#--------------------------------------------------------------------------------------------------------
+
+# --------------------------------------------------------------------------------------------------------
 # Class         BAGObject
 # Omschrijving  Basisclass voor de 7 types BAG-objecten. Deze class bevat de generieke attributen die
 #               in al deze types BAG-objecten voorkomen.
-#--------------------------------------------------------------------------------------------------------
+# --------------------------------------------------------------------------------------------------------
 class BAGObject:
     # Constructor
     def __init__(self, tag="", naam="", objectType=""):
@@ -42,11 +44,11 @@ class BAGObject:
         self.attributen_volgorde = []
         self.voegToe(BAGstringAttribuut(16, "identificatie", "bag_LVC:identificatie"))
         self.voegToe(BAGbooleanAttribuut("aanduidingRecordInactief", "bag_LVC:aanduidingRecordInactief"))
-        self.voegToe(BAGintegerAttribuut("aanduidingRecordCorrectie","bag_LVC:aanduidingRecordCorrectie"))
+        self.voegToe(BAGintegerAttribuut("aanduidingRecordCorrectie", "bag_LVC:aanduidingRecordCorrectie"))
         self.voegToe(BAGbooleanAttribuut("officieel", "bag_LVC:officieel"))
         self.voegToe(BAGbooleanAttribuut("inOnderzoek", "bag_LVC:inOnderzoek"))
-        self.voegToe(BAGdatetimeAttribuut("begindatumTijdvakGeldigheid","bag_LVC:tijdvakgeldigheid/bagtype:begindatumTijdvakGeldigheid"))
-        self.voegToe(BAGdatetimeAttribuut("einddatumTijdvakGeldigheid","bag_LVC:tijdvakgeldigheid/bagtype:einddatumTijdvakGeldigheid"))
+        self.voegToe(BAGdatetimeAttribuut("begindatumTijdvakGeldigheid", "bag_LVC:tijdvakgeldigheid/bagtype:begindatumTijdvakGeldigheid"))
+        self.voegToe(BAGdatetimeAttribuut("einddatumTijdvakGeldigheid", "bag_LVC:tijdvakgeldigheid/bagtype:einddatumTijdvakGeldigheid"))
         self.voegToe(BAGstringAttribuut(20, "documentnummer", "bag_LVC:bron/bagtype:documentnummer"))
         self.voegToe(BAGdateAttribuut("documentdatum", "bag_LVC:bron/bagtype:documentdatum"))
 
@@ -127,7 +129,7 @@ class BAGObject:
     # Geef het actuele voorkomen van het object, geselecteerd uit de database op basis van
     # de identificatie
     def maakSelectSQL(self):
-        sql  = "SELECT "
+        sql = "SELECT "
         for attribuut in self.attributen_volgorde:
             if attribuut.naam() == 'geom_valid':
                 continue
@@ -138,7 +140,7 @@ class BAGObject:
         sql += " identificatie FROM " + self.naam() + "actueelbestaand"
         sql += " WHERE identificatie = " + str(self.attribuut('identificatie').waarde())
         return sql
-        
+
     # Retourneer boolean waarde of het attribuut bestaat
     def heeftAttribuut(self, naam):
         return naam in self.attributen
@@ -153,7 +155,7 @@ class BAGObject:
         for attribuut in self.attributen_volgorde:
             attribuut.schrijf()
         for relatie in self.relaties:
-             relatie.schrijf()
+            relatie.schrijf()
 
     # Genereer SQL voor een COPY.
     def maakCopySQL(self, buffer):
@@ -225,16 +227,16 @@ class BAGObject:
         where = "WHERE identificatie = %s AND aanduidingrecordinactief = %s AND aanduidingrecordcorrectie = %s AND begindatumTijdvakGeldigheid = %s "
 
         self.inhoud.extend((self.origineelObj.attribuut('identificatie').waardeSQL(),
-                             self.origineelObj.attribuut('aanduidingRecordInactief').waardeSQL(),
-                             self.origineelObj.attribuut('aanduidingRecordCorrectie').waardeSQL(),
-                             self.origineelObj.attribuut('begindatumTijdvakGeldigheid').waardeSQL() ))
+                            self.origineelObj.attribuut('aanduidingRecordInactief').waardeSQL(),
+                            self.origineelObj.attribuut('aanduidingRecordCorrectie').waardeSQL(),
+                            self.origineelObj.attribuut('begindatumTijdvakGeldigheid').waardeSQL()))
 
         self.sql = "UPDATE " + self.naam() + " SET " + nameVals + " " + where
 
         # Optioneel: relatie objecten
         for relatie in self.relaties:
             relatie.maakUpdateSQL()
-    
+
     # Genereer SQL voor (DROP) en CREATE TABLE
     def maakTabel(self):
         sqlinit = ""
@@ -260,13 +262,15 @@ class BAGObject:
 
         return "DROP TABLE IF EXISTS " + self.naam() + " CASCADE;\n" + sqlinit + sql + "\n"
 
-#--------------------------------------------------------------------------------------------------------
+
+# --------------------------------------------------------------------------------------------------------
 # Class         Woonplaats
 # Afgeleid van  BAGObject
 # Omschrijving  Class voor het BAG-objecttype Woonplaats.
-#--------------------------------------------------------------------------------------------------------
+# --------------------------------------------------------------------------------------------------------
 class Woonplaats(BAGObject):
     woonplaatsStatusTypes = ['Woonplaats aangewezen', 'Woonplaats ingetrokken']
+
     def __init__(self):
         BAGObject.__init__(self, "bag_LVC:Woonplaats", "woonplaats", "WPL")
         self.voegToe(BAGstringAttribuut(80, "woonplaatsNaam", "bag_LVC:woonplaatsNaam"))
@@ -277,32 +281,36 @@ class Woonplaats(BAGObject):
     def heeftGeometrie(self):
         return True
 
-#--------------------------------------------------------------------------------------------------------
+
+# --------------------------------------------------------------------------------------------------------
 # Class         OpenbareRuimte
 # Afgeleid van  BAGObject
 # Omschrijving  Class voor het BAG-objecttype OpenbareRuimte.
-#--------------------------------------------------------------------------------------------------------
+# --------------------------------------------------------------------------------------------------------
 class OpenbareRuimte(BAGObject):
-    openbareRuimteTypes = ['Weg','Water', 'Spoorbaan', 'Terrein', 'Kunstwerk', 'Landschappelijk gebied', 'Administratief gebied']
+    openbareRuimteTypes = ['Weg', 'Water', 'Spoorbaan', 'Terrein', 'Kunstwerk', 'Landschappelijk gebied', 'Administratief gebied']
     openbareRuimteStatusTypes = ['Naamgeving uitgegeven', 'Naamgeving ingetrokken']
+
     def __init__(self):
         BAGObject.__init__(self, "bag_LVC:OpenbareRuimte", "openbareruimte", "OPR")
         self.voegToe(BAGstringAttribuut(80, "openbareRuimteNaam", "bag_LVC:openbareRuimteNaam"))
         self.voegToe(BAGenumAttribuut(OpenbareRuimte.openbareRuimteStatusTypes, "openbareRuimteStatus", "bag_LVC:openbareruimteStatus"))
-        self.voegToe(BAGenumAttribuut(OpenbareRuimte.openbareRuimteTypes, "openbareRuimteType","bag_LVC:openbareRuimteType"))
+        self.voegToe(BAGenumAttribuut(OpenbareRuimte.openbareRuimteTypes, "openbareRuimteType", "bag_LVC:openbareRuimteType"))
         self.voegToe(BAGstringAttribuut(16, "gerelateerdeWoonplaats",
-                                                   "bag_LVC:gerelateerdeWoonplaats/bag_LVC:identificatie"))
+                                            "bag_LVC:gerelateerdeWoonplaats/bag_LVC:identificatie"))
         self.voegToe(BAGattribuut(80, "verkorteOpenbareRuimteNaam",
-                                                       "nen5825:VerkorteOpenbareruimteNaam"))
+                                      "nen5825:VerkorteOpenbareruimteNaam"))
 
-#--------------------------------------------------------------------------------------------------------
+
+# --------------------------------------------------------------------------------------------------------
 # Class         Nummeraanduiding
 # Afgeleid van  BAGObject
 # Omschrijving  Class voor het BAG-objecttype Nummeraanduiding.
-#--------------------------------------------------------------------------------------------------------
+# --------------------------------------------------------------------------------------------------------
 class Nummeraanduiding(BAGObject):
     nummeraanduidingStatusTypes = ['Naamgeving uitgegeven', 'Naamgeving ingetrokken']
     verblijfsobjectTypes = ['Verblijfsobject', 'Standplaats', 'Ligplaats']
+
     def __init__(self):
         BAGObject.__init__(self, "bag_LVC:Nummeraanduiding", "nummeraanduiding", "NUM")
         self.voegToe(BAGnumeriekAttribuut(5, "huisnummer", "bag_LVC:huisnummer"))
@@ -310,13 +318,13 @@ class Nummeraanduiding(BAGObject):
         self.voegToe(BAGattribuut(4, "huisnummertoevoeging", "bag_LVC:huisnummertoevoeging"))
         self.voegToe(BAGattribuut(6, "postcode", "bag_LVC:postcode"))
         self.voegToe(BAGenumAttribuut(Nummeraanduiding.nummeraanduidingStatusTypes, "nummeraanduidingStatus",
-                                        "bag_LVC:nummeraanduidingStatus"))
+                                      "bag_LVC:nummeraanduidingStatus"))
         self.voegToe(BAGenumAttribuut(Nummeraanduiding.verblijfsobjectTypes, "typeAdresseerbaarObject",
-                                        "bag_LVC:typeAdresseerbaarObject"))
+                                      "bag_LVC:typeAdresseerbaarObject"))
         self.voegToe(BAGstringAttribuut(16, "gerelateerdeOpenbareRuimte",
-                                                   "bag_LVC:gerelateerdeOpenbareRuimte/bag_LVC:identificatie"))
+                                            "bag_LVC:gerelateerdeOpenbareRuimte/bag_LVC:identificatie"))
         self.voegToe(BAGstringAttribuut(16, "gerelateerdeWoonplaats",
-                                                   "bag_LVC:gerelateerdeWoonplaats/bag_LVC:identificatie"))
+                                            "bag_LVC:gerelateerdeWoonplaats/bag_LVC:identificatie"))
 
     def getAdresseerbaarObject(self):
         adresseerbaarObject = None
@@ -330,34 +338,37 @@ class Nummeraanduiding(BAGObject):
         return adresseerbaarObject
 
     def maakSelectAdresseerbaarObjectSQL(self):
-        sql  = "SELECT DISTINCT identificatie"
+        sql = "SELECT DISTINCT identificatie"
         sql += "  FROM " + self.attribuut('typeAdresseerbaarObject').waarde().lower() + "actueelbestaand"
         sql += " WHERE hoofdadres = " + str(self.attribuut('identificatie').waarde())
         return sql
 
-#--------------------------------------------------------------------------------------------------------
+
+# --------------------------------------------------------------------------------------------------------
 # Class         BAGadresseerbaarObject
 # Afgeleid van  BAGObject
 # Omschrijving  Basisclass voor de adresseerbare objecten ligplaats, standplaats en verblijfsobject.
 #               Deze class definieert het hoofdadres en de nevenadressen.
-#--------------------------------------------------------------------------------------------------------
+# --------------------------------------------------------------------------------------------------------
 class BAGadresseerbaarObject(BAGObject):
     def __init__(self, tag, naam, objectType):
         BAGObject.__init__(self, tag, naam, objectType)
         self.voegToe(BAGstringAttribuut(16, "hoofdadres",
-                                       "bag_LVC:gerelateerdeAdressen/bag_LVC:hoofdadres/bag_LVC:identificatie"))
+                                        "bag_LVC:gerelateerdeAdressen/bag_LVC:hoofdadres/bag_LVC:identificatie"))
         self.relaties.append(BAGrelatieAttribuut(self, "adresseerbaarobjectnevenadres",
-                                              16, "nevenadres",
-                                              "bag_LVC:gerelateerdeAdressen/bag_LVC:nevenadres/bag_LVC:identificatie",
-                                              ["ligplaatsStatus", "standplaatsStatus", "verblijfsobjectStatus", "geom_valid"]))
+                                                 16, "nevenadres",
+                                                 "bag_LVC:gerelateerdeAdressen/bag_LVC:nevenadres/bag_LVC:identificatie",
+                                                 ["ligplaatsStatus", "standplaatsStatus", "verblijfsobjectStatus", "geom_valid"]))
 
-#--------------------------------------------------------------------------------------------------------
+
+# --------------------------------------------------------------------------------------------------------
 # Class         Ligplaats
 # Afgeleid van  BAGadresseerbaarObject
 # Omschrijving  Class voor het BAG-objecttype Ligplaats.
-#--------------------------------------------------------------------------------------------------------
+# --------------------------------------------------------------------------------------------------------
 class Ligplaats(BAGadresseerbaarObject):
     ligplaatsStatusTypes = ['Plaats aangewezen', 'Plaats ingetrokken']
+
     def __init__(self):
         BAGadresseerbaarObject.__init__(self, "bag_LVC:Ligplaats", "ligplaats", "LIG")
         self.voegToe(BAGenumAttribuut(Ligplaats.ligplaatsStatusTypes, "ligplaatsStatus", "bag_LVC:ligplaatsStatus"))
@@ -367,13 +378,15 @@ class Ligplaats(BAGadresseerbaarObject):
     def heeftGeometrie(self):
         return True
 
-#--------------------------------------------------------------------------------------------------------
+
+# --------------------------------------------------------------------------------------------------------
 # Class         Standplaats
 # Afgeleid van  BAGadresseerbaarObject
 # Omschrijving  Class voor het BAG-objecttype Standplaats.
-#--------------------------------------------------------------------------------------------------------
+# --------------------------------------------------------------------------------------------------------
 class Standplaats(BAGadresseerbaarObject):
     standplaatsStatusTypes = ['Plaats aangewezen', 'Plaats ingetrokken']
+
     def __init__(self):
         BAGadresseerbaarObject.__init__(self, "bag_LVC:Standplaats", "standplaats", "STA")
         self.voegToe(BAGenumAttribuut(Standplaats.standplaatsStatusTypes, "standplaatsStatus", "bag_LVC:standplaatsStatus"))
@@ -383,11 +396,12 @@ class Standplaats(BAGadresseerbaarObject):
     def heeftGeometrie(self):
         return True
 
-#--------------------------------------------------------------------------------------------------------
+
+# --------------------------------------------------------------------------------------------------------
 # Class         Verblijfsobject
 # Afgeleid van  BAGadresseerbaarObject
 # Omschrijving  Class voor het BAG-objecttype Verblijfsobject.
-#--------------------------------------------------------------------------------------------------------
+# --------------------------------------------------------------------------------------------------------
 class Verblijfsobject(BAGadresseerbaarObject):
     statusEnum = ['Verblijfsobject gevormd',
                   'Niet gerealiseerd verblijfsobject',
@@ -395,18 +409,19 @@ class Verblijfsobject(BAGadresseerbaarObject):
                   'Verblijfsobject in gebruik',
                   'Verblijfsobject ingetrokken',
                   'Verblijfsobject buiten gebruik']
-    gebruiksdoelEnum = ['woonfunctie','bijeenkomstfunctie',
-                        'celfunctie','gezondheidszorgfunctie',
-                        'industriefunctie','kantoorfunctie',
-                        'logiesfunctie','onderwijsfunctie',
-                        'sportfunctie','winkelfunctie','overige gebruiksfunctie']
+    gebruiksdoelEnum = ['woonfunctie', 'bijeenkomstfunctie',
+                        'celfunctie', 'gezondheidszorgfunctie',
+                        'industriefunctie', 'kantoorfunctie',
+                        'logiesfunctie', 'onderwijsfunctie',
+                        'sportfunctie', 'winkelfunctie', 'overige gebruiksfunctie']
+
     def __init__(self):
 
         BAGadresseerbaarObject.__init__(self, "bag_LVC:Verblijfsobject", "verblijfsobject", "VBO")
         self.voegToe(BAGenumAttribuut(Verblijfsobject.statusEnum, "verblijfsobjectStatus",
-                                        "bag_LVC:verblijfsobjectStatus"))
+                                      "bag_LVC:verblijfsobjectStatus"))
         self.voegToe(BAGnumeriekAttribuut(6, "oppervlakteVerblijfsobject",
-                                        "bag_LVC:oppervlakteVerblijfsobject"))
+                                          "bag_LVC:oppervlakteVerblijfsobject"))
         # Het eerste gerelateerde pand (in principe kunnen er meer zijn, zie relatie)
         # self.voegToe(BAGstringAttribuut(16, "gerelateerdPand1", "bag_LVC:gerelateerdPand/bag_LVC:identificatie"))
         # Het eerste verblijfsdoel  (in principe kunnen er meer zijn, zie relatie)
@@ -428,11 +443,12 @@ class Verblijfsobject(BAGadresseerbaarObject):
     def heeftGeometrie(self):
         return True
 
-#--------------------------------------------------------------------------------------------------------
+
+# --------------------------------------------------------------------------------------------------------
 # Class         Pand
 # Afgeleid van  BAGObject
 # Omschrijving  Class voor het BAG-objecttype Pand.
-#--------------------------------------------------------------------------------------------------------
+# --------------------------------------------------------------------------------------------------------
 class Pand(BAGObject):
     statusEnum = ['Bouwvergunning verleend',
                   'Niet gerealiseerd pand',
@@ -442,6 +458,7 @@ class Pand(BAGObject):
                   'Sloopvergunning verleend',
                   'Pand gesloopt',
                   'Pand buiten gebruik']
+
     def __init__(self):
         BAGObject.__init__(self, "bag_LVC:Pand", "pand", "PND")
         self.voegToe(BAGenumAttribuut(Pand.statusEnum, "pandStatus", "bag_LVC:pandstatus"))
@@ -452,38 +469,41 @@ class Pand(BAGObject):
     def heeftGeometrie(self):
         return True
 
-#--------------------------------------------------------------------------------------------------------
+
+# --------------------------------------------------------------------------------------------------------
 # Class         GemeenteWoonplaatsRelatie
 # Afgeleid van  BAGObject
 # Omschrijving  Class voor koppeling Gemeente code naar Woonplaats code
-#<gwr_LVC:GemeenteWoonplaatsRelatie>
-# <gwr_LVC:tijdvakgeldigheid>
-#   <bagtype:begindatumTijdvakGeldigheid>2010100800000000</bagtype:begindatumTijdvakGeldigheid>
-# </gwr_LVC:tijdvakgeldigheid>
-#<gwr_LVC:gerelateerdeWoonplaats>
-#<gwr_LVC:identificatie>2236</gwr_LVC:identificatie>
-#</gwr_LVC:gerelateerdeWoonplaats>
-#<gwr_LVC:gerelateerdeGemeente>
-#<gwr_LVC:identificatie>0007</gwr_LVC:identificatie>
-#</gwr_LVC:gerelateerdeGemeente>
-#<gwr_LVC:status>definitief</gwr_LVC:status>
-#</gwr_LVC:GemeenteWoonplaatsRelatie>
+# <gwr_LVC:GemeenteWoonplaatsRelatie>
+#   <gwr_LVC:tijdvakgeldigheid>
+#     <bagtype:begindatumTijdvakGeldigheid>2010100800000000</bagtype:begindatumTijdvakGeldigheid>
+#   </gwr_LVC:tijdvakgeldigheid>
+#   <gwr_LVC:gerelateerdeWoonplaats>
+#     <gwr_LVC:identificatie>2236</gwr_LVC:identificatie>
+#   </gwr_LVC:gerelateerdeWoonplaats>
+#   <gwr_LVC:gerelateerdeGemeente>
+#     <gwr_LVC:identificatie>0007</gwr_LVC:identificatie>
+#   </gwr_LVC:gerelateerdeGemeente>
+#   <gwr_LVC:status>definitief</gwr_LVC:status>
+# </gwr_LVC:GemeenteWoonplaatsRelatie>
 #
-#--------------------------------------------------------------------------------------------------------
+# --------------------------------------------------------------------------------------------------------
 class GemeenteWoonplaatsRelatie(BAGObject):
     statusEnum = ['voorlopig', 'definitief']
+
     def __init__(self):
         BAGObject.__init__(self, "gwr_LVC:GemeenteWoonplaatsRelatie", "gemeente_woonplaats", "GWR")
         self.attributen = {}
         self.attributen_volgorde = []
-        self.voegToe(BAGdatetimeAttribuut("begindatumtijdvakgeldigheid","gwr_LVC:tijdvakgeldigheid/bagtype:begindatumTijdvakGeldigheid"))
-        self.voegToe(BAGdatetimeAttribuut("einddatumtijdvakgeldigheid","gwr_LVC:tijdvakgeldigheid/bagtype:einddatumTijdvakGeldigheid"))
+        self.voegToe(BAGdatetimeAttribuut("begindatumtijdvakgeldigheid", "gwr_LVC:tijdvakgeldigheid/bagtype:begindatumTijdvakGeldigheid"))
+        self.voegToe(BAGdatetimeAttribuut("einddatumtijdvakgeldigheid", "gwr_LVC:tijdvakgeldigheid/bagtype:einddatumTijdvakGeldigheid"))
         self.voegToe(BAGnumeriekAttribuut(4, "woonplaatscode", "gwr_LVC:gerelateerdeWoonplaats/gwr_LVC:identificatie"))
         self.voegToe(BAGnumeriekAttribuut(4, "gemeentecode", "gwr_LVC:gerelateerdeGemeente/gwr_LVC:identificatie"))
         self.voegToe(BAGenumAttribuut(GemeenteWoonplaatsRelatie.statusEnum, "status", "gwr_LVC:status"))
 
     def heeftGeometrie(self):
         return False
+
 
 # An extremely simple Singleton Factory for BAGObjects
 class BAGObjectFabriek:
@@ -494,9 +514,9 @@ class BAGObjectFabriek:
         # Singleton: sole instance of Log o have a single Log object
         BAGObjectFabriek.bof = self
 
-    #--------------------------------------------------------------------------------------------------------
+    # --------------------------------------------------------------------------------------------------------
     # Geef een BAGObject van het juiste type bij het gegeven type.
-    #--------------------------------------------------------------------------------------------------------
+    # --------------------------------------------------------------------------------------------------------
     def getBAGObjectBijType(self, objectType):
         if objectType.upper() == "WPL":
             return Woonplaats()
@@ -516,10 +536,10 @@ class BAGObjectFabriek:
             return GemeenteWoonplaatsRelatie()
         return None
 
-    #--------------------------------------------------------------------------------------------------------
+    # --------------------------------------------------------------------------------------------------------
     # Geef een BAGObject van het juiste type bij de gegeven identificatie.
     # Het type wordt afgeleid uit de identificatie.
-    #--------------------------------------------------------------------------------------------------------
+    # --------------------------------------------------------------------------------------------------------
     def getBAGObjectBijIdentificatie(self, identificatie):
         obj = None
         id_int = int(identificatie)
@@ -542,11 +562,10 @@ class BAGObjectFabriek:
             obj.attributen['identificatie'].setWaarde(identificatie)
         return obj
 
-
     # Creeer een BAGObject uit een DOM node
     def BAGObjectBijXML(self, node):
         tag = stripschema(node.tag)
-        
+
         if tag == 'Ligplaats':
             bagObject = Ligplaats()
         elif tag == 'Woonplaats':
@@ -579,10 +598,11 @@ class BAGObjectFabriek:
 
         return bagObjecten
 
-#--------------------------------------------------------------------------------------------------------
+
+# --------------------------------------------------------------------------------------------------------
 # Class         BAGRelatie
 # Omschrijving  Relatie van BAG naar BAG object
-#--------------------------------------------------------------------------------------------------------
+# --------------------------------------------------------------------------------------------------------
 class BAGRelatie(BAGObject):
     # Constructor
     def __init__(self, tag="", naam="", objectType=""):
@@ -590,39 +610,42 @@ class BAGRelatie(BAGObject):
         self.attributen_volgorde = []
         self.voegToe(BAGstringAttribuut(16, "identificatie", "bag_LVC:identificatie"))
         self.voegToe(BAGbooleanAttribuut("aanduidingRecordInactief", "bag_LVC:aanduidingRecordInactief"))
-        self.voegToe(BAGintegerAttribuut("aanduidingRecordCorrectie","bag_LVC:aanduidingRecordCorrectie"))
-        self.voegToe(BAGdatetimeAttribuut("begindatumTijdvakGeldigheid","bag_LVC:tijdvakgeldigheid/bagtype:begindatumTijdvakGeldigheid"))
-        self.voegToe(BAGdatetimeAttribuut("einddatumTijdvakGeldigheid","bag_LVC:tijdvakgeldigheid/bagtype:einddatumTijdvakGeldigheid"))
+        self.voegToe(BAGintegerAttribuut("aanduidingRecordCorrectie", "bag_LVC:aanduidingRecordCorrectie"))
+        self.voegToe(BAGdatetimeAttribuut("begindatumTijdvakGeldigheid", "bag_LVC:tijdvakgeldigheid/bagtype:begindatumTijdvakGeldigheid"))
+        self.voegToe(BAGdatetimeAttribuut("einddatumTijdvakGeldigheid", "bag_LVC:tijdvakgeldigheid/bagtype:einddatumTijdvakGeldigheid"))
 
-        self.relaties = [] 
+        self.relaties = []
 
         self.origineelObj = None
         self._tag = tag
         self._naam = naam
         self._objectType = objectType
 
-#--------------------------------------------------------------------------------------------------------
+
+# --------------------------------------------------------------------------------------------------------
 # Class         VerblijfsObjectPand
 # Omschrijving  Relatie van Verblijfsobject naar Pand
-#--------------------------------------------------------------------------------------------------------
+# --------------------------------------------------------------------------------------------------------
 class VerblijfsObjectPand(BAGRelatie):
     def __init__(self):
         BAGRelatie.__init__(self, "", "verblijfsobjectpand", "")
         self.voegToe(BAGstringAttribuut(16, "gerelateerdpand", "bag_LVC:gerelateerdPand"))
 
-#--------------------------------------------------------------------------------------------------------
+
+# --------------------------------------------------------------------------------------------------------
 # Class         AdresseerbaarObjectNevenAdres
 # Omschrijving  Relatie van Ligplaats, Standplaats of Verblijfsobject naar Nevenadres
-#--------------------------------------------------------------------------------------------------------
+# --------------------------------------------------------------------------------------------------------
 class AdresseerbaarObjectNevenAdres(BAGRelatie):
     def __init__(self):
         BAGRelatie.__init__(self, "", "adresseerbaarobjectnevenadres", "")
         self.voegToe(BAGstringAttribuut(16, "nevenadres", "bag_LVC:nevenadres"))
 
-#--------------------------------------------------------------------------------------------------------
-# Class         VerblijfsObjectGebruiksdoel 
+
+# --------------------------------------------------------------------------------------------------------
+# Class         VerblijfsObjectGebruiksdoel
 # Omschrijving  Relatie van Verblijfsobject naar Gebruiksdoelen
-#--------------------------------------------------------------------------------------------------------
+# --------------------------------------------------------------------------------------------------------
 class VerblijfsObjectGebruiksdoel(BAGRelatie):
     def __init__(self):
         BAGRelatie.__init__(self, "", "verblijfsobjectgebruiksdoel", "")

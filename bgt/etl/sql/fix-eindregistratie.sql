@@ -1,3 +1,13 @@
+-- Ontdubbelen voorkomens panden
+create table pand_dubbelevoorkomens as select max(ogc_fid) max_fid, lokaalid, tijdstipregistratie, lv_publicatiedatum, count(*) aantal from pand group by lokaalid, tijdstipregistratie, lv_publicatiedatum having count(*) > 1 order by lokaalid, tijdstipregistratie, lv_publicatiedatum;
+
+create table pand_todelete as select p.ogc_fid from pand p join pand_dubbelevoorkomens d on p.lokaalid=d.lokaalid and p.tijdstipregistratie=d.tijdstipregistratie and p.lv_publicatiedatum=d.lv_publicatiedatum and p.ogc_fid!=d.max_fid;
+
+delete from pand where ogc_fid in (select ogc_fid from pand_todelete);
+drop table pand_dubbelevoorkomens;
+drop table pand_todelete;
+
+
 -- bak
 create index bak_lokaalid on bak(lokaalid);
 
@@ -11,6 +21,8 @@ drop table bak_tmp;
 create index bak_tijdstipregistratie on bak(tijdstipregistratie);
 create table bak_tmp as select lokaalid, max(objecteindtijd) objecteindtijd, max(eindregistratie) eindregistratie from bak where objecteindtijd is not null and eindregistratie is not null group by lokaalid;
 create index bak_tmp_lokaalid on bak_tmp(lokaalid);
+
+-- create table bak_tofix as select a.lokaalid, a.tijdstipregistratie, a.lv_publicatiedatum, a.objecteindtijd, a.eindregistratie from bak a, bak_tmp b where a.lokaalid=b.lokaalid and a.eindregistratie is null;
 
 update bak a
 set objecteindtijd=b.objecteindtijd, eindregistratie=b.eindregistratie
@@ -35,6 +47,8 @@ create index begroeidterreindeel_tijdstipregistratie on begroeidterreindeel(tijd
 create table begroeidterreindeel_tmp as select lokaalid, max(objecteindtijd) objecteindtijd, max(eindregistratie) eindregistratie from begroeidterreindeel where objecteindtijd is not null and eindregistratie is not null group by lokaalid;
 create index begroeidterreindeel_tmp_lokaalid on begroeidterreindeel_tmp(lokaalid);
 
+-- create table begroeidterreindeel_tofix as select a.lokaalid, a.tijdstipregistratie, a.lv_publicatiedatum, a.objecteindtijd, a.eindregistratie from begroeidterreindeel a, begroeidterreindeel_tmp b where a.lokaalid=b.lokaalid and a.eindregistratie is null;
+
 update begroeidterreindeel a
 set objecteindtijd=b.objecteindtijd, eindregistratie=b.eindregistratie
 from begroeidterreindeel_tmp b
@@ -57,6 +71,8 @@ drop table bord_tmp;
 create index bord_tijdstipregistratie on bord(tijdstipregistratie);
 create table bord_tmp as select lokaalid, max(objecteindtijd) objecteindtijd, max(eindregistratie) eindregistratie from bord where objecteindtijd is not null and eindregistratie is not null group by lokaalid;
 create index bord_tmp_lokaalid on bord_tmp(lokaalid);
+
+-- create table bord_tofix as select a.lokaalid, a.tijdstipregistratie, a.lv_publicatiedatum, a.objecteindtijd, a.eindregistratie from bord a, bord_tmp b where a.lokaalid=b.lokaalid and a.eindregistratie is null;
 
 update bord a
 set objecteindtijd=b.objecteindtijd, eindregistratie=b.eindregistratie
@@ -81,6 +97,8 @@ create index buurt_tijdstipregistratie on buurt(tijdstipregistratie);
 create table buurt_tmp as select lokaalid, max(objecteindtijd) objecteindtijd, max(eindregistratie) eindregistratie from buurt where objecteindtijd is not null and eindregistratie is not null group by lokaalid;
 create index buurt_tmp_lokaalid on buurt_tmp(lokaalid);
 
+-- create table buurt_tofix as select a.lokaalid, a.tijdstipregistratie, a.lv_publicatiedatum, a.objecteindtijd, a.eindregistratie from buurt a, buurt_tmp b where a.lokaalid=b.lokaalid and a.eindregistratie is null;
+
 update buurt a
 set objecteindtijd=b.objecteindtijd, eindregistratie=b.eindregistratie
 from buurt_tmp b
@@ -103,6 +121,8 @@ drop table functioneelgebied_tmp;
 create index functioneelgebied_tijdstipregistratie on functioneelgebied(tijdstipregistratie);
 create table functioneelgebied_tmp as select lokaalid, max(objecteindtijd) objecteindtijd, max(eindregistratie) eindregistratie from functioneelgebied where objecteindtijd is not null and eindregistratie is not null group by lokaalid;
 create index functioneelgebied_tmp_lokaalid on functioneelgebied_tmp(lokaalid);
+
+-- create table functioneelgebied_tofix as select a.lokaalid, a.tijdstipregistratie, a.lv_publicatiedatum, a.objecteindtijd, a.eindregistratie from functioneelgebied a, functioneelgebied_tmp b where a.lokaalid=b.lokaalid and a.eindregistratie is null;
 
 update functioneelgebied a
 set objecteindtijd=b.objecteindtijd, eindregistratie=b.eindregistratie
@@ -127,6 +147,8 @@ create index gebouwinstallatie_tijdstipregistratie on gebouwinstallatie(tijdstip
 create table gebouwinstallatie_tmp as select lokaalid, max(objecteindtijd) objecteindtijd, max(eindregistratie) eindregistratie from gebouwinstallatie where objecteindtijd is not null and eindregistratie is not null group by lokaalid;
 create index gebouwinstallatie_tmp_lokaalid on gebouwinstallatie_tmp(lokaalid);
 
+-- create table gebouwinstallatie_tofix as select a.lokaalid, a.tijdstipregistratie, a.lv_publicatiedatum, a.objecteindtijd, a.eindregistratie from gebouwinstallatie a, gebouwinstallatie_tmp b where a.lokaalid=b.lokaalid and a.eindregistratie is null;
+
 update gebouwinstallatie a
 set objecteindtijd=b.objecteindtijd, eindregistratie=b.eindregistratie
 from gebouwinstallatie_tmp b
@@ -149,6 +171,8 @@ drop table installatie_tmp;
 create index installatie_tijdstipregistratie on installatie(tijdstipregistratie);
 create table installatie_tmp as select lokaalid, max(objecteindtijd) objecteindtijd, max(eindregistratie) eindregistratie from installatie where objecteindtijd is not null and eindregistratie is not null group by lokaalid;
 create index installatie_tmp_lokaalid on installatie_tmp(lokaalid);
+
+-- create table installatie_tofix as select a.lokaalid, a.tijdstipregistratie, a.lv_publicatiedatum, a.objecteindtijd, a.eindregistratie from installatie a, installatie_tmp b where a.lokaalid=b.lokaalid and a.eindregistratie is null;
 
 update installatie a
 set objecteindtijd=b.objecteindtijd, eindregistratie=b.eindregistratie
@@ -173,6 +197,8 @@ create index kast_tijdstipregistratie on kast(tijdstipregistratie);
 create table kast_tmp as select lokaalid, max(objecteindtijd) objecteindtijd, max(eindregistratie) eindregistratie from kast where objecteindtijd is not null and eindregistratie is not null group by lokaalid;
 create index kast_tmp_lokaalid on kast_tmp(lokaalid);
 
+-- create table kast_tofix as select a.lokaalid, a.tijdstipregistratie, a.lv_publicatiedatum, a.objecteindtijd, a.eindregistratie from kast a, kast_tmp b where a.lokaalid=b.lokaalid and a.eindregistratie is null;
+
 update kast a
 set objecteindtijd=b.objecteindtijd, eindregistratie=b.eindregistratie
 from kast_tmp b
@@ -195,6 +221,8 @@ drop table kunstwerkdeel_tmp;
 create index kunstwerkdeel_tijdstipregistratie on kunstwerkdeel(tijdstipregistratie);
 create table kunstwerkdeel_tmp as select lokaalid, max(objecteindtijd) objecteindtijd, max(eindregistratie) eindregistratie from kunstwerkdeel where objecteindtijd is not null and eindregistratie is not null group by lokaalid;
 create index kunstwerkdeel_tmp_lokaalid on kunstwerkdeel_tmp(lokaalid);
+
+-- create table kunstwerkdeel_tofix as select a.lokaalid, a.tijdstipregistratie, a.lv_publicatiedatum, a.objecteindtijd, a.eindregistratie from kunstwerkdeel a, kunstwerkdeel_tmp b where a.lokaalid=b.lokaalid and a.eindregistratie is null;
 
 update kunstwerkdeel a
 set objecteindtijd=b.objecteindtijd, eindregistratie=b.eindregistratie
@@ -219,6 +247,8 @@ create index mast_tijdstipregistratie on mast(tijdstipregistratie);
 create table mast_tmp as select lokaalid, max(objecteindtijd) objecteindtijd, max(eindregistratie) eindregistratie from mast where objecteindtijd is not null and eindregistratie is not null group by lokaalid;
 create index mast_tmp_lokaalid on mast_tmp(lokaalid);
 
+-- create table mast_tofix as select a.lokaalid, a.tijdstipregistratie, a.lv_publicatiedatum, a.objecteindtijd, a.eindregistratie from mast a, mast_tmp b where a.lokaalid=b.lokaalid and a.eindregistratie is null;
+
 update mast a
 set objecteindtijd=b.objecteindtijd, eindregistratie=b.eindregistratie
 from mast_tmp b
@@ -241,6 +271,8 @@ drop table onbegroeidterreindeel_tmp;
 create index onbegroeidterreindeel_tijdstipregistratie on onbegroeidterreindeel(tijdstipregistratie);
 create table onbegroeidterreindeel_tmp as select lokaalid, max(objecteindtijd) objecteindtijd, max(eindregistratie) eindregistratie from onbegroeidterreindeel where objecteindtijd is not null and eindregistratie is not null group by lokaalid;
 create index onbegroeidterreindeel_tmp_lokaalid on onbegroeidterreindeel_tmp(lokaalid);
+
+-- create table onbegroeidterreindeel_tofix as select a.lokaalid, a.tijdstipregistratie, a.lv_publicatiedatum, a.objecteindtijd, a.eindregistratie from onbegroeidterreindeel a, onbegroeidterreindeel_tmp b where a.lokaalid=b.lokaalid and a.eindregistratie is null;
 
 update onbegroeidterreindeel a
 set objecteindtijd=b.objecteindtijd, eindregistratie=b.eindregistratie
@@ -265,6 +297,8 @@ create index ondersteunendwaterdeel_tijdstipregistratie on ondersteunendwaterdee
 create table ondersteunendwaterdeel_tmp as select lokaalid, max(objecteindtijd) objecteindtijd, max(eindregistratie) eindregistratie from ondersteunendwaterdeel where objecteindtijd is not null and eindregistratie is not null group by lokaalid;
 create index ondersteunendwaterdeel_tmp_lokaalid on ondersteunendwaterdeel_tmp(lokaalid);
 
+-- create table ondersteunendwaterdeel_tofix as select a.lokaalid, a.tijdstipregistratie, a.lv_publicatiedatum, a.objecteindtijd, a.eindregistratie from ondersteunendwaterdeel a, ondersteunendwaterdeel_tmp b where a.lokaalid=b.lokaalid and a.eindregistratie is null;
+
 update ondersteunendwaterdeel a
 set objecteindtijd=b.objecteindtijd, eindregistratie=b.eindregistratie
 from ondersteunendwaterdeel_tmp b
@@ -287,6 +321,8 @@ drop table ondersteunendwegdeel_tmp;
 create index ondersteunendwegdeel_tijdstipregistratie on ondersteunendwegdeel(tijdstipregistratie);
 create table ondersteunendwegdeel_tmp as select lokaalid, max(objecteindtijd) objecteindtijd, max(eindregistratie) eindregistratie from ondersteunendwegdeel where objecteindtijd is not null and eindregistratie is not null group by lokaalid;
 create index ondersteunendwegdeel_tmp_lokaalid on ondersteunendwegdeel_tmp(lokaalid);
+
+-- create table ondersteunendwegdeel_tofix as select a.lokaalid, a.tijdstipregistratie, a.lv_publicatiedatum, a.objecteindtijd, a.eindregistratie from ondersteunendwegdeel a, ondersteunendwegdeel_tmp b where a.lokaalid=b.lokaalid and a.eindregistratie is null;
 
 update ondersteunendwegdeel a
 set objecteindtijd=b.objecteindtijd, eindregistratie=b.eindregistratie
@@ -311,6 +347,8 @@ create index ongeclassificeerdobject_tijdstipregistratie on ongeclassificeerdobj
 create table ongeclassificeerdobject_tmp as select lokaalid, max(objecteindtijd) objecteindtijd, max(eindregistratie) eindregistratie from ongeclassificeerdobject where objecteindtijd is not null and eindregistratie is not null group by lokaalid;
 create index ongeclassificeerdobject_tmp_lokaalid on ongeclassificeerdobject_tmp(lokaalid);
 
+-- create table ongeclassificeerdobject_tofix as select a.lokaalid, a.tijdstipregistratie, a.lv_publicatiedatum, a.objecteindtijd, a.eindregistratie from ongeclassificeerdobject a, ongeclassificeerdobject_tmp b where a.lokaalid=b.lokaalid and a.eindregistratie is null;
+
 update ongeclassificeerdobject a
 set objecteindtijd=b.objecteindtijd, eindregistratie=b.eindregistratie
 from ongeclassificeerdobject_tmp b
@@ -334,6 +372,8 @@ create index openbareruimte_tijdstipregistratie on openbareruimte(tijdstipregist
 create table openbareruimte_tmp as select lokaalid, max(objecteindtijd) objecteindtijd, max(eindregistratie) eindregistratie from openbareruimte where objecteindtijd is not null and eindregistratie is not null group by lokaalid;
 create index openbareruimte_tmp_lokaalid on openbareruimte_tmp(lokaalid);
 
+-- create table openbareruimte_tofix as select a.lokaalid, a.tijdstipregistratie, a.lv_publicatiedatum, a.objecteindtijd, a.eindregistratie from openbareruimte a, openbareruimte_tmp b where a.lokaalid=b.lokaalid and a.eindregistratie is null;
+
 update openbareruimte a
 set objecteindtijd=b.objecteindtijd, eindregistratie=b.eindregistratie
 from openbareruimte_tmp b
@@ -345,17 +385,22 @@ drop index openbareruimte_tijdstipregistratie;
 
 -- openbareruimtelabel
 create index openbareruimtelabel_lokaalid on openbareruimtelabel(lokaalid);
+create index openbareruimtelabel_tijdstipregistratie on openbareruimtelabel(tijdstipregistratie);
 
-create table openbareruimtelabel_tmp as select row_number() over (order by lokaalid, tijdstipregistratie) id, lokaalid, tijdstipregistratie, eindregistratie from openbareruimtelabel where lokaalid in (select lokaalid from openbareruimtelabel where eindregistratie is null group by lokaalid having count(*) > 1) order by lokaalid, tijdstipregistratie;
+create table openbareruimtelabel_unique as
+select distinct namespace, lokaalid, objectbegintijd, objecteindtijd, tijdstipregistratie, eindregistratie, lv_publicatiedatum from openbareruimtelabel;
+
+create table openbareruimtelabel_tmp as select row_number() over (order by lokaalid, tijdstipregistratie) id, lokaalid, tijdstipregistratie, eindregistratie from openbareruimtelabel_unique where lokaalid in (select lokaalid from openbareruimtelabel_unique where eindregistratie is null group by lokaalid having count(*) > 1) order by lokaalid, tijdstipregistratie;
 
 update openbareruimtelabel_tmp a set eindregistratie=b.tijdstipregistratie from openbareruimtelabel_tmp b where a.lokaalid=b.lokaalid and b.id=a.id+1 and a.eindregistratie is null;
 
 update openbareruimtelabel a set eindregistratie=b.eindregistratie from openbareruimtelabel_tmp b where a.lokaalid=b.lokaalid and a.tijdstipregistratie=b.tijdstipregistratie and a.eindregistratie is null and b.eindregistratie is not null;
 drop table openbareruimtelabel_tmp;
 
-create index openbareruimtelabel_tijdstipregistratie on openbareruimtelabel(tijdstipregistratie);
 create table openbareruimtelabel_tmp as select lokaalid, max(objecteindtijd) objecteindtijd, max(eindregistratie) eindregistratie from openbareruimtelabel where objecteindtijd is not null and eindregistratie is not null group by lokaalid;
 create index openbareruimtelabel_tmp_lokaalid on openbareruimtelabel_tmp(lokaalid);
+
+-- create table openbareruimtelabel_tofix as select distinct a.lokaalid, a.tijdstipregistratie, a.lv_publicatiedatum, a.objecteindtijd, a.eindregistratie from openbareruimtelabel a, openbareruimtelabel_tmp b where a.lokaalid=b.lokaalid and a.eindregistratie is null;
 
 update openbareruimtelabel a
 set objecteindtijd=b.objecteindtijd, eindregistratie=b.eindregistratie
@@ -363,6 +408,7 @@ from openbareruimtelabel_tmp b
 where a.lokaalid=b.lokaalid and a.eindregistratie is null;
 
 drop table openbareruimtelabel_tmp;
+drop table openbareruimtelabel_unique;
 drop index openbareruimtelabel_lokaalid;
 drop index openbareruimtelabel_tijdstipregistratie;
 
@@ -379,6 +425,8 @@ drop table overbruggingsdeel_tmp;
 create index overbruggingsdeel_tijdstipregistratie on overbruggingsdeel(tijdstipregistratie);
 create table overbruggingsdeel_tmp as select lokaalid, max(objecteindtijd) objecteindtijd, max(eindregistratie) eindregistratie from overbruggingsdeel where objecteindtijd is not null and eindregistratie is not null group by lokaalid;
 create index overbruggingsdeel_tmp_lokaalid on overbruggingsdeel_tmp(lokaalid);
+
+-- create table overbruggingsdeel_tofix as select a.lokaalid, a.tijdstipregistratie, a.lv_publicatiedatum, a.objecteindtijd, a.eindregistratie from overbruggingsdeel a, overbruggingsdeel_tmp b where a.lokaalid=b.lokaalid and a.eindregistratie is null;
 
 update overbruggingsdeel a
 set objecteindtijd=b.objecteindtijd, eindregistratie=b.eindregistratie
@@ -403,6 +451,8 @@ create index overigbouwwerk_tijdstipregistratie on overigbouwwerk(tijdstipregist
 create table overigbouwwerk_tmp as select lokaalid, max(objecteindtijd) objecteindtijd, max(eindregistratie) eindregistratie from overigbouwwerk where objecteindtijd is not null and eindregistratie is not null group by lokaalid;
 create index overigbouwwerk_tmp_lokaalid on overigbouwwerk_tmp(lokaalid);
 
+-- create table overigbouwwerk_tofix as select a.lokaalid, a.tijdstipregistratie, a.lv_publicatiedatum, a.objecteindtijd, a.eindregistratie from overigbouwwerk a, overigbouwwerk_tmp b where a.lokaalid=b.lokaalid and a.eindregistratie is null;
+
 update overigbouwwerk a
 set objecteindtijd=b.objecteindtijd, eindregistratie=b.eindregistratie
 from overigbouwwerk_tmp b
@@ -425,6 +475,8 @@ drop table overigescheiding_tmp;
 create index overigescheiding_tijdstipregistratie on overigescheiding(tijdstipregistratie);
 create table overigescheiding_tmp as select lokaalid, max(objecteindtijd) objecteindtijd, max(eindregistratie) eindregistratie from overigescheiding where objecteindtijd is not null and eindregistratie is not null group by lokaalid;
 create index overigescheiding_tmp_lokaalid on overigescheiding_tmp(lokaalid);
+
+-- create table overigescheiding_tofix as select a.lokaalid, a.tijdstipregistratie, a.lv_publicatiedatum, a.objecteindtijd, a.eindregistratie from overigescheiding a, overigescheiding_tmp b where a.lokaalid=b.lokaalid and a.eindregistratie is null;
 
 update overigescheiding a
 set objecteindtijd=b.objecteindtijd, eindregistratie=b.eindregistratie
@@ -449,6 +501,8 @@ create index paal_tijdstipregistratie on paal(tijdstipregistratie);
 create table paal_tmp as select lokaalid, max(objecteindtijd) objecteindtijd, max(eindregistratie) eindregistratie from paal where objecteindtijd is not null and eindregistratie is not null group by lokaalid;
 create index paal_tmp_lokaalid on paal_tmp(lokaalid);
 
+-- create table paal_tofix as select a.lokaalid, a.tijdstipregistratie, a.lv_publicatiedatum, a.objecteindtijd, a.eindregistratie from paal a, paal_tmp b where a.lokaalid=b.lokaalid and a.eindregistratie is null;
+
 update paal a
 set objecteindtijd=b.objecteindtijd, eindregistratie=b.eindregistratie
 from paal_tmp b
@@ -471,6 +525,8 @@ drop table pand_tmp;
 create index pand_tijdstipregistratie on pand(tijdstipregistratie);
 create table pand_tmp as select lokaalid, max(objecteindtijd) objecteindtijd, max(eindregistratie) eindregistratie from pand where objecteindtijd is not null and eindregistratie is not null group by lokaalid;
 create index pand_tmp_lokaalid on pand_tmp(lokaalid);
+
+-- create table pand_tofix as select a.lokaalid, a.tijdstipregistratie, a.lv_publicatiedatum, a.objecteindtijd, a.eindregistratie from pand a, pand_tmp b where a.lokaalid=b.lokaalid and a.eindregistratie is null;
 
 update pand a
 set objecteindtijd=b.objecteindtijd, eindregistratie=b.eindregistratie
@@ -495,6 +551,8 @@ create index put_tijdstipregistratie on put(tijdstipregistratie);
 create table put_tmp as select lokaalid, max(objecteindtijd) objecteindtijd, max(eindregistratie) eindregistratie from put where objecteindtijd is not null and eindregistratie is not null group by lokaalid;
 create index put_tmp_lokaalid on put_tmp(lokaalid);
 
+-- create table put_tofix as select a.lokaalid, a.tijdstipregistratie, a.lv_publicatiedatum, a.objecteindtijd, a.eindregistratie from put a, put_tmp b where a.lokaalid=b.lokaalid and a.eindregistratie is null;
+
 update put a
 set objecteindtijd=b.objecteindtijd, eindregistratie=b.eindregistratie
 from put_tmp b
@@ -517,6 +575,8 @@ drop table scheiding_tmp;
 create index scheiding_tijdstipregistratie on scheiding(tijdstipregistratie);
 create table scheiding_tmp as select lokaalid, max(objecteindtijd) objecteindtijd, max(eindregistratie) eindregistratie from scheiding where objecteindtijd is not null and eindregistratie is not null group by lokaalid;
 create index scheiding_tmp_lokaalid on scheiding_tmp(lokaalid);
+
+-- create table scheiding_tofix as select a.lokaalid, a.tijdstipregistratie, a.lv_publicatiedatum, a.objecteindtijd, a.eindregistratie from scheiding a, scheiding_tmp b where a.lokaalid=b.lokaalid and a.eindregistratie is null;
 
 update scheiding a
 set objecteindtijd=b.objecteindtijd, eindregistratie=b.eindregistratie
@@ -541,6 +601,8 @@ create index sensor_tijdstipregistratie on sensor(tijdstipregistratie);
 create table sensor_tmp as select lokaalid, max(objecteindtijd) objecteindtijd, max(eindregistratie) eindregistratie from sensor where objecteindtijd is not null and eindregistratie is not null group by lokaalid;
 create index sensor_tmp_lokaalid on sensor_tmp(lokaalid);
 
+-- create table sensor_tofix as select a.lokaalid, a.tijdstipregistratie, a.lv_publicatiedatum, a.objecteindtijd, a.eindregistratie from sensor a, sensor_tmp b where a.lokaalid=b.lokaalid and a.eindregistratie is null;
+
 update sensor a
 set objecteindtijd=b.objecteindtijd, eindregistratie=b.eindregistratie
 from sensor_tmp b
@@ -563,6 +625,8 @@ drop table spoor_tmp;
 create index spoor_tijdstipregistratie on spoor(tijdstipregistratie);
 create table spoor_tmp as select lokaalid, max(objecteindtijd) objecteindtijd, max(eindregistratie) eindregistratie from spoor where objecteindtijd is not null and eindregistratie is not null group by lokaalid;
 create index spoor_tmp_lokaalid on spoor_tmp(lokaalid);
+
+-- create table spoor_tofix as select a.lokaalid, a.tijdstipregistratie, a.lv_publicatiedatum, a.objecteindtijd, a.eindregistratie from spoor a, spoor_tmp b where a.lokaalid=b.lokaalid and a.eindregistratie is null;
 
 update spoor a
 set objecteindtijd=b.objecteindtijd, eindregistratie=b.eindregistratie
@@ -587,6 +651,8 @@ create index stadsdeel_tijdstipregistratie on stadsdeel(tijdstipregistratie);
 create table stadsdeel_tmp as select lokaalid, max(objecteindtijd) objecteindtijd, max(eindregistratie) eindregistratie from stadsdeel where objecteindtijd is not null and eindregistratie is not null group by lokaalid;
 create index stadsdeel_tmp_lokaalid on stadsdeel_tmp(lokaalid);
 
+-- create table stadsdeel_tofix as select a.lokaalid, a.tijdstipregistratie, a.lv_publicatiedatum, a.objecteindtijd, a.eindregistratie from stadsdeel a, stadsdeel_tmp b where a.lokaalid=b.lokaalid and a.eindregistratie is null;
+
 update stadsdeel a
 set objecteindtijd=b.objecteindtijd, eindregistratie=b.eindregistratie
 from stadsdeel_tmp b
@@ -609,6 +675,8 @@ drop table straatmeubilair_tmp;
 create index straatmeubilair_tijdstipregistratie on straatmeubilair(tijdstipregistratie);
 create table straatmeubilair_tmp as select lokaalid, max(objecteindtijd) objecteindtijd, max(eindregistratie) eindregistratie from straatmeubilair where objecteindtijd is not null and eindregistratie is not null group by lokaalid;
 create index straatmeubilair_tmp_lokaalid on straatmeubilair_tmp(lokaalid);
+
+-- create table straatmeubilair_tofix as select a.lokaalid, a.tijdstipregistratie, a.lv_publicatiedatum, a.objecteindtijd, a.eindregistratie from straatmeubilair a, straatmeubilair_tmp b where a.lokaalid=b.lokaalid and a.eindregistratie is null;
 
 update straatmeubilair a
 set objecteindtijd=b.objecteindtijd, eindregistratie=b.eindregistratie
@@ -633,6 +701,8 @@ create index tunneldeel_tijdstipregistratie on tunneldeel(tijdstipregistratie);
 create table tunneldeel_tmp as select lokaalid, max(objecteindtijd) objecteindtijd, max(eindregistratie) eindregistratie from tunneldeel where objecteindtijd is not null and eindregistratie is not null group by lokaalid;
 create index tunneldeel_tmp_lokaalid on tunneldeel_tmp(lokaalid);
 
+-- create table tunneldeel_tofix as select a.lokaalid, a.tijdstipregistratie, a.lv_publicatiedatum, a.objecteindtijd, a.eindregistratie from tunneldeel a, tunneldeel_tmp b where a.lokaalid=b.lokaalid and a.eindregistratie is null;
+
 update tunneldeel a
 set objecteindtijd=b.objecteindtijd, eindregistratie=b.eindregistratie
 from tunneldeel_tmp b
@@ -655,6 +725,8 @@ drop table vegetatieobject_tmp;
 create index vegetatieobject_tijdstipregistratie on vegetatieobject(tijdstipregistratie);
 create table vegetatieobject_tmp as select lokaalid, max(objecteindtijd) objecteindtijd, max(eindregistratie) eindregistratie from vegetatieobject where objecteindtijd is not null and eindregistratie is not null group by lokaalid;
 create index vegetatieobject_tmp_lokaalid on vegetatieobject_tmp(lokaalid);
+
+-- create table vegetatieobject_tofix as select a.lokaalid, a.tijdstipregistratie, a.lv_publicatiedatum, a.objecteindtijd, a.eindregistratie from vegetatieobject a, vegetatieobject_tmp b where a.lokaalid=b.lokaalid and a.eindregistratie is null;
 
 update vegetatieobject a
 set objecteindtijd=b.objecteindtijd, eindregistratie=b.eindregistratie
@@ -679,6 +751,8 @@ create index waterdeel_tijdstipregistratie on waterdeel(tijdstipregistratie);
 create table waterdeel_tmp as select lokaalid, max(objecteindtijd) objecteindtijd, max(eindregistratie) eindregistratie from waterdeel where objecteindtijd is not null and eindregistratie is not null group by lokaalid;
 create index waterdeel_tmp_lokaalid on waterdeel_tmp(lokaalid);
 
+-- create table waterdeel_tofix as select a.lokaalid, a.tijdstipregistratie, a.lv_publicatiedatum, a.objecteindtijd, a.eindregistratie from waterdeel a, waterdeel_tmp b where a.lokaalid=b.lokaalid and a.eindregistratie is null;
+
 update waterdeel a
 set objecteindtijd=b.objecteindtijd, eindregistratie=b.eindregistratie
 from waterdeel_tmp b
@@ -701,6 +775,8 @@ drop table waterinrichtingselement_tmp;
 create index waterinrichtingselement_tijdstipregistratie on waterinrichtingselement(tijdstipregistratie);
 create table waterinrichtingselement_tmp as select lokaalid, max(objecteindtijd) objecteindtijd, max(eindregistratie) eindregistratie from waterinrichtingselement where objecteindtijd is not null and eindregistratie is not null group by lokaalid;
 create index waterinrichtingselement_tmp_lokaalid on waterinrichtingselement_tmp(lokaalid);
+
+-- create table waterinrichtingselement_tofix as select a.lokaalid, a.tijdstipregistratie, a.lv_publicatiedatum, a.objecteindtijd, a.eindregistratie from waterinrichtingselement a, waterinrichtingselement_tmp b where a.lokaalid=b.lokaalid and a.eindregistratie is null;
 
 update waterinrichtingselement a
 set objecteindtijd=b.objecteindtijd, eindregistratie=b.eindregistratie
@@ -725,6 +801,8 @@ create index waterschap_tijdstipregistratie on waterschap(tijdstipregistratie);
 create table waterschap_tmp as select lokaalid, max(objecteindtijd) objecteindtijd, max(eindregistratie) eindregistratie from waterschap where objecteindtijd is not null and eindregistratie is not null group by lokaalid;
 create index waterschap_tmp_lokaalid on waterschap_tmp(lokaalid);
 
+-- create table waterschap_tofix as select a.lokaalid, a.tijdstipregistratie, a.lv_publicatiedatum, a.objecteindtijd, a.eindregistratie from waterschap a, waterschap_tmp b where a.lokaalid=b.lokaalid and a.eindregistratie is null;
+
 update waterschap a
 set objecteindtijd=b.objecteindtijd, eindregistratie=b.eindregistratie
 from waterschap_tmp b
@@ -747,6 +825,8 @@ drop table wegdeel_tmp;
 create index wegdeel_tijdstipregistratie on wegdeel(tijdstipregistratie);
 create table wegdeel_tmp as select lokaalid, max(objecteindtijd) objecteindtijd, max(eindregistratie) eindregistratie from wegdeel where objecteindtijd is not null and eindregistratie is not null group by lokaalid;
 create index wegdeel_tmp_lokaalid on wegdeel_tmp(lokaalid);
+
+-- create table wegdeel_tofix as select a.lokaalid, a.tijdstipregistratie, a.lv_publicatiedatum, a.objecteindtijd, a.eindregistratie from wegdeel a, wegdeel_tmp b where a.lokaalid=b.lokaalid and a.eindregistratie is null;
 
 update wegdeel a
 set objecteindtijd=b.objecteindtijd, eindregistratie=b.eindregistratie
@@ -771,6 +851,8 @@ create index weginrichtingselement_tijdstipregistratie on weginrichtingselement(
 create table weginrichtingselement_tmp as select lokaalid, max(objecteindtijd) objecteindtijd, max(eindregistratie) eindregistratie from weginrichtingselement where objecteindtijd is not null and eindregistratie is not null group by lokaalid;
 create index weginrichtingselement_tmp_lokaalid on weginrichtingselement_tmp(lokaalid);
 
+-- create table weginrichtingselement_tofix as select a.lokaalid, a.tijdstipregistratie, a.lv_publicatiedatum, a.objecteindtijd, a.eindregistratie from weginrichtingselement a, weginrichtingselement_tmp b where a.lokaalid=b.lokaalid and a.eindregistratie is null;
+
 update weginrichtingselement a
 set objecteindtijd=b.objecteindtijd, eindregistratie=b.eindregistratie
 from weginrichtingselement_tmp b
@@ -793,6 +875,8 @@ drop table wijk_tmp;
 create index wijk_tijdstipregistratie on wijk(tijdstipregistratie);
 create table wijk_tmp as select lokaalid, max(objecteindtijd) objecteindtijd, max(eindregistratie) eindregistratie from wijk where objecteindtijd is not null and eindregistratie is not null group by lokaalid;
 create index wijk_tmp_lokaalid on wijk_tmp(lokaalid);
+
+-- create table wijk_tofix as select a.lokaalid, a.tijdstipregistratie, a.lv_publicatiedatum, a.objecteindtijd, a.eindregistratie from wijk a, wijk_tmp b where a.lokaalid=b.lokaalid and a.eindregistratie is null;
 
 update wijk a
 set objecteindtijd=b.objecteindtijd, eindregistratie=b.eindregistratie
