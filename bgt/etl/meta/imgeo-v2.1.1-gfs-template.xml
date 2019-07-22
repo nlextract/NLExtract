@@ -299,6 +299,17 @@
       <ElementPath>geometrie2dGrondvlak</ElementPath>
       <Type>MultiSurface</Type>
     </GeomPropertyDefn>
+    <PropertyDefn>
+      <Name>identificatieBAGPND</Name>
+      <ElementPath>identificatieBAGPND</ElementPath>
+      <Type>String</Type>
+      <Width>16</Width>
+    </PropertyDefn>
+  </GMLFeatureClass>
+  <GMLFeatureClass>
+    <Name>Pand_nummeraanduiding_tmp</Name>
+    <ParentClass>BGTObject</ParentClass>
+    <ElementPath>BuildingPart_nummeraanduiding</ElementPath>
     <GeomPropertyDefn>
       <Name>geometrie_nummeraanduiding</Name>
       <ElementPath>nummeraanduidingreeks|Nummeraanduidingreeks|nummeraanduidingreeks|Label|positie|Labelpositie|plaatsingspunt</ElementPath>

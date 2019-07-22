@@ -443,13 +443,14 @@ create or replace view paalactueelbestaand as select * from paal where eindregis
 drop table paal_tmp;
 
 -- Pand
+select _nlx_renamecolumn('pand_tmp', 'wkb_geometry', 'geometrie_vlak');
+
 drop table if exists pand cascade;
-create table pand as select ogc_fid, geometrie_vlak, geometrie_nummeraanduiding, gml_id, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, identificatiebagpnd, nummeraanduidingtekst, nummeraanduidinghoek, identificatiebagvbolaagstehuisnummer, identificatiebagvbohoogstehuisnummer from pand_tmp;
+create table pand as select ogc_fid, geometrie_vlak, gml_id, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, identificatiebagpnd from pand_tmp;
 
 alter table pand add primary key (ogc_fid);
 alter table pand alter column gml_id set not null;
 create index pand_geometrie_vlak_geom_idx on pand using gist((geometrie_vlak::geometry(MULTISURFACE, 28992)));
-create index pand_geometrie_nummeraanduiding_geom_idx on pand using gist((geometrie_nummeraanduiding::geometry(POINT, 28992)));
 create index pand_eindregistratie_idx on pand (eindregistratie);
 create index pand_bgt_status_idx on pand (bgt_status);
 create index pand_plus_status_idx on pand (plus_status);
@@ -458,6 +459,24 @@ create or replace view pandactueel as select * from pand where eindregistratie i
 create or replace view pandactueelbestaand as select * from pand where eindregistratie is null and bgt_status = 'bestaand' and plus_status <> 'plan' and plus_status <> 'historie';
 
 drop table pand_tmp;
+
+-- Pand_nummeraanduiding
+select _nlx_renamecolumn('pand_nummeraanduiding_tmp', 'wkb_geometry', 'geometrie_nummeraanduiding');
+
+drop table if exists pand_nummeraanduiding cascade;
+create table pand_nummeraanduiding as select ogc_fid, geometrie_nummeraanduiding, gml_id, namespace, lokaalid, cast(objectbegintijd as date), cast(objecteindtijd as date), cast(tijdstipregistratie as timestamptz), cast(eindregistratie as timestamptz), cast(lv_publicatiedatum as timestamptz), bronhouder, cast(inonderzoek as boolean), relatievehoogteligging, bgt_status, plus_status, identificatiebagpnd, nummeraanduidingtekst, nummeraanduidinghoek, identificatiebagvbolaagstehuisnummer, identificatiebagvbohoogstehuisnummer from pand_nummeraanduiding_tmp;
+
+alter table pand_nummeraanduiding add primary key (ogc_fid);
+alter table pand_nummeraanduiding alter column gml_id set not null;
+create index pand_geometrie_nummeraanduiding_geom_idx on pand_nummeraanduiding using gist((geometrie_nummeraanduiding::geometry(POINT, 28992)));
+create index pand_nummeraanduiding_eindregistratie_idx on pand_nummeraanduiding (eindregistratie);
+create index pand_nummeraanduiding_bgt_status_idx on pand_nummeraanduiding (bgt_status);
+create index pand_nummeraanduiding_plus_status_idx on pand_nummeraanduiding (plus_status);
+
+create or replace view pand_nummeraanduidingactueel as select * from pand_nummeraanduiding where eindregistratie is null;
+create or replace view pand_nummeraanduidingactueelbestaand as select * from pand_nummeraanduiding where eindregistratie is null and bgt_status = 'bestaand' and plus_status <> 'plan' and plus_status <> 'historie';
+
+drop table pand_nummeraanduiding_tmp;
 
 -- Plaatsbepalingspunt
 select _nlx_renamecolumn('plaatsbepalingspunt_tmp', 'wkb_geometry', 'geometrie_punt');
