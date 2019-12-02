@@ -34,12 +34,13 @@ CREATE TABLE adres_full (
   nummeraanduiding varchar(16),
   nevenadres BOOLEAN DEFAULT FALSE,
   geopunt geometry(PointZ, 28992),
-  textsearchable_adres tsvector
+  textsearchable_adres tsvector,
+  verkorteopenbareruimtenaam character varying(24) DEFAULT NULL
 );
 
 -- Insert (actuele+bestaande) data uit combinatie van BAG tabellen: Verblijfplaats
 INSERT INTO adres_full (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeging, postcode, woonplaatsnaam, gemeentenaam, provincienaam, verblijfsobjectgebruiksdoel,
-                        oppervlakteverblijfsobject, verblijfsobjectstatus, typeadresseerbaarobject, adresseerbaarobject, pandid, pandstatus, pandbouwjaar, nummeraanduiding, geopunt)
+                        oppervlakteverblijfsobject, verblijfsobjectstatus, typeadresseerbaarobject, adresseerbaarobject, pandid, pandstatus, pandbouwjaar, nummeraanduiding, geopunt, verkorteopenbareruimtenaam)
   SELECT
     o.openbareruimtenaam,
     n.huisnummer,
@@ -60,7 +61,8 @@ INSERT INTO adres_full (openbareruimtenaam, huisnummer, huisletter, huisnummerto
     pv.pandstatus,
     pv.bouwjaar as pandbouwjaar,
     n.identificatie as nummeraanduiding,
-    v.geopunt
+    v.geopunt,
+    o.verkorteopenbareruimtenaam
   FROM verblijfsobjectactueelbestaand v
     JOIN nummeraanduidingactueelbestaand n
     ON (n.identificatie = v.hoofdadres)
@@ -103,11 +105,13 @@ INSERT INTO adres_full (openbareruimtenaam, huisnummer, huisletter, huisnummerto
     pv.pandstatus,
     pandbouwjaar,
     nummeraanduiding,
-    geopunt;
+    geopunt,
+    o.verkorteopenbareruimtenaam
+           ;
 
 -- Insert (actuele+bestaande) data uit combinatie van BAG tabellen : Ligplaats
 INSERT INTO adres_full (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeging, postcode, woonplaatsnaam, gemeentenaam, provincienaam, typeadresseerbaarobject,
-                        adresseerbaarobject, pandid, pandstatus, pandbouwjaar, nummeraanduiding, verblijfsobjectgebruiksdoel, verblijfsobjectstatus, geopunt)
+                        adresseerbaarobject, pandid, pandstatus, pandbouwjaar, nummeraanduiding, verblijfsobjectgebruiksdoel, verblijfsobjectstatus, geopunt, verkorteopenbareruimtenaam)
   SELECT
     o.openbareruimtenaam,
     n.huisnummer,
@@ -128,7 +132,8 @@ INSERT INTO adres_full (openbareruimtenaam, huisnummer, huisletter, huisnummerto
     'Ligplaats',
     l.ligplaatsstatus,
     -- Vlak geometrie wordt punt
-    ST_Force3D(ST_Centroid(l.geovlak))  as geopunt
+    ST_Force3D(ST_Centroid(l.geovlak))  as geopunt,
+    o.verkorteopenbareruimtenaam
   FROM ligplaatsactueelbestaand l
     JOIN nummeraanduidingactueelbestaand n
     ON (n.identificatie = l.hoofdadres)
@@ -151,7 +156,7 @@ INSERT INTO adres_full (openbareruimtenaam, huisnummer, huisletter, huisnummerto
 
 -- Insert data uit combinatie van BAG tabellen : Standplaats
 INSERT INTO adres_full (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeging, postcode, woonplaatsnaam, gemeentenaam, provincienaam, typeadresseerbaarobject,
-                        adresseerbaarobject, pandid, pandstatus, pandbouwjaar, nummeraanduiding, verblijfsobjectgebruiksdoel, verblijfsobjectstatus, geopunt)
+                        adresseerbaarobject, pandid, pandstatus, pandbouwjaar, nummeraanduiding, verblijfsobjectgebruiksdoel, verblijfsobjectstatus, geopunt, verkorteopenbareruimtenaam)
   SELECT
     o.openbareruimtenaam,
     n.huisnummer,
@@ -172,7 +177,8 @@ INSERT INTO adres_full (openbareruimtenaam, huisnummer, huisletter, huisnummerto
     'Standplaats',
     s.standplaatsstatus,
       -- Vlak geometrie wordt punt
-    ST_Force3D(ST_Centroid(s.geovlak)) as geopunt
+    ST_Force3D(ST_Centroid(s.geovlak)) as geopunt,
+    o.verkorteopenbareruimtenaam
   FROM standplaatsactueelbestaand s
     JOIN nummeraanduidingactueelbestaand n
     ON (n.identificatie = s.hoofdadres)
@@ -195,7 +201,7 @@ INSERT INTO adres_full (openbareruimtenaam, huisnummer, huisletter, huisnummerto
 
 -- Insert (actuele+bestaande) data uit combinatie van BAG tabellen: Nevenadressen voor Verblijfplaats
 INSERT INTO adres_full (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeging, postcode, woonplaatsnaam, gemeentenaam, provincienaam, typeadresseerbaarobject, adresseerbaarobject,
-                        pandid, pandstatus, pandbouwjaar, nummeraanduiding, nevenadres, verblijfsobjectgebruiksdoel, oppervlakteverblijfsobject, verblijfsobjectstatus, geopunt)
+                        pandid, pandstatus, pandbouwjaar, nummeraanduiding, nevenadres, verblijfsobjectgebruiksdoel, oppervlakteverblijfsobject, verblijfsobjectstatus, geopunt, verkorteopenbareruimtenaam)
   SELECT
     o.openbareruimtenaam,
     n.huisnummer,
@@ -215,7 +221,8 @@ INSERT INTO adres_full (openbareruimtenaam, huisnummer, huisletter, huisnummerto
     ARRAY_TO_STRING(ARRAY_AGG(d.gebruiksdoelverblijfsobject ORDER BY gebruiksdoelverblijfsobject), ', ') AS verblijfsobjectgebruiksdoel,
     v.oppervlakteverblijfsobject,
     v.verblijfsobjectstatus,
-    v.geopunt
+    v.geopunt,
+    o.verkorteopenbareruimtenaam
   FROM adresseerbaarobjectnevenadresactueel an
     JOIN nummeraanduidingactueelbestaand n
     ON (an.nevenadres = n.identificatie)
@@ -261,11 +268,13 @@ INSERT INTO adres_full (openbareruimtenaam, huisnummer, huisletter, huisnummerto
     nevenadres,
     v.oppervlakteverblijfsobject,
     v.verblijfsobjectstatus,
-    v.geopunt;
+    v.geopunt,
+    o.verkorteopenbareruimtenaam
+           ;
 
 -- Insert (actuele+bestaande) data uit combinatie van BAG tabellen: Nevenadressen voor Ligplaats
 INSERT INTO adres_full (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeging, postcode, woonplaatsnaam, gemeentenaam, provincienaam, typeadresseerbaarobject,
-                        adresseerbaarobject, pandid, pandstatus, pandbouwjaar, nummeraanduiding, nevenadres, verblijfsobjectgebruiksdoel, verblijfsobjectstatus, geopunt)
+                        adresseerbaarobject, pandid, pandstatus, pandbouwjaar, nummeraanduiding, nevenadres, verblijfsobjectgebruiksdoel, verblijfsobjectstatus, geopunt, verkorteopenbareruimtenaam)
   SELECT
     o.openbareruimtenaam,
     n.huisnummer,
@@ -284,7 +293,8 @@ INSERT INTO adres_full (openbareruimtenaam, huisnummer, huisletter, huisnummerto
     TRUE,
     'Ligplaats',
     l.ligplaatsstatus,
-    ST_Force3D(ST_Centroid(l.geovlak))  as geopunt
+    ST_Force3D(ST_Centroid(l.geovlak))  as geopunt,
+    o.verkorteopenbareruimtenaam
   FROM adresseerbaarobjectnevenadresactueel an
     JOIN nummeraanduidingactueelbestaand n
     ON (an.nevenadres = n.identificatie AND n.typeadresseerbaarobject = 'Ligplaats')
@@ -309,7 +319,7 @@ INSERT INTO adres_full (openbareruimtenaam, huisnummer, huisletter, huisnummerto
 
 -- Insert (actuele+bestaande) data uit combinatie van BAG tabellen: Nevenadressen voor Standplaats
 INSERT INTO adres_full (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeging, postcode, woonplaatsnaam, gemeentenaam, provincienaam, typeadresseerbaarobject,
-                        adresseerbaarobject, pandid, pandstatus, pandbouwjaar, nummeraanduiding, nevenadres, verblijfsobjectgebruiksdoel, verblijfsobjectstatus, geopunt)
+                        adresseerbaarobject, pandid, pandstatus, pandbouwjaar, nummeraanduiding, nevenadres, verblijfsobjectgebruiksdoel, verblijfsobjectstatus, geopunt, verkorteopenbareruimtenaam)
  SELECT
     o.openbareruimtenaam,
     n.huisnummer,
@@ -328,7 +338,8 @@ INSERT INTO adres_full (openbareruimtenaam, huisnummer, huisletter, huisnummerto
     TRUE,
     'Standplaats',
     s.standplaatsstatus,
-    ST_Force3D(ST_Centroid(s.geovlak)) as geopunt
+    ST_Force3D(ST_Centroid(s.geovlak)) as geopunt,
+    o.verkorteopenbareruimtenaam
   FROM adresseerbaarobjectnevenadresactueel an
     JOIN nummeraanduidingactueelbestaand n
     ON (an.nevenadres = n.identificatie AND n.typeadresseerbaarobject = 'Standplaats')

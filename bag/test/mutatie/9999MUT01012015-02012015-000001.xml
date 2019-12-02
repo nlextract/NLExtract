@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Created by GO Publisher Agent 1.4.5-SNAPSHOT Build 25198 from 2011-09-20 12:51--><!--Snowflake Software Ltd. (http://www.snowflakesoftware.co.uk)-->
+<mb:BAG-Mutaties-Deelbestand-LVC xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                 xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                                 xmlns:mb="http://www.kadaster.nl/schemas/bag-verstrekkingen/extract-deelbestand-mutaties-lvc/v20090901"
+                                 xmlns:selecties-extract="http://www.kadaster.nl/schemas/bag-verstrekkingen/extract-selecties/v20090901"
+                                 xmlns:bagtype="http://www.kadaster.nl/schemas/imbag/imbag-types/v20090901"
+                                 xmlns:gml="http://www.opengis.net/gml"
+                                 xmlns:xlink="http://www.w3.org/1999/xlink"
+                                 xmlns:product_LVC="http://www.kadaster.nl/schemas/bag-verstrekkingen/extract-producten-lvc/v20090901"
+                                 xmlns:bag_LVC="http://www.kadaster.nl/schemas/imbag/lvc/v20090901"
+                                 xmlns:nen5825="http://www.kadaster.nl/schemas/imbag/nen5825/v20090901"
+                                 xsi:schemaLocation="http://www.kadaster.nl/schemas/bag-verstrekkingen/extract-deelbestand-mutaties-lvc/v20090901 http://www.kadaster.nl/schemas/bag-verstrekkingen/extract-deelbestand-mutaties-lvc/v20090901/BagvsExtractDeelbestandMutatieLvc-1.4.xsd">
+    <mb:antwoord>
+        <mb:vraag>
+            <selecties-extract:Gebied-Registratief>
+                <selecties-extract:Gebied-NLD>
+                    <selecties-extract:GebiedIdentificatie>999</selecties-extract:GebiedIdentificatie>
+                    <selecties-extract:GebiedNaam>Nederland</selecties-extract:GebiedNaam>
+                    <selecties-extract:gebiedTypeNederland>1</selecties-extract:gebiedTypeNederland>
+                </selecties-extract:Gebied-NLD>
+            </selecties-extract:Gebied-Registratief>
+            <selecties-extract:Mutatieperiode>
+                <selecties-extract:MutatiedatumVanaf>2014-12-24</selecties-extract:MutatiedatumVanaf>
+                <selecties-extract:MutatiedatumTot>2014-12-25</selecties-extract:MutatiedatumTot>
+            </selecties-extract:Mutatieperiode>
+        </mb:vraag>
+        <mb:producten>
+
+            <product_LVC:Mutatie-product>
+                <product_LVC:Verwerking>
+                    <product_LVC:TijdstipVerwerking>2014-12-24T12:30:56.929349</product_LVC:TijdstipVerwerking>
+                    <product_LVC:ObjectType>PND</product_LVC:ObjectType>
+                    <product_LVC:VolgnrVerwerking>0</product_LVC:VolgnrVerwerking>
+                </product_LVC:Verwerking>
+                <product_LVC:Nieuw>
+                    <bag_LVC:Pand>
+                        <bag_LVC:identificatie>0022100000005009</bag_LVC:identificatie>
+                        <bag_LVC:aanduidingRecordInactief>N</bag_LVC:aanduidingRecordInactief>
+                        <bag_LVC:aanduidingRecordCorrectie>0</bag_LVC:aanduidingRecordCorrectie>
+                        <bag_LVC:officieel>N</bag_LVC:officieel>
+                        <bag_LVC:pandGeometrie>
+                            <gml:Polygon srsName="urn:ogc:def:crs:EPSG::28992">
+                                <gml:exterior>
+                                    <gml:LinearRing>
+                                        <gml:posList srsDimension="3" count="9">220293.685 571527.548 0.0 220291.395
+                                            571531.917 0.0 220287.09 571529.661 0.0 220286.493 571530.8 0.0 220280.724
+                                            571527.777 0.0 220284.279 571520.993 0.0 220290.797 571524.409 0.0
+                                            220290.129 571525.684 0.0 220293.685 571527.548 0.0
+                                        </gml:posList>
+                                    </gml:LinearRing>
+                                </gml:exterior>
+                            </gml:Polygon>
+                        </bag_LVC:pandGeometrie>
+                        <bag_LVC:bouwjaar>1911</bag_LVC:bouwjaar>
+                        <bag_LVC:pandstatus>Pand gesloopt</bag_LVC:pandstatus>
+                        <bag_LVC:tijdvakgeldigheid>
+                            <bagtype:begindatumTijdvakGeldigheid>2014122300000000</bagtype:begindatumTijdvakGeldigheid>
+                        </bag_LVC:tijdvakgeldigheid>
+                        <bag_LVC:inOnderzoek>N</bag_LVC:inOnderzoek>
+                        <bag_LVC:bron>
+                            <bagtype:documentdatum>20141223</bagtype:documentdatum>
+                            <bagtype:documentnummer>BRG14/163</bagtype:documentnummer>
+                        </bag_LVC:bron>
+                    </bag_LVC:Pand>
+                </product_LVC:Nieuw>
+            </product_LVC:Mutatie-product>
+
+            <product_LVC:Mutatie-product>
+                <product_LVC:Verwerking>
+                    <product_LVC:TijdstipVerwerking>2014-12-24T12:30:56.929349</product_LVC:TijdstipVerwerking>
+                    <product_LVC:ObjectType>PND</product_LVC:ObjectType>
+                    <product_LVC:VolgnrVerwerking>1</product_LVC:VolgnrVerwerking>
+                </product_LVC:Verwerking>
+                <product_LVC:Origineel>
+                    <bag_LVC:Pand>
+                        <bag_LVC:identificatie>0022100000005009</bag_LVC:identificatie>
+                        <bag_LVC:aanduidingRecordInactief>N</bag_LVC:aanduidingRecordInactief>
+                        <bag_LVC:aanduidingRecordCorrectie>0</bag_LVC:aanduidingRecordCorrectie>
+                        <bag_LVC:officieel>N</bag_LVC:officieel>
+                        <bag_LVC:pandGeometrie>
+                            <gml:Polygon srsName="urn:ogc:def:crs:EPSG::28992">
+                                <gml:exterior>
+                                    <gml:LinearRing>
+                                        <gml:posList srsDimension="3" count="9">220293.685 571527.548 0.0 220291.395
+                                            571531.917 0.0 220287.09 571529.661 0.0 220286.493 571530.8 0.0 220280.724
+                                            571527.777 0.0 220284.279 571520.993 0.0 220290.797 571524.409 0.0
+                                            220290.129 571525.684 0.0 220293.685 571527.548 0.0
+                                        </gml:posList>
+                                    </gml:LinearRing>
+                                </gml:exterior>
+                            </gml:Polygon>
+                        </bag_LVC:pandGeometrie>
+                        <bag_LVC:bouwjaar>1911</bag_LVC:bouwjaar>
+                        <bag_LVC:pandstatus>Sloopvergunning verleend</bag_LVC:pandstatus>
+                        <bag_LVC:tijdvakgeldigheid>
+                            <bagtype:begindatumTijdvakGeldigheid>2014120800000000</bagtype:begindatumTijdvakGeldigheid>
+                        </bag_LVC:tijdvakgeldigheid>
+                        <bag_LVC:inOnderzoek>N</bag_LVC:inOnderzoek>
+                        <bag_LVC:bron>
+                            <bagtype:documentdatum>20141208</bagtype:documentdatum>
+                            <bagtype:documentnummer>BRG14/157</bagtype:documentnummer>
+                        </bag_LVC:bron>
+                    </bag_LVC:Pand>
+                </product_LVC:Origineel>
+
+                <product_LVC:Wijziging>
+                    <bag_LVC:Pand>
+                        <bag_LVC:identificatie>0022100000005009</bag_LVC:identificatie>
+                        <bag_LVC:aanduidingRecordInactief>N</bag_LVC:aanduidingRecordInactief>
+                        <bag_LVC:aanduidingRecordCorrectie>0</bag_LVC:aanduidingRecordCorrectie>
+                        <bag_LVC:officieel>N</bag_LVC:officieel>
+                        <bag_LVC:pandGeometrie>
+                            <gml:Polygon srsName="urn:ogc:def:crs:EPSG::28992">
+                                <gml:exterior>
+                                    <gml:LinearRing>
+                                        <gml:posList srsDimension="3" count="9">
+                                            220293.685 571527.548 0.0 220291.395 571531.917 0.0 220287.09 571529.661 0.0
+                                            220286.493 571530.8 0.0 220280.724 571527.777 0.0 220284.279 571520.993 0.0
+                                            220290.797 571524.409 0.0 220290.129 571525.684 0.0 220293.685 571527.548
+                                            0.0
+                                        </gml:posList>
+                                    </gml:LinearRing>
+                                </gml:exterior>
+                            </gml:Polygon>
+                        </bag_LVC:pandGeometrie>
+                        <bag_LVC:bouwjaar>1911</bag_LVC:bouwjaar>
+                        <bag_LVC:pandstatus>Sloopvergunning verleend</bag_LVC:pandstatus>
+                        <bag_LVC:tijdvakgeldigheid>
+                            <bagtype:begindatumTijdvakGeldigheid>2014120800000000</bagtype:begindatumTijdvakGeldigheid>
+                            <bagtype:einddatumTijdvakGeldigheid>2014122300000000</bagtype:einddatumTijdvakGeldigheid>
+                        </bag_LVC:tijdvakgeldigheid>
+                        <bag_LVC:inOnderzoek>N</bag_LVC:inOnderzoek>
+                        <bag_LVC:bron>
+                            <bagtype:documentdatum>20141208</bagtype:documentdatum>
+                            <bagtype:documentnummer>BRG14/157</bagtype:documentnummer>
+                        </bag_LVC:bron>
+                    </bag_LVC:Pand>
+                </product_LVC:Wijziging>
+            </product_LVC:Mutatie-product>
+
+
+        </mb:producten>
+    </mb:antwoord>
+</mb:BAG-Mutaties-Deelbestand-LVC>
+
