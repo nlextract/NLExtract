@@ -126,24 +126,41 @@ class SubFeatureHandler(Filter):
 
         nsmap = {None: "http://www.opengis.net/citygml/2.0"}
 
-        with etree.xmlfile(self.temp_file) as xf:
-            with xf.element('{http://www.opengis.net/citygml/2.0}CityModel', nsmap=nsmap):
-                with open(input_gml) as f:
-                    context = etree.iterparse(f)
-                    for action, elem in context:
-                        if action == 'end' and elem.tag == '{http://www.opengis.net/citygml/2.0}cityObjectMember':
-                            # Duplicate feature and subfeatures
-                            self.duplicateFeature(xf, elem)
+        try:
+            with etree.xmlfile(self.temp_file) as xf:
+                with xf.element('{http://www.opengis.net/citygml/2.0}CityModel', nsmap=nsmap):
+                    with open(input_gml) as f:
+                        context = etree.iterparse(f)
+                        for action, elem in context:
+                            if action == 'end' and elem.tag == '{http://www.opengis.net/citygml/2.0}cityObjectMember':
+                                # Duplicate feature and subfeatures
+                                self.duplicateFeature(xf, elem)
 
-                            # Clean up the original element and the node of its previous sibling
-                            # (https://www.ibm.com/developerworks/xml/library/x-hiperfparse/)
-                            elem.clear()
-                            while elem.getprevious() is not None:
-                                del elem.getparent()[0]
+                                # Clean up the original element and the node of its previous sibling
+                                # (https://www.ibm.com/developerworks/xml/library/x-hiperfparse/)
+                                elem.clear()
+                                while elem.getprevious() is not None:
+                                    del elem.getparent()[0]
 
-                    del context
+                        del context
 
-            xf.flush()
+                xf.flush()
+
+        except etree.SerialisationError:
+            # When writing large (> 2.1 GB) XML files, the return code, which is the number of bytes written,
+            # is being cast to a signed 32 bit integer. Libxml, the underlying library used by lxml, interprets
+            # this as an error. However, the XML file is written correctly.
+            # This error occurs not only in xmlfile.flush(), but also in xmlfile.__exit__
+            pass
+
+        # Check if the resulting file can be opened successfully
+        with open(self.temp_file) as f:
+            context = etree.iterparse(f, tag='{http://www.opengis.net/citygml/2.0}cityObjectMember')
+            for _, elem in context:
+                elem.clear(keep_tail=True)
+            del context
+
+        log.info('Temporary XML file was written successfully')
 
         # Delete the old file and rename the new file
         os.remove(packet.data)

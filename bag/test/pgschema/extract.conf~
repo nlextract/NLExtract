@@ -1,0 +1,17 @@
+
+[DEFAULT]
+
+database = bag
+schema = bagadres
+host     = localhost
+user     = postgres
+password = postgres
+port = 5432
+
+
+
+
+
+
+
+   
