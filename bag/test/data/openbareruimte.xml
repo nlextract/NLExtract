@@ -57,6 +57,7 @@
                     <bag_LVC:gerelateerdeWoonplaats>
                         <bag_LVC:identificatie>2312</bag_LVC:identificatie>
                     </bag_LVC:gerelateerdeWoonplaats>
+                    <nen5825:VerkorteOpenbareruimteNaam>MBochtstraat</nen5825:VerkorteOpenbareruimteNaam>
                 </bag_LVC:OpenbareRuimte>
                 <bag_LVC:OpenbareRuimte>
                     <bag_LVC:identificatie>0855300000001320</bag_LVC:identificatie>
@@ -443,7 +444,8 @@
                     <bag_LVC:identificatie>0988300000000781</bag_LVC:identificatie>
                     <bag_LVC:aanduidingRecordInactief>N</bag_LVC:aanduidingRecordInactief>
                     <bag_LVC:aanduidingRecordCorrectie>0</bag_LVC:aanduidingRecordCorrectie>
-                    <bag_LVC:openbareRuimteNaam>Tinnegietersweg</bag_LVC:openbareRuimteNaam>
+                    <bag_LVC:openbareRuimteNaam>Mr E.N. van Kleffensstraat</bag_LVC:openbareRuimteNaam>
+<!--                    <bag_LVC:openbareRuimteNaam>Tinnegietersweg</bag_LVC:openbareRuimteNaam>-->
                     <bag_LVC:officieel>N</bag_LVC:officieel>
                     <bag_LVC:tijdvakgeldigheid>
                         <bagtype:begindatumTijdvakGeldigheid>2008111800000001</bagtype:begindatumTijdvakGeldigheid>
@@ -458,6 +460,7 @@
                     <bag_LVC:gerelateerdeWoonplaats>
                         <bag_LVC:identificatie>1974</bag_LVC:identificatie>
                     </bag_LVC:gerelateerdeWoonplaats>
+                    <nen5825:VerkorteOpenbareruimteNaam>Mr E N van Kleffensstr</nen5825:VerkorteOpenbareruimteNaam>
                 </bag_LVC:OpenbareRuimte>
                 <bag_LVC:OpenbareRuimte>
                     <bag_LVC:identificatie>0988300000000782</bag_LVC:identificatie>
