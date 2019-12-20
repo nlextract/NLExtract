@@ -47,7 +47,7 @@ Als je heel Nederland wilt inlezen, kun je het beste het bestand exclusief plaat
 Bgt-extract downloaden
 ----------------------
 
-Vind altijd de laatste versie op: http://www.nlextract.nl/file-cabinet.
+Vind altijd de laatste versie op: https://github.com/nlextract/NLExtract/releases.
 
 Omdat NLExtract voortdurend in ontwikkeling is, kun je ook de actuele broncode, een `snapshot`, downloaden
 en op dezelfde manier gebruiken als een versie:

@@ -60,7 +60,7 @@ gebruik dan een oude release van NLExtract.
 Top10-extract downloaden
 ------------------------
 
-Vind altijd de laatste versie op: http://www.nlextract.nl/file-cabinet.
+Vind altijd de laatste versie op: https://github.com/nlextract/NLExtract/releases.
 
 Omdat NLExtract voortdurend in ontwikkeling is, kun je ook de actuele broncode, een `snapshot`, downloaden
 en op dezelfde manier gebruiken als een versie:

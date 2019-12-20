@@ -18,7 +18,7 @@ BAG downloaden
 
 De BAG Leveringsbestanden (totaal plm 1.5 GB .zip) worden iedere maand ververst en zijn te downloaden via deze
 PDOK link: http://geodata.nationaalgeoregister.nl/inspireadressen/atom/inspireadressen.xml (Atom feed).
-Als je wilt testen met een kleiner bestand kun je via http://www.nlextract.nl/file-cabinet
+Als je wilt testen met een kleiner bestand kun je via https://data.nlextract.nl/bag/bron/BAG_Amstelveen_2011feb01.zip
 ook de "BAG Amstelveen" (5.6 MB) downloaden. Let wel dat de bestandsstructuur van de Amstelveen-levering afwijkt van de tegenwoordige BAG-leveringen.
 
 BAG PostGIS dumps downloaden
@@ -47,7 +47,7 @@ Bag-extract biedt de volgende functionaliteiten:
 Bag-extract downloaden
 ----------------------
 
-- download NLExtract, zie laatste versie op: http://www.nlextract.nl/file-cabinet
+- download NLExtract, zie laatste versie op: https://github.com/nlextract/NLExtract/releases
 - of snapshot (huidige repo versie) via git: git clone http://github.com/opengeogroep/NLExtract.git
 - of snapshot als .zip: https://github.com/nlextract/NLExtract/zipball/master
 
