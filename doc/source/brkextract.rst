@@ -36,7 +36,7 @@ De BRK wordt via PDOK geleverd in ZIP-bestanden. Deze worden per provincie besch
 Brk-extract downloaden
 ----------------------
 
-Vind altijd de laatste versie op: https://github.com/nlextract/NLExtract/releases.
+Vind altijd de laatste versie op: https://github.com/nlextract/NLExtract/releases. De nieuwste versie staat bovenaan: kies de "real-release" nlextract zip.
 
 Omdat NLExtract voortdurend in ontwikkeling is, kun je ook de actuele broncode, een `snapshot`, downloaden
 en op dezelfde manier gebruiken als een versie:
