@@ -1,3 +1,5 @@
+# NLExtract - Pakt Basisregistraties Uit
+
 Zie ook veel meer op onze website http://nlextract.nl
 Documentatie vind je op: http://docs.nlextract.nl
 
@@ -73,8 +75,6 @@ gericht op ontwikkelaars. Wil je als ontwikkelaar meedoen ? Graag !
 Laat ons weten, bijv. via info@opengeogroep.nl. Vooral zoeken we nog
 Windows-experts zodat het op dat platform ook goed gaat werken. Wil je
 nieuwe zaken zien of vind je fouten ? Gebruik de "issues" link hierboven.
-
-
 
 
 Join the chat at https://gitter.im/nlextract/NLExtract

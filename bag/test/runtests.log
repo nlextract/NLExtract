@@ -1,22 +1,23 @@
-DEBUG: Configuratiebestand is /Users/just/project/ogg/nlextract/git/bag/extract.conf
-Waarschuwing! met dit commando worden database tabellen opnieuw aangemaakt. Doorgaan? ([N]/j): INFO: Start 2016-09-01 11:00:10
+DEBUG: Configuratiebestand is /Users/just/project/nlextract/git/bag/extract.conf
+Waarschuwing! met dit commando worden database tabellen opnieuw aangemaakt. Doorgaan? ([N]/j): INFO: Start 2020-02-06 16:07:45
 INFO: alle database tabellen weggooien en opnieuw aanmaken...
 INFO: Probeer te verbinden...
-DEBUG: verbonden met de database 'bag', schema 'public', connId=5
+DEBUG: database commit ok connId=5
+DEBUG: verbonden met de database 'bag', schema 'test', connId=5
 INFO: database script uitvoeren...
 DEBUG: database commit ok connId=5
 DEBUG: database connectie 5 gesloten
 INFO: script is uitgevoerd
 INFO: Initieele data (bijv. gemeenten/provincies) inlezen...
 running with lxml.etree
-INFO: process: verwerk /Users/just/project/ogg/nlextract/git/bag/db/data
-INFO: process_dir: verwerk /Users/just/project/ogg/nlextract/git/bag/db/data
-DEBUG: verbonden met de database 'bag', schema 'public', connId=5
+INFO: process: verwerk /Users/just/project/nlextract/git/bag/db/data
+INFO: process_dir: verwerk /Users/just/project/nlextract/git/bag/db/data
+DEBUG: verbonden met de database 'bag', schema 'test', connId=5
 DEBUG: database commit ok connId=5
-INFO: Negeer bestand: /Users/just/project/ogg/nlextract/git/bag/db/data/.DS_Store
+INFO: Negeer bestand: /Users/just/project/nlextract/git/bag/db/data/.DS_Store
 DEBUG: reusing db connection
 DEBUG: database commit ok connId=5
-INFO: Negeer bestand: /Users/just/project/ogg/nlextract/git/bag/db/data/README
+INFO: Negeer bestand: /Users/just/project/nlextract/git/bag/db/data/README
 DEBUG: reusing db connection
 DEBUG: database commit ok connId=5
 INFO: process_zip: verwerk gem-wpl-relatie-03-lvc-xml-07032014.zip 
@@ -27,7 +28,7 @@ INFO: START: parseXML
 INFO: END: parseXML tijd=0.0 sec
 DEBUG: reusing db connection
 DEBUG: database commit ok connId=5
-DEBUG: verbonden met de database 'bag', schema 'public', connId=7
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
 DEBUG: database commit ok connId=7
 DEBUG: reusing db connection
 DEBUG: database commit ok connId=7
@@ -47,7 +48,7 @@ DEBUG: database commit ok connId=7
 DEBUG: database connectie 7 gesloten
 INFO: END: dbEnd - nieuw=7589 gewijzigd=0 rels=0 tijd=0.0 sec
 INFO: ------
-DEBUG: verbonden met de database 'bag', schema 'public', connId=7
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
 DEBUG: database commit ok connId=7
 DEBUG: reusing db connection
 DEBUG: database commit ok connId=5
@@ -60,43 +61,49 @@ INFO: START: parseXML
 INFO: END: parseXML tijd=0.0 sec
 DEBUG: reusing db connection
 DEBUG: database commit ok connId=5
-INFO: Processed objectCount=771
-DEBUG: verbonden met de database 'bag', schema 'public', connId=6
+INFO: Processed objectCount=784
+DEBUG: verbonden met de database 'bag', schema 'test', connId=6
 DEBUG: database commit ok connId=6
-INFO: Objects inserted=771 updated=0 unchanged=0
-DEBUG: verbonden met de database 'bag', schema 'public', connId=7
+INFO: Objects inserted=784 updated=0 unchanged=0
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
 DEBUG: database commit ok connId=7
 DEBUG: reusing db connection
 DEBUG: database commit ok connId=5
 DEBUG: reusing db connection
 DEBUG: database commit ok connId=5
-INFO: Negeer bestand: /Users/just/project/ogg/nlextract/git/bag/db/data/gemeentelijke-indeling.xsd
-INFO: Views aanmaken...
-INFO: SQL van file = /Users/just/project/ogg/nlextract/git/bag/db/script/bag-view-actueel-bestaand.sql uitvoeren...
-DEBUG: verbonden met de database 'bag', schema 'public', connId=7
+INFO: Negeer bestand: /Users/just/project/nlextract/git/bag/db/data/gemeentelijke-indeling.xsd
+INFO: Post processing en views aanmaken...
+INFO: SQL van file = /Users/just/project/nlextract/git/bag/db/script/bag-gemeentecode-postprocess.sql uitvoeren...
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
 DEBUG: database commit ok connId=7
 DEBUG: database connectie 7 gesloten
 INFO: SQL uitgevoerd OK
-INFO: End 2016-09-01 11:00:12
-DEBUG: Configuratiebestand is /Users/just/project/ogg/nlextract/git/bag/extract.conf
-INFO: Start 2016-09-01 11:00:12
+INFO: SQL van file = /Users/just/project/nlextract/git/bag/db/script/bag-view-actueel-bestaand.sql uitvoeren...
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: SQL uitgevoerd OK
+INFO: End 2020-02-06 16:07:48
+DEBUG: Configuratiebestand is /Users/just/project/nlextract/git/bag/extract.conf
+INFO: Start 2020-02-06 16:07:48
 INFO: alle database tabellen weggooien en opnieuw aanmaken...
 INFO: Probeer te verbinden...
-DEBUG: verbonden met de database 'bag', schema 'public', connId=5
+DEBUG: database commit ok connId=5
+DEBUG: verbonden met de database 'bag', schema 'test', connId=5
 INFO: database script uitvoeren...
 DEBUG: database commit ok connId=5
 DEBUG: database connectie 5 gesloten
 INFO: script is uitgevoerd
 INFO: Initieele data (bijv. gemeenten/provincies) inlezen...
 running with lxml.etree
-INFO: process: verwerk /Users/just/project/ogg/nlextract/git/bag/db/data
-INFO: process_dir: verwerk /Users/just/project/ogg/nlextract/git/bag/db/data
-DEBUG: verbonden met de database 'bag', schema 'public', connId=5
+INFO: process: verwerk /Users/just/project/nlextract/git/bag/db/data
+INFO: process_dir: verwerk /Users/just/project/nlextract/git/bag/db/data
+DEBUG: verbonden met de database 'bag', schema 'test', connId=5
 DEBUG: database commit ok connId=5
-INFO: Negeer bestand: /Users/just/project/ogg/nlextract/git/bag/db/data/.DS_Store
+INFO: Negeer bestand: /Users/just/project/nlextract/git/bag/db/data/.DS_Store
 DEBUG: reusing db connection
 DEBUG: database commit ok connId=5
-INFO: Negeer bestand: /Users/just/project/ogg/nlextract/git/bag/db/data/README
+INFO: Negeer bestand: /Users/just/project/nlextract/git/bag/db/data/README
 DEBUG: reusing db connection
 DEBUG: database commit ok connId=5
 INFO: process_zip: verwerk gem-wpl-relatie-03-lvc-xml-07032014.zip 
@@ -107,7 +114,7 @@ INFO: START: parseXML
 INFO: END: parseXML tijd=0.0 sec
 DEBUG: reusing db connection
 DEBUG: database commit ok connId=5
-DEBUG: verbonden met de database 'bag', schema 'public', connId=7
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
 DEBUG: database commit ok connId=7
 DEBUG: reusing db connection
 DEBUG: database commit ok connId=7
@@ -127,7 +134,7 @@ DEBUG: database commit ok connId=7
 DEBUG: database connectie 7 gesloten
 INFO: END: dbEnd - nieuw=7589 gewijzigd=0 rels=0 tijd=0.0 sec
 INFO: ------
-DEBUG: verbonden met de database 'bag', schema 'public', connId=7
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
 DEBUG: database commit ok connId=7
 DEBUG: reusing db connection
 DEBUG: database commit ok connId=5
@@ -140,32 +147,37 @@ INFO: START: parseXML
 INFO: END: parseXML tijd=0.0 sec
 DEBUG: reusing db connection
 DEBUG: database commit ok connId=5
-INFO: Processed objectCount=771
-DEBUG: verbonden met de database 'bag', schema 'public', connId=6
+INFO: Processed objectCount=784
+DEBUG: verbonden met de database 'bag', schema 'test', connId=6
 DEBUG: database commit ok connId=6
-INFO: Objects inserted=771 updated=0 unchanged=0
-DEBUG: verbonden met de database 'bag', schema 'public', connId=7
+INFO: Objects inserted=784 updated=0 unchanged=0
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
 DEBUG: database commit ok connId=7
 DEBUG: reusing db connection
 DEBUG: database commit ok connId=5
 DEBUG: reusing db connection
 DEBUG: database commit ok connId=5
-INFO: Negeer bestand: /Users/just/project/ogg/nlextract/git/bag/db/data/gemeentelijke-indeling.xsd
-INFO: Views aanmaken...
-INFO: SQL van file = /Users/just/project/ogg/nlextract/git/bag/db/script/bag-view-actueel-bestaand.sql uitvoeren...
-DEBUG: verbonden met de database 'bag', schema 'public', connId=7
+INFO: Negeer bestand: /Users/just/project/nlextract/git/bag/db/data/gemeentelijke-indeling.xsd
+INFO: Post processing en views aanmaken...
+INFO: SQL van file = /Users/just/project/nlextract/git/bag/db/script/bag-gemeentecode-postprocess.sql uitvoeren...
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
 DEBUG: database commit ok connId=7
 DEBUG: database connectie 7 gesloten
 INFO: SQL uitgevoerd OK
-INFO: End 2016-09-01 11:00:14
-DEBUG: Configuratiebestand is /Users/just/project/ogg/nlextract/git/bag/extract.conf
+INFO: SQL van file = /Users/just/project/nlextract/git/bag/db/script/bag-view-actueel-bestaand.sql uitvoeren...
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: SQL uitgevoerd OK
+INFO: End 2020-02-06 16:07:50
+DEBUG: Configuratiebestand is /Users/just/project/nlextract/git/bag/extract.conf
 running with lxml.etree
-INFO: Start 2016-09-01 11:00:14
-DEBUG: verbonden met de database 'bag', schema 'public', connId=5
+INFO: Start 2020-02-06 16:07:50
+DEBUG: verbonden met de database 'bag', schema 'test', connId=5
 DEBUG: database commit ok connId=5
-INFO: process: verwerk /Users/just/project/ogg/nlextract/git/bag/test/data
-INFO: process_dir: verwerk /Users/just/project/ogg/nlextract/git/bag/test/data
-DEBUG: verbonden met de database 'bag', schema 'public', connId=5
+INFO: process: verwerk /Users/just/project/nlextract/git/bag/test/data
+INFO: process_dir: verwerk /Users/just/project/nlextract/git/bag/test/data
+DEBUG: verbonden met de database 'bag', schema 'test', connId=5
 DEBUG: database commit ok connId=5
 INFO: process_zip: verwerk Gemeente-woonplaats-relatietabel.zip 
 DEBUG: reusing db connection
@@ -175,7 +187,7 @@ INFO: START: parseXML
 INFO: END: parseXML tijd=0.0 sec
 DEBUG: reusing db connection
 DEBUG: database commit ok connId=5
-DEBUG: verbonden met de database 'bag', schema 'public', connId=7
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
 DEBUG: database commit ok connId=7
 DEBUG: reusing db connection
 DEBUG: database commit ok connId=7
@@ -195,7 +207,7 @@ DEBUG: database commit ok connId=7
 DEBUG: database connectie 7 gesloten
 INFO: END: dbEnd - nieuw=7359 gewijzigd=0 rels=0 tijd=0.0 sec
 INFO: ------
-DEBUG: verbonden met de database 'bag', schema 'public', connId=7
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
 DEBUG: database commit ok connId=7
 DEBUG: reusing db connection
 DEBUG: database commit ok connId=5
@@ -211,7 +223,7 @@ INFO: START: parseXML
 INFO: END: parseXML tijd=0.0 sec
 DEBUG: reusing db connection
 DEBUG: database commit ok connId=5
-DEBUG: verbonden met de database 'bag', schema 'public', connId=6
+DEBUG: verbonden met de database 'bag', schema 'test', connId=6
 DEBUG: database commit ok connId=6
 DEBUG: reusing db connection
 DEBUG: database commit ok connId=6
@@ -219,7 +231,7 @@ DEBUG: reusing db connection
 DEBUG: database commit ok connId=6
 DEBUG: reusing db connection
 DEBUG: database commit ok connId=6
-DEBUG: verbonden met de database 'bag', schema 'public', connId=7
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
 DEBUG: database commit ok connId=7
 INFO: START: dbStart mode = Onbekend
 INFO: running with cStringIO
@@ -229,7 +241,7 @@ DEBUG: database commit ok connId=6
 DEBUG: database connectie 6 gesloten
 INFO: END: dbEnd - nieuw=0 gewijzigd=0 rels=0 tijd=0.0 sec
 INFO: ------
-DEBUG: verbonden met de database 'bag', schema 'public', connId=6
+DEBUG: verbonden met de database 'bag', schema 'test', connId=6
 DEBUG: database commit ok connId=6
 DEBUG: reusing db connection
 DEBUG: database commit ok connId=5
@@ -242,7 +254,7 @@ DEBUG: reusing db connection
 DEBUG: database commit ok connId=5
 INFO: START: objCreate
 INFO: END: objCreate - objs=16 tijd=0.0 sec
-DEBUG: verbonden met de database 'bag', schema 'public', connId=6
+DEBUG: verbonden met de database 'bag', schema 'test', connId=6
 DEBUG: database commit ok connId=6
 INFO: START: dbStart mode = Nieuw
 INFO: running with cStringIO
@@ -252,7 +264,7 @@ DEBUG: database commit ok connId=6
 DEBUG: database connectie 6 gesloten
 INFO: END: dbEnd - nieuw=16 gewijzigd=0 rels=16 tijd=0.0 sec
 INFO: ------
-DEBUG: verbonden met de database 'bag', schema 'public', connId=6
+DEBUG: verbonden met de database 'bag', schema 'test', connId=6
 DEBUG: database commit ok connId=6
 DEBUG: reusing db connection
 DEBUG: database commit ok connId=5
@@ -265,7 +277,7 @@ DEBUG: reusing db connection
 DEBUG: database commit ok connId=5
 INFO: START: objCreate
 INFO: END: objCreate - objs=22 tijd=0.0 sec
-DEBUG: verbonden met de database 'bag', schema 'public', connId=6
+DEBUG: verbonden met de database 'bag', schema 'test', connId=6
 DEBUG: database commit ok connId=6
 INFO: START: dbStart mode = Nieuw
 INFO: running with cStringIO
@@ -275,7 +287,7 @@ DEBUG: database commit ok connId=6
 DEBUG: database connectie 6 gesloten
 INFO: END: dbEnd - nieuw=22 gewijzigd=0 rels=0 tijd=0.0 sec
 INFO: ------
-DEBUG: verbonden met de database 'bag', schema 'public', connId=6
+DEBUG: verbonden met de database 'bag', schema 'test', connId=6
 DEBUG: database commit ok connId=6
 DEBUG: reusing db connection
 DEBUG: database commit ok connId=5
@@ -288,7 +300,7 @@ DEBUG: reusing db connection
 DEBUG: database commit ok connId=5
 INFO: START: objCreate
 INFO: END: objCreate - objs=22 tijd=0.0 sec
-DEBUG: verbonden met de database 'bag', schema 'public', connId=6
+DEBUG: verbonden met de database 'bag', schema 'test', connId=6
 DEBUG: database commit ok connId=6
 INFO: START: dbStart mode = Nieuw
 INFO: running with cStringIO
@@ -298,7 +310,7 @@ DEBUG: database commit ok connId=6
 DEBUG: database connectie 6 gesloten
 INFO: END: dbEnd - nieuw=22 gewijzigd=0 rels=0 tijd=0.0 sec
 INFO: ------
-DEBUG: verbonden met de database 'bag', schema 'public', connId=6
+DEBUG: verbonden met de database 'bag', schema 'test', connId=6
 DEBUG: database commit ok connId=6
 DEBUG: reusing db connection
 DEBUG: database commit ok connId=5
@@ -311,7 +323,7 @@ DEBUG: reusing db connection
 DEBUG: database commit ok connId=5
 INFO: START: objCreate
 INFO: END: objCreate - objs=19 tijd=0.0 sec
-DEBUG: verbonden met de database 'bag', schema 'public', connId=6
+DEBUG: verbonden met de database 'bag', schema 'test', connId=6
 DEBUG: database commit ok connId=6
 INFO: START: dbStart mode = Nieuw
 INFO: running with cStringIO
@@ -321,7 +333,7 @@ DEBUG: database commit ok connId=6
 DEBUG: database connectie 6 gesloten
 INFO: END: dbEnd - nieuw=19 gewijzigd=0 rels=0 tijd=0.0 sec
 INFO: ------
-DEBUG: verbonden met de database 'bag', schema 'public', connId=6
+DEBUG: verbonden met de database 'bag', schema 'test', connId=6
 DEBUG: database commit ok connId=6
 DEBUG: reusing db connection
 DEBUG: database commit ok connId=5
@@ -334,7 +346,7 @@ DEBUG: reusing db connection
 DEBUG: database commit ok connId=5
 INFO: START: objCreate
 INFO: END: objCreate - objs=17 tijd=0.0 sec
-DEBUG: verbonden met de database 'bag', schema 'public', connId=6
+DEBUG: verbonden met de database 'bag', schema 'test', connId=6
 DEBUG: database commit ok connId=6
 INFO: START: dbStart mode = Nieuw
 INFO: running with cStringIO
@@ -344,7 +356,7 @@ DEBUG: database commit ok connId=6
 DEBUG: database connectie 6 gesloten
 INFO: END: dbEnd - nieuw=17 gewijzigd=0 rels=17 tijd=0.0 sec
 INFO: ------
-DEBUG: verbonden met de database 'bag', schema 'public', connId=6
+DEBUG: verbonden met de database 'bag', schema 'test', connId=6
 DEBUG: database commit ok connId=6
 DEBUG: reusing db connection
 DEBUG: database commit ok connId=5
@@ -357,7 +369,7 @@ DEBUG: reusing db connection
 DEBUG: database commit ok connId=5
 INFO: START: objCreate
 INFO: END: objCreate - objs=15 tijd=0.0 sec
-DEBUG: verbonden met de database 'bag', schema 'public', connId=6
+DEBUG: verbonden met de database 'bag', schema 'test', connId=6
 DEBUG: database commit ok connId=6
 INFO: START: dbStart mode = Nieuw
 INFO: running with cStringIO
@@ -367,7 +379,7 @@ DEBUG: database commit ok connId=6
 DEBUG: database connectie 6 gesloten
 INFO: END: dbEnd - nieuw=15 gewijzigd=0 rels=45 tijd=0.0 sec
 INFO: ------
-DEBUG: verbonden met de database 'bag', schema 'public', connId=6
+DEBUG: verbonden met de database 'bag', schema 'test', connId=6
 DEBUG: database commit ok connId=6
 DEBUG: reusing db connection
 DEBUG: database commit ok connId=5
@@ -380,7 +392,7 @@ DEBUG: reusing db connection
 DEBUG: database commit ok connId=5
 INFO: START: objCreate
 INFO: END: objCreate - objs=2 tijd=0.0 sec
-DEBUG: verbonden met de database 'bag', schema 'public', connId=6
+DEBUG: verbonden met de database 'bag', schema 'test', connId=6
 DEBUG: database commit ok connId=6
 INFO: START: dbStart mode = Nieuw
 INFO: running with cStringIO
@@ -390,21 +402,21 @@ DEBUG: database commit ok connId=6
 DEBUG: database connectie 6 gesloten
 INFO: END: dbEnd - nieuw=2 gewijzigd=0 rels=0 tijd=0.0 sec
 INFO: ------
-DEBUG: verbonden met de database 'bag', schema 'public', connId=6
+DEBUG: verbonden met de database 'bag', schema 'test', connId=6
 DEBUG: database commit ok connId=6
 DEBUG: reusing db connection
 DEBUG: database commit ok connId=5
-DEBUG: verbonden met de database 'bag', schema 'public', connId=6
+DEBUG: verbonden met de database 'bag', schema 'test', connId=6
 DEBUG: database commit ok connId=6
-INFO: End 2016-09-01 11:00:16
-DEBUG: Configuratiebestand is /Users/just/project/ogg/nlextract/git/bag/extract.conf
+INFO: End 2020-02-06 16:07:52
+DEBUG: Configuratiebestand is /Users/just/project/nlextract/git/bag/extract.conf
 running with lxml.etree
-INFO: Start 2016-09-01 11:00:16
-DEBUG: verbonden met de database 'bag', schema 'public', connId=5
+INFO: Start 2020-02-06 16:07:52
+DEBUG: verbonden met de database 'bag', schema 'test', connId=5
 DEBUG: database commit ok connId=5
-INFO: process: verwerk /Users/just/project/ogg/nlextract/git/bag/test/datadubbel
-INFO: process_dir: verwerk /Users/just/project/ogg/nlextract/git/bag/test/datadubbel
-DEBUG: verbonden met de database 'bag', schema 'public', connId=5
+INFO: process: verwerk /Users/just/project/nlextract/git/bag/test/datadubbel
+INFO: process_dir: verwerk /Users/just/project/nlextract/git/bag/test/datadubbel
+DEBUG: verbonden met de database 'bag', schema 'test', connId=5
 DEBUG: database commit ok connId=5
 INFO: process_xml: verwerk verblijfsobject-dubbel.xml 
 INFO: START: parseXML
@@ -413,7 +425,7 @@ DEBUG: reusing db connection
 DEBUG: database commit ok connId=5
 INFO: START: objCreate
 INFO: END: objCreate - objs=1 tijd=0.0 sec
-DEBUG: verbonden met de database 'bag', schema 'public', connId=6
+DEBUG: verbonden met de database 'bag', schema 'test', connId=6
 DEBUG: database commit ok connId=6
 INFO: START: dbStart mode = Nieuw
 INFO: running with cStringIO
@@ -423,7 +435,7 @@ DEBUG: database commit ok connId=6
 DEBUG: database connectie 6 gesloten
 INFO: END: dbEnd - nieuw=1 gewijzigd=0 rels=3 tijd=0.0 sec
 INFO: ------
-DEBUG: verbonden met de database 'bag', schema 'public', connId=6
+DEBUG: verbonden met de database 'bag', schema 'test', connId=6
 DEBUG: database commit ok connId=6
 DEBUG: reusing db connection
 DEBUG: database commit ok connId=5
@@ -436,7 +448,7 @@ DEBUG: reusing db connection
 DEBUG: database commit ok connId=5
 INFO: START: objCreate
 INFO: END: objCreate - objs=1 tijd=0.0 sec
-DEBUG: verbonden met de database 'bag', schema 'public', connId=6
+DEBUG: verbonden met de database 'bag', schema 'test', connId=6
 DEBUG: database commit ok connId=6
 INFO: START: dbStart mode = Nieuw
 INFO: running with cStringIO
@@ -446,34 +458,34 @@ DEBUG: database commit ok connId=6
 DEBUG: database connectie 6 gesloten
 INFO: END: dbEnd - nieuw=1 gewijzigd=0 rels=0 tijd=0.0 sec
 INFO: ------
-DEBUG: verbonden met de database 'bag', schema 'public', connId=6
+DEBUG: verbonden met de database 'bag', schema 'test', connId=6
 DEBUG: database commit ok connId=6
 DEBUG: reusing db connection
 DEBUG: database commit ok connId=5
-DEBUG: verbonden met de database 'bag', schema 'public', connId=6
+DEBUG: verbonden met de database 'bag', schema 'test', connId=6
 DEBUG: database commit ok connId=6
-INFO: End 2016-09-01 11:00:16
-DEBUG: Configuratiebestand is /Users/just/project/ogg/nlextract/git/bag/extract.conf
-INFO: Start 2016-09-01 11:00:16
-DEBUG: verbonden met de database 'bag', schema 'public', connId=5
+INFO: End 2020-02-06 16:07:52
+DEBUG: Configuratiebestand is /Users/just/project/nlextract/git/bag/extract.conf
+INFO: Start 2020-02-06 16:07:53
+DEBUG: verbonden met de database 'bag', schema 'test', connId=5
 DEBUG: database commit ok connId=5
-INFO: SQL van file = /Users/just/project/ogg/nlextract/git/bag/db/script/ontdubbel.sql uitvoeren...
-DEBUG: verbonden met de database 'bag', schema 'public', connId=5
+INFO: SQL van file = /Users/just/project/nlextract/git/bag/db/script/ontdubbel.sql uitvoeren...
+DEBUG: verbonden met de database 'bag', schema 'test', connId=5
 DEBUG: database commit ok connId=5
 DEBUG: database connectie 5 gesloten
 INFO: SQL uitgevoerd OK
-DEBUG: verbonden met de database 'bag', schema 'public', connId=5
+DEBUG: verbonden met de database 'bag', schema 'test', connId=5
 DEBUG: database commit ok connId=5
-INFO: End 2016-09-01 11:00:16
+INFO: End 2020-02-06 16:07:53
 START TEST: Mutaties
-DEBUG: Configuratiebestand is /Users/just/project/ogg/nlextract/git/bag/extract.conf
+DEBUG: Configuratiebestand is /Users/just/project/nlextract/git/bag/extract.conf
 running with lxml.etree
-INFO: Start 2016-09-01 11:00:16
-DEBUG: verbonden met de database 'bag', schema 'public', connId=5
+INFO: Start 2020-02-06 16:07:53
+DEBUG: verbonden met de database 'bag', schema 'test', connId=5
 DEBUG: database commit ok connId=5
-INFO: process: verwerk /Users/just/project/ogg/nlextract/git/bag/test/mutatie
-INFO: process_dir: verwerk /Users/just/project/ogg/nlextract/git/bag/test/mutatie
-DEBUG: verbonden met de database 'bag', schema 'public', connId=5
+INFO: process: verwerk /Users/just/project/nlextract/git/bag/test/mutatie
+INFO: process_dir: verwerk /Users/just/project/nlextract/git/bag/test/mutatie
+DEBUG: verbonden met de database 'bag', schema 'test', connId=5
 DEBUG: database commit ok connId=5
 DEBUG: reusing db connection
 DEBUG: database commit ok connId=5
@@ -519,14 +531,14 @@ DEBUG: reusing db connection
 DEBUG: database commit ok connId=5
 INFO: START: objCreate (mutaties)
 INFO: END: objCreate (mutaties) - objs=2 tijd=0.0 sec
-DEBUG: verbonden met de database 'bag', schema 'public', connId=6
+DEBUG: verbonden met de database 'bag', schema 'test', connId=6
 DEBUG: database commit ok connId=6
 INFO: START: dbStart mode = Mutatie
-DEBUG: verbonden met de database 'bag', schema 'public', connId=6
+DEBUG: verbonden met de database 'bag', schema 'test', connId=6
 DEBUG: database commit ok connId=6
 INFO: END: dbEnd - nieuw=1 gewijzigd=1 rels=0 tijd=0.0 sec
 INFO: ------
-DEBUG: verbonden met de database 'bag', schema 'public', connId=7
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
 DEBUG: database commit ok connId=7
 DEBUG: reusing db connection
 DEBUG: database commit ok connId=5
@@ -551,29 +563,30 @@ DEBUG: reusing db connection
 DEBUG: database commit ok connId=5
 INFO: START: objCreate (mutaties)
 INFO: END: objCreate (mutaties) - objs=5 tijd=0.0 sec
-DEBUG: verbonden met de database 'bag', schema 'public', connId=7
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
 DEBUG: database commit ok connId=7
 INFO: START: dbStart mode = Mutatie
 DEBUG: reusing db connection
-ERROR: fout not all arguments converted during string formatting voor query: INSERT INTO verblijfsobjectgebruiksdoel (identificatie,aanduidingrecordinactief,aanduidingrecordcorrectie,begindatumtijdvakgeldigheid,einddatumtijdvakgeldigheid,verblijfsobjectStatus,geom_valid,gebruiksdoelVerblijfsobject) VALUES (%s, %s, %s, %s, %s, %s) met parameters ('0003010000125985', 'FALSE', '0', '2010-07-20 00:00:00.00', None, 'Verblijfsobject in gebruik', 'True', 'woonfunctie') ['Traceback (most recent call last):\n', '  File "/Users/just/project/ogg/nlextract/git/bag/src/postgresdb.py", line 101, in uitvoeren\n    self.cursor.execute(sql, parameters)\n', 'TypeError: not all arguments converted during string formatting\n']
-DEBUG: reusing db connection
 DEBUG: database commit ok connId=6
-ERROR: fout not all arguments converted during string formatting in XML DOM processing, bestand=test-mutaties.xml ['Traceback (most recent call last):\n', '  File "/Users/just/project/ogg/nlextract/git/bag/src/bagfilereader.py", line 140, in process_xml\n    self.processor.processDOM(parsed_xml.getroot(), filenaam)\n', '  File "/Users/just/project/ogg/nlextract/git/bag/src/processor.py", line 327, in processDOM\n    bericht = self.dbStoreInsert(mode)\n', '  File "/Users/just/project/ogg/nlextract/git/bag/src/processor.py", line 356, in dbStoreInsert\n    self.database.uitvoeren(sql, relatie.inhoud[i])\n', '  File "/Users/just/project/ogg/nlextract/git/bag/src/postgresdb.py", line 101, in uitvoeren\n    self.cursor.execute(sql, parameters)\n', 'TypeError: not all arguments converted during string formatting\n']
+INFO: END: dbEnd - nieuw=1 gewijzigd=4 rels=16 tijd=0.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
 DEBUG: reusing db connection
 DEBUG: database commit ok connId=5
-DEBUG: verbonden met de database 'bag', schema 'public', connId=7
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
 DEBUG: database commit ok connId=7
-INFO: End 2016-09-01 11:00:16
+INFO: End 2020-02-06 16:07:53
 END TEST: Mutaties
 START TEST: Mutaties : slechts eenmaal verwerken
-DEBUG: Configuratiebestand is /Users/just/project/ogg/nlextract/git/bag/extract.conf
+DEBUG: Configuratiebestand is /Users/just/project/nlextract/git/bag/extract.conf
 running with lxml.etree
-INFO: Start 2016-09-01 11:00:16
-DEBUG: verbonden met de database 'bag', schema 'public', connId=5
+INFO: Start 2020-02-06 16:07:53
+DEBUG: verbonden met de database 'bag', schema 'test', connId=5
 DEBUG: database commit ok connId=5
-INFO: process: verwerk /Users/just/project/ogg/nlextract/git/bag/test/mutatie
-INFO: process_dir: verwerk /Users/just/project/ogg/nlextract/git/bag/test/mutatie
-DEBUG: verbonden met de database 'bag', schema 'public', connId=5
+INFO: process: verwerk /Users/just/project/nlextract/git/bag/test/mutatie
+INFO: process_dir: verwerk /Users/just/project/nlextract/git/bag/test/mutatie
+DEBUG: verbonden met de database 'bag', schema 'test', connId=5
 DEBUG: database commit ok connId=5
 DEBUG: reusing db connection
 DEBUG: database commit ok connId=5
@@ -620,91 +633,351 @@ DEBUG: reusing db connection
 DEBUG: database commit ok connId=5
 DEBUG: reusing db connection
 DEBUG: database commit ok connId=5
-INFO: process_xml: verwerk test-mutaties.xml 
-INFO: START: parseXML
-INFO: END: parseXML tijd=0.0 sec
+INFO: bestand test-mutaties.xml is reeds verwerkt ==> overslaan
 DEBUG: reusing db connection
 DEBUG: database commit ok connId=5
-INFO: START: objCreate (mutaties)
-INFO: END: objCreate (mutaties) - objs=5 tijd=0.0 sec
-DEBUG: verbonden met de database 'bag', schema 'public', connId=6
+DEBUG: verbonden met de database 'bag', schema 'test', connId=6
 DEBUG: database commit ok connId=6
-INFO: START: dbStart mode = Mutatie
-DEBUG: verbonden met de database 'bag', schema 'public', connId=6
-ERROR: fout not all arguments converted during string formatting voor query: INSERT INTO verblijfsobjectgebruiksdoel (identificatie,aanduidingrecordinactief,aanduidingrecordcorrectie,begindatumtijdvakgeldigheid,einddatumtijdvakgeldigheid,verblijfsobjectStatus,geom_valid,gebruiksdoelVerblijfsobject) VALUES (%s, %s, %s, %s, %s, %s) met parameters ('0003010000125985', 'FALSE', '0', '2010-07-20 00:00:00.00', None, 'Verblijfsobject in gebruik', 'True', 'woonfunctie') ['Traceback (most recent call last):\n', '  File "/Users/just/project/ogg/nlextract/git/bag/src/postgresdb.py", line 101, in uitvoeren\n    self.cursor.execute(sql, parameters)\n', 'TypeError: not all arguments converted during string formatting\n']
-DEBUG: reusing db connection
-DEBUG: database commit ok connId=6
-ERROR: fout not all arguments converted during string formatting in XML DOM processing, bestand=test-mutaties.xml ['Traceback (most recent call last):\n', '  File "/Users/just/project/ogg/nlextract/git/bag/src/bagfilereader.py", line 140, in process_xml\n    self.processor.processDOM(parsed_xml.getroot(), filenaam)\n', '  File "/Users/just/project/ogg/nlextract/git/bag/src/processor.py", line 327, in processDOM\n    bericht = self.dbStoreInsert(mode)\n', '  File "/Users/just/project/ogg/nlextract/git/bag/src/processor.py", line 356, in dbStoreInsert\n    self.database.uitvoeren(sql, relatie.inhoud[i])\n', '  File "/Users/just/project/ogg/nlextract/git/bag/src/postgresdb.py", line 101, in uitvoeren\n    self.cursor.execute(sql, parameters)\n', 'TypeError: not all arguments converted during string formatting\n']
-DEBUG: reusing db connection
-DEBUG: database commit ok connId=5
-DEBUG: verbonden met de database 'bag', schema 'public', connId=7
-DEBUG: database commit ok connId=7
-INFO: End 2016-09-01 11:00:16
+INFO: End 2020-02-06 16:07:53
 END TEST: Mutaties : slechts eenmaal verwerken
-DEBUG: Configuratiebestand is /Users/just/project/ogg/nlextract/git/bag/extract.conf
-INFO: Start 2016-09-01 11:00:17
-DEBUG: verbonden met de database 'bag', schema 'public', connId=5
+DEBUG: Configuratiebestand is /Users/just/project/nlextract/git/bag/extract.conf
+INFO: Start 2020-02-06 16:07:54
+DEBUG: verbonden met de database 'bag', schema 'test', connId=5
 DEBUG: database commit ok connId=5
-INFO: SQL van file = /Users/just/project/ogg/nlextract/git/bag/db/script/gemeente-provincie-tabel.sql uitvoeren...
-DEBUG: verbonden met de database 'bag', schema 'public', connId=5
-DEBUG: database commit ok connId=5
-DEBUG: database connectie 5 gesloten
-INFO: SQL uitgevoerd OK
-DEBUG: verbonden met de database 'bag', schema 'public', connId=5
-DEBUG: database commit ok connId=5
-INFO: End 2016-09-01 11:00:17
-DEBUG: Configuratiebestand is /Users/just/project/ogg/nlextract/git/bag/extract.conf
-INFO: Start 2016-09-01 11:00:17
-DEBUG: verbonden met de database 'bag', schema 'public', connId=5
-DEBUG: database commit ok connId=5
-INFO: SQL van file = /Users/just/project/ogg/nlextract/git/bag/db/script/adres-tabel.sql uitvoeren...
-DEBUG: verbonden met de database 'bag', schema 'public', connId=5
+INFO: SQL van file = /Users/just/project/nlextract/git/bag/db/script/gemeente-provincie-tabel.sql uitvoeren...
+DEBUG: verbonden met de database 'bag', schema 'test', connId=5
 DEBUG: database commit ok connId=5
 DEBUG: database connectie 5 gesloten
 INFO: SQL uitgevoerd OK
-DEBUG: verbonden met de database 'bag', schema 'public', connId=5
+DEBUG: verbonden met de database 'bag', schema 'test', connId=5
 DEBUG: database commit ok connId=5
-INFO: End 2016-09-01 11:00:17
+INFO: End 2020-02-06 16:07:54
+DEBUG: Configuratiebestand is /Users/just/project/nlextract/git/bag/extract.conf
+INFO: Start 2020-02-06 16:07:54
+DEBUG: verbonden met de database 'bag', schema 'test', connId=5
+DEBUG: database commit ok connId=5
+INFO: SQL van file = /Users/just/project/nlextract/git/bag/db/script/adres-tabel.sql uitvoeren...
+DEBUG: verbonden met de database 'bag', schema 'test', connId=5
+DEBUG: database commit ok connId=5
+DEBUG: database connectie 5 gesloten
+INFO: SQL uitgevoerd OK
+DEBUG: verbonden met de database 'bag', schema 'test', connId=5
+DEBUG: database commit ok connId=5
+INFO: End 2020-02-06 16:07:54
+DEBUG: Configuratiebestand is /Users/just/project/nlextract/git/bag/extract.conf
+INFO: Start 2020-02-06 16:07:54
+DEBUG: verbonden met de database 'bag', schema 'test', connId=5
+DEBUG: database commit ok connId=5
+INFO: SQL van file = /Users/just/project/nlextract/git/bag/db/script/adres-tabel-full.sql uitvoeren...
+DEBUG: verbonden met de database 'bag', schema 'test', connId=5
+DEBUG: database commit ok connId=5
+DEBUG: database connectie 5 gesloten
+INFO: SQL uitgevoerd OK
+DEBUG: verbonden met de database 'bag', schema 'test', connId=5
+DEBUG: database commit ok connId=5
+INFO: End 2020-02-06 16:07:54
+COPY 6
 openbareruimte;huisnummer;huisletter;huisnummertoevoeging;postcode;woonplaats;gemeente;provincie;object_id;object_type;nevenadres;x;y;lon;lat
-Molenbochtstraat;3;;I;9901AA;Hieslum;Súdwest-Fryslân;Friesland;3010000125985;VBO;f;155000;463000;5.38720350886308;52.1551722996529
-Molenbochtstraat;5;;;9901AA;Hieslum;Súdwest-Fryslân;Friesland;3020000000001;LIG;f;252466.746775002;593751.81399051;6.84989496694573;53.3213020969032
-Molenbochtstraat;33;;I;9901AA;Toornwerd;Loppersum;Groningen;7010000004199;VBO;f;272580.18893708;569748.200039058;7.14283466881138;53.1016485740432
-Molenbochtstraat;98;;;9934EG;Hieslum;Súdwest-Fryslân;Friesland;7010000004212;VBO;f;275466;565559;7.18434457286961;53.0633806539817
-Molenbochtstraat;100;;;9934EG;Hieslum;Súdwest-Fryslân;Friesland;7010000004212;VBO;t;275466;565559;7.18434457286961;53.0633806539817
-Molenbochtstraat;1;;;9934RA;Hieslum;Súdwest-Fryslân;Friesland;10030000100100;STA;f;257939.456825101;593821.560313134;6.93201848038824;53.3209014043658
-DEBUG: Configuratiebestand is /Users/just/project/ogg/nlextract/git/bag/extract.conf
-INFO: Start 2016-09-01 11:00:17
-DEBUG: verbonden met de database 'bag', schema 'public', connId=5
+Molenbochtstraat;3;;I;9901AA;Hieslum;Súdwest-Fryslân;Friesland;0003010000125985;VBO;f;155000;463000;5.3872035087259;52.1551723011519
+Molenbochtstraat;5;;;9901AA;Hieslum;Súdwest-Fryslân;Friesland;0003020000000001;LIG;f;252466.746775002;593751.81399051;6.84989496676674;53.3213020983346
+Molenbochtstraat;33;;I;9901AA;Toornwerd;Loppersum;Groningen;0007010000004199;VBO;f;272580.18893708;569748.200039058;7.14283466862574;53.1016485754882
+Molenbochtstraat;98;;;9934EG;Hieslum;Súdwest-Fryslân;Friesland;0007010000004212;VBO;f;275466;565559;7.18434457268306;53.063380655429
+Molenbochtstraat;100;;;9934EG;Hieslum;Súdwest-Fryslân;Friesland;0007010000004212;VBO;t;275466;565559;7.18434457268306;53.063380655429
+Molenbochtstraat;1;;;9934RA;Hieslum;Súdwest-Fryslân;Friesland;0010030000100100;STA;f;257939.456825101;593821.560313134;6.93201848020713;53.3209014057973
+COPY 6
+openbareruimte;huisnummer;huisletter;huisnummertoevoeging;postcode;woonplaats;gemeente;provincie;nummeraanduiding;verblijfsobjectgebruiksdoel;oppervlakteverblijfsobject;verblijfsobjectstatus;object_id;object_type;nevenadres;pandid;pandstatus;pandbouwjaar;x;y;lon;lat;verkorteopenbareruimte
+Molenbochtstraat;3;;I;9901AA;Hieslum;Súdwest-Fryslân;Friesland;0003200000133985;woonfunctie;169;Verblijfsobject in gebruik;0003010000125985;VBO;f;0003100000117485;Pand in gebruik;1991;155000;463000;5.3872035087259;52.1551723011519;MBochtstraat
+Molenbochtstraat;5;;;9901AA;Hieslum;Súdwest-Fryslân;Friesland;0003200000133986;Ligplaats;0;Plaats aangewezen;0003020000000001;LIG;f;;"";;252466.746775002;593751.81399051;6.84989496676674;53.3213020983346;MBochtstraat
+Molenbochtstraat;33;;I;9901AA;Toornwerd;Loppersum;Groningen;0003200000121300;woonfunctie;116;Verblijfsobject in gebruik;0007010000004199;VBO;f;;;;272580.18893708;569748.200039058;7.14283466862574;53.1016485754882;MBochtstraat
+Molenbochtstraat;98;;;9934EG;Hieslum;Súdwest-Fryslân;Friesland;0010200000101404;woonfunctie;318;Verblijfsobject in gebruik;0007010000004212;VBO;f;1895100000002619;Pand in gebruik (niet ingemeten);1973;275466;565559;7.18434457268306;53.063380655429;MBochtstraat
+Molenbochtstraat;100;;;9934EG;Hieslum;Súdwest-Fryslân;Friesland;0010200000101403;woonfunctie;318;Verblijfsobject in gebruik;0007010000004212;VBO;t;1895100000002619;Pand in gebruik (niet ingemeten);1973;275466;565559;7.18434457268306;53.063380655429;MBochtstraat
+Molenbochtstraat;1;;;9934RA;Hieslum;Súdwest-Fryslân;Friesland;0010200000101386;Standplaats;0;Plaats aangewezen;0010030000100100;STA;f;;"";;257939.456825101;593821.560313134;6.93201848020713;53.3209014057973;MBochtstraat
+pg_dump: last built-in OID is 16383
+pg_dump: reading extensions
+pg_dump: identifying extension members
+pg_dump: reading schemas
+pg_dump: reading user-defined tables
+pg_dump: reading user-defined functions
+pg_dump: reading user-defined types
+pg_dump: reading procedural languages
+pg_dump: reading user-defined aggregate functions
+pg_dump: reading user-defined operators
+pg_dump: reading user-defined access methods
+pg_dump: reading user-defined operator classes
+pg_dump: reading user-defined operator families
+pg_dump: reading user-defined text search parsers
+pg_dump: reading user-defined text search templates
+pg_dump: reading user-defined text search dictionaries
+pg_dump: reading user-defined text search configurations
+pg_dump: reading user-defined foreign-data wrappers
+pg_dump: reading user-defined foreign servers
+pg_dump: reading default privileges
+pg_dump: reading user-defined collations
+pg_dump: reading user-defined conversions
+pg_dump: reading type casts
+pg_dump: reading transforms
+pg_dump: reading table inheritance information
+pg_dump: reading event triggers
+pg_dump: finding extension tables
+pg_dump: finding inheritance relationships
+pg_dump: reading column info for interesting tables
+pg_dump: finding the columns and types of table "test.nlx_bag_info"
+pg_dump: finding default expressions of table "test.nlx_bag_info"
+pg_dump: finding the columns and types of table "test.nlx_bag_log"
+pg_dump: finding default expressions of table "test.nlx_bag_log"
+pg_dump: finding the columns and types of table "test.woonplaats"
+pg_dump: finding default expressions of table "test.woonplaats"
+pg_dump: finding the columns and types of table "test.openbareruimte"
+pg_dump: finding default expressions of table "test.openbareruimte"
+pg_dump: finding the columns and types of table "test.nummeraanduiding"
+pg_dump: finding default expressions of table "test.nummeraanduiding"
+pg_dump: finding the columns and types of table "test.ligplaats"
+pg_dump: finding default expressions of table "test.ligplaats"
+pg_dump: finding the columns and types of table "test.standplaats"
+pg_dump: finding default expressions of table "test.standplaats"
+pg_dump: finding the columns and types of table "test.verblijfsobject"
+pg_dump: finding default expressions of table "test.verblijfsobject"
+pg_dump: finding the columns and types of table "test.pand"
+pg_dump: finding default expressions of table "test.pand"
+pg_dump: finding the columns and types of table "test.verblijfsobjectpand"
+pg_dump: finding default expressions of table "test.verblijfsobjectpand"
+pg_dump: finding the columns and types of table "test.adresseerbaarobjectnevenadres"
+pg_dump: finding default expressions of table "test.adresseerbaarobjectnevenadres"
+pg_dump: finding the columns and types of table "test.verblijfsobjectgebruiksdoel"
+pg_dump: finding default expressions of table "test.verblijfsobjectgebruiksdoel"
+pg_dump: finding the columns and types of table "test.gemeente_woonplaats"
+pg_dump: finding default expressions of table "test.gemeente_woonplaats"
+pg_dump: finding the columns and types of table "test.provincie_gemeente"
+pg_dump: finding default expressions of table "test.provincie_gemeente"
+pg_dump: finding the columns and types of table "test.ligplaatsactueel"
+pg_dump: finding the columns and types of table "test.ligplaatsactueelbestaand"
+pg_dump: finding the columns and types of table "test.nummeraanduidingactueel"
+pg_dump: finding the columns and types of table "test.nummeraanduidingactueelbestaand"
+pg_dump: finding the columns and types of table "test.openbareruimteactueel"
+pg_dump: finding the columns and types of table "test.openbareruimteactueelbestaand"
+pg_dump: finding the columns and types of table "test.pandactueel"
+pg_dump: finding the columns and types of table "test.pandactueelbestaand"
+pg_dump: finding the columns and types of table "test.standplaatsactueel"
+pg_dump: finding the columns and types of table "test.standplaatsactueelbestaand"
+pg_dump: finding the columns and types of table "test.verblijfsobjectactueel"
+pg_dump: finding the columns and types of table "test.verblijfsobjectactueelbestaand"
+pg_dump: finding the columns and types of table "test.woonplaatsactueel"
+pg_dump: finding the columns and types of table "test.woonplaatsactueelbestaand"
+pg_dump: finding the columns and types of table "test.verblijfsobjectpandactueel"
+pg_dump: finding the columns and types of table "test.verblijfsobjectpandactueelbestaand"
+pg_dump: finding the columns and types of table "test.adresseerbaarobjectnevenadresactueel"
+pg_dump: finding the columns and types of table "test.adresseerbaarobjectnevenadresactueelbestaand"
+pg_dump: finding the columns and types of table "test.verblijfsobjectgebruiksdoelactueel"
+pg_dump: finding the columns and types of table "test.verblijfsobjectgebruiksdoelactueelbestaand"
+pg_dump: finding the columns and types of table "test.gemeente_woonplaatsactueelbestaand"
+pg_dump: finding the columns and types of table "test.provincie_gemeenteactueelbestaand"
+pg_dump: finding the columns and types of table "test.gt_pk_metadata"
+pg_dump: finding check constraints for table "test.gt_pk_metadata"
+pg_dump: finding the columns and types of table "test.gemeente"
+pg_dump: finding default expressions of table "test.gemeente"
+pg_dump: finding the columns and types of table "test.provincie"
+pg_dump: finding default expressions of table "test.provincie"
+pg_dump: finding the columns and types of table "test.adres"
+pg_dump: finding default expressions of table "test.adres"
+pg_dump: finding the columns and types of table "test.adres_full"
+pg_dump: finding default expressions of table "test.adres_full"
+pg_dump: flagging inherited columns in subtables
+pg_dump: reading indexes
+pg_dump: reading indexes for table "test.woonplaats"
+pg_dump: reading indexes for table "test.openbareruimte"
+pg_dump: reading indexes for table "test.nummeraanduiding"
+pg_dump: reading indexes for table "test.ligplaats"
+pg_dump: reading indexes for table "test.standplaats"
+pg_dump: reading indexes for table "test.verblijfsobject"
+pg_dump: reading indexes for table "test.pand"
+pg_dump: reading indexes for table "test.verblijfsobjectpand"
+pg_dump: reading indexes for table "test.adresseerbaarobjectnevenadres"
+pg_dump: reading indexes for table "test.verblijfsobjectgebruiksdoel"
+pg_dump: reading indexes for table "test.gemeente_woonplaats"
+pg_dump: reading indexes for table "test.provincie_gemeente"
+pg_dump: reading indexes for table "test.gt_pk_metadata"
+pg_dump: reading indexes for table "test.gemeente"
+pg_dump: reading indexes for table "test.provincie"
+pg_dump: reading indexes for table "test.adres"
+pg_dump: reading indexes for table "test.adres_full"
+pg_dump: reading constraints
+pg_dump: reading triggers
+pg_dump: reading rewrite rules
+pg_dump: reading policies
+pg_dump: reading row security enabled for table "test.nlx_bag_info_gid_seq"
+pg_dump: reading policies for table "test.nlx_bag_info_gid_seq"
+pg_dump: reading row security enabled for table "test.nlx_bag_info"
+pg_dump: reading policies for table "test.nlx_bag_info"
+pg_dump: reading row security enabled for table "test.nlx_bag_log_gid_seq"
+pg_dump: reading policies for table "test.nlx_bag_log_gid_seq"
+pg_dump: reading row security enabled for table "test.nlx_bag_log"
+pg_dump: reading policies for table "test.nlx_bag_log"
+pg_dump: reading row security enabled for table "test.woonplaats_gid_seq"
+pg_dump: reading policies for table "test.woonplaats_gid_seq"
+pg_dump: reading row security enabled for table "test.woonplaats"
+pg_dump: reading policies for table "test.woonplaats"
+pg_dump: reading row security enabled for table "test.openbareruimte_gid_seq"
+pg_dump: reading policies for table "test.openbareruimte_gid_seq"
+pg_dump: reading row security enabled for table "test.openbareruimte"
+pg_dump: reading policies for table "test.openbareruimte"
+pg_dump: reading row security enabled for table "test.nummeraanduiding_gid_seq"
+pg_dump: reading policies for table "test.nummeraanduiding_gid_seq"
+pg_dump: reading row security enabled for table "test.nummeraanduiding"
+pg_dump: reading policies for table "test.nummeraanduiding"
+pg_dump: reading row security enabled for table "test.ligplaats_gid_seq"
+pg_dump: reading policies for table "test.ligplaats_gid_seq"
+pg_dump: reading row security enabled for table "test.ligplaats"
+pg_dump: reading policies for table "test.ligplaats"
+pg_dump: reading row security enabled for table "test.standplaats_gid_seq"
+pg_dump: reading policies for table "test.standplaats_gid_seq"
+pg_dump: reading row security enabled for table "test.standplaats"
+pg_dump: reading policies for table "test.standplaats"
+pg_dump: reading row security enabled for table "test.verblijfsobject_gid_seq"
+pg_dump: reading policies for table "test.verblijfsobject_gid_seq"
+pg_dump: reading row security enabled for table "test.verblijfsobject"
+pg_dump: reading policies for table "test.verblijfsobject"
+pg_dump: reading row security enabled for table "test.pand_gid_seq"
+pg_dump: reading policies for table "test.pand_gid_seq"
+pg_dump: reading row security enabled for table "test.pand"
+pg_dump: reading policies for table "test.pand"
+pg_dump: reading row security enabled for table "test.verblijfsobjectpand_gid_seq"
+pg_dump: reading policies for table "test.verblijfsobjectpand_gid_seq"
+pg_dump: reading row security enabled for table "test.verblijfsobjectpand"
+pg_dump: reading policies for table "test.verblijfsobjectpand"
+pg_dump: reading row security enabled for table "test.adresseerbaarobjectnevenadres_gid_seq"
+pg_dump: reading policies for table "test.adresseerbaarobjectnevenadres_gid_seq"
+pg_dump: reading row security enabled for table "test.adresseerbaarobjectnevenadres"
+pg_dump: reading policies for table "test.adresseerbaarobjectnevenadres"
+pg_dump: reading row security enabled for table "test.verblijfsobjectgebruiksdoel_gid_seq"
+pg_dump: reading policies for table "test.verblijfsobjectgebruiksdoel_gid_seq"
+pg_dump: reading row security enabled for table "test.verblijfsobjectgebruiksdoel"
+pg_dump: reading policies for table "test.verblijfsobjectgebruiksdoel"
+pg_dump: reading row security enabled for table "test.gemeente_woonplaats_gid_seq"
+pg_dump: reading policies for table "test.gemeente_woonplaats_gid_seq"
+pg_dump: reading row security enabled for table "test.gemeente_woonplaats"
+pg_dump: reading policies for table "test.gemeente_woonplaats"
+pg_dump: reading row security enabled for table "test.provincie_gemeente_gid_seq"
+pg_dump: reading policies for table "test.provincie_gemeente_gid_seq"
+pg_dump: reading row security enabled for table "test.provincie_gemeente"
+pg_dump: reading policies for table "test.provincie_gemeente"
+pg_dump: reading row security enabled for table "test.ligplaatsactueel"
+pg_dump: reading policies for table "test.ligplaatsactueel"
+pg_dump: reading row security enabled for table "test.ligplaatsactueelbestaand"
+pg_dump: reading policies for table "test.ligplaatsactueelbestaand"
+pg_dump: reading row security enabled for table "test.nummeraanduidingactueel"
+pg_dump: reading policies for table "test.nummeraanduidingactueel"
+pg_dump: reading row security enabled for table "test.nummeraanduidingactueelbestaand"
+pg_dump: reading policies for table "test.nummeraanduidingactueelbestaand"
+pg_dump: reading row security enabled for table "test.openbareruimteactueel"
+pg_dump: reading policies for table "test.openbareruimteactueel"
+pg_dump: reading row security enabled for table "test.openbareruimteactueelbestaand"
+pg_dump: reading policies for table "test.openbareruimteactueelbestaand"
+pg_dump: reading row security enabled for table "test.pandactueel"
+pg_dump: reading policies for table "test.pandactueel"
+pg_dump: reading row security enabled for table "test.pandactueelbestaand"
+pg_dump: reading policies for table "test.pandactueelbestaand"
+pg_dump: reading row security enabled for table "test.standplaatsactueel"
+pg_dump: reading policies for table "test.standplaatsactueel"
+pg_dump: reading row security enabled for table "test.standplaatsactueelbestaand"
+pg_dump: reading policies for table "test.standplaatsactueelbestaand"
+pg_dump: reading row security enabled for table "test.verblijfsobjectactueel"
+pg_dump: reading policies for table "test.verblijfsobjectactueel"
+pg_dump: reading row security enabled for table "test.verblijfsobjectactueelbestaand"
+pg_dump: reading policies for table "test.verblijfsobjectactueelbestaand"
+pg_dump: reading row security enabled for table "test.woonplaatsactueel"
+pg_dump: reading policies for table "test.woonplaatsactueel"
+pg_dump: reading row security enabled for table "test.woonplaatsactueelbestaand"
+pg_dump: reading policies for table "test.woonplaatsactueelbestaand"
+pg_dump: reading row security enabled for table "test.verblijfsobjectpandactueel"
+pg_dump: reading policies for table "test.verblijfsobjectpandactueel"
+pg_dump: reading row security enabled for table "test.verblijfsobjectpandactueelbestaand"
+pg_dump: reading policies for table "test.verblijfsobjectpandactueelbestaand"
+pg_dump: reading row security enabled for table "test.adresseerbaarobjectnevenadresactueel"
+pg_dump: reading policies for table "test.adresseerbaarobjectnevenadresactueel"
+pg_dump: reading row security enabled for table "test.adresseerbaarobjectnevenadresactueelbestaand"
+pg_dump: reading policies for table "test.adresseerbaarobjectnevenadresactueelbestaand"
+pg_dump: reading row security enabled for table "test.verblijfsobjectgebruiksdoelactueel"
+pg_dump: reading policies for table "test.verblijfsobjectgebruiksdoelactueel"
+pg_dump: reading row security enabled for table "test.verblijfsobjectgebruiksdoelactueelbestaand"
+pg_dump: reading policies for table "test.verblijfsobjectgebruiksdoelactueelbestaand"
+pg_dump: reading row security enabled for table "test.gemeente_woonplaatsactueelbestaand"
+pg_dump: reading policies for table "test.gemeente_woonplaatsactueelbestaand"
+pg_dump: reading row security enabled for table "test.provincie_gemeenteactueelbestaand"
+pg_dump: reading policies for table "test.provincie_gemeenteactueelbestaand"
+pg_dump: reading row security enabled for table "test.gt_pk_metadata"
+pg_dump: reading policies for table "test.gt_pk_metadata"
+pg_dump: reading row security enabled for table "test.gemeente"
+pg_dump: reading policies for table "test.gemeente"
+pg_dump: reading row security enabled for table "test.gemeente_gid_seq"
+pg_dump: reading policies for table "test.gemeente_gid_seq"
+pg_dump: reading row security enabled for table "test.provincie"
+pg_dump: reading policies for table "test.provincie"
+pg_dump: reading row security enabled for table "test.provincie_gid_seq"
+pg_dump: reading policies for table "test.provincie_gid_seq"
+pg_dump: reading row security enabled for table "test.adres"
+pg_dump: reading policies for table "test.adres"
+pg_dump: reading row security enabled for table "test.adres_gid_seq"
+pg_dump: reading policies for table "test.adres_gid_seq"
+pg_dump: reading row security enabled for table "test.adres_full"
+pg_dump: reading policies for table "test.adres_full"
+pg_dump: reading row security enabled for table "test.adres_full_gid_seq"
+pg_dump: reading policies for table "test.adres_full_gid_seq"
+pg_dump: reading dependency data
+pg_dump: saving encoding = UTF8
+pg_dump: saving standard_conforming_strings = on
+pg_dump: saving search_path = 
+pg_dump: dumping contents of table "test.adres"
+pg_dump: dumping contents of table "test.adres_full"
+pg_dump: dumping contents of table "test.adresseerbaarobjectnevenadres"
+pg_dump: dumping contents of table "test.gemeente"
+pg_dump: dumping contents of table "test.gemeente_woonplaats"
+pg_dump: dumping contents of table "test.gt_pk_metadata"
+pg_dump: dumping contents of table "test.ligplaats"
+pg_dump: dumping contents of table "test.nlx_bag_info"
+pg_dump: dumping contents of table "test.nlx_bag_log"
+pg_dump: dumping contents of table "test.nummeraanduiding"
+pg_dump: dumping contents of table "test.openbareruimte"
+pg_dump: dumping contents of table "test.pand"
+pg_dump: dumping contents of table "test.provincie"
+pg_dump: dumping contents of table "test.provincie_gemeente"
+pg_dump: dumping contents of table "test.standplaats"
+pg_dump: dumping contents of table "test.verblijfsobject"
+pg_dump: dumping contents of table "test.verblijfsobjectgebruiksdoel"
+pg_dump: dumping contents of table "test.verblijfsobjectpand"
+pg_dump: dumping contents of table "test.woonplaats"
+DEBUG: Configuratiebestand is /Users/just/project/nlextract/git/bag/extract.conf
+INFO: Start 2020-02-06 16:07:55
+DEBUG: verbonden met de database 'bag', schema 'test', connId=5
 DEBUG: database commit ok connId=5
-INFO: SQL van file = /Users/just/project/ogg/nlextract/git/bag/db/script/geocode/geocode-tabellen.sql uitvoeren...
-DEBUG: verbonden met de database 'bag', schema 'public', connId=5
+INFO: SQL van file = /Users/just/project/nlextract/git/bag/db/script/geocode/geocode-tabellen.sql uitvoeren...
+DEBUG: verbonden met de database 'bag', schema 'test', connId=5
 DEBUG: database commit ok connId=5
 DEBUG: database connectie 5 gesloten
 INFO: SQL uitgevoerd OK
-DEBUG: verbonden met de database 'bag', schema 'public', connId=5
+DEBUG: verbonden met de database 'bag', schema 'test', connId=5
 DEBUG: database commit ok connId=5
-INFO: End 2016-09-01 11:00:17
-DEBUG: Configuratiebestand is /Users/just/project/ogg/nlextract/git/bag/extract.conf
-INFO: Start 2016-09-01 11:00:17
-DEBUG: verbonden met de database 'bag', schema 'public', connId=5
+INFO: End 2020-02-06 16:07:55
+DEBUG: Configuratiebestand is /Users/just/project/nlextract/git/bag/extract.conf
+INFO: Start 2020-02-06 16:07:55
+DEBUG: verbonden met de database 'bag', schema 'test', connId=5
 DEBUG: database commit ok connId=5
-INFO: SQL van file = /Users/just/project/ogg/nlextract/git/bag/db/script/geocode/geocode-functies.sql uitvoeren...
-DEBUG: verbonden met de database 'bag', schema 'public', connId=5
-DEBUG: database commit ok connId=5
-DEBUG: database connectie 5 gesloten
-INFO: SQL uitgevoerd OK
-DEBUG: verbonden met de database 'bag', schema 'public', connId=5
-DEBUG: database commit ok connId=5
-INFO: End 2016-09-01 11:00:17
-DEBUG: Configuratiebestand is /Users/just/project/ogg/nlextract/git/bag/extract.conf
-INFO: Start 2016-09-01 11:00:17
-DEBUG: verbonden met de database 'bag', schema 'public', connId=5
-DEBUG: database commit ok connId=5
-INFO: SQL van file = /Users/just/project/ogg/nlextract/git/bag/test/geocode/geocode-functies-test.sql uitvoeren...
-DEBUG: verbonden met de database 'bag', schema 'public', connId=5
+INFO: SQL van file = /Users/just/project/nlextract/git/bag/db/script/geocode/geocode-functies.sql uitvoeren...
+DEBUG: verbonden met de database 'bag', schema 'test', connId=5
 DEBUG: database commit ok connId=5
 DEBUG: database connectie 5 gesloten
 INFO: SQL uitgevoerd OK
-DEBUG: verbonden met de database 'bag', schema 'public', connId=5
+DEBUG: verbonden met de database 'bag', schema 'test', connId=5
 DEBUG: database commit ok connId=5
-INFO: End 2016-09-01 11:00:17
+INFO: End 2020-02-06 16:07:55
+DEBUG: Configuratiebestand is /Users/just/project/nlextract/git/bag/extract.conf
+INFO: Start 2020-02-06 16:07:56
+DEBUG: verbonden met de database 'bag', schema 'test', connId=5
+DEBUG: database commit ok connId=5
+INFO: SQL van file = /Users/just/project/nlextract/git/bag/test/geocode/geocode-functies-test.sql uitvoeren...
+DEBUG: verbonden met de database 'bag', schema 'test', connId=5
+DEBUG: database commit ok connId=5
+DEBUG: database connectie 5 gesloten
+INFO: SQL uitgevoerd OK
+DEBUG: verbonden met de database 'bag', schema 'test', connId=5
+DEBUG: database commit ok connId=5
+INFO: End 2020-02-06 16:07:56

@@ -21,7 +21,7 @@ DATA_DIR=$TEST_DIR/data
 DATA_DUBBEL_DIR=$TEST_DIR/datadubbel
 MUT_DIR=$TEST_DIR/mutatie
 DB_DIR=$BE_HOME_DIR/db
-BAG_EXTRACT=$BE_HOME_DIR/bin/bag-extract.sh
+BAG_EXTRACT="$BE_HOME_DIR/bin/bag-extract.sh -f $BE_HOME_DIR/extract.conf"
 
 # DB leeg en schema aanmaken, met prompt
 $BAG_EXTRACT --dbinit -v
@@ -59,9 +59,9 @@ $BAG_EXTRACT -v -q $DB_DIR/script/adres-tabel-full.sql
 # Adressen CSV uit adres-tabel
 ./adres2csv.sh
 
+./bag-dump.sh
+
 # Geocode tabellen  en functies
 $BAG_EXTRACT -v -q $DB_DIR/script/geocode/geocode-tabellen.sql
 $BAG_EXTRACT -v -q $DB_DIR/script/geocode/geocode-functies.sql
 $BAG_EXTRACT -v -q $TEST_DIR/geocode/geocode-functies-test.sql
-
-
