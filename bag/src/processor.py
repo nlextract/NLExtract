@@ -369,12 +369,7 @@ class Processor:
 
     # Experimenteel: inlezen via COPY ipv INSERT: fikse snelheidswinst
     def dbStoreCopy(self, mode):
-        try:
-            from cStringIO import StringIO
-            Log.log.info("running with cStringIO")
-        except Exception:
-            from StringIO import StringIO
-            Log.log.info("running with StringIO")
+        from io import StringIO
 
         import codecs
         Log.log.startTimer("dbStart mode = " + mode)

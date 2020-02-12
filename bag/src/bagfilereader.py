@@ -10,14 +10,10 @@ import os
 import zipfile
 import csv
 from etree import etree
+from io import StringIO
 from log import Log
 from processor import Processor
 from postgresdb import Database
-
-try:
-    from cStringIO import StringIO
-except Exception:
-    from StringIO import StringIO
 
 
 def fname_key(filenaam):
