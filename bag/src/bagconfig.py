@@ -11,7 +11,7 @@
 import sys
 import os
 
-from ConfigParser import ConfigParser
+from configparser import ConfigParser
 from log import Log
 
 
