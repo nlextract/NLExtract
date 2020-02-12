@@ -10,7 +10,7 @@ import os
 import zipfile
 import csv
 from etree import etree
-from io import StringIO
+from io import BytesIO
 from log import Log
 from processor import Processor
 from postgresdb import Database
@@ -95,7 +95,7 @@ class BAGFileReader:
         if len(filenaam_arr) > 1:
             ext = filenaam_arr[-1].lower()
 
-        # file_buf kan StringIO (stream/buffer) zijn uit zipfile
+        # file_buf kan BytesIO (stream/buffer) zijn uit zipfile
         file_resource = file_path
         if file_buf:
             file_resource = file_buf
@@ -155,6 +155,6 @@ class BAGFileReader:
 
         # Loop door op naam (datum) gesorteerde bestanden (m.n. i.v.m. mutatie-volgorde)
         for naam in sorted(zip_file.namelist(), key=fname_key):
-            self.process_file(naam, StringIO(zip_file.read(naam)))
+            self.process_file(naam, BytesIO(zip_file.read(naam)))
 
         self.database.log_actie('verwerkt', filenaam, 'verwerkt OK')
