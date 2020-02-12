@@ -101,4 +101,8 @@ Daartoe zijn in 2014 in NLExtract drie nieuwe NLExtract Services opgestart.
 * NLExtract Downloads
 * NLExtract Apps
 
+In 2020 zijn de NLExtract Downloads te vinden via https://geotoko.nl.
+Veel informatie en voorbeeldbestanden vind je via https://geocatalogus.nl.
+De "Ga Naar Bron" links verwijzen nar geotoko.nl.
+
 Lees in het volgende hoofdstuk :ref:`services` meer hierover.

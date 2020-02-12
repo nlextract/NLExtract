@@ -17,44 +17,28 @@ Daartoe zijn in 2014 in NLExtract twee nieuwe NLExtract Services opgestart.
 * NLExtract Downloads
 * NLExtract Apps
 
+Sinds februari 2020 zijn de NLExtract Downloads (betaald) te vinden via `geotoko.nl <https://geotoko.nl>`_.
+Veel informatie en voorbeeldbestanden vind je op `geocatalogus.nl <https://geocatalogus.nl>`_ .
+
 .. _nlextract-downloads:
 
 NLExtract Downloads
 -------------------
 
-De `NLExtract Download Service` is simpel maar direct. Dus geen omwegen met Atom feeds of
-eindeloze HTML doorklik-pagina's of zelfs registratie. Alles verloopt via deze basis-link:
-
-http://data.nlextract.nl
+De `NLExtract Download Service` wordt verzorgd via `geotoko.nl <https://geotoko.nl>`_.
 
 Onder andere kunnen hier BAG, BRK, BGT en BRT-Top10NL PostGIS dumps worden gedownload. Deze worden
 zo snel mogelijk ververst waneer nieuwe versies van betreffende datasets uitkomen.
+Normaal gesproken 12x per jaar voor de BAG en BRK-DKK. De BGT wordt maandelijks ververst.
+BRT plm 4x per jaar.
+
 In de README bestanden bij de betreffende downloads vind je meer informatie.
 
 Om gebruik te maken van de database dumps bieden we een overzicht om vlot tot een 'up and running' situatie te komen.
 Kijk hier voor een :ref:`instructie <instructie>`.
 
 Voor gespecialiseerde downloads, bijv voor andere databases of zeg de BAG per gemeente,
-neem :ref:`contact` met ons op!
-
-BAG Downloads
-~~~~~~~~~~~~~
-
-Zie http://data.nlextract.nl/bag. Klik daar verder voor PostGIS database dumps of zelfs
-CSV bestanden van alle BAG adressen.
-
-
-Top10NL Downloads
-~~~~~~~~~~~~~~~~~
-
-Zie http://data.nlextract.nl/top10nl. Klik daar verder voor PostGIS database dumps.
-
-OpenTopo Downloads
-~~~~~~~~~~~~~~~~~~
-
-Zie http://data.nlextract.nl/opentopo. Dit zijn voornamelijk TIFF-bestanden die verder verwerkt moeten
-worden. Kijk ook hieronder bij `NLExtract Apps` of deze niet handiger voor je zijn. Webdiensten (Tiling, WMS) voor
-OpenTopo kaarten vind je ook via `map5.nl <http://map5.nl>`_.
+neem `contact met geotoko.nl  <https://geotoko.nl/contact>`_.
 
 NLExtract Apps
 --------------

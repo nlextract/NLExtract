@@ -2,19 +2,19 @@
 
 
 ***********
-Bag-extract
+BAG-Extract
 ***********
 
-Hieronder staat de handleiding voor het gebruik van de tools voor de BAG, NLExtract-BAG of Bag-extract geheten.
+Hieronder staat de handleiding voor het gebruik van de tools voor de BAG, NLExtract-BAG of BAG-Extract geheten.
 
-Handleiding Bag-extract
+Handleiding BAG-Extract
 =======================
 
-Bag-extract is onderdeel van de NLExtract tools voor het inlezen en verrijken van Kadaster BAG
+BAG-Extract is onderdeel van de NLExtract tools voor het inlezen en verrijken van Kadaster BAG
 (Basisregistratie Adressen en Gebouwen) GML leveringen in (voorlopig) een Postgres/Postgis database.
 
-BAG downloaden
---------------
+BAG Bronbestanden downloaden
+----------------------------
 
 De BAG Leveringsbestanden (totaal plm 1.5 GB .zip) worden iedere maand ververst en zijn te downloaden via deze
 PDOK link: http://geodata.nationaalgeoregister.nl/inspireadressen/atom/inspireadressen.xml (Atom feed).
@@ -24,14 +24,14 @@ ook de "BAG Amstelveen" (5.6 MB) downloaden. Let wel dat de bestandsstructuur va
 BAG PostGIS dumps downloaden
 ----------------------------
 
-Als je geen zin/tijd hebt om NLExtract-BAG zelf te installeren en te draaien, dan kun je ook direct
-PostGIS database en CSV dumps downloaden vanaf http://data.nlextract.nl/bag. Deze worden maandelijks ververst
-direct na uitkomen nieuwe BAG-levering.
+Als je geen zin/tijd hebt om NLExtract-BAG zelf te installeren en te draaien, dan kun je ook de
+PostGIS database en CSV adressen dumps downloaden via https://geotoko.nl.
+Deze worden maandelijks ververst direct na uitkomen nieuwe BAG-levering. Een leveringsbijdrage is vereist.
 
-Wat doet Bag-extract?
+Wat doet BAG-Extract?
 ---------------------
 
-Bag-extract biedt de volgende functionaliteiten:
+BAG-Extract biedt de volgende functionaliteiten:
 
 - Laden van een Kadaster BAG Extract vanuit Kadaster (.zip GML) levering
 - Toepassen van Kadaster BAG mutaties vanuit Kadaster (.zip GML) levering (v1.1.5 en hoger)
@@ -44,7 +44,7 @@ Bag-extract biedt de volgende functionaliteiten:
 - Checkpointing: bijhouden welke bestanden reeds verwerkt t.b.v. herstarts en mutatie-verwerking
 - Logging in database zodat gechecked kan worden waar evt fouten zijn en welke bestanden verwerkt
 
-Bag-extract downloaden
+BAG-Extract downloaden
 ----------------------
 
 - download NLExtract, zie laatste versie op: https://github.com/nlextract/NLExtract/releases. De nieuwste versie staat bovenaan: kies de "real-release" nl  extract zip.
@@ -172,7 +172,7 @@ Installatie (Linux)
 Installatie (Windows)
 ---------------------
 
-De installatie van Bag-extract op Windows werd in het verleden gekenmerkt door lastige installaties, vanwege het feit dat open source ontwikkeling op Windows gefragmenteerd plaatsvindt. Tegenwoordig is het een stuk gemakkelijker om Bag-extract aan de praat te krijgen. Als je zelf Bag-extract wilt uitvoeren, voer dan onderstaande beschrijving uit. Voor het gebruiken van de PostGIS-dump, volg dan de instructie die door Geert Doornbos beschikbaar is gesteld (`work in progress <https://github.com/nlextract/NLExtract/issues/186>`_).
+De installatie van BAG-Extract op Windows werd in het verleden gekenmerkt door lastige installaties, vanwege het feit dat open source ontwikkeling op Windows gefragmenteerd plaatsvindt. Tegenwoordig is het een stuk gemakkelijker om BAG-Extract aan de praat te krijgen. Als je zelf BAG-Extract wilt uitvoeren, voer dan onderstaande beschrijving uit. Voor het gebruiken van de PostGIS-dump, volg dan de instructie die door Geert Doornbos beschikbaar is gesteld (`work in progress <https://github.com/nlextract/NLExtract/issues/186>`_).
 
 Benodigdheden:
 
@@ -210,7 +210,7 @@ Installatie:
     
 - GDAL: voer de installer van QGIS uit. Natuurlijk is niet altijd QGIS nodig, zeker op een server-omgeving. Op een desktop is het wel aan te bevelen, zodat je gelijk het resultaat in de database kunt controleren. Op een server kun je de OSGeo4W-installer gebruiken. Dit is niet getest met NLExtract.
 
-Zie Instellingen_ voor de configuratie en het gebruik van Bag-extract.
+Zie Instellingen_ voor de configuratie en het gebruik van BAG-Extract.
     
 
 Installatie (Mac OSX)
@@ -256,7 +256,7 @@ Commando
 --------
 
 - direct via python "python src/bagextract.py"
-- of (Unix,Linux,Mac) via shell script: "bin/Bag-extract.sh"
+- of (Unix,Linux,Mac) via shell script: "bin/BAG-Extract.sh"
 - Windows: voorlopig alleen via "python src/bagextract.py"
 
  Alle commando's werken onafhankelijk van de plek (directory) waar ze aangeroepen worden
@@ -284,7 +284,7 @@ Voorbeelden
 
     python src/bagextract.py -h
     of
-    bin/Bag-extract.sh -h
+    bin/BAG-Extract.sh -h
 
     Alle commando's kunnen via Python of shell .sh script uitgevoerd vanaf elke directory.
 

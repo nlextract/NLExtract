@@ -2,15 +2,15 @@
 
 
 ***********
-Bgt-extract
+BGT-extract
 ***********
 
 Hieronder staat de handleiding voor het gebruik van de tools om BGT te extraheren. Deze tools
-heten kortweg ``Bgt-extract`` of soms ``NLExtract-BGT``.
+heten kortweg ``Bgt-extract`` of soms ``NLExtract-BGT``. 
 
-.. NB: als je alleen interesse hebt om een PostGIS versie van de laatste BGT te hebben, kun
-   je deze ook downloaden als PostGIS dumpfile via de link http://data.nlextract.nl/bgt/postgis.
-   De dump file (``.backup`` bestand)  kun je direct inlezen in PostGIS, bijv met ``PGAdminIII``.
+   NB: als je alleen interesse hebt om een PostGIS versie van de laatste BGT te hebben, kun
+   je deze ook (betaald) downloaden als PostGIS dumpfile via de link https://geotoko.nl/.
+   De dump file (``.dump`` bestand)  kun je direct inlezen in PostGIS, bijv met ``PGAdminIII``.
    Dan hoef je alle zaken hieronder niet uit te voeren :-).
 
 Om gespecialiseerde extracties bijv naar andere databases zoals Oracle te doen, neem contact op
@@ -44,7 +44,7 @@ Momenteel (juni 2016) zijn veel bronhouders bezig om de BGT te vullen. De omvang
 
 Als je heel Nederland wilt inlezen, kun je het beste het bestand exclusief plaatsbepalingspunten, GML-variant, gebruiken. Zie PDOK voor de directe link. Deze verandert namelijk iedere dag.
 
-Bgt-extract downloaden
+BGT-extract downloaden
 ----------------------
 
 Vind altijd de laatste versie op: https://github.com/nlextract/NLExtract/releases. De nieuwste versie staat bovenaan: kies de "real-release" nlextract zip.
