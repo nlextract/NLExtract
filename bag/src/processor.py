@@ -428,7 +428,7 @@ class Processor:
         for table in buffers:
             buf = buffers[table]
             buf.seek(0)
-            self.database.cursor.copy_from(buf, table, sep='~', null='\\\N', columns=columns[table])
+            self.database.cursor.copy_from(buf, table, sep='~', null=r'\N', columns=columns[table])
 
             buf.close()
 

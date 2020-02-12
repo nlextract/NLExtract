@@ -646,7 +646,7 @@ class BAGrelatieAttribuut(BAGattribuut):
             # Einddatum kan leeg zijn : TODO vang dit op in waardeSQL()
             einddatumWaardeSQL = self._parent.attribuut('einddatumTijdvakGeldigheid').waardeSQL()
             if not einddatumWaardeSQL or einddatumWaardeSQL is '':
-                einddatumWaardeSQL = '\\\N'
+                einddatumWaardeSQL = r'\N'
             self.sql += einddatumWaardeSQL + "~"
 
             for attr in self._extraAttributes:
@@ -657,11 +657,11 @@ class BAGrelatieAttribuut(BAGattribuut):
                     attrWaarde = ''
 
                 if not attrWaarde or attrWaarde is '':
-                    attrWaarde = '\\\N'
+                    attrWaarde = r'\N'
                 self.sql += attrWaarde + "~"
 
             if not waarde:
-                waarde = '\\\N'
+                waarde = r'\N'
             self.sql += waarde + "\n"
 
     # Maak update SQL voor deze relatie

@@ -167,7 +167,7 @@ class BAGObject:
             w = attribuut.waardeSQL()
             if not w:
                 # NULL value
-                w = '\\\N'
+                w = r'\N'
 
             # if attribuut.naam() == 'geom_valid':
             #   w = repr(False)
