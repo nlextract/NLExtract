@@ -9,7 +9,7 @@ import traceback
 # Standard output log writer
 class StdOutput:
     def __call__(self, message):
-        print (message)
+        print(message)
         sys.stdout.flush()
 
 

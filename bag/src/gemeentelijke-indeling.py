@@ -74,7 +74,7 @@ def parse_gemeentelijke_indeling(args):
     try:
         # XML doc parsen naar etree object
         parsed_xml = etree.parse(args.input)
-    except (Exception), e:
+    except (Exception) as e:
         print("Error: Failed to parse file: %s (%s)" % (args.input, str(e)))
         return
 

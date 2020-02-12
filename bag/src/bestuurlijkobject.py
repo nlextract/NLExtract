@@ -80,7 +80,7 @@ class GemeenteWoonplaats(BestuurlijkObject):
         record.extend(emptylist)
         # Stel de lengte van het record object in op 12
         if record[0]:
-            # print record
+            # print(record)
             self.tag = "gem_LVC:GemeenteWoonplaats"
             self.naam = "gemeente_woonplaats"
             self.type = 'G_W'

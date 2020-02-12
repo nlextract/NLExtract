@@ -24,7 +24,7 @@ sys.setdefaultencoding("utf-8")
 
 class ArgParser(argparse.ArgumentParser):
     def error(self, message):
-        print (message)
+        print(message)
         self.print_help()
         sys.exit(2)
 
@@ -60,7 +60,7 @@ def confirm(prompt=None, resp=False):
         if not ans:
             return resp
         if ans not in ['j', 'J', 'n', 'N']:
-            print ('Geef j of n.')
+            print('Geef j of n.')
             continue
         if ans == 'j' or ans == 'J':
             return True
@@ -164,7 +164,7 @@ def main():
         bagObjecten.append(Pand())
 
         for bagObject in bagObjecten:
-            print (bagObject.maakTabel())
+            print(bagObject.maakTabel())
         # Print end time
         Log.log.time("End")
 

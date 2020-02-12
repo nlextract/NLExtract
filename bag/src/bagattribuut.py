@@ -134,7 +134,7 @@ class BAGattribuut:
 
     # Print informatie over het attribuut op het scherm
     def schrijf(self):
-        print "- %-27s: %s" % (self._naam, self._waarde)
+        print("- %-27s: %s" % (self._naam, self._waarde))
 
 
 # --------------------------------------------------------------------------------------------------------
@@ -159,7 +159,7 @@ class BAGstringAttribuut(BAGattribuut):
             # Voor string kolommen (default) willen we NULL, geen lege string
             waarde = None
         if waarde is not None:
-            # print "voor:"+ self._waarde
+            # print("voor:" + self._waarde)
             waarde = waarde.strip()
             # Kan voorkomen dat strings langer zijn in BAG
             # ondanks restrictie vanuit BAG XSD model
@@ -698,10 +698,10 @@ class BAGrelatieAttribuut(BAGattribuut):
         first = True
         for waarde in self._waarde:
             if first:
-                print "- %-27s: %s" % (self.naam(), waarde)
+                print("- %-27s: %s" % (self.naam(), waarde))
                 first = False
             else:
-                print "- %-27s  %s" % ("", waarde)
+                print("- %-27s  %s" % ("", waarde))
 
 
 # --------------------------------------------------------------------------------------------------------

@@ -192,8 +192,8 @@ class BAGDownloadPanel(scrolled.ScrolledPanel):
 
             # start thread
             DownloadThread(url, fsize, local_path)
-        except Exception, e:
-            print "Error: ", e
+        except Exception as e:
+            print("Error: ", e)
 
     # ----------------------------------------------------------------------
     def onDownloadUpdate(self, msg):

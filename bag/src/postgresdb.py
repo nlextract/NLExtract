@@ -122,7 +122,7 @@ class Database:
             rows = self.cursor.fetchall()
             self.connection.commit()
             return rows
-        except (psycopg2.Error,), foutmelding:
+        except (psycopg2.Error,) as foutmelding:
             Log.log.error("*** FOUT *** Kan SQL-statement '%s' niet uitvoeren:\n %s" % (sql, foutmelding))
             return []
 

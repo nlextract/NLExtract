@@ -151,7 +151,7 @@ class BAGObject:
 
     # Print informatie over het object op het scherm
     def schrijf(self):
-        print "*** %s ***" % (self.naam())
+        print("*** %s ***" % (self.naam()))
         for attribuut in self.attributen_volgorde:
             attribuut.schrijf()
         for relatie in self.relaties:

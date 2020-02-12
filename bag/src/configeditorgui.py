@@ -54,4 +54,4 @@ class ConfigEditorPanel(wx.Dialog):
         BAGConfig.config.user = props['Database user']
         BAGConfig.config.port = props['Database poort']
         BAGConfig.config.save()
-        print str(props)
+        print(str(props))

@@ -123,7 +123,7 @@ class BAGFileReader:
             parsed_xml = etree.parse(file_resource)
             bericht = Log.log.endTimer("parseXML")
             self.database.log_actie('xml_parse', filenaam, bericht)
-        except (Exception), e:
+        except (Exception) as e:
             bericht = Log.log.error("fout %s in XML parsen, bestand=%s" % (str(e), filenaam))
             self.database.log_actie('xml_parse', filenaam, bericht, True)
             return
@@ -132,7 +132,7 @@ class BAGFileReader:
             try:
                 self.processor.processGemeentelijkeIndeling(parsed_xml.getroot(), filenaam)
                 self.database.log_actie('xml_processing', filenaam, 'verwerkt OK')
-            except (Exception), e:
+            except (Exception) as e:
                 bericht = Log.log.error("fout %s in XML DOM processing, bestand=%s" % (str(e), filenaam))
                 self.database.log_actie('xml_processing', filenaam, bericht, True)
         else:
@@ -140,7 +140,7 @@ class BAGFileReader:
                 # Verwerken parsed xml: de Processor bepaalt of het een extract of een mutatie is
                 self.processor.processDOM(parsed_xml.getroot(), filenaam)
                 self.database.log_actie('verwerkt', filenaam, 'verwerkt OK')
-            except (Exception), e:
+            except (Exception) as e:
                 bericht = Log.log.error("fout %s in XML DOM processing, bestand=%s" % (str(e), filenaam))
                 self.database.log_actie('xml_processing', filenaam, bericht, True)
 

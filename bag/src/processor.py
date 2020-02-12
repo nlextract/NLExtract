@@ -452,10 +452,10 @@ class Processor:
 # # Writing to a buffer
 # output = StringIO()
 # output.write('This goes into the buffer. ')
-# print >>output, 'And so does this.'
+# print(>>output, 'And so does this.')
 #
 # # Retrieve the value written
-# print output.getvalue()
+# print(output.getvalue())
 #
 # output.close() # discard buffer memory
 #
@@ -463,5 +463,5 @@ class Processor:
 # input = StringIO('Inital value for read buffer')
 #
 # # Read from the buffer
-# print input.read()
+# print(input.read())
 #
