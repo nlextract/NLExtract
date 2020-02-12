@@ -7,11 +7,6 @@ import psycopg2
 from psycopg2.extensions import AsIs
 from decimal import Decimal
 
-# encoding=ISO-8859-1 (utf8)
-import sys
-reload(sys)
-sys.setdefaultencoding('ISO-8859-1')
-
 #set default args as -h , if no args:
 if len(sys.argv) == 1: sys.argv[1:] = ["-h"]
 

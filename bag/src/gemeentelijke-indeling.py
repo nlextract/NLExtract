@@ -43,12 +43,6 @@ import pyExcelerator
 from collections import defaultdict
 from etree import etree, stripschema
 
-# Nodig om output naar console/file van strings goed te krijgen
-# http://www.saltycrane.com/blog/2008/11/python-unicodeencodeerror-ascii-codec-cant-encode-character/
-# anders bijv. deze fout: 'ascii' codec can't encode character u'\xbf' in position 42: ordinal not in range(128)
-reload(sys)
-sys.setdefaultencoding("utf-8")
-
 
 class ArgParser(argparse.ArgumentParser):
     def error(self, message):
