@@ -49,7 +49,7 @@ def confirm(prompt=None, resp=False):
         prompt = '%s ([%s]/%s): ' % (prompt, 'N', 'j')
 
     while True:
-        ans = raw_input(prompt)
+        ans = input(prompt)
         if not ans:
             return resp
         if ans not in ['j', 'J', 'n', 'N']:
