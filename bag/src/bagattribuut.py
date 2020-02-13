@@ -17,9 +17,9 @@ from etree import etree, tagVolledigeNS
 import sys
 
 try:
-    from osgeo import ogr  # apt-get install python-gdal
+    from osgeo import ogr  # apt-get install python3-gdal
 except ImportError:
-    print("FATAAL: GDAL Python bindings zijn niet beschikbaar, installeer bijv met 'apt-get install python-gdal'")
+    print("FATAAL: GDAL Python bindings zijn niet beschikbaar, installeer bijv met 'apt-get install python3-gdal'")
     sys.exit(-1)
 
 

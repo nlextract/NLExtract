@@ -4,7 +4,7 @@
 #
 # Required dependencies (Debian/Ubuntu):
 #
-#  python-excelerator python-lxml
+#  python3-excelerator python3-lxml
 #
 # Required dependencies (PyPi):
 #
