@@ -454,13 +454,13 @@ class BAGpoint(BAGgeoAttribuut):
                 gmlNode = xmlGeometrie.find('./' + tagVolledigeNS("gml:Point", xml.nsmap))
                 if gmlNode is not None:
                     gmlStr = etree.tostring(gmlNode)
-                    self._geometrie = ogr.CreateGeometryFromGML(str(gmlStr))
+                    self._geometrie = ogr.CreateGeometryFromGML(gmlStr.decode())
                 else:
                     # Forceer punt uit Polygoon
                     gmlNode = xmlGeometrie.find('./' + tagVolledigeNS("gml:Polygon", xml.nsmap))
                     if gmlNode is not None:
                         gmlStr = etree.tostring(gmlNode)
-                        self._geometrie = ogr.CreateGeometryFromGML(str(gmlStr))
+                        self._geometrie = ogr.CreateGeometryFromGML(gmlStr.decode())
                         self._geometrie = self._geometrie.Centroid()
         except Exception:
             Log.log.error("ik kan hier echt geen POINT van maken: %s (en zet dit op 0,0,0)" % str(point.text))
@@ -485,7 +485,7 @@ class BAGpolygoon(BAGgeoAttribuut):
             gmlNode = xmlGeometrie.find('./' + tagVolledigeNS("gml:Polygon", xmlGeometrie.nsmap))
             if gmlNode is not None:
                 gmlStr = etree.tostring(gmlNode)
-                self._geometrie = ogr.CreateGeometryFromGML(str(gmlStr))
+                self._geometrie = ogr.CreateGeometryFromGML(gmlStr.decode())
 
 
 # --------------------------------------------------------------------------------------------------------
@@ -511,14 +511,14 @@ class BAGmultiPolygoon(BAGpolygoon):
                 gmlNode = xmlGeometrie.find('./' + tagVolledigeNS("gml:Polygon", xml.nsmap))
                 if gmlNode is not None:
                     gmlStr = etree.tostring(gmlNode)
-                    polygon = ogr.CreateGeometryFromGML(str(gmlStr))
+                    polygon = ogr.CreateGeometryFromGML(gmlStr.decode())
                     self._geometrie = ogr.Geometry(ogr.wkbMultiPolygon)
                     self._geometrie.AddGeometryDirectly(polygon)
 
             else:
                 # MultiSurface
                 gmlStr = etree.tostring(gmlNode)
-                self._geometrie = ogr.CreateGeometryFromGML(str(gmlStr))
+                self._geometrie = ogr.CreateGeometryFromGML(gmlStr.decode())
                 if self._geometrie is None:
                     Log.log.warn("Null MultiSurface in BAGmultiPolygoon: tag=%s parent=%s" % (
                         self._tag, self._parentObj.identificatie()))
