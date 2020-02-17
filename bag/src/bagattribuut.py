@@ -17,9 +17,9 @@ from etree import etree, tagVolledigeNS
 import sys
 
 try:
-    from osgeo import ogr  # apt-get install python-gdal
+    from osgeo import ogr  # apt-get install python3-gdal
 except ImportError:
-    print("FATAAL: GDAL Python bindings zijn niet beschikbaar, installeer bijv met 'apt-get install python-gdal'")
+    print("FATAAL: GDAL Python bindings zijn niet beschikbaar, installeer bijv met 'apt-get install python3-gdal'")
     sys.exit(-1)
 
 
@@ -134,7 +134,7 @@ class BAGattribuut:
 
     # Print informatie over het attribuut op het scherm
     def schrijf(self):
-        print "- %-27s: %s" % (self._naam, self._waarde)
+        print("- %-27s: %s" % (self._naam, self._waarde))
 
 
 # --------------------------------------------------------------------------------------------------------
@@ -159,7 +159,7 @@ class BAGstringAttribuut(BAGattribuut):
             # Voor string kolommen (default) willen we NULL, geen lege string
             waarde = None
         if waarde is not None:
-            # print "voor:"+ self._waarde
+            # print("voor:" + self._waarde)
             waarde = waarde.strip()
             # Kan voorkomen dat strings langer zijn in BAG
             # ondanks restrictie vanuit BAG XSD model
@@ -454,13 +454,13 @@ class BAGpoint(BAGgeoAttribuut):
                 gmlNode = xmlGeometrie.find('./' + tagVolledigeNS("gml:Point", xml.nsmap))
                 if gmlNode is not None:
                     gmlStr = etree.tostring(gmlNode)
-                    self._geometrie = ogr.CreateGeometryFromGML(str(gmlStr))
+                    self._geometrie = ogr.CreateGeometryFromGML(gmlStr.decode())
                 else:
                     # Forceer punt uit Polygoon
                     gmlNode = xmlGeometrie.find('./' + tagVolledigeNS("gml:Polygon", xml.nsmap))
                     if gmlNode is not None:
                         gmlStr = etree.tostring(gmlNode)
-                        self._geometrie = ogr.CreateGeometryFromGML(str(gmlStr))
+                        self._geometrie = ogr.CreateGeometryFromGML(gmlStr.decode())
                         self._geometrie = self._geometrie.Centroid()
         except Exception:
             Log.log.error("ik kan hier echt geen POINT van maken: %s (en zet dit op 0,0,0)" % str(point.text))
@@ -485,7 +485,7 @@ class BAGpolygoon(BAGgeoAttribuut):
             gmlNode = xmlGeometrie.find('./' + tagVolledigeNS("gml:Polygon", xmlGeometrie.nsmap))
             if gmlNode is not None:
                 gmlStr = etree.tostring(gmlNode)
-                self._geometrie = ogr.CreateGeometryFromGML(str(gmlStr))
+                self._geometrie = ogr.CreateGeometryFromGML(gmlStr.decode())
 
 
 # --------------------------------------------------------------------------------------------------------
@@ -511,14 +511,14 @@ class BAGmultiPolygoon(BAGpolygoon):
                 gmlNode = xmlGeometrie.find('./' + tagVolledigeNS("gml:Polygon", xml.nsmap))
                 if gmlNode is not None:
                     gmlStr = etree.tostring(gmlNode)
-                    polygon = ogr.CreateGeometryFromGML(str(gmlStr))
+                    polygon = ogr.CreateGeometryFromGML(gmlStr.decode())
                     self._geometrie = ogr.Geometry(ogr.wkbMultiPolygon)
                     self._geometrie.AddGeometryDirectly(polygon)
 
             else:
                 # MultiSurface
                 gmlStr = etree.tostring(gmlNode)
-                self._geometrie = ogr.CreateGeometryFromGML(str(gmlStr))
+                self._geometrie = ogr.CreateGeometryFromGML(gmlStr.decode())
                 if self._geometrie is None:
                     Log.log.warn("Null MultiSurface in BAGmultiPolygoon: tag=%s parent=%s" % (
                         self._tag, self._parentObj.identificatie()))
@@ -646,7 +646,7 @@ class BAGrelatieAttribuut(BAGattribuut):
             # Einddatum kan leeg zijn : TODO vang dit op in waardeSQL()
             einddatumWaardeSQL = self._parent.attribuut('einddatumTijdvakGeldigheid').waardeSQL()
             if not einddatumWaardeSQL or einddatumWaardeSQL is '':
-                einddatumWaardeSQL = '\\\N'
+                einddatumWaardeSQL = r'\N'
             self.sql += einddatumWaardeSQL + "~"
 
             for attr in self._extraAttributes:
@@ -657,11 +657,11 @@ class BAGrelatieAttribuut(BAGattribuut):
                     attrWaarde = ''
 
                 if not attrWaarde or attrWaarde is '':
-                    attrWaarde = '\\\N'
+                    attrWaarde = r'\N'
                 self.sql += attrWaarde + "~"
 
             if not waarde:
-                waarde = '\\\N'
+                waarde = r'\N'
             self.sql += waarde + "\n"
 
     # Maak update SQL voor deze relatie
@@ -698,10 +698,10 @@ class BAGrelatieAttribuut(BAGattribuut):
         first = True
         for waarde in self._waarde:
             if first:
-                print "- %-27s: %s" % (self.naam(), waarde)
+                print("- %-27s: %s" % (self.naam(), waarde))
                 first = False
             else:
-                print "- %-27s  %s" % ("", waarde)
+                print("- %-27s  %s" % ("", waarde))
 
 
 # --------------------------------------------------------------------------------------------------------

@@ -64,7 +64,7 @@ class Database:
             self.cursor.execute(script)
             self.connection.commit()
             Log.log.info('script uitgevoerd')
-        except cx_Oracle.DatabaseError, e:
+        except cx_Oracle.DatabaseError as e:
             Log.log.error("fout: procedures :%s" % str(e))
 
     def verbind(self, initdb=False):
@@ -78,7 +78,7 @@ class Database:
 
             self.zet_schema()
             Log.log.info("verbonden met sid %s" % (self.sid))
-        except Exception, e:
+        except Exception as e:
             Log.log.error("fout %s: kan geen verbinding maken met sid %s" % (str(e), self.sid))
             sys.exit()
 
@@ -88,6 +88,6 @@ class Database:
                 self.cursor.execute(sql, parameters)
             else:
                 self.cursor.execute(sql)
-        except (cx_Oracle.IntegrityError, cx_Oracle.ProgrammingError), e:
+        except (cx_Oracle.IntegrityError, cx_Oracle.ProgrammingError) as e:
             Log.log.error("fout %s voor query: %s" % (str(e), str(self.cursor.mogrify(sql, parameters))))
             return self.cursor.rowcount

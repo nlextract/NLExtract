@@ -151,7 +151,7 @@ class BAGObject:
 
     # Print informatie over het object op het scherm
     def schrijf(self):
-        print "*** %s ***" % (self.naam())
+        print("*** %s ***" % (self.naam()))
         for attribuut in self.attributen_volgorde:
             attribuut.schrijf()
         for relatie in self.relaties:
@@ -167,7 +167,7 @@ class BAGObject:
             w = attribuut.waardeSQL()
             if not w:
                 # NULL value
-                w = '\\\N'
+                w = r'\N'
 
             # if attribuut.naam() == 'geom_valid':
             #   w = repr(False)

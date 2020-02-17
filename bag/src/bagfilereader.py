@@ -10,14 +10,10 @@ import os
 import zipfile
 import csv
 from etree import etree
+from io import BytesIO
 from log import Log
 from processor import Processor
 from postgresdb import Database
-
-try:
-    from cStringIO import StringIO
-except Exception:
-    from StringIO import StringIO
 
 
 def fname_key(filenaam):
@@ -99,7 +95,7 @@ class BAGFileReader:
         if len(filenaam_arr) > 1:
             ext = filenaam_arr[-1].lower()
 
-        # file_buf kan StringIO (stream/buffer) zijn uit zipfile
+        # file_buf kan BytesIO (stream/buffer) zijn uit zipfile
         file_resource = file_path
         if file_buf:
             file_resource = file_buf
@@ -123,7 +119,7 @@ class BAGFileReader:
             parsed_xml = etree.parse(file_resource)
             bericht = Log.log.endTimer("parseXML")
             self.database.log_actie('xml_parse', filenaam, bericht)
-        except (Exception), e:
+        except (Exception) as e:
             bericht = Log.log.error("fout %s in XML parsen, bestand=%s" % (str(e), filenaam))
             self.database.log_actie('xml_parse', filenaam, bericht, True)
             return
@@ -132,7 +128,7 @@ class BAGFileReader:
             try:
                 self.processor.processGemeentelijkeIndeling(parsed_xml.getroot(), filenaam)
                 self.database.log_actie('xml_processing', filenaam, 'verwerkt OK')
-            except (Exception), e:
+            except (Exception) as e:
                 bericht = Log.log.error("fout %s in XML DOM processing, bestand=%s" % (str(e), filenaam))
                 self.database.log_actie('xml_processing', filenaam, bericht, True)
         else:
@@ -140,7 +136,7 @@ class BAGFileReader:
                 # Verwerken parsed xml: de Processor bepaalt of het een extract of een mutatie is
                 self.processor.processDOM(parsed_xml.getroot(), filenaam)
                 self.database.log_actie('verwerkt', filenaam, 'verwerkt OK')
-            except (Exception), e:
+            except (Exception) as e:
                 bericht = Log.log.error("fout %s in XML DOM processing, bestand=%s" % (str(e), filenaam))
                 self.database.log_actie('xml_processing', filenaam, bericht, True)
 
@@ -159,6 +155,6 @@ class BAGFileReader:
 
         # Loop door op naam (datum) gesorteerde bestanden (m.n. i.v.m. mutatie-volgorde)
         for naam in sorted(zip_file.namelist(), key=fname_key):
-            self.process_file(naam, StringIO(zip_file.read(naam)))
+            self.process_file(naam, BytesIO(zip_file.read(naam)))
 
         self.database.log_actie('verwerkt', filenaam, 'verwerkt OK')

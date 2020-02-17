@@ -4,11 +4,11 @@
 #
 # Required dependencies (Debian/Ubuntu):
 #
-#  python-excelerator python-lxml
+#  python3-xlrd python3-lxml
 #
 # Required dependencies (PyPi):
 #
-#  pyexcelerator lxml
+#  xlrd lxml
 #
 # Copyright (C) 2016, Bas Couwenberg <sebastic@xs4all.nl>
 #
@@ -39,15 +39,9 @@ import os
 import re
 import copy
 import datetime
-import pyExcelerator
+import xlrd
 from collections import defaultdict
 from etree import etree, stripschema
-
-# Nodig om output naar console/file van strings goed te krijgen
-# http://www.saltycrane.com/blog/2008/11/python-unicodeencodeerror-ascii-codec-cant-encode-character/
-# anders bijv. deze fout: 'ascii' codec can't encode character u'\xbf' in position 42: ordinal not in range(128)
-reload(sys)
-sys.setdefaultencoding("utf-8")
 
 
 class ArgParser(argparse.ArgumentParser):
@@ -74,7 +68,7 @@ def parse_gemeentelijke_indeling(args):
     try:
         # XML doc parsen naar etree object
         parsed_xml = etree.parse(args.input)
-    except (Exception), e:
+    except (Exception) as e:
         print("Error: Failed to parse file: %s (%s)" % (args.input, str(e)))
         return
 
@@ -173,11 +167,11 @@ def write_gemeentelijke_indeling(args, gemeentelijke_indeling):
 
         root.append(indeling)
 
-    if args.debug:
+    if args.dry_run:
         if args.verbose:
             print("Not saving file: %s (DRY-RUN)" % args.output)
 
-        print(etree.tostring(doc, pretty_print=True, xml_declaration=True, encoding='UTF-8'))
+        print(etree.tostring(doc, pretty_print=True, xml_declaration=True, encoding='UTF-8').decode())
     else:
         if args.verbose:
             print("Saving file: %s" % args.output)
@@ -255,12 +249,14 @@ def parse_cbs_data(args):
     if args.verbose:
         print("Parsing XLS file: %s" % args.file)
 
-    workbook = pyExcelerator.parse_xls(args.file)
+    workbook = xlrd.open_workbook(args.file)
 
     cbs_data = hash()
 
-    for sheet_name, values in workbook:
-        value = values[(0, 0)]
+    for sheet_name in workbook.sheet_names():
+        sheet = workbook.sheet_by_name(sheet_name)
+
+        value = sheet.cell_value(0, 0)
 
         if not value:
             if args.verbose:
@@ -269,11 +265,8 @@ def parse_cbs_data(args):
             continue
 
         header = []
-        for i in range(0, 6):
-            if (0, i) not in values:
-                break
-
-            value = values[(0, i)]
+        for i in range(0, sheet.ncols):
+            value = sheet.cell_value(0, i)
 
             header.append(value)
 
@@ -373,14 +366,12 @@ def parse_cbs_data(args):
 
             return
 
-        row_max = len(values) / len(column)
-
-        for row in range(1, row_max):
+        for row in range(1, sheet.nrows):
             record = {}
 
             columns = ['gemeentecode', 'gemeentenaam', 'provinciecode', 'provincienaam']
             for key in columns:
-                value = values[(row, column[key])]
+                value = sheet.cell_value(row, column[key])
 
                 record[key] = value
 

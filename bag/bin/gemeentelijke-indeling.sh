@@ -19,8 +19,8 @@ PY_SCRIPT=$BASEDIR/src/gemeentelijke-indeling.py
 # uitvoeren Python script met alle meegegeven args
 ret=`python -c 'import sys; print("%i" % (sys.hexversion<0x03000000))'`
 if [ $ret -eq 0 ]; then
-    #Python 3 is de standaard, roep python2 aan.
-    python2 $PY_SCRIPT "$@"
-else
+    #Python 3 is de standaard, roep python aan.
     python $PY_SCRIPT "$@"
+else
+    python3 $PY_SCRIPT "$@"
 fi

@@ -369,14 +369,8 @@ class Processor:
 
     # Experimenteel: inlezen via COPY ipv INSERT: fikse snelheidswinst
     def dbStoreCopy(self, mode):
-        try:
-            from cStringIO import StringIO
-            Log.log.info("running with cStringIO")
-        except Exception:
-            from StringIO import StringIO
-            Log.log.info("running with StringIO")
+        from io import StringIO
 
-        import codecs
         Log.log.startTimer("dbStart mode = " + mode)
         self.database.verbind()
 
@@ -397,10 +391,8 @@ class Processor:
                 # Maak buffer eenmalig aan per tabel
                 if bagObject.naam() not in buffers:
                     buffer = StringIO()
-                    # cStringIO heeft niet standaard UTF-8 support en BAG is in UTF-8
-                    bufferUTF8 = codecs.getwriter("utf8")(buffer)
 
-                    buffers[bagObject.naam()] = bufferUTF8
+                    buffers[bagObject.naam()] = buffer
 
                 # Voeg de inhoud aan buffer toe
                 bagObject.maakCopySQL(buffers[bagObject.naam()])
@@ -414,9 +406,7 @@ class Processor:
                 if relatie.relatieNaam() not in buffers:
                     buffer = StringIO()
 
-                    # cStringIO heeft niet standaard UTF-8 support en BAG is in UTF-8
-                    bufferUTF8 = codecs.getwriter("utf8")(buffer)
-                    buffers[relatie.relatieNaam()] = bufferUTF8
+                    buffers[relatie.relatieNaam()] = buffer
 
                 buffers[relatie.relatieNaam()].write(relatie.sql)
                 # Kolom namen
@@ -428,7 +418,7 @@ class Processor:
         for table in buffers:
             buf = buffers[table]
             buf.seek(0)
-            self.database.cursor.copy_from(buf, table, sep='~', null='\\\N', columns=columns[table])
+            self.database.cursor.copy_from(buf, table, sep='~', null=r'\N', columns=columns[table])
 
             buf.close()
 
@@ -452,10 +442,10 @@ class Processor:
 # # Writing to a buffer
 # output = StringIO()
 # output.write('This goes into the buffer. ')
-# print >>output, 'And so does this.'
+# print(>>output, 'And so does this.')
 #
 # # Retrieve the value written
-# print output.getvalue()
+# print(output.getvalue())
 #
 # output.close() # discard buffer memory
 #
@@ -463,5 +453,5 @@ class Processor:
 # input = StringIO('Inital value for read buffer')
 #
 # # Read from the buffer
-# print input.read()
+# print(input.read())
 #

@@ -15,16 +15,9 @@ from log import Log
 from bagconfig import BAGConfig
 
 
-# Nodig om output naar console/file van strings goed te krijgen
-# http://www.saltycrane.com/blog/2008/11/python-unicodeencodeerror-ascii-codec-cant-encode-character/
-# anders bijv. deze fout: 'ascii' codec can't encode character u'\xbf' in position 42: ordinal not in range(128)
-reload(sys)
-sys.setdefaultencoding("utf-8")
-
-
 class ArgParser(argparse.ArgumentParser):
     def error(self, message):
-        print (message)
+        print(message)
         self.print_help()
         sys.exit(2)
 
@@ -56,11 +49,11 @@ def confirm(prompt=None, resp=False):
         prompt = '%s ([%s]/%s): ' % (prompt, 'N', 'j')
 
     while True:
-        ans = raw_input(prompt)
+        ans = input(prompt)
         if not ans:
             return resp
         if ans not in ['j', 'J', 'n', 'N']:
-            print ('Geef j of n.')
+            print('Geef j of n.')
             continue
         if ans == 'j' or ans == 'J':
             return True
@@ -164,7 +157,7 @@ def main():
         bagObjecten.append(Pand())
 
         for bagObject in bagObjecten:
-            print (bagObject.maakTabel())
+            print(bagObject.maakTabel())
         # Print end time
         Log.log.time("End")
 
