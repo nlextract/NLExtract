@@ -1,11 +1,83 @@
-Dit bestand bevat versie informatie voor NLExtract. Versies en snapshots zijn te downloaden
-via de link: https://github.com/nlextract/NLExtract/releases. De nieuwste versie staat bovenaan: kies de "real-release" nlextract zip.
+Dit bestand bevat versie informatie voor NLExtract.
+Versies en snapshots zijn te downloaden
+via de link: https://github.com/nlextract/NLExtract/releases.
+De nieuwste versie staat bovenaan: kies de "real-release" nlextract zip.
 De rest ligt nog open afhankelijk van wensen gebruikers en natuurlijk eventuele bugs.
 
-ONGEPLAND
-- AHN
-- Linked Data
-- Top10NL naar Oracle,
+v1.5.0 - ongepland
+
+Vnl Py2 naar Py3 migratie.
+
+v1.4.0 - 17.feb.2020
+
+Zie Milestone:
+https://github.com/nlextract/NLExtract/milestone/11?closed=1
+
+Algemeen
+
+Vervang referenties aan http://www.nlextract/file-cabinet (link rot) bag-extract documentation enhancement
+#274 by reinvantveer was merged on Dec 20, 2019 • Approved
+
+BAG
+
+BAG: neem verkorteopenbareruimtenaam op in adres-dumps bag-extract
+#273 by justb4 was closed on Jan 11 2020
+
+Update gemeente-provincie koppeling voor 2019. bag-extract
+#255 by sebastic was merged on Oct 18, 2018
+
+Timestamp with timezone in postgres bag-extract bgt-extract brk-extract top10-extract
+#223 by arjennienhuis was closed on Mar 7, 2018
+
+Set 'actueel' views use now() instead of localtime bag-extract
+#243 by borrob was merged on Mar 4, 2018
+
+BAG Identifier velden als strings in DB opnemen bag-extract
+#108 by justb4 was closed on Feb 5, 2018
+
+BAG identifiers naar 16 char strings bag-extract
+#236 by borrob was merged on Feb 2, 2018
+
+Bag timezone bag-extract
+#233 by borrob was merged on Jan 23, 2018
+
+update bronhouders per 2018-01-01 bag-extract
+#230 by leonmvd was merged on Dec 11, 2017
+
+BGT
+Nieuwe bronhouders bgt per januari 2019 bgt-extract
+#261 by leonmvd was merged on Dec 15, 2018
+
+Update bronhouders.csv bgt-extract
+#254 by leonmvd was merged on Oct 1, 2018
+
+Regressie-issue openbareruimtelabels bgt-extract
+#240 by fsteggink was closed on Apr 23, 2018
+
+Verwijderen bestaande input bij BGT import bgt-extract
+#205 by skinkie was closed on Mar 8, 2018
+
+Onderscheid geometrietypen? bgt-extract
+#163 by fsteggink was closed on Mar 1, 2018
+
+BGT Extract: Error verwijderen .gfs bgt-extract
+#226 by justb4 was closed on Mar 1, 2018
+
+BGT: 2d suffix van tabellen weghalen bgt-extract
+#237 by fsteggink was closed on Feb 8, 2018
+
+CURVEPOLYGON in BGT-dump bgt-extract
+#222 by arjennienhuis was closed on Jan 31, 2018
+
+Nummeraanduidingen in BGT hebben geen verwijzing meer naar pand bgt-extract
+#225 by fsteggink was closed on Jan 31, 2018
+
+Bgt timezone
+#234 by borrob was merged on Jan 28, 2018
+
+BRT - TOP10NL
+top10nl: importeerd niet alle objecten top10-extract
+#232 by VNuhaan was closed on Jan 24, 2018
 
 v1.3.0 - 6.nov.2017
 
