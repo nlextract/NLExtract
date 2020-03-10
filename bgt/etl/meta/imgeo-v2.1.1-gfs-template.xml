@@ -478,7 +478,7 @@
     </PropertyDefn>
     <PropertyDefn>
       <Name>naam</Name>
-      <Name>naam</Name>
+      <ElementPath>naam</ElementPath>
       <Type>String</Type>
       <Width>255</Width>
     </PropertyDefn>
