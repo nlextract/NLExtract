@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="UTF-8"?><schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:brk_krt="http://www.kadaster.nl/schemas/brkkadastralekaart/v20160101" xmlns:gml="http://www.opengis.net/gml/3.2" elementFormDefault="qualified" targetNamespace="http://www.kadaster.nl/schemas/brkkadastralekaart/v20160101" version="1.1.0">
+  <annotation>
+    <documentation>http://www.kadaster.nl/schemas/brkkadastralekaart: ---IMKAD---
+Dit is het Informatiemodel Kadaster (IMKAD), een sectormodel conform NEN3610-2011. 
+
+Voor wijzigingen ten opzichte van de laatst gepubliceerde versie, zie de release notes.</documentation>
+  </annotation>
+  <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+  <!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+  <element name="KadasterHistorie" substitutionGroup="gml:AbstractObject" type="brk_krt:KadasterHistorieType">
+    <annotation>
+      <documentation>---IMKAD---
+
+---CDMKAD---
+Gegevens waarmee historie vastgelegd wordt. Historie betreft alleen voorkomens van objecten, dus het object op een bepaald moment. De historie is conform het Kadaster historiemodel.
+
+Alle datums in dit gegevensgroeptype moeten voldoen aan de datumdefinitie zoals vastgelegd in het Kadaster Historie Model: yyyy-mm-dd:hh:mm:ss.fff (datum + tijd met miliseconden).</documentation>
+    </annotation>
+  </element>
+  <complexType name="KadasterHistorieType">
+    <sequence>
+      <element name="logischTijdstipOntstaan" type="dateTime">
+        <annotation>
+          <documentation>---CDMKAD---
+Het moment waarop het voorkomen  in de werkelijkheid is ontstaan.</documentation>
+        </annotation>
+      </element>
+      <element minOccurs="0" name="logischTijdstipVervallen" type="dateTime">
+        <annotation>
+          <documentation>---CDMKAD---
+Het moment waarop het voorkomen  in de werkelijkheid is vervallen. Wanneer deze waarde niet is opgegeven
+is de instantie nog geldig.</documentation>
+        </annotation>
+      </element>
+    </sequence>
+  </complexType>
+  <complexType name="KadasterHistoriePropertyType">
+    <sequence>
+      <element ref="brk_krt:KadasterHistorie"/>
+    </sequence>
+  </complexType>
+  <element name="KadastraleGemeenteKeuze" substitutionGroup="gml:AbstractObject" type="brk_krt:KadastraleGemeenteKeuzeType"/>
+  <complexType name="KadastraleGemeenteKeuzeType">
+    <choice>
+      <element name="AKRKadastraleGemeenteCode" type="gml:CodeType">
+        <annotation>
+          <documentation>Aanvulling op IMKAD t.b.v. ondersteuning definities van . 
+AN5</documentation>
+        </annotation>
+      </element>
+      <element name="kadastraleGemeente" type="gml:CodeType">
+        <annotation>
+          <documentation>---CDMKAD---
+De kadastrale gemeente, deel van de kadastrale aanduiding van de onroerende zaak. De waarden komen uit een waardenlijst.
+
+AN50</documentation>
+        </annotation>
+      </element>
+    </choice>
+  </complexType>
+  <complexType name="KadastraleGemeenteKeuzePropertyType">
+    <sequence>
+      <element ref="brk_krt:KadastraleGemeenteKeuze"/>
+    </sequence>
+  </complexType>
+  <element name="KadastraleGrens" substitutionGroup="gml:AbstractFeature" type="brk_krt:KadastraleGrensType"/>
+  <complexType name="KadastraleGrensType">
+    <complexContent>
+      <extension base="gml:AbstractFeatureType">
+        <sequence>
+          <element name="identificatie" type="brk_krt:NEN3610IDPropertyType">
+            <annotation>
+              <documentation>Unieke aanduiding.</documentation>
+            </annotation>
+          </element>
+          <element name="grenslijn" type="gml:CurvePropertyType"/>
+          <element name="type" type="gml:CodeType"/>
+          <element minOccurs="0" name="perceelLinks" type="brk_krt:PerceelIdPropertyType"/>
+          <element minOccurs="0" name="perceelRechts" type="brk_krt:PerceelIdPropertyType"/>
+          <element name="historie" type="brk_krt:KadasterHistoriePropertyType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="KadastraleGrensPropertyType">
+    <sequence minOccurs="0">
+      <element ref="brk_krt:KadastraleGrens"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="KadastraleKaartCollection" substitutionGroup="gml:AbstractGML" type="brk_krt:KadastraleKaartCollectionType"/>
+  <complexType name="KadastraleKaartCollectionType">
+    <complexContent>
+      <extension base="gml:AbstractGMLType">
+        <sequence>
+          <element maxOccurs="unbounded" minOccurs="0" name="grensMember">
+            <complexType>
+              <complexContent>
+                <extension base="gml:AbstractFeatureMemberType">
+                  <sequence minOccurs="0">
+                    <element ref="brk_krt:KadastraleGrens"/>
+                  </sequence>
+                  <attributeGroup ref="gml:AssociationAttributeGroup"/>
+                </extension>
+              </complexContent>
+            </complexType>
+          </element>
+          <element maxOccurs="unbounded" minOccurs="0" name="perceelMember">
+            <complexType>
+              <complexContent>
+                <extension base="gml:AbstractFeatureMemberType">
+                  <sequence minOccurs="0">
+                    <element ref="brk_krt:Perceel"/>
+                  </sequence>
+                  <attributeGroup ref="gml:AssociationAttributeGroup"/>
+                </extension>
+              </complexContent>
+            </complexType>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="KadastraleKaartCollectionPropertyType">
+    <sequence minOccurs="0">
+      <element ref="brk_krt:KadastraleKaartCollection"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="NEN3610ID" substitutionGroup="gml:AbstractObject" type="brk_krt:NEN3610IDType">
+    <annotation>
+      <documentation>---IMKAD---
+Identificatiegegevens voor de universeel unieke identificatie van een object
+
+De opbouw van NEN3610ID is gebaseerd op NEN3610:2011.
+
+Voor perceel is de namespace altijd: NL.IMKAD.KadastraalObject
+Voor perceelgrens is de namespacec altijd: NL.IMKAD.KadastraleGrens 
+
+Er worden geen voorloop 0-en gebruikt in de lokaalID.</documentation>
+    </annotation>
+  </element>
+  <complexType name="NEN3610IDType">
+    <sequence>
+      <element name="namespace" type="string"/>
+      <element name="lokaalID" type="string"/>
+    </sequence>
+  </complexType>
+  <complexType name="NEN3610IDPropertyType">
+    <sequence>
+      <element ref="brk_krt:NEN3610ID"/>
+    </sequence>
+  </complexType>
+  <element name="Perceel" substitutionGroup="brk_krt:_OnroerendeZaak" type="brk_krt:PerceelType"/>
+  <complexType name="PerceelType">
+    <complexContent>
+      <extension base="brk_krt:_OnroerendeZaakType">
+        <sequence>
+          <element name="begrenzingPerceel" type="gml:SurfacePropertyType"/>
+          <element name="kadastraleGrootte" type="brk_krt:TypeOppervlakPropertyType">
+            <annotation>
+              <documentation>---CDMKAD---
+Oppervlak grootte, in vierkante meters. Deze kan vastgesteld zijn of voorlopig, dit is af te leiden uit het type van de kadastrale grens, zie functionele documentatie.</documentation>
+            </annotation>
+          </element>
+          <element name="perceelnummerRotatie" type="double">
+            <annotation>
+              <documentation>Een rotatie van 0 betekent dat het perceelnummer in de kaart evenwijzig aan de x-as van de kaart staat.</documentation>
+            </annotation>
+          </element>
+          <element name="perceelnummerVerschuiving" type="brk_krt:TypePerceelnummerVerschuivingPropertyType">
+            <annotation>
+              <documentation>Een verschuiving anders dan 0,0 betekent dat het perceelnummer in de kaart is bijgepijld.</documentation>
+            </annotation>
+          </element>
+          <element name="plaatscoordinaten" type="gml:PointPropertyType">
+            <annotation>
+              <documentation>---CDMKAD---
+De aanduiding van een kaartpunt voor de weergave van de identificatie van een perceel (centroïde).
+
+Door de keuze van het nulpunt geldt dat zowel de x-coordinaat als de y-coordinaat altijd positief zijn.</documentation>
+            </annotation>
+          </element>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="PerceelPropertyType">
+    <sequence minOccurs="0">
+      <element ref="brk_krt:Perceel"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element name="PerceelId" substitutionGroup="gml:AbstractObject" type="brk_krt:PerceelIdType">
+    <annotation>
+      <documentation>De logische identificatie van een perceel object, welke over meerdere versies van het object constant is.</documentation>
+    </annotation>
+  </element>
+  <complexType name="PerceelIdType">
+    <sequence>
+      <element name="identificatie" type="brk_krt:NEN3610IDPropertyType">
+        <annotation>
+          <documentation>---CDMKAD---
+De Kadaster identificatie is een door het Kadaster toegekend landelijk uniek nummer aan dit object binnen de kadastrale registratie.</documentation>
+        </annotation>
+      </element>
+    </sequence>
+  </complexType>
+  <complexType name="PerceelIdPropertyType">
+    <sequence>
+      <element ref="brk_krt:PerceelId"/>
+    </sequence>
+  </complexType>
+  <element name="TypeKadastraleAanduiding" substitutionGroup="gml:AbstractObject" type="brk_krt:TypeKadastraleAanduidingType">
+    <annotation>
+      <documentation>---IMKAD---
+
+---CDMKAD---
+Kadastrale aanduiding is de unieke aanduiding van een onroerende zaak, die door het kadaster wordt vastgesteld.
+
+Percelen worden kadastraal aangeduid door vermelding van achtereenvolgens de kadastrale gemeente en sectie, waarin de percelen en gedeelten van percelen zijn gelegen waarvan het grondgebied tot die zaak behoort, alsmede de nummers van die percelen. Voor een onroerende zaak die zich krachtens een opstalrecht op, in of boven de grond van een ander bevindt, geldt dezelfde kadastrale aanduiding als van de onroerende zaak die met dat opstalrecht is bezwaard. Dit is van overeenkomstige toepassing op een onroerende zaak die zich op, in of boven de grond van een ander bevindt krachtens een recht als bedoeld in het voor 1 januari 1992 geldende artikel 5, derde lid, onder b, laatste zinsnede, van de Belemmeringenwet Privaatrecht. 
+
+Appartementsrechten worden kadastraal aangeduid door de vermelding van achtereenvolgens de kadastrale gemeente en sectie, waarin de in de splitsing betrokken percelen zijn gelegen, de complexaanduiding en de appartementsindex. De complexaanduiding bestaat uit het voor de in de splitsing betrokken percelen vastgestelde complexnummer, gevolgd door de hoofdletter A. Onze Minister stelt regelen vast omtrent de vaststelling van het complexnummer.</documentation>
+    </annotation>
+  </element>
+  <complexType name="TypeKadastraleAanduidingType">
+    <sequence>
+      <element name="kadastraleGemeente" type="brk_krt:KadastraleGemeenteKeuzePropertyType"/>
+      <element name="sectie" type="string">
+        <annotation>
+          <documentation>&lt;font color="#0f0f0f"&gt;---CDMKAD---&lt;/font&gt;
+&lt;font color="#0f0f0f"&gt;Sectie is een onderverdeling van de kadastrale gemeente, bedoeld om het werk van de meetdienst en de kadastrale kaarten overzichtelijk te houden. &lt;/font&gt;</documentation>
+        </annotation>
+      </element>
+      <element name="perceelnummer" type="integer">
+        <annotation>
+          <documentation>---CDMKAD---
+Het perceelnummer dat een geheel perceel of een complex uniek identificeert binnen de sectie.</documentation>
+        </annotation>
+      </element>
+    </sequence>
+  </complexType>
+  <complexType name="TypeKadastraleAanduidingPropertyType">
+    <sequence>
+      <element ref="brk_krt:TypeKadastraleAanduiding"/>
+    </sequence>
+  </complexType>
+  <element name="TypeOppervlak" substitutionGroup="gml:AbstractObject" type="brk_krt:TypeOppervlakType">
+    <annotation>
+      <documentation>---IMKAD---
+
+---CDMKAD---
+Oppervlakte.</documentation>
+    </annotation>
+  </element>
+  <complexType name="TypeOppervlakType">
+    <sequence>
+      <element name="waarde" type="double">
+        <annotation>
+          <documentation>---CDMKAD---
+Oppervlak grootte, in vierkante meters.</documentation>
+        </annotation>
+      </element>
+      <element minOccurs="0" name="soortGrootte" type="gml:CodeType"/>
+    </sequence>
+  </complexType>
+  <complexType name="TypeOppervlakPropertyType">
+    <sequence>
+      <element ref="brk_krt:TypeOppervlak"/>
+    </sequence>
+  </complexType>
+  <element name="TypePerceelnummerVerschuiving" substitutionGroup="gml:AbstractObject" type="brk_krt:TypePerceelnummerVerschuivingType">
+    <annotation>
+      <documentation>---IMKAD---
+
+---CDMKAD---
+Verschuiving van het perceelnummer ten behoeve van visualisatie op een kaart. Dit voorkomt dat perceelnummers van kleine percelen elkaar overlappen.</documentation>
+    </annotation>
+  </element>
+  <complexType name="TypePerceelnummerVerschuivingType">
+    <sequence>
+      <element name="deltaX" type="double">
+        <annotation>
+          <documentation>---CDMKAD---
+Verschuiving op de X as.</documentation>
+        </annotation>
+      </element>
+      <element name="deltaY" type="double">
+        <annotation>
+          <documentation>---CDMKAD---
+Verschuiving op de Y as.</documentation>
+        </annotation>
+      </element>
+    </sequence>
+  </complexType>
+  <complexType name="TypePerceelnummerVerschuivingPropertyType">
+    <sequence>
+      <element ref="brk_krt:TypePerceelnummerVerschuiving"/>
+    </sequence>
+  </complexType>
+  <element abstract="true" name="_KadastraalObject" substitutionGroup="gml:AbstractFeature" type="brk_krt:_KadastraalObjectType"/>
+  <complexType abstract="true" name="_KadastraalObjectType">
+    <complexContent>
+      <extension base="gml:AbstractFeatureType">
+        <sequence>
+          <element name="identificatie" type="brk_krt:NEN3610IDPropertyType">
+            <annotation>
+              <documentation>---CDMKAD---
+De Kadaster identificatie is een door het Kadaster toegekend landelijk uniek nummer aan dit object binnen de kadastrale registratie.</documentation>
+            </annotation>
+          </element>
+          <element name="historie" type="brk_krt:KadasterHistoriePropertyType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="_KadastraalObjectPropertyType">
+    <sequence minOccurs="0">
+      <element ref="brk_krt:_KadastraalObject"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+  <element abstract="true" name="_OnroerendeZaak" substitutionGroup="brk_krt:_KadastraalObject" type="brk_krt:_OnroerendeZaakType"/>
+  <complexType abstract="true" name="_OnroerendeZaakType">
+    <complexContent>
+      <extension base="brk_krt:_KadastraalObjectType">
+        <sequence>
+          <element name="kadastraleAanduiding" type="brk_krt:TypeKadastraleAanduidingPropertyType"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="_OnroerendeZaakPropertyType">
+    <sequence minOccurs="0">
+      <element ref="brk_krt:_OnroerendeZaak"/>
+    </sequence>
+    <attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </complexType>
+</schema>

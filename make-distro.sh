@@ -1,43 +1,53 @@
 #!/bin/bash
 #
-# Make a distribution: check out from Git (including Stetl) and create .tar.gs
+# Make a distribution: check out from Git (including Stetl) and create .tar.gz and .zip.
 #
 
-# provide version via commandline: if none given, use datetime
-version=$1
-if [ -z "$version" ]; then
-	version=`date +%Y%H%d-%H%M`
-fi
+function usage() {
+	echo "Usage: $0 versie [GitHub branch]"
+	echo "bijv: $0 1.4.1 master"
+	exit 1
+}
 
-id="nlextract-${version}"
-target="${id}.tar.gz"
+# At least version needed
+VERSION=${1}
+BRANCH=${2:-master}
 
-/bin/rm -f ${target} > /dev/null 2>&1
+[[ -z ${VERSION} ]] && usage
 
-# get clone from git into version dir
-git clone  --recursive https://github.com/nlextract/NLExtract.git ${id}
+# Vars
+DISTRO_NAME="nlextract-${VERSION}"
+DISTRO_TAR_GZ="${DISTRO_NAME}.tar.gz"
+DISTRO_ZIP="${DISTRO_NAME}.zip"
 
-# create documentation
-pushd ${id}/doc
+# Clean existing version resources
+/bin/rm -rf ${DISTRO_NAME} ${DISTRO_TAR_GZ} ${DISTRO_ZIP} > /dev/null 2>&1
+
+# Get clone from git of BRANCH into VERSION dir
+git clone -b ${BRANCH} --single-branch --recursive https://github.com/nlextract/NLExtract.git ${DISTRO_NAME}
+
+# Create documentation
+pushd ${DISTRO_NAME}/doc
 make html
-/bin/rm -f make.bat Makefile
-/bin/rm -rf source
+/bin/rm -rf source make.bat Makefile
 mv build/html/* .
 /bin/rm -rf build
 popd
 
-pushd ${id}
+# Prepare distro files
+
 # Take only relevant dirs from checked out GH sources
 # Remove dirs not to be included
-excludes="*.sh .git externals/stetl/.git  3d ahn2 bag/build bag/dist bgt/data bgt/doc bgt/style bonnebladen brk/dkk opentopo tools top10nl/test top10nl/doc"
-/bin/rm -rf ${excludes}
+pushd ${DISTRO_NAME}
+excludes="*.sh .git .gitignore .gitmodules .flake8 externals/stetl/.git externals/stetl/.gitignore bag/build bag/dist bgt/data bgt/doc bgt/style brk/info brt/top10nl/doc brt/top10nl/style"
+/bin/rm -rf ${excludes} > /dev/null 2>&1
 
 # Make .sh files executable
 find . -name *.sh | xargs chmod +x
 popd
 
 # create archives .tar.gz and .zip
-tar -zcvf ${target} ${id}
+tar -zcvf ${DISTRO_TAR_GZ} ${DISTRO_NAME}
+zip -r ${DISTRO_ZIP} ${DISTRO_NAME}
 
-target="${id}.zip"
-zip -r ${target} ${id}
+echo "ALL DONE: ${DISTRO_TAR_GZ} and ${DISTRO_ZIP}"

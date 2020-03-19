@@ -1,13 +1,15 @@
 # -*- coding: utf-8 -*-
 #
-# Filter that deals with subfeatures in BGT GML files.
+# Filter that extracts subfeatures from BGT or BGT-derived CityGML files.
 #
-# Author: Frank Steggink
+# Author: Frank Steggink (original)
+# Author: Just van den Broecke - make more robust, handle non-CityGML files (BRK e.g.)
+#
 
 import os
 
 from copy import deepcopy
-# We need specifically lxml, because of the incremental XML generation
+# We need specifically lxml, no fallback, because of the incremental XML generation
 from lxml import etree
 from stetl.component import Config
 from stetl.filter import Filter
@@ -19,8 +21,8 @@ log = Util.get_log("subfeaturehandler")
 
 class SubFeatureHandler(Filter):
     """
-    This filter checks whether the data file contains the given parent features. If this is the case, the parent feature
-    and subfeatures are split into different features.
+    This Filter checks whether the data file contains the given parent features. If this is the case, each parent feature
+    and its subfeatures are extracted and split into individual features and written to a new CityGML file.
     """
 
     # Start attribute config meta
@@ -89,39 +91,28 @@ class SubFeatureHandler(Filter):
     def __init__(self, configdict, section, consumes=FORMAT.string, produces=FORMAT.string):
         Filter.__init__(self, configdict, section, consumes, produces)
 
-    def check_required_config_option(self, option, option_name):
-        if option is None:
-            # If the required option is not present:
-            err_s = 'The %s needs to be configured' % option_name
-            log.error(err_s)
-            raise ValueError(err_s)
-
     def init(self):
-        log.info('Init: SubFeatureHandler')
-        self.check_required_config_option(self.temp_file, 'temp_file')
-        self.check_required_config_option(self.parent_tag_ns, 'parent_tag_ns')
-        self.check_required_config_option(self.parent_tag_name, 'parent_tag_name')
-        self.check_required_config_option(self.namespace_mapping, 'namespace_mapping')
-        self.check_required_config_option(self.child_feature_xpath, 'child_feature_xpath')
-
+        log.info('init() for %s' % self.child_feature_xpath)
         self.namespace_mapping_parsed = {nsp.split(':', 1)[0]: nsp.split(':', 1)[1] for nsp in self.namespace_mapping.split()}
 
     def exit(self):
-        log.info('Exit: SubFeatureHandler')
+        log.info('exit()')
 
     def invoke(self, packet):
+        log.info('invoke() for %s' % self.child_feature_xpath)
+
+        # packet.data contains GML file path
         input_gml = packet.data
         if input_gml is None:
             return packet
 
-        log.info('In SubFeatureHandler.invoke')
-
         if not os.path.exists(input_gml):
-            msg = "The given XML file doesn't exist"
+            msg = "input GML file %s does not exist" % input_gml
             log.error(msg)
             raise ValueError(msg)
 
         if not self.checkGmlFile(input_gml):
+            log.info('skipping GML file for subfeat=%s' % self.child_feature_xpath)
             return packet
 
         nsmap = {None: "http://www.opengis.net/citygml/2.0"}
@@ -169,23 +160,38 @@ class SubFeatureHandler(Filter):
         # Return the original packet, since this contains the name of the GML file which is being loaded
         return packet
 
+    # Check GML file for occurrence of target CityObjectMember/<parentTag>
     def checkGmlFile(self, input_gml):
         result = False
         parentTag = '{%s}%s' % (self.parent_tag_ns, self.parent_tag_name)
-        with open(input_gml) as f:
-            prevTag = ''
-            context = etree.iterparse(f)
-            for action, elem in context:
-                if action == 'end' and elem.tag == '{http://www.opengis.net/citygml/2.0}cityObjectMember':
-                    if prevTag == parentTag:
-                        # We're processing a document with the given parent features, quit
-                        result = True
+        try:
+            with open(input_gml) as f:
+                prevTag = ''
+                actions = ['start', 'end']
+                context = etree.iterparse(f, events=actions)
+                check_doc_tag = True
+                for action, elem in context:
+                    if action == 'start' and check_doc_tag and 'citygml' not in elem.tag:
+                        # Document is not even CityGML!
+                        log.info('checkGmlFile: skipping, not a CityGML file tag=%s' % elem.tag)
+                        break
 
-                    break
+                    check_doc_tag = False
 
-                prevTag = elem.tag
+                    if action == 'end' and elem.tag == '{http://www.opengis.net/citygml/2.0}cityObjectMember':
+                        if prevTag == parentTag:
+                            # Found target parent feature: success
+                            log.info('checkGmlFile: found parentTag %s' % parentTag)
+                            result = True
 
-            del context
+                        # Assuming all cityObjectMembers are of same FeatureType!
+                        break
+
+                    prevTag = elem.tag
+
+                del context
+        except Exception as e:
+            log.error('checkGmlFile: unexpected exception: %s' + str(e))
 
         return result
 

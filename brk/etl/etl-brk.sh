@@ -13,11 +13,13 @@ if [ -z "$STETL_HOME" ]; then
   STETL_HOME=../../externals/stetl
 fi
 
+BGT_HOME=../../bgt/etl
+
 # Nodig voor imports
 if [ -z "$PYTHONPATH" ]; then
-  export PYTHONPATH=$STETL_HOME
+  export PYTHONPATH=$STETL_HOME:${BGT_HOME}
 else
-  export PYTHONPATH=$STETL_HOME:$PYTHONPATH
+  export PYTHONPATH=$STETL_HOME:${BGT_HOME}:$PYTHONPATH
 fi
 
 # Default arguments/options

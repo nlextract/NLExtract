@@ -1,8 +1,9 @@
+# NLExtract - BRK - DKK
 BRK inlezen met [Stetl ETL framework](http://stetl.org).
 
 door: Just van den Broecke en Frank Steggink
 
-Deze map bevat de ETL configuratie en commando om via [Stetl](http://stetl.org)
+Deze map bevat de ETL configuratie en commando om via [Stetl](https://stetl.org)
 de BRK (Digitale Kadastrale Kaart, BRK-DKK) vanuit de gezipte
 [GML bron-bestanden van PDOK](https://www.pdok.nl/nl/producten/pdok-downloads/basisregistratie-kadaster) naar verschillende outputs weg te schrijven.
 Standaard is dit PostGIS, maar omdat output via [ogr2ogr](http://www.gdal.org/ogr2ogr.html) verloopt kan dit
@@ -20,15 +21,18 @@ http://www.stetl.org/en/latest/install.html
 
 Meer over Stetl: http://stetl.org
 
+## BRK-DKK Versies
+BRK-DKK versie 4 (sinds maart 2020)
+
 ## Downloaden GML
 
-Met het hulpscript [download-brk.sh <doelmap>](download-brk.sh) kan de BRK-DKK eerst gedownload worden naar een doelmap.
+Met het hulpscript [download-brk.sh <doelmap>](download/download-brk.sh) kan de BRK-DKK eerst gedownload worden naar een doelmap.
 
-Onder Windows: [download-brk.cmd <doelmap>](download-brk.cmd)
+Onder Windows: [download-brk.cmd <doelmap>](download/download-brk.cmd)
 
 NB, soms zijn de gedownloade files 0 bytes. Oorzaak is vreemd HTTPS probleem bij PDOK vermoedelijk. Dit is
 ondervangen door het downloaden met wget in een loop uit te voeren en vervolgens met unzip de inhoud
-te controleren. Daartoe gebruiken we het script [robust-download.sh](robust-download.sh).
+te controleren. Daartoe gebruiken we het script [robust-download.sh](../../tools/download/robust-download.sh).
 
 Op Windows heb je wget en unzip nodig om de bestanden te downloaden. De executables hiervan moeten in de
 PATH environment variabele staan.
@@ -37,9 +41,9 @@ unzip: http://gnuwin32.sourceforge.net/packages/unzip.htm
 
 ## Commando
 
-``./etl-brk.sh``
+`./etl-brk.sh`
 
-Windows: ``etl-brk.cmd``
+Windows: `etl-brk.cmd`
 
 Gebruikt default opties (database params etc) uit ``options/default.args``.
 

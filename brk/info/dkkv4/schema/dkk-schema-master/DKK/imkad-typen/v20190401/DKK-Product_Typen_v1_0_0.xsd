@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:t="http://www.kadaster.nl/schemas/dkk/imkad-typen/v20190401"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:imvert="http://www.imvertor.org/schema/system"
+           xmlns:gmlsf="http://www.opengis.net/gmlsf/2.0"
+           targetNamespace="http://www.kadaster.nl/schemas/dkk/imkad-typen/v20190401"
+           elementFormDefault="qualified"
+           attributeFormDefault="unqualified"
+           version="1.0.0-2">
+   <xs:annotation>
+      <xs:appinfo source="http://www.imvertor.org/model-info/project">imkad</xs:appinfo>
+      <xs:appinfo source="http://www.imvertor.org/model-info/application">DKK-Product</xs:appinfo>
+      <xs:appinfo source="http://www.imvertor.org/model-info/release">20190401</xs:appinfo>
+      <xs:appinfo source="http://www.imvertor.org/model-info/version">1.0.0</xs:appinfo>
+      <xs:appinfo source="http://www.imvertor.org/model-info/phase">2</xs:appinfo>
+      <xs:appinfo source="http://www.imvertor.org/model-info/uri">http://www.kadaster.nl/schemas/dkk/imkad-typen</xs:appinfo>
+      <xs:appinfo source="http://www.imvertor.org/model-info/generated">2019-04-01T09:11:13Z</xs:appinfo>
+      <xs:appinfo source="http://www.imvertor.org/xml-schema-info/file-location">DKK/imkad-typen/v20190401/DKK-Product_Typen_v1_0_0.xsd</xs:appinfo>
+      <xs:appinfo source="http://www.imvertor.org/xml-schema-info/generated">April 1, 2019 at 09:11:13</xs:appinfo>
+      <xs:appinfo source="http://www.imvertor.org/xml-schema-info/generator">1.52.2</xs:appinfo>
+      <xs:documentation source="http://www.imvertor.org/schema-info/conversion">
+        This schema is based on an UML specification, which is transformed by the Imvertor software. Imvertor modules are in the public domain, see http://www.imvertor.org.
+    </xs:documentation>
+      <xs:documentation source="http://www.imvertor.org/model-info/technical-documentation">Definition: Dit package bevat alle typen die gemeenschappelijk zijn binnen verschillende packages.</xs:documentation>
+   </xs:annotation>
+   <xs:annotation>
+      <xs:appinfo source="http://schemas.opengis.net/gmlsfProfile/2.0/gmlsfLevels.xsd">
+         <gmlsf:ComplianceLevel>0</gmlsf:ComplianceLevel>
+      </xs:appinfo>
+   </xs:annotation>
+   <xs:element name="NEN3610ID" type="t:NEN3610IDType">
+      <xs:annotation>
+         <xs:documentation source="http://www.imvertor.org/model-info/technical-documentation">Definition: CompositeID is een samengesteld datatype gebruikt wordt de universeel unieke identificatie van een object binnen een registratie.
+Explanation: De unieke identificatie wordt, anders dan binnen IMKAD applicaties, uitgedrukt als 1 string. Unieke identificatie door het Kadaster toegekend. De identificatie heeft een opbouw conform NEN3610:2011 maar namespaces zijn onder beheer van kadaster (CDMKAD, delen van IMKAD) of Geonovum/NEN3610 (IMKAD). De mogelijke waarde voor de identificatie namespace is uniek per specifiek domein. Deze domeinen zijn: &lt;ul&gt; &lt;li&gt;NL.IMKAD.KadastraalObject&lt;/li&gt; &lt;li&gt;NL.IMKAD.Aantekening&lt;/li&gt; &lt;li&gt;NL.IMKAD.AdresLocatie&lt;/li&gt; &lt;li&gt;NL.IMKAD.KadastraleGrens&lt;/li&gt; &lt;li&gt;NL.IMKAD.ZakelijkRecht&lt;/li&gt; &lt;li&gt;NL.IMKAD.Mandeligheid&lt;/li&gt; &lt;li&gt;NL.IMKAD.AppartementsrechtSplitsing&lt;/li&gt; &lt;li&gt;NL.IMKAD.Tenaamstelling&lt;/li&gt; &lt;li&gt;NL.IMKAD.GezamenlijkAandeel&lt;/li&gt; &lt;li&gt;NL.IMKAD.Zekerheidsstelling&lt;/li&gt; &lt;li&gt;NL.IMKAD.TIAStuk&lt;/li&gt; &lt;li&gt;NL.IMKAD.Kadasterstuk&lt;/li&gt; &lt;/ul&gt; &lt;ul&gt; &lt;li&gt;NL.IMKAD.KadasterVerzoek&lt;/li&gt; &lt;/ul&gt; &lt;ul&gt; &lt;li&gt;NL.IMKAD.Stukdeel&lt;/li&gt; &lt;/ul&gt; &lt;ul&gt; &lt;li&gt;NL.IMKAD.Herverkaveling&lt;/li&gt; &lt;li&gt;NL.IMKAD.Persoon&lt;/li&gt; &lt;li&gt;NL.IMKAD.Erfpachtcanon&lt;/li&gt; &lt;li&gt;NL.IMKAD.Nummerreservering&lt;/li&gt; &lt;/ul&gt;</xs:documentation>
+      </xs:annotation>
+   </xs:element>
+   <xs:simpleType name="NEN3610IDType">
+      <xs:annotation>
+         <xs:documentation>This complex datatype is transformed to a simple type because a content pattern is defined.</xs:documentation>
+      </xs:annotation>
+      <xs:restriction base="xs:string">
+         <xs:pattern value="NL\.IMKAD\.[A-Za-z]+\.[1-9][0-9]{0,14}(\.[0-9]+)?"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:complexType name="NEN3610IDPropertyType">
+      <xs:sequence minOccurs="0">
+         <xs:element ref="t:NEN3610ID"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="Waardelijst" type="t:WaardelijstType">
+      <xs:annotation>
+         <xs:documentation source="http://www.imvertor.org/model-info/technical-documentation">Definition: Waardelijst is een samengesteld datatype voor het weergeven van een gegeven binnen een extern beheerde referentielijst.
+Explanation: Het datatye bestaat uit een code en een waarde. Bij attributen die van type Waardelijst zijn, word aangegeven welke referentielijst bedoeld is met de tagged value "data locatie" .</xs:documentation>
+      </xs:annotation>
+   </xs:element>
+   <xs:complexType name="WaardelijstType">
+      <xs:sequence>
+         <xs:element name="code" type="xs:string">
+            <xs:annotation>
+               <xs:documentation source="http://www.imvertor.org/model-info/technical-documentation">Definition: De code van deze waarde. De code is uniek binnen de Waardelijst en taalonafhankelijk.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="waarde" minOccurs="0" type="xs:string">
+            <xs:annotation>
+               <xs:documentation source="http://www.imvertor.org/model-info/technical-documentation">Definition: De waarde zoals aangetroffen in de Waardelijst. het moment waarop de waarde geassocieerd is met de meegeleverde code is onbepaald.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="WaardelijstPropertyType">
+      <xs:sequence minOccurs="0">
+         <xs:element ref="t:Waardelijst"/>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema>

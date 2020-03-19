@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:ko="http://www.kadaster.nl/schemas/dkk/imkad-kadastraalobject/v20190401"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:imvert="http://www.imvertor.org/schema/system"
+           xmlns:t="http://www.kadaster.nl/schemas/dkk/imkad-typen/v20190401"
+           xmlns:gml="http://www.opengis.net/gml/3.2"
+           xmlns:gmlsf="http://www.opengis.net/gmlsf/2.0"
+           targetNamespace="http://www.kadaster.nl/schemas/dkk/imkad-kadastraalobject/v20190401"
+           elementFormDefault="qualified"
+           attributeFormDefault="unqualified"
+           version="1.0.0-2">
+   <xs:annotation>
+      <xs:appinfo source="http://www.imvertor.org/model-info/project">imkad</xs:appinfo>
+      <xs:appinfo source="http://www.imvertor.org/model-info/application">DKK-Product</xs:appinfo>
+      <xs:appinfo source="http://www.imvertor.org/model-info/release">20190401</xs:appinfo>
+      <xs:appinfo source="http://www.imvertor.org/model-info/version">1.0.0</xs:appinfo>
+      <xs:appinfo source="http://www.imvertor.org/model-info/phase">2</xs:appinfo>
+      <xs:appinfo source="http://www.imvertor.org/model-info/uri">http://www.kadaster.nl/schemas/dkk/imkad-kadastraalobject</xs:appinfo>
+      <xs:appinfo source="http://www.imvertor.org/model-info/generated">2019-04-01T09:11:13Z</xs:appinfo>
+      <xs:appinfo source="http://www.imvertor.org/xml-schema-info/file-location">DKK/imkad-kadastraalobject/v20190401/DKK-Product_KadastraalObject_v1_0_0.xsd</xs:appinfo>
+      <xs:appinfo source="http://www.imvertor.org/xml-schema-info/generated">April 1, 2019 at 09:11:13</xs:appinfo>
+      <xs:appinfo source="http://www.imvertor.org/xml-schema-info/generator">1.52.2</xs:appinfo>
+      <xs:documentation source="http://www.imvertor.org/schema-info/conversion">
+        This schema is based on an UML specification, which is transformed by the Imvertor software. Imvertor modules are in the public domain, see http://www.imvertor.org.
+    </xs:documentation>
+      <xs:documentation source="http://www.imvertor.org/model-info/technical-documentation">Definition: Dit package bevat alle klassen die behoren bij de representatie van objecten (onroerende zaken en registergoederen).</xs:documentation>
+   </xs:annotation>
+   <xs:annotation>
+      <xs:appinfo source="http://schemas.opengis.net/gmlsfProfile/2.0/gmlsfLevels.xsd">
+         <gmlsf:ComplianceLevel>0</gmlsf:ComplianceLevel>
+      </xs:appinfo>
+   </xs:annotation>
+   <xs:import namespace="http://www.kadaster.nl/schemas/dkk/imkad-typen/v20190401"
+              schemaLocation="../../../DKK/imkad-typen/v20190401/DKK-Product_Typen_v1_0_0.xsd"/>
+   <xs:import namespace="http://www.opengis.net/gml/3.2"
+              schemaLocation="../../../gml/3.2.1/gml.xsd"/>
+   <xs:element name="_KadastraalObject"
+               type="ko:_KadastraalObjectType"
+               abstract="true"
+               substitutionGroup="gml:AbstractFeature">
+      <xs:annotation>
+         <xs:documentation source="http://www.imvertor.org/model-info/technical-documentation">Explanation: In de BRK worden zakelijke rechten op kadastrale objecten met de rechthebbenden geregistreerd. De eigendom van en beperkte rechten op een kadastraal object worden als zakelijk recht vermeld. Uitzondering: Hypotheek wordt als zekerheidstelling en Erfdienstbaarheid als een aantekening bij kadastrale objecten vermeld Indicatie omvang Initieel 7.000.000</xs:documentation>
+      </xs:annotation>
+   </xs:element>
+   <xs:complexType name="_KadastraalObjectType" abstract="true">
+      <xs:complexContent>
+         <xs:extension base="gml:AbstractFeatureType">
+            <xs:sequence>
+               <xs:element name="identificatie" type="t:NEN3610IDPropertyType">
+                  <xs:annotation>
+                     <xs:documentation source="http://www.imvertor.org/model-info/technical-documentation">Definition: De Kadaster identificatie is een door het Kadaster toegekend landelijk uniek nummer aan dit object binnen de kadastrale registratie.</xs:documentation>
+                  </xs:annotation>
+               </xs:element>
+            </xs:sequence>
+         </xs:extension>
+      </xs:complexContent>
+   </xs:complexType>
+   <xs:complexType name="_KadastraalObjectPropertyType">
+      <xs:sequence minOccurs="0">
+         <xs:element ref="ko:_KadastraalObject"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="gml:AssociationAttributeGroup"/>
+      <xs:attributeGroup ref="gml:OwnershipAttributeGroup"/>
+   </xs:complexType>
+</xs:schema>
