@@ -66,108 +66,86 @@ Afhankelijkheden
 Installatie (Linux)
 -------------------
 
-- Ubuntu: beste is om eerst UbuntuGIS PPA aan je package repo toe te voegen, voor laatste versie Geo-tools als GDAL en PostGIS. ::
+Instructies hieronder zijn voor Ubuntu 18.04. Bij andere distributies zal het enigszins afwijken. 
 
-    apt-get install python-software-properties
-    add-apt-repository ppa:ubuntugis/ubuntugis-unstable
-    apt-get update
+- Bronbestanden downloaden op de achtergrond (duurt wat langer) ::
+    
+    $ wget http://geodata.nationaalgeoregister.nl/inspireadressen/extract/inspireadressen.zip &
+    
+- Bag-extract downloaden (pas eventueel versie aan) en uitpakken ::
+    
+    $ wget https://github.com/nlextract/NLExtract/releases/download/1.4.1/nlextract-1.4.1.tar.gz
+    $ tar xzvf nlextract-1.4.1.tar.gz
 
-- Ubuntu: PostgreSQL+PostGIS . PostgreSQL is een OS relationele database (RDBMS). PostGIS is een extentie die van PostgreSQL een ruimtelijke (spatial) database maakt. Installatie PostgreSQL 9.1 + PostGIS 2.1 ::
+- PostgreSQL + PostGIS. PostgreSQL is een OS relationele database (RDBMS). PostGIS is een extentie die van PostgreSQL een ruimtelijke (spatial) database maakt. ::
+    
+    $ sudo apt-get install postgresql postgresql-contrib postgis 
 
-    $ apt-get install postgis postgresql-9.1 postgresql-contrib
+- PostgreSQL locale verbindingen toestaan (wijzig inhoud van `pg_hba.conf` in onderstaande) ::
+    
+    $ sudo nano /etc/postgresql/10/main/pg_hba.conf
+    
+        # DO NOT DISABLE!
+        # If you change this first entry you will need to make sure that the
+        # database superuser can access the database using some other method.
+        # Noninteractive access to all databases is required during automatic
+        # maintenance (custom daily cronjobs, replication, and similar tasks).
+        #
+        # Database administrative login by Unix domain socket
+        local   all             postgres                                peer
 
-    # Server Instrumentation, met admin pack.
-    $ sudo -u postgres psql
-    psql (9.1.10)
-    Type "help" for help.
+        # TYPE  DATABASE        USER            ADDRESS                 METHOD
+        # "local" is for Unix domain socket connections only
+        local   all             all                                     peer
+        # IPv4 local connections:
+        host    all             all             127.0.0.1/32            trust
+        # IPv6 local connections:
+        host    all             all             ::1/128                 trust
+        # Allow replication connections from localhost, by a user with the
+        # replication privilege.
+        #local   replication     all                                     peer
+        #host    replication     all             127.0.0.1/32            md5
+        #host    replication     all             ::1/128                 md5
 
-    postgres=# CREATE EXTENSION adminpack;
-    CREATE EXTENSION
+- PostgreSQL opnieuw opstarten ::
 
-    # Installatie controleren met ::
-
-    $ psql -h localhost -U postgres template1
-
-    $ pg_lsclusters
-    Ver Cluster Port Status Owner    Data directory               Log file
-    9.1 main    5432 online postgres /var/lib/postgresql/9.1/main /var/log/postgresql/postgresql-9.1-main.log
-
-    # Enablen locale connecties in ``/etc/postgresql/9.1/main/pg_hba.conf``.
-
-    # Database administrative login by Unix domain socket
-    local   all             postgres                                md5
-
-    # TYPE  DATABASE        USER            ADDRESS                 METHOD
-
-    # "local" is for Unix domain socket connections only
-    local   all             all                                     md5
-    # IPv4 local connections:
-    host    all             all             127.0.0.1/32            md5
-    # IPv6 local connections:
-    host    all             all             ::1/128                 md5
-
-
-    # PostGIS en template opzetten. Ook dit nodig om Postgis extension aan te maken.
-    $ apt-get -s install postgresql-9.1-postgis-2.1
-
-    # Anders krijg je op ``CREATE EXTENSION postgis`` dit ::
-
-    # ERROR: could not open extension control file "/usr/share/postgresql/9.1/extension/postgis.control": No such file or directory
-
-    # Template DB``postgis2`` opzetten. ::
+    $ sudo systemctl restart postgresql
+    
+- Database `bag` aanmaken met benodigde extensies (tekencodering UTF8 is belangrijk en default) ::
 
     $ su postgres
-    createdb postgis2
-    psql -h localhost postgis2
-    postgis2=# CREATE EXTENSION postgis;
-    # CREATE EXTENSION
-    postgis2=# CREATE EXTENSION postgis_topology;
-    # CREATE EXTENSION
+    createdb bag
+    psql bag
+    # CREATE EXTENSION postgis;
+    # CREATE EXTENSION postgis_topology;
+    \q
+    exit
+        
+- Python installeren ::
+    
+    sudo apt-get install python-setuptools
+    sudo apt-get install python-dev
+    sudo apt-get install libpq-dev
 
-    # Nieuwe database "bag" aanmaken met template "postgis2"
-    # NB belangrijk is dat de bag DB de character-set UTF8 (-E UTF8) heeft!
-    createdb --owner postgres -T postgis2 -E UTF8 bag
+- Lxml installeren ::
 
-- optioneel: Python package afhankelijkheden installeren bijv
-  ::
+   sudo apt-get install libxml2
+   sudo apt-get install libxslt1.1
+   sudo apt-get python-lxml
 
-   apt-get of yum install python-setuptools (voor easy_install commando)
-   apt-get of yum install python-devel (tbv psycopg2 bibliotheek)
-   apt-get of yum install postgresql-devel (tbv psycopg2 bibliotheek)
+- GDAL (www.gdal.org) met Python bindings voor OGR geometrie-parsing en geometrie-validatie ::
+ 
+   sudo apt-get install gdal-bin
+   sudo apt-get install python-gdal
 
-- Onder Ubuntu zijn dat de volgende packages
-  ::
+- Python package voor PostgreSQL `psycopg2` ::
 
-   sudo apt-get install python-setuptools
-   sudo apt-get install python-dev
-   sudo apt-get install libpq-dev
+   sudo apt-get install python-psycopg2
 
-- razendsnelle native XML parsing met libxml2/libxslt libraries samen met Python lxml:
-  kan meer dan een factor twee in snelheid schelen...
-  Zie http://lxml.de/installation.html
-  ::
+- Python package `argparse` ::
 
-   apt-get of yum install libxml2
-   apt-get of yum install libxslt1.1
-   apt-get of yum install python-lxml
+   sudo apt-get install python-argparse
 
-- GDAL (www.gdal.org) met Python bindings voor OGR geometrie-parsing en geometrie-validatie (NLX v1.1.0 en hoger)
-  ::
-
-   apt-get of yum install gdal-bin
-   apt-get of yum install python-gdal
-
-- de PostgreSQL python bibliotheek psycopg2
-  ::
-
-   sudo easy_install psycopg2
-
-- Python package "argparse"
-  ::
-
-   sudo easy_install argparse
-
-- NB als je een proxy gebruikt via http_proxy  doe dan easy_install -E (exporteer huidige environment)
 
 Installatie (Windows)
 ---------------------
