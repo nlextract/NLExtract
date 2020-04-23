@@ -431,13 +431,4 @@ CREATE INDEX adresvol_idx ON adres USING gin (textsearchable_adres);
 -- Dummy voor PostGIS 2+
 SELECT public.probe_geometry_columns();
 
-DROP SEQUENCE IF EXISTS adres_gid_seq;
-CREATE SEQUENCE adres_gid_seq;
-ALTER TABLE adres ADD gid integer UNIQUE;
-ALTER TABLE adres ALTER COLUMN gid SET DEFAULT NEXTVAL('adres_gid_seq');
-UPDATE adres SET gid = NEXTVAL('adres_gid_seq');
-ALTER TABLE adres ADD PRIMARY KEY (gid);
-
-
-
-
+ALTER TABLE adres ADD COLUMN gid SERIAL PRIMARY KEY;
