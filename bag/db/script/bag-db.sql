@@ -329,18 +329,19 @@ CREATE TABLE provincie_gemeente (
   PRIMARY KEY (gid)
 );
 
--- Functie om lege probe_geometry_columns() functie aan te maken voor PostGIS 2+
--- probe_geometry_columns() is namelijk niet aanwezig in PostGIS 2+.
-CREATE OR REPLACE FUNCTION public._nlx_add_fn_probe_geometry_columns() RETURNS void AS $$
-BEGIN
-  IF postgis_lib_version() >= '2' THEN
-    CREATE OR REPLACE FUNCTION public.probe_geometry_columns() RETURNS varchar AS
-      'BEGIN RETURN NULL; END;' LANGUAGE plpgsql;
-  END IF;
-END;
-$$ LANGUAGE plpgsql;
-SELECT public._nlx_add_fn_probe_geometry_columns();
-
--- Populeert public.geometry_columns
--- Dummy voor PostGIS 2+
-SELECT public.probe_geometry_columns();
+-- 12.may.2020 JvdB - REMOVE - LEGACY STUFF FOR POSTGIS v1 - GIVES PROBLEMS ON SOME POSTGIS INSTALLS
+-- -- Functie om lege probe_geometry_columns() functie aan te maken voor PostGIS 2+
+-- -- probe_geometry_columns() is namelijk niet aanwezig in PostGIS 2+.
+-- CREATE OR REPLACE FUNCTION public._nlx_add_fn_probe_geometry_columns() RETURNS void AS $$
+-- BEGIN
+--   IF postgis_lib_version() >= '2' THEN
+--     CREATE OR REPLACE FUNCTION public.probe_geometry_columns() RETURNS varchar AS
+--       'BEGIN RETURN NULL; END;' LANGUAGE plpgsql;
+--   END IF;
+-- END;
+-- $$ LANGUAGE plpgsql;
+-- SELECT public._nlx_add_fn_probe_geometry_columns();
+--
+-- -- Populeert public.geometry_columns
+-- -- Dummy voor PostGIS 2+
+-- SELECT public.probe_geometry_columns();
