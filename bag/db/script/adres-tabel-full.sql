@@ -373,9 +373,10 @@ CREATE INDEX adres_full_nummeraanduiding ON adres_full USING btree (nummeraandui
 CREATE INDEX adres_full_pandid ON adres_full USING btree (pandid);
 CREATE INDEX adres_full_idx ON adres_full USING gin (textsearchable_adres);
 
+-- 12+20.may.2020 JvdB - REMOVE - LEGACY STUFF FOR POSTGIS v1 - GIVES PROBLEMS ON SOME POSTGIS INSTALLS
 -- Populeert public.geometry_columns
 -- Dummy voor PostGIS 2+
-SELECT public.probe_geometry_columns();
+-- SELECT public.probe_geometry_columns();
 
 DROP SEQUENCE IF EXISTS adres_full_gid_seq;
 CREATE SEQUENCE adres_full_gid_seq;

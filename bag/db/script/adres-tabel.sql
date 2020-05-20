@@ -427,9 +427,10 @@ CREATE INDEX adres_adreseerbaarobject ON adres USING btree (adresseerbaarobject)
 CREATE INDEX adres_nummeraanduiding ON adres USING btree (nummeraanduiding);
 CREATE INDEX adresvol_idx ON adres USING gin (textsearchable_adres);
 
+-- 12+20.may.2020 JvdB - REMOVE - LEGACY STUFF FOR POSTGIS v1 - GIVES PROBLEMS ON SOME POSTGIS INSTALLS
 -- Populeert public.geometry_columns
 -- Dummy voor PostGIS 2+
-SELECT public.probe_geometry_columns();
+-- SELECT public.probe_geometry_columns();
 
 DROP SEQUENCE IF EXISTS adres_gid_seq;
 CREATE SEQUENCE adres_gid_seq;

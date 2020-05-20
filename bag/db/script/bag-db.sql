@@ -329,7 +329,7 @@ CREATE TABLE provincie_gemeente (
   PRIMARY KEY (gid)
 );
 
--- 12.may.2020 JvdB - REMOVE - LEGACY STUFF FOR POSTGIS v1 - GIVES PROBLEMS ON SOME POSTGIS INSTALLS
+-- 12+20.may.2020 JvdB - REMOVE - LEGACY STUFF FOR POSTGIS v1 - GIVES PROBLEMS ON SOME POSTGIS INSTALLS
 -- -- Functie om lege probe_geometry_columns() functie aan te maken voor PostGIS 2+
 -- -- probe_geometry_columns() is namelijk niet aanwezig in PostGIS 2+.
 -- CREATE OR REPLACE FUNCTION public._nlx_add_fn_probe_geometry_columns() RETURNS void AS $$
@@ -342,6 +342,6 @@ CREATE TABLE provincie_gemeente (
 -- $$ LANGUAGE plpgsql;
 -- SELECT public._nlx_add_fn_probe_geometry_columns();
 --
--- -- Populeert public.geometry_columns
--- -- Dummy voor PostGIS 2+
+-- Populeert public.geometry_columns
+-- Dummy voor PostGIS 2+
 -- SELECT public.probe_geometry_columns();

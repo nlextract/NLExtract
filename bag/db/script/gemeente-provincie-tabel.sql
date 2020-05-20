@@ -41,6 +41,7 @@ ALTER TABLE ONLY provincie ADD CONSTRAINT provincie_pkey PRIMARY KEY (gid);
 CREATE INDEX provincie_geom_idx ON provincie USING gist (geovlak);
 CREATE INDEX provincie_naam ON provincie USING btree (provincienaam);
 
+-- 12+20.may.2020 JvdB - REMOVE - LEGACY STUFF FOR POSTGIS v1 - GIVES PROBLEMS ON SOME POSTGIS INSTALLS
 -- Populeert public.geometry_columns
 -- Dummy voor PostGIS 2+
-SELECT public.probe_geometry_columns();
+-- SELECT public.probe_geometry_columns();

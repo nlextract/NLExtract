@@ -1,5 +1,5 @@
 DEBUG: Configuratiebestand is /Users/just/project/nlextract/git/bag/extract.conf
-Waarschuwing! met dit commando worden database tabellen opnieuw aangemaakt. Doorgaan? ([N]/j): INFO: Start 2020-02-06 16:07:45
+Waarschuwing! met dit commando worden database tabellen opnieuw aangemaakt. Doorgaan? ([N]/j): INFO: Start 2020-05-20 12:21:34
 INFO: alle database tabellen weggooien en opnieuw aanmaken...
 INFO: Probeer te verbinden...
 DEBUG: database commit ok connId=5
@@ -14,46 +14,7 @@ INFO: process: verwerk /Users/just/project/nlextract/git/bag/db/data
 INFO: process_dir: verwerk /Users/just/project/nlextract/git/bag/db/data
 DEBUG: verbonden met de database 'bag', schema 'test', connId=5
 DEBUG: database commit ok connId=5
-INFO: Negeer bestand: /Users/just/project/nlextract/git/bag/db/data/.DS_Store
-DEBUG: reusing db connection
-DEBUG: database commit ok connId=5
 INFO: Negeer bestand: /Users/just/project/nlextract/git/bag/db/data/README
-DEBUG: reusing db connection
-DEBUG: database commit ok connId=5
-INFO: process_zip: verwerk gem-wpl-relatie-03-lvc-xml-07032014.zip 
-DEBUG: reusing db connection
-DEBUG: database commit ok connId=5
-INFO: process_xml: verwerk GEM-WPL-RELATIE-08032014-000001.xml 
-INFO: START: parseXML
-INFO: END: parseXML tijd=0.0 sec
-DEBUG: reusing db connection
-DEBUG: database commit ok connId=5
-DEBUG: verbonden met de database 'bag', schema 'test', connId=7
-DEBUG: database commit ok connId=7
-DEBUG: reusing db connection
-DEBUG: database commit ok connId=7
-INFO: START: objCreate
-DEBUG: reusing db connection
-DEBUG: database commit ok connId=7
-DEBUG: reusing db connection
-DEBUG: database commit ok connId=7
-INFO: END: objCreate - objs=7589 tijd=1.0 sec
-DEBUG: reusing db connection
-DEBUG: database commit ok connId=7
-INFO: START: dbStart mode = Nieuw
-INFO: running with cStringIO
-INFO: START: dbStart mode = Nieuw
-DEBUG: reusing db connection
-DEBUG: database commit ok connId=7
-DEBUG: database connectie 7 gesloten
-INFO: END: dbEnd - nieuw=7589 gewijzigd=0 rels=0 tijd=0.0 sec
-INFO: ------
-DEBUG: verbonden met de database 'bag', schema 'test', connId=7
-DEBUG: database commit ok connId=7
-DEBUG: reusing db connection
-DEBUG: database commit ok connId=5
-DEBUG: reusing db connection
-DEBUG: database commit ok connId=5
 DEBUG: reusing db connection
 DEBUG: database commit ok connId=5
 INFO: process_xml: verwerk gemeentelijke-indeling.xml 
@@ -83,9 +44,9 @@ DEBUG: verbonden met de database 'bag', schema 'test', connId=7
 DEBUG: database commit ok connId=7
 DEBUG: database connectie 7 gesloten
 INFO: SQL uitgevoerd OK
-INFO: End 2020-02-06 16:07:48
+INFO: End 2020-05-20 12:21:34
 DEBUG: Configuratiebestand is /Users/just/project/nlextract/git/bag/extract.conf
-INFO: Start 2020-02-06 16:07:48
+INFO: Start 2020-05-20 12:21:35
 INFO: alle database tabellen weggooien en opnieuw aanmaken...
 INFO: Probeer te verbinden...
 DEBUG: database commit ok connId=5
@@ -100,46 +61,7 @@ INFO: process: verwerk /Users/just/project/nlextract/git/bag/db/data
 INFO: process_dir: verwerk /Users/just/project/nlextract/git/bag/db/data
 DEBUG: verbonden met de database 'bag', schema 'test', connId=5
 DEBUG: database commit ok connId=5
-INFO: Negeer bestand: /Users/just/project/nlextract/git/bag/db/data/.DS_Store
-DEBUG: reusing db connection
-DEBUG: database commit ok connId=5
 INFO: Negeer bestand: /Users/just/project/nlextract/git/bag/db/data/README
-DEBUG: reusing db connection
-DEBUG: database commit ok connId=5
-INFO: process_zip: verwerk gem-wpl-relatie-03-lvc-xml-07032014.zip 
-DEBUG: reusing db connection
-DEBUG: database commit ok connId=5
-INFO: process_xml: verwerk GEM-WPL-RELATIE-08032014-000001.xml 
-INFO: START: parseXML
-INFO: END: parseXML tijd=0.0 sec
-DEBUG: reusing db connection
-DEBUG: database commit ok connId=5
-DEBUG: verbonden met de database 'bag', schema 'test', connId=7
-DEBUG: database commit ok connId=7
-DEBUG: reusing db connection
-DEBUG: database commit ok connId=7
-INFO: START: objCreate
-DEBUG: reusing db connection
-DEBUG: database commit ok connId=7
-DEBUG: reusing db connection
-DEBUG: database commit ok connId=7
-INFO: END: objCreate - objs=7589 tijd=1.0 sec
-DEBUG: reusing db connection
-DEBUG: database commit ok connId=7
-INFO: START: dbStart mode = Nieuw
-INFO: running with cStringIO
-INFO: START: dbStart mode = Nieuw
-DEBUG: reusing db connection
-DEBUG: database commit ok connId=7
-DEBUG: database connectie 7 gesloten
-INFO: END: dbEnd - nieuw=7589 gewijzigd=0 rels=0 tijd=0.0 sec
-INFO: ------
-DEBUG: verbonden met de database 'bag', schema 'test', connId=7
-DEBUG: database commit ok connId=7
-DEBUG: reusing db connection
-DEBUG: database commit ok connId=5
-DEBUG: reusing db connection
-DEBUG: database commit ok connId=5
 DEBUG: reusing db connection
 DEBUG: database commit ok connId=5
 INFO: process_xml: verwerk gemeentelijke-indeling.xml 
@@ -169,54 +91,15 @@ DEBUG: verbonden met de database 'bag', schema 'test', connId=7
 DEBUG: database commit ok connId=7
 DEBUG: database connectie 7 gesloten
 INFO: SQL uitgevoerd OK
-INFO: End 2020-02-06 16:07:50
+INFO: End 2020-05-20 12:21:35
 DEBUG: Configuratiebestand is /Users/just/project/nlextract/git/bag/extract.conf
 running with lxml.etree
-INFO: Start 2020-02-06 16:07:50
+INFO: Start 2020-05-20 12:21:35
 DEBUG: verbonden met de database 'bag', schema 'test', connId=5
 DEBUG: database commit ok connId=5
 INFO: process: verwerk /Users/just/project/nlextract/git/bag/test/data
 INFO: process_dir: verwerk /Users/just/project/nlextract/git/bag/test/data
 DEBUG: verbonden met de database 'bag', schema 'test', connId=5
-DEBUG: database commit ok connId=5
-INFO: process_zip: verwerk Gemeente-woonplaats-relatietabel.zip 
-DEBUG: reusing db connection
-DEBUG: database commit ok connId=5
-INFO: process_xml: verwerk GEM-WPL-RELATIE-01102012-000001.xml 
-INFO: START: parseXML
-INFO: END: parseXML tijd=0.0 sec
-DEBUG: reusing db connection
-DEBUG: database commit ok connId=5
-DEBUG: verbonden met de database 'bag', schema 'test', connId=7
-DEBUG: database commit ok connId=7
-DEBUG: reusing db connection
-DEBUG: database commit ok connId=7
-INFO: START: objCreate
-DEBUG: reusing db connection
-DEBUG: database commit ok connId=7
-DEBUG: reusing db connection
-DEBUG: database commit ok connId=7
-INFO: END: objCreate - objs=7359 tijd=1.0 sec
-DEBUG: reusing db connection
-DEBUG: database commit ok connId=7
-INFO: START: dbStart mode = Nieuw
-INFO: running with cStringIO
-INFO: START: dbStart mode = Nieuw
-DEBUG: reusing db connection
-DEBUG: database commit ok connId=7
-DEBUG: database connectie 7 gesloten
-INFO: END: dbEnd - nieuw=7359 gewijzigd=0 rels=0 tijd=0.0 sec
-INFO: ------
-DEBUG: verbonden met de database 'bag', schema 'test', connId=7
-DEBUG: database commit ok connId=7
-DEBUG: reusing db connection
-DEBUG: database commit ok connId=5
-DEBUG: reusing db connection
-DEBUG: database commit ok connId=5
-INFO: Negeer bestand: InformatieGWRtabel22082012.pdf
-DEBUG: reusing db connection
-DEBUG: database commit ok connId=5
-DEBUG: reusing db connection
 DEBUG: database commit ok connId=5
 INFO: process_xml: verwerk Leveringsdocument-BAG-Extract.xml 
 INFO: START: parseXML
@@ -408,10 +291,10 @@ DEBUG: reusing db connection
 DEBUG: database commit ok connId=5
 DEBUG: verbonden met de database 'bag', schema 'test', connId=6
 DEBUG: database commit ok connId=6
-INFO: End 2020-02-06 16:07:52
+INFO: End 2020-05-20 12:21:36
 DEBUG: Configuratiebestand is /Users/just/project/nlextract/git/bag/extract.conf
 running with lxml.etree
-INFO: Start 2020-02-06 16:07:52
+INFO: Start 2020-05-20 12:21:36
 DEBUG: verbonden met de database 'bag', schema 'test', connId=5
 DEBUG: database commit ok connId=5
 INFO: process: verwerk /Users/just/project/nlextract/git/bag/test/datadubbel
@@ -464,9 +347,9 @@ DEBUG: reusing db connection
 DEBUG: database commit ok connId=5
 DEBUG: verbonden met de database 'bag', schema 'test', connId=6
 DEBUG: database commit ok connId=6
-INFO: End 2020-02-06 16:07:52
+INFO: End 2020-05-20 12:21:36
 DEBUG: Configuratiebestand is /Users/just/project/nlextract/git/bag/extract.conf
-INFO: Start 2020-02-06 16:07:53
+INFO: Start 2020-05-20 12:21:37
 DEBUG: verbonden met de database 'bag', schema 'test', connId=5
 DEBUG: database commit ok connId=5
 INFO: SQL van file = /Users/just/project/nlextract/git/bag/db/script/ontdubbel.sql uitvoeren...
@@ -476,11 +359,11 @@ DEBUG: database connectie 5 gesloten
 INFO: SQL uitgevoerd OK
 DEBUG: verbonden met de database 'bag', schema 'test', connId=5
 DEBUG: database commit ok connId=5
-INFO: End 2020-02-06 16:07:53
+INFO: End 2020-05-20 12:21:37
 START TEST: Mutaties
 DEBUG: Configuratiebestand is /Users/just/project/nlextract/git/bag/extract.conf
 running with lxml.etree
-INFO: Start 2020-02-06 16:07:53
+INFO: Start 2020-05-20 12:21:37
 DEBUG: verbonden met de database 'bag', schema 'test', connId=5
 DEBUG: database commit ok connId=5
 INFO: process: verwerk /Users/just/project/nlextract/git/bag/test/mutatie
@@ -576,12 +459,12 @@ DEBUG: reusing db connection
 DEBUG: database commit ok connId=5
 DEBUG: verbonden met de database 'bag', schema 'test', connId=7
 DEBUG: database commit ok connId=7
-INFO: End 2020-02-06 16:07:53
+INFO: End 2020-05-20 12:21:37
 END TEST: Mutaties
 START TEST: Mutaties : slechts eenmaal verwerken
 DEBUG: Configuratiebestand is /Users/just/project/nlextract/git/bag/extract.conf
 running with lxml.etree
-INFO: Start 2020-02-06 16:07:53
+INFO: Start 2020-05-20 12:21:37
 DEBUG: verbonden met de database 'bag', schema 'test', connId=5
 DEBUG: database commit ok connId=5
 INFO: process: verwerk /Users/just/project/nlextract/git/bag/test/mutatie
@@ -638,10 +521,10 @@ DEBUG: reusing db connection
 DEBUG: database commit ok connId=5
 DEBUG: verbonden met de database 'bag', schema 'test', connId=6
 DEBUG: database commit ok connId=6
-INFO: End 2020-02-06 16:07:53
+INFO: End 2020-05-20 12:21:37
 END TEST: Mutaties : slechts eenmaal verwerken
 DEBUG: Configuratiebestand is /Users/just/project/nlextract/git/bag/extract.conf
-INFO: Start 2020-02-06 16:07:54
+INFO: Start 2020-05-20 12:21:37
 DEBUG: verbonden met de database 'bag', schema 'test', connId=5
 DEBUG: database commit ok connId=5
 INFO: SQL van file = /Users/just/project/nlextract/git/bag/db/script/gemeente-provincie-tabel.sql uitvoeren...
@@ -651,9 +534,9 @@ DEBUG: database connectie 5 gesloten
 INFO: SQL uitgevoerd OK
 DEBUG: verbonden met de database 'bag', schema 'test', connId=5
 DEBUG: database commit ok connId=5
-INFO: End 2020-02-06 16:07:54
+INFO: End 2020-05-20 12:21:38
 DEBUG: Configuratiebestand is /Users/just/project/nlextract/git/bag/extract.conf
-INFO: Start 2020-02-06 16:07:54
+INFO: Start 2020-05-20 12:21:38
 DEBUG: verbonden met de database 'bag', schema 'test', connId=5
 DEBUG: database commit ok connId=5
 INFO: SQL van file = /Users/just/project/nlextract/git/bag/db/script/adres-tabel.sql uitvoeren...
@@ -663,9 +546,9 @@ DEBUG: database connectie 5 gesloten
 INFO: SQL uitgevoerd OK
 DEBUG: verbonden met de database 'bag', schema 'test', connId=5
 DEBUG: database commit ok connId=5
-INFO: End 2020-02-06 16:07:54
+INFO: End 2020-05-20 12:21:38
 DEBUG: Configuratiebestand is /Users/just/project/nlextract/git/bag/extract.conf
-INFO: Start 2020-02-06 16:07:54
+INFO: Start 2020-05-20 12:21:38
 DEBUG: verbonden met de database 'bag', schema 'test', connId=5
 DEBUG: database commit ok connId=5
 INFO: SQL van file = /Users/just/project/nlextract/git/bag/db/script/adres-tabel-full.sql uitvoeren...
@@ -675,23 +558,11 @@ DEBUG: database connectie 5 gesloten
 INFO: SQL uitgevoerd OK
 DEBUG: verbonden met de database 'bag', schema 'test', connId=5
 DEBUG: database commit ok connId=5
-INFO: End 2020-02-06 16:07:54
-COPY 6
+INFO: End 2020-05-20 12:21:38
+COPY 0
 openbareruimte;huisnummer;huisletter;huisnummertoevoeging;postcode;woonplaats;gemeente;provincie;object_id;object_type;nevenadres;x;y;lon;lat
-Molenbochtstraat;3;;I;9901AA;Hieslum;Súdwest-Fryslân;Friesland;0003010000125985;VBO;f;155000;463000;5.3872035087259;52.1551723011519
-Molenbochtstraat;5;;;9901AA;Hieslum;Súdwest-Fryslân;Friesland;0003020000000001;LIG;f;252466.746775002;593751.81399051;6.84989496676674;53.3213020983346
-Molenbochtstraat;33;;I;9901AA;Toornwerd;Loppersum;Groningen;0007010000004199;VBO;f;272580.18893708;569748.200039058;7.14283466862574;53.1016485754882
-Molenbochtstraat;98;;;9934EG;Hieslum;Súdwest-Fryslân;Friesland;0007010000004212;VBO;f;275466;565559;7.18434457268306;53.063380655429
-Molenbochtstraat;100;;;9934EG;Hieslum;Súdwest-Fryslân;Friesland;0007010000004212;VBO;t;275466;565559;7.18434457268306;53.063380655429
-Molenbochtstraat;1;;;9934RA;Hieslum;Súdwest-Fryslân;Friesland;0010030000100100;STA;f;257939.456825101;593821.560313134;6.93201848020713;53.3209014057973
-COPY 6
+COPY 0
 openbareruimte;huisnummer;huisletter;huisnummertoevoeging;postcode;woonplaats;gemeente;provincie;nummeraanduiding;verblijfsobjectgebruiksdoel;oppervlakteverblijfsobject;verblijfsobjectstatus;object_id;object_type;nevenadres;pandid;pandstatus;pandbouwjaar;x;y;lon;lat;verkorteopenbareruimte
-Molenbochtstraat;3;;I;9901AA;Hieslum;Súdwest-Fryslân;Friesland;0003200000133985;woonfunctie;169;Verblijfsobject in gebruik;0003010000125985;VBO;f;0003100000117485;Pand in gebruik;1991;155000;463000;5.3872035087259;52.1551723011519;MBochtstraat
-Molenbochtstraat;5;;;9901AA;Hieslum;Súdwest-Fryslân;Friesland;0003200000133986;Ligplaats;0;Plaats aangewezen;0003020000000001;LIG;f;;"";;252466.746775002;593751.81399051;6.84989496676674;53.3213020983346;MBochtstraat
-Molenbochtstraat;33;;I;9901AA;Toornwerd;Loppersum;Groningen;0003200000121300;woonfunctie;116;Verblijfsobject in gebruik;0007010000004199;VBO;f;;;;272580.18893708;569748.200039058;7.14283466862574;53.1016485754882;MBochtstraat
-Molenbochtstraat;98;;;9934EG;Hieslum;Súdwest-Fryslân;Friesland;0010200000101404;woonfunctie;318;Verblijfsobject in gebruik;0007010000004212;VBO;f;1895100000002619;Pand in gebruik (niet ingemeten);1973;275466;565559;7.18434457268306;53.063380655429;MBochtstraat
-Molenbochtstraat;100;;;9934EG;Hieslum;Súdwest-Fryslân;Friesland;0010200000101403;woonfunctie;318;Verblijfsobject in gebruik;0007010000004212;VBO;t;1895100000002619;Pand in gebruik (niet ingemeten);1973;275466;565559;7.18434457268306;53.063380655429;MBochtstraat
-Molenbochtstraat;1;;;9934RA;Hieslum;Súdwest-Fryslân;Friesland;0010200000101386;Standplaats;0;Plaats aangewezen;0010030000100100;STA;f;;"";;257939.456825101;593821.560313134;6.93201848020713;53.3209014057973;MBochtstraat
 pg_dump: last built-in OID is 16383
 pg_dump: reading extensions
 pg_dump: identifying extension members
@@ -946,7 +817,7 @@ pg_dump: dumping contents of table "test.verblijfsobjectgebruiksdoel"
 pg_dump: dumping contents of table "test.verblijfsobjectpand"
 pg_dump: dumping contents of table "test.woonplaats"
 DEBUG: Configuratiebestand is /Users/just/project/nlextract/git/bag/extract.conf
-INFO: Start 2020-02-06 16:07:55
+INFO: Start 2020-05-20 12:21:39
 DEBUG: verbonden met de database 'bag', schema 'test', connId=5
 DEBUG: database commit ok connId=5
 INFO: SQL van file = /Users/just/project/nlextract/git/bag/db/script/geocode/geocode-tabellen.sql uitvoeren...
@@ -956,9 +827,9 @@ DEBUG: database connectie 5 gesloten
 INFO: SQL uitgevoerd OK
 DEBUG: verbonden met de database 'bag', schema 'test', connId=5
 DEBUG: database commit ok connId=5
-INFO: End 2020-02-06 16:07:55
+INFO: End 2020-05-20 12:21:39
 DEBUG: Configuratiebestand is /Users/just/project/nlextract/git/bag/extract.conf
-INFO: Start 2020-02-06 16:07:55
+INFO: Start 2020-05-20 12:21:39
 DEBUG: verbonden met de database 'bag', schema 'test', connId=5
 DEBUG: database commit ok connId=5
 INFO: SQL van file = /Users/just/project/nlextract/git/bag/db/script/geocode/geocode-functies.sql uitvoeren...
@@ -968,9 +839,9 @@ DEBUG: database connectie 5 gesloten
 INFO: SQL uitgevoerd OK
 DEBUG: verbonden met de database 'bag', schema 'test', connId=5
 DEBUG: database commit ok connId=5
-INFO: End 2020-02-06 16:07:55
+INFO: End 2020-05-20 12:21:39
 DEBUG: Configuratiebestand is /Users/just/project/nlextract/git/bag/extract.conf
-INFO: Start 2020-02-06 16:07:56
+INFO: Start 2020-05-20 12:21:39
 DEBUG: verbonden met de database 'bag', schema 'test', connId=5
 DEBUG: database commit ok connId=5
 INFO: SQL van file = /Users/just/project/nlextract/git/bag/test/geocode/geocode-functies-test.sql uitvoeren...
@@ -980,4 +851,4 @@ DEBUG: database connectie 5 gesloten
 INFO: SQL uitgevoerd OK
 DEBUG: verbonden met de database 'bag', schema 'test', connId=5
 DEBUG: database commit ok connId=5
-INFO: End 2020-02-06 16:07:56
+INFO: End 2020-05-20 12:21:39
