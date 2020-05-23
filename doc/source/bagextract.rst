@@ -319,7 +319,7 @@ Voorbeelden
    (kan lang duren op gehele BAG, lijkt sneller te gaan via "psql" Postgres commando).
    NB Doe altijd eerst stappen 1-3! ::
 
-     psql -d bag < ../db/script/adres-tabel.sql
+     psql -d bag -U postgres < ../db/script/adres-tabel.sql
 
    Gebruik het psql commando "set search_path to <your schema>,public; "
    als je de adres-tabel in een expliciet Postgres schema wilt. Bijv ::
