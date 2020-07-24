@@ -2,7 +2,7 @@
 ::
 :: Dit is een front-end/wrapper batch-script om uiteindelijk Stetl met een configuratie
 :: (etl-brk.cfg) en parameters (options\myoptions.args) aan te roepen. Dit script is
-:: gebaseerd op het shell-script etl-brk.sh.
+:: gebaseerd op het shell-script etl.sh.
 ::
 :: Author: Frank Steggink
 @echo off

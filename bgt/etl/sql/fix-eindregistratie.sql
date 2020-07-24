@@ -1,13 +1,21 @@
--- Ontdubbelen voorkomens panden
-create table pand_dubbelevoorkomens as select max(ogc_fid) max_fid, lokaalid, tijdstipregistratie, lv_publicatiedatum, count(*) aantal from pand group by lokaalid, tijdstipregistratie, lv_publicatiedatum having count(*) > 1 order by lokaalid, tijdstipregistratie, lv_publicatiedatum;
-
-create table pand_todelete as select p.ogc_fid from pand p join pand_dubbelevoorkomens d on p.lokaalid=d.lokaalid and p.tijdstipregistratie=d.tijdstipregistratie and p.lv_publicatiedatum=d.lv_publicatiedatum and p.ogc_fid!=d.max_fid;
-
-delete from pand where ogc_fid in (select ogc_fid from pand_todelete);
-drop table pand_dubbelevoorkomens;
-drop table pand_todelete;
-
-
+-- -- Ontdubbelen voorkomens panden
+-- create table pand_dubbelevoorkomens as select max(ogc_fid) max_fid, lokaalid, tijdstipregistratie, lv_publicatiedatum, count(*) aantal from pand group by lokaalid, tijdstipregistratie, lv_publicatiedatum having count(*) > 1 order by lokaalid, tijdstipregistratie, lv_publicatiedatum;
+--
+-- create table pand_todelete as select p.ogc_fid from pand p join pand_dubbelevoorkomens d on p.lokaalid=d.lokaalid and p.tijdstipregistratie=d.tijdstipregistratie and p.lv_publicatiedatum=d.lv_publicatiedatum and p.ogc_fid!=d.max_fid;
+--
+-- delete from pand where ogc_fid in (select ogc_fid from pand_todelete);
+-- drop table pand_dubbelevoorkomens;
+-- drop table pand_todelete;
+--
+-- -- Ontdubbelen voorkomens wegdeel
+-- create table wegdeel_dubbelevoorkomens as select max(ogc_fid) max_fid, lokaalid, tijdstipregistratie, lv_publicatiedatum, count(*) aantal from wegdeel group by lokaalid, tijdstipregistratie, lv_publicatiedatum having count(*) > 1 order by lokaalid, tijdstipregistratie, lv_publicatiedatum;
+--
+-- create table wegdeel_todelete as select p.ogc_fid from wegdeel p join wegdeel_dubbelevoorkomens d on p.lokaalid=d.lokaalid and p.tijdstipregistratie=d.tijdstipregistratie and p.lv_publicatiedatum=d.lv_publicatiedatum and p.ogc_fid!=d.max_fid;
+--
+-- delete from wegdeel where ogc_fid in (select ogc_fid from wegdeel_todelete);
+-- -- drop table wegdeel_dubbelevoorkomens;
+-- -- drop table wegdeel_todelete;
+--
 -- bak
 create index bak_lokaalid on bak(lokaalid);
 

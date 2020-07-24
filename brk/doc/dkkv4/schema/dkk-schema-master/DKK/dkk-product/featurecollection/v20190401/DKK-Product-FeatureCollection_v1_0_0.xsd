@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:dkkfc="http://www.kadaster.nl/schemas/dkk/dkk-product/featurecollection/v20190401" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:oz="http://www.kadaster.nl/schemas/dkk/imkad-onroerendezaak/v20190401" targetNamespace="http://www.kadaster.nl/schemas/dkk/dkk-product/featurecollection/v20190401" elementFormDefault="qualified" version="1.1.0">
+	<annotation>
+		<documentation>http://www.kadaster.nl/schemas/brkkadastralekaart: ---IMKAD---
+Dit is het Informatiemodel Kadaster (IMKAD), een sectormodel conform NEN3610-2011. 
+
+Voor wijzigingen ten opzichte van de laatst gepubliceerde versie, zie de release notes.</documentation>
+	</annotation>
+	<import namespace="http://www.opengis.net/gml/3.2" schemaLocation="../../../../gml/3.2.1/gml.xsd"/>
+	<!--XML Schema document created by ShapeChange - http://shapechange.net/-->
+	<import namespace="http://www.kadaster.nl/schemas/dkk/imkad-onroerendezaak/v20190401" schemaLocation="../../../../DKK/imkad-onroerendezaak/v20190401/DKK-Product_OnroerendeZaak_v1_0_0.xsd"/>
+	<element name="FeatureCollectionDKK" type="dkkfc:FeatureCollectionDKKType" substitutionGroup="gml:AbstractGML"/>
+	<complexType name="FeatureCollectionDKKType">
+		<complexContent>
+			<extension base="gml:AbstractFeatureType">
+				<sequence minOccurs="0" maxOccurs="unbounded">
+					<element name="featureMember">
+						<complexType>
+							<complexContent>
+								<extension base="gml:AbstractFeatureMemberType">
+									<choice>
+										<element ref="oz:Perceel"/>
+										<element ref="oz:KadastraleGrens"/>
+									</choice>
+								</extension>
+							</complexContent>
+						</complexType>
+					</element>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+</schema>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:mld="http://www.kadaster.nl/schemas/mutatielevering-dkk/4.0"
+		   xmlns:xs="http://www.w3.org/2001/XMLSchema"
+		   xmlns:ml="http://www.kadaster.nl/schemas/mutatielevering-generiek/2.0"
+		   xmlns:OnroerendeZaak="http://www.kadaster.nl/schemas/dkk/imkad-onroerendezaak/v20190401"
+		   targetNamespace="http://www.kadaster.nl/schemas/mutatielevering-dkk/4.0" elementFormDefault="qualified"
+		   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		   xsi:schemaLocation="http://www.kadaster.nl/schemas/mutatielevering-dkk/4.0 ">
+	<xs:import namespace="http://www.kadaster.nl/schemas/mutatielevering-generiek/2.0"
+			   schemaLocation="mutatielevering-generiek-2.0.xsd"/>
+	<xs:import namespace="http://www.kadaster.nl/schemas/dkk/imkad-onroerendezaak/v20190401"
+			   schemaLocation="../imkad-onroerendezaak/v20190401/DKK-Product_OnroerendeZaak_v1_0_0.xsd"/>
+	<xs:element name="dkkMutaties">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="ml:mutatieBericht"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="dkkObject" type="mld:dkkObject" substitutionGroup="ml:modelObject"/>
+	<xs:complexType name="dkkObject">
+		<xs:complexContent>
+			<xs:extension base="ml:modelObject">
+				<xs:choice>
+					<xs:element ref="OnroerendeZaak:KadastraleGrens"/>
+					<xs:element ref="OnroerendeZaak:Perceel"/>
+				</xs:choice>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+</xs:schema>

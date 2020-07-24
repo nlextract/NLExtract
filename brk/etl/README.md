@@ -1,3 +1,4 @@
+# NLExtract - BRK - DKK
 BRK inlezen met [Stetl ETL framework](http://stetl.org).
 
 door: Just van den Broecke en Frank Steggink
@@ -37,9 +38,9 @@ unzip: http://gnuwin32.sourceforge.net/packages/unzip.htm
 
 ## Commando
 
-``./etl-brk.sh``
+``./etl.sh``
 
-Windows: ``etl-brk.cmd``
+Windows: ``etl.cmd``
 
 Gebruikt default opties (database params etc) uit ``options/default.args``.
 
@@ -53,7 +54,7 @@ Een aantal opties kunnen op 2 manieren vervangen worden:
 1- Impliciet: Overrule default opties (database params etc) met een eigen lokale file gebaseerd op
 je lokale hostnaam: ``options/<jouw host naam>.args``
 
-2- Expliciet op command line via  ``./etl-brk.sh <mijn opties file>.args``
+2- Expliciet op command line via  ``./etl.sh <mijn opties file>.args``
                                   Windows: ``etl-brk.cmd <mijn opties file>.args``
 
 Indien methode 2 gebruikt wordt, prevaleren de expliciete opties-file boven 1 en de default opties!

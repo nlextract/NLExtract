@@ -13,11 +13,13 @@ if [ -z "$STETL_HOME" ]; then
   STETL_HOME=../../externals/stetl
 fi
 
+BGT_HOME=../../bgt/etl
+
 # Nodig voor imports
 if [ -z "$PYTHONPATH" ]; then
-  export PYTHONPATH=$STETL_HOME
+  export PYTHONPATH=$STETL_HOME:${BGT_HOME}
 else
-  export PYTHONPATH=$STETL_HOME:$PYTHONPATH
+  export PYTHONPATH=$STETL_HOME:${BGT_HOME}:$PYTHONPATH
 fi
 
 # Default arguments/options
@@ -29,7 +31,7 @@ host_options_file=options/`hostname`.args
 
 [ -f "$host_options_file" ] && options_file=$host_options_file
 
-# Evt via commandline overrulen: etl-brk.sh <my options file>
+# Evt via commandline overrulen: etl.sh <my options file>
 [ -f "$1" ] && options_file=$1
 
 # Uiteindelijke commando. Kan ook gewoon "stetl -c etl-brk.cfg -a ..." worden indien Stetl installed
