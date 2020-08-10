@@ -1,4 +1,4 @@
- #!/bin/bash
+#!/bin/bash
 #
 # ETL voor Top10NL GML met gebruik Stetl.
 #

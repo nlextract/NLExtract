@@ -1,9 +1,9 @@
 #!/bin/bash
 #
-# ETL voor TOP50NL GML met gebruik Stetl.
+# ETL voor Top50NL GML met gebruik Stetl.
 #
 # Dit is een front-end/wrapper shell-script om uiteindelijk Stetl met een configuratie
-# (etl-top50nl-v1.1.cfg) en parameters (options/myoptions.args) aan te roepen.
+# (etl-top10nl.cfg) en parameters (options/myoptions.args) aan te roepen.
 #
 # Author: Just van den Broecke
 #
@@ -37,10 +37,11 @@ host_options_file=options/`hostname`.args
 # Evt via commandline overrulen: etl-top50nl.sh <my options file> or
 [ -f "$1" ] && cmd_options="-a $1"
 
-# Uiteindelijke commando. Kan ook gewoon "stetl -c conf/etl-top50nl-v1.1.cfg -a ..." worden indien Stetl installed
-# python $STETL_HOME/stetl/main.py -c conf/etl-top50nl-v1.1.cfg -a "$pg_options temp_dir=temp max_features=$max_features gml_files=$gml_files $multi $spatial_extent"
-
+# Uiteindelijke commando. Kan ook gewoon "stetl -c conf/etl-top10nl-v1.2.cfg -a ..." worden indien Stetl installed
+# python $STETL_HOME/stetl/main.py -c conf/etl-top10nl-v1.2.cfg -a "$pg_options temp_dir=temp max_features=$max_features gml_files=$gml_files $multi $spatial_extent"
 args_options="${default_options} ${host_options} ${cmd_options}"
-python $STETL_HOME/stetl/main.py -c conf/etl-top50nl-v1.1.cfg -a ${args_options}
+echo "args_options=${args_options}"
+
+python $STETL_HOME/stetl/main.py -c conf/etl-top50nl-v1.1.cfg ${args_options}
 
 popd >/dev/null
