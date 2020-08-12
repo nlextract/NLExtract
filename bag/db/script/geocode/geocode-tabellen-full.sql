@@ -141,7 +141,7 @@ INSERT INTO geo_adres_full (openbareruimtenaam, huisnummer, huisletter, huisnumm
   	'', -- pandstatus
   	NULL, -- pandbouwjaar
       -- Vlak geometrie wordt punt
-      -- ST_Force3D is Postgis 2.x, gebruik st_force_3d voor Postgis 1.x
+      -- ST_Force3D is Postgis 2.x, gebruik ST_Force3D voor Postgis 1.x
   	ST_Force3D(ST_Centroid(l.geovlak))  as geopunt
   FROM
   	ligplaatsactueel l
@@ -187,7 +187,7 @@ INSERT INTO geo_adres_full (openbareruimtenaam, huisnummer, huisletter, huisnumm
     '', -- pandstatus
     NULL, -- pandbouwjaar
     -- Vlak geometrie wordt punt
-    -- ST_Force3D is Postgis 2.x, gebruik st_force_3d voor Postgis 1.x
+    -- ST_Force3D is Postgis 2.x, gebruik ST_Force3D voor Postgis 1.x
     ST_Force3D(ST_Centroid(s.geovlak)) as geopunt
   FROM
     standplaatsactueel s
@@ -304,7 +304,7 @@ INSERT INTO geo_adres_full (openbareruimtenaam, huisnummer, huisletter, huisnumm
     '', -- pandstatus
     NULL, -- pandbouwjaar
     -- Vlak geometrie wordt punt
-    -- ST_Force3D is Postgis 2.x, gebruik st_force_3d voor Postgis 1.x
+    -- ST_Force3D is Postgis 2.x, gebruik ST_Force3D voor Postgis 1.x
     ST_Force3D(ST_Centroid(l.geovlak))  as geopunt
   FROM
     adresseerbaarobjectnevenadresactueel aon
@@ -351,7 +351,7 @@ INSERT INTO geo_adres_full (openbareruimtenaam, huisnummer, huisletter, huisnumm
     '', -- pandstatus
     NULL, -- pandbouwjaar
     -- Vlak geometrie wordt punt
-    -- ST_Force3D is Postgis 2.x, gebruik st_force_3d voor Postgis 1.x
+    -- ST_Force3D is Postgis 2.x, gebruik ST_Force3D voor Postgis 1.x
     ST_Force3D(ST_Centroid(s.geovlak))  as geopunt
   FROM
     adresseerbaarobjectnevenadresactueel aon
