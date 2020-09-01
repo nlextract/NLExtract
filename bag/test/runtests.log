@@ -1,5 +1,5 @@
 DEBUG: Configuratiebestand is /Users/just/project/nlextract/git.py3/bag/extract.conf
-INFO: Start 2020-07-29 10:40:56
+INFO: Start 2020-08-12 15:19:43
 INFO: alle database tabellen weggooien en opnieuw aanmaken...
 INFO: Probeer te verbinden...
 DEBUG: database commit ok connId=5
@@ -44,10 +44,10 @@ DEBUG: verbonden met de database 'bag', schema 'test', connId=7
 DEBUG: database commit ok connId=7
 DEBUG: database connectie 7 gesloten
 INFO: SQL uitgevoerd OK
-INFO: End 2020-07-29 10:40:57
+INFO: End 2020-08-12 15:19:44
 DEBUG: Configuratiebestand is /Users/just/project/nlextract/git.py3/bag/extract.conf
 running with lxml.etree
-INFO: Start 2020-07-29 10:40:57
+INFO: Start 2020-08-12 15:19:44
 DEBUG: verbonden met de database 'bag', schema 'test', connId=5
 DEBUG: database commit ok connId=5
 INFO: process: verwerk /Users/just/project/nlextract/git.py3/bag/test/data
@@ -271,10 +271,10 @@ DEBUG: reusing db connection
 DEBUG: database commit ok connId=5
 DEBUG: verbonden met de database 'bag', schema 'test', connId=6
 DEBUG: database commit ok connId=6
-INFO: End 2020-07-29 10:40:59
+INFO: End 2020-08-12 15:19:46
 DEBUG: Configuratiebestand is /Users/just/project/nlextract/git.py3/bag/extract.conf
 running with lxml.etree
-INFO: Start 2020-07-29 10:40:59
+INFO: Start 2020-08-12 15:19:46
 DEBUG: verbonden met de database 'bag', schema 'test', connId=5
 DEBUG: database commit ok connId=5
 INFO: process: verwerk /Users/just/project/nlextract/git.py3/bag/test/datadubbel
@@ -325,9 +325,9 @@ DEBUG: reusing db connection
 DEBUG: database commit ok connId=5
 DEBUG: verbonden met de database 'bag', schema 'test', connId=6
 DEBUG: database commit ok connId=6
-INFO: End 2020-07-29 10:40:59
+INFO: End 2020-08-12 15:19:46
 DEBUG: Configuratiebestand is /Users/just/project/nlextract/git.py3/bag/extract.conf
-INFO: Start 2020-07-29 10:41:00
+INFO: Start 2020-08-12 15:19:46
 DEBUG: verbonden met de database 'bag', schema 'test', connId=5
 DEBUG: database commit ok connId=5
 INFO: SQL van file = /Users/just/project/nlextract/git.py3/bag/db/script/ontdubbel.sql uitvoeren...
@@ -337,11 +337,11 @@ DEBUG: database connectie 5 gesloten
 INFO: SQL uitgevoerd OK
 DEBUG: verbonden met de database 'bag', schema 'test', connId=5
 DEBUG: database commit ok connId=5
-INFO: End 2020-07-29 10:41:00
+INFO: End 2020-08-12 15:19:46
 START TEST: Mutaties
 DEBUG: Configuratiebestand is /Users/just/project/nlextract/git.py3/bag/extract.conf
 running with lxml.etree
-INFO: Start 2020-07-29 10:41:00
+INFO: Start 2020-08-12 15:19:47
 DEBUG: verbonden met de database 'bag', schema 'test', connId=5
 DEBUG: database commit ok connId=5
 INFO: process: verwerk /Users/just/project/nlextract/git.py3/bag/test/mutatie
@@ -437,12 +437,12 @@ DEBUG: reusing db connection
 DEBUG: database commit ok connId=5
 DEBUG: verbonden met de database 'bag', schema 'test', connId=7
 DEBUG: database commit ok connId=7
-INFO: End 2020-07-29 10:41:00
+INFO: End 2020-08-12 15:19:47
 END TEST: Mutaties
 START TEST: Mutaties : slechts eenmaal verwerken
 DEBUG: Configuratiebestand is /Users/just/project/nlextract/git.py3/bag/extract.conf
 running with lxml.etree
-INFO: Start 2020-07-29 10:41:00
+INFO: Start 2020-08-12 15:19:47
 DEBUG: verbonden met de database 'bag', schema 'test', connId=5
 DEBUG: database commit ok connId=5
 INFO: process: verwerk /Users/just/project/nlextract/git.py3/bag/test/mutatie
@@ -499,10 +499,10 @@ DEBUG: reusing db connection
 DEBUG: database commit ok connId=5
 DEBUG: verbonden met de database 'bag', schema 'test', connId=6
 DEBUG: database commit ok connId=6
-INFO: End 2020-07-29 10:41:00
+INFO: End 2020-08-12 15:19:47
 END TEST: Mutaties : slechts eenmaal verwerken
 DEBUG: Configuratiebestand is /Users/just/project/nlextract/git.py3/bag/extract.conf
-INFO: Start 2020-07-29 10:41:01
+INFO: Start 2020-08-12 15:19:47
 DEBUG: verbonden met de database 'bag', schema 'test', connId=5
 DEBUG: database commit ok connId=5
 INFO: SQL van file = /Users/just/project/nlextract/git.py3/bag/db/script/gemeente-provincie-tabel.sql uitvoeren...
@@ -512,9 +512,9 @@ DEBUG: database connectie 5 gesloten
 INFO: SQL uitgevoerd OK
 DEBUG: verbonden met de database 'bag', schema 'test', connId=5
 DEBUG: database commit ok connId=5
-INFO: End 2020-07-29 10:41:01
+INFO: End 2020-08-12 15:19:48
 DEBUG: Configuratiebestand is /Users/just/project/nlextract/git.py3/bag/extract.conf
-INFO: Start 2020-07-29 10:41:01
+INFO: Start 2020-08-12 15:19:48
 DEBUG: verbonden met de database 'bag', schema 'test', connId=5
 DEBUG: database commit ok connId=5
 INFO: SQL van file = /Users/just/project/nlextract/git.py3/bag/db/script/adres-tabel.sql uitvoeren...
@@ -524,9 +524,9 @@ DEBUG: database connectie 5 gesloten
 INFO: SQL uitgevoerd OK
 DEBUG: verbonden met de database 'bag', schema 'test', connId=5
 DEBUG: database commit ok connId=5
-INFO: End 2020-07-29 10:41:01
+INFO: End 2020-08-12 15:19:48
 DEBUG: Configuratiebestand is /Users/just/project/nlextract/git.py3/bag/extract.conf
-INFO: Start 2020-07-29 10:41:01
+INFO: Start 2020-08-12 15:19:48
 DEBUG: verbonden met de database 'bag', schema 'test', connId=5
 DEBUG: database commit ok connId=5
 INFO: SQL van file = /Users/just/project/nlextract/git.py3/bag/db/script/adres-tabel-full.sql uitvoeren...
@@ -536,7 +536,7 @@ DEBUG: database connectie 5 gesloten
 INFO: SQL uitgevoerd OK
 DEBUG: verbonden met de database 'bag', schema 'test', connId=5
 DEBUG: database commit ok connId=5
-INFO: End 2020-07-29 10:41:02
+INFO: End 2020-08-12 15:19:48
 COPY 6
 openbareruimte;huisnummer;huisletter;huisnummertoevoeging;postcode;woonplaats;gemeente;provincie;object_id;object_type;nevenadres;x;y;lon;lat
 Molenbochtstraat;3;;I;9901AA;Hieslum;Súdwest-Fryslân;Friesland;0003010000125985;VBO;f;155000;463000;5.3872035087259;52.1551723011519
@@ -807,7 +807,7 @@ pg_dump: dumping contents of table "test.verblijfsobjectgebruiksdoel"
 pg_dump: dumping contents of table "test.verblijfsobjectpand"
 pg_dump: dumping contents of table "test.woonplaats"
 DEBUG: Configuratiebestand is /Users/just/project/nlextract/git.py3/bag/extract.conf
-INFO: Start 2020-07-29 10:41:02
+INFO: Start 2020-08-12 15:19:49
 DEBUG: verbonden met de database 'bag', schema 'test', connId=5
 DEBUG: database commit ok connId=5
 INFO: SQL van file = /Users/just/project/nlextract/git.py3/bag/db/script/geocode/geocode-tabellen.sql uitvoeren...
@@ -817,9 +817,9 @@ DEBUG: database connectie 5 gesloten
 INFO: SQL uitgevoerd OK
 DEBUG: verbonden met de database 'bag', schema 'test', connId=5
 DEBUG: database commit ok connId=5
-INFO: End 2020-07-29 10:41:02
+INFO: End 2020-08-12 15:19:49
 DEBUG: Configuratiebestand is /Users/just/project/nlextract/git.py3/bag/extract.conf
-INFO: Start 2020-07-29 10:41:03
+INFO: Start 2020-08-12 15:19:49
 DEBUG: verbonden met de database 'bag', schema 'test', connId=5
 DEBUG: database commit ok connId=5
 INFO: SQL van file = /Users/just/project/nlextract/git.py3/bag/db/script/geocode/geocode-functies.sql uitvoeren...
@@ -829,9 +829,9 @@ DEBUG: database connectie 5 gesloten
 INFO: SQL uitgevoerd OK
 DEBUG: verbonden met de database 'bag', schema 'test', connId=5
 DEBUG: database commit ok connId=5
-INFO: End 2020-07-29 10:41:03
+INFO: End 2020-08-12 15:19:49
 DEBUG: Configuratiebestand is /Users/just/project/nlextract/git.py3/bag/extract.conf
-INFO: Start 2020-07-29 10:41:03
+INFO: Start 2020-08-12 15:19:50
 DEBUG: verbonden met de database 'bag', schema 'test', connId=5
 DEBUG: database commit ok connId=5
 INFO: SQL van file = /Users/just/project/nlextract/git.py3/bag/test/geocode/geocode-functies-test.sql uitvoeren...
@@ -841,4 +841,4 @@ DEBUG: database connectie 5 gesloten
 INFO: SQL uitgevoerd OK
 DEBUG: verbonden met de database 'bag', schema 'test', connId=5
 DEBUG: database commit ok connId=5
-INFO: End 2020-07-29 10:41:03
+INFO: End 2020-08-12 15:19:50
