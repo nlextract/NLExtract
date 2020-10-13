@@ -39,9 +39,11 @@ import os
 import re
 import copy
 import datetime
-import xlrd
 from collections import defaultdict
 from etree import etree, stripschema
+
+import openpyxl
+import xlrd
 
 
 class ArgParser(argparse.ArgumentParser):
@@ -240,12 +242,182 @@ def add_gemeente(args, gemeentelijke_indeling, provincie_map):
     return gemeentelijke_indeling
 
 
-def parse_cbs_data(args):
-    if not os.access(args.file, os.R_OK):
-        if args.verbose:
-            print("Error: Cannot read CBS data file: " + args.file)
-        return
+def get_column(args, header):
+    column = {}
 
+    # Gemeentecode    Gemeentenaam    Provincienaam    Provinciecode
+    if (header[0] == 'Gemeentecode' and
+            header[1] == 'Gemeentenaam' and
+            header[2] == 'Provincienaam' and
+            header[3] == 'Provinciecode'):
+        column = {
+            'gemeentecode': 0,
+            'gemeentenaam': 1,
+            'provincienaam': 2,
+            'provinciecode': 3,
+        }
+
+    # Gemeentecode    Provinciecode    Gemeentenaam    Provincienaam
+    elif (header[0] == 'Gemeentecode' and
+          header[1] == 'Provinciecode' and
+          header[2] == 'Gemeentenaam' and
+          header[3] == 'Provincienaam'):
+        column = {
+            'gemeentecode': 0,
+            'provinciecode': 1,
+            'gemeentenaam': 2,
+            'provincienaam': 3,
+        }
+
+    # prov_Gemcode    provcode    Gemcodel    provcodel
+    elif (header[0] == 'prov_Gemcode' and
+          header[1] == 'provcode' and
+          header[2] == 'Gemcodel' and
+          header[3] == 'provcodel'):
+        column = {
+            'gemeentecode': 0,
+            'provinciecode': 1,
+            'gemeentenaam': 2,
+            'provincienaam': 3,
+        }
+
+    # Gemcode    provcode    Gemcodel    provcodel
+    elif (header[0] == 'Gemcode' and
+          header[1] == 'provcode' and
+          header[2] == 'Gemcodel' and
+          header[3] == 'provcodel'):
+        column = {
+            'gemeentecode': 0,
+            'provinciecode': 1,
+            'gemeentenaam': 2,
+            'provincienaam': 3,
+        }
+
+    # Gemcode    Gemcodel    provcode    provcodel
+    elif (header[0] == 'Gemcode' and
+          header[1] == 'Gemcodel' and
+          header[2] == 'provcode' and
+          header[3] == 'provcodel'):
+        column = {
+            'gemeentecode': 0,
+            'gemeentenaam': 1,
+            'provinciecode': 2,
+            'provincienaam': 3,
+        }
+
+    # Gemeentecode    GemeentecodeGM    Gemeentenaam    Provinciecode    ProvinciecodePV    Provincienaam
+    elif (header[0] == 'Gemeentecode' and
+          header[1] == 'GemeentecodeGM' and
+          header[2] == 'Gemeentenaam' and
+          header[3] == 'Provinciecode' and
+          header[4] == 'ProvinciecodePV' and
+          header[5] == 'Provincienaam'):
+        column = {
+            'gemeentecode': 0,
+            'gemeentecodegm': 1,
+            'gemeentenaam': 2,
+            'provinciecode': 3,
+            'provinciecodepv': 4,
+            'provincienaam': 5,
+        }
+
+    # Unsupported format
+    else:
+        if args.verbose:
+            order = ""
+
+            i = 0
+            for col in header:
+                if i > 0:
+                    print(" | ")
+
+                print(col)
+
+                i += 1
+
+            print("Error: Unsupported header order: %s" % order)
+
+    return column
+
+
+def parse_xslx(args):
+    if args.verbose:
+        print("Parsing XLSX file: %s" % args.file)
+
+    workbook = openpyxl.load_workbook(args.file)
+
+    cbs_data = hash()
+
+    for sheet in workbook:
+        value = sheet.cell(row=1, column=1).value
+
+        if not value:
+            if args.verbose:
+                print("Warning: No value in cell 1,1, skipping worksheet: %s" % sheet.title)
+
+            continue
+
+        header = []
+        for col in sheet[1]:
+            header.append(col.value)
+
+        column = get_column(args, header)
+
+        if len(column) == 0:
+            return
+
+        row = 0
+        for r in sheet.values:
+            row += 1
+
+            if row == 1:
+                continue
+
+            record = {}
+
+            columns = ['gemeentecode', 'gemeentenaam', 'provinciecode', 'provincienaam']
+            for key in columns:
+                value = sheet.cell(row=row, column=column[key] + 1).value
+
+                record[key] = value
+
+            if ('gemeentecode' not in record and
+                    'gemeentenaam' not in record and
+                    'provinciecode' not in record and
+                    'provincienaam' not in record):
+                if args.verbose:
+                    print("Empty row, stoppping here.")
+                break
+
+            if 'gemeentecode' not in record:
+                if args.verbose:
+                    print("Empty 'gemeentecode' column (%s), stoppping here." % column['gemeentecode'])
+                break
+            if 'gemeentenaam' not in record:
+                if args.verbose:
+                    print("Empty 'gemeentenaam' column (%s), stoppping here." % column['gemeentenaam'])
+                break
+            if 'provinciecode' not in record:
+                if args.verbose:
+                    print("Empty 'provinciecode' column (%s), stoppping here." % column['provinciecode'])
+                break
+            if 'provincienaam' not in record:
+                if args.verbose:
+                    print("Empty 'provincienaam' column (%s), stoppping here." % column['provincienaam'])
+                break
+
+            columns = ['gemeentecode', 'provinciecode']
+            for key in columns:
+                record[key] = strip_leading_zeros(record[key])
+
+            cbs_data[record['provinciecode']][record['gemeentecode']] = record
+
+        break
+
+    return cbs_data
+
+
+def parse_xsl(args):
     if args.verbose:
         print("Parsing XLS file: %s" % args.file)
 
@@ -270,100 +442,9 @@ def parse_cbs_data(args):
 
             header.append(value)
 
-        column = {}
+        column = get_column(args, header)
 
-        # Gemeentecode    Gemeentenaam    Provincienaam    Provinciecode
-        if (header[0] == 'Gemeentecode' and
-                header[1] == 'Gemeentenaam' and
-                header[2] == 'Provincienaam' and
-                header[3] == 'Provinciecode'):
-            column = {
-                'gemeentecode': 0,
-                'gemeentenaam': 1,
-                'provincienaam': 2,
-                'provinciecode': 3,
-            }
-
-        # Gemeentecode    Provinciecode    Gemeentenaam    Provincienaam
-        elif (header[0] == 'Gemeentecode' and
-              header[1] == 'Provinciecode' and
-              header[2] == 'Gemeentenaam' and
-              header[3] == 'Provincienaam'):
-            column = {
-                'gemeentecode': 0,
-                'provinciecode': 1,
-                'gemeentenaam': 2,
-                'provincienaam': 3,
-            }
-
-        # prov_Gemcode    provcode    Gemcodel    provcodel
-        elif (header[0] == 'prov_Gemcode' and
-              header[1] == 'provcode' and
-              header[2] == 'Gemcodel' and
-              header[3] == 'provcodel'):
-            column = {
-                'gemeentecode': 0,
-                'provinciecode': 1,
-                'gemeentenaam': 2,
-                'provincienaam': 3,
-            }
-
-        # Gemcode    provcode    Gemcodel    provcodel
-        elif (header[0] == 'Gemcode' and
-              header[1] == 'provcode' and
-              header[2] == 'Gemcodel' and
-              header[3] == 'provcodel'):
-            column = {
-                'gemeentecode': 0,
-                'provinciecode': 1,
-                'gemeentenaam': 2,
-                'provincienaam': 3,
-            }
-
-        # Gemcode    Gemcodel    provcode    provcodel
-        elif (header[0] == 'Gemcode' and
-              header[1] == 'Gemcodel' and
-              header[2] == 'provcode' and
-              header[3] == 'provcodel'):
-            column = {
-                'gemeentecode': 0,
-                'gemeentenaam': 1,
-                'provinciecode': 2,
-                'provincienaam': 3,
-            }
-
-        # Gemeentecode    GemeentecodeGM    Gemeentenaam    Provinciecode    ProvinciecodePV    Provincienaam
-        elif (header[0] == 'Gemeentecode' and
-              header[1] == 'GemeentecodeGM' and
-              header[2] == 'Gemeentenaam' and
-              header[3] == 'Provinciecode' and
-              header[4] == 'ProvinciecodePV' and
-              header[5] == 'Provincienaam'):
-            column = {
-                'gemeentecode': 0,
-                'gemeentecodegm': 1,
-                'gemeentenaam': 2,
-                'provinciecode': 3,
-                'provinciecodepv': 4,
-                'provincienaam': 5,
-            }
-
-        # Unsupported format
-        else:
-            if args.verbose:
-                order = ""
-
-                i = 0
-                for col in header:
-                    if i > 0:
-                        print(" | ")
-
-                    print(col)
-
-                    i += 1
-
-                print("Error: Unsupported header order: %s" % order)
-
+        if len(column) == 0:
             return
 
         for row in range(1, sheet.nrows):
@@ -407,6 +488,20 @@ def parse_cbs_data(args):
             cbs_data[record['provinciecode']][record['gemeentecode']] = record
 
         break
+
+    return cbs_data
+
+
+def parse_cbs_data(args):
+    if not os.access(args.file, os.R_OK):
+        if args.verbose:
+            print("Error: Cannot read CBS data file: " + args.file)
+        return
+
+    if args.file.endswith('.xls'):
+        cbs_data = parse_xsl(args)
+    else:
+        cbs_data = parse_xslx(args)
 
     return cbs_data
 
