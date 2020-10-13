@@ -16115,4 +16115,385 @@
       <gemeente code="1954" naam="Beekdaelen" begindatum="2019-01-01"/>
     </provincie>
   </indeling>
+  <indeling jaar="2020">
+    <provincie code="20" naam="Groningen">
+      <gemeente code="3" naam="Appingedam" begindatum="1970-01-01"/>
+      <gemeente code="10" naam="Delfzijl" begindatum="1970-01-01"/>
+      <gemeente code="14" naam="Groningen" begindatum="1970-01-01"/>
+      <gemeente code="24" naam="Loppersum" begindatum="1970-01-01"/>
+      <gemeente code="37" naam="Stadskanaal" begindatum="1969-01-01"/>
+      <gemeente code="47" naam="Veendam" begindatum="1970-01-01"/>
+      <gemeente code="765" naam="Pekela" begindatum="1990-01-01"/>
+      <gemeente code="1895" naam="Oldambt" begindatum="2010-01-01"/>
+      <gemeente code="1950" naam="Westerwolde" begindatum="2018-01-01"/>
+      <gemeente code="1952" naam="Midden-Groningen" begindatum="2018-01-01"/>
+      <gemeente code="1966" naam="Het Hogeland" begindatum="2019-01-01"/>
+      <gemeente code="1969" naam="Westerkwartier" begindatum="2019-01-01"/>
+    </provincie>
+    <provincie code="21" naam="Friesland">
+      <gemeente code="59" naam="Achtkarspelen" begindatum="1970-01-01"/>
+      <gemeente code="60" naam="Ameland" begindatum="1970-01-01"/>
+      <gemeente code="72" naam="Harlingen" begindatum="1970-01-01"/>
+      <gemeente code="74" naam="Heerenveen" begindatum="1934-07-01"/>
+      <gemeente code="80" naam="Leeuwarden" begindatum="1970-01-01"/>
+      <gemeente code="85" naam="Ooststellingwerf" begindatum="1970-01-01"/>
+      <gemeente code="86" naam="Opsterland" begindatum="1970-01-01"/>
+      <gemeente code="88" naam="Schiermonnikoog" begindatum="1970-01-01"/>
+      <gemeente code="90" naam="Smallingerland" begindatum="1970-01-01"/>
+      <gemeente code="93" naam="Terschelling" begindatum="1970-01-01"/>
+      <gemeente code="96" naam="Vlieland" begindatum="1970-01-01"/>
+      <gemeente code="98" naam="Weststellingwerf" begindatum="1970-01-01"/>
+      <gemeente code="737" naam="Tytsjerksteradiel" begindatum="1989-01-01"/>
+      <gemeente code="1891" naam="Dantumadiel" begindatum="2009-01-01"/>
+      <gemeente code="1900" naam="Súdwest-Fryslân" begindatum="2011-01-01"/>
+      <gemeente code="1940" naam="De Fryske Marren" begindatum="2015-07-01"/>
+      <gemeente code="1949" naam="Waadhoeke" begindatum="2018-01-01"/>
+      <gemeente code="1970" naam="Noardeast-Fryslân" begindatum="2019-01-01"/>
+    </provincie>
+    <provincie code="22" naam="Drenthe">
+      <gemeente code="106" naam="Assen" begindatum="1970-01-01"/>
+      <gemeente code="109" naam="Coevorden" begindatum="1970-01-01"/>
+      <gemeente code="114" naam="Emmen" begindatum="1970-01-01"/>
+      <gemeente code="118" naam="Hoogeveen" begindatum="1970-01-01"/>
+      <gemeente code="119" naam="Meppel" begindatum="1970-01-01"/>
+      <gemeente code="1680" naam="Aa en Hunze" begindatum="1998-01-01"/>
+      <gemeente code="1681" naam="Borger-Odoorn" begindatum="1998-01-01"/>
+      <gemeente code="1690" naam="De Wolden" begindatum="1998-01-01"/>
+      <gemeente code="1699" naam="Noordenveld" begindatum="1998-01-01"/>
+      <gemeente code="1701" naam="Westerveld" begindatum="1998-01-01"/>
+      <gemeente code="1730" naam="Tynaarlo" begindatum="2000-01-01"/>
+      <gemeente code="1731" naam="Midden-Drenthe" begindatum="2000-01-01"/>
+    </provincie>
+    <provincie code="23" naam="Overijssel">
+      <gemeente code="141" naam="Almelo" begindatum="1913-01-01"/>
+      <gemeente code="147" naam="Borne" begindatum="1970-01-01"/>
+      <gemeente code="148" naam="Dalfsen" begindatum="1970-01-01"/>
+      <gemeente code="150" naam="Deventer" begindatum="1970-01-01"/>
+      <gemeente code="153" naam="Enschede" begindatum="1970-01-01"/>
+      <gemeente code="158" naam="Haaksbergen" begindatum="1970-01-01"/>
+      <gemeente code="160" naam="Hardenberg" begindatum="1941-05-01"/>
+      <gemeente code="163" naam="Hellendoorn" begindatum="1970-01-01"/>
+      <gemeente code="164" naam="Hengelo" begindatum="1970-01-01"/>
+      <gemeente code="166" naam="Kampen" begindatum="1970-01-01"/>
+      <gemeente code="168" naam="Losser" begindatum="1970-01-01"/>
+      <gemeente code="173" naam="Oldenzaal" begindatum="1970-01-01"/>
+      <gemeente code="175" naam="Ommen" begindatum="1923-05-01"/>
+      <gemeente code="177" naam="Raalte" begindatum="1970-01-01"/>
+      <gemeente code="180" naam="Staphorst" begindatum="1970-01-01"/>
+      <gemeente code="183" naam="Tubbergen" begindatum="1970-01-01"/>
+      <gemeente code="189" naam="Wierden" begindatum="1970-01-01"/>
+      <gemeente code="193" naam="Zwolle" begindatum="1970-01-01"/>
+      <gemeente code="1700" naam="Twenterand" begindatum="2003-01-01"/>
+      <gemeente code="1708" naam="Steenwijkerland" begindatum="2003-01-01"/>
+      <gemeente code="1735" naam="Hof van Twente" begindatum="2001-01-01"/>
+      <gemeente code="1742" naam="Rijssen-Holten" begindatum="2004-01-01"/>
+      <gemeente code="1773" naam="Olst-Wijhe" begindatum="2003-01-01"/>
+      <gemeente code="1774" naam="Dinkelland" begindatum="2003-01-01"/>
+      <gemeente code="1896" naam="Zwartewaterland" begindatum="2001-01-01"/>
+    </provincie>
+    <provincie code="24" naam="Flevoland">
+      <gemeente code="34" naam="Almere" begindatum="1984-01-01"/>
+      <gemeente code="50" naam="Zeewolde" begindatum="1984-01-01"/>
+      <gemeente code="171" naam="Noordoostpolder" begindatum="1962-07-01"/>
+      <gemeente code="184" naam="Urk" begindatum="1970-01-01"/>
+      <gemeente code="303" naam="Dronten" begindatum="1972-01-01"/>
+      <gemeente code="995" naam="Lelystad" begindatum="1970-01-01"/>
+    </provincie>
+    <provincie code="25" naam="Gelderland">
+      <gemeente code="197" naam="Aalten" begindatum="1970-01-01"/>
+      <gemeente code="200" naam="Apeldoorn" begindatum="1970-01-01"/>
+      <gemeente code="202" naam="Arnhem" begindatum="1970-01-01"/>
+      <gemeente code="203" naam="Barneveld" begindatum="1970-01-01"/>
+      <gemeente code="209" naam="Beuningen" begindatum="1970-01-01"/>
+      <gemeente code="213" naam="Brummen" begindatum="1970-01-01"/>
+      <gemeente code="214" naam="Buren" begindatum="1970-01-01"/>
+      <gemeente code="216" naam="Culemborg" begindatum="1970-01-01"/>
+      <gemeente code="221" naam="Doesburg" begindatum="1970-01-01"/>
+      <gemeente code="222" naam="Doetinchem" begindatum="1920-01-01"/>
+      <gemeente code="225" naam="Druten" begindatum="1970-01-01"/>
+      <gemeente code="226" naam="Duiven" begindatum="1970-01-01"/>
+      <gemeente code="228" naam="Ede" begindatum="1970-01-01"/>
+      <gemeente code="230" naam="Elburg" begindatum="1970-01-01"/>
+      <gemeente code="232" naam="Epe" begindatum="1970-01-01"/>
+      <gemeente code="233" naam="Ermelo" begindatum="1970-01-01"/>
+      <gemeente code="243" naam="Harderwijk" begindatum="1970-01-01"/>
+      <gemeente code="244" naam="Hattem" begindatum="1970-01-01"/>
+      <gemeente code="246" naam="Heerde" begindatum="1970-01-01"/>
+      <gemeente code="252" naam="Heumen" begindatum="1970-01-01"/>
+      <gemeente code="262" naam="Lochem" begindatum="1970-01-01"/>
+      <gemeente code="263" naam="Maasdriel" begindatum="1944-08-01"/>
+      <gemeente code="267" naam="Nijkerk" begindatum="1970-01-01"/>
+      <gemeente code="268" naam="Nijmegen" begindatum="1970-01-01"/>
+      <gemeente code="269" naam="Oldebroek" begindatum="1970-01-01"/>
+      <gemeente code="273" naam="Putten" begindatum="1970-01-01"/>
+      <gemeente code="274" naam="Renkum" begindatum="1970-01-01"/>
+      <gemeente code="275" naam="Rheden" begindatum="1970-01-01"/>
+      <gemeente code="277" naam="Rozendaal" begindatum="1970-01-01"/>
+      <gemeente code="279" naam="Scherpenzeel" begindatum="1970-01-01"/>
+      <gemeente code="281" naam="Tiel" begindatum="1970-01-01"/>
+      <gemeente code="285" naam="Voorst" begindatum="1970-01-01"/>
+      <gemeente code="289" naam="Wageningen" begindatum="1970-01-01"/>
+      <gemeente code="293" naam="Westervoort" begindatum="1970-01-01"/>
+      <gemeente code="294" naam="Winterswijk" begindatum="1970-01-01"/>
+      <gemeente code="296" naam="Wijchen" begindatum="1970-01-01"/>
+      <gemeente code="297" naam="Zaltbommel" begindatum="1970-01-01"/>
+      <gemeente code="299" naam="Zevenaar" begindatum="1970-01-01"/>
+      <gemeente code="301" naam="Zutphen" begindatum="1970-01-01"/>
+      <gemeente code="302" naam="Nunspeet" begindatum="1972-01-01"/>
+      <gemeente code="668" naam="West Maas en Waal" begindatum="1985-07-01"/>
+      <gemeente code="1509" naam="Oude IJsselstreek" begindatum="2005-01-01"/>
+      <gemeente code="1586" naam="Oost Gelre" begindatum="2007-01-01"/>
+      <gemeente code="1705" naam="Lingewaard" begindatum="2003-01-01"/>
+      <gemeente code="1734" naam="Overbetuwe" begindatum="2001-01-01"/>
+      <gemeente code="1740" naam="Neder-Betuwe" begindatum="2004-01-01"/>
+      <gemeente code="1859" naam="Berkelland" begindatum="2005-01-01"/>
+      <gemeente code="1876" naam="Bronckhorst" begindatum="2005-01-01"/>
+      <gemeente code="1945" naam="Berg en Dal" begindatum="2016-01-01"/>
+      <gemeente code="1955" naam="Montferland" begindatum="2005-01-01"/>
+      <gemeente code="1960" naam="West Betuwe" begindatum="2019-01-01"/>
+    </provincie>
+    <provincie code="26" naam="Utrecht">
+      <gemeente code="307" naam="Amersfoort" begindatum="1970-01-01"/>
+      <gemeente code="308" naam="Baarn" begindatum="1970-01-01"/>
+      <gemeente code="310" naam="De Bilt" begindatum="1970-01-01"/>
+      <gemeente code="312" naam="Bunnik" begindatum="1970-01-01"/>
+      <gemeente code="313" naam="Bunschoten" begindatum="1970-01-01"/>
+      <gemeente code="317" naam="Eemnes" begindatum="1970-01-01"/>
+      <gemeente code="321" naam="Houten" begindatum="1970-01-01"/>
+      <gemeente code="327" naam="Leusden" begindatum="1970-01-01"/>
+      <gemeente code="331" naam="Lopik" begindatum="1970-01-01"/>
+      <gemeente code="335" naam="Montfoort" begindatum="1970-01-01"/>
+      <gemeente code="339" naam="Renswoude" begindatum="1970-01-01"/>
+      <gemeente code="340" naam="Rhenen" begindatum="1970-01-01"/>
+      <gemeente code="342" naam="Soest" begindatum="1970-01-01"/>
+      <gemeente code="344" naam="Utrecht" begindatum="1970-01-01"/>
+      <gemeente code="345" naam="Veenendaal" begindatum="1970-01-01"/>
+      <gemeente code="351" naam="Woudenberg" begindatum="1970-01-01"/>
+      <gemeente code="352" naam="Wijk bij Duurstede" begindatum="1970-01-01"/>
+      <gemeente code="353" naam="IJsselstein" begindatum="1970-01-01"/>
+      <gemeente code="355" naam="Zeist" begindatum="1970-01-01"/>
+      <gemeente code="356" naam="Nieuwegein" begindatum="1971-07-01"/>
+      <gemeente code="589" naam="Oudewater" begindatum="1970-01-01"/>
+      <gemeente code="632" naam="Woerden" begindatum="1970-01-01"/>
+      <gemeente code="736" naam="De Ronde Venen" begindatum="1989-01-01"/>
+      <gemeente code="1581" naam="Utrechtse Heuvelrug" begindatum="2006-01-01"/>
+      <gemeente code="1904" naam="Stichtse Vecht" begindatum="2011-01-01"/>
+      <gemeente code="1961" naam="Vijfheerenlanden" begindatum="2019-01-01"/>
+    </provincie>
+    <provincie code="27" naam="Noord-Holland">
+      <gemeente code="358" naam="Aalsmeer" begindatum="1970-01-01"/>
+      <gemeente code="361" naam="Alkmaar" begindatum="1970-01-01"/>
+      <gemeente code="362" naam="Amstelveen" begindatum="1964-01-01"/>
+      <gemeente code="363" naam="Amsterdam" begindatum="1970-01-01"/>
+      <gemeente code="370" naam="Beemster" begindatum="1970-01-01"/>
+      <gemeente code="373" naam="Bergen (NH.)" begindatum="1970-01-01"/>
+      <gemeente code="375" naam="Beverwijk" begindatum="1970-01-01"/>
+      <gemeente code="376" naam="Blaricum" begindatum="1970-01-01"/>
+      <gemeente code="377" naam="Bloemendaal" begindatum="1970-01-01"/>
+      <gemeente code="383" naam="Castricum" begindatum="1970-01-01"/>
+      <gemeente code="384" naam="Diemen" begindatum="1970-01-01"/>
+      <gemeente code="385" naam="Edam-Volendam" begindatum="1975-01-01"/>
+      <gemeente code="388" naam="Enkhuizen" begindatum="1970-01-01"/>
+      <gemeente code="392" naam="Haarlem" begindatum="1970-01-01"/>
+      <gemeente code="394" naam="Haarlemmermeer" begindatum="1855-01-01"/>
+      <gemeente code="396" naam="Heemskerk" begindatum="1970-01-01"/>
+      <gemeente code="397" naam="Heemstede" begindatum="1970-01-01"/>
+      <gemeente code="398" naam="Heerhugowaard" begindatum="1970-01-01"/>
+      <gemeente code="399" naam="Heiloo" begindatum="1970-01-01"/>
+      <gemeente code="400" naam="Den Helder" begindatum="1970-01-01"/>
+      <gemeente code="402" naam="Hilversum" begindatum="1970-01-01"/>
+      <gemeente code="405" naam="Hoorn" begindatum="1970-01-01"/>
+      <gemeente code="406" naam="Huizen" begindatum="1970-01-01"/>
+      <gemeente code="415" naam="Landsmeer" begindatum="1970-01-01"/>
+      <gemeente code="416" naam="Langedijk" begindatum="1941-08-01"/>
+      <gemeente code="417" naam="Laren" begindatum="1970-01-01"/>
+      <gemeente code="420" naam="Medemblik" begindatum="1970-01-01"/>
+      <gemeente code="431" naam="Oostzaan" begindatum="1970-01-01"/>
+      <gemeente code="432" naam="Opmeer" begindatum="1970-01-01"/>
+      <gemeente code="437" naam="Ouder-Amstel" begindatum="1970-01-01"/>
+      <gemeente code="439" naam="Purmerend" begindatum="1970-01-01"/>
+      <gemeente code="441" naam="Schagen" begindatum="1970-01-01"/>
+      <gemeente code="448" naam="Texel" begindatum="1970-01-01"/>
+      <gemeente code="450" naam="Uitgeest" begindatum="1970-01-01"/>
+      <gemeente code="451" naam="Uithoorn" begindatum="1970-01-01"/>
+      <gemeente code="453" naam="Velsen" begindatum="1970-01-01"/>
+      <gemeente code="457" naam="Weesp" begindatum="1970-01-01"/>
+      <gemeente code="473" naam="Zandvoort" begindatum="1970-01-01"/>
+      <gemeente code="479" naam="Zaanstad" begindatum="1974-01-01"/>
+      <gemeente code="498" naam="Drechterland" begindatum="1980-01-01"/>
+      <gemeente code="532" naam="Stede Broec" begindatum="1979-01-01"/>
+      <gemeente code="852" naam="Waterland" begindatum="1991-01-01"/>
+      <gemeente code="880" naam="Wormerland" begindatum="1991-01-01"/>
+      <gemeente code="1598" naam="Koggenland" begindatum="2007-01-01"/>
+      <gemeente code="1696" naam="Wijdemeren" begindatum="2002-01-01"/>
+      <gemeente code="1911" naam="Hollands Kroon" begindatum="2012-01-01"/>
+      <gemeente code="1942" naam="Gooise Meren" begindatum="2016-01-01"/>
+    </provincie>
+    <provincie code="28" naam="Zuid-Holland">
+      <gemeente code="482" naam="Alblasserdam" begindatum="1970-01-01"/>
+      <gemeente code="484" naam="Alphen aan den Rijn" begindatum="1918-01-01"/>
+      <gemeente code="489" naam="Barendrecht" begindatum="1886-01-01"/>
+      <gemeente code="501" naam="Brielle" begindatum="1970-01-01"/>
+      <gemeente code="502" naam="Capelle aan den IJssel" begindatum="1970-01-01"/>
+      <gemeente code="503" naam="Delft" begindatum="1970-01-01"/>
+      <gemeente code="505" naam="Dordrecht" begindatum="1970-01-01"/>
+      <gemeente code="512" naam="Gorinchem" begindatum="1970-01-01"/>
+      <gemeente code="513" naam="Gouda" begindatum="1970-01-01"/>
+      <gemeente code="518" naam="'s-Gravenhage" begindatum="1970-01-01"/>
+      <gemeente code="523" naam="Hardinxveld-Giessendam" begindatum="1957-01-01"/>
+      <gemeente code="530" naam="Hellevoetsluis" begindatum="1970-01-01"/>
+      <gemeente code="531" naam="Hendrik-Ido-Ambacht" begindatum="1970-01-01"/>
+      <gemeente code="534" naam="Hillegom" begindatum="1970-01-01"/>
+      <gemeente code="537" naam="Katwijk" begindatum="1970-01-01"/>
+      <gemeente code="542" naam="Krimpen aan den IJssel" begindatum="1970-01-01"/>
+      <gemeente code="546" naam="Leiden" begindatum="1970-01-01"/>
+      <gemeente code="547" naam="Leiderdorp" begindatum="1970-01-01"/>
+      <gemeente code="553" naam="Lisse" begindatum="1970-01-01"/>
+      <gemeente code="556" naam="Maassluis" begindatum="1970-01-01"/>
+      <gemeente code="569" naam="Nieuwkoop" begindatum="1970-01-01"/>
+      <gemeente code="575" naam="Noordwijk" begindatum="1970-01-01"/>
+      <gemeente code="579" naam="Oegstgeest" begindatum="1970-01-01"/>
+      <gemeente code="590" naam="Papendrecht" begindatum="1970-01-01"/>
+      <gemeente code="597" naam="Ridderkerk" begindatum="1970-01-01"/>
+      <gemeente code="599" naam="Rotterdam" begindatum="1970-01-01"/>
+      <gemeente code="603" naam="Rijswijk" begindatum="1970-01-01"/>
+      <gemeente code="606" naam="Schiedam" begindatum="1970-01-01"/>
+      <gemeente code="610" naam="Sliedrecht" begindatum="1970-01-01"/>
+      <gemeente code="613" naam="Albrandswaard" begindatum="1985-01-01"/>
+      <gemeente code="614" naam="Westvoorne" begindatum="1980-01-01"/>
+      <gemeente code="622" naam="Vlaardingen" begindatum="1970-01-01"/>
+      <gemeente code="626" naam="Voorschoten" begindatum="1970-01-01"/>
+      <gemeente code="627" naam="Waddinxveen" begindatum="1870-07-01"/>
+      <gemeente code="629" naam="Wassenaar" begindatum="1970-01-01"/>
+      <gemeente code="637" naam="Zoetermeer" begindatum="1970-01-01"/>
+      <gemeente code="638" naam="Zoeterwoude" begindatum="1970-01-01"/>
+      <gemeente code="642" naam="Zwijndrecht" begindatum="1970-01-01"/>
+      <gemeente code="1525" naam="Teylingen" begindatum="2006-01-01"/>
+      <gemeente code="1621" naam="Lansingerland" begindatum="2007-01-01"/>
+      <gemeente code="1783" naam="Westland" begindatum="2004-01-01"/>
+      <gemeente code="1842" naam="Midden-Delfland" begindatum="2004-01-01"/>
+      <gemeente code="1884" naam="Kaag en Braassem" begindatum="2009-01-01"/>
+      <gemeente code="1892" naam="Zuidplas" begindatum="2010-01-01"/>
+      <gemeente code="1901" naam="Bodegraven-Reeuwijk" begindatum="2011-01-01"/>
+      <gemeente code="1916" naam="Leidschendam-Voorburg" begindatum="2002-01-01"/>
+      <gemeente code="1924" naam="Goeree-Overflakkee" begindatum="2013-01-01"/>
+      <gemeente code="1926" naam="Pijnacker-Nootdorp" begindatum="2002-01-01"/>
+      <gemeente code="1930" naam="Nissewaard" begindatum="2015-01-01"/>
+      <gemeente code="1931" naam="Krimpenerwaard" begindatum="2015-01-01"/>
+      <gemeente code="1963" naam="Hoeksche Waard" begindatum="2019-01-01"/>
+      <gemeente code="1978" naam="Molenlanden" begindatum="2019-01-01"/>
+    </provincie>
+    <provincie code="29" naam="Zeeland">
+      <gemeente code="654" naam="Borsele" begindatum="1970-01-01"/>
+      <gemeente code="664" naam="Goes" begindatum="1970-01-01"/>
+      <gemeente code="677" naam="Hulst" begindatum="1970-01-01"/>
+      <gemeente code="678" naam="Kapelle" begindatum="1970-01-01"/>
+      <gemeente code="687" naam="Middelburg" begindatum="1970-01-01"/>
+      <gemeente code="703" naam="Reimerswaal" begindatum="1970-01-01"/>
+      <gemeente code="715" naam="Terneuzen" begindatum="1970-01-01"/>
+      <gemeente code="716" naam="Tholen" begindatum="1970-01-01"/>
+      <gemeente code="717" naam="Veere" begindatum="1970-01-01"/>
+      <gemeente code="718" naam="Vlissingen" begindatum="1970-01-01"/>
+      <gemeente code="1676" naam="Schouwen-Duiveland" begindatum="1997-01-01"/>
+      <gemeente code="1695" naam="Noord-Beveland" begindatum="1995-01-01"/>
+      <gemeente code="1714" naam="Sluis" begindatum="2003-01-01"/>
+    </provincie>
+    <provincie code="30" naam="Noord-Brabant">
+      <gemeente code="743" naam="Asten" begindatum="1970-01-01"/>
+      <gemeente code="744" naam="Baarle-Nassau" begindatum="1970-01-01"/>
+      <gemeente code="748" naam="Bergen op Zoom" begindatum="1970-01-01"/>
+      <gemeente code="753" naam="Best" begindatum="1970-01-01"/>
+      <gemeente code="755" naam="Boekel" begindatum="1970-01-01"/>
+      <gemeente code="756" naam="Boxmeer" begindatum="1970-01-01"/>
+      <gemeente code="757" naam="Boxtel" begindatum="1970-01-01"/>
+      <gemeente code="758" naam="Breda" begindatum="1970-01-01"/>
+      <gemeente code="762" naam="Deurne" begindatum="1926-01-01"/>
+      <gemeente code="766" naam="Dongen" begindatum="1970-01-01"/>
+      <gemeente code="770" naam="Eersel" begindatum="1970-01-01"/>
+      <gemeente code="772" naam="Eindhoven" begindatum="1970-01-01"/>
+      <gemeente code="777" naam="Etten-Leur" begindatum="1968-01-01"/>
+      <gemeente code="779" naam="Geertruidenberg" begindatum="1970-01-01"/>
+      <gemeente code="784" naam="Gilze en Rijen" begindatum="1970-01-01"/>
+      <gemeente code="785" naam="Goirle" begindatum="1970-01-01"/>
+      <gemeente code="786" naam="Grave" begindatum="1970-01-01"/>
+      <gemeente code="788" naam="Haaren" begindatum="1970-01-01"/>
+      <gemeente code="794" naam="Helmond" begindatum="1970-01-01"/>
+      <gemeente code="796" naam="'s-Hertogenbosch" begindatum="1970-01-01"/>
+      <gemeente code="797" naam="Heusden" begindatum="1970-01-01"/>
+      <gemeente code="798" naam="Hilvarenbeek" begindatum="1970-01-01"/>
+      <gemeente code="809" naam="Loon op Zand" begindatum="1970-01-01"/>
+      <gemeente code="815" naam="Mill en Sint Hubert" begindatum="1970-01-01"/>
+      <gemeente code="820" naam="Nuenen, Gerwen en Nederwetten" begindatum="1970-01-01"/>
+      <gemeente code="823" naam="Oirschot" begindatum="1970-01-01"/>
+      <gemeente code="824" naam="Oisterwijk" begindatum="1970-01-01"/>
+      <gemeente code="826" naam="Oosterhout" begindatum="1970-01-01"/>
+      <gemeente code="828" naam="Oss" begindatum="1970-01-01"/>
+      <gemeente code="840" naam="Rucphen" begindatum="1970-01-01"/>
+      <gemeente code="845" naam="Sint-Michielsgestel" begindatum="1970-01-01"/>
+      <gemeente code="847" naam="Someren" begindatum="1970-01-01"/>
+      <gemeente code="848" naam="Son en Breugel" begindatum="1970-01-01"/>
+      <gemeente code="851" naam="Steenbergen" begindatum="1970-01-01"/>
+      <gemeente code="855" naam="Tilburg" begindatum="1970-01-01"/>
+      <gemeente code="856" naam="Uden" begindatum="1970-01-01"/>
+      <gemeente code="858" naam="Valkenswaard" begindatum="1970-01-01"/>
+      <gemeente code="861" naam="Veldhoven" begindatum="1970-01-01"/>
+      <gemeente code="865" naam="Vught" begindatum="1970-01-01"/>
+      <gemeente code="866" naam="Waalre" begindatum="1970-01-01"/>
+      <gemeente code="867" naam="Waalwijk" begindatum="1970-01-01"/>
+      <gemeente code="873" naam="Woensdrecht" begindatum="1970-01-01"/>
+      <gemeente code="879" naam="Zundert" begindatum="1970-01-01"/>
+      <gemeente code="1652" naam="Gemert-Bakel" begindatum="1997-01-01"/>
+      <gemeente code="1655" naam="Halderberge" begindatum="1997-01-01"/>
+      <gemeente code="1658" naam="Heeze-Leende" begindatum="1997-01-01"/>
+      <gemeente code="1659" naam="Laarbeek" begindatum="1997-01-01"/>
+      <gemeente code="1667" naam="Reusel-De Mierden" begindatum="1997-01-01"/>
+      <gemeente code="1674" naam="Roosendaal" begindatum="1997-01-01"/>
+      <gemeente code="1684" naam="Cuijk" begindatum="1994-01-01"/>
+      <gemeente code="1685" naam="Landerd" begindatum="1994-01-01"/>
+      <gemeente code="1702" naam="Sint Anthonis" begindatum="1996-01-01"/>
+      <gemeente code="1706" naam="Cranendonck" begindatum="1999-01-01"/>
+      <gemeente code="1709" naam="Moerdijk" begindatum="1999-01-01"/>
+      <gemeente code="1719" naam="Drimmelen" begindatum="1999-01-01"/>
+      <gemeente code="1721" naam="Bernheze" begindatum="1996-01-01"/>
+      <gemeente code="1723" naam="Alphen-Chaam" begindatum="1997-01-01"/>
+      <gemeente code="1724" naam="Bergeijk" begindatum="1999-01-01"/>
+      <gemeente code="1728" naam="Bladel" begindatum="1997-01-01"/>
+      <gemeente code="1771" naam="Geldrop-Mierlo" begindatum="2004-01-01"/>
+      <gemeente code="1948" naam="Meierijstad" begindatum="2017-01-01"/>
+      <gemeente code="1959" naam="Altena" begindatum="2019-01-01"/>
+    </provincie>
+    <provincie code="31" naam="Limburg">
+      <gemeente code="882" naam="Landgraaf" begindatum="1970-01-01"/>
+      <gemeente code="888" naam="Beek" begindatum="1970-01-01"/>
+      <gemeente code="889" naam="Beesel" begindatum="1970-01-01"/>
+      <gemeente code="893" naam="Bergen (L.)" begindatum="1970-01-01"/>
+      <gemeente code="899" naam="Brunssum" begindatum="1970-01-01"/>
+      <gemeente code="907" naam="Gennep" begindatum="1970-01-01"/>
+      <gemeente code="917" naam="Heerlen" begindatum="1970-01-01"/>
+      <gemeente code="928" naam="Kerkrade" begindatum="1970-01-01"/>
+      <gemeente code="935" naam="Maastricht" begindatum="1970-01-01"/>
+      <gemeente code="938" naam="Meerssen" begindatum="1970-01-01"/>
+      <gemeente code="944" naam="Mook en Middelaar" begindatum="1970-01-01"/>
+      <gemeente code="946" naam="Nederweert" begindatum="1970-01-01"/>
+      <gemeente code="957" naam="Roermond" begindatum="1970-01-01"/>
+      <gemeente code="965" naam="Simpelveld" begindatum="1970-01-01"/>
+      <gemeente code="971" naam="Stein" begindatum="1970-01-01"/>
+      <gemeente code="981" naam="Vaals" begindatum="1970-01-01"/>
+      <gemeente code="983" naam="Venlo" begindatum="1970-01-01"/>
+      <gemeente code="984" naam="Venray" begindatum="1970-01-01"/>
+      <gemeente code="986" naam="Voerendaal" begindatum="1970-01-01"/>
+      <gemeente code="988" naam="Weert" begindatum="1970-01-01"/>
+      <gemeente code="994" naam="Valkenburg aan de Geul" begindatum="1970-01-01"/>
+      <gemeente code="1507" naam="Horst aan de Maas" begindatum="2001-01-01"/>
+      <gemeente code="1640" naam="Leudal" begindatum="2007-01-01"/>
+      <gemeente code="1641" naam="Maasgouw" begindatum="2007-01-01"/>
+      <gemeente code="1669" naam="Roerdalen" begindatum="1993-01-01"/>
+      <gemeente code="1711" naam="Echt-Susteren" begindatum="2003-01-01"/>
+      <gemeente code="1729" naam="Gulpen-Wittem" begindatum="1999-01-01"/>
+      <gemeente code="1883" naam="Sittard-Geleen" begindatum="2001-01-01"/>
+      <gemeente code="1894" naam="Peel en Maas" begindatum="2010-01-01"/>
+      <gemeente code="1903" naam="Eijsden-Margraten" begindatum="2011-01-01"/>
+      <gemeente code="1954" naam="Beekdaelen" begindatum="2019-01-01"/>
+    </provincie>
+  </indeling>
 </gemeentelijke_indeling>
