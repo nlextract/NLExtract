@@ -45,3 +45,17 @@ Join tables to the `adres` table:
 ```
 docker exec -i -t postgis /bin/bash -c "psql --user postgres -d bag < /app/bag/db/script/adres-tabel.sql"
 ```
+
+## Export adres.csv
+```
+docker exec -i -t postgis /bin/bash -c "psql --user postgres -d bag -f /app/bag/db/script/adres-full2csv.sql"
+docker cp postgis:/tmp/bagadres-full.csv .
+```
+
+## Geocode functies
+```
+docker exec -i -t postgis /bin/bash -c "psql --user postgres -d bag < /app/bag/db/script/geocode/geocode-tabellen-full.sql"
+docker exec -i -t postgis /bin/bash -c "psql --user postgres -d bag < /app/bag/db/script/geocode/geocode-functies.sql"
+```
+
+
