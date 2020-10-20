@@ -1,4 +1,4 @@
-wget http://geodata.nationaalgeoregister.nl/inspireadressen/extract/inspireadressen.zip -O
+curl -O http://geodata.nationaalgeoregister.nl/inspireadressen/extract/inspireadressen.zip -O
 unzip inspireadressen.zip
 docker build --tag nlextract .
 docker exec -i -t postgis /bin/bash -c "createdb --user postgres --owner postgres -T template_postgis -E UTF8 bag"
