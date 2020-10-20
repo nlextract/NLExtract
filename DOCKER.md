@@ -26,7 +26,7 @@ docker run -v "${PWD}:/app" --network=host nlextract sh /app/bag/bin/bag-extract
 Download all files:
 ```
 curl -O http://geodata.nationaalgeoregister.nl/inspireadressen/extract/inspireadressen.zip
-unzip inspireadressen.zip
+unzip inspireadressen.zip -d inspireadressen
 ```
 
 Import all XML files into the Postgis database:
