@@ -34,10 +34,9 @@ END;
 $$
 LANGUAGE plpgsql;
 
-SELECT _nlx_dedup_data('annotatie');
-SELECT _nlx_dedup_data('bebouwing');
+SELECT _nlx_dedup_data('pand');
+-- SELECT _nlx_dedup_data('pand_nummeraanduiding');
 SELECT _nlx_dedup_data('kadastralegrens');
-
 SELECT _nlx_dedup_data('perceel');
 
 DROP FUNCTION _nlx_dedup_data(tablename VARCHAR);

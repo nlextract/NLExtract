@@ -40,5 +40,8 @@ multi_opts=-fieldTypeToString StringList
 # spatial_extent=120000 450000 160000 500000
 spatial_extent=
 
+# Must we run postprocessor SQL to remoe duplicates?
+delete_dups=
+
 # Maximaal aantal features
 max_features=20000

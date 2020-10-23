@@ -1,0 +1,522 @@
+<?xml version="1.0" encoding="UTF-8"?><!--Created by GO Publisher Desktop 2.1.5 Build 34394 from 2013-02-27 18:06--><!--Snowflake Software Ltd. (http://www.snowflakesoftware.com)--><brk_krt:KadastraleKaartCollection xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:brk_krt="http://www.kadaster.nl/schemas/brkkadastralekaart/v20160101" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:gss="http://www.isotc211.org/2005/gss" xmlns:gts="http://www.isotc211.org/2005/gts" xmlns:gsr="http://www.isotc211.org/2005/gsr" xsi:schemaLocation="http://www.kadaster.nl/schemas/brkkadastralekaart/v20160101 http://www.kadaster.nl/schemas/brkkadastralekaart/v20160101/brkkadastralekaart_v1_1_0.xsd" gml:id="IMKAD.NL.0">
+  <brk_krt:perceelMember>
+    <brk_krt:Perceel gml:id="NL.IMKAD.KadastraalObject.120090993">
+      <brk_krt:identificatie>
+        <brk_krt:NEN3610ID>
+          <brk_krt:namespace>NL.IMKAD.KadastraalObject</brk_krt:namespace>
+          <brk_krt:lokaalID>120090993</brk_krt:lokaalID>
+        </brk_krt:NEN3610ID>
+      </brk_krt:identificatie>
+      <brk_krt:historie>
+        <brk_krt:KadasterHistorie>
+          <brk_krt:logischTijdstipOntstaan>2009-03-27T23:59:59.000</brk_krt:logischTijdstipOntstaan>
+        </brk_krt:KadasterHistorie>
+      </brk_krt:historie>
+      <brk_krt:kadastraleAanduiding>
+        <brk_krt:TypeKadastraleAanduiding>
+          <brk_krt:kadastraleGemeente>
+            <brk_krt:KadastraleGemeenteKeuze>
+              <brk_krt:AKRKadastraleGemeenteCode>LLS00</brk_krt:AKRKadastraleGemeenteCode>
+            </brk_krt:KadastraleGemeenteKeuze>
+          </brk_krt:kadastraleGemeente>
+          <brk_krt:sectie>M</brk_krt:sectie>
+          <brk_krt:perceelnummer>1916</brk_krt:perceelnummer>
+        </brk_krt:TypeKadastraleAanduiding>
+      </brk_krt:kadastraleAanduiding>
+      <brk_krt:begrenzingPerceel>
+        <gml:Polygon srsName="urn:ogc:def:crs:EPSG::28992" gml:id="LOCAL_ID_0">
+          <gml:exterior>
+            <gml:LinearRing>
+              <gml:posList srsDimension="2" count="12">159853.064 504107.836 159847.875 504107.52 159847.889 504107.291 159843.934 504107.05 159844.077 504104.714 159840.124 504104.475 159840.138 504104.245 159837.943 504104.112 159828.215 504105.112 159828.566 504099.313 159853.49 504100.829 159853.064 504107.836</gml:posList>
+            </gml:LinearRing>
+          </gml:exterior>
+        </gml:Polygon>
+      </brk_krt:begrenzingPerceel>
+      <brk_krt:kadastraleGrootte>
+        <brk_krt:TypeOppervlak>
+          <brk_krt:waarde>138</brk_krt:waarde>
+        </brk_krt:TypeOppervlak>
+      </brk_krt:kadastraleGrootte>
+      <brk_krt:perceelnummerRotatie>0</brk_krt:perceelnummerRotatie>
+      <brk_krt:perceelnummerVerschuiving>
+        <brk_krt:TypePerceelnummerVerschuiving>
+          <brk_krt:deltaX>0</brk_krt:deltaX>
+          <brk_krt:deltaY>0</brk_krt:deltaY>
+        </brk_krt:TypePerceelnummerVerschuiving>
+      </brk_krt:perceelnummerVerschuiving>
+      <brk_krt:plaatscoordinaten>
+        <gml:Point srsName="urn:ogc:def:crs:EPSG::28992" gml:id="LOCAL_ID_1">
+          <gml:pos>159834.397 504102.044</gml:pos>
+        </gml:Point>
+      </brk_krt:plaatscoordinaten>
+    </brk_krt:Perceel>
+  </brk_krt:perceelMember>
+  <brk_krt:perceelMember>
+    <brk_krt:Perceel gml:id="NL.IMKAD.KadastraalObject.120031707">
+      <brk_krt:identificatie>
+        <brk_krt:NEN3610ID>
+          <brk_krt:namespace>NL.IMKAD.KadastraalObject</brk_krt:namespace>
+          <brk_krt:lokaalID>120031707</brk_krt:lokaalID>
+        </brk_krt:NEN3610ID>
+      </brk_krt:identificatie>
+      <brk_krt:historie>
+        <brk_krt:KadasterHistorie>
+          <brk_krt:logischTijdstipOntstaan>2009-03-27T23:59:59.000</brk_krt:logischTijdstipOntstaan>
+        </brk_krt:KadasterHistorie>
+      </brk_krt:historie>
+      <brk_krt:kadastraleAanduiding>
+        <brk_krt:TypeKadastraleAanduiding>
+          <brk_krt:kadastraleGemeente>
+            <brk_krt:KadastraleGemeenteKeuze>
+              <brk_krt:AKRKadastraleGemeenteCode>AMR04</brk_krt:AKRKadastraleGemeenteCode>
+            </brk_krt:KadastraleGemeenteKeuze>
+          </brk_krt:kadastraleGemeente>
+          <brk_krt:sectie>O</brk_krt:sectie>
+          <brk_krt:perceelnummer>3322</brk_krt:perceelnummer>
+        </brk_krt:TypeKadastraleAanduiding>
+      </brk_krt:kadastraleAanduiding>
+      <brk_krt:begrenzingPerceel>
+        <gml:Polygon srsName="urn:ogc:def:crs:EPSG::28992" gml:id="LOCAL_ID_2">
+          <gml:exterior>
+            <gml:LinearRing>
+              <gml:posList srsDimension="2" count="12">142297.955 488158.182 142292.846 488159.934 142287.48 488161.773 142287.22 488160.94 142282.27 488162.68 142279.996 488156.029 142280.211 488155.978 142290.717 488152.387 142302.14 488148.533 142304.635 488155.889 142303.064 488156.428 142297.955 488158.182</gml:posList>
+            </gml:LinearRing>
+          </gml:exterior>
+        </gml:Polygon>
+      </brk_krt:begrenzingPerceel>
+      <brk_krt:kadastraleGrootte>
+        <brk_krt:TypeOppervlak>
+          <brk_krt:waarde>178</brk_krt:waarde>
+        </brk_krt:TypeOppervlak>
+      </brk_krt:kadastraleGrootte>
+      <brk_krt:perceelnummerRotatie>0</brk_krt:perceelnummerRotatie>
+      <brk_krt:perceelnummerVerschuiving>
+        <brk_krt:TypePerceelnummerVerschuiving>
+          <brk_krt:deltaX>0</brk_krt:deltaX>
+          <brk_krt:deltaY>0</brk_krt:deltaY>
+        </brk_krt:TypePerceelnummerVerschuiving>
+      </brk_krt:perceelnummerVerschuiving>
+      <brk_krt:plaatscoordinaten>
+        <gml:Point srsName="urn:ogc:def:crs:EPSG::28992" gml:id="LOCAL_ID_3">
+          <gml:pos>142297.741 488153.791</gml:pos>
+        </gml:Point>
+      </brk_krt:plaatscoordinaten>
+    </brk_krt:Perceel>
+  </brk_krt:perceelMember>
+  <brk_krt:perceelMember>
+    <brk_krt:Perceel gml:id="NL.IMKAD.KadastraalObject.120118807">
+      <brk_krt:identificatie>
+        <brk_krt:NEN3610ID>
+          <brk_krt:namespace>NL.IMKAD.KadastraalObject</brk_krt:namespace>
+          <brk_krt:lokaalID>120118807</brk_krt:lokaalID>
+        </brk_krt:NEN3610ID>
+      </brk_krt:identificatie>
+      <brk_krt:historie>
+        <brk_krt:KadasterHistorie>
+          <brk_krt:logischTijdstipOntstaan>2009-03-27T23:59:59.000</brk_krt:logischTijdstipOntstaan>
+        </brk_krt:KadasterHistorie>
+      </brk_krt:historie>
+      <brk_krt:kadastraleAanduiding>
+        <brk_krt:TypeKadastraleAanduiding>
+          <brk_krt:kadastraleGemeente>
+            <brk_krt:KadastraleGemeenteKeuze>
+              <brk_krt:AKRKadastraleGemeenteCode>AMR04</brk_krt:AKRKadastraleGemeenteCode>
+            </brk_krt:KadastraleGemeenteKeuze>
+          </brk_krt:kadastraleGemeente>
+          <brk_krt:sectie>P</brk_krt:sectie>
+          <brk_krt:perceelnummer>3907</brk_krt:perceelnummer>
+        </brk_krt:TypeKadastraleAanduiding>
+      </brk_krt:kadastraleAanduiding>
+      <brk_krt:begrenzingPerceel>
+        <gml:Polygon srsName="urn:ogc:def:crs:EPSG::28992" gml:id="LOCAL_ID_4">
+          <gml:exterior>
+            <gml:LinearRing>
+              <gml:posList srsDimension="2" count="6">145934.344 488719.056 145946.84 488697.98 145962.512 488707.272 145950.016 488728.348 145948.302 488727.332 145934.344 488719.056</gml:posList>
+            </gml:LinearRing>
+          </gml:exterior>
+        </gml:Polygon>
+      </brk_krt:begrenzingPerceel>
+      <brk_krt:kadastraleGrootte>
+        <brk_krt:TypeOppervlak>
+          <brk_krt:waarde>446</brk_krt:waarde>
+        </brk_krt:TypeOppervlak>
+      </brk_krt:kadastraleGrootte>
+      <brk_krt:perceelnummerRotatie>0</brk_krt:perceelnummerRotatie>
+      <brk_krt:perceelnummerVerschuiving>
+        <brk_krt:TypePerceelnummerVerschuiving>
+          <brk_krt:deltaX>0</brk_krt:deltaX>
+          <brk_krt:deltaY>0</brk_krt:deltaY>
+        </brk_krt:TypePerceelnummerVerschuiving>
+      </brk_krt:perceelnummerVerschuiving>
+      <brk_krt:plaatscoordinaten>
+        <gml:Point srsName="urn:ogc:def:crs:EPSG::28992" gml:id="LOCAL_ID_5">
+          <gml:pos>145946.299 488720.497</gml:pos>
+        </gml:Point>
+      </brk_krt:plaatscoordinaten>
+    </brk_krt:Perceel>
+  </brk_krt:perceelMember>
+  <brk_krt:perceelMember>
+    <brk_krt:Perceel gml:id="NL.IMKAD.KadastraalObject.120028713">
+      <brk_krt:identificatie>
+        <brk_krt:NEN3610ID>
+          <brk_krt:namespace>NL.IMKAD.KadastraalObject</brk_krt:namespace>
+          <brk_krt:lokaalID>120028713</brk_krt:lokaalID>
+        </brk_krt:NEN3610ID>
+      </brk_krt:identificatie>
+      <brk_krt:historie>
+        <brk_krt:KadasterHistorie>
+          <brk_krt:logischTijdstipOntstaan>2009-03-27T23:59:59.000</brk_krt:logischTijdstipOntstaan>
+        </brk_krt:KadasterHistorie>
+      </brk_krt:historie>
+      <brk_krt:kadastraleAanduiding>
+        <brk_krt:TypeKadastraleAanduiding>
+          <brk_krt:kadastraleGemeente>
+            <brk_krt:KadastraleGemeenteKeuze>
+              <brk_krt:AKRKadastraleGemeenteCode>NOP00</brk_krt:AKRKadastraleGemeenteCode>
+            </brk_krt:KadastraleGemeenteKeuze>
+          </brk_krt:kadastraleGemeente>
+          <brk_krt:sectie>AZ</brk_krt:sectie>
+          <brk_krt:perceelnummer>5765</brk_krt:perceelnummer>
+        </brk_krt:TypeKadastraleAanduiding>
+      </brk_krt:kadastraleAanduiding>
+      <brk_krt:begrenzingPerceel>
+        <gml:Polygon srsName="urn:ogc:def:crs:EPSG::28992" gml:id="LOCAL_ID_6">
+          <gml:exterior>
+            <gml:LinearRing>
+              <gml:posList srsDimension="2" count="5">179073.51 526022.37 179078.88 526008.13 179106.47 526018.42 179101.16 526032.69 179073.51 526022.37</gml:posList>
+            </gml:LinearRing>
+          </gml:exterior>
+        </gml:Polygon>
+      </brk_krt:begrenzingPerceel>
+      <brk_krt:kadastraleGrootte>
+        <brk_krt:TypeOppervlak>
+          <brk_krt:waarde>449</brk_krt:waarde>
+        </brk_krt:TypeOppervlak>
+      </brk_krt:kadastraleGrootte>
+      <brk_krt:perceelnummerRotatie>0</brk_krt:perceelnummerRotatie>
+      <brk_krt:perceelnummerVerschuiving>
+        <brk_krt:TypePerceelnummerVerschuiving>
+          <brk_krt:deltaX>0</brk_krt:deltaX>
+          <brk_krt:deltaY>0</brk_krt:deltaY>
+        </brk_krt:TypePerceelnummerVerschuiving>
+      </brk_krt:perceelnummerVerschuiving>
+      <brk_krt:plaatscoordinaten>
+        <gml:Point srsName="urn:ogc:def:crs:EPSG::28992" gml:id="LOCAL_ID_7">
+          <gml:pos>179098.282 526021.974</gml:pos>
+        </gml:Point>
+      </brk_krt:plaatscoordinaten>
+    </brk_krt:Perceel>
+  </brk_krt:perceelMember>
+  <brk_krt:perceelMember>
+    <brk_krt:Perceel gml:id="NL.IMKAD.KadastraalObject.120080509">
+      <brk_krt:identificatie>
+        <brk_krt:NEN3610ID>
+          <brk_krt:namespace>NL.IMKAD.KadastraalObject</brk_krt:namespace>
+          <brk_krt:lokaalID>120080509</brk_krt:lokaalID>
+        </brk_krt:NEN3610ID>
+      </brk_krt:identificatie>
+      <brk_krt:historie>
+        <brk_krt:KadasterHistorie>
+          <brk_krt:logischTijdstipOntstaan>2009-03-27T23:59:59.000</brk_krt:logischTijdstipOntstaan>
+        </brk_krt:KadasterHistorie>
+      </brk_krt:historie>
+      <brk_krt:kadastraleAanduiding>
+        <brk_krt:TypeKadastraleAanduiding>
+          <brk_krt:kadastraleGemeente>
+            <brk_krt:KadastraleGemeenteKeuze>
+              <brk_krt:AKRKadastraleGemeenteCode>NOP00</brk_krt:AKRKadastraleGemeenteCode>
+            </brk_krt:KadastraleGemeenteKeuze>
+          </brk_krt:kadastraleGemeente>
+          <brk_krt:sectie>AZ</brk_krt:sectie>
+          <brk_krt:perceelnummer>6610</brk_krt:perceelnummer>
+        </brk_krt:TypeKadastraleAanduiding>
+      </brk_krt:kadastraleAanduiding>
+      <brk_krt:begrenzingPerceel>
+        <gml:Polygon srsName="urn:ogc:def:crs:EPSG::28992" gml:id="LOCAL_ID_8">
+          <gml:exterior>
+            <gml:LinearRing>
+              <gml:posList srsDimension="2" count="5">179101.825 525960.919 179102.491 525959.155 179125.426 525967.726 179124.73 525969.6 179101.825 525960.919</gml:posList>
+            </gml:LinearRing>
+          </gml:exterior>
+        </gml:Polygon>
+      </brk_krt:begrenzingPerceel>
+      <brk_krt:kadastraleGrootte>
+        <brk_krt:TypeOppervlak>
+          <brk_krt:waarde>48</brk_krt:waarde>
+        </brk_krt:TypeOppervlak>
+      </brk_krt:kadastraleGrootte>
+      <brk_krt:perceelnummerRotatie>0</brk_krt:perceelnummerRotatie>
+      <brk_krt:perceelnummerVerschuiving>
+        <brk_krt:TypePerceelnummerVerschuiving>
+          <brk_krt:deltaX>9.91</brk_krt:deltaX>
+          <brk_krt:deltaY>-7.03</brk_krt:deltaY>
+        </brk_krt:TypePerceelnummerVerschuiving>
+      </brk_krt:perceelnummerVerschuiving>
+      <brk_krt:plaatscoordinaten>
+        <gml:Point srsName="urn:ogc:def:crs:EPSG::28992" gml:id="LOCAL_ID_9">
+          <gml:pos>179110.695 525963.035</gml:pos>
+        </gml:Point>
+      </brk_krt:plaatscoordinaten>
+    </brk_krt:Perceel>
+  </brk_krt:perceelMember>
+  <brk_krt:perceelMember>
+    <brk_krt:Perceel gml:id="NL.IMKAD.KadastraalObject.120028711">
+      <brk_krt:identificatie>
+        <brk_krt:NEN3610ID>
+          <brk_krt:namespace>NL.IMKAD.KadastraalObject</brk_krt:namespace>
+          <brk_krt:lokaalID>120028711</brk_krt:lokaalID>
+        </brk_krt:NEN3610ID>
+      </brk_krt:identificatie>
+      <brk_krt:historie>
+        <brk_krt:KadasterHistorie>
+          <brk_krt:logischTijdstipOntstaan>2009-03-27T23:59:59.000</brk_krt:logischTijdstipOntstaan>
+        </brk_krt:KadasterHistorie>
+      </brk_krt:historie>
+      <brk_krt:kadastraleAanduiding>
+        <brk_krt:TypeKadastraleAanduiding>
+          <brk_krt:kadastraleGemeente>
+            <brk_krt:KadastraleGemeenteKeuze>
+              <brk_krt:AKRKadastraleGemeenteCode>NOP00</brk_krt:AKRKadastraleGemeenteCode>
+            </brk_krt:KadastraleGemeenteKeuze>
+          </brk_krt:kadastraleGemeente>
+          <brk_krt:sectie>AZ</brk_krt:sectie>
+          <brk_krt:perceelnummer>4804</brk_krt:perceelnummer>
+        </brk_krt:TypeKadastraleAanduiding>
+      </brk_krt:kadastraleAanduiding>
+      <brk_krt:begrenzingPerceel>
+        <gml:Polygon srsName="urn:ogc:def:crs:EPSG::28992" gml:id="LOCAL_ID_10">
+          <gml:exterior>
+            <gml:LinearRing>
+              <gml:posList srsDimension="2" count="5">179081.967 526090.269 179053.905 526079.856 179060.084 526062.948 179088.333 526073.407 179081.967 526090.269</gml:posList>
+            </gml:LinearRing>
+          </gml:exterior>
+        </gml:Polygon>
+      </brk_krt:begrenzingPerceel>
+      <brk_krt:kadastraleGrootte>
+        <brk_krt:TypeOppervlak>
+          <brk_krt:waarde>537</brk_krt:waarde>
+        </brk_krt:TypeOppervlak>
+      </brk_krt:kadastraleGrootte>
+      <brk_krt:perceelnummerRotatie>0</brk_krt:perceelnummerRotatie>
+      <brk_krt:perceelnummerVerschuiving>
+        <brk_krt:TypePerceelnummerVerschuiving>
+          <brk_krt:deltaX>0</brk_krt:deltaX>
+          <brk_krt:deltaY>0</brk_krt:deltaY>
+        </brk_krt:TypePerceelnummerVerschuiving>
+      </brk_krt:perceelnummerVerschuiving>
+      <brk_krt:plaatscoordinaten>
+        <gml:Point srsName="urn:ogc:def:crs:EPSG::28992" gml:id="LOCAL_ID_11">
+          <gml:pos>179078.204 526080.649</gml:pos>
+        </gml:Point>
+      </brk_krt:plaatscoordinaten>
+    </brk_krt:Perceel>
+  </brk_krt:perceelMember>
+  <brk_krt:perceelMember>
+    <brk_krt:Perceel gml:id="NL.IMKAD.KadastraalObject.120117019">
+      <brk_krt:identificatie>
+        <brk_krt:NEN3610ID>
+          <brk_krt:namespace>NL.IMKAD.KadastraalObject</brk_krt:namespace>
+          <brk_krt:lokaalID>120117019</brk_krt:lokaalID>
+        </brk_krt:NEN3610ID>
+      </brk_krt:identificatie>
+      <brk_krt:historie>
+        <brk_krt:KadasterHistorie>
+          <brk_krt:logischTijdstipOntstaan>2009-03-27T23:59:59.000</brk_krt:logischTijdstipOntstaan>
+        </brk_krt:KadasterHistorie>
+      </brk_krt:historie>
+      <brk_krt:kadastraleAanduiding>
+        <brk_krt:TypeKadastraleAanduiding>
+          <brk_krt:kadastraleGemeente>
+            <brk_krt:KadastraleGemeenteKeuze>
+              <brk_krt:AKRKadastraleGemeenteCode>URK00</brk_krt:AKRKadastraleGemeenteCode>
+            </brk_krt:KadastraleGemeenteKeuze>
+          </brk_krt:kadastraleGemeente>
+          <brk_krt:sectie>C</brk_krt:sectie>
+          <brk_krt:perceelnummer>1651</brk_krt:perceelnummer>
+        </brk_krt:TypeKadastraleAanduiding>
+      </brk_krt:kadastraleAanduiding>
+      <brk_krt:begrenzingPerceel>
+        <gml:Polygon srsName="urn:ogc:def:crs:EPSG::28992" gml:id="LOCAL_ID_12">
+          <gml:exterior>
+            <gml:LinearRing>
+              <gml:posList srsDimension="2" count="11">170360.592 519843.129 170360.46 519834.54 170385.48 519834.15 170385.608 519843.084 170380.714 519843.044 170379.726 519843.036 170379.727 519843.186 170369.731 519843.232 170369.73 519843.082 170366.831 519843.097 170360.592 519843.129</gml:posList>
+            </gml:LinearRing>
+          </gml:exterior>
+        </gml:Polygon>
+      </brk_krt:begrenzingPerceel>
+      <brk_krt:kadastraleGrootte>
+        <brk_krt:TypeOppervlak>
+          <brk_krt:waarde>220</brk_krt:waarde>
+        </brk_krt:TypeOppervlak>
+      </brk_krt:kadastraleGrootte>
+      <brk_krt:perceelnummerRotatie>0</brk_krt:perceelnummerRotatie>
+      <brk_krt:perceelnummerVerschuiving>
+        <brk_krt:TypePerceelnummerVerschuiving>
+          <brk_krt:deltaX>0</brk_krt:deltaX>
+          <brk_krt:deltaY>0</brk_krt:deltaY>
+        </brk_krt:TypePerceelnummerVerschuiving>
+      </brk_krt:perceelnummerVerschuiving>
+      <brk_krt:plaatscoordinaten>
+        <gml:Point srsName="urn:ogc:def:crs:EPSG::28992" gml:id="LOCAL_ID_13">
+          <gml:pos>170364.144 519841.143</gml:pos>
+        </gml:Point>
+      </brk_krt:plaatscoordinaten>
+    </brk_krt:Perceel>
+  </brk_krt:perceelMember>
+  <brk_krt:perceelMember>
+    <brk_krt:Perceel gml:id="NL.IMKAD.KadastraalObject.120077624">
+      <brk_krt:identificatie>
+        <brk_krt:NEN3610ID>
+          <brk_krt:namespace>NL.IMKAD.KadastraalObject</brk_krt:namespace>
+          <brk_krt:lokaalID>120077624</brk_krt:lokaalID>
+        </brk_krt:NEN3610ID>
+      </brk_krt:identificatie>
+      <brk_krt:historie>
+        <brk_krt:KadasterHistorie>
+          <brk_krt:logischTijdstipOntstaan>2009-03-27T23:59:59.000</brk_krt:logischTijdstipOntstaan>
+        </brk_krt:KadasterHistorie>
+      </brk_krt:historie>
+      <brk_krt:kadastraleAanduiding>
+        <brk_krt:TypeKadastraleAanduiding>
+          <brk_krt:kadastraleGemeente>
+            <brk_krt:KadastraleGemeenteKeuze>
+              <brk_krt:AKRKadastraleGemeenteCode>AMR04</brk_krt:AKRKadastraleGemeenteCode>
+            </brk_krt:KadastraleGemeenteKeuze>
+          </brk_krt:kadastraleGemeente>
+          <brk_krt:sectie>O</brk_krt:sectie>
+          <brk_krt:perceelnummer>4482</brk_krt:perceelnummer>
+        </brk_krt:TypeKadastraleAanduiding>
+      </brk_krt:kadastraleAanduiding>
+      <brk_krt:begrenzingPerceel>
+        <gml:Polygon srsName="urn:ogc:def:crs:EPSG::28992" gml:id="LOCAL_ID_14">
+          <gml:exterior>
+            <gml:LinearRing>
+              <gml:posList srsDimension="2" count="6">142843.383 489401.349 142847.654 489405.223 142820.111 489433.989 142814.704 489428.794 142842.093 489400.178 142843.383 489401.349</gml:posList>
+            </gml:LinearRing>
+          </gml:exterior>
+        </gml:Polygon>
+      </brk_krt:begrenzingPerceel>
+      <brk_krt:kadastraleGrootte>
+        <brk_krt:TypeOppervlak>
+          <brk_krt:waarde>298</brk_krt:waarde>
+        </brk_krt:TypeOppervlak>
+      </brk_krt:kadastraleGrootte>
+      <brk_krt:perceelnummerRotatie>0</brk_krt:perceelnummerRotatie>
+      <brk_krt:perceelnummerVerschuiving>
+        <brk_krt:TypePerceelnummerVerschuiving>
+          <brk_krt:deltaX>0</brk_krt:deltaX>
+          <brk_krt:deltaY>0</brk_krt:deltaY>
+        </brk_krt:TypePerceelnummerVerschuiving>
+      </brk_krt:perceelnummerVerschuiving>
+      <brk_krt:plaatscoordinaten>
+        <gml:Point srsName="urn:ogc:def:crs:EPSG::28992" gml:id="LOCAL_ID_15">
+          <gml:pos>142836.7 489410.792</gml:pos>
+        </gml:Point>
+      </brk_krt:plaatscoordinaten>
+    </brk_krt:Perceel>
+  </brk_krt:perceelMember>
+  <brk_krt:perceelMember>
+    <brk_krt:Perceel gml:id="NL.IMKAD.KadastraalObject.120119310">
+      <brk_krt:identificatie>
+        <brk_krt:NEN3610ID>
+          <brk_krt:namespace>NL.IMKAD.KadastraalObject</brk_krt:namespace>
+          <brk_krt:lokaalID>120119310</brk_krt:lokaalID>
+        </brk_krt:NEN3610ID>
+      </brk_krt:identificatie>
+      <brk_krt:historie>
+        <brk_krt:KadasterHistorie>
+          <brk_krt:logischTijdstipOntstaan>2009-03-27T23:59:59.000</brk_krt:logischTijdstipOntstaan>
+        </brk_krt:KadasterHistorie>
+      </brk_krt:historie>
+      <brk_krt:kadastraleAanduiding>
+        <brk_krt:TypeKadastraleAanduiding>
+          <brk_krt:kadastraleGemeente>
+            <brk_krt:KadastraleGemeenteKeuze>
+              <brk_krt:AKRKadastraleGemeenteCode>AMR04</brk_krt:AKRKadastraleGemeenteCode>
+            </brk_krt:KadastraleGemeenteKeuze>
+          </brk_krt:kadastraleGemeente>
+          <brk_krt:sectie>Q</brk_krt:sectie>
+          <brk_krt:perceelnummer>5520</brk_krt:perceelnummer>
+        </brk_krt:TypeKadastraleAanduiding>
+      </brk_krt:kadastraleAanduiding>
+      <brk_krt:begrenzingPerceel>
+        <gml:Polygon srsName="urn:ogc:def:crs:EPSG::28992" gml:id="LOCAL_ID_16">
+          <gml:exterior>
+            <gml:LinearRing>
+              <gml:posList srsDimension="2" count="9">140705.624 485891.597 140697.427 485899.962 140690.119 485907.418 140687.6 485909.988 140683.314 485905.788 140685.834 485903.219 140693.141 485895.762 140701.339 485887.398 140705.624 485891.597</gml:posList>
+            </gml:LinearRing>
+          </gml:exterior>
+        </gml:Polygon>
+      </brk_krt:begrenzingPerceel>
+      <brk_krt:kadastraleGrootte>
+        <brk_krt:TypeOppervlak>
+          <brk_krt:waarde>155</brk_krt:waarde>
+        </brk_krt:TypeOppervlak>
+      </brk_krt:kadastraleGrootte>
+      <brk_krt:perceelnummerRotatie>-45.6</brk_krt:perceelnummerRotatie>
+      <brk_krt:perceelnummerVerschuiving>
+        <brk_krt:TypePerceelnummerVerschuiving>
+          <brk_krt:deltaX>0</brk_krt:deltaX>
+          <brk_krt:deltaY>0</brk_krt:deltaY>
+        </brk_krt:TypePerceelnummerVerschuiving>
+      </brk_krt:perceelnummerVerschuiving>
+      <brk_krt:plaatscoordinaten>
+        <gml:Point srsName="urn:ogc:def:crs:EPSG::28992" gml:id="LOCAL_ID_17">
+          <gml:pos>140699.526 485894.281</gml:pos>
+        </gml:Point>
+      </brk_krt:plaatscoordinaten>
+    </brk_krt:Perceel>
+  </brk_krt:perceelMember>
+  <brk_krt:perceelMember>
+    <brk_krt:Perceel gml:id="NL.IMKAD.KadastraalObject.120095784">
+      <brk_krt:identificatie>
+        <brk_krt:NEN3610ID>
+          <brk_krt:namespace>NL.IMKAD.KadastraalObject</brk_krt:namespace>
+          <brk_krt:lokaalID>120095784</brk_krt:lokaalID>
+        </brk_krt:NEN3610ID>
+      </brk_krt:identificatie>
+      <brk_krt:historie>
+        <brk_krt:KadasterHistorie>
+          <brk_krt:logischTijdstipOntstaan>2009-03-27T23:59:59.000</brk_krt:logischTijdstipOntstaan>
+        </brk_krt:KadasterHistorie>
+      </brk_krt:historie>
+      <brk_krt:kadastraleAanduiding>
+        <brk_krt:TypeKadastraleAanduiding>
+          <brk_krt:kadastraleGemeente>
+            <brk_krt:KadastraleGemeenteKeuze>
+              <brk_krt:AKRKadastraleGemeenteCode>AMR04</brk_krt:AKRKadastraleGemeenteCode>
+            </brk_krt:KadastraleGemeenteKeuze>
+          </brk_krt:kadastraleGemeente>
+          <brk_krt:sectie>Q</brk_krt:sectie>
+          <brk_krt:perceelnummer>4128</brk_krt:perceelnummer>
+        </brk_krt:TypeKadastraleAanduiding>
+      </brk_krt:kadastraleAanduiding>
+      <brk_krt:begrenzingPerceel>
+        <gml:Polygon srsName="urn:ogc:def:crs:EPSG::28992" gml:id="LOCAL_ID_18">
+          <gml:exterior>
+            <gml:LinearRing>
+              <gml:posList srsDimension="2" count="10">141399.817 485717.562 141408.171 485714.706 141419.27 485710.911 141423.999 485709.294 141427.16 485718.542 141422.281 485720.211 141411.333 485723.955 141402.978 485726.812 141402.854 485726.448 141399.817 485717.562</gml:posList>
+            </gml:LinearRing>
+          </gml:exterior>
+        </gml:Polygon>
+      </brk_krt:begrenzingPerceel>
+      <brk_krt:kadastraleGrootte>
+        <brk_krt:TypeOppervlak>
+          <brk_krt:waarde>250</brk_krt:waarde>
+        </brk_krt:TypeOppervlak>
+      </brk_krt:kadastraleGrootte>
+      <brk_krt:perceelnummerRotatie>0</brk_krt:perceelnummerRotatie>
+      <brk_krt:perceelnummerVerschuiving>
+        <brk_krt:TypePerceelnummerVerschuiving>
+          <brk_krt:deltaX>0</brk_krt:deltaX>
+          <brk_krt:deltaY>0</brk_krt:deltaY>
+        </brk_krt:TypePerceelnummerVerschuiving>
+      </brk_krt:perceelnummerVerschuiving>
+      <brk_krt:plaatscoordinaten>
+        <gml:Point srsName="urn:ogc:def:crs:EPSG::28992" gml:id="LOCAL_ID_19">
+          <gml:pos>141406.101 485720.887</gml:pos>
+        </gml:Point>
+      </brk_krt:plaatscoordinaten>
+    </brk_krt:Perceel>
+  </brk_krt:perceelMember>
+</brk_krt:KadastraleKaartCollection>

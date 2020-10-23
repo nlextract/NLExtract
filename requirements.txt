@@ -1,0 +1,25 @@
+# Working requirements
+alabaster==0.7.12
+Babel==2.8.0
+certifi==2020.6.20
+chardet==3.0.4
+Deprecated==1.2.10
+docutils==0.16
+GDAL==2.3.1
+idna==2.10
+imagesize==1.2.0
+Jinja2==2.11.2
+lxml==4.5.2
+MarkupSafe==1.1.1
+packaging==20.4
+psycopg2==2.8.5
+Pygments==2.6.1
+pyparsing==2.4.7
+pytz==2020.1
+requests==2.24.0
+six==1.15.0
+snowballstemmer==2.0.0
+Sphinx==3.1.2
+urllib3==1.25.10
+wrapt==1.12.1
+xlrd==1.2.0
