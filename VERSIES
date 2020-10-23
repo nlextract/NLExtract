@@ -4,9 +4,15 @@ via de link: https://github.com/nlextract/NLExtract/releases.
 De nieuwste versie staat bovenaan: kies de "real-release" nlextract zip.
 De rest ligt nog open afhankelijk van wensen gebruikers en natuurlijk eventuele bugs.
 
-v1.5.0 - ongepland
+v1.5.0 - 23.okt.2020
 
-Vnl Py2 naar Py3 migratie.
+Voornamelijk Py2 naar Py3 migratie via
+PR #276 (BAG, door @sebastic) en #265 (overige basisregistraties, door @justb4)
+
+Verder: BRK Kadastrale Kaart (DKK) ETL: upgrade voor BRK-DKK v4
+
+Zie Milestone:
+https://github.com/nlextract/NLExtract/milestone/12
 
 v1.4.0 - 17.feb.2020
 
