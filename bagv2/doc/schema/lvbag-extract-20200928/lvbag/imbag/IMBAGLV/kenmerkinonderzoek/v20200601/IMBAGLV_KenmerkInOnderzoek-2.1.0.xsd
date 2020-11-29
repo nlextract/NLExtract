@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2018 sp1 (x64) (http://www.altova.com) by Kadaster (Kadaster) -->
+<xs:schema xmlns:KenmerkInOnderzoek="www.kadaster.nl/schemas/lvbag/imbag/kenmerkinonderzoek/v20200601" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:DatatypenAlgemeen="www.kadaster.nl/schemas/lvbag/imbag/datatypenalgemeen/v20200601" xmlns:Historie="www.kadaster.nl/schemas/lvbag/imbag/historie/v20200601" xmlns:Objecten-ref="www.kadaster.nl/schemas/lvbag/imbag/objecten-ref/v20200601" targetNamespace="www.kadaster.nl/schemas/lvbag/imbag/kenmerkinonderzoek/v20200601" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.1.0">
+	<xs:import namespace="www.kadaster.nl/schemas/lvbag/imbag/datatypenalgemeen/v20200601" schemaLocation="../../../IMBAGLV/datatypenalgemeen/v20200601/IMBAGLV_DatatypenAlgemeen-2.1.0.xsd"/>
+	<xs:import namespace="www.kadaster.nl/schemas/lvbag/imbag/historie/v20200601" schemaLocation="../../../IMBAGLV/historie/v20200601/IMBAGLV_Historie-2.1.0.xsd"/>
+	<xs:import namespace="www.kadaster.nl/schemas/lvbag/imbag/objecten-ref/v20200601" schemaLocation="../../objecten-ref/v20200601/IMBAGLV_ObjectenRef-2.1.0.xsd"/>
+	<xs:element name="KenmerkWoonplaatsInOnderzoek" type="KenmerkInOnderzoek:KenmerkWoonplaatsInOnderzoek" abstract="false"/>
+	<xs:complexType name="KenmerkWoonplaatsInOnderzoek" abstract="false">
+		<xs:sequence>
+			<xs:element name="kenmerk" type="KenmerkInOnderzoek:InOnderzoekWoonplaats" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="identificatieVanWoonplaats" type="Objecten-ref:WoonplaatsRef" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="inOnderzoek" type="DatatypenAlgemeen:Indicatie" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="documentdatum" type="xs:date" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="documentnummer" type="DatatypenAlgemeen:Documentnummer" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="historieInOnderzoek" minOccurs="1" maxOccurs="1">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element ref="Historie:HistorieInOnderzoek" minOccurs="1" maxOccurs="1"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="KenmerkOpenbareruimteInOnderzoek" type="KenmerkInOnderzoek:KenmerkOpenbareruimteInOnderzoek" abstract="false"/>
+	<xs:complexType name="KenmerkOpenbareruimteInOnderzoek" abstract="false">
+		<xs:sequence>
+			<xs:element name="kenmerk" type="KenmerkInOnderzoek:InOnderzoekOpenbareRuimte" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="identificatieVanOpenbareruimte" type="Objecten-ref:OpenbareRuimteRef" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="inOnderzoek" type="DatatypenAlgemeen:Indicatie" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="documentdatum" type="xs:date" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="documentnummer" type="DatatypenAlgemeen:Documentnummer" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="historieInOnderzoek" minOccurs="1" maxOccurs="1">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element ref="Historie:HistorieInOnderzoek" minOccurs="1" maxOccurs="1"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="KenmerkNummeraanduidingInOnderzoek" type="KenmerkInOnderzoek:KenmerkNummeraanduidingInOnderzoek" abstract="false"/>
+	<xs:complexType name="KenmerkNummeraanduidingInOnderzoek" abstract="false">
+		<xs:sequence>
+			<xs:element name="kenmerk" type="KenmerkInOnderzoek:InOnderzoekNummeraanduiding" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="identificatieVanNummeraanduiding" type="Objecten-ref:NummeraanduidingRef" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="inOnderzoek" type="DatatypenAlgemeen:Indicatie" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="documentdatum" type="xs:date" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="documentnummer" type="DatatypenAlgemeen:Documentnummer" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="historieInOnderzoek" minOccurs="1" maxOccurs="1">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element ref="Historie:HistorieInOnderzoek" minOccurs="1" maxOccurs="1"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="KenmerkVerblijfsobjectInOnderzoek" type="KenmerkInOnderzoek:KenmerkVerblijfsobjectInOnderzoek" abstract="false"/>
+	<xs:complexType name="KenmerkVerblijfsobjectInOnderzoek" abstract="false">
+		<xs:sequence>
+			<xs:element name="kenmerk" type="KenmerkInOnderzoek:InOnderzoekVerblijfsobject" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="identificatieVanVerblijfsobject" type="Objecten-ref:VerblijfsobjectRef" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="inOnderzoek" type="DatatypenAlgemeen:Indicatie" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="documentdatum" type="xs:date" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="documentnummer" type="DatatypenAlgemeen:Documentnummer" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="historieInOnderzoek" minOccurs="1" maxOccurs="1">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element ref="Historie:HistorieInOnderzoek" minOccurs="1" maxOccurs="1"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="KenmerkLigplaatsInOnderzoek" type="KenmerkInOnderzoek:KenmerkLigplaatsInOnderzoek" abstract="false"/>
+	<xs:complexType name="KenmerkLigplaatsInOnderzoek" abstract="false">
+		<xs:sequence>
+			<xs:element name="kenmerk" type="KenmerkInOnderzoek:InOnderzoekLigplaats" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="identificatieVanLigplaats" type="Objecten-ref:LigplaatsRef" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="inOnderzoek" type="DatatypenAlgemeen:Indicatie" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="documentdatum" type="xs:date" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="documentnummer" type="DatatypenAlgemeen:Documentnummer" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="historieInOnderzoek" minOccurs="1" maxOccurs="1">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element ref="Historie:HistorieInOnderzoek" minOccurs="1" maxOccurs="1"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="KenmerkStandplaatsInOnderzoek" type="KenmerkInOnderzoek:KenmerkStandplaatsInOnderzoek" abstract="false"/>
+	<xs:complexType name="KenmerkStandplaatsInOnderzoek" abstract="false">
+		<xs:sequence>
+			<xs:element name="kenmerk" type="KenmerkInOnderzoek:InOnderzoekStandplaats" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="identificatieVanStandplaats" type="Objecten-ref:StandplaatsRef" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="inOnderzoek" type="DatatypenAlgemeen:Indicatie" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="documentdatum" type="xs:date" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="documentnummer" type="DatatypenAlgemeen:Documentnummer" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="historieInOnderzoek" minOccurs="1" maxOccurs="1">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element ref="Historie:HistorieInOnderzoek" minOccurs="1" maxOccurs="1"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="KenmerkPandInOnderzoek" type="KenmerkInOnderzoek:KenmerkPandInOnderzoek" abstract="false"/>
+	<xs:complexType name="KenmerkPandInOnderzoek" abstract="false">
+		<xs:sequence>
+			<xs:element name="kenmerk" type="KenmerkInOnderzoek:InOnderzoekPand" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="identificatieVanPand" type="Objecten-ref:PandRef" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="inOnderzoek" type="DatatypenAlgemeen:Indicatie" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="documentdatum" type="xs:date" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="documentnummer" type="DatatypenAlgemeen:Documentnummer" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="historieInOnderzoek" minOccurs="1" maxOccurs="1">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element ref="Historie:HistorieInOnderzoek" minOccurs="1" maxOccurs="1"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="InOnderzoekLigplaats">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="geometrie"/>
+			<xs:enumeration value="status"/>
+			<xs:enumeration value="heeft als hoofdadres"/>
+			<xs:enumeration value="heeft als nevenadres"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="InOnderzoekNummeraanduiding">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="huisnummer"/>
+			<xs:enumeration value="huisletter"/>
+			<xs:enumeration value="huisnummertoevoeging"/>
+			<xs:enumeration value="postcode"/>
+			<xs:enumeration value="type adresseerbaar object"/>
+			<xs:enumeration value="status"/>
+			<xs:enumeration value="ligt in"/>
+			<xs:enumeration value="ligt aan"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="InOnderzoekOpenbareRuimte">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="naam"/>
+			<xs:enumeration value="type"/>
+			<xs:enumeration value="status"/>
+			<xs:enumeration value="ligt in"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="InOnderzoekPand">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="geometrie"/>
+			<xs:enumeration value="oorspronkelijk bouwjaar"/>
+			<xs:enumeration value="status"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="InOnderzoekStandplaats">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="geometrie"/>
+			<xs:enumeration value="status"/>
+			<xs:enumeration value="heeft als hoofdadres"/>
+			<xs:enumeration value="heeft als nevenadres"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="InOnderzoekVerblijfsobject">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="geometrie"/>
+			<xs:enumeration value="gebruiksdoel"/>
+			<xs:enumeration value="oppervlakte"/>
+			<xs:enumeration value="status"/>
+			<xs:enumeration value="maakt deel uit van"/>
+			<xs:enumeration value="heeft als hoofdadres"/>
+			<xs:enumeration value="heeft als nevenadres"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="InOnderzoekWoonplaats">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="naam"/>
+			<xs:enumeration value="geometrie"/>
+			<xs:enumeration value="status"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sl-bag-extract:bagStand xmlns:DatatypenNEN3610="www.kadaster.nl/schemas/lvbag/imbag/datatypennen3610/v20200601" xmlns:Objecten="www.kadaster.nl/schemas/lvbag/imbag/objecten/v20200601"
+                         xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:Historie="www.kadaster.nl/schemas/lvbag/imbag/historie/v20200601"
+                         xmlns:Objecten-ref="www.kadaster.nl/schemas/lvbag/imbag/objecten-ref/v20200601" xmlns:nen5825="www.kadaster.nl/schemas/lvbag/imbag/nen5825/v20200601"
+                         xmlns:KenmerkInOnderzoek="www.kadaster.nl/schemas/lvbag/imbag/kenmerkinonderzoek/v20200601"
+                         xmlns:selecties-extract="http://www.kadaster.nl/schemas/lvbag/extract-selecties/v20200601"
+                         xmlns:sl-bag-extract="http://www.kadaster.nl/schemas/lvbag/extract-deelbestand-lvc/v20200601" xmlns:sl="http://www.kadaster.nl/schemas/standlevering-generiek/1.0"
+                         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                         xsi:schemaLocation="http://www.kadaster.nl/schemas/lvbag/extract-deelbestand-lvc/v20200601 http://www.kadaster.nl/schemas/bag-verstrekkingen/extract-deelbestand-lvc/v20200601/BagvsExtractDeelbestandExtractLvc-2.1.0.xsd">
+    <sl-bag-extract:bagInfo>
+        <selecties-extract:Gebied-Registratief>
+            <selecties-extract:Gebied-GEM>
+                <selecties-extract:GemeenteCollectie>
+                    <selecties-extract:Gemeente>
+                        <selecties-extract:GemeenteIdentificatie>0221</selecties-extract:GemeenteIdentificatie>
+                    </selecties-extract:Gemeente>
+                </selecties-extract:GemeenteCollectie>
+            </selecties-extract:Gebied-GEM>
+        </selecties-extract:Gebied-Registratief>
+        <selecties-extract:LVC-Extract>
+            <selecties-extract:StandTechnischeDatum>2020-09-15</selecties-extract:StandTechnischeDatum>
+        </selecties-extract:LVC-Extract>
+    </sl-bag-extract:bagInfo>
+    <sl:standBestand>
+        <sl:dataset>LVBAG</sl:dataset>
+        <sl:inhoud>
+            <sl:gebied>GEMEENTE</sl:gebied>
+            <sl:leveringsId>0000000001</sl:leveringsId>
+            <sl:objectTypen>
+                <sl:objectType>VBO</sl:objectType>
+            </sl:objectTypen>
+        </sl:inhoud>
+        <sl:stand>
+            <sl-bag-extract:bagObject>
+                <Objecten:Verblijfsobject>
+                    <Objecten:heeftAlsHoofdadres>
+                        <Objecten-ref:NummeraanduidingRef domein="NL.IMBAG.Nummeraanduiding">0221200000330227</Objecten-ref:NummeraanduidingRef>
+                    </Objecten:heeftAlsHoofdadres>
+                    <Objecten:voorkomen>
+                        <Historie:Voorkomen>
+                            <Historie:voorkomenidentificatie>1</Historie:voorkomenidentificatie>
+                            <Historie:beginGeldigheid>2011-09-06</Historie:beginGeldigheid>
+                            <Historie:eindGeldigheid>2019-01-15</Historie:eindGeldigheid>
+                            <Historie:tijdstipRegistratie>2011-09-06T15:49:09.000</Historie:tijdstipRegistratie>
+                            <Historie:eindRegistratie>2019-01-15T15:18:40.000</Historie:eindRegistratie>
+                            <Historie:BeschikbaarLV>
+                                <Historie:tijdstipRegistratieLV>2011-09-06T16:01:53.939</Historie:tijdstipRegistratieLV>
+                                <Historie:tijdstipEindRegistratieLV>2019-01-15T15:30:56.227</Historie:tijdstipEindRegistratieLV>
+                            </Historie:BeschikbaarLV>
+                        </Historie:Voorkomen>
+                    </Objecten:voorkomen>
+                    <Objecten:identificatie domein="NL.IMBAG.Verblijfsobject">0221010000330226</Objecten:identificatie>
+                    <Objecten:geometrie>
+                        <Objecten:punt>
+                            <gml:Point srsName="urn:ogc:def:crs:EPSG::28992" srsDimension="3" gml:id="VBO_0221010000330226_1_1315317713">
+                                <gml:pos>206335.699 447529.842 0.0</gml:pos>
+                            </gml:Point>
+                        </Objecten:punt>
+                    </Objecten:geometrie>
+                    <Objecten:gebruiksdoel>woonfunctie</Objecten:gebruiksdoel>
+                    <Objecten:oppervlakte>306</Objecten:oppervlakte>
+                    <Objecten:status>Verblijfsobject in gebruik</Objecten:status>
+                    <Objecten:geconstateerd>N</Objecten:geconstateerd>
+                    <Objecten:documentdatum>2011-03-08</Objecten:documentdatum>
+                    <Objecten:documentnummer>BAG/PVC2010UP0004</Objecten:documentnummer>
+                    <Objecten:maaktDeelUitVan>
+                        <Objecten-ref:PandRef domein="NL.IMBAG.Pand">0221100000312938</Objecten-ref:PandRef>
+                    </Objecten:maaktDeelUitVan>
+                </Objecten:Verblijfsobject>
+            </sl-bag-extract:bagObject>
+        </sl:stand>
+        <sl:stand>
+            <sl-bag-extract:bagObject>
+                <Objecten:Verblijfsobject>
+                    <Objecten:heeftAlsHoofdadres>
+                        <Objecten-ref:NummeraanduidingRef domein="NL.IMBAG.Nummeraanduiding">0221200000330227</Objecten-ref:NummeraanduidingRef>
+                    </Objecten:heeftAlsHoofdadres>
+                    <Objecten:voorkomen>
+                        <Historie:Voorkomen>
+                            <Historie:voorkomenidentificatie>2</Historie:voorkomenidentificatie>
+                            <Historie:beginGeldigheid>2019-01-15</Historie:beginGeldigheid>
+                            <Historie:eindGeldigheid>2019-03-27</Historie:eindGeldigheid>
+                            <Historie:tijdstipRegistratie>2019-01-15T15:18:40.000</Historie:tijdstipRegistratie>
+                            <Historie:eindRegistratie>2019-03-29T08:14:36.000</Historie:eindRegistratie>
+                            <Historie:BeschikbaarLV>
+                                <Historie:tijdstipRegistratieLV>2019-01-15T15:30:56.227</Historie:tijdstipRegistratieLV>
+                                <Historie:tijdstipEindRegistratieLV>2019-03-29T08:30:27.488</Historie:tijdstipEindRegistratieLV>
+                            </Historie:BeschikbaarLV>
+                        </Historie:Voorkomen>
+                    </Objecten:voorkomen>
+                    <Objecten:identificatie domein="NL.IMBAG.Verblijfsobject">0221010000330226</Objecten:identificatie>
+                    <Objecten:geometrie>
+                        <Objecten:punt>
+                            <gml:Point srsName="urn:ogc:def:crs:EPSG::28992" srsDimension="3" gml:id="VBO_0221010000330226_2_1547562656">
+                                <gml:pos>206335.699 447529.842 0.0</gml:pos>
+                            </gml:Point>
+                        </Objecten:punt>
+                    </Objecten:geometrie>
+                    <Objecten:gebruiksdoel>woonfunctie</Objecten:gebruiksdoel>
+                    <Objecten:oppervlakte>315</Objecten:oppervlakte>
+                    <Objecten:status>Verblijfsobject in gebruik</Objecten:status>
+                    <Objecten:geconstateerd>N</Objecten:geconstateerd>
+                    <Objecten:documentdatum>2019-01-15</Objecten:documentdatum>
+                    <Objecten:documentnummer>20190115002</Objecten:documentnummer>
+                    <Objecten:maaktDeelUitVan>
+                        <Objecten-ref:PandRef domein="NL.IMBAG.Pand">0221100000312938</Objecten-ref:PandRef>
+                    </Objecten:maaktDeelUitVan>
+                </Objecten:Verblijfsobject>
+            </sl-bag-extract:bagObject>
+        </sl:stand>
+        <sl:stand>
+            <sl-bag-extract:bagObject>
+                <Objecten:Verblijfsobject>
+                    <Objecten:heeftAlsHoofdadres>
+                        <Objecten-ref:NummeraanduidingRef domein="NL.IMBAG.Nummeraanduiding">0221200000330227</Objecten-ref:NummeraanduidingRef>
+                    </Objecten:heeftAlsHoofdadres>
+                    <Objecten:voorkomen>
+                        <Historie:Voorkomen>
+                            <Historie:voorkomenidentificatie>3</Historie:voorkomenidentificatie>
+                            <Historie:beginGeldigheid>2019-03-27</Historie:beginGeldigheid>
+                            <Historie:eindGeldigheid>2019-11-19</Historie:eindGeldigheid>
+                            <Historie:tijdstipRegistratie>2019-03-29T08:14:36.000</Historie:tijdstipRegistratie>
+                            <Historie:eindRegistratie>2019-11-19T13:14:00.814</Historie:eindRegistratie>
+                            <Historie:BeschikbaarLV>
+                                <Historie:tijdstipRegistratieLV>2019-03-29T08:30:27.488</Historie:tijdstipRegistratieLV>
+                                <Historie:tijdstipEindRegistratieLV>2019-11-19T13:14:47.715</Historie:tijdstipEindRegistratieLV>
+                            </Historie:BeschikbaarLV>
+                        </Historie:Voorkomen>
+                    </Objecten:voorkomen>
+                    <Objecten:identificatie domein="NL.IMBAG.Verblijfsobject">0221010000330226</Objecten:identificatie>
+                    <Objecten:geometrie>
+                        <Objecten:punt>
+                            <gml:Point srsName="urn:ogc:def:crs:EPSG::28992" srsDimension="3" gml:id="VBO_0221010000330226_3_1553844627">
+                                <gml:pos>206335.699 447529.842 0.0</gml:pos>
+                            </gml:Point>
+                        </Objecten:punt>
+                    </Objecten:geometrie>
+                    <Objecten:gebruiksdoel>woonfunctie</Objecten:gebruiksdoel>
+                    <Objecten:oppervlakte>223</Objecten:oppervlakte>
+                    <Objecten:status>Verblijfsobject in gebruik (niet ingemeten)</Objecten:status>
+                    <Objecten:geconstateerd>N</Objecten:geconstateerd>
+                    <Objecten:documentdatum>2019-03-27</Objecten:documentdatum>
+                    <Objecten:documentnummer>2018OMG0138</Objecten:documentnummer>
+                    <Objecten:maaktDeelUitVan>
+                        <Objecten-ref:PandRef domein="NL.IMBAG.Pand">0221100000312938</Objecten-ref:PandRef>
+                    </Objecten:maaktDeelUitVan>
+                </Objecten:Verblijfsobject>
+            </sl-bag-extract:bagObject>
+        </sl:stand>
+        <sl:stand>
+            <sl-bag-extract:bagObject>
+                <Objecten:Verblijfsobject>
+                    <Objecten:heeftAlsHoofdadres>
+                        <Objecten-ref:NummeraanduidingRef domein="NL.IMBAG.Nummeraanduiding">0221200000330227</Objecten-ref:NummeraanduidingRef>
+                    </Objecten:heeftAlsHoofdadres>
+                    <Objecten:voorkomen>
+                        <Historie:Voorkomen>
+                            <Historie:voorkomenidentificatie>4</Historie:voorkomenidentificatie>
+                            <Historie:beginGeldigheid>2019-11-19</Historie:beginGeldigheid>
+                            <Historie:tijdstipRegistratie>2019-11-19T13:14:00.814</Historie:tijdstipRegistratie>
+                            <Historie:BeschikbaarLV>
+                                <Historie:tijdstipRegistratieLV>2019-11-19T13:14:47.715</Historie:tijdstipRegistratieLV>
+                            </Historie:BeschikbaarLV>
+                        </Historie:Voorkomen>
+                    </Objecten:voorkomen>
+                    <Objecten:identificatie domein="NL.IMBAG.Verblijfsobject">0221010000330226</Objecten:identificatie>
+                    <Objecten:geometrie>
+                        <Objecten:punt>
+                            <gml:Point srsName="urn:ogc:def:crs:EPSG::28992" srsDimension="3" gml:id="VBO_0221010000330226_4_1574165687">
+                                <gml:pos>206335.699 447529.842 0.0</gml:pos>
+                            </gml:Point>
+                        </Objecten:punt>
+                    </Objecten:geometrie>
+                    <Objecten:gebruiksdoel>woonfunctie</Objecten:gebruiksdoel>
+                    <Objecten:oppervlakte>223</Objecten:oppervlakte>
+                    <Objecten:status>Verbouwing verblijfsobject</Objecten:status>
+                    <Objecten:geconstateerd>N</Objecten:geconstateerd>
+                    <Objecten:documentdatum>2019-11-19</Objecten:documentdatum>
+                    <Objecten:documentnummer>D/19/003329</Objecten:documentnummer>
+                    <Objecten:maaktDeelUitVan>
+                        <Objecten-ref:PandRef domein="NL.IMBAG.Pand">0221100000312938</Objecten-ref:PandRef>
+                    </Objecten:maaktDeelUitVan>
+                </Objecten:Verblijfsobject>
+            </sl-bag-extract:bagObject>
+        </sl:stand>
+        <sl:stand>
+            <sl-bag-extract:bagObject>
+                <Objecten:Verblijfsobject>
+                    <Objecten:heeftAlsHoofdadres>
+                        <Objecten-ref:NummeraanduidingRef domein="NL.IMBAG.Nummeraanduiding">0221200000330229</Objecten-ref:NummeraanduidingRef>
+                    </Objecten:heeftAlsHoofdadres>
+                    <Objecten:voorkomen>
+                        <Historie:Voorkomen>
+                            <Historie:voorkomenidentificatie>1</Historie:voorkomenidentificatie>
+                            <Historie:beginGeldigheid>2011-10-05</Historie:beginGeldigheid>
+                            <Historie:tijdstipRegistratie>2011-10-06T10:05:23.000</Historie:tijdstipRegistratie>
+                            <Historie:BeschikbaarLV>
+                                <Historie:tijdstipRegistratieLV>2011-10-06T10:31:49.947</Historie:tijdstipRegistratieLV>
+                            </Historie:BeschikbaarLV>
+                        </Historie:Voorkomen>
+                    </Objecten:voorkomen>
+                    <Objecten:identificatie domein="NL.IMBAG.Verblijfsobject">0221010000330228</Objecten:identificatie>
+                    <Objecten:geometrie>
+                        <Objecten:punt>
+                            <gml:Point srsName="urn:ogc:def:crs:EPSG::28992" srsDimension="3" gml:id="VBO_0221010000330228_1_1317889909">
+                                <gml:pos>206289.487 447359.374 0.0</gml:pos>
+                            </gml:Point>
+                        </Objecten:punt>
+                    </Objecten:geometrie>
+                    <Objecten:gebruiksdoel>overige gebruiksfunctie</Objecten:gebruiksdoel>
+                    <Objecten:oppervlakte>18</Objecten:oppervlakte>
+                    <Objecten:status>Verblijfsobject in gebruik</Objecten:status>
+                    <Objecten:geconstateerd>N</Objecten:geconstateerd>
+                    <Objecten:documentdatum>2011-10-05</Objecten:documentdatum>
+                    <Objecten:documentnummer>BAG/PVC20111005</Objecten:documentnummer>
+                    <Objecten:maaktDeelUitVan>
+                        <Objecten-ref:PandRef domein="NL.IMBAG.Pand">0221100000311191</Objecten-ref:PandRef>
+                    </Objecten:maaktDeelUitVan>
+                </Objecten:Verblijfsobject>
+            </sl-bag-extract:bagObject>
+        </sl:stand>
+    </sl:standBestand>
+</sl-bag-extract:bagStand>

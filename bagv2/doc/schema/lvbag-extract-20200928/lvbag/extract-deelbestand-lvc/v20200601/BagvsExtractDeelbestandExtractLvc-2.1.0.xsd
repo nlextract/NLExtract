@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2018 sp1 (x64) (http://www.altova.com) by Kadaster (Kadaster) -->
+<xs:schema xmlns:sl-bag-extract="http://www.kadaster.nl/schemas/lvbag/extract-deelbestand-lvc/v20200601" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ml="http://www.kadaster.nl/schemas/mutatielevering-generiek/1.0" xmlns:selecties-extract="http://www.kadaster.nl/schemas/lvbag/extract-selecties/v20200601" xmlns:sl="http://www.kadaster.nl/schemas/standlevering-generiek/1.0" xmlns:Objecten="www.kadaster.nl/schemas/lvbag/imbag/objecten/v20200601" xmlns:KenmerkInOnderzoek="www.kadaster.nl/schemas/lvbag/imbag/kenmerkinonderzoek/v20200601" targetNamespace="http://www.kadaster.nl/schemas/lvbag/extract-deelbestand-lvc/v20200601" elementFormDefault="qualified">
+	<xs:import namespace="http://www.kadaster.nl/schemas/lvbag/extract-selecties/v20200601" schemaLocation="../../extract-selecties/v20200601/BagvsExtractSelecties-2.1.0.xsd"/>
+	<xs:import namespace="http://www.kadaster.nl/schemas/standlevering-generiek/1.0" schemaLocation="../../../standlevering-generiek/1.0/standlevering-generiek-1.0.xsd"/>
+	<xs:import namespace="www.kadaster.nl/schemas/lvbag/imbag/objecten/v20200601" schemaLocation="../../imbag/IMBAGLV/objecten/v20200601/IMBAGLV_Objecten-2.1.0.xsd"/>
+	<xs:import namespace="www.kadaster.nl/schemas/lvbag/imbag/kenmerkinonderzoek/v20200601" schemaLocation="../../imbag/IMBAGLV/kenmerkinonderzoek/v20200601/IMBAGLV_KenmerkInOnderzoek-2.1.0.xsd"/>
+	<xs:element name="bagStand">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="bagInfo">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:annotation>
+								<xs:documentation>Deelbestand specifieke terugkoppeling, indien relevant</xs:documentation>
+							</xs:annotation>
+							<xs:element ref="selecties-extract:Gebied-Registratief"/>
+							<xs:element ref="selecties-extract:LVC-Extract"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element ref="sl:standBestand"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="bagObject" type="sl-bag-extract:bagObject" substitutionGroup="sl:modelObject"/>
+	<xs:complexType name="bagObject">
+		<xs:complexContent>
+			<xs:extension base="sl:modelObject">
+				<xs:choice>
+					<xs:element ref="Objecten:Woonplaats"/>
+					<xs:element ref="Objecten:OpenbareRuimte"/>
+					<xs:element ref="Objecten:Nummeraanduiding"/>
+					<xs:element ref="Objecten:Ligplaats"/>
+					<xs:element ref="Objecten:Standplaats"/>
+					<xs:element ref="Objecten:Verblijfsobject"/>
+					<xs:element ref="Objecten:Pand"/>
+				</xs:choice>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="kenmerkInOnderzoek" type="sl-bag-extract:kenmerkInOnderzoek" substitutionGroup="sl:modelObject"/>
+	<xs:complexType name="kenmerkInOnderzoek">
+		<xs:complexContent>
+			<xs:extension base="sl:modelObject">
+				<xs:choice>
+					<xs:element ref="KenmerkInOnderzoek:KenmerkWoonplaatsInOnderzoek"/>
+					<xs:element ref="KenmerkInOnderzoek:KenmerkOpenbareruimteInOnderzoek"/>
+					<xs:element ref="KenmerkInOnderzoek:KenmerkNummeraanduidingInOnderzoek"/>
+					<xs:element ref="KenmerkInOnderzoek:KenmerkVerblijfsobjectInOnderzoek"/>
+					<xs:element ref="KenmerkInOnderzoek:KenmerkLigplaatsInOnderzoek"/>
+					<xs:element ref="KenmerkInOnderzoek:KenmerkStandplaatsInOnderzoek"/>
+					<xs:element ref="KenmerkInOnderzoek:KenmerkPandInOnderzoek"/>
+				</xs:choice>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+</xs:schema>

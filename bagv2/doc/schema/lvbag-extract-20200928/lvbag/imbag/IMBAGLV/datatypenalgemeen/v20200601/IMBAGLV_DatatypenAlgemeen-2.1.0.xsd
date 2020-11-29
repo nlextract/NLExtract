@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:DatatypenAlgemeen="www.kadaster.nl/schemas/lvbag/imbag/datatypenalgemeen/v20200601" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="www.kadaster.nl/schemas/lvbag/imbag/datatypenalgemeen/v20200601" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.1.0">
+	<xs:simpleType name="MES1">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[&#x0020;-&#x007E;&#x00A0;-&#x00FF;&#x0100;-&#x0113;&#x0116;-&#x012B;&#x012E;-&#x014D;&#x0150;-&#x017E;&#x02C7;&#x02D8;-&#x02DB;&#x02DD;&#x2015;&#x2018;-&#x2019;&#x201C;-&#x201D;&#x20AC;&#x2122;&#x2126;&#x215B;-&#x215E;&#x2190;-&#x2193;&#x266A;]*"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AN">
+		<xs:restriction base="DatatypenAlgemeen:MES1">
+			<xs:pattern value="\S.*"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Documentnummer">
+		<xs:restriction base="DatatypenAlgemeen:AN">
+			<xs:maxLength value="40"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Indicatie">
+		<xs:annotation>
+			<xs:documentation>Een aanduiding waarmee wordt aangegeven of een bepaaldenindicatie al dan niet van toepassing is op een verschijningsvorm van een object in de registratie. Een J betekent Ja en een N betekent Nee. </xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="J"/>
+			<xs:enumeration value="N"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

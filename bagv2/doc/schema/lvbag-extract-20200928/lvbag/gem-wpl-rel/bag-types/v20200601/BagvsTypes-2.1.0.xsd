@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2010 (http://www.altova.com) by Kadaster (Kadaster) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:bagtypes="www.kadaster.nl/schemas/lvbag/gem-wpl-rel/bag-types/v20200601" targetNamespace="www.kadaster.nl/schemas/lvbag/gem-wpl-rel/bag-types/v20200601" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.1.0">
+	<xs:element name="Tijdvakgeldigheid" type="bagtypes:Tijdvakgeldigheid">
+		<xs:annotation>
+			<xs:documentation>Een periode waarin een of meer gegevens die worden bijgehouden over een object een wijziging hebben ondergaan.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="Tijdvakgeldigheid">
+		<xs:annotation>
+			<xs:documentation>Een periode waarin een of meer gegevens die worden bijgehouden over een object een wijziging hebben ondergaan.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="begindatumTijdvakGeldigheid" type="xs:date">
+				<xs:annotation>
+					<xs:documentation>De begindatum van een periode waarin een of meer gegevens die worden bijgehouden over een object een wijziging hebben ondergaan.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="einddatumTijdvakGeldigheid" type="xs:date" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>De einddatum van een periode waarin er geen wijzigingen hebben plaatsgevonden in de gegevens die worden bijgehouden over een object.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="Gemeentecode">
+		<xs:annotation>
+			<xs:documentation>Een code ter identificatie van een GEMEENTE met formaat AN4. De gemeente code wordt beheerd door Agentschap Basisadministratie Persoonsgegevens en Reisdocumenten (BPR). Deze wordt beschikbaar gesteld via tabel 33.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="([0-9]){4}"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

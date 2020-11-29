@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:nen5825="www.kadaster.nl/schemas/lvbag/imbag/nen5825/v20200601" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:DatatypenAlgemeen="www.kadaster.nl/schemas/lvbag/imbag/datatypenalgemeen/v20200601" targetNamespace="www.kadaster.nl/schemas/lvbag/imbag/nen5825/v20200601" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.1.0">
+	<xs:import namespace="www.kadaster.nl/schemas/lvbag/imbag/datatypenalgemeen/v20200601" schemaLocation="../../datatypenalgemeen/v20200601/IMBAGLV_DatatypenAlgemeen-2.1.0.xsd"/>
+	<xs:element name="VerkorteNaamOpenbareRuimte" type="nen5825:VerkorteNaamOpenbareRuimte" abstract="false"/>
+	<xs:complexType name="VerkorteNaamOpenbareRuimte" abstract="false">
+		<xs:sequence>
+			<xs:element name="verkorteNaam" minOccurs="1" maxOccurs="1">
+				<xs:simpleType>
+					<xs:restriction base="DatatypenAlgemeen:AN">
+						<xs:maxLength value="24"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

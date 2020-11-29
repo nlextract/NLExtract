@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:Objecten-ref="www.kadaster.nl/schemas/lvbag/imbag/objecten-ref/v20200601" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="www.kadaster.nl/schemas/lvbag/imbag/objecten-ref/v20200601" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.1.0">
+	<xs:element name="WoonplaatsRef" type="Objecten-ref:WoonplaatsRef" abstract="false"/>
+	<xs:complexType name="WoonplaatsRef" abstract="false">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute name="domein" type="xs:string" use="required" fixed="NL.IMBAG.Woonplaats"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:element name="OpenbareRuimteRef" type="Objecten-ref:OpenbareRuimteRef" abstract="false"/>
+	<xs:complexType name="OpenbareRuimteRef" abstract="false">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute name="domein" type="xs:string" use="required" fixed="NL.IMBAG.Openbareruimte"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:element name="NummeraanduidingRef" type="Objecten-ref:NummeraanduidingRef" abstract="false"/>
+	<xs:complexType name="NummeraanduidingRef" abstract="false">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute name="domein" type="xs:string" use="required" fixed="NL.IMBAG.Nummeraanduiding"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:element name="VerblijfsobjectRef" type="Objecten-ref:VerblijfsobjectRef" abstract="false"/>
+	<xs:complexType name="VerblijfsobjectRef" abstract="false">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute name="domein" type="xs:string" use="required" fixed="NL.IMBAG.Verblijfsobject"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:element name="LigplaatsRef" type="Objecten-ref:LigplaatsRef" abstract="false"/>
+	<xs:complexType name="LigplaatsRef" abstract="false">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute name="domein" type="xs:string" use="required" fixed="NL.IMBAG.Ligplaats"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:element name="StandplaatsRef" type="Objecten-ref:StandplaatsRef" abstract="false"/>
+	<xs:complexType name="StandplaatsRef" abstract="false">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute name="domein" type="xs:string" use="required" fixed="NL.IMBAG.Standplaats"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:element name="PandRef" type="Objecten-ref:PandRef" abstract="false"/>
+	<xs:complexType name="PandRef" abstract="false">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute name="domein" type="xs:string" use="required" fixed="NL.IMBAG.Pand"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+</xs:schema>

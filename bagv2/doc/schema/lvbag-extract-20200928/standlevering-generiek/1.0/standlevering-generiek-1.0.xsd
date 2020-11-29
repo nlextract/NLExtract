@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2018 sp1 (x64) (http://www.altova.com) by Kadaster (Kadaster) -->
+<xs:schema xmlns:sl="http://www.kadaster.nl/schemas/standlevering-generiek/1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.kadaster.nl/schemas/standlevering-generiek/1.0" elementFormDefault="qualified">
+	<xs:element name="standBestand">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="dataset" type="xs:string"/>
+				<xs:element name="inhoud" type="sl:inhoud"/>
+				<xs:element name="stand" type="sl:toestand" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="inhoud">
+		<xs:sequence>
+			<xs:element name="gebied" type="xs:string"/>
+			<xs:element name="leveringsId" type="xs:string"/>
+			<xs:element name="objectTypen" type="sl:objectTypen"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="selectie">
+		<xs:sequence>
+			<xs:element name="typeLevering" type="xs:string"/>
+			<xs:element name="van" type="xs:dateTime"/>
+			<xs:element name="tot" type="xs:dateTime" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="objectTypen">
+		<xs:sequence>
+			<xs:element name="objectType" type="xs:string" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="toestand">
+		<xs:annotation>
+			<xs:documentation>Een stand met daarin een levenscyclus, of een stand op een peildatum.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="sl:modelObject"/>
+		</xs:sequence>
+		<xs:attribute name="id" type="xs:string"/>
+	</xs:complexType>
+	<xs:element name="modelObject" type="sl:modelObject" abstract="true">
+		<xs:annotation>
+			<xs:documentation>Object uit het datamodel van de dataset</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="modelObject" abstract="true"/>
+</xs:schema>

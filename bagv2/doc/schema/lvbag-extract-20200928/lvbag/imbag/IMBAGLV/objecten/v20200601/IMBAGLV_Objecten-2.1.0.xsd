@@ -1,0 +1,871 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2018 sp1 (x64) (http://www.altova.com) by Kadaster (Kadaster) -->
+<xs:schema xmlns:Objecten="www.kadaster.nl/schemas/lvbag/imbag/objecten/v20200601" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:DatatypenNEN3610="www.kadaster.nl/schemas/lvbag/imbag/datatypennen3610/v20200601" xmlns:DatatypenAlgemeen="www.kadaster.nl/schemas/lvbag/imbag/datatypenalgemeen/v20200601" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:Historie="www.kadaster.nl/schemas/lvbag/imbag/historie/v20200601" xmlns:Objecten-ref="www.kadaster.nl/schemas/lvbag/imbag/objecten-ref/v20200601" xmlns:nen5825="www.kadaster.nl/schemas/lvbag/imbag/nen5825/v20200601" targetNamespace="www.kadaster.nl/schemas/lvbag/imbag/objecten/v20200601" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.1.0">
+	<xs:import namespace="www.kadaster.nl/schemas/lvbag/imbag/datatypennen3610/v20200601" schemaLocation="../../../IMBAGLV/datatypennen3610/v20200601/IMBAGLV_DatatypenNEN3610-2.1.0.xsd"/>
+	<xs:import namespace="www.kadaster.nl/schemas/lvbag/imbag/datatypenalgemeen/v20200601" schemaLocation="../../../IMBAGLV/datatypenalgemeen/v20200601/IMBAGLV_DatatypenAlgemeen-2.1.0.xsd"/>
+	<xs:import namespace="http://www.opengis.net/gml/3.2" schemaLocation="../../../gml/3.2/kadaster-gml.xsd"/>
+	<xs:import namespace="www.kadaster.nl/schemas/lvbag/imbag/historie/v20200601" schemaLocation="../../../IMBAGLV/historie/v20200601/IMBAGLV_Historie-2.1.0.xsd"/>
+	<xs:import namespace="www.kadaster.nl/schemas/lvbag/imbag/objecten-ref/v20200601" schemaLocation="../../../IMBAGLV/objecten-ref/v20200601/IMBAGLV_ObjectenRef-2.1.0.xsd"/>
+	<xs:import namespace="www.kadaster.nl/schemas/lvbag/imbag/nen5825/v20200601" schemaLocation="../../../IMBAGLV/nen5825/v20200601/IMBAGLV_Nen5825-2.1.0.xsd"/>
+	<xs:element name="Woonplaats" type="Objecten:Woonplaats" abstract="false">
+		<xs:annotation>
+			<xs:documentation>Een Woonplaats is een door het bevoegde gemeentelijke orgaan als zodanig aangewezen en van een naam voorzien gedeelte van het grondgebied van de gemeente.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="Woonplaats" abstract="false">
+		<xs:sequence>
+			<xs:element name="identificatie" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>De unieke aanduiding van een woonplaats, zoals opgenomen in de landelijke woonplaatsentabel.</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="DatatypenNEN3610:NEN3610IDWpl">
+							<xs:attribute name="domein" type="xs:string" use="required" fixed="NL.IMBAG.Woonplaats"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="naam" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>De benaming van een door het gemeentebestuuraangewezen woonplaats.</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="DatatypenAlgemeen:AN">
+						<xs:maxLength value="80"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="geometrie" type="Objecten:VlakOfMultivlak" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>De tweedimensionale geometrische representatie van het vlak dat wordt gevormd door de omtrekken van eenwoonplaats.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="status" type="Objecten:StatusWoonplaats" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>De fase van de levenscyclus van een woonplaats,waarin de betreffende woonplaats zich bevindt.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="geconstateerd" type="DatatypenAlgemeen:Indicatie" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Een aanduiding waarmee kan worden aangegeven dat een woonplaats in de registratie is opgenomen als gevolg van een feitelijke constatering, zonder dat er op het moment van opname sprake was van een regulier brondocument voor deze opname.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="documentdatum" type="xs:date" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>De datum waarop het brondocument is vastgesteld, opbasis waarvan een opname, mutatie of een verwijderingvan gegevens ten aanzien van een woonplaats heeft plaatsgevonden.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="documentnummer" type="DatatypenAlgemeen:Documentnummer" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>De unieke aanduiding van het brondocument op basiswaarvan een opname, mutatie of een verwijdering vangegevens ten aanzien van een woonplaats heeft plaatsgevonden, binnen een gemeente.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="voorkomen" minOccurs="1" maxOccurs="1">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element ref="Historie:Voorkomen" minOccurs="1" maxOccurs="1"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="id" type="xs:ID" use="optional"/>
+	</xs:complexType>
+	<xs:element name="OpenbareRuimte" type="Objecten:OpenbareRuimte" abstract="false">
+		<xs:annotation>
+			<xs:documentation>Een Openbare ruimte is een door het bevoegde gemeentelijke orgaan als zodanig aangewezen en van een naam voorziene buitenruimte die binnen één woonplaats is gelegen.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="OpenbareRuimte" abstract="false">
+		<xs:sequence>
+			<xs:element name="identificatie" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>De unieke aanduiding van een openbare ruimte.</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="DatatypenNEN3610:NEN3610IDOpr">
+							<xs:attribute name="domein" type="xs:string" use="required" fixed="NL.IMBAG.Openbareruimte"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="naam" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Een naam die aan een openbare ruimte is toegekend in een daartoe strekkend formeel gemeentelijk besluit.</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="DatatypenAlgemeen:AN">
+						<xs:maxLength value="80"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="type" type="Objecten:TypeOpenbareRuimte" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>De aard van de als zodanig benoemde openbare ruimte.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="status" type="Objecten:StatusNaamgeving" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>De fase van de levenscyclus van een openbare ruimte, waarin de betreffende openbare ruimte zich bevindt.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="geconstateerd" type="DatatypenAlgemeen:Indicatie" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Een aanduiding waarmee kan worden aangegeven dat een openbare ruimte in de registratie is opgenomen als gevolg van een feitelijke constatering, zonder dat er op het moment van opname sprake was van een regulier brondocument voor deze opname.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="documentdatum" type="xs:date" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>De datum waarop het brondocument is vastgesteld, op basis waarvan een opname, mutatie of verwijdering van gegevens ten aanzien van een openbare ruimte heeft plaatsgevonden.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="documentnummer" type="DatatypenAlgemeen:Documentnummer" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>De unieke aanduiding van het brondocument op basiswaarvan een opname, mutatie of een verwijdering vangegevens ten aanzien van een openbare ruimte heeft plaatsgevonden, binnen een gemeente.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ligtIn" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Een openbare ruimte ligt in een woonplaats.</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:choice minOccurs="1" maxOccurs="1">
+						<xs:element ref="Objecten-ref:WoonplaatsRef"/>
+					</xs:choice>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="voorkomen" minOccurs="1" maxOccurs="1">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element ref="Historie:Voorkomen" minOccurs="1" maxOccurs="1"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="verkorteNaam" minOccurs="0" maxOccurs="1">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element ref="nen5825:VerkorteNaamOpenbareRuimte" minOccurs="1" maxOccurs="1"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="id" type="xs:ID" use="optional"/>
+	</xs:complexType>
+	<xs:element name="Nummeraanduiding" type="Objecten:Nummeraanduiding" abstract="false">
+		<xs:annotation>
+			<xs:documentation>Een Nummeraanduiding is een door het bevoegde gemeentelijke orgaan als zodanig toegekende aanduiding van een verblijfsobject, een standplaats of een ligplaats.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="Nummeraanduiding" abstract="false">
+		<xs:sequence>
+			<xs:element name="identificatie" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>De unieke aanduiding van een nummeraanduiding.</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="DatatypenNEN3610:NEN3610IDNum">
+							<xs:attribute name="domein" type="xs:string" use="required" fixed="NL.IMBAG.Nummeraanduiding"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="huisnummer" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Een door of namens het gemeentebestuur ten aanzienvan een adresseerbaar object toegekende nummering.</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:integer">
+						<xs:totalDigits value="5"/>
+						<xs:pattern value="[1-9][0-9]{0,4}"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="huisletter" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Een door of namens het gemeentebestuur ten aanzienvan een adresseerbaar object toegekende toevoegingaan een huisnummer in de vorm van een alfanumeriekteken.</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="1"/>
+						<xs:pattern value="[a-zA-Z]{1}"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="huisnummertoevoeging" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Een door of namens het gemeentebestuur ten aanzienvan een adresseerbaar object toegekende naderetoevoeging aan een huisnummer of een combinatie vanhuisnummer en huisletter.</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="4"/>
+						<xs:pattern value="[0-9a-zA-Z]{1,4}"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="postcode" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>De door PostNL vastgestelde code behorende bij eenbepaalde combinatie van een straatnaam en eenhuisnummer.</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="6"/>
+						<xs:pattern value="[1-9][0-9]{3}[A-Z]{2}"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="typeAdresseerbaarObject" type="Objecten:TypeAdresseerbaarObject" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>De aard van het object waaraan een nummeraanduiding istoegekend.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="status" type="Objecten:StatusNaamgeving" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>De fase van de levenscyclus van een nummeraanduiding, waarin de betreffende nummeraanduiding zich bevindt.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="geconstateerd" type="DatatypenAlgemeen:Indicatie" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Een aanduiding waarmee kan worden aangegeven dat een nummeraanduiding in de registratie is opgenomen als gevolg van een feitelijke constatering, zonder dat er op het moment van opname sprake was van een regulier brondocument voor deze opname.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="documentdatum" type="xs:date" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>De datum waarop het brondocument is vastgesteld, opbasis waarvan een opname, mutatie of een verwijderingvan gegevens ten aanzien van een nummeraanduiding heeft plaatsgevonden.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="documentnummer" type="DatatypenAlgemeen:Documentnummer" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>De unieke aanduiding van het brondocument op basiswaarvan een opname, mutatie of een verwijdering vangegevens ten aanzien van een nummeraanduiding heeft plaatsgevonden, binnen een gemeente.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ligtIn" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Een adresseerbaar object ligt in een woonplaats.</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:choice minOccurs="1" maxOccurs="1">
+						<xs:element ref="Objecten-ref:WoonplaatsRef"/>
+					</xs:choice>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="voorkomen" minOccurs="1" maxOccurs="1">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element ref="Historie:Voorkomen" minOccurs="1" maxOccurs="1"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="ligtAan" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Een adresseerbaar object ligt aan een openbare ruimte.</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:choice minOccurs="1" maxOccurs="1">
+						<xs:element ref="Objecten-ref:OpenbareRuimteRef"/>
+					</xs:choice>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="id" type="xs:ID" use="optional"/>
+	</xs:complexType>
+	<xs:element name="_AdresseerbaarObject" type="Objecten:_AdresseerbaarObject" abstract="true">
+		<xs:annotation>
+			<xs:documentation>Een Adresseerbaar object is een (abstract) object waaraan adressen kunnen worden toegekend</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="_AdresseerbaarObject" abstract="true">
+		<xs:sequence>
+			<xs:element name="heeftAlsHoofdadres" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Een adresseerbaar object heeft als hoofadres een nummeraanduiding.</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:choice minOccurs="1" maxOccurs="1">
+						<xs:element ref="Objecten-ref:NummeraanduidingRef"/>
+					</xs:choice>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="voorkomen" minOccurs="1" maxOccurs="1">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element ref="Historie:Voorkomen" minOccurs="1" maxOccurs="1"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="heeftAlsNevenadres" minOccurs="0" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Een adresseerbaar object heeft als nevenadres een nummeraanduiding.</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:choice minOccurs="1" maxOccurs="unbounded">
+						<xs:element ref="Objecten-ref:NummeraanduidingRef"/>
+					</xs:choice>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="Verblijfsobject" type="Objecten:Verblijfsobject" abstract="false">
+		<xs:annotation>
+			<xs:documentation>Een Verblijfsobject is de kleinste binnen één of meerdere panden gelegen en voor woon -, bedrijfsmatige - of recreatieve doeleinden geschikte eenheid van gebruik, die ontsloten wordt via een eigen toegang vanaf de openbare weg, een erf of een gedeelde verkeersruimte en die onderwerp kan zijn van rechtshandelingen.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="Verblijfsobject" abstract="false">
+		<xs:complexContent>
+			<xs:extension base="Objecten:_AdresseerbaarObject">
+				<xs:sequence>
+					<xs:element name="identificatie" minOccurs="1" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>De unieke aanduiding van een verblijfsobject.</xs:documentation>
+						</xs:annotation>
+						<xs:complexType>
+							<xs:simpleContent>
+								<xs:extension base="DatatypenNEN3610:NEN3610IDVbo">
+									<xs:attribute name="domein" type="xs:string" use="required" fixed="NL.IMBAG.Verblijfsobject"/>
+								</xs:extension>
+							</xs:simpleContent>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="geometrie" type="Objecten:PuntOfVlak" minOccurs="1" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>De minimaal tweedimensionale geometrische representatie van een verblijfsobject.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="gebruiksdoel" type="Objecten:Gebruiksdoel" minOccurs="1" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Een categorisering van de gebruiksdoelen van het betreffende verblijfsobject, zoals dit formeel door de overheid als zodanig is toegestaan.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="oppervlakte" minOccurs="1" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>De gebruiksoppervlakte van een verblijfsobject in gehele vierkante meters.</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:integer">
+								<xs:totalDigits value="6"/>
+								<xs:pattern value="[1-9][0-9]{0,5}"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="status" type="Objecten:StatusVerblijfsobject" minOccurs="1" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>De fase van de levenscyclus van een verblijfsobject, waarin het betreffende verblijfsobject zich bevindt.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="geconstateerd" type="DatatypenAlgemeen:Indicatie" minOccurs="1" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>Een aanduiding waarmee kan worden aangegeven dat een verblijfsobject in de registratie is opgenomen als gevolg van een feitelijke constatering, zonder dat er op het moment van opname sprake was van een regulier brondocument voor deze opname.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="documentdatum" type="xs:date" minOccurs="1" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>De datum waarop het brondocument is vastgesteld, opbasis waarvan een opname, mutatie of een verwijderingvan gegevens ten aanzien van een verblijfsobject heeft plaatsgevonden.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="documentnummer" type="DatatypenAlgemeen:Documentnummer" minOccurs="1" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>De unieke aanduiding van het brondocument op basiswaarvan een opname, mutatie of een verwijdering vangegevens ten aanzien van een object heeft plaatsgevonden, binnen een gemeente.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="maaktDeelUitVan" minOccurs="1" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>Een verblijfsobject maakt onderdeel uit van een pand.</xs:documentation>
+						</xs:annotation>
+						<xs:complexType>
+							<xs:choice minOccurs="1" maxOccurs="unbounded">
+								<xs:element ref="Objecten-ref:PandRef"/>
+							</xs:choice>
+						</xs:complexType>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="Ligplaats" type="Objecten:Ligplaats" abstract="false">
+		<xs:annotation>
+			<xs:documentation>Een Ligplaats is een door het bevoegde gemeentelijke orgaan als zodanig aangewezen plaats in het water al dan niet aangevuld met een op de oever aanwezig terrein of een gedeelte daarvan, die bestemd is voor het permanent afmeren van een voor woon-, bedrijfsmatige of recreatieve doeleinden geschikt vaartuig.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="Ligplaats" abstract="false">
+		<xs:complexContent>
+			<xs:extension base="Objecten:_AdresseerbaarObject">
+				<xs:sequence>
+					<xs:element name="identificatie" minOccurs="1" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>De unieke aanduiding van een ligplaats.</xs:documentation>
+						</xs:annotation>
+						<xs:complexType>
+							<xs:simpleContent>
+								<xs:extension base="DatatypenNEN3610:NEN3610IDLig">
+									<xs:attribute name="domein" type="xs:string" use="required" fixed="NL.IMBAG.Ligplaats"/>
+								</xs:extension>
+							</xs:simpleContent>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="status" type="Objecten:StatusPlaats" minOccurs="1" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>De fase van de levenscyclus van een ligplaats, waarin de betreffende ligplaats zich bevindt.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="geometrie" type="gml:SurfacePropertyType" minOccurs="1" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>De tweedimensionale geometrische representatie van de omtrekken van een ligplaats.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="geconstateerd" type="DatatypenAlgemeen:Indicatie" minOccurs="1" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>Een aanduiding waarmee kan worden aangegeven dat een ligplaats in de registratie is opgenomen als gevolg van een feitelijke constatering, zonder dat er op het moment van opname sprake was van een regulier brondocument voor deze opname.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="documentdatum" type="xs:date" minOccurs="1" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>De datum waarop het brondocument is vastgesteld, opbasis waarvan een opname, mutatie of een verwijderingvan gegevens ten aanzien van een ligplaats heeft plaatsgevonden.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="documentnummer" type="DatatypenAlgemeen:Documentnummer" minOccurs="1" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>De unieke aanduiding van het brondocument op basiswaarvan een opname, mutatie of een verwijdering vangegevens ten aanzien van een ligplaats heeft plaatsgevonden, binnen een gemeente.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="Standplaats" type="Objecten:Standplaats" abstract="false">
+		<xs:annotation>
+			<xs:documentation>Een Standplaats is een door het bevoegde gemeentelijke orgaan als zodanig aangewezen terrein of gedeelte daarvan dat bestemd is voor het permanent plaatsen van een niet direct en niet duurzaam met de aarde verbonden en voor woon -, bedrijfsmatige, of recreatieve doeleinden geschikte ruimte.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="Standplaats" abstract="false">
+		<xs:complexContent>
+			<xs:extension base="Objecten:_AdresseerbaarObject">
+				<xs:sequence>
+					<xs:element name="identificatie" minOccurs="1" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>De unieke aanduiding van een standplaats.</xs:documentation>
+						</xs:annotation>
+						<xs:complexType>
+							<xs:simpleContent>
+								<xs:extension base="DatatypenNEN3610:NEN3610IDSta">
+									<xs:attribute name="domein" type="xs:string" use="required" fixed="NL.IMBAG.Standplaats"/>
+								</xs:extension>
+							</xs:simpleContent>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="status" type="Objecten:StatusPlaats" minOccurs="1" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>De fase van de levenscyclus van een standplaats,waarin de betreffende standplaats zich bevindt.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="geometrie" type="gml:SurfacePropertyType" minOccurs="1" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>De tweedimensionale geometrische representatie van de omtrekken van een standplaats.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="geconstateerd" type="DatatypenAlgemeen:Indicatie" minOccurs="1" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>Een aanduiding waarmee kan worden aangegeven dat een standplaats in de registratie is opgenomen als gevolg van een feitelijke constatering, zonder dat er op het moment van opname sprake was van een regulier brondocument voor deze opname.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="documentdatum" type="xs:date" minOccurs="1" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>De datum waarop het brondocument is vastgesteld, opbasis waarvan een opname, mutatie of een verwijderingvan gegevens ten aanzien van een standplaats heeft plaatsgevonden.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="documentnummer" type="DatatypenAlgemeen:Documentnummer" minOccurs="1" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>De unieke aanduiding van het brondocument op basiswaarvan een opname, mutatie of een verwijdering vangegevens ten aanzien van een standplaats heeft plaatsgevonden, binnen een gemeente.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="Pand" type="Objecten:Pand" abstract="false">
+		<xs:annotation>
+			<xs:documentation>Een Pand is de kleinste, bij de totstandkoming functioneel en bouwkundig-constructief zelfstandige eenheid die direct en duurzaam met de aarde is verbonden en betreedbaar en afsluitbaar is.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="Pand" abstract="false">
+		<xs:sequence>
+			<xs:element name="identificatie" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>De unieke aanduiding van een pand.</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="DatatypenNEN3610:NEN3610IDPnd">
+							<xs:attribute name="domein" type="xs:string" use="required" fixed="NL.IMBAG.Pand"/>
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="geometrie" type="gml:SurfacePropertyType" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>De minimaal tweedimensionale geometrische representatie van het bovenzicht van de omtrekken van een pand.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="oorspronkelijkBouwjaar" type="xs:gYear" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>De aanduiding van het jaar waarin een pand oorspronkelijk als bouwkundig gereed is of zal worden opgeleverd.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="status" type="Objecten:StatusPand" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>De fase van de levenscyclus van een pand, waarin hetbetreffende pand zich bevindt.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="geconstateerd" type="DatatypenAlgemeen:Indicatie" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>Een aanduiding waarmee kan worden aangegeven dat een pand in de registratie is opgenomen als gevolg van een feitelijke constatering, zonder dat er op het moment van opname sprake was van een regulier brondocument voor deze opname.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="documentdatum" type="xs:date" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>De datum waarop het brondocument is vastgesteld, opbasis waarvan een opname, mutatie of een verwijderingvan gegevens ten aanzien van een pand heeft plaatsgevonden.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="documentnummer" type="DatatypenAlgemeen:Documentnummer" minOccurs="1" maxOccurs="1">
+				<xs:annotation>
+					<xs:documentation>De unieke aanduiding van het brondocument op basiswaarvan een opname, mutatie of een verwijdering vangegevens ten aanzien van een pand heeft plaatsgevonden, binnen een gemeente.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="voorkomen" minOccurs="1" maxOccurs="1">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element ref="Historie:Voorkomen" minOccurs="1" maxOccurs="1"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="id" type="xs:ID" use="optional"/>
+	</xs:complexType>
+	<xs:element name="VlakOfMultivlak" type="Objecten:VlakOfMultivlak" abstract="false"/>
+	<xs:complexType name="VlakOfMultivlak" abstract="false">
+		<xs:annotation>
+			<xs:documentation>Ofwel een vlak, ofwel een multivlak. </xs:documentation>
+		</xs:annotation>
+		<xs:choice minOccurs="1" maxOccurs="1">
+			<xs:element name="vlak" type="gml:SurfacePropertyType">
+				<xs:annotation>
+					<xs:documentation>Gebruik surface, conform NEN3610 Simple Feature Profile Niveau 2 (niet Polygon)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="multivlak" type="gml:MultiSurfacePropertyType">
+				<xs:annotation>
+					<xs:documentation>Gebruik multisurface </xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:choice>
+	</xs:complexType>
+	<xs:element name="PuntOfVlak" type="Objecten:PuntOfVlak" abstract="false"/>
+	<xs:complexType name="PuntOfVlak" abstract="false">
+		<xs:annotation>
+			<xs:documentation>Ofwel een punt, ofwel een vlak. </xs:documentation>
+		</xs:annotation>
+		<xs:choice minOccurs="1" maxOccurs="1">
+			<xs:element name="punt" type="gml:PointPropertyType">
+				<xs:annotation>
+					<xs:documentation>Gebruik Point.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="vlak" type="gml:SurfacePropertyType">
+				<xs:annotation>
+					<xs:documentation>Gebruik surface, conform NEN3610 Simple Feature Profile Niveau 2 (niet Polygon)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:choice>
+	</xs:complexType>
+	<xs:simpleType name="GebruiksdoelType">
+		<xs:annotation>
+			<xs:documentation>Een categorisering waarmee het gebruiksdoel van een object kan worden verbijzonderd.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="woonfunctie">
+				<xs:annotation>
+					<xs:documentation>Definition: Gebruiksfunctie voor het wonen.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="bijeenkomstfunctie">
+				<xs:annotation>
+					<xs:documentation>Definition: Gebruiksfunctie voor het samenkomen van mensen voor kunst, cultuur, godsdienst, communicatie, kinderopvang, het verstrekken van consumpties voor het gebruik ter plaatse en het aanschouwen van sport.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="celfunctie">
+				<xs:annotation>
+					<xs:documentation>Definition: Gebruiksfunctie voor dwangverblijf van mensen.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="gezondheidszorgfunctie">
+				<xs:annotation>
+					<xs:documentation>Definition: Gebruiksfunctie voor medisch onderzoek, verpleging, verzorging of behandeling.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="industriefunctie">
+				<xs:annotation>
+					<xs:documentation>Definition: Gebruiksfunctie voor het bedrijfsmatig bewerken of opslaan van materialen en goederen, of voor agrarische doeleinden.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="kantoorfunctie">
+				<xs:annotation>
+					<xs:documentation>Definition: Gebruiksfunctie voor administratie.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="logiesfunctie">
+				<xs:annotation>
+					<xs:documentation>Definition: Gebruiksfunctie voor het bieden van recreatief verblijf of tijdelijk onderdak aan mensen.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="onderwijsfunctie">
+				<xs:annotation>
+					<xs:documentation>Definition: Gebruiksfunctie voor het geven van onderwijs.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="sportfunctie">
+				<xs:annotation>
+					<xs:documentation>Definition: Gebruiksfunctie voor het beoefenen van sport.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="winkelfunctie">
+				<xs:annotation>
+					<xs:documentation>Definition: Gebruiksfunctie voor het verhandelen van materialen, goederen of diensten.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="overige gebruiksfunctie">
+				<xs:annotation>
+					<xs:documentation>Definition: Niet in dit lid benoemde gebruiksfunctie voor activiteiten waarbij het verblijven van mensen een ondergeschikte rol speelt.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Gebruiksdoel">
+		<xs:annotation>
+			<xs:documentation>Een categorisering waarmee het gebruiksdoel van een object kan worden verbijzonderd.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string"/>
+	</xs:simpleType>
+	<xs:simpleType name="StatusNaamgeving">
+		<xs:annotation>
+			<xs:documentation>Een aanduiding van alle waarden die de status van een openbare ruimte of een nummeraanduiding kan aannemen.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Naamgeving uitgegeven">
+				<xs:annotation>
+					<xs:documentation>Definition: Naam is uitgegeven door bevoegd gezag.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Naamgeving ingetrokken">
+				<xs:annotation>
+					<xs:documentation>Definition: Naam is ingetrokken door bevoegd gezag.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="StatusPand">
+		<xs:annotation>
+			<xs:documentation>Een codering van de verschillende waarden die de status
+van een pand kan aannemen.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Bouwvergunning verleend">
+				<xs:annotation>
+					<xs:documentation>Definition: Een nieuw pand dat nog niet is gebouwd maar waarvoor wel een bouwvergunning is verleend.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Niet gerealiseerd pand">
+				<xs:annotation>
+					<xs:documentation>Definition: Een pand waarvoor een bouwvergunning was verleend, maar waarvan in een schriftelijke verklaring van een daartoe bevoegd ambtenaar is vastgesteld dat wordt afgezien van de bouw of waarvan de bouwvergunning is ingetrokken.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Bouw gestart">
+				<xs:annotation>
+					<xs:documentation>Definition: Een pand waarvan de aanvrager van de bouwvergunning heeft gemeld dat de bouw is gestart of waarvan in een schriftelijke verklaring van een daartoe bevoegd ambtenaar is vastgesteld dat de feitelijke bouw is aangevangen door minimaal de aanleg van de fundering (waartoe niet het bouwrijp maken van een terrein wordt gerekend).</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Pand in gebruik (niet ingemeten)">
+				<xs:annotation>
+					<xs:documentation>Definition: Een pand waarvan de aanvrager van de bouwvergunning heeft gemeld dat de bouw is voltooid of waarvan in een schriftelijke verklaring van een daartoe bevoegd ambtenaar is vastgesteld dat het pand feitelijk in gebruik is genomen voor bijvoorbeeld bewoning dan wel bedrijfsuitoefening of dat het weliswaar (nog) niet in gebruik is genomen maar naar het oordeel van de gemeente wel gebruiksgereed is.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Pand in gebruik">
+				<xs:annotation>
+					<xs:documentation>Definition: Een pand dat feitelijk de status ?Pand in gebruik (niet ingemeten)? had en waarvan de definitieve geometrie is ingemeten.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Verbouwing pand">
+				<xs:annotation>
+					<xs:documentation>Definition: Een pand dat verbouwd wordt of waarvoor een vergunning tot verbouw is verleend.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Sloopvergunning verleend">
+				<xs:annotation>
+					<xs:documentation>Definition: Een pand waarvoor een sloopvergunning is verleend.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Pand gesloopt">
+				<xs:annotation>
+					<xs:documentation>Definition: Een pand waarvan de aanvrager van de sloopvergunning heeft gemeld dat de sloop is voltooid of in een schriftelijke verklaring van een daartoe bevoegd ambtenaar is vastgesteld dat het pand is gesloopt.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Pand buiten gebruik">
+				<xs:annotation>
+					<xs:documentation>Definition: Een pand dat in dusdanige bouwkundige staat is dat niet te verwachten is dat het pand zal worden hersteld en weer in gebruik zal worden genomen.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Pand ten onrechte opgevoerd">
+				<xs:annotation>
+					<xs:documentation>Definition: Een pand dat niet had mogen worden opgenomen in de BAGregistratie en vervolgens is beëindigd.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="StatusPlaats">
+		<xs:annotation>
+			<xs:documentation>Een aanduiding van alle waarden die de status van een ligplaats en een standplaats kan aannemen.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Plaats aangewezen">
+				<xs:annotation>
+					<xs:documentation>Definition: Plaats is aangewezen door bevoegd gezag, of geconstateerd.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Plaats ingetrokken">
+				<xs:annotation>
+					<xs:documentation>Definition: Plaats is ingetrokken door bevoegd gezag.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="StatusVerblijfsobject">
+		<xs:annotation>
+			<xs:documentation>Een aanduiding van alle waarden die de status van een
+verblijfsobject kan aannemen.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Verblijfsobject gevormd">
+				<xs:annotation>
+					<xs:documentation>Definition: Een nieuw verblijfsobject dat deel gaat uitmaken van een nog niet gebouwd pand waarvoor een bouwvergunning is verleend of dat wordt gerealiseerd in een reeds bestaand pand.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Niet gerealiseerd verblijfsobject">
+				<xs:annotation>
+					<xs:documentation>Definition: Een verblijfsobject in een pand waarvoor een bouwvergunning was verleend of dat gerealiseerd zou worden in een reeds bestaand pand, maar waarvan in een schriftelijke verklaring van een daartoe bevoegd ambtenaar is vastgesteld dat wordt afgezien van de bouw of waarvan de bouwvergunning is ingetrokken.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Verblijfsobject in gebruik (niet ingemeten)">
+				<xs:annotation>
+					<xs:documentation>Definition: Een verblijfsobject waarvan de aanvrager van de bouwvergunning heeft gemeld
+dat de bouw is voltooid of waarvan in een schriftelijke verklaring van een daartoe bevoegd ambtenaar is vastgesteld dat het verblijfsobject feitelijk in gebruik is genomen voor bijvoorbeeld bewoning dan wel bedrijfsuitoefening of dat het weliswaar (nog) niet in gebruik is genomen maar naar het oordeel van de gemeente wel gebruiksgereed is.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Verblijfsobject in gebruik">
+				<xs:annotation>
+					<xs:documentation>Definition: Een verblijfsobject dat feitelijk de status ?Verblijfsobject in gebruik (niet ingemeten)? had en
+waarvan de definitieve geometrie is ingemeten.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Verbouwing verblijfsobject">
+				<xs:annotation>
+					<xs:documentation>Definition: Een verblijfsobject dat verbouwd wordt of waarvoor een vergunning tot verbouw is verleend.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Verblijfsobject ingetrokken">
+				<xs:annotation>
+					<xs:documentation>Definition: Een verblijfsobject dat als zodanig opgehouden heeft te bestaan omdat de aanvrager van een sloopvergunning heeft gemeld dat de sloop is voltooid of in een schriftelijke verklaring van een daartoe bevoegd ambtenaar is vastgesteld dat het verblijfsobject als zodanig niet meer bestaat.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Verblijfsobject buiten gebruik">
+				<xs:annotation>
+					<xs:documentation>Definition: Een verblijfsobject dat onderdeel uitmaakt van een pand dat in dusdanige bouwkundige staat is dat niet te verwachten is dat het pand zal worden hersteld en weer in gebruik zal worden genomen.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Verblijfsobject ten onrechte opgevoerd">
+				<xs:annotation>
+					<xs:documentation>Definition: Een verblijfsobject dat niet had mogen worden opgenomen in de BAG-registratie en vervolgens is beëindigd.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="StatusWoonplaats">
+		<xs:annotation>
+			<xs:documentation>Een aanduiding van alle waarden die de status van een woonplaats kan aannemen.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Woonplaats aangewezen">
+				<xs:annotation>
+					<xs:documentation>Definition: Woonplaats is aangewezen door bevoegd gezag, of geconstateerd.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Woonplaats ingetrokken">
+				<xs:annotation>
+					<xs:documentation>Definition: Woonplaats is ingetrokken door bevoegd gezag.</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="TypeAdresseerbaarObject">
+		<xs:annotation>
+			<xs:documentation>De aard van een als zodanig benoemde Nummeraanduiding.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Verblijfsobject">
+				<xs:annotation>
+					<xs:documentation>Definition: Nummeraanduiding is bedoeld voor Verblijfsobject. (bron: BAG)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Standplaats">
+				<xs:annotation>
+					<xs:documentation>Definition: Nummeraanduiding is bedoeld voor Standplaats. (bron: BAG)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Ligplaats">
+				<xs:annotation>
+					<xs:documentation>Definition: Nummeraanduiding is bedoeld voor Ligplaats. (bron: BAG).</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="TypeOpenbareRuimte">
+		<xs:annotation>
+			<xs:documentation>Een codering van de verschillende waarden die de typering van een openbare ruimte kan aannemen.</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Weg">
+				<xs:annotation>
+					<xs:documentation>Definition: Gebaand gedeelte voor het wegverkeer en vliegverkeer te land (bron: NEN3610)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Water">
+				<xs:annotation>
+					<xs:documentation>Definition: Grondoppervlak in principe bedekt met water. (bron: NEN3610)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Spoorbaan">
+				<xs:annotation>
+					<xs:documentation>Definition: Gebaand gedeelte voor het verkeer over rails. (bron: NEN3610)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Terrein">
+				<xs:annotation>
+					<xs:documentation>Definition: Door een fysiek voorkomen gekarakteriseerd zichtbaar begrensd stuk grond (bron: NEN3610)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Kunstwerk">
+				<xs:annotation>
+					<xs:documentation>Definition: Civiel-technisch werk voor de infrastructuur van wegen, water, spoorbanen, waterkeringen en/of leidingen en niet bedoeld voor permanent menselijk verblijf. (bron: NEN3610)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Landschappelijk gebied">
+				<xs:annotation>
+					<xs:documentation>Definition: Te verdelen in (NEN 3610): 'Geografisch gebied': geografisch benoemd of aangeduid gebied. De grenzen zijn niet altijd exact vastgesteld (bijvoorbeeld Noordoostpolder, Midden-Nederland, rivierengebied, Veluwe, Zuid-Limburg, kustgebied) 'Functioneel gebied': begrensd en benoemd gebied dat door een functionele eenheid wordt beschreven (bijvoorbeeld bedrijventerrein, bungalowpark, plantsoen, begraafplaats, jachthaven, windmolenpark en recreatiegebied) (bron: NEN3610)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="Administratief gebied">
+				<xs:annotation>
+					<xs:documentation>Definition: Ofwel ?registratief gebied?: op basis van wet- en regelgeving afgebakend gebied dat als eenheid geldt van politiek/bestuurlijke verantwoordelijkheid of voor bedrijfsvoering (bijvoorbeeld stadsdeel) (bron: NEN3610)</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

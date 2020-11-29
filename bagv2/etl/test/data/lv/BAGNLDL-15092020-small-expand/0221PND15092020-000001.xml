@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sl-bag-extract:bagStand xmlns:DatatypenNEN3610="www.kadaster.nl/schemas/lvbag/imbag/datatypennen3610/v20200601" xmlns:Objecten="www.kadaster.nl/schemas/lvbag/imbag/objecten/v20200601"
+                         xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:Historie="www.kadaster.nl/schemas/lvbag/imbag/historie/v20200601"
+                         xmlns:Objecten-ref="www.kadaster.nl/schemas/lvbag/imbag/objecten-ref/v20200601" xmlns:nen5825="www.kadaster.nl/schemas/lvbag/imbag/nen5825/v20200601"
+                         xmlns:KenmerkInOnderzoek="www.kadaster.nl/schemas/lvbag/imbag/kenmerkinonderzoek/v20200601"
+                         xmlns:selecties-extract="http://www.kadaster.nl/schemas/lvbag/extract-selecties/v20200601"
+                         xmlns:sl-bag-extract="http://www.kadaster.nl/schemas/lvbag/extract-deelbestand-lvc/v20200601" xmlns:sl="http://www.kadaster.nl/schemas/standlevering-generiek/1.0"
+                         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                         xsi:schemaLocation="http://www.kadaster.nl/schemas/lvbag/extract-deelbestand-lvc/v20200601 http://www.kadaster.nl/schemas/bag-verstrekkingen/extract-deelbestand-lvc/v20200601/BagvsExtractDeelbestandExtractLvc-2.1.0.xsd">
+    <sl-bag-extract:bagInfo>
+        <selecties-extract:Gebied-Registratief>
+            <selecties-extract:Gebied-GEM>
+                <selecties-extract:GemeenteCollectie>
+                    <selecties-extract:Gemeente>
+                        <selecties-extract:GemeenteIdentificatie>0221</selecties-extract:GemeenteIdentificatie>
+                    </selecties-extract:Gemeente>
+                </selecties-extract:GemeenteCollectie>
+            </selecties-extract:Gebied-GEM>
+        </selecties-extract:Gebied-Registratief>
+        <selecties-extract:LVC-Extract>
+            <selecties-extract:StandTechnischeDatum>2020-09-15</selecties-extract:StandTechnischeDatum>
+        </selecties-extract:LVC-Extract>
+    </sl-bag-extract:bagInfo>
+    <sl:standBestand>
+        <sl:dataset>LVBAG</sl:dataset>
+        <sl:inhoud>
+            <sl:gebied>GEMEENTE</sl:gebied>
+            <sl:leveringsId>0000000001</sl:leveringsId>
+            <sl:objectTypen>
+                <sl:objectType>PND</sl:objectType>
+            </sl:objectTypen>
+        </sl:inhoud>
+
+        <sl:stand>
+            <sl-bag-extract:bagObject>
+                <Objecten:Pand>
+                    <Objecten:identificatie domein="NL.IMBAG.Pand">0221100000312938</Objecten:identificatie>
+                    <Objecten:geometrie>
+                        <gml:Polygon srsName="urn:ogc:def:crs:EPSG::28992" srsDimension="3" gml:id="PND_0221100000312938_1_1292409078">
+                            <gml:exterior>
+                                <gml:LinearRing>
+                                    <gml:posList count="14">206341.621 447531.645 0.0 206354.422 447533.177 0.0 206350.966 447538.458 0.0 206339.661 447537.407 0.0 206336.403 447537.104 0.0 206332.912
+                                        447536.779 0.0 206329.214 447536.435 0.0 206329.299 447527.655 0.0 206329.295 447527.574 0.0 206334.024 447527.281 0.0 206334.008 447526.802 0.0 206341.716
+                                        447527.059 0.0 206341.722 447526.96 0.0 206341.621 447531.645 0.0
+                                    </gml:posList>
+                                </gml:LinearRing>
+                            </gml:exterior>
+                        </gml:Polygon>
+                    </Objecten:geometrie>
+                    <Objecten:oorspronkelijkBouwjaar>9999</Objecten:oorspronkelijkBouwjaar>
+                    <Objecten:status>Pand in gebruik</Objecten:status>
+                    <Objecten:geconstateerd>N</Objecten:geconstateerd>
+                    <Objecten:documentdatum>1995-01-18</Objecten:documentdatum>
+                    <Objecten:documentnummer>94090</Objecten:documentnummer>
+                    <Objecten:voorkomen>
+                        <Historie:Voorkomen>
+                            <Historie:voorkomenidentificatie>1</Historie:voorkomenidentificatie>
+                            <Historie:beginGeldigheid>1995-01-18</Historie:beginGeldigheid>
+                            <Historie:eindGeldigheid>2011-06-30</Historie:eindGeldigheid>
+                            <Historie:tijdstipRegistratie>2010-12-15T11:10:40.000</Historie:tijdstipRegistratie>
+                            <Historie:eindRegistratie>2011-08-01T14:14:05.000</Historie:eindRegistratie>
+                            <Historie:BeschikbaarLV>
+                                <Historie:tijdstipRegistratieLV>2010-12-15T11:31:18.501</Historie:tijdstipRegistratieLV>
+                                <Historie:tijdstipEindRegistratieLV>2011-08-01T14:31:40.506</Historie:tijdstipEindRegistratieLV>
+                            </Historie:BeschikbaarLV>
+                        </Historie:Voorkomen>
+                    </Objecten:voorkomen>
+                </Objecten:Pand>
+            </sl-bag-extract:bagObject>
+        </sl:stand>
+        <sl:stand>
+            <sl-bag-extract:bagObject>
+                <Objecten:Pand>
+                    <Objecten:identificatie domein="NL.IMBAG.Pand">0221100000312938</Objecten:identificatie>
+                    <Objecten:geometrie>
+                        <gml:Polygon srsName="urn:ogc:def:crs:EPSG::28992" srsDimension="3" gml:id="PND_0221100000312938_2_1312201900">
+                            <gml:exterior>
+                                <gml:LinearRing>
+                                    <gml:posList count="14">206341.621 447531.645 0.0 206354.422 447533.177 0.0 206350.966 447538.458 0.0 206339.661 447537.407 0.0 206336.403 447537.104 0.0 206332.912
+                                        447536.779 0.0 206329.214 447536.435 0.0 206329.299 447527.655 0.0 206329.295 447527.574 0.0 206334.024 447527.281 0.0 206334.008 447526.802 0.0 206341.716
+                                        447527.059 0.0 206341.722 447526.96 0.0 206341.621 447531.645 0.0
+                                    </gml:posList>
+                                </gml:LinearRing>
+                            </gml:exterior>
+                        </gml:Polygon>
+                    </Objecten:geometrie>
+                    <Objecten:oorspronkelijkBouwjaar>1585</Objecten:oorspronkelijkBouwjaar>
+                    <Objecten:status>Pand in gebruik</Objecten:status>
+                    <Objecten:geconstateerd>N</Objecten:geconstateerd>
+                    <Objecten:documentdatum>2011-06-30</Objecten:documentdatum>
+                    <Objecten:documentnummer>BAG/VAC20110630001</Objecten:documentnummer>
+                    <Objecten:voorkomen>
+                        <Historie:Voorkomen>
+                            <Historie:voorkomenidentificatie>2</Historie:voorkomenidentificatie>
+                            <Historie:beginGeldigheid>2011-06-30</Historie:beginGeldigheid>
+                            <Historie:eindGeldigheid>2011-09-06</Historie:eindGeldigheid>
+                            <Historie:tijdstipRegistratie>2011-08-01T14:14:05.000</Historie:tijdstipRegistratie>
+                            <Historie:eindRegistratie>2011-09-06T15:48:56.000</Historie:eindRegistratie>
+                            <Historie:BeschikbaarLV>
+                                <Historie:tijdstipRegistratieLV>2011-08-01T14:31:40.506</Historie:tijdstipRegistratieLV>
+                                <Historie:tijdstipEindRegistratieLV>2011-09-06T16:01:53.394</Historie:tijdstipEindRegistratieLV>
+                            </Historie:BeschikbaarLV>
+                        </Historie:Voorkomen>
+                    </Objecten:voorkomen>
+                </Objecten:Pand>
+            </sl-bag-extract:bagObject>
+        </sl:stand>
+        <sl:stand>
+            <sl-bag-extract:bagObject>
+                <Objecten:Pand>
+                    <Objecten:identificatie domein="NL.IMBAG.Pand">0221100000312938</Objecten:identificatie>
+                    <Objecten:geometrie>
+                        <gml:Polygon srsName="urn:ogc:def:crs:EPSG::28992" srsDimension="3" gml:id="PND_0221100000312938_3_1315317713">
+                            <gml:exterior>
+                                <gml:LinearRing>
+                                    <gml:posList count="15">206332.912 447536.779 0.0 206329.214 447536.435 0.0 206323.722 447535.924 0.0 206323.246 447528.547 0.0 206329.3 447527.655 0.0 206329.295
+                                        447527.574 0.0 206334.024 447527.281 0.0 206334.008 447526.803 0.0 206341.716 447527.059 0.0 206341.621 447531.645 0.0 206354.422 447533.177 0.0 206350.966
+                                        447538.458 0.0 206339.662 447537.407 0.0 206336.404 447537.104 0.0 206332.912 447536.779 0.0
+                                    </gml:posList>
+                                </gml:LinearRing>
+                            </gml:exterior>
+                        </gml:Polygon>
+                    </Objecten:geometrie>
+                    <Objecten:oorspronkelijkBouwjaar>1585</Objecten:oorspronkelijkBouwjaar>
+                    <Objecten:status>Pand in gebruik</Objecten:status>
+                    <Objecten:geconstateerd>N</Objecten:geconstateerd>
+                    <Objecten:documentdatum>2011-03-08</Objecten:documentdatum>
+                    <Objecten:documentnummer>BAG/PVC2010UP0004</Objecten:documentnummer>
+                    <Objecten:voorkomen>
+                        <Historie:Voorkomen>
+                            <Historie:voorkomenidentificatie>3</Historie:voorkomenidentificatie>
+                            <Historie:beginGeldigheid>2011-09-06</Historie:beginGeldigheid>
+                            <Historie:eindGeldigheid>2015-11-23</Historie:eindGeldigheid>
+                            <Historie:tijdstipRegistratie>2011-09-06T15:48:56.000</Historie:tijdstipRegistratie>
+                            <Historie:eindRegistratie>2015-11-26T08:45:56.000</Historie:eindRegistratie>
+                            <Historie:BeschikbaarLV>
+                                <Historie:tijdstipRegistratieLV>2011-09-06T16:01:53.394</Historie:tijdstipRegistratieLV>
+                                <Historie:tijdstipEindRegistratieLV>2015-11-26T09:00:12.248</Historie:tijdstipEindRegistratieLV>
+                            </Historie:BeschikbaarLV>
+                        </Historie:Voorkomen>
+                    </Objecten:voorkomen>
+                </Objecten:Pand>
+            </sl-bag-extract:bagObject>
+        </sl:stand>
+        <sl:stand>
+            <sl-bag-extract:bagObject>
+                <Objecten:Pand>
+                    <Objecten:identificatie domein="NL.IMBAG.Pand">0221100000312938</Objecten:identificatie>
+                    <Objecten:geometrie>
+                        <gml:Polygon srsName="urn:ogc:def:crs:EPSG::28992" srsDimension="3" gml:id="PND_0221100000312938_4_1448524812">
+                            <gml:exterior>
+                                <gml:LinearRing>
+                                    <gml:posList count="14">206329.214 447536.435 0.0 206329.299 447527.655 0.0 206329.295 447527.574 0.0 206334.024 447527.281 0.0 206334.008 447526.802 0.0 206336.52
+                                        447526.886 0.0 206341.716 447527.059 0.0 206341.621 447531.645 0.0 206354.422 447533.177 0.0 206350.966 447538.458 0.0 206339.661 447537.407 0.0 206336.403
+                                        447537.104 0.0 206332.912 447536.779 0.0 206329.214 447536.435 0.0
+                                    </gml:posList>
+                                </gml:LinearRing>
+                            </gml:exterior>
+                        </gml:Polygon>
+                    </Objecten:geometrie>
+                    <Objecten:oorspronkelijkBouwjaar>1585</Objecten:oorspronkelijkBouwjaar>
+                    <Objecten:status>Pand in gebruik</Objecten:status>
+                    <Objecten:geconstateerd>N</Objecten:geconstateerd>
+                    <Objecten:documentdatum>2015-11-23</Objecten:documentdatum>
+                    <Objecten:documentnummer>BAG/VMR20151123</Objecten:documentnummer>
+                    <Objecten:voorkomen>
+                        <Historie:Voorkomen>
+                            <Historie:voorkomenidentificatie>4</Historie:voorkomenidentificatie>
+                            <Historie:beginGeldigheid>2015-11-23</Historie:beginGeldigheid>
+                            <Historie:tijdstipRegistratie>2015-11-26T08:45:56.000</Historie:tijdstipRegistratie>
+                            <Historie:BeschikbaarLV>
+                                <Historie:tijdstipRegistratieLV>2015-11-26T09:00:12.248</Historie:tijdstipRegistratieLV>
+                            </Historie:BeschikbaarLV>
+                        </Historie:Voorkomen>
+                    </Objecten:voorkomen>
+                </Objecten:Pand>
+            </sl-bag-extract:bagObject>
+        </sl:stand>
+        <sl:stand>
+            <sl-bag-extract:bagObject>
+                <Objecten:Pand>
+                    <Objecten:identificatie domein="NL.IMBAG.Pand">0221100000311191</Objecten:identificatie>
+                    <Objecten:geometrie>
+                        <gml:Polygon srsName="urn:ogc:def:crs:EPSG::28992" srsDimension="3" gml:id="PND_0221100000311191_1_1292409096">
+                            <gml:exterior>
+                                <gml:LinearRing>
+                                    <gml:posList count="5">206289.94 447355.96 0.0 206292.3 447361.12 0.0 206288.92 447362.66 0.0 206286.73 447357.72 0.0 206289.94 447355.96 0.0</gml:posList>
+                                </gml:LinearRing>
+                            </gml:exterior>
+                        </gml:Polygon>
+                    </Objecten:geometrie>
+                    <Objecten:oorspronkelijkBouwjaar>9999</Objecten:oorspronkelijkBouwjaar>
+                    <Objecten:status>Pand in gebruik</Objecten:status>
+                    <Objecten:geconstateerd>N</Objecten:geconstateerd>
+                    <Objecten:documentdatum>2010-04-20</Objecten:documentdatum>
+                    <Objecten:documentnummer>BRA/FB20100001</Objecten:documentnummer>
+                    <Objecten:voorkomen>
+                        <Historie:Voorkomen>
+                            <Historie:voorkomenidentificatie>1</Historie:voorkomenidentificatie>
+                            <Historie:beginGeldigheid>2010-04-20</Historie:beginGeldigheid>
+                            <Historie:eindGeldigheid>2011-09-06</Historie:eindGeldigheid>
+                            <Historie:tijdstipRegistratie>2010-12-15T11:14:25.000</Historie:tijdstipRegistratie>
+                            <Historie:eindRegistratie>2011-09-06T16:16:03.000</Historie:eindRegistratie>
+                            <Historie:BeschikbaarLV>
+                                <Historie:tijdstipRegistratieLV>2010-12-15T11:31:36.618</Historie:tijdstipRegistratieLV>
+                                <Historie:tijdstipEindRegistratieLV>2011-09-06T16:34:48.162</Historie:tijdstipEindRegistratieLV>
+                            </Historie:BeschikbaarLV>
+                        </Historie:Voorkomen>
+                    </Objecten:voorkomen>
+                </Objecten:Pand>
+            </sl-bag-extract:bagObject>
+        </sl:stand>
+        <sl:stand>
+            <sl-bag-extract:bagObject>
+                <Objecten:Pand>
+                    <Objecten:identificatie domein="NL.IMBAG.Pand">0221100000311191</Objecten:identificatie>
+                    <Objecten:geometrie>
+                        <gml:Polygon srsName="urn:ogc:def:crs:EPSG::28992" srsDimension="3" gml:id="PND_0221100000311191_2_1315319688">
+                            <gml:exterior>
+                                <gml:LinearRing>
+                                    <gml:posList count="5">206289.94 447355.96 0.0 206292.3 447361.12 0.0 206288.92 447362.66 0.0 206286.73 447357.72 0.0 206289.94 447355.96 0.0</gml:posList>
+                                </gml:LinearRing>
+                            </gml:exterior>
+                        </gml:Polygon>
+                    </Objecten:geometrie>
+                    <Objecten:oorspronkelijkBouwjaar>1992</Objecten:oorspronkelijkBouwjaar>
+                    <Objecten:status>Pand in gebruik</Objecten:status>
+                    <Objecten:geconstateerd>N</Objecten:geconstateerd>
+                    <Objecten:documentdatum>2011-09-06</Objecten:documentdatum>
+                    <Objecten:documentnummer>BAG/VAC20110906001</Objecten:documentnummer>
+                    <Objecten:voorkomen>
+                        <Historie:Voorkomen>
+                            <Historie:voorkomenidentificatie>2</Historie:voorkomenidentificatie>
+                            <Historie:beginGeldigheid>2011-09-06</Historie:beginGeldigheid>
+                            <Historie:tijdstipRegistratie>2011-09-06T16:16:03.000</Historie:tijdstipRegistratie>
+                            <Historie:BeschikbaarLV>
+                                <Historie:tijdstipRegistratieLV>2011-09-06T16:34:48.162</Historie:tijdstipRegistratieLV>
+                            </Historie:BeschikbaarLV>
+                        </Historie:Voorkomen>
+                    </Objecten:voorkomen>
+                </Objecten:Pand>
+            </sl-bag-extract:bagObject>
+        </sl:stand>
+    </sl:standBestand>
+</sl-bag-extract:bagStand>
