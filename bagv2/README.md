@@ -16,3 +16,6 @@ Verdere problemen (nog issue aan te maken)
 * VBO: geometrie kan Punt of Vlak zijn (nu alleen Punt verondersteld)
 * VBO-PND N-M: meerdere gerelateerde PND mogelijk
 * VBO: Nevenadres wordt niet afgehandeld
+
+* inlezen Gem-Woonplaats relatie
+
