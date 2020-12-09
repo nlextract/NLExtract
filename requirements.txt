@@ -5,7 +5,7 @@ certifi==2020.11.8
 chardet==3.0.4
 Deprecated==1.2.10
 docutils==0.16
-GDAL==3.2.0
+GDAL==2.3.1
 idna==2.10
 imagesize==1.2.0
 Jinja2==2.11.2
