@@ -296,7 +296,7 @@ class Processor:
             # Meta data: info over levering
 
             # Sla hele file op
-            self.database.log_meta("levering_xml", etree.tostring(node, pretty_print=True))
+            self.database.log_meta("levering_xml", etree.tostring(node, pretty_print=True).decode())
 
             # Extraheer BAG lever datum
             #            <v202:LVC-Extract>
