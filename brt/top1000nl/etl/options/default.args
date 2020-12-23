@@ -2,7 +2,7 @@
 # These values are substituted into the ETL conf in conf/etl-top1000nl-v1.2.0.cfg, see the {arg} strings there
 
 # INPUT: gml files, point to directory or file(s) pattern
-input_dir=test/v1_2_1/nlextract
+input_dir=test/input
 
 # Files pattern: files filter volgens Python glob.glob patronen: https://docs.python.org/2/library/glob.html
 # NB moeten op dit moment .zip files zijn!
@@ -24,8 +24,8 @@ host=localhost
 port=5432
 user=postgres
 password=postgres
-database=top1000nl
-schema=test
+database=brt
+schema=top1000nl
 
 # OPTION: attribuut waarden bijv typeWeg die meerdere keren in XML voorkomen, wat daarmee te doen
 # Zie ogr2ogr opties
