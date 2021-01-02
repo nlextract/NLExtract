@@ -4,6 +4,14 @@ via de link: https://github.com/nlextract/NLExtract/releases.
 De nieuwste versie staat bovenaan: kies de "real-release" nlextract zip.
 De rest ligt nog open afhankelijk van wensen gebruikers en natuurlijk eventuele bugs.
 
+v1.5.1 - 2.jan.2021
+
+Voornamelijk BAG update gemeente-koppelingen voor gem. herindelingen 2021
+via PR #294 door @sebastic.
+
+Zie Milestone:
+https://github.com/nlextract/NLExtract/milestone/14?closed=1
+
 v1.5.0 - 23.okt.2020
 
 Voornamelijk Py2 naar Py3 migratie via
