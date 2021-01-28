@@ -1,5 +1,5 @@
-DEBUG: Configuratiebestand is /Users/just/project/nlextract/git.py3/bag/extract.conf
-INFO: Start 2020-08-12 15:19:43
+DEBUG: Configuratiebestand is /Users/just/project/nlextract/git.master/bag/extract.conf
+INFO: Start 2021-01-02 14:27:31
 INFO: alle database tabellen weggooien en opnieuw aanmaken...
 INFO: Probeer te verbinden...
 DEBUG: database commit ok connId=5
@@ -10,11 +10,11 @@ DEBUG: database connectie 5 gesloten
 INFO: script is uitgevoerd
 INFO: Initieele data (bijv. gemeenten/provincies) inlezen...
 running with lxml.etree
-INFO: process: verwerk /Users/just/project/nlextract/git.py3/bag/db/data
-INFO: process_dir: verwerk /Users/just/project/nlextract/git.py3/bag/db/data
+INFO: process: verwerk /Users/just/project/nlextract/git.master/bag/db/data
+INFO: process_dir: verwerk /Users/just/project/nlextract/git.master/bag/db/data
 DEBUG: verbonden met de database 'bag', schema 'test', connId=5
 DEBUG: database commit ok connId=5
-INFO: Negeer bestand: /Users/just/project/nlextract/git.py3/bag/db/data/README
+INFO: Negeer bestand: /Users/just/project/nlextract/git.master/bag/db/data/README
 DEBUG: reusing db connection
 DEBUG: database commit ok connId=5
 INFO: process_xml: verwerk gemeentelijke-indeling.xml 
@@ -22,36 +22,36 @@ INFO: START: parseXML
 INFO: END: parseXML tijd=0.0 sec
 DEBUG: reusing db connection
 DEBUG: database commit ok connId=5
-INFO: Processed objectCount=784
+INFO: Processed objectCount=785
 DEBUG: verbonden met de database 'bag', schema 'test', connId=6
 DEBUG: database commit ok connId=6
-INFO: Objects inserted=784 updated=0 unchanged=0
+INFO: Objects inserted=785 updated=0 unchanged=0
 DEBUG: verbonden met de database 'bag', schema 'test', connId=7
 DEBUG: database commit ok connId=7
 DEBUG: reusing db connection
 DEBUG: database commit ok connId=5
 DEBUG: reusing db connection
 DEBUG: database commit ok connId=5
-INFO: Negeer bestand: /Users/just/project/nlextract/git.py3/bag/db/data/gemeentelijke-indeling.xsd
+INFO: Negeer bestand: /Users/just/project/nlextract/git.master/bag/db/data/gemeentelijke-indeling.xsd
 INFO: Post processing en views aanmaken...
-INFO: SQL van file = /Users/just/project/nlextract/git.py3/bag/db/script/bag-gemeentecode-postprocess.sql uitvoeren...
+INFO: SQL van file = /Users/just/project/nlextract/git.master/bag/db/script/bag-gemeentecode-postprocess.sql uitvoeren...
 DEBUG: verbonden met de database 'bag', schema 'test', connId=7
 DEBUG: database commit ok connId=7
 DEBUG: database connectie 7 gesloten
 INFO: SQL uitgevoerd OK
-INFO: SQL van file = /Users/just/project/nlextract/git.py3/bag/db/script/bag-view-actueel-bestaand.sql uitvoeren...
+INFO: SQL van file = /Users/just/project/nlextract/git.master/bag/db/script/bag-view-actueel-bestaand.sql uitvoeren...
 DEBUG: verbonden met de database 'bag', schema 'test', connId=7
 DEBUG: database commit ok connId=7
 DEBUG: database connectie 7 gesloten
 INFO: SQL uitgevoerd OK
-INFO: End 2020-08-12 15:19:44
-DEBUG: Configuratiebestand is /Users/just/project/nlextract/git.py3/bag/extract.conf
+INFO: End 2021-01-02 14:27:32
+DEBUG: Configuratiebestand is /Users/just/project/nlextract/git.master/bag/extract.conf
 running with lxml.etree
-INFO: Start 2020-08-12 15:19:44
+INFO: Start 2021-01-02 14:27:32
 DEBUG: verbonden met de database 'bag', schema 'test', connId=5
 DEBUG: database commit ok connId=5
-INFO: process: verwerk /Users/just/project/nlextract/git.py3/bag/test/data
-INFO: process_dir: verwerk /Users/just/project/nlextract/git.py3/bag/test/data
+INFO: process: verwerk /Users/just/project/nlextract/git.master/bag/test/data
+INFO: process_dir: verwerk /Users/just/project/nlextract/git.master/bag/test/data
 DEBUG: verbonden met de database 'bag', schema 'test', connId=5
 DEBUG: database commit ok connId=5
 INFO: process_zip: verwerk GEM-WPL-RELATIE-08052020.zip 
@@ -271,14 +271,14 @@ DEBUG: reusing db connection
 DEBUG: database commit ok connId=5
 DEBUG: verbonden met de database 'bag', schema 'test', connId=6
 DEBUG: database commit ok connId=6
-INFO: End 2020-08-12 15:19:46
-DEBUG: Configuratiebestand is /Users/just/project/nlextract/git.py3/bag/extract.conf
+INFO: End 2021-01-02 14:27:34
+DEBUG: Configuratiebestand is /Users/just/project/nlextract/git.master/bag/extract.conf
 running with lxml.etree
-INFO: Start 2020-08-12 15:19:46
+INFO: Start 2021-01-02 14:27:35
 DEBUG: verbonden met de database 'bag', schema 'test', connId=5
 DEBUG: database commit ok connId=5
-INFO: process: verwerk /Users/just/project/nlextract/git.py3/bag/test/datadubbel
-INFO: process_dir: verwerk /Users/just/project/nlextract/git.py3/bag/test/datadubbel
+INFO: process: verwerk /Users/just/project/nlextract/git.master/bag/test/datadubbel
+INFO: process_dir: verwerk /Users/just/project/nlextract/git.master/bag/test/datadubbel
 DEBUG: verbonden met de database 'bag', schema 'test', connId=5
 DEBUG: database commit ok connId=5
 INFO: process_xml: verwerk verblijfsobject-dubbel.xml 
@@ -325,27 +325,27 @@ DEBUG: reusing db connection
 DEBUG: database commit ok connId=5
 DEBUG: verbonden met de database 'bag', schema 'test', connId=6
 DEBUG: database commit ok connId=6
-INFO: End 2020-08-12 15:19:46
-DEBUG: Configuratiebestand is /Users/just/project/nlextract/git.py3/bag/extract.conf
-INFO: Start 2020-08-12 15:19:46
+INFO: End 2021-01-02 14:27:35
+DEBUG: Configuratiebestand is /Users/just/project/nlextract/git.master/bag/extract.conf
+INFO: Start 2021-01-02 14:27:35
 DEBUG: verbonden met de database 'bag', schema 'test', connId=5
 DEBUG: database commit ok connId=5
-INFO: SQL van file = /Users/just/project/nlextract/git.py3/bag/db/script/ontdubbel.sql uitvoeren...
+INFO: SQL van file = /Users/just/project/nlextract/git.master/bag/db/script/ontdubbel.sql uitvoeren...
 DEBUG: verbonden met de database 'bag', schema 'test', connId=5
 DEBUG: database commit ok connId=5
 DEBUG: database connectie 5 gesloten
 INFO: SQL uitgevoerd OK
 DEBUG: verbonden met de database 'bag', schema 'test', connId=5
 DEBUG: database commit ok connId=5
-INFO: End 2020-08-12 15:19:46
+INFO: End 2021-01-02 14:27:35
 START TEST: Mutaties
-DEBUG: Configuratiebestand is /Users/just/project/nlextract/git.py3/bag/extract.conf
+DEBUG: Configuratiebestand is /Users/just/project/nlextract/git.master/bag/extract.conf
 running with lxml.etree
-INFO: Start 2020-08-12 15:19:47
+INFO: Start 2021-01-02 14:27:35
 DEBUG: verbonden met de database 'bag', schema 'test', connId=5
 DEBUG: database commit ok connId=5
-INFO: process: verwerk /Users/just/project/nlextract/git.py3/bag/test/mutatie
-INFO: process_dir: verwerk /Users/just/project/nlextract/git.py3/bag/test/mutatie
+INFO: process: verwerk /Users/just/project/nlextract/git.master/bag/test/mutatie
+INFO: process_dir: verwerk /Users/just/project/nlextract/git.master/bag/test/mutatie
 DEBUG: verbonden met de database 'bag', schema 'test', connId=5
 DEBUG: database commit ok connId=5
 DEBUG: reusing db connection
@@ -437,16 +437,16 @@ DEBUG: reusing db connection
 DEBUG: database commit ok connId=5
 DEBUG: verbonden met de database 'bag', schema 'test', connId=7
 DEBUG: database commit ok connId=7
-INFO: End 2020-08-12 15:19:47
+INFO: End 2021-01-02 14:27:36
 END TEST: Mutaties
 START TEST: Mutaties : slechts eenmaal verwerken
-DEBUG: Configuratiebestand is /Users/just/project/nlextract/git.py3/bag/extract.conf
+DEBUG: Configuratiebestand is /Users/just/project/nlextract/git.master/bag/extract.conf
 running with lxml.etree
-INFO: Start 2020-08-12 15:19:47
+INFO: Start 2021-01-02 14:27:36
 DEBUG: verbonden met de database 'bag', schema 'test', connId=5
 DEBUG: database commit ok connId=5
-INFO: process: verwerk /Users/just/project/nlextract/git.py3/bag/test/mutatie
-INFO: process_dir: verwerk /Users/just/project/nlextract/git.py3/bag/test/mutatie
+INFO: process: verwerk /Users/just/project/nlextract/git.master/bag/test/mutatie
+INFO: process_dir: verwerk /Users/just/project/nlextract/git.master/bag/test/mutatie
 DEBUG: verbonden met de database 'bag', schema 'test', connId=5
 DEBUG: database commit ok connId=5
 DEBUG: reusing db connection
@@ -499,60 +499,60 @@ DEBUG: reusing db connection
 DEBUG: database commit ok connId=5
 DEBUG: verbonden met de database 'bag', schema 'test', connId=6
 DEBUG: database commit ok connId=6
-INFO: End 2020-08-12 15:19:47
+INFO: End 2021-01-02 14:27:36
 END TEST: Mutaties : slechts eenmaal verwerken
-DEBUG: Configuratiebestand is /Users/just/project/nlextract/git.py3/bag/extract.conf
-INFO: Start 2020-08-12 15:19:47
+DEBUG: Configuratiebestand is /Users/just/project/nlextract/git.master/bag/extract.conf
+INFO: Start 2021-01-02 14:27:36
 DEBUG: verbonden met de database 'bag', schema 'test', connId=5
 DEBUG: database commit ok connId=5
-INFO: SQL van file = /Users/just/project/nlextract/git.py3/bag/db/script/gemeente-provincie-tabel.sql uitvoeren...
-DEBUG: verbonden met de database 'bag', schema 'test', connId=5
-DEBUG: database commit ok connId=5
-DEBUG: database connectie 5 gesloten
-INFO: SQL uitgevoerd OK
-DEBUG: verbonden met de database 'bag', schema 'test', connId=5
-DEBUG: database commit ok connId=5
-INFO: End 2020-08-12 15:19:48
-DEBUG: Configuratiebestand is /Users/just/project/nlextract/git.py3/bag/extract.conf
-INFO: Start 2020-08-12 15:19:48
-DEBUG: verbonden met de database 'bag', schema 'test', connId=5
-DEBUG: database commit ok connId=5
-INFO: SQL van file = /Users/just/project/nlextract/git.py3/bag/db/script/adres-tabel.sql uitvoeren...
+INFO: SQL van file = /Users/just/project/nlextract/git.master/bag/db/script/gemeente-provincie-tabel.sql uitvoeren...
 DEBUG: verbonden met de database 'bag', schema 'test', connId=5
 DEBUG: database commit ok connId=5
 DEBUG: database connectie 5 gesloten
 INFO: SQL uitgevoerd OK
 DEBUG: verbonden met de database 'bag', schema 'test', connId=5
 DEBUG: database commit ok connId=5
-INFO: End 2020-08-12 15:19:48
-DEBUG: Configuratiebestand is /Users/just/project/nlextract/git.py3/bag/extract.conf
-INFO: Start 2020-08-12 15:19:48
+INFO: End 2021-01-02 14:27:36
+DEBUG: Configuratiebestand is /Users/just/project/nlextract/git.master/bag/extract.conf
+INFO: Start 2021-01-02 14:27:37
 DEBUG: verbonden met de database 'bag', schema 'test', connId=5
 DEBUG: database commit ok connId=5
-INFO: SQL van file = /Users/just/project/nlextract/git.py3/bag/db/script/adres-tabel-full.sql uitvoeren...
+INFO: SQL van file = /Users/just/project/nlextract/git.master/bag/db/script/adres-tabel.sql uitvoeren...
 DEBUG: verbonden met de database 'bag', schema 'test', connId=5
 DEBUG: database commit ok connId=5
 DEBUG: database connectie 5 gesloten
 INFO: SQL uitgevoerd OK
 DEBUG: verbonden met de database 'bag', schema 'test', connId=5
 DEBUG: database commit ok connId=5
-INFO: End 2020-08-12 15:19:48
+INFO: End 2021-01-02 14:27:37
+DEBUG: Configuratiebestand is /Users/just/project/nlextract/git.master/bag/extract.conf
+INFO: Start 2021-01-02 14:27:37
+DEBUG: verbonden met de database 'bag', schema 'test', connId=5
+DEBUG: database commit ok connId=5
+INFO: SQL van file = /Users/just/project/nlextract/git.master/bag/db/script/adres-tabel-full.sql uitvoeren...
+DEBUG: verbonden met de database 'bag', schema 'test', connId=5
+DEBUG: database commit ok connId=5
+DEBUG: database connectie 5 gesloten
+INFO: SQL uitgevoerd OK
+DEBUG: verbonden met de database 'bag', schema 'test', connId=5
+DEBUG: database commit ok connId=5
+INFO: End 2021-01-02 14:27:37
 COPY 6
 openbareruimte;huisnummer;huisletter;huisnummertoevoeging;postcode;woonplaats;gemeente;provincie;object_id;object_type;nevenadres;x;y;lon;lat
-Molenbochtstraat;3;;I;9901AA;Hieslum;Súdwest-Fryslân;Friesland;0003010000125985;VBO;f;155000;463000;5.3872035087259;52.1551723011519
-Molenbochtstraat;5;;;9901AA;Hieslum;Súdwest-Fryslân;Friesland;0003020000000001;LIG;f;252466.746775002;593751.81399051;6.84989496676674;53.3213020983346
-Molenbochtstraat;33;;I;9901AA;Toornwerd;Loppersum;Groningen;0007010000004199;VBO;f;272580.18893708;569748.200039058;7.14283466862574;53.1016485754882
-Molenbochtstraat;98;;;9934EG;Hieslum;Súdwest-Fryslân;Friesland;0007010000004212;VBO;f;275466;565559;7.18434457268306;53.063380655429
-Molenbochtstraat;100;;;9934EG;Hieslum;Súdwest-Fryslân;Friesland;0007010000004212;VBO;t;275466;565559;7.18434457268306;53.063380655429
-Molenbochtstraat;1;;;9934RA;Hieslum;Súdwest-Fryslân;Friesland;0010030000100100;STA;f;257939.456825101;593821.560313134;6.93201848020713;53.3209014057973
+Molenbochtstraat;3;;I;9901AA;Hieslum;Súdwest-Fryslân;Friesland;0003010000125985;VBO;f;155000;463000;5.387203508413768;52.15517230119223
+Molenbochtstraat;5;;;9901AA;Hieslum;Súdwest-Fryslân;Friesland;0003020000000001;LIG;f;252466.7467750016;593751.8139905097;6.849894966462122;53.321302098372044
+Molenbochtstraat;33;;I;9901AA;Toornwerd;Súdwest-Fryslân;Friesland;0007010000004199;VBO;f;272580.18893708;569748.200039058;7.142834668320171;53.10164857552511
+Molenbochtstraat;98;;;9934EG;Hieslum;Súdwest-Fryslân;Friesland;0007010000004212;VBO;f;275466;565559;7.184344572377313;53.063380655465856
+Molenbochtstraat;100;;;9934EG;Hieslum;Súdwest-Fryslân;Friesland;0007010000004212;VBO;t;275466;565559;7.184344572377313;53.063380655465856
+Molenbochtstraat;1;;;9934RA;Hieslum;Súdwest-Fryslân;Friesland;0010030000100100;STA;f;257939.45682510105;593821.5603131343;6.932018479902576;53.32090140583465
 COPY 6
 openbareruimte;huisnummer;huisletter;huisnummertoevoeging;postcode;woonplaats;gemeente;provincie;nummeraanduiding;verblijfsobjectgebruiksdoel;oppervlakteverblijfsobject;verblijfsobjectstatus;object_id;object_type;nevenadres;pandid;pandstatus;pandbouwjaar;x;y;lon;lat;verkorteopenbareruimte
-Molenbochtstraat;3;;I;9901AA;Hieslum;Súdwest-Fryslân;Friesland;0003200000133985;woonfunctie;169;Verblijfsobject in gebruik;0003010000125985;VBO;f;0003100000117485;Pand in gebruik;1991;155000;463000;5.3872035087259;52.1551723011519;MBochtstraat
-Molenbochtstraat;5;;;9901AA;Hieslum;Súdwest-Fryslân;Friesland;0003200000133986;Ligplaats;0;Plaats aangewezen;0003020000000001;LIG;f;;"";;252466.746775002;593751.81399051;6.84989496676674;53.3213020983346;MBochtstraat
-Molenbochtstraat;33;;I;9901AA;Toornwerd;Loppersum;Groningen;0003200000121300;woonfunctie;116;Verblijfsobject in gebruik;0007010000004199;VBO;f;;;;272580.18893708;569748.200039058;7.14283466862574;53.1016485754882;MBochtstraat
-Molenbochtstraat;98;;;9934EG;Hieslum;Súdwest-Fryslân;Friesland;0010200000101404;woonfunctie;318;Verblijfsobject in gebruik;0007010000004212;VBO;f;1895100000002619;Pand in gebruik (niet ingemeten);1973;275466;565559;7.18434457268306;53.063380655429;MBochtstraat
-Molenbochtstraat;100;;;9934EG;Hieslum;Súdwest-Fryslân;Friesland;0010200000101403;woonfunctie;318;Verblijfsobject in gebruik;0007010000004212;VBO;t;1895100000002619;Pand in gebruik (niet ingemeten);1973;275466;565559;7.18434457268306;53.063380655429;MBochtstraat
-Molenbochtstraat;1;;;9934RA;Hieslum;Súdwest-Fryslân;Friesland;0010200000101386;Standplaats;0;Plaats aangewezen;0010030000100100;STA;f;;"";;257939.456825101;593821.560313134;6.93201848020713;53.3209014057973;MBochtstraat
+Molenbochtstraat;3;;I;9901AA;Hieslum;Súdwest-Fryslân;Friesland;0003200000133985;woonfunctie;169;Verblijfsobject in gebruik;0003010000125985;VBO;f;0003100000117485;Pand in gebruik;1991;155000;463000;5.387203508413768;52.15517230119223;MBochtstraat
+Molenbochtstraat;5;;;9901AA;Hieslum;Súdwest-Fryslân;Friesland;0003200000133986;Ligplaats;0;Plaats aangewezen;0003020000000001;LIG;f;;"";;252466.7467750016;593751.8139905097;6.849894966462122;53.321302098372044;MBochtstraat
+Molenbochtstraat;33;;I;9901AA;Toornwerd;Súdwest-Fryslân;Friesland;0003200000121300;woonfunctie;116;Verblijfsobject in gebruik;0007010000004199;VBO;f;;;;272580.18893708;569748.200039058;7.142834668320171;53.10164857552511;MBochtstraat
+Molenbochtstraat;98;;;9934EG;Hieslum;Súdwest-Fryslân;Friesland;0010200000101404;woonfunctie;318;Verblijfsobject in gebruik;0007010000004212;VBO;f;1895100000002619;Pand in gebruik (niet ingemeten);1973;275466;565559;7.184344572377313;53.063380655465856;MBochtstraat
+Molenbochtstraat;100;;;9934EG;Hieslum;Súdwest-Fryslân;Friesland;0010200000101403;woonfunctie;318;Verblijfsobject in gebruik;0007010000004212;VBO;t;1895100000002619;Pand in gebruik (niet ingemeten);1973;275466;565559;7.184344572377313;53.063380655465856;MBochtstraat
+Molenbochtstraat;1;;;9934RA;Hieslum;Súdwest-Fryslân;Friesland;0010200000101386;Standplaats;0;Plaats aangewezen;0010030000100100;STA;f;;"";;257939.45682510105;593821.5603131343;6.932018479902576;53.32090140583465;MBochtstraat
 pg_dump: last built-in OID is 16383
 pg_dump: reading extensions
 pg_dump: identifying extension members
@@ -661,6 +661,8 @@ pg_dump: reading indexes for table "test.gemeente"
 pg_dump: reading indexes for table "test.provincie"
 pg_dump: reading indexes for table "test.adres"
 pg_dump: reading indexes for table "test.adres_full"
+pg_dump: flagging indexes in partitioned tables
+pg_dump: reading extended statistics
 pg_dump: reading constraints
 pg_dump: reading triggers
 pg_dump: reading rewrite rules
@@ -783,10 +785,33 @@ pg_dump: reading row security enabled for table "test.adres_full"
 pg_dump: reading policies for table "test.adres_full"
 pg_dump: reading row security enabled for table "test.adres_full_gid_seq"
 pg_dump: reading policies for table "test.adres_full_gid_seq"
+pg_dump: reading publications
+pg_dump: reading publication membership
+pg_dump: reading publication membership for table "test.nlx_bag_info"
+pg_dump: reading publication membership for table "test.nlx_bag_log"
+pg_dump: reading publication membership for table "test.woonplaats"
+pg_dump: reading publication membership for table "test.openbareruimte"
+pg_dump: reading publication membership for table "test.nummeraanduiding"
+pg_dump: reading publication membership for table "test.ligplaats"
+pg_dump: reading publication membership for table "test.standplaats"
+pg_dump: reading publication membership for table "test.verblijfsobject"
+pg_dump: reading publication membership for table "test.pand"
+pg_dump: reading publication membership for table "test.verblijfsobjectpand"
+pg_dump: reading publication membership for table "test.adresseerbaarobjectnevenadres"
+pg_dump: reading publication membership for table "test.verblijfsobjectgebruiksdoel"
+pg_dump: reading publication membership for table "test.gemeente_woonplaats"
+pg_dump: reading publication membership for table "test.provincie_gemeente"
+pg_dump: reading publication membership for table "test.gt_pk_metadata"
+pg_dump: reading publication membership for table "test.gemeente"
+pg_dump: reading publication membership for table "test.provincie"
+pg_dump: reading publication membership for table "test.adres"
+pg_dump: reading publication membership for table "test.adres_full"
+pg_dump: reading subscriptions
 pg_dump: reading dependency data
 pg_dump: saving encoding = UTF8
 pg_dump: saving standard_conforming_strings = on
 pg_dump: saving search_path = 
+pg_dump: saving database definition
 pg_dump: dumping contents of table "test.adres"
 pg_dump: dumping contents of table "test.adres_full"
 pg_dump: dumping contents of table "test.adresseerbaarobjectnevenadres"
@@ -806,39 +831,3 @@ pg_dump: dumping contents of table "test.verblijfsobject"
 pg_dump: dumping contents of table "test.verblijfsobjectgebruiksdoel"
 pg_dump: dumping contents of table "test.verblijfsobjectpand"
 pg_dump: dumping contents of table "test.woonplaats"
-DEBUG: Configuratiebestand is /Users/just/project/nlextract/git.py3/bag/extract.conf
-INFO: Start 2020-08-12 15:19:49
-DEBUG: verbonden met de database 'bag', schema 'test', connId=5
-DEBUG: database commit ok connId=5
-INFO: SQL van file = /Users/just/project/nlextract/git.py3/bag/db/script/geocode/geocode-tabellen.sql uitvoeren...
-DEBUG: verbonden met de database 'bag', schema 'test', connId=5
-DEBUG: database commit ok connId=5
-DEBUG: database connectie 5 gesloten
-INFO: SQL uitgevoerd OK
-DEBUG: verbonden met de database 'bag', schema 'test', connId=5
-DEBUG: database commit ok connId=5
-INFO: End 2020-08-12 15:19:49
-DEBUG: Configuratiebestand is /Users/just/project/nlextract/git.py3/bag/extract.conf
-INFO: Start 2020-08-12 15:19:49
-DEBUG: verbonden met de database 'bag', schema 'test', connId=5
-DEBUG: database commit ok connId=5
-INFO: SQL van file = /Users/just/project/nlextract/git.py3/bag/db/script/geocode/geocode-functies.sql uitvoeren...
-DEBUG: verbonden met de database 'bag', schema 'test', connId=5
-DEBUG: database commit ok connId=5
-DEBUG: database connectie 5 gesloten
-INFO: SQL uitgevoerd OK
-DEBUG: verbonden met de database 'bag', schema 'test', connId=5
-DEBUG: database commit ok connId=5
-INFO: End 2020-08-12 15:19:49
-DEBUG: Configuratiebestand is /Users/just/project/nlextract/git.py3/bag/extract.conf
-INFO: Start 2020-08-12 15:19:50
-DEBUG: verbonden met de database 'bag', schema 'test', connId=5
-DEBUG: database commit ok connId=5
-INFO: SQL van file = /Users/just/project/nlextract/git.py3/bag/test/geocode/geocode-functies-test.sql uitvoeren...
-DEBUG: verbonden met de database 'bag', schema 'test', connId=5
-DEBUG: database commit ok connId=5
-DEBUG: database connectie 5 gesloten
-INFO: SQL uitgevoerd OK
-DEBUG: verbonden met de database 'bag', schema 'test', connId=5
-DEBUG: database commit ok connId=5
-INFO: End 2020-08-12 15:19:50

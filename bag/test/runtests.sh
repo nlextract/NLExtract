@@ -59,6 +59,6 @@ $BAG_EXTRACT -v -q $DB_DIR/script/adres-tabel-full.sql
 ./bag-dump.sh
 
 # Geocode tabellen  en functies
-$BAG_EXTRACT -v -q $DB_DIR/script/geocode/geocode-tabellen.sql
-$BAG_EXTRACT -v -q $DB_DIR/script/geocode/geocode-functies.sql
-$BAG_EXTRACT -v -q $TEST_DIR/geocode/geocode-functies-test.sql
+# $BAG_EXTRACT -v -q $DB_DIR/script/geocode/geocode-tabellen.sql
+# $BAG_EXTRACT -v -q $DB_DIR/script/geocode/geocode-functies.sql
+# $BAG_EXTRACT -v -q $TEST_DIR/geocode/geocode-functies-test.sql

@@ -1,7 +1,7 @@
 # NLExtract - Pakt Basisregistraties Uit
 
-Zie ook veel meer op onze website http://nlextract.nl
-Documentatie vind je op: http://docs.nlextract.nl
+Zie ook veel meer op onze website https://nlextract.nl
+Documentatie vind je op: https://docs.nlextract.nl
 
 Hieronder wat algemene informatie.
 
