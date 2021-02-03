@@ -377,9 +377,4 @@ CREATE INDEX adres_full_idx ON adres_full USING gin (textsearchable_adres);
 -- Dummy voor PostGIS 2+
 SELECT public.probe_geometry_columns();
 
-DROP SEQUENCE IF EXISTS adres_full_gid_seq;
-CREATE SEQUENCE adres_full_gid_seq;
-ALTER TABLE adres_full ADD gid integer UNIQUE;
-ALTER TABLE adres_full ALTER COLUMN gid SET DEFAULT NEXTVAL('adres_full_gid_seq');
-UPDATE adres_full SET gid = NEXTVAL('adres_full_gid_seq');
-ALTER TABLE adres_full ADD PRIMARY KEY (gid);
+ALTER TABLE adres_full ADD COLUMN gid SERIAL PRIMARY KEY;
