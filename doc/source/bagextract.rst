@@ -131,7 +131,7 @@ Instructies hieronder zijn voor Ubuntu 18.04. Bij andere distributies zal het en
 
    sudo apt-get install libxml2
    sudo apt-get install libxslt1.1
-   sudo apt-get python-lxml
+   sudo apt-get install python-lxml
 
 - GDAL (www.gdal.org) met Python bindings voor OGR geometrie-parsing en geometrie-validatie ::
  

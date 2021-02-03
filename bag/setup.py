@@ -73,8 +73,8 @@ else:
     with open('VERSION.txt', 'w') as f:
         f.write(VERSION)
 
-    # Get long description text from README.rst.
-    with open('README', 'r') as f:
+    # Get long description text from README.md.
+    with open('README.md', 'r') as f:
         readme = f.read()
 
     # with open('CREDITS.txt', 'r') as f:
