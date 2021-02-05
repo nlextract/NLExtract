@@ -1,4 +1,4 @@
-﻿--
+--
 -- Dit script is gemaakt door Peter van Wee (github: PeeWeeOSM)
 --
 -- Het resultaat van dit script zijn de volgende 3 tabellen/views
@@ -57,6 +57,9 @@
 -- Fouten in adres ontdubbel statements opgelost
 -- RANK functie vervangen door ROW_NUM
 --
+-- 20210205 Just van den Broecke
+-- File encoding van Windows naar UTF-8 en CRLF naar LF
+-- geopunt was Geometry, nu: cast(adres.geopunt AS geometry(PointZ, 28992)),
 
 
 
@@ -1390,7 +1393,7 @@ SELECT
   adres.opp_adresseerbaarobject_m2,
   ADR_NAD.aantal as aantal_NAD_per_Adresobject,
   adres.adresseerbaarobject_id,
-  adres.geopunt,
+  cast(adres.geopunt AS geometry(PointZ, 28992)),
   adres.x,
   adres.y,
   adres.lon,
