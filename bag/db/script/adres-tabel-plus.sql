@@ -57,6 +57,9 @@
 -- Fouten in adres ontdubbel statements opgelost
 -- RANK functie vervangen door ROW_NUM
 --
+-- 20210205 Just van den Broecke
+-- File encoding van Windows naar UTF-8 en CRLF naar LF
+-- geopunt was Geometry, nu: cast(adres.geopunt AS geometry(PointZ, 28992)),
 
 
 
