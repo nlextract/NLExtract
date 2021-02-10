@@ -4246,5 +4246,62 @@ LOG: 21-02-10 15:15:50 - Adressen maken OK, naar CSV
 COPY 464398
 LOG: 21-02-10 15:15:54 - Aantal regels in CSV:
   464399 /Users/just/project/nlextract/git.master/bag/test/../test/bagadresplus.csv
-LOG: 21-02-10 15:15:54 - Bewaar deel van CSV
+LOG: 21-02-10 15:54:27 - Adressen maken - adres-plus2adres-tabel.sql
+psql:/Users/just/project/nlextract/git.master/bag/test/../db/script/adres-plus2adres-tabel.sql:13: NOTICE:  table "adres" does not exist, skipping
+DROP TABLE
+SELECT 464398
+ALTER TABLE
+UPDATE 464398
+ALTER TABLE
+psql:/Users/just/project/nlextract/git.master/bag/test/../db/script/adres-plus2adres-tabel.sql:42: NOTICE:  index "adres_geom_idx" does not exist, skipping
+DROP INDEX
+psql:/Users/just/project/nlextract/git.master/bag/test/../db/script/adres-plus2adres-tabel.sql:43: NOTICE:  index "adres_adresseerbaarobject" does not exist, skipping
+DROP INDEX
+psql:/Users/just/project/nlextract/git.master/bag/test/../db/script/adres-plus2adres-tabel.sql:44: NOTICE:  index "adres_nummeraanduiding" does not exist, skipping
+DROP INDEX
+psql:/Users/just/project/nlextract/git.master/bag/test/../db/script/adres-plus2adres-tabel.sql:45: NOTICE:  index "adresvol_idx" does not exist, skipping
+DROP INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+LOG: 21-02-10 15:54:43 - Adressen maken - adres-plus2adres-full-tabel.sql
+psql:/Users/just/project/nlextract/git.master/bag/test/../db/script/adres-plus2adres-full-tabel.sql:34: NOTICE:  table "adres_full" does not exist, skipping
+DROP TABLE
+SELECT 464398
+ALTER TABLE
+UPDATE 464398
+ALTER TABLE
+psql:/Users/just/project/nlextract/git.master/bag/test/../db/script/adres-plus2adres-full-tabel.sql:106: NOTICE:  index "adres_full_geom_idx" does not exist, skipping
+DROP INDEX
+psql:/Users/just/project/nlextract/git.master/bag/test/../db/script/adres-plus2adres-full-tabel.sql:107: NOTICE:  index "adres_full_adresseerbaarobject" does not exist, skipping
+DROP INDEX
+psql:/Users/just/project/nlextract/git.master/bag/test/../db/script/adres-plus2adres-full-tabel.sql:108: NOTICE:  index "adres_full_nummeraanduiding" does not exist, skipping
+DROP INDEX
+psql:/Users/just/project/nlextract/git.master/bag/test/../db/script/adres-plus2adres-full-tabel.sql:109: NOTICE:  index "adres_full_pandid" does not exist, skipping
+DROP INDEX
+psql:/Users/just/project/nlextract/git.master/bag/test/../db/script/adres-plus2adres-full-tabel.sql:110: NOTICE:  index "adres_full_idx" does not exist, skipping
+DROP INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+LOG: 21-02-10 15:55:02 - Adressen maken OK, naar CSV
+LOG: 21-02-10 15:55:02 - CSV maken - adres2csv.sql
+COPY 464398
+LOG: 21-02-10 15:55:04 - CSV maken - adres-full2csv.sql
+COPY 464398
+LOG: 21-02-10 15:55:07 - CSV maken - adres-plus2csv.sql
+COPY 464398
+LOG: 21-02-10 15:55:10 - CSV maken OK, test en bewaar
+LOG: 21-02-10 15:55:10 - Aantal regels in bagadres.csv:
+  464399 /tmp/bagadres.csv
+LOG: 21-02-10 15:55:10 - Bewaar deel van CSV
+LOG: 21-02-10 15:55:10 - Aantal regels in bagadres-full.csv:
+  464399 /tmp/bagadres-full.csv
+LOG: 21-02-10 15:55:10 - Bewaar deel van CSV
+LOG: 21-02-10 15:55:10 - Aantal regels in bagadresplus.csv:
+  464399 /tmp/bagadresplus.csv
+LOG: 21-02-10 15:55:11 - Bewaar deel van CSV
 LOG: 21-02-10 15:15:54 - KLAAR - VERWIJDER BESTANDEN

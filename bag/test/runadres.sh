@@ -8,6 +8,9 @@
 # worden aangemaakt. Vandaar BAG voor Amsterdam als test bestand.
 # PostGIS moet wel CREATE EXTENSION TABLEFUNC; hebben.
 #
+# Eerst wordt tabel adres_plus gemaakt, de tabellen adres en adres_full
+# worden daarvan afgeleid.
+#
 # Uitvoeren: ./runadres.sh > runadres.log 2>&1
 #
 BE_HOME_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )/.."
@@ -39,20 +42,37 @@ ${BAG_EXTRACT} --dbinit -j -v
 log "Inlezen ${BAG_ZIP}, kan even duren..."
 ${BAG_EXTRACT} -v -e ${TEST_DIR}/${BAG_ZIP}
 
+# Alle adres tabellen aanmaken
 log "Inlezen ${BAG_ZIP} OK, Adressen maken"
-SQL=${DB_DIR}/script/adres-tabel-plus.sql
-psql -U postgres -d bag -f ${SQL}
+SQLS="adres-tabel-plus.sql adres-plus2adres-tabel.sql adres-plus2adres-full-tabel.sql"
+for SQL in ${SQLS}
+do
+  log "Adressen maken - ${SQL}"
+  psql -U postgres -d bag -f ${DB_DIR}/script/${SQL}
+done
 
+# Dump alle adres tabellen als CSV
 log "Adressen maken OK, naar CSV"
-SQL=${DB_DIR}/script/adres-plus2csv.sql
-psql -U postgres -d bag -f ${SQL}
-mv /tmp/bagadresplus.csv ${TEST_DIR}/
+SQLS="adres2csv.sql adres-full2csv.sql adres-plus2csv.sql"
+for SQL in ${SQLS}
+do
+  log "CSV maken - ${SQL}"
+  psql -U postgres -d bag -f ${DB_DIR}/script/${SQL}
+done
 
-log "Aantal regels in CSV:"
-wc -l ${TEST_DIR}/bagadresplus.csv
+# test CSV resultaten
+log "CSV maken OK, test en bewaar"
+CSVS="bagadres.csv bagadres-full.csv bagadresplus.csv "
+for CSV in ${CSVS}
+do
+  log "Aantal regels in ${CSV}:"
+  wc -l /tmp/${CSV}
 
-log "Bewaar deel van CSV"
-head -100 ${TEST_DIR}/bagadresplus.csv  > bagadres-plus.csv
+  log "Bewaar deel van CSV"
+  head -100 /tmp/${CSV}  > ${CSV}
+
+  /bin/rm /tmp/${CSV}
+done
 
 log "KLAAR - VERWIJDER BESTANDEN"
-rm ${TEST_DIR}/${BAG_ZIP} ${TEST_DIR}/bagadresplus.csv
+rm ${TEST_DIR}/${BAG_ZIP}

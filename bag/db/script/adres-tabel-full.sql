@@ -10,6 +10,7 @@
 -- Auteur: Just van den Broecke
 -- Aanvullingen: Michel de Groot
 --
+-- OBSOLETE: we gebruiken nu adres-plus2adres-tabel.sql
 
 -- Maak  een "echte" adressen tabel
 DROP TABLE IF EXISTS adres_full CASCADE;
