@@ -1,0 +1,4250 @@
+LOG: 21-02-10 14:54:06 - Download bag-amsterdam.zip...
+LOG: 21-02-10 14:54:13 - Download bag-amsterdam.zip OK
+LOG: 21-02-10 14:54:13 - Lege DB maken
+DEBUG: Configuratiebestand is /Users/just/project/nlextract/git.master/bag/test/../extract.conf
+INFO: Start 2021-02-10 14:54:13
+INFO: alle database tabellen weggooien en opnieuw aanmaken...
+INFO: Probeer te verbinden...
+DEBUG: database commit ok connId=5
+DEBUG: verbonden met de database 'bag', schema 'test', connId=5
+INFO: database script uitvoeren...
+DEBUG: database commit ok connId=5
+DEBUG: database connectie 5 gesloten
+INFO: script is uitgevoerd
+INFO: Initieele data (bijv. gemeenten/provincies) inlezen...
+running with lxml.etree
+INFO: process: verwerk /Users/just/project/nlextract/git.master/bag/db/data
+INFO: process_dir: verwerk /Users/just/project/nlextract/git.master/bag/db/data
+DEBUG: verbonden met de database 'bag', schema 'test', connId=5
+DEBUG: database commit ok connId=5
+INFO: Negeer bestand: /Users/just/project/nlextract/git.master/bag/db/data/README
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk gemeentelijke-indeling.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: Processed objectCount=785
+DEBUG: verbonden met de database 'bag', schema 'test', connId=6
+DEBUG: database commit ok connId=6
+INFO: Objects inserted=785 updated=0 unchanged=0
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: Negeer bestand: /Users/just/project/nlextract/git.master/bag/db/data/gemeentelijke-indeling.xsd
+INFO: Post processing en views aanmaken...
+INFO: SQL van file = /Users/just/project/nlextract/git.master/bag/db/script/bag-gemeentecode-postprocess.sql uitvoeren...
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: SQL uitgevoerd OK
+INFO: SQL van file = /Users/just/project/nlextract/git.master/bag/db/script/bag-view-actueel-bestaand.sql uitvoeren...
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: SQL uitgevoerd OK
+INFO: End 2021-02-10 14:54:14
+LOG: 21-02-10 14:54:14 - Inlezen bag-amsterdam.zip, kan even duren...
+DEBUG: Configuratiebestand is /Users/just/project/nlextract/git.master/bag/test/../extract.conf
+running with lxml.etree
+INFO: Start 2021-02-10 14:54:15
+DEBUG: verbonden met de database 'bag', schema 'test', connId=5
+DEBUG: database commit ok connId=5
+INFO: process: verwerk /Users/just/project/nlextract/git.master/bag/test/../test/bag-amsterdam.zip
+DEBUG: verbonden met de database 'bag', schema 'test', connId=5
+DEBUG: database commit ok connId=5
+INFO: process_zip: verwerk bag-amsterdam.zip 
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: Negeer bestand: bag-amsterdam/
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_zip: verwerk 1024XXX08032011-01022011.zip 
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_zip: verwerk 1024LIG08032011-01022011.zip 
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024LIG08032011-01022011.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=2715 tijd=1.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=2715 gewijzigd=0 rels=2715 tijd=0.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_zip: verwerk 1024NUM08032011-01022011.zip 
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024NUM08032011-01022011-0001.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=1.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=19566 tijd=5.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=19566 gewijzigd=0 rels=0 tijd=1.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024NUM08032011-01022011-0002.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=19785 tijd=5.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=19785 gewijzigd=0 rels=0 tijd=1.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024NUM08032011-01022011-0003.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=19769 tijd=5.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=19769 gewijzigd=0 rels=0 tijd=1.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024NUM08032011-01022011-0004.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=19778 tijd=5.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=19778 gewijzigd=0 rels=0 tijd=1.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024NUM08032011-01022011-0005.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=19782 tijd=4.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=19782 gewijzigd=0 rels=0 tijd=1.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024NUM08032011-01022011-0006.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=19659 tijd=5.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=19659 gewijzigd=0 rels=0 tijd=1.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024NUM08032011-01022011-0007.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=19756 tijd=5.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=19756 gewijzigd=0 rels=0 tijd=1.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024NUM08032011-01022011-0008.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=19746 tijd=4.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=19746 gewijzigd=0 rels=0 tijd=1.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024NUM08032011-01022011-0009.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=19819 tijd=4.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=19819 gewijzigd=0 rels=0 tijd=1.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024NUM08032011-01022011-0010.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=19774 tijd=5.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=19774 gewijzigd=0 rels=0 tijd=1.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024NUM08032011-01022011-0011.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=19816 tijd=5.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=19816 gewijzigd=0 rels=0 tijd=1.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024NUM08032011-01022011-0012.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=19708 tijd=6.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=19708 gewijzigd=0 rels=0 tijd=1.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024NUM08032011-01022011-0013.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=19786 tijd=5.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=19786 gewijzigd=0 rels=0 tijd=1.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024NUM08032011-01022011-0014.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=20267 tijd=5.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=20267 gewijzigd=0 rels=0 tijd=1.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024NUM08032011-01022011-0015.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=20190 tijd=5.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=20190 gewijzigd=0 rels=0 tijd=1.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024NUM08032011-01022011-0016.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=20206 tijd=6.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=20206 gewijzigd=0 rels=0 tijd=1.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024NUM08032011-01022011-0017.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=1.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=20069 tijd=6.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=20069 gewijzigd=0 rels=0 tijd=1.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024NUM08032011-01022011-0018.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=20193 tijd=5.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=20193 gewijzigd=0 rels=0 tijd=1.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024NUM08032011-01022011-0019.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=20155 tijd=5.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=20155 gewijzigd=0 rels=0 tijd=1.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024NUM08032011-01022011-0020.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=20229 tijd=5.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=20229 gewijzigd=0 rels=0 tijd=1.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024NUM08032011-01022011-0021.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=20070 tijd=5.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=20070 gewijzigd=0 rels=0 tijd=1.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024NUM08032011-01022011-0022.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=6392 tijd=2.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=6392 gewijzigd=0 rels=0 tijd=0.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_zip: verwerk 1024OPR08032011-01022011.zip 
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024OPR08032011-01022011.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=5186 tijd=1.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=5186 gewijzigd=0 rels=0 tijd=0.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_zip: verwerk 1024PND08032011-01022011.zip 
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024PND08032011-01022011-0001.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=17550 tijd=4.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=17550 gewijzigd=0 rels=0 tijd=2.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024PND08032011-01022011-0002.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=17597 tijd=5.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=17597 gewijzigd=0 rels=0 tijd=2.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024PND08032011-01022011-0003.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=17569 tijd=4.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=17569 gewijzigd=0 rels=0 tijd=2.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024PND08032011-01022011-0004.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=17639 tijd=5.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=17639 gewijzigd=0 rels=0 tijd=2.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024PND08032011-01022011-0005.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=17926 tijd=5.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=17926 gewijzigd=0 rels=0 tijd=2.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024PND08032011-01022011-0006.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=17171 tijd=4.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=17171 gewijzigd=0 rels=0 tijd=2.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024PND08032011-01022011-0007.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=17691 tijd=4.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=17691 gewijzigd=0 rels=0 tijd=2.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024PND08032011-01022011-0008.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=17995 tijd=4.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=17995 gewijzigd=0 rels=0 tijd=2.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024PND08032011-01022011-0009.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=16674 tijd=4.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=16674 gewijzigd=0 rels=0 tijd=2.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_zip: verwerk 1024STA08032011-01022011.zip 
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024STA08032011-01022011.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=288 tijd=0.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=288 gewijzigd=0 rels=288 tijd=0.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_zip: verwerk 1024VBO08032011-01022011.zip 
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024VBO08032011-01022011-0001.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=15775 tijd=6.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=15775 gewijzigd=0 rels=47325 tijd=1.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024VBO08032011-01022011-0002.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=15771 tijd=6.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=15771 gewijzigd=0 rels=47313 tijd=1.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024VBO08032011-01022011-0003.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=15764 tijd=5.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=15764 gewijzigd=0 rels=47292 tijd=1.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024VBO08032011-01022011-0004.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=15769 tijd=5.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=15769 gewijzigd=0 rels=47307 tijd=1.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024VBO08032011-01022011-0005.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=15770 tijd=5.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=15770 gewijzigd=0 rels=47310 tijd=1.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024VBO08032011-01022011-0006.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=15768 tijd=5.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=15768 gewijzigd=0 rels=47304 tijd=1.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024VBO08032011-01022011-0007.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=15768 tijd=5.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=15768 gewijzigd=0 rels=47304 tijd=1.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024VBO08032011-01022011-0008.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=15771 tijd=5.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=15771 gewijzigd=0 rels=47313 tijd=1.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024VBO08032011-01022011-0009.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=15763 tijd=5.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=15763 gewijzigd=0 rels=47289 tijd=1.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024VBO08032011-01022011-0010.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=15770 tijd=5.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=15770 gewijzigd=0 rels=47310 tijd=1.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024VBO08032011-01022011-0011.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=15769 tijd=5.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=15769 gewijzigd=0 rels=47307 tijd=1.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024VBO08032011-01022011-0012.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=15763 tijd=6.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=15763 gewijzigd=0 rels=47289 tijd=2.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024VBO08032011-01022011-0013.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=15771 tijd=5.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=15771 gewijzigd=0 rels=47313 tijd=2.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024VBO08032011-01022011-0014.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=15772 tijd=6.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=15772 gewijzigd=0 rels=47316 tijd=1.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024VBO08032011-01022011-0015.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=15750 tijd=5.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=15750 gewijzigd=0 rels=47250 tijd=1.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024VBO08032011-01022011-0016.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=15775 tijd=5.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=15775 gewijzigd=0 rels=47325 tijd=1.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024VBO08032011-01022011-0017.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=15772 tijd=5.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=15772 gewijzigd=0 rels=47316 tijd=1.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024VBO08032011-01022011-0018.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=15770 tijd=6.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=15770 gewijzigd=0 rels=47310 tijd=1.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024VBO08032011-01022011-0019.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=15767 tijd=5.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=15767 gewijzigd=0 rels=47301 tijd=1.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024VBO08032011-01022011-0020.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=15778 tijd=5.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=15778 gewijzigd=0 rels=47334 tijd=1.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024VBO08032011-01022011-0021.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=15773 tijd=6.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=15773 gewijzigd=0 rels=47319 tijd=1.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024VBO08032011-01022011-0022.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=15777 tijd=5.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=15777 gewijzigd=0 rels=47331 tijd=1.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024VBO08032011-01022011-0023.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=15758 tijd=5.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=15758 gewijzigd=0 rels=47274 tijd=1.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024VBO08032011-01022011-0024.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=15771 tijd=5.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=15771 gewijzigd=0 rels=47313 tijd=1.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024VBO08032011-01022011-0025.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=15766 tijd=5.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=15766 gewijzigd=0 rels=47298 tijd=1.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024VBO08032011-01022011-0026.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=15741 tijd=5.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=15741 gewijzigd=0 rels=47223 tijd=1.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024VBO08032011-01022011-0027.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=8688 tijd=3.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=8688 gewijzigd=0 rels=26064 tijd=1.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_zip: verwerk 1024WPL08032011-01022011.zip 
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024WPL08032011-01022011.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=2 tijd=0.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=2 gewijzigd=0 rels=0 tijd=0.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_zip: verwerk 1025XXX08032011-01022011.zip 
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_zip: verwerk 1025LIG08032011-01022011.zip 
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1025LIG08032011-01022011.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=12 tijd=0.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=12 gewijzigd=0 rels=12 tijd=0.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_zip: verwerk 1025NUM08032011-01022011.zip 
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1025NUM08032011-01022011-0001.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=20513 tijd=5.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=20513 gewijzigd=0 rels=0 tijd=1.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1025NUM08032011-01022011-0002.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=20484 tijd=5.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=20484 gewijzigd=0 rels=0 tijd=1.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1025NUM08032011-01022011-0003.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=179 tijd=0.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=179 gewijzigd=0 rels=0 tijd=0.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_zip: verwerk 1025OPR08032011-01022011.zip 
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1025OPR08032011-01022011.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=493 tijd=0.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=493 gewijzigd=0 rels=0 tijd=0.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_zip: verwerk 1025PND08032011-01022011.zip 
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1025PND08032011-01022011-0001.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=17875 tijd=5.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=17875 gewijzigd=0 rels=0 tijd=2.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1025PND08032011-01022011-0002.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=1872 tijd=1.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=1872 gewijzigd=0 rels=0 tijd=0.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_zip: verwerk 1025STA08032011-01022011.zip 
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1025STA08032011-01022011.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=20 tijd=0.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=20 gewijzigd=0 rels=20 tijd=0.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_zip: verwerk 1025VBO08032011-01022011.zip 
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1025VBO08032011-01022011-0001.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=15782 tijd=5.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=15782 gewijzigd=0 rels=47346 tijd=2.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1025VBO08032011-01022011-0002.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=15788 tijd=7.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=15788 gewijzigd=0 rels=47364 tijd=3.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1025VBO08032011-01022011-0003.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=9583 tijd=6.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=9583 gewijzigd=0 rels=28749 tijd=2.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_zip: verwerk 1025WPL08032011-01022011.zip 
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1025WPL08032011-01022011.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=2 tijd=0.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=2 gewijzigd=0 rels=0 tijd=0.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_zip: verwerk GEM-WPL-RELATIE-08052020.zip 
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk GEM-WPL-RELATIE-08052020-000001.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+INFO: START: objCreate
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+INFO: END: objCreate - objs=8172 tijd=1.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=8172 gewijzigd=0 rels=0 tijd=0.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk Leveringsdocument-BAG-Extract.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: verbonden met de database 'bag', schema 'test', connId=8
+DEBUG: database commit ok connId=8
+INFO: START: dbStart mode = Onbekend
+INFO: START: dbStart mode = Onbekend
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=0 gewijzigd=0 rels=0 tijd=0.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: verbonden met de database 'bag', schema 'test', connId=6
+DEBUG: database commit ok connId=6
+INFO: End 2021-02-10 15:01:36
+./runadres.sh: line 36: Lege DB maken: command not found
+DEBUG: Configuratiebestand is /Users/just/project/nlextract/git.master/bag/test/../extract.conf
+INFO: Start 2021-02-10 15:01:37
+INFO: alle database tabellen weggooien en opnieuw aanmaken...
+INFO: Probeer te verbinden...
+DEBUG: database commit ok connId=5
+DEBUG: verbonden met de database 'bag', schema 'test', connId=5
+INFO: database script uitvoeren...
+DEBUG: database commit ok connId=5
+DEBUG: database connectie 5 gesloten
+INFO: script is uitgevoerd
+INFO: Initieele data (bijv. gemeenten/provincies) inlezen...
+running with lxml.etree
+INFO: process: verwerk /Users/just/project/nlextract/git.master/bag/db/data
+INFO: process_dir: verwerk /Users/just/project/nlextract/git.master/bag/db/data
+DEBUG: verbonden met de database 'bag', schema 'test', connId=5
+DEBUG: database commit ok connId=5
+INFO: Negeer bestand: /Users/just/project/nlextract/git.master/bag/db/data/README
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk gemeentelijke-indeling.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: Processed objectCount=785
+DEBUG: verbonden met de database 'bag', schema 'test', connId=6
+DEBUG: database commit ok connId=6
+INFO: Objects inserted=785 updated=0 unchanged=0
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: Negeer bestand: /Users/just/project/nlextract/git.master/bag/db/data/gemeentelijke-indeling.xsd
+INFO: Post processing en views aanmaken...
+INFO: SQL van file = /Users/just/project/nlextract/git.master/bag/db/script/bag-gemeentecode-postprocess.sql uitvoeren...
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: SQL uitgevoerd OK
+INFO: SQL van file = /Users/just/project/nlextract/git.master/bag/db/script/bag-view-actueel-bestaand.sql uitvoeren...
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: SQL uitgevoerd OK
+INFO: End 2021-02-10 15:01:41
+LOG: 21-02-10 15:01:41 - Inlezen bag-amsterdam.zip, kan even duren...
+DEBUG: Configuratiebestand is /Users/just/project/nlextract/git.master/bag/test/../extract.conf
+running with lxml.etree
+INFO: Start 2021-02-10 15:01:41
+DEBUG: verbonden met de database 'bag', schema 'test', connId=5
+DEBUG: database commit ok connId=5
+INFO: process: verwerk /Users/just/project/nlextract/git.master/bag/test/../test/bag-amsterdam.zip
+DEBUG: verbonden met de database 'bag', schema 'test', connId=5
+DEBUG: database commit ok connId=5
+INFO: process_zip: verwerk bag-amsterdam.zip 
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: Negeer bestand: bag-amsterdam/
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_zip: verwerk 1024XXX08032011-01022011.zip 
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_zip: verwerk 1024LIG08032011-01022011.zip 
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024LIG08032011-01022011.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=2715 tijd=1.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=2715 gewijzigd=0 rels=2715 tijd=0.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_zip: verwerk 1024NUM08032011-01022011.zip 
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024NUM08032011-01022011-0001.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=19566 tijd=6.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=19566 gewijzigd=0 rels=0 tijd=1.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024NUM08032011-01022011-0002.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=19785 tijd=6.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=19785 gewijzigd=0 rels=0 tijd=1.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024NUM08032011-01022011-0003.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=19769 tijd=5.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=19769 gewijzigd=0 rels=0 tijd=1.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024NUM08032011-01022011-0004.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=19778 tijd=6.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=19778 gewijzigd=0 rels=0 tijd=1.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024NUM08032011-01022011-0005.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=19782 tijd=5.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=19782 gewijzigd=0 rels=0 tijd=1.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024NUM08032011-01022011-0006.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=19659 tijd=5.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=19659 gewijzigd=0 rels=0 tijd=1.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024NUM08032011-01022011-0007.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=19756 tijd=5.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=19756 gewijzigd=0 rels=0 tijd=1.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024NUM08032011-01022011-0008.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=19746 tijd=5.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=19746 gewijzigd=0 rels=0 tijd=1.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024NUM08032011-01022011-0009.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=19819 tijd=5.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=19819 gewijzigd=0 rels=0 tijd=1.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024NUM08032011-01022011-0010.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=19774 tijd=5.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=19774 gewijzigd=0 rels=0 tijd=1.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024NUM08032011-01022011-0011.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=19816 tijd=5.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=19816 gewijzigd=0 rels=0 tijd=1.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024NUM08032011-01022011-0012.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=19708 tijd=5.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=19708 gewijzigd=0 rels=0 tijd=1.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024NUM08032011-01022011-0013.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=19786 tijd=5.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=19786 gewijzigd=0 rels=0 tijd=1.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024NUM08032011-01022011-0014.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=20267 tijd=6.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=20267 gewijzigd=0 rels=0 tijd=1.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024NUM08032011-01022011-0015.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=1.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=20190 tijd=6.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=20190 gewijzigd=0 rels=0 tijd=1.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024NUM08032011-01022011-0016.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=20206 tijd=5.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=20206 gewijzigd=0 rels=0 tijd=1.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024NUM08032011-01022011-0017.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=20069 tijd=5.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=20069 gewijzigd=0 rels=0 tijd=1.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024NUM08032011-01022011-0018.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=20193 tijd=5.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=20193 gewijzigd=0 rels=0 tijd=1.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024NUM08032011-01022011-0019.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=20155 tijd=7.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=20155 gewijzigd=0 rels=0 tijd=1.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024NUM08032011-01022011-0020.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=1.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=20229 tijd=9.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=20229 gewijzigd=0 rels=0 tijd=1.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024NUM08032011-01022011-0021.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=20070 tijd=5.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=20070 gewijzigd=0 rels=0 tijd=1.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024NUM08032011-01022011-0022.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=6392 tijd=2.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=6392 gewijzigd=0 rels=0 tijd=0.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_zip: verwerk 1024OPR08032011-01022011.zip 
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024OPR08032011-01022011.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=5186 tijd=1.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=5186 gewijzigd=0 rels=0 tijd=0.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_zip: verwerk 1024PND08032011-01022011.zip 
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024PND08032011-01022011-0001.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=17550 tijd=4.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=17550 gewijzigd=0 rels=0 tijd=2.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024PND08032011-01022011-0002.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=17597 tijd=6.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=17597 gewijzigd=0 rels=0 tijd=2.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024PND08032011-01022011-0003.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=17569 tijd=4.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=17569 gewijzigd=0 rels=0 tijd=2.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024PND08032011-01022011-0004.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=17639 tijd=4.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=17639 gewijzigd=0 rels=0 tijd=2.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024PND08032011-01022011-0005.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=17926 tijd=4.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=17926 gewijzigd=0 rels=0 tijd=2.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024PND08032011-01022011-0006.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=17171 tijd=4.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=17171 gewijzigd=0 rels=0 tijd=2.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024PND08032011-01022011-0007.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=17691 tijd=5.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=17691 gewijzigd=0 rels=0 tijd=2.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024PND08032011-01022011-0008.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=17995 tijd=5.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=17995 gewijzigd=0 rels=0 tijd=2.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024PND08032011-01022011-0009.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=16674 tijd=5.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=16674 gewijzigd=0 rels=0 tijd=2.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_zip: verwerk 1024STA08032011-01022011.zip 
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024STA08032011-01022011.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=288 tijd=0.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=288 gewijzigd=0 rels=288 tijd=0.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_zip: verwerk 1024VBO08032011-01022011.zip 
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024VBO08032011-01022011-0001.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=15775 tijd=5.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=15775 gewijzigd=0 rels=47325 tijd=1.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024VBO08032011-01022011-0002.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=15771 tijd=7.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=15771 gewijzigd=0 rels=47313 tijd=1.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024VBO08032011-01022011-0003.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=15764 tijd=6.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=15764 gewijzigd=0 rels=47292 tijd=1.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024VBO08032011-01022011-0004.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=15769 tijd=5.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=15769 gewijzigd=0 rels=47307 tijd=2.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024VBO08032011-01022011-0005.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=15770 tijd=5.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=15770 gewijzigd=0 rels=47310 tijd=1.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024VBO08032011-01022011-0006.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=15768 tijd=6.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=15768 gewijzigd=0 rels=47304 tijd=2.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024VBO08032011-01022011-0007.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=15768 tijd=6.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=15768 gewijzigd=0 rels=47304 tijd=1.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024VBO08032011-01022011-0008.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=15771 tijd=7.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=15771 gewijzigd=0 rels=47313 tijd=2.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024VBO08032011-01022011-0009.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=15763 tijd=6.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=15763 gewijzigd=0 rels=47289 tijd=2.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024VBO08032011-01022011-0010.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=1.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=15770 tijd=5.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=15770 gewijzigd=0 rels=47310 tijd=1.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024VBO08032011-01022011-0011.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=15769 tijd=5.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=15769 gewijzigd=0 rels=47307 tijd=1.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024VBO08032011-01022011-0012.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=15763 tijd=5.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=15763 gewijzigd=0 rels=47289 tijd=1.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024VBO08032011-01022011-0013.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=15771 tijd=5.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=15771 gewijzigd=0 rels=47313 tijd=1.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024VBO08032011-01022011-0014.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=15772 tijd=5.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=15772 gewijzigd=0 rels=47316 tijd=1.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024VBO08032011-01022011-0015.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=1.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=15750 tijd=6.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=15750 gewijzigd=0 rels=47250 tijd=1.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024VBO08032011-01022011-0016.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=15775 tijd=7.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=15775 gewijzigd=0 rels=47325 tijd=1.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024VBO08032011-01022011-0017.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=15772 tijd=6.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=15772 gewijzigd=0 rels=47316 tijd=2.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024VBO08032011-01022011-0018.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=15770 tijd=6.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=15770 gewijzigd=0 rels=47310 tijd=1.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024VBO08032011-01022011-0019.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=15767 tijd=6.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=15767 gewijzigd=0 rels=47301 tijd=3.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024VBO08032011-01022011-0020.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=1.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=15778 tijd=8.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=15778 gewijzigd=0 rels=47334 tijd=2.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024VBO08032011-01022011-0021.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=15773 tijd=7.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=15773 gewijzigd=0 rels=47319 tijd=2.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024VBO08032011-01022011-0022.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=1.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=15777 tijd=7.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=15777 gewijzigd=0 rels=47331 tijd=2.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024VBO08032011-01022011-0023.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=15758 tijd=6.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=15758 gewijzigd=0 rels=47274 tijd=2.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024VBO08032011-01022011-0024.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=15771 tijd=6.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=15771 gewijzigd=0 rels=47313 tijd=2.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024VBO08032011-01022011-0025.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=15766 tijd=5.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=15766 gewijzigd=0 rels=47298 tijd=3.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024VBO08032011-01022011-0026.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=15741 tijd=5.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=15741 gewijzigd=0 rels=47223 tijd=2.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024VBO08032011-01022011-0027.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=8688 tijd=3.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=8688 gewijzigd=0 rels=26064 tijd=1.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_zip: verwerk 1024WPL08032011-01022011.zip 
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1024WPL08032011-01022011.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=2 tijd=0.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=2 gewijzigd=0 rels=0 tijd=0.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_zip: verwerk 1025XXX08032011-01022011.zip 
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_zip: verwerk 1025LIG08032011-01022011.zip 
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1025LIG08032011-01022011.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=12 tijd=0.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=12 gewijzigd=0 rels=12 tijd=0.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_zip: verwerk 1025NUM08032011-01022011.zip 
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1025NUM08032011-01022011-0001.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=20513 tijd=5.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=20513 gewijzigd=0 rels=0 tijd=1.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1025NUM08032011-01022011-0002.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=20484 tijd=5.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=20484 gewijzigd=0 rels=0 tijd=1.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1025NUM08032011-01022011-0003.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=179 tijd=0.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=179 gewijzigd=0 rels=0 tijd=0.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_zip: verwerk 1025OPR08032011-01022011.zip 
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1025OPR08032011-01022011.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=493 tijd=0.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=493 gewijzigd=0 rels=0 tijd=0.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_zip: verwerk 1025PND08032011-01022011.zip 
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1025PND08032011-01022011-0001.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=17875 tijd=5.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=17875 gewijzigd=0 rels=0 tijd=2.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1025PND08032011-01022011-0002.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=1872 tijd=1.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=1872 gewijzigd=0 rels=0 tijd=0.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_zip: verwerk 1025STA08032011-01022011.zip 
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1025STA08032011-01022011.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=20 tijd=0.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=20 gewijzigd=0 rels=20 tijd=0.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_zip: verwerk 1025VBO08032011-01022011.zip 
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1025VBO08032011-01022011-0001.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=15782 tijd=5.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=15782 gewijzigd=0 rels=47346 tijd=2.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1025VBO08032011-01022011-0002.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=15788 tijd=6.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=15788 gewijzigd=0 rels=47364 tijd=2.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1025VBO08032011-01022011-0003.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=9583 tijd=4.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=9583 gewijzigd=0 rels=28749 tijd=1.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_zip: verwerk 1025WPL08032011-01022011.zip 
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk 1025WPL08032011-01022011.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: START: objCreate
+INFO: END: objCreate - objs=2 tijd=0.0 sec
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=2 gewijzigd=0 rels=0 tijd=0.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_zip: verwerk GEM-WPL-RELATIE-08052020.zip 
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk GEM-WPL-RELATIE-08052020-000001.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+INFO: START: objCreate
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+INFO: END: objCreate - objs=8172 tijd=1.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+INFO: START: dbStart mode = Nieuw
+INFO: START: dbStart mode = Nieuw
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=8172 gewijzigd=0 rels=0 tijd=0.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+INFO: process_xml: verwerk Leveringsdocument-BAG-Extract.xml 
+INFO: START: parseXML
+INFO: END: parseXML tijd=0.0 sec
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: verbonden met de database 'bag', schema 'test', connId=8
+DEBUG: database commit ok connId=8
+INFO: START: dbStart mode = Onbekend
+INFO: START: dbStart mode = Onbekend
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=7
+DEBUG: database connectie 7 gesloten
+INFO: END: dbEnd - nieuw=0 gewijzigd=0 rels=0 tijd=0.0 sec
+INFO: ------
+DEBUG: verbonden met de database 'bag', schema 'test', connId=7
+DEBUG: database commit ok connId=7
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: reusing db connection
+DEBUG: database commit ok connId=5
+DEBUG: verbonden met de database 'bag', schema 'test', connId=6
+DEBUG: database commit ok connId=6
+INFO: End 2021-02-10 15:09:29
+LOG: 21-02-10 15:09:29 - Inlezen bag-amsterdam.zip OK, Adressen maken
+SET
+CREATE FUNCTION
+BEGIN
+psql:/Users/just/project/nlextract/git.master/bag/test/../db/script/adres-tabel-plus.sql:87: NOTICE:  start: 1 nummeraanduidingactueelbestaand_compleet: 15:09:29.709521+01
+ print_notice 
+--------------
+             
+(1 row)
+
+psql:/Users/just/project/nlextract/git.master/bag/test/../db/script/adres-tabel-plus.sql:89: NOTICE:  view "nummeraanduidingactueelbestaand_compleet" does not exist, skipping
+DROP VIEW
+CREATE VIEW
+COMMIT
+BEGIN
+psql:/Users/just/project/nlextract/git.master/bag/test/../db/script/adres-tabel-plus.sql:130: NOTICE:  start: 2 provincie_gemeenteactueel: 15:09:29.728343+01
+ print_notice 
+--------------
+             
+(1 row)
+
+psql:/Users/just/project/nlextract/git.master/bag/test/../db/script/adres-tabel-plus.sql:131: NOTICE:  view "provincie_gemeenteactueel" does not exist, skipping
+DROP VIEW
+CREATE VIEW
+psql:/Users/just/project/nlextract/git.master/bag/test/../db/script/adres-tabel-plus.sql:145: NOTICE:  start: 3 BAG_WPL_ACTBEST_gegevens: 15:09:29.728343+01
+ print_notice 
+--------------
+             
+(1 row)
+
+psql:/Users/just/project/nlextract/git.master/bag/test/../db/script/adres-tabel-plus.sql:146: NOTICE:  table "bag_wpl_actbest_gegevens" does not exist, skipping
+DROP TABLE
+SELECT 2
+COMMIT
+BEGIN
+psql:/Users/just/project/nlextract/git.master/bag/test/../db/script/adres-tabel-plus.sql:174: NOTICE:  start: 4 Adresselectie: 15:13:05.091139+01
+ print_notice 
+--------------
+             
+(1 row)
+
+psql:/Users/just/project/nlextract/git.master/bag/test/../db/script/adres-tabel-plus.sql:175: NOTICE:  table "adresselectie" does not exist, skipping
+DROP TABLE
+SELECT 464532
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+COMMIT
+psql:/Users/just/project/nlextract/git.master/bag/test/../db/script/adres-tabel-plus.sql:312: NOTICE:  start: 4b Delete_dubbele nummeraanduidingen1 15:13:36.28011+01
+ print_notice 
+--------------
+             
+(1 row)
+
+DELETE 0
+BEGIN
+psql:/Users/just/project/nlextract/git.master/bag/test/../db/script/adres-tabel-plus.sql:327: NOTICE:  start: 5 adres_dubbel: 15:13:37.617575+01
+ print_notice 
+--------------
+             
+(1 row)
+
+psql:/Users/just/project/nlextract/git.master/bag/test/../db/script/adres-tabel-plus.sql:328: NOTICE:  table "adres_dubbel" does not exist, skipping
+DROP TABLE
+SELECT 268
+COMMIT
+BEGIN
+DELETE 0
+COMMIT
+BEGIN
+psql:/Users/just/project/nlextract/git.master/bag/test/../db/script/adres-tabel-plus.sql:359: NOTICE:  start: 6 adres_pand1: 15:13:38.555589+01
+ print_notice 
+--------------
+             
+(1 row)
+
+psql:/Users/just/project/nlextract/git.master/bag/test/../db/script/adres-tabel-plus.sql:360: NOTICE:  table "adres_pand1" does not exist, skipping
+DROP TABLE
+SELECT 268
+COMMIT
+BEGIN
+psql:/Users/just/project/nlextract/git.master/bag/test/../db/script/adres-tabel-plus.sql:383: NOTICE:  start: 7 adres_pand2: 15:13:38.681622+01
+ print_notice 
+--------------
+             
+(1 row)
+
+psql:/Users/just/project/nlextract/git.master/bag/test/../db/script/adres-tabel-plus.sql:384: NOTICE:  table "adres_pand2" does not exist, skipping
+DROP TABLE
+SELECT 268
+COMMIT
+BEGIN
+psql:/Users/just/project/nlextract/git.master/bag/test/../db/script/adres-tabel-plus.sql:393: NOTICE:  start: 8 adres_te_ontdubbelen: 15:13:38.686559+01
+ print_notice 
+--------------
+             
+(1 row)
+
+psql:/Users/just/project/nlextract/git.master/bag/test/../db/script/adres-tabel-plus.sql:394: NOTICE:  table "adres_te_ontdubbelen" does not exist, skipping
+DROP TABLE
+SELECT 268
+CREATE INDEX
+COMMIT
+BEGIN
+UPDATE 266
+COMMIT
+BEGIN
+psql:/Users/just/project/nlextract/git.master/bag/test/../db/script/adres-tabel-plus.sql:477: NOTICE:  start: 9 adres_vergelijk: 15:13:38.724287+01
+ print_notice 
+--------------
+             
+(1 row)
+
+CREATE VIEW
+COMMIT
+BEGIN
+CREATE VIEW
+COMMIT
+BEGIN
+psql:/Users/just/project/nlextract/git.master/bag/test/../db/script/adres-tabel-plus.sql:590: NOTICE:  start: 10 Update_1 15:13:38.73726+01
+ print_notice 
+--------------
+             
+(1 row)
+
+UPDATE 2
+COMMIT
+BEGIN
+psql:/Users/just/project/nlextract/git.master/bag/test/../db/script/adres-tabel-plus.sql:607: NOTICE:  start: 11 Update_2 15:13:38.739376+01
+ print_notice 
+--------------
+             
+(1 row)
+
+UPDATE 129
+COMMIT
+BEGIN
+psql:/Users/just/project/nlextract/git.master/bag/test/../db/script/adres-tabel-plus.sql:622: NOTICE:  start: 12 Update_3 15:13:38.783011+01
+ print_notice 
+--------------
+             
+(1 row)
+
+UPDATE 3
+COMMIT
+BEGIN
+psql:/Users/just/project/nlextract/git.master/bag/test/../db/script/adres-tabel-plus.sql:640: NOTICE:  start: 13 Update_4 15:13:38.785121+01
+ print_notice 
+--------------
+             
+(1 row)
+
+UPDATE 0
+COMMIT
+BEGIN
+psql:/Users/just/project/nlextract/git.master/bag/test/../db/script/adres-tabel-plus.sql:656: NOTICE:  start: 14 Update_5 15:13:38.786413+01
+ print_notice 
+--------------
+             
+(1 row)
+
+UPDATE 0
+COMMIT
+BEGIN
+psql:/Users/just/project/nlextract/git.master/bag/test/../db/script/adres-tabel-plus.sql:674: NOTICE:  start: 15 Update_6 15:13:38.78794+01
+ print_notice 
+--------------
+             
+(1 row)
+
+UPDATE 0
+COMMIT
+BEGIN
+psql:/Users/just/project/nlextract/git.master/bag/test/../db/script/adres-tabel-plus.sql:691: NOTICE:  start: 16 Update_7 15:13:38.789941+01
+ print_notice 
+--------------
+             
+(1 row)
+
+UPDATE 0
+COMMIT
+BEGIN
+psql:/Users/just/project/nlextract/git.master/bag/test/../db/script/adres-tabel-plus.sql:721: NOTICE:  start: 17 Delete_1 15:13:38.791734+01
+ print_notice 
+--------------
+             
+(1 row)
+
+DELETE 134
+COMMIT
+BEGIN
+psql:/Users/just/project/nlextract/git.master/bag/test/../db/script/adres-tabel-plus.sql:733: NOTICE:  start: 18 Update_8 15:13:38.795852+01
+ print_notice 
+--------------
+             
+(1 row)
+
+UPDATE 4
+COMMIT
+BEGIN
+psql:/Users/just/project/nlextract/git.master/bag/test/../db/script/adres-tabel-plus.sql:743: NOTICE:  start: 19 Update_9 15:13:39.999972+01
+ print_notice 
+--------------
+             
+(1 row)
+
+UPDATE 235480
+COMMIT
+BEGIN
+psql:/Users/just/project/nlextract/git.master/bag/test/../db/script/adres-tabel-plus.sql:752: NOTICE:  start: 20 ADRESSEERBAAROBJECT_aantal_NAD 15:13:51.78196+01
+ print_notice 
+--------------
+             
+(1 row)
+
+psql:/Users/just/project/nlextract/git.master/bag/test/../db/script/adres-tabel-plus.sql:753: NOTICE:  table "adresseerbaarobject_aantal_nad" does not exist, skipping
+DROP TABLE
+SELECT 461476
+COMMIT
+BEGIN
+CREATE INDEX
+COMMIT
+ALTER TABLE
+BEGIN
+psql:/Users/just/project/nlextract/git.master/bag/test/../db/script/adres-tabel-plus.sql:787: NOTICE:  start: 22 verblijfsobjectgebruiksdoelactueelbestaand_PIVOT: 15:13:57.760095+01
+ print_notice 
+--------------
+             
+(1 row)
+
+psql:/Users/just/project/nlextract/git.master/bag/test/../db/script/adres-tabel-plus.sql:788: NOTICE:  table "verblijfsobjectgebruiksdoelactueelbestaand_pivot" does not exist, skipping
+DROP TABLE
+SELECT 458585
+ALTER TABLE
+COMMIT
+BEGIN
+psql:/Users/just/project/nlextract/git.master/bag/test/../db/script/adres-tabel-plus.sql:879: NOTICE:  start: 23 pandactueelbestaand_plus 15:14:01.039714+01
+ print_notice 
+--------------
+             
+(1 row)
+
+psql:/Users/just/project/nlextract/git.master/bag/test/../db/script/adres-tabel-plus.sql:880: NOTICE:  table "pandactueelbestaand_plus" does not exist, skipping
+DROP TABLE
+SELECT 177420
+COMMIT
+BEGIN
+CREATE INDEX
+COMMIT
+BEGIN
+CREATE INDEX
+COMMIT
+BEGIN
+DELETE 0
+COMMIT
+BEGIN
+psql:/Users/just/project/nlextract/git.master/bag/test/../db/script/adres-tabel-plus.sql:942: NOTICE:  start: 24 pandontdubbel15:14:05.346078+01
+ print_notice 
+--------------
+             
+(1 row)
+
+psql:/Users/just/project/nlextract/git.master/bag/test/../db/script/adres-tabel-plus.sql:943: NOTICE:  table "pandontdubbel" does not exist, skipping
+DROP TABLE
+SELECT 0
+COMMIT
+BEGIN
+psql:/Users/just/project/nlextract/git.master/bag/test/../db/script/adres-tabel-plus.sql:955: NOTICE:  start: 24b pandontdubbel update15:14:05.67908+01
+ print_notice 
+--------------
+             
+(1 row)
+
+UPDATE 0
+COMMIT
+BEGIN
+DELETE 0
+COMMIT
+BEGIN
+psql:/Users/just/project/nlextract/git.master/bag/test/../db/script/adres-tabel-plus.sql:983: NOTICE:  start: 25 woning_NAD_VBO_PND: 15:14:05.681246+01
+ print_notice 
+--------------
+             
+(1 row)
+
+psql:/Users/just/project/nlextract/git.master/bag/test/../db/script/adres-tabel-plus.sql:984: NOTICE:  table "woning_nad_vbo_pnd" does not exist, skipping
+DROP TABLE
+SELECT 412856
+COMMIT
+BEGIN
+CREATE INDEX
+COMMIT
+BEGIN
+psql:/Users/just/project/nlextract/git.master/bag/test/../db/script/adres-tabel-plus.sql:1014: NOTICE:  start: 26 woning_NAD_gegevens: 15:14:09.09607+01
+ print_notice 
+--------------
+             
+(1 row)
+
+psql:/Users/just/project/nlextract/git.master/bag/test/../db/script/adres-tabel-plus.sql:1015: NOTICE:  table "woning_nad_gegevens" does not exist, skipping
+DROP TABLE
+SELECT 412315
+COMMIT
+BEGIN
+psql:/Users/just/project/nlextract/git.master/bag/test/../db/script/adres-tabel-plus.sql:1026: NOTICE:  start: 27 woning_VBO_gegevens: 15:14:11.187308+01
+ print_notice 
+--------------
+             
+(1 row)
+
+psql:/Users/just/project/nlextract/git.master/bag/test/../db/script/adres-tabel-plus.sql:1027: NOTICE:  table "woning_vbo_gegevens" does not exist, skipping
+DROP TABLE
+SELECT 411614
+COMMIT
+BEGIN
+psql:/Users/just/project/nlextract/git.master/bag/test/../db/script/adres-tabel-plus.sql:1037: NOTICE:  start: 28 woning_PND_Extra_gegevens: 15:14:13.467092+01
+ print_notice 
+--------------
+             
+(1 row)
+
+psql:/Users/just/project/nlextract/git.master/bag/test/../db/script/adres-tabel-plus.sql:1038: NOTICE:  table "woning_pnd_extra_gegevens" does not exist, skipping
+DROP TABLE
+SELECT 109871
+COMMIT
+BEGIN
+ALTER TABLE
+COMMIT
+BEGIN
+psql:/Users/just/project/nlextract/git.master/bag/test/../db/script/adres-tabel-plus.sql:1057: NOTICE:  start: 29 woning_NAD_PND_gegevens1: 15:14:14.849644+01
+ print_notice 
+--------------
+             
+(1 row)
+
+psql:/Users/just/project/nlextract/git.master/bag/test/../db/script/adres-tabel-plus.sql:1058: NOTICE:  table "woning_nad_pnd_gegevens1" does not exist, skipping
+DROP TABLE
+SELECT 412766
+psql:/Users/just/project/nlextract/git.master/bag/test/../db/script/adres-tabel-plus.sql:1066: NOTICE:  start: 30 woning_VBO_PND_gegevens: 15:14:14.849644+01
+ print_notice 
+--------------
+             
+(1 row)
+
+psql:/Users/just/project/nlextract/git.master/bag/test/../db/script/adres-tabel-plus.sql:1067: NOTICE:  table "woning_vbo_pnd_gegevens" does not exist, skipping
+DROP TABLE
+SELECT 412065
+COMMIT
+BEGIN
+psql:/Users/just/project/nlextract/git.master/bag/test/../db/script/adres-tabel-plus.sql:1082: NOTICE:  start: 31 PND_WOON_RELATIES: 15:14:17.97319+01
+ print_notice 
+--------------
+             
+(1 row)
+
+psql:/Users/just/project/nlextract/git.master/bag/test/../db/script/adres-tabel-plus.sql:1083: NOTICE:  table "pnd_woon_relaties" does not exist, skipping
+DROP TABLE
+SELECT 313329
+COMMIT
+BEGIN
+psql:/Users/just/project/nlextract/git.master/bag/test/../db/script/adres-tabel-plus.sql:1100: NOTICE:  start: 32 PND_WOON_RELATIES_aantal: 15:14:21.295915+01
+ print_notice 
+--------------
+             
+(1 row)
+
+psql:/Users/just/project/nlextract/git.master/bag/test/../db/script/adres-tabel-plus.sql:1101: NOTICE:  table "pnd_woon_relaties_aantal" does not exist, skipping
+DROP TABLE
+SELECT 109871
+COMMIT
+BEGIN
+psql:/Users/just/project/nlextract/git.master/bag/test/../db/script/adres-tabel-plus.sql:1116: NOTICE:  start: 33 PND_WOON_type: 15:14:21.682407+01
+ print_notice 
+--------------
+             
+(1 row)
+
+psql:/Users/just/project/nlextract/git.master/bag/test/../db/script/adres-tabel-plus.sql:1117: NOTICE:  table "pnd_woon_type" does not exist, skipping
+DROP TABLE
+SELECT 109871
+COMMIT
+BEGIN
+ALTER TABLE
+COMMIT
+BEGIN
+psql:/Users/just/project/nlextract/git.master/bag/test/../db/script/adres-tabel-plus.sql:1163: NOTICE:  start: 33b pandactueelbestaand_plus_woningtype 15:14:23.235062+01
+ print_notice 
+--------------
+             
+(1 row)
+
+psql:/Users/just/project/nlextract/git.master/bag/test/../db/script/adres-tabel-plus.sql:1164: NOTICE:  table "pandactueelbestaand_plus_woningtype" does not exist, skipping
+DROP TABLE
+SELECT 177420
+COMMIT
+BEGIN
+CREATE INDEX
+COMMIT
+BEGIN
+psql:/Users/just/project/nlextract/git.master/bag/test/../db/script/adres-tabel-plus.sql:1191: NOTICE:  start: 34 VBO_woningtype: 15:14:25.671976+01
+ print_notice 
+--------------
+             
+(1 row)
+
+psql:/Users/just/project/nlextract/git.master/bag/test/../db/script/adres-tabel-plus.sql:1192: NOTICE:  table "vbo_woningtype" does not exist, skipping
+DROP TABLE
+SELECT 411614
+ALTER TABLE
+COMMIT
+BEGIN
+psql:/Users/just/project/nlextract/git.master/bag/test/../db/script/adres-tabel-plus.sql:1217: NOTICE:  start: 35 VBO_woningtype_ontdubbeld: 15:14:29.101508+01
+ print_notice 
+--------------
+             
+(1 row)
+
+psql:/Users/just/project/nlextract/git.master/bag/test/../db/script/adres-tabel-plus.sql:1218: NOTICE:  table "vbo_woningtype_ontdubbeld" does not exist, skipping
+DROP TABLE
+SELECT 12
+ALTER TABLE
+COMMIT
+BEGIN
+psql:/Users/just/project/nlextract/git.master/bag/test/../db/script/adres-tabel-plus.sql:1238: NOTICE:  start: 36 VBO_woningtype: 15:14:30.268552+01
+ print_notice 
+--------------
+             
+(1 row)
+
+UPDATE 12
+COMMIT
+BEGIN
+psql:/Users/just/project/nlextract/git.master/bag/test/../db/script/adres-tabel-plus.sql:1279: NOTICE:  start: 37a VBO_Actueelbestaand_met_aantal_verbonden_PND: 15:14:30.270361+01
+ print_notice 
+--------------
+             
+(1 row)
+
+psql:/Users/just/project/nlextract/git.master/bag/test/../db/script/adres-tabel-plus.sql:1280: NOTICE:  table "vbo_actueelbestaand_met_aantal_verbonden_pnd" does not exist, skipping
+DROP TABLE
+SELECT 458451
+CREATE INDEX
+COMMIT
+BEGIN
+psql:/Users/just/project/nlextract/git.master/bag/test/../db/script/adres-tabel-plus.sql:1300: NOTICE:  start: 37b PND_Actueelbestaand_met_aantal_verbonden_VBO: 15:14:56.145705+01
+ print_notice 
+--------------
+             
+(1 row)
+
+psql:/Users/just/project/nlextract/git.master/bag/test/../db/script/adres-tabel-plus.sql:1301: NOTICE:  table "pnd_actueelbestaand_met_aantal_vbo" does not exist, skipping
+DROP TABLE
+SELECT 122704
+ALTER TABLE
+COMMIT
+BEGIN
+psql:/Users/just/project/nlextract/git.master/bag/test/../db/script/adres-tabel-plus.sql:1321: NOTICE:  start: 37c VBO_PANDGEGEVENS: 15:14:58.615905+01
+ print_notice 
+--------------
+             
+(1 row)
+
+psql:/Users/just/project/nlextract/git.master/bag/test/../db/script/adres-tabel-plus.sql:1322: NOTICE:  table "vbo_pandgegevens" does not exist, skipping
+DROP TABLE
+SELECT 458451
+COMMIT
+BEGIN
+psql:/Users/just/project/nlextract/git.master/bag/test/../db/script/adres-tabel-plus.sql:1353: NOTICE:  start: 38 VBO_Pandgegevens_VBO_ID: 15:15:03.188333+01
+ print_notice 
+--------------
+             
+(1 row)
+
+CREATE INDEX
+COMMIT
+BEGIN
+psql:/Users/just/project/nlextract/git.master/bag/test/../db/script/adres-tabel-plus.sql:1373: NOTICE:  start: 39 adres_plus: 15:15:04.237356+01
+ print_notice 
+--------------
+             
+(1 row)
+
+psql:/Users/just/project/nlextract/git.master/bag/test/../db/script/adres-tabel-plus.sql:1374: NOTICE:  table "adres_plus" does not exist, skipping
+DROP TABLE
+SELECT 464398
+COMMIT
+BEGIN
+psql:/Users/just/project/nlextract/git.master/bag/test/../db/script/adres-tabel-plus.sql:1453: NOTICE:  start: 40 UPDATEN van adres_plus: 15:15:16.093511+01
+ print_notice 
+--------------
+             
+(1 row)
+
+UPDATE 0
+psql:/Users/just/project/nlextract/git.master/bag/test/../db/script/adres-tabel-plus.sql:1464: WARNING:  there is already a transaction in progress
+BEGIN
+psql:/Users/just/project/nlextract/git.master/bag/test/../db/script/adres-tabel-plus.sql:1465: NOTICE:  start: 41 adres_plus_geom_idx: 15:15:16.093511+01
+ print_notice 
+--------------
+             
+(1 row)
+
+CREATE INDEX
+psql:/Users/just/project/nlextract/git.master/bag/test/../db/script/adres-tabel-plus.sql:1467: NOTICE:  start: 42 adres_plus_postcode: 15:15:16.093511+01
+ print_notice 
+--------------
+             
+(1 row)
+
+CREATE INDEX
+psql:/Users/just/project/nlextract/git.master/bag/test/../db/script/adres-tabel-plus.sql:1469: NOTICE:  start: 43 adres_plus_adreseerbaarobject_id: 15:15:16.093511+01
+ print_notice 
+--------------
+             
+(1 row)
+
+CREATE INDEX
+psql:/Users/just/project/nlextract/git.master/bag/test/../db/script/adres-tabel-plus.sql:1471: NOTICE:  start: 44 adres_plus_nummeraanduiding_ID: 15:15:16.093511+01
+ print_notice 
+--------------
+             
+(1 row)
+
+CREATE INDEX
+psql:/Users/just/project/nlextract/git.master/bag/test/../db/script/adres-tabel-plus.sql:1473: NOTICE:  start: 45 adres_plus_pand_id: 15:15:16.093511+01
+ print_notice 
+--------------
+             
+(1 row)
+
+CREATE INDEX
+ALTER TABLE
+COMMIT
+BEGIN
+psql:/Users/just/project/nlextract/git.master/bag/test/../db/script/adres-tabel-plus.sql:1493: NOTICE:  view "adres_compleet_pchn_uniek" does not exist, skipping
+DROP VIEW
+CREATE VIEW
+COMMIT
+BEGIN
+DROP VIEW
+DROP TABLE
+DROP TABLE
+DROP TABLE
+DROP TABLE
+DROP TABLE
+psql:/Users/just/project/nlextract/git.master/bag/test/../db/script/adres-tabel-plus.sql:1533: NOTICE:  drop cascades to view adres_vergelijk
+DROP TABLE
+psql:/Users/just/project/nlextract/git.master/bag/test/../db/script/adres-tabel-plus.sql:1534: NOTICE:  view "adres_vergelijk" does not exist, skipping
+DROP VIEW
+DROP TABLE
+DROP TABLE
+DROP TABLE
+DROP TABLE
+DROP TABLE
+DROP TABLE
+DROP TABLE
+DROP TABLE
+DROP TABLE
+DROP TABLE
+DROP TABLE
+DROP TABLE
+DROP TABLE
+DROP TABLE
+DROP TABLE
+DROP TABLE
+DROP TABLE
+DROP TABLE
+COMMIT
+LOG: 21-02-10 15:15:50 - Adressen maken OK, naar CSV
+COPY 464398
+LOG: 21-02-10 15:15:54 - Aantal regels in CSV:
+  464399 /Users/just/project/nlextract/git.master/bag/test/../test/bagadresplus.csv
+LOG: 21-02-10 15:15:54 - Bewaar deel van CSV
+LOG: 21-02-10 15:15:54 - KLAAR - VERWIJDER BESTANDEN
