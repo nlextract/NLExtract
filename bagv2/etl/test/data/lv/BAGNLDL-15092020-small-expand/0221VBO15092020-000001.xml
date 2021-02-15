@@ -199,10 +199,15 @@
                             </Historie:BeschikbaarLV>
                         </Historie:Voorkomen>
                     </Objecten:voorkomen>
-                    <Objecten:identificatie domein="NL.IMBAG.Verblijfsobject">0221010000330228</Objecten:identificatie>
+                    <!-- JvdB toegevoegd tbv Nevenadres tests -->
+                    <Objecten:heeftAlsNevenadres>
+                        <Objecten-ref:NummeraanduidingRef domein="NL.IMBAG.Nummeraanduiding">0221200000330998</Objecten-ref:NummeraanduidingRef>
+                        <Objecten-ref:NummeraanduidingRef domein="NL.IMBAG.Nummeraanduiding">0221200000330999</Objecten-ref:NummeraanduidingRef>
+                    </Objecten:heeftAlsNevenadres>
+                    <Objecten:identificatie domein="NL.IMBAG.Verblijfsobject">0221010000330999</Objecten:identificatie>
                     <Objecten:geometrie>
                         <Objecten:punt>
-                            <gml:Point srsName="urn:ogc:def:crs:EPSG::28992" srsDimension="3" gml:id="VBO_0221010000330228_1_1317889909">
+                            <gml:Point srsName="urn:ogc:def:crs:EPSG::28992" srsDimension="3" gml:id="VBO_0221010000330228_1_1317889999">
                                 <gml:pos>206289.487 447359.374 0.0</gml:pos>
                             </gml:Point>
                         </Objecten:punt>

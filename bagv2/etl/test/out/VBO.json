@@ -1,0 +1,170 @@
+{
+  "type": "FeatureCollection",
+  "name": "Verblijfsobject",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "gebruiksdoel": [
+          "woonfunctie"
+        ],
+        "oppervlakte": 306,
+        "hoofdadresNummeraanduidingRef": "0221200000330227",
+        "pandRef": [
+          "0221100000312938"
+        ],
+        "identificatie": "0221010000330226",
+        "status": "Verblijfsobject in gebruik",
+        "geconstateerd": false,
+        "documentDatum": "2011-03-08",
+        "documentNummer": "BAG/PVC2010UP0004",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2011-09-06",
+        "eindGeldigheid": "2019-01-15",
+        "tijdstipRegistratie": "2011-09-06T15:49:09",
+        "eindRegistratie": "2019-01-15T15:18:40",
+        "tijdstipRegistratieLV": "2011-09-06T16:01:53.939",
+        "tijdstipEindRegistratieLV": "2019-01-15T15:30:56.227"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.134990692676192,
+          52.013749504249226
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "gebruiksdoel": [
+          "woonfunctie"
+        ],
+        "oppervlakte": 315,
+        "hoofdadresNummeraanduidingRef": "0221200000330227",
+        "pandRef": [
+          "0221100000312938"
+        ],
+        "identificatie": "0221010000330226",
+        "status": "Verblijfsobject in gebruik",
+        "geconstateerd": false,
+        "documentDatum": "2019-01-15",
+        "documentNummer": "20190115002",
+        "voorkomenIdentificatie": 2,
+        "beginGeldigheid": "2019-01-15",
+        "eindGeldigheid": "2019-03-27",
+        "tijdstipRegistratie": "2019-01-15T15:18:40",
+        "eindRegistratie": "2019-03-29T08:14:36",
+        "tijdstipRegistratieLV": "2019-01-15T15:30:56.227",
+        "tijdstipEindRegistratieLV": "2019-03-29T08:30:27.488"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.134990692676192,
+          52.013749504249226
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "gebruiksdoel": [
+          "woonfunctie"
+        ],
+        "oppervlakte": 223,
+        "hoofdadresNummeraanduidingRef": "0221200000330227",
+        "pandRef": [
+          "0221100000312938"
+        ],
+        "identificatie": "0221010000330226",
+        "status": "Verblijfsobject in gebruik (niet ingemeten)",
+        "geconstateerd": false,
+        "documentDatum": "2019-03-27",
+        "documentNummer": "2018OMG0138",
+        "voorkomenIdentificatie": 3,
+        "beginGeldigheid": "2019-03-27",
+        "eindGeldigheid": "2019-11-19",
+        "tijdstipRegistratie": "2019-03-29T08:14:36",
+        "eindRegistratie": "2019-11-19T13:14:00.814",
+        "tijdstipRegistratieLV": "2019-03-29T08:30:27.488",
+        "tijdstipEindRegistratieLV": "2019-11-19T13:14:47.715"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.134990692676192,
+          52.013749504249226
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "gebruiksdoel": [
+          "woonfunctie"
+        ],
+        "oppervlakte": 223,
+        "hoofdadresNummeraanduidingRef": "0221200000330227",
+        "pandRef": [
+          "0221100000312938"
+        ],
+        "identificatie": "0221010000330226",
+        "status": "Verbouwing verblijfsobject",
+        "geconstateerd": false,
+        "documentDatum": "2019-11-19",
+        "documentNummer": "D/19/003329",
+        "voorkomenIdentificatie": 4,
+        "beginGeldigheid": "2019-11-19",
+        "tijdstipRegistratie": "2019-11-19T13:14:00.814",
+        "tijdstipRegistratieLV": "2019-11-19T13:14:47.715"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.134990692676192,
+          52.013749504249226
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "gebruiksdoel": [
+          "overige gebruiksfunctie"
+        ],
+        "oppervlakte": 18,
+        "hoofdadresNummeraanduidingRef": "0221200000330229",
+        "nevenadresNummeraanduidingRef": [
+          "0221200000330998",
+          "0221200000330999"
+        ],
+        "pandRef": [
+          "0221100000311191"
+        ],
+        "identificatie": "0221010000330999",
+        "status": "Verblijfsobject in gebruik",
+        "geconstateerd": false,
+        "documentDatum": "2011-10-05",
+        "documentNummer": "BAG/PVC20111005",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2011-10-05",
+        "tijdstipRegistratie": "2011-10-06T10:05:23",
+        "tijdstipRegistratieLV": "2011-10-06T10:31:49.947"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          6.134292046276272,
+          52.012221696898841
+        ]
+      }
+    }
+  ]
+}

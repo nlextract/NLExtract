@@ -1,0 +1,3639 @@
+{
+  "type": "FeatureCollection",
+  "name": "Openbareruimte",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Rietmaat",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311192",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:31",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.493"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Roggestraat",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311193",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:31",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.491"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Schaepstraat",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311194",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:31",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.488"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Schout bij Nacht Doormansingel",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311195",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:31",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.484"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Seringenlaan",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311196",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:31",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.481"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Smitsweide",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311197",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:31",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.473"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Stenderinckstraat",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311198",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:31",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.471"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Tengbergenstraat",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311199",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:31",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.468"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Tricht",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311200",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:31",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.467"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Van Berchemstraat",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311201",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:31",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.465"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Van Brakellaan",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311202",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:31",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.463"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Van Grotenhuysstraat",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311203",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:31",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.462"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Van Kinsbergenstraat",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311204",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:31",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.460"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Van Middachtenweg",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311205",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:31",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.458"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Van Pallandtstraat",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311206",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:30",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.457"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Van Tuyllplein",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311207",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:30",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.455"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Van Ubelstraat",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311208",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:30",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.453"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Van Vierackerlaan",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311209",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:30",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.452"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Veerpoortdijk",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311210",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:30",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.450"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Veerpoortstraat",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311211",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:30",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.449"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Veerpoortwal",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311212",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:30",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.447"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Veldweg",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311213",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:30",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.445"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Verhuellweg",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311214",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:30",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.444"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Vuurdoornstraat",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311215",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:30",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.442"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Waterstraat",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311216",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:30",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.440"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Wemmersweerd",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311217",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:30",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.438"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Wilgenstraat",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311218",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:30",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.437"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Wilhelminastraat",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311219",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:30",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.435"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Willem de Zwijgerlaan",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311220",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:30",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.434"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Windmolensteeg",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311221",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:30",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.432"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Windmolenstraat",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311222",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:30",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.430"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Winterpolstraat",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311223",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:30",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.428"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Zandbergstraat",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311224",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:30",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.426"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Zanderskamp",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311225",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:30",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.425"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Zomerweg",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311226",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:30",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.423"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Parallelweg",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311227",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2010-10-14",
+        "documentNummer": "BAG/OBR20100001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2010-10-14",
+        "tijdstipRegistratie": "2010-12-15T10:57:30",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.421"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Benscamp",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311228",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-02-17",
+        "documentNummer": "BRA/OBR20090001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-02-17",
+        "tijdstipRegistratie": "2010-12-15T10:57:30",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.420"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Blomenbrinck",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311229",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-02-17",
+        "documentNummer": "BRA/OBR20090001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-02-17",
+        "tijdstipRegistratie": "2010-12-15T10:57:30",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.418"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "De Bleek",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311230",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "eindGeldigheid": "2019-12-03",
+        "tijdstipRegistratie": "2010-12-15T10:57:30",
+        "eindRegistratie": "2019-12-03T09:06:58.123",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.416",
+        "tijdstipEindRegistratieLV": "2019-12-03T09:07:51.217"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "De Bleek",
+        "type": "Terrein",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311230",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2019-12-03",
+        "documentNummer": "D/19/003528",
+        "voorkomenIdentificatie": 2,
+        "beginGeldigheid": "2019-12-03",
+        "tijdstipRegistratie": "2019-12-03T09:06:58.123",
+        "tijdstipRegistratieLV": "2019-12-03T09:07:51.217"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "de Drempter Dijk",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311231",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:30",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.415"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "De Grind",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311232",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:30",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.413"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "De Strijp",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311233",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-02-17",
+        "documentNummer": "BRA/OBR20090001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-02-17",
+        "tijdstipRegistratie": "2010-12-15T10:57:30",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.410"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Doesburgseweg",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311234",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:30",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.405"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Grote Biesem",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311235",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-02-17",
+        "documentNummer": "BRA/OBR20090001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-02-17",
+        "tijdstipRegistratie": "2010-12-15T10:57:30",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.404"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Het Hoornwerck",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311236",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:30",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.402"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Hoefkensestraat",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311237",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:30",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.400"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Kleine Kerksteeg",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311238",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:30",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.399"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Koppenberch",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311239",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:30",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.397"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Rogacker",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311240",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-02-17",
+        "documentNummer": "BRA/OBR20090001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-02-17",
+        "tijdstipRegistratie": "2010-12-15T10:57:30",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.395"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Saltpoortdijk",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311241",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:30",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.394"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Sandtakker",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311242",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-02-17",
+        "documentNummer": "BRA/OBR20090001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-02-17",
+        "tijdstipRegistratie": "2010-12-15T10:57:30",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.392"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Snijdersgang",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311243",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:30",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.390"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Te Wyle",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311244",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-02-17",
+        "documentNummer": "BRA/OBR20090001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-02-17",
+        "tijdstipRegistratie": "2010-12-15T10:57:30",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.387"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Torensteeg",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311245",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:30",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.385"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Acaciastraat",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311246",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:29",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.384"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Allersmaat",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311247",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:29",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.382"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Angerloseweg",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311248",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:29",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.380"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Armgardstraat",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311249",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:29",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.374"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Asterstraat",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311250",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:29",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.372"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Baerkenstraat",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311251",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:29",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.345"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Barend Ubbinkweg",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311252",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:29",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.342"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Beatrixstraat",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311253",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:29",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.340"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Begoniastraat",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311254",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:29",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.338"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Bergstraat",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311255",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:29",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.337"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Berkumshof",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311256",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:29",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.335"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Betulastraat",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311257",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:29",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.333"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Beumerskamp",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311258",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:29",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.332"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Bingerdenseweg",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311259",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:29",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.330"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Bleekerskade",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311260",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:29",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.329"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Boekholtstraat",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311261",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:29",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.327"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Breedestraat",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311262",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:29",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.325"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Bresstraat",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311263",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:29",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.324"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Broekhuizen",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311264",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:29",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.322"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Broekhuizerweg",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311265",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:29",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.320"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Burgemeester Flugi van Aspermontlaan",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311266",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:29",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.318"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Burgemeester Keiserplein",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311267",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:29",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.317"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Burgemeester Nahuyssingel",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311268",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:29",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.315"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Campstede",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311269",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:29",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.313"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Chrysantenstraat",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311270",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:29",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.312"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Clematisstraat",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311271",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:28",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.310"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Coehoornsingel",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311272",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:28",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.308"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Contre Escarpe",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311273",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:28",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.307"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Dahliastraat",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311274",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:28",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.305"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "De Bogaert",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311275",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:28",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.304"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "De Breide",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311276",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:28",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.302"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "De Kilder",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311277",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:28",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.300"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "De Linie",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311278",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:28",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.298"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "De Pol",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311279",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:28",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.297"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "De Veste",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311280",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:28",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.295"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Den Helder",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311281",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:28",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.293"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Deurvorststraat",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311282",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:28",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.291"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Didamseweg",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311283",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:28",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.289"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Duindoornstraat",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311284",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:28",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.288"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Edelweiszstraat",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311285",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:28",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.286"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Eekstraat",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311286",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:28",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.284"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Emmastraat",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311287",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:28",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.283"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Enghuizen",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311288",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:28",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.281"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Esdoornlaan",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311289",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:28",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.279"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "F D Rooseveltsingel",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311290",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:28",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.278"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Forsythiastraat",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311291",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:28",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.276"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Fuchsiastraat",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311292",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:28",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.268"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Gasthuisstraat",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311293",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:28",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.261"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Geerhuizen",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311294",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:27",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.259"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Geraniumstraat",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311295",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:27",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.257"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Goudenregenstraat",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311296",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:27",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.245"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Grietstraat",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311297",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:27",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.243"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Gruterstraat",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311298",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:27",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.242"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Halve Maanweg",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311299",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:27",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.239"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Hanzeplein",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311300",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:27",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.238"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Hanzeweg",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311301",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:27",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.236"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Heerenstraat",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311302",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:27",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.234"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Heiligegeeststeeg",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311303",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:27",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.233"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Helmichstraat",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311304",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:27",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.224"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Hermaat",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311305",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:27",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.223"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Het Kerkepad",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311306",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:27",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.221"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Het Mauritsveld",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311307",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:27",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.220"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Hettenstraat",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311308",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:27",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.218"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Hoogestraat",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311309",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:27",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.216"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Hortensiastraat",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311310",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:27",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.215"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Huygenlaan",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311311",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:27",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.213"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Hyacinthstraat",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311312",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:27",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.211"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Iepenstraat",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311313",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:27",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.210"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "IJsselkade",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311314",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:27",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.174"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Irisstraat",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311315",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:27",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.173"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Juliana van Stolberglaan",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311316",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:27",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.169"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Julianastraat",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311317",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:27",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.167"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Kerkstraat",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311318",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:27",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.165"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Ketjenstraat",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311319",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:26",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.164"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Kleine Wal",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311320",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:26",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.162"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Kloostersteeg",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311321",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:26",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.160"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Kloosterstraat",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311322",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:26",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.159"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Kloostertuin",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311323",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:26",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.157"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Koepoortdijk",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311324",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:26",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.155"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Koepoortstraat",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311325",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:26",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.153"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Koepoortwal",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311326",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:26",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.149"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Koetsveldstraat",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311327",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:26",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.130"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Koldeweij",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311328",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:26",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.128"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Koppelweg",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311329",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:26",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.099"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Korte Koepoortstraat",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311330",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:26",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.097"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Korte Veerpoortstraat",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311331",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:26",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.096"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Kostersteeg",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311332",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:26",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.094"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Kosterstraat",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311333",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:26",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.092"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Kraakselaan",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311334",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:26",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.088"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Leigraafseweg",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311335",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:26",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.087"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Lijsterbeslaan",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311336",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:26",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.079"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Lindewal",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311337",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:26",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.077"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Loddero",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311338",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:26",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.075"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Looiersweg",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311339",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:26",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.073"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Luykenhof",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311340",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:26",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.071"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Maartenshof",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311341",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:26",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.069"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Magnolialaan",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311342",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:26",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.067"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Margrietstraat",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311343",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:26",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.065"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Marijkelaan",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311344",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:25",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.063"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Markt",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311345",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:25",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.061"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Meipoortstraat",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311346",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:25",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.059"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Meipoortwal",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311347",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:25",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.054"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Molengaarde",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311348",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:25",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.052"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Molenveldsingel",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311349",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:25",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.050"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Monseigneur Bekkerslaan",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311350",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:25",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.049"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Nassaustraat",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311351",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:25",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.047"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Nieuwe Eekstraat",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311352",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:25",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.045"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Nieuwstraat",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311353",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:25",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.043"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Notenstraat",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311354",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:25",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.042"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Oliemolensteeg",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311355",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:25",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.040"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Ooipoort",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311356",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:25",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.038"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Ooipoortstraat",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311357",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:25",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.037"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Oranjesingel",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311358",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:25",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.035"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Paardenmarkt",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311359",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:25",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.033"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Panovenweg",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311360",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:25",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.031"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Parallelweg Den Helder",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311361",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:25",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.028"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Pastoor Blaisseweg",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311362",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:24",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.026"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Philippus Gastelaarsstraat",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311363",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:24",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.024"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Potsmaat",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311364",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:24",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.023"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Prins Bernhardplein",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311365",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:24",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.021"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Prins Hendrikstraat",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311366",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:24",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.019"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Prunusstraat",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311367",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:24",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.018"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Putpad",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311368",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:24",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.016"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Ribesstraat",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311369",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:24",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.014"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Richtersakker",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311370",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BAG/OBR20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T10:57:24",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.013"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Verspreide panden IJssel en Oude IJssel",
+        "type": "Administratief gebied",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311371",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2008-09-30",
+        "documentNummer": "BRA/CBS20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2008-09-30",
+        "tijdstipRegistratie": "2010-12-15T10:57:24",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.011"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Zuidelijk Molenveld",
+        "type": "Administratief gebied",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311372",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2008-09-30",
+        "documentNummer": "BRA/CBS20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2008-09-30",
+        "tijdstipRegistratie": "2010-12-15T10:57:24",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.009"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "De Ooi",
+        "type": "Administratief gebied",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311373",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2008-09-30",
+        "documentNummer": "BRA/CBS20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2008-09-30",
+        "tijdstipRegistratie": "2010-12-15T10:57:23",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.008"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Beinum II",
+        "type": "Administratief gebied",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311374",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2008-09-30",
+        "documentNummer": "BRA/CBS20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2008-09-30",
+        "tijdstipRegistratie": "2010-12-15T10:57:23",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:21.006"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "De Oude Stad binnen de grachten",
+        "type": "Administratief gebied",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311375",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2008-09-30",
+        "documentNummer": "BRA/CBS20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2008-09-30",
+        "tijdstipRegistratie": "2010-12-15T10:57:23",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:20.999"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Noordelijk Molenveld",
+        "type": "Administratief gebied",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311376",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2008-09-30",
+        "documentNummer": "BRA/CBS20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2008-09-30",
+        "tijdstipRegistratie": "2010-12-15T10:57:23",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:20.997"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Doesburg",
+        "type": "Administratief gebied",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311377",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2008-09-30",
+        "documentNummer": "BRA/CBS20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2008-09-30",
+        "tijdstipRegistratie": "2010-12-15T10:57:23",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:20.995"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Verspreide panden Noord Oost",
+        "type": "Administratief gebied",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311378",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2008-09-30",
+        "documentNummer": "BRA/CBS20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2008-09-30",
+        "tijdstipRegistratie": "2010-12-15T10:57:23",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:20.988"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Beinum I",
+        "type": "Administratief gebied",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311379",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2008-09-30",
+        "documentNummer": "BRA/CBS20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2008-09-30",
+        "tijdstipRegistratie": "2010-12-15T10:57:23",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:20.979"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Bedrijventerrein Beinum",
+        "type": "Administratief gebied",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311380",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2008-09-30",
+        "documentNummer": "BRA/CBS20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2008-09-30",
+        "tijdstipRegistratie": "2010-12-15T10:57:23",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:20.977"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Bedrijventerrein Verhuellweg",
+        "type": "Administratief gebied",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311381",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2008-09-30",
+        "documentNummer": "BRA/CBS20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2008-09-30",
+        "tijdstipRegistratie": "2010-12-15T10:57:23",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:20.973"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Verspreide panden Fraterwaard",
+        "type": "Administratief gebied",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000311382",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2008-09-30",
+        "documentNummer": "BRA/CBS20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2008-09-30",
+        "tijdstipRegistratie": "2010-12-15T10:57:23",
+        "tijdstipRegistratieLV": "2010-12-15T11:02:20.883"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Turfhaven",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000330191",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2010-12-14",
+        "documentNummer": "BRA/BVOR20100002",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2010-12-14",
+        "tijdstipRegistratie": "2010-12-21T14:03:46",
+        "tijdstipRegistratieLV": "2010-12-21T14:10:03.895"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Theo Colenbranderplantsoen",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000333398",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2016-06-14",
+        "documentNummer": "11056",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2016-06-14",
+        "eindGeldigheid": "2016-08-15",
+        "tijdstipRegistratie": "2016-06-20T09:46:06",
+        "eindRegistratie": "2016-08-15T15:57:21",
+        "tijdstipRegistratieLV": "2016-06-20T10:00:30.052",
+        "tijdstipEindRegistratieLV": "2016-08-15T16:01:00.828"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Theo Colenbranderplantsoen",
+        "type": "Administratief gebied",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000333398",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2016-08-15",
+        "documentNummer": "VAC20160815002",
+        "voorkomenIdentificatie": 2,
+        "beginGeldigheid": "2016-08-15",
+        "eindGeldigheid": "2020-01-21",
+        "tijdstipRegistratie": "2016-08-15T15:57:21",
+        "eindRegistratie": "2020-01-21T15:31:41.131",
+        "tijdstipRegistratieLV": "2016-08-15T16:01:00.828",
+        "tijdstipEindRegistratieLV": "2020-01-21T15:32:18.763"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Theo Colenbranderplantsoen",
+        "type": "Terrein",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000333398",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2020-01-21",
+        "documentNummer": "D/20/006386",
+        "voorkomenIdentificatie": 3,
+        "beginGeldigheid": "2020-01-21",
+        "tijdstipRegistratie": "2020-01-21T15:31:41.131",
+        "tijdstipRegistratieLV": "2020-01-21T15:32:18.763"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Freek Somsenpad",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000334106",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2019-09-03",
+        "documentNummer": "BBC/19/000478",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2019-09-03",
+        "tijdstipRegistratie": "2019-09-10T13:48:29",
+        "tijdstipRegistratieLV": "2019-09-10T14:00:38.736"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Baer",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000334177",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2020-06-16",
+        "documentNummer": "D/20/015972",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2020-06-16",
+        "tijdstipRegistratie": "2020-06-16T16:43:35.415",
+        "tijdstipRegistratieLV": "2020-06-16T16:44:23.381"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Stuw",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000334179",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2020-06-16",
+        "documentNummer": "D/20/015972",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2020-06-16",
+        "tijdstipRegistratie": "2020-06-16T16:43:53.431",
+        "tijdstipRegistratieLV": "2020-06-16T16:44:24.177"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Verlaat",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000334181",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2020-06-16",
+        "documentNummer": "D/20/015972",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2020-06-16",
+        "tijdstipRegistratie": "2020-06-16T16:44:20.525",
+        "tijdstipRegistratieLV": "2020-06-16T16:44:24.909"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "naam": "Werf",
+        "type": "Weg",
+        "woonplaatsRef": "2142",
+        "identificatie": "0221300000334183",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2020-06-16",
+        "documentNummer": "D/20/015972",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2020-06-16",
+        "tijdstipRegistratie": "2020-06-16T16:45:15.339",
+        "tijdstipRegistratieLV": "2020-06-16T16:45:23.303"
+      },
+      "geometry": null
+    }
+  ]
+}

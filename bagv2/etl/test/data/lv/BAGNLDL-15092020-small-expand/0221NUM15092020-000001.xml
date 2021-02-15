@@ -141,6 +141,62 @@
         <sl:stand>
             <sl-bag-extract:bagObject>
                 <Objecten:Nummeraanduiding>
+                    <Objecten:identificatie domein="NL.IMBAG.Nummeraanduiding">0221200000330998</Objecten:identificatie>
+                    <Objecten:huisnummer>4</Objecten:huisnummer>
+                    <Objecten:huisletter>x</Objecten:huisletter>
+                    <Objecten:postcode>6981ED</Objecten:postcode>
+                    <Objecten:typeAdresseerbaarObject>Standplaats</Objecten:typeAdresseerbaarObject>
+                    <Objecten:status>Naamgeving uitgegeven</Objecten:status>
+                    <Objecten:geconstateerd>N</Objecten:geconstateerd>
+                    <Objecten:documentdatum>2009-01-20</Objecten:documentdatum>
+                    <Objecten:documentnummer>BRA/FB20080001</Objecten:documentnummer>
+                    <Objecten:voorkomen>
+                        <Historie:Voorkomen>
+                            <Historie:voorkomenidentificatie>1</Historie:voorkomenidentificatie>
+                            <Historie:beginGeldigheid>2009-01-20</Historie:beginGeldigheid>
+                            <Historie:tijdstipRegistratie>2010-12-15T11:34:48.000</Historie:tijdstipRegistratie>
+                            <Historie:BeschikbaarLV>
+                                <Historie:tijdstipRegistratieLV>2010-12-15T12:00:51.930</Historie:tijdstipRegistratieLV>
+                            </Historie:BeschikbaarLV>
+                        </Historie:Voorkomen>
+                    </Objecten:voorkomen>
+                    <Objecten:ligtAan>
+                        <Objecten-ref:OpenbareRuimteRef domein="NL.IMBAG.Openbareruimte">0221300000311236</Objecten-ref:OpenbareRuimteRef>
+                    </Objecten:ligtAan>
+                </Objecten:Nummeraanduiding>
+            </sl-bag-extract:bagObject>
+        </sl:stand>
+        <sl:stand>
+            <sl-bag-extract:bagObject>
+                <Objecten:Nummeraanduiding>
+                    <Objecten:identificatie domein="NL.IMBAG.Nummeraanduiding">0221200000330999</Objecten:identificatie>
+                    <Objecten:huisnummer>4</Objecten:huisnummer>
+                    <Objecten:huisletter>y</Objecten:huisletter>
+                    <Objecten:postcode>6981ED</Objecten:postcode>
+                    <Objecten:typeAdresseerbaarObject>Standplaats</Objecten:typeAdresseerbaarObject>
+                    <Objecten:status>Naamgeving uitgegeven</Objecten:status>
+                    <Objecten:geconstateerd>N</Objecten:geconstateerd>
+                    <Objecten:documentdatum>2009-01-20</Objecten:documentdatum>
+                    <Objecten:documentnummer>BRA/FB20080001</Objecten:documentnummer>
+                    <Objecten:voorkomen>
+                        <Historie:Voorkomen>
+                            <Historie:voorkomenidentificatie>1</Historie:voorkomenidentificatie>
+                            <Historie:beginGeldigheid>2009-01-20</Historie:beginGeldigheid>
+                            <Historie:tijdstipRegistratie>2010-12-15T11:34:48.000</Historie:tijdstipRegistratie>
+                            <Historie:BeschikbaarLV>
+                                <Historie:tijdstipRegistratieLV>2010-12-15T12:00:51.930</Historie:tijdstipRegistratieLV>
+                            </Historie:BeschikbaarLV>
+                        </Historie:Voorkomen>
+                    </Objecten:voorkomen>
+                    <Objecten:ligtAan>
+                        <Objecten-ref:OpenbareRuimteRef domein="NL.IMBAG.Openbareruimte">0221300000311236</Objecten-ref:OpenbareRuimteRef>
+                    </Objecten:ligtAan>
+                </Objecten:Nummeraanduiding>
+            </sl-bag-extract:bagObject>
+        </sl:stand>
+        <sl:stand>
+            <sl-bag-extract:bagObject>
+                <Objecten:Nummeraanduiding>
                     <Objecten:identificatie domein="NL.IMBAG.Nummeraanduiding">0221200000330227</Objecten:identificatie>
                     <Objecten:huisnummer>4</Objecten:huisnummer>
                     <Objecten:postcode>6981CH</Objecten:postcode>
@@ -197,6 +253,71 @@
             </sl-bag-extract:bagObject>
         </sl:stand>
         <sl:stand>
+            <!-- JvdB toegevoegd tbv Nevenadres tests -->
+            <sl-bag-extract:bagObject>
+                <Objecten:Nummeraanduiding>
+                    <Objecten:identificatie domein="NL.IMBAG.Nummeraanduiding">0221200000330998</Objecten:identificatie>
+                    <Objecten:huisnummer>9</Objecten:huisnummer>
+                    <Objecten:huisletter>x</Objecten:huisletter>
+                    <Objecten:postcode>6981EA</Objecten:postcode>
+                    <Objecten:typeAdresseerbaarObject>Verblijfsobject</Objecten:typeAdresseerbaarObject>
+                    <Objecten:status>Naamgeving uitgegeven</Objecten:status>
+                    <Objecten:geconstateerd>N</Objecten:geconstateerd>
+                    <Objecten:documentdatum>2011-10-05</Objecten:documentdatum>
+                    <Objecten:documentnummer>BAG/PVC20111005</Objecten:documentnummer>
+                    <Objecten:voorkomen>
+                        <Historie:Voorkomen>
+                            <Historie:voorkomenidentificatie>1</Historie:voorkomenidentificatie>
+                            <Historie:beginGeldigheid>2011-10-05</Historie:beginGeldigheid>
+                            <Historie:eindGeldigheid>2013-06-10</Historie:eindGeldigheid>
+                            <Historie:tijdstipRegistratie>2011-10-06T10:05:21.000</Historie:tijdstipRegistratie>
+                            <Historie:eindRegistratie>2013-06-12T21:41:03.000</Historie:eindRegistratie>
+                            <Historie:BeschikbaarLV>
+                                <Historie:tijdstipRegistratieLV>2011-10-06T10:31:49.814</Historie:tijdstipRegistratieLV>
+                                <Historie:tijdstipEindRegistratieLV>2013-06-12T22:01:31.938</Historie:tijdstipEindRegistratieLV>
+                            </Historie:BeschikbaarLV>
+                        </Historie:Voorkomen>
+                    </Objecten:voorkomen>
+                    <Objecten:ligtAan>
+                        <Objecten-ref:OpenbareRuimteRef domein="NL.IMBAG.Openbareruimte">0221300000311195</Objecten-ref:OpenbareRuimteRef>
+                    </Objecten:ligtAan>
+                </Objecten:Nummeraanduiding>
+            </sl-bag-extract:bagObject>
+        </sl:stand>
+        <sl:stand>
+            <!-- JvdB toegevoegd tbv Nevenadres tests -->
+            <sl-bag-extract:bagObject>
+                <Objecten:Nummeraanduiding>
+                    <Objecten:identificatie domein="NL.IMBAG.Nummeraanduiding">0221200000330999</Objecten:identificatie>
+                    <Objecten:huisnummer>9</Objecten:huisnummer>
+                    <Objecten:huisletter>y</Objecten:huisletter>
+                    <Objecten:postcode>6981EA</Objecten:postcode>
+                    <Objecten:typeAdresseerbaarObject>Verblijfsobject</Objecten:typeAdresseerbaarObject>
+                    <Objecten:status>Naamgeving uitgegeven</Objecten:status>
+                    <Objecten:geconstateerd>N</Objecten:geconstateerd>
+                    <Objecten:documentdatum>2011-10-05</Objecten:documentdatum>
+                    <Objecten:documentnummer>BAG/PVC20111005</Objecten:documentnummer>
+                    <Objecten:voorkomen>
+                        <Historie:Voorkomen>
+                            <Historie:voorkomenidentificatie>1</Historie:voorkomenidentificatie>
+                            <Historie:beginGeldigheid>2011-10-05</Historie:beginGeldigheid>
+                            <Historie:eindGeldigheid>2013-06-10</Historie:eindGeldigheid>
+                            <Historie:tijdstipRegistratie>2011-10-06T10:05:21.000</Historie:tijdstipRegistratie>
+                            <Historie:eindRegistratie>2013-06-12T21:41:03.000</Historie:eindRegistratie>
+                            <Historie:BeschikbaarLV>
+                                <Historie:tijdstipRegistratieLV>2011-10-06T10:31:49.814</Historie:tijdstipRegistratieLV>
+                                <Historie:tijdstipEindRegistratieLV>2013-06-12T22:01:31.938</Historie:tijdstipEindRegistratieLV>
+                            </Historie:BeschikbaarLV>
+                        </Historie:Voorkomen>
+                    </Objecten:voorkomen>
+                    <Objecten:ligtAan>
+                        <Objecten-ref:OpenbareRuimteRef domein="NL.IMBAG.Openbareruimte">0221300000311195</Objecten-ref:OpenbareRuimteRef>
+                    </Objecten:ligtAan>
+                </Objecten:Nummeraanduiding>
+            </sl-bag-extract:bagObject>
+        </sl:stand>
+
+        <sl:stand>
             <sl-bag-extract:bagObject>
                 <Objecten:Nummeraanduiding>
                     <Objecten:identificatie domein="NL.IMBAG.Nummeraanduiding">0221200000330229</Objecten:identificatie>
@@ -233,6 +354,62 @@
                     <Objecten:identificatie domein="NL.IMBAG.Nummeraanduiding">0221200000330229</Objecten:identificatie>
                     <Objecten:huisnummer>9</Objecten:huisnummer>
                     <Objecten:huisletter>l</Objecten:huisletter>
+                    <Objecten:typeAdresseerbaarObject>Verblijfsobject</Objecten:typeAdresseerbaarObject>
+                    <Objecten:status>Naamgeving uitgegeven</Objecten:status>
+                    <Objecten:geconstateerd>N</Objecten:geconstateerd>
+                    <Objecten:documentdatum>2019-03-05</Objecten:documentdatum>
+                    <Objecten:documentnummer>20190305002</Objecten:documentnummer>
+                    <Objecten:voorkomen>
+                        <Historie:Voorkomen>
+                            <Historie:voorkomenidentificatie>3</Historie:voorkomenidentificatie>
+                            <Historie:beginGeldigheid>2019-03-05</Historie:beginGeldigheid>
+                            <Historie:tijdstipRegistratie>2019-03-05T14:28:00.000</Historie:tijdstipRegistratie>
+                            <Historie:BeschikbaarLV>
+                                <Historie:tijdstipRegistratieLV>2019-03-05T14:30:56.335</Historie:tijdstipRegistratieLV>
+                            </Historie:BeschikbaarLV>
+                        </Historie:Voorkomen>
+                    </Objecten:voorkomen>
+                    <Objecten:ligtAan>
+                        <Objecten-ref:OpenbareRuimteRef domein="NL.IMBAG.Openbareruimte">0221300000311195</Objecten-ref:OpenbareRuimteRef>
+                    </Objecten:ligtAan>
+                </Objecten:Nummeraanduiding>
+            </sl-bag-extract:bagObject>
+        </sl:stand>
+        <sl:stand>
+            <!-- JvdB toegevoegd tbv Nevenadres tests -->
+            <sl-bag-extract:bagObject>
+                <Objecten:Nummeraanduiding>
+                    <Objecten:identificatie domein="NL.IMBAG.Nummeraanduiding">0221200000330998</Objecten:identificatie>
+                    <Objecten:huisnummer>9</Objecten:huisnummer>
+                    <Objecten:huisletter>x</Objecten:huisletter>
+                    <Objecten:typeAdresseerbaarObject>Verblijfsobject</Objecten:typeAdresseerbaarObject>
+                    <Objecten:status>Naamgeving uitgegeven</Objecten:status>
+                    <Objecten:geconstateerd>N</Objecten:geconstateerd>
+                    <Objecten:documentdatum>2019-03-05</Objecten:documentdatum>
+                    <Objecten:documentnummer>20190305002</Objecten:documentnummer>
+                    <Objecten:voorkomen>
+                        <Historie:Voorkomen>
+                            <Historie:voorkomenidentificatie>3</Historie:voorkomenidentificatie>
+                            <Historie:beginGeldigheid>2019-03-05</Historie:beginGeldigheid>
+                            <Historie:tijdstipRegistratie>2019-03-05T14:28:00.000</Historie:tijdstipRegistratie>
+                            <Historie:BeschikbaarLV>
+                                <Historie:tijdstipRegistratieLV>2019-03-05T14:30:56.335</Historie:tijdstipRegistratieLV>
+                            </Historie:BeschikbaarLV>
+                        </Historie:Voorkomen>
+                    </Objecten:voorkomen>
+                    <Objecten:ligtAan>
+                        <Objecten-ref:OpenbareRuimteRef domein="NL.IMBAG.Openbareruimte">0221300000311195</Objecten-ref:OpenbareRuimteRef>
+                    </Objecten:ligtAan>
+                </Objecten:Nummeraanduiding>
+            </sl-bag-extract:bagObject>
+        </sl:stand>
+        <sl:stand>
+            <!-- JvdB toegevoegd tbv Nevenadres tests -->
+            <sl-bag-extract:bagObject>
+                <Objecten:Nummeraanduiding>
+                    <Objecten:identificatie domein="NL.IMBAG.Nummeraanduiding">0221200000330999</Objecten:identificatie>
+                    <Objecten:huisnummer>9</Objecten:huisnummer>
+                    <Objecten:huisletter>y</Objecten:huisletter>
                     <Objecten:typeAdresseerbaarObject>Verblijfsobject</Objecten:typeAdresseerbaarObject>
                     <Objecten:status>Naamgeving uitgegeven</Objecten:status>
                     <Objecten:geconstateerd>N</Objecten:geconstateerd>

@@ -1,6 +1,7 @@
 # NLExtract voor BAG Versie 2
 
-Main change is we can use the GDAL/OGR Driver `LVBAG`.
+Main change is we can use the GDAL/OGR Driver [LVBAG](https://gdal.org/drivers/vector/lvbag.html).
+For now assumed this can be used in the Stetl Chain.
 
 ## Download van Kadaster
 
@@ -10,7 +11,19 @@ Main change is we can use the GDAL/OGR Driver `LVBAG`.
 * tarieven: https://www.kadaster.nl/-/tarieven-2021 
 * 180,- enkele levering, 120,- maandabbo, 12,- p/m voor dagelijkse mutaties
 
-## Outstanding Issues GDAL LVBAG
+## Issues GDAL LVBAG
+
+### Open
+
+Verdere problemen (nog issue aan te maken)
+
+* inlezen Gem-Woonplaats relatie
+
+See https://github.com/OSGeo/gdal/issues/3462
+
+* Als .zip 1 XML file bevat niet herkend als BAG bestand: 
+
+### Solved
 
 See https://github.com/OSGeo/gdal/issues/3217
 
@@ -18,14 +31,16 @@ See https://github.com/OSGeo/gdal/issues/3217
 * Pand `oorspronkelijkBouwjaar` moet `int` zijn (niet YY-MM-DD)
 * onnodige lege velden: `lvID` altijd `'.'` plus `namespace`, `lokaalid` en `versie` zijn altijd `Null`.  
 
-Verdere problemen (nog issue aan te maken)
+See https://github.com/OSGeo/gdal/issues/3221 multiplicity for some attrs:
+
 
 * VBO: meerdere gebruiksdoelen niet gehonoreerd
-* VBO: geometrie kan Punt of Vlak zijn (nu alleen Punt verondersteld)
 * VBO-PND N-M: meerdere gerelateerde PND mogelijk
 * VBO: Nevenadres wordt niet afgehandeld
 
-* inlezen Gem-Woonplaats relatie
+Let this remain:
+
+* VBO: geometrie kan Punt of Vlak zijn (nu alleen Punt verondersteld)
 
 ## Historie 
 
@@ -46,4 +61,4 @@ Verschil met BAG v1.
 Was-wordt Mutaties: negeer enkele fout, niet hele mutatie bestand!
 
 * verwerk in juiste volgorde, meerdere mutaties op 1 dag
-* 
+

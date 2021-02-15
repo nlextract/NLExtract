@@ -80,6 +80,10 @@
                             </Historie:BeschikbaarLV>
                         </Historie:Voorkomen>
                     </Objecten:voorkomen>
+                    <Objecten:heeftAlsNevenadres>
+                        <Objecten-ref:NummeraanduidingRef domein="NL.IMBAG.Nummeraanduiding">0221200000330998</Objecten-ref:NummeraanduidingRef>
+                        <Objecten-ref:NummeraanduidingRef domein="NL.IMBAG.Nummeraanduiding">0221200000330999</Objecten-ref:NummeraanduidingRef>
+                    </Objecten:heeftAlsNevenadres>
                     <Objecten:identificatie domein="NL.IMBAG.Standplaats">0221030000330174</Objecten:identificatie>
                     <Objecten:status>Plaats aangewezen</Objecten:status>
                     <Objecten:geometrie>
