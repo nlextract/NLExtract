@@ -19,7 +19,7 @@ OGR_OPTS="-overwrite -oo AUTOCORRECT_INVALID_DATA=YES -oo LEGACY_ID=YES -s_srs E
 # NB we use host.docker.internal to connect from within Docker Container to localhost PostGIS!
 PG="'PG:dbname=bagv2 active_schema=doesburg host=host.docker.internal user=postgres password=postgres'"
 
-# Doesburg Small
+# Doesburg Small in BAG LV format
 # https://extracten.bag.kadaster.nl/lvbag/extracten/Gemeente%20LVC/0221/BAGGEM0221L-15022021.zip
 for OBJ in ${OBJS}
 do

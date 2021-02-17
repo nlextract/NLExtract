@@ -1,13 +1,21 @@
-# Default options for the Stetl BGT extract command
-# These values are substituted into the ETL conf in conf/etl-imgeo-v2.1.1.cfg, see the {arg} strings there
+# Default options for the Stetl BAG v2 Stetl ETL Chains
+#
+# These values are substituted into the ETL conf in conf/etl-imbag-v2.1.0.cfg, see the {arg} strings there
 
 # INPUT: gml files, point to directory or file(s) pattern
-# gml_files=/Users/just/geodata/top10nl/TOP10NL_GML_50D_Blokken_september_2012/GML_50D_Blokken/Top10NL_05Oost.gml
 input_dir=test/data
+lv_file=test/data/lv/BAGNLDL*.zip
 
 # OPTIONS
 # Temp dir voor GFS
 temp_dir=temp
+
+# Typical BAG Object File prefix pattern, .zip or XMLs
+# Hierdoor allerlei andere (meta) en niet-relevante XML bestanden uitfilteren
+# Voorbeelden:
+# 0221WPL15022021-000001.xml
+# 9999PND15022021.zip
+bag_obj_file_pat=[0-9][0-9][0-9][0-9][LSVNPOW][ITBUNPP][GAOMDRL][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]
 
 # OUTPUT: PostGIS settings
 host=localhost
@@ -17,14 +25,21 @@ password=postgres
 database=bagv2
 schema=test
 
-# OPTION: attribuut waarden bijv typeWeg die meerdere keren in XML voorkomen, wat daarmee te doen
-# NB: niet van toepassing op BRK
-# Zie ogr2ogr opties
+# OUTPUT: ogr2ogr specifieke settings
+
+# OPTION: attribuut waarden bijv gebruiksdoel of nevenadres die meerdere keren
+# in XML voorkomen, wat daarmee te doen
 # May use: these options
 # multi_opts=-splitlistfields -maxsubfields 1
 # multi_opts=-splitlistfields
 multi_opts=-fieldTypeToString StringList
 
-# Welk gebied (clip), zet leeg voor alles
+# projectie opties
+srs_opts=-s_srs EPSG:28992 -t_srs EPSG:4326
+
+# Specifiek voor GDAL LVBAG Driver
+lvbag_driver_opts=-oo AUTOCORRECT_INVALID_DATA=YES -oo LEGACY_ID=YES
+
+# Welk gebied (clip), zet leeg voor alles (nog niet voor BAG geprobeerd!)
 # spatial_extent=120000 450000 160000 500000
 spatial_extent=

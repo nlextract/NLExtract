@@ -25,15 +25,17 @@ curl --silent -o ${BAG_ZIP} ${BAG_ZIP_URL}
 OBJS="LIG NUM OPR PND STA VBO WPL"
 for OBJ in ${OBJS}
 do
-	# /vsizip/{/vsizip/{/vsizip/{BAGGEM0221L-15092020.zip}/0221GEM15092020.zip}/0221PND15092020.zip}
+	# /vsizip/{/vsizip/{/vsizip/{BAGGEM0221L-15022021.zip}/0221GEM15022021.zip}/0221PND15022021.zip}
 	ogrinfo /vsizip/{/vsizip/{/vsizip/${BAG_ZIP}/${GEM_CODE}GEM${DATE}.zip}/${GEM_CODE}${OBJ}${DATE}.zip}
 done
 
-/bin/rm ${BAG_ZIP}
+# Test single file access
+ogrinfo /vsizip/{/vsizip/{/vsizip/BAGGEM0221L-15022021.zip/0221GEM15022021.zip}/0221WPL15022021.zip}/0221WPL15022021-000001.xml
+
+# /bin/rm ${BAG_ZIP}
 
 
-# ogrinfo /vsizip/{/vsizip/{/vsizip/{BAGGEM0221L-Doesburg-15092020.zip}/0221GEM15092020.zip}/0221PND15092020.zip}
-
+# ogrinfo /vsizip/{/vsizip/{/vsizip/{BAGGEM0221L-15022021.zip}/0221GEM15022021.zip}/0221PND15022021.zip}
 # V="08112020"
 # OBJS="LIG NUM OPR PND STA VBO WPL"
 # OBJS="LIG STA WPL"
