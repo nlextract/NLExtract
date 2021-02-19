@@ -3,43 +3,13 @@
 # These values are substituted into the ETL conf in conf/etl-imbag-v2.1.0.cfg, see the {arg} strings there
 
 # INPUT: gml files, point to directory or file(s) pattern
-input_dir=test/data
-lv_file=test/data/lv/BAGNLDL*.zip
-
-# OPTIONS
-# Temp dir voor GFS
-temp_dir=temp
-
-# Typical BAG Object File prefix pattern, .zip or XMLs
-# Hierdoor allerlei andere (meta) en niet-relevante XML bestanden uitfilteren
-# Voorbeelden:
-# 0221WPL15022021-000001.xml
-# 9999PND15022021.zip
-bag_obj_file_pat=[0-9][0-9][0-9][0-9][LSVNPOW][ITBUNPP][GAOMDRL][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]
+bag_input_file=test/data/lv/BAGNLDL*.zip
+file_ext_filter=xml
 
 # OUTPUT: PostGIS settings
-host=localhost
-port=5432
-user=postgres
+pg_host=localhost
+pg_port=5432
+pg_user=postgres
 password=postgres
-database=bagv2
+pg_db=bagv2
 schema=test
-
-# OUTPUT: ogr2ogr specifieke settings
-
-# OPTION: attribuut waarden bijv gebruiksdoel of nevenadres die meerdere keren
-# in XML voorkomen, wat daarmee te doen
-# May use: these options
-# multi_opts=-splitlistfields -maxsubfields 1
-# multi_opts=-splitlistfields
-multi_opts=-fieldTypeToString StringList
-
-# projectie opties
-srs_opts=-s_srs EPSG:28992 -t_srs EPSG:4326
-
-# Specifiek voor GDAL LVBAG Driver
-lvbag_driver_opts=-oo AUTOCORRECT_INVALID_DATA=YES -oo LEGACY_ID=YES
-
-# Welk gebied (clip), zet leeg voor alles (nog niet voor BAG geprobeerd!)
-# spatial_extent=120000 450000 160000 500000
-spatial_extent=

@@ -15,13 +15,28 @@ For now assumed this can be used in the Stetl Chain.
 
 ### Open
 
-Verdere problemen (nog issue aan te maken)
+#### Gem-Woonplaats relatie
 
 * inlezen Gem-Woonplaats relatie
 
+#### zipfile met 1 XML file
+
 See https://github.com/OSGeo/gdal/issues/3462
 
-* Als .zip 1 XML file bevat niet herkend als BAG bestand: 
+* Als .zip 1 XML file bevat niet herkend als LVBAG bestand: 
+
+#### Geometrie Pand moet Polygon zijn
+
+Geometrie LIG, STA, WPL en PND
+
+* WPL is `VlakOfMultivlak` in XSD dus ok als `MultiPolygon`
+* LIG, STA, PND type Surface (niet MultiSurface) in BAG XSDs
+* LVBAG: LIG en STA Polygon ok, maar PND als `MultiPolygon`
+* Polygon of MultiPolygon in PostGIS? e.g. Pand id=0221100000311827 0221100000312258
+* `SELECT st_asGML(geovlak) FROM test.pand WHERE identificatie = '0221100000312258' and eindregistratie is null;`  
+* Is Polygon met hole dus exterior/interior poslists
+* Dat kan wel in PostGIS: https://postgis.net/docs/using_postgis_dbmanagement.html#OGC_Validity
+* Issue voor Pand: https://github.com/OSGeo/gdal/issues/3467
 
 ### Solved
 
