@@ -1,2 +1,4 @@
 *.args
+!common.args
 !default.args
+!docker.args

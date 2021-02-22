@@ -1,0 +1,43 @@
+# Common/fixed options for the Stetl BAG v2 Stetl ETL Chains
+#
+# These values are substituted into the ETL conf in conf/etl-imbag-v2.1.0.cfg, see the {arg} strings there
+
+# Typical BAG Object File prefix pattern, .zip or XMLs
+# Hierdoor allerlei andere (meta) en niet-relevante XML bestanden uitfilteren
+# Voorbeelden:
+# 0221WPL15022021-000001.xml
+# 9999PND15022021.zip
+bag_obj_file_pat=[0-9][0-9][0-9][0-9][LSVNPOW][ITBUNPP][GAOMDRL][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]
+
+# OUTPUT: ogr2ogr PostGIS specifieke settings
+# Zie: https://gdal.org/drivers/vector/pg.html
+
+# OPTION: attribuut waarden bijv gebruiksdoel of nevenadres die meerdere keren
+# in XML voorkomen, wat daarmee te doen
+# May use: these options
+# multival_opts=-splitlistfields -maxsubfields 1
+# multival_opts=-splitlistfields
+multival_opts=-fieldTypeToString StringList
+
+# projectie opties
+srs_opts=-a_srs EPSG:28992
+
+# Layer creation options
+layer_creation_opts=-lco LAUNDER=YES -lco PRECISION=NO -lco FID=gid
+
+# Specifiek voor GDAL LVBAG Driver
+open_opts=-oo AUTOCORRECT_INVALID_DATA=YES -oo LEGACY_ID=YES
+
+# GDAL config options
+config_opts=--config PG_USE_COPY YES --config OGR_TRUNCATE YES
+
+# Features per transactions - default 100000
+# feat_per_tx=-gt 65535
+feat_per_tx=
+
+# Welk gebied (clip), zet leeg voor alles (nog niet voor BAG geprobeerd!)
+# spatial_extent=120000 450000 160000 500000
+spatial_extent=
+
+# Welke jaargang voor Gemeentelijke indeling van CBS
+cbs_gemeenten_jaar=2021

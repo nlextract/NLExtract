@@ -1,0 +1,53 @@
+<GMLFeatureClassList>
+  <!--
+  Dit GFS-bestand is specifiek voor GML features getransformeerd uit BAG XML,
+  in theorie zouden we die voor gehele BAG kunnen gebruiken.
+
+  Auteur: Just van den Broecke - 2021
+  -->
+  <GMLFeatureClass>
+      <Name>gemeente_woonplaats</Name>
+      <ElementPath>GemeenteWoonplaatsRelatie</ElementPath>
+      <GeometryName>geometry</GeometryName>
+      <GeometryElementPath>geometry</GeometryElementPath>
+      <!--POINT-->
+      <GeometryType>1</GeometryType>
+      <SRSName>urn:ogc:def:crs:EPSG:28992</SRSName>
+      <DatasetSpecificInfo>
+        <FeatureCount>8504</FeatureCount>
+        <ExtentXMin>20000.00000</ExtentXMin>
+        <ExtentXMax>20000.00000</ExtentXMax>
+        <ExtentYMin>450000.00000</ExtentYMin>
+        <ExtentYMax>450000.00000</ExtentYMax>
+      </DatasetSpecificInfo>
+      <PropertyDefn>
+        <Name>begingeldigheid</Name>
+        <ElementPath>begingeldigheid</ElementPath>
+        <Type>String</Type>
+          <Width>20</Width>
+      </PropertyDefn>
+      <PropertyDefn>
+        <Name>eindgeldigheid</Name>
+        <ElementPath>eindgeldigheid</ElementPath>
+          <Type>String</Type>
+          <Width>20</Width>
+      </PropertyDefn>
+      <PropertyDefn>
+        <Name>woonplaatscode</Name>
+        <ElementPath>woonplaatscode</ElementPath>
+        <Type>String</Type>
+        <Width>4</Width>
+      </PropertyDefn>
+      <PropertyDefn>
+        <Name>gemeentecode</Name>
+        <ElementPath>gemeentecode</ElementPath>
+        <Type>String</Type>
+        <Width>4</Width>
+      </PropertyDefn>
+      <PropertyDefn>
+        <Name>status</Name>
+        <ElementPath>status</ElementPath>
+        <Type>String</Type>
+        <Width>10</Width>
+      </PropertyDefn>  </GMLFeatureClass>
+</GMLFeatureClassList>

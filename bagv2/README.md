@@ -15,15 +15,12 @@ For now assumed this can be used in the Stetl Chain.
 
 ### Open
 
-#### Gem-Woonplaats relatie
-
-* inlezen Gem-Woonplaats relatie
-
 #### zipfile met 1 XML file
 
 See https://github.com/OSGeo/gdal/issues/3462
 
-* Als .zip 1 XML file bevat niet herkend als LVBAG bestand: 
+* Als .zip 1 XML file bevat niet herkend als LVBAG bestand. 
+* voorlopige oplossing: laat VsiZipFileInput volledige paden naar ALLE embedded .xml files genereren
 
 #### Geometrie Pand moet Polygon zijn
 
@@ -38,7 +35,14 @@ Geometrie LIG, STA, WPL en PND
 * Dat kan wel in PostGIS: https://postgis.net/docs/using_postgis_dbmanagement.html#OGC_Validity
 * Issue voor Pand: https://github.com/OSGeo/gdal/issues/3467
 
+* voorlopige oplossing zou een expliciete CAST kunnen zijn
+
 ### Solved
+
+See https://github.com/geopython/stetl/issues/112
+
+* inlezen Gem-Woonplaats relatie - gedaan: via nieuwe Stetl VsiZipFile reader en Format Converter.
+* interessant: op deze manier zouden we de gehele BAG v2 kunnen verwerken!
 
 See https://github.com/OSGeo/gdal/issues/3217
 

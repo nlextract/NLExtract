@@ -40,7 +40,7 @@ CREATE TABLE ligplaats
 
     PRIMARY KEY (gid)
 )
-TABLESPACE pg_default;
+;
 
 -- NUM
 DROP TABLE IF EXISTS nummeraanduiding CASCADE;
@@ -76,7 +76,7 @@ CREATE TABLE nummeraanduiding
 
     PRIMARY KEY (gid)
 )
-TABLESPACE pg_default;
+;
 
 -- OPR
 DROP TABLE IF EXISTS openbareruimte CASCADE;
@@ -117,7 +117,7 @@ CREATE TABLE openbareruimte
 
     PRIMARY KEY (gid)
 )
-TABLESPACE pg_default;
+;
 
 -- PND
 DROP TABLE IF EXISTS pand CASCADE;
@@ -163,7 +163,7 @@ CREATE TABLE pand
 
     PRIMARY KEY (gid)
 )
-TABLESPACE pg_default;
+;
 
 -- STA
 DROP TABLE IF EXISTS standplaats CASCADE;
@@ -196,7 +196,7 @@ CREATE TABLE standplaats
 
     PRIMARY KEY (gid)
 )
-TABLESPACE pg_default;
+;
 
 -- VBO
 DROP TABLE IF EXISTS verblijfsobject CASCADE;
@@ -250,7 +250,7 @@ CREATE TABLE verblijfsobject
 
     PRIMARY KEY (gid)
 )
-TABLESPACE pg_default;
+;
 
 -- WPL
 DROP TABLE IF EXISTS woonplaats CASCADE;
@@ -282,5 +282,51 @@ CREATE TABLE woonplaats
     geovlak geometry(MultiPolygon, 28992),
 
     PRIMARY KEY (gid)
-)
-TABLESPACE pg_default;
+);
+
+-- Moet in de pas lopen met CSV ../data/kadaster-gemeente-woonplaats-<datum>.csv
+-- Vesie van 6 maart heeft CSV header
+-- Woonplaats;Woonplaats code;Ingangsdatum WPL;Einddatum WPL;Gemeente;Gemeente code;
+--     Ingangsdatum nieuwe gemeente;Gemeente beeindigd per
+DROP TABLE IF EXISTS gemeente_woonplaats CASCADE;
+DROP TYPE IF EXISTS gemeenteWoonplaatsStatus CASCADE;
+CREATE TYPE gemeenteWoonplaatsStatus AS ENUM (
+'voorlopig','definitief'
+);
+CREATE TABLE gemeente_woonplaats (
+  gid serial,
+  begingeldigheid timestamp with time zone,
+  eindgeldigheid timestamp with time zone,
+  woonplaatscode varchar(4),
+  gemeentecode varchar(4),
+  status gemeenteWoonplaatsStatus,
+  PRIMARY KEY (gid)
+);
+
+CREATE INDEX gem_wpl_woonplaatscode_idx ON gemeente_woonplaats USING btree (woonplaatscode);
+CREATE INDEX gem_wpl_gemeentecode_datum_idx ON gemeente_woonplaats USING btree (gemeentecode);
+
+DROP TABLE IF EXISTS gemeente_provincie CASCADE;
+
+DROP TABLE IF EXISTS provincie_gemeente CASCADE;
+CREATE TABLE provincie_gemeente (
+  -- follows CBS XLS/CSV column-naming,
+
+--   provinciecode numeric(4),
+--   provincienaam character varying(80),
+--   gemeentecode varchar(4),
+--   gemeentenaam character varying(80),
+--   begindatum timestamp with time zone,
+--   einddatum timestamp with time zone,
+
+  gemeentecode character varying(4),
+  gemeentecodegm character varying(80),
+  gemeentenaam character varying(80),
+  provinciecode numeric(2),
+  provinciecodepv character varying(4),
+  provincienaam character varying(80),
+
+  PRIMARY KEY (gemeentecode)
+);
+
+INSERT INTO nlx_bag_log (actie, bestand) VALUES ('tabellen aangemaakt', 'create-tables.sql');
