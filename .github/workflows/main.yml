@@ -18,8 +18,10 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - name: Check out the repo
+      - name: Check out the repo with Stetl submodule
         uses: actions/checkout@v2
+        with:
+          submodules: recursive
 
       # TODO v2 is almost out with new syntax
       - name: Push to Docker Hub

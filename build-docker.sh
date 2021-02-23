@@ -1,4 +1,4 @@
 #!/bin/bash
 #
-# Build Docker image with options
-docker build -t nlextract:latest .
+# Build Docker Image locally
+docker build -t nlextract/nlextract:latest .
