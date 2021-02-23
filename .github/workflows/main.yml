@@ -19,7 +19,7 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - name: Check out the repo
-      - uses: actions/checkout@v2
+        uses: actions/checkout@v2
 
       # TODO v2 is almost out with new syntax
       - name: Push to Docker Hub
