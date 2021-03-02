@@ -19,10 +19,7 @@ RUN \
 # Add Source Code under /nlx and make it working dir
 ADD . /nlx
 WORKDIR /nlx
-RUN rm -rf .git externals/stetl/.git externals/stetl/examples
 
 # Run examples
-# docker run --rm nlextract:latest /nlx/bagv2/etl/etl.sh
-# docker run --rm nlextract:latest /nlx/bagv2/etl/etl.sh options/docker.args
-# docker run --rm -v $(pwd):/work -w /work nlextract:latest /nlx/bagv2/etl/etl.sh
-# docker run --rm -v /Users/just/project/nlextract/data/BAG-2.0/BAGNLDL-08112020.zip:/nlx/bagv2/etl/test/data/lv/BAGNLDL-08112020-small.zip nlextract:latest /nlx/bagv2/etl/etl.sh options/docker.args
+# Default with testdata
+# docker run --rm nlextract/nlextract:latest bagv2/etl/etl.sh

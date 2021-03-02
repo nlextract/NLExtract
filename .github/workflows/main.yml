@@ -4,7 +4,7 @@ name: Publish Docker Image
 # events but only for the master branch
 on:
   push:
-    branches: [ master, bagv2 ]
+    branches: [ master ]
   pull_request:
     branches: [ master ]
 

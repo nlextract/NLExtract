@@ -20,7 +20,7 @@ For now assumed this can be used in the Stetl Chain.
 See https://github.com/OSGeo/gdal/issues/3462
 
 * Als .zip 1 XML file bevat niet herkend als LVBAG bestand. 
-* voorlopige oplossing: laat VsiZipFileInput volledige paden naar ALLE embedded .xml files genereren
+* voorlopige oplossing: laat `VsiZipFileInput` volledige paden naar ALLE embedded .xml files genereren
 
 #### Geometrie Pand moet Polygon zijn
 

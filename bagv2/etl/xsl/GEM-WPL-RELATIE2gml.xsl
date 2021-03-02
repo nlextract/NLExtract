@@ -21,7 +21,7 @@ Author:  Just van den Broecke, Just Objects B.V.
                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                 xmlns:ogr="http://ogr.maptools.org/"
                 xmlns:gml="http://www.opengis.net/gml"
-                xsi:schemaLocation="http://ogr.maptools.org/ ../gmlcities.xsd  http://www.opengis.net/gml http://schemas.opengis.net/gml/2.1.2/feature.xsd"
+                xsi:schemaLocation="http://ogr.maptools.org/ http://www.opengis.net/gml http://schemas.opengis.net/gml/2.1.2/feature.xsd"
                 >
             <gml:boundedBy>
               <gml:Box>

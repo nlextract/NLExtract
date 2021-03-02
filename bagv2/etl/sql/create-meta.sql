@@ -15,6 +15,9 @@ INSERT INTO nlx_bag_info (sleutel,waarde)
         VALUES ('software_versie', '1.5.2');
 INSERT INTO nlx_bag_info (sleutel,waarde)
         VALUES ('schema_creatie', to_char(current_timestamp, 'DD-Mon-IYYY HH24:MI:SS'));
+INSERT INTO nlx_bag_info (sleutel,waarde)
+        VALUES ('bag_xsd_versie', '20200601');
+
 
 -- Systeem tabellen
 -- Actie log, handig om fouten en timings te analyseren
