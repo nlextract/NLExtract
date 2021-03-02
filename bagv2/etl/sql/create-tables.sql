@@ -300,6 +300,7 @@ CREATE TABLE gemeente_woonplaats (
   woonplaatscode varchar(4),
   gemeentecode varchar(4),
   status gemeenteWoonplaatsStatus,
+  geometry geometry(Point,28992),
   PRIMARY KEY (gid)
 );
 
