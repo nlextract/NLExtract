@@ -4,7 +4,7 @@
 
 # INPUT: gml files, point to directory or file(s) pattern
 bag_input_file=test/data/lv/BAGNLDL*.zip
-file_ext_filter=xml
+file_ext_filter=zip
 
 # OUTPUT: PostGIS settings
 pg_host=localhost
