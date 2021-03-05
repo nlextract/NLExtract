@@ -1,3 +1,4 @@
+-- Author: Just van den Broecke
 -- SET search_path TO test,public;
 
 ALTER TABLE gemeente_woonplaats

@@ -1,8 +1,13 @@
+-- Author: Just van den Broecke
 -- SET search_path TO test,public;
 
 --
 -- INDEXEN
 --
+
+INSERT INTO nlx_bag_info (sleutel,waarde)
+        VALUES ('start_indexing', to_char(current_timestamp, 'DD-Mon-IYYY HH24:MI:SS'));
+
 -- Geometrie indexen
 DROP INDEX IF EXISTS ligplaats_geom_idx CASCADE;
 DROP INDEX IF EXISTS pand_geom_idx CASCADE;
@@ -50,4 +55,7 @@ CREATE INDEX woonplaats_naam ON woonplaats USING btree (naam);
 -- CREATE INDEX
 --         adresseerbaarobjectnevenadreskey ON adresseerbaarobjectnevenadres USING btree (identificatie,voorkomenidentificatie, begingeldigheid, nevenadres);
 
-INSERT INTO nlx_bag_log (actie, bestand) VALUES ('indexen aangemaakt', 'create-indexes.sql');
+INSERT INTO nlx_bag_log (actie, bestand) VALUES ('end_indexing', 'create-indexes.sql');
+
+INSERT INTO nlx_bag_info (sleutel,waarde)
+        VALUES ('end_base_etl', to_char(current_timestamp, 'DD-Mon-IYYY HH24:MI:SS'));

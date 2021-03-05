@@ -4,7 +4,7 @@
 
 # INPUT: gml files, point to directory or file(s) pattern
 bag_input_file=test/data/lv/BAGNLDL*.zip
-file_ext_filter=xml
+bag_file_ext=zip
 
 # OUTPUT: PostGIS settings
 # Output to PostGIS running on Docker host!

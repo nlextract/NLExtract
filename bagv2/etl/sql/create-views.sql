@@ -1,6 +1,8 @@
 -- Views voor BAG tabellen
 -- BAG Objecten kunnen niet-actueel of zelfs niet bestaand (beeindigd) zijn
 -- Via Views kunnen actuele en bestaande objecten uitgefilterd worden.
+-- Author: Just van den Broecke
+
 -- SET search_path TO test,public;
 -- LIG
 DROP VIEW IF EXISTS ligplaatsactueel;

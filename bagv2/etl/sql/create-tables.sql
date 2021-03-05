@@ -3,6 +3,7 @@
 -- Te gebruiken als basis tabellen om specifieke tabellen
 -- aan te maken via bijvoorbeeld VIEWs of SQL selecties.
 -- Op alfabet.
+-- Author: Just van den Broecke
 
 -- Common
 DROP TYPE IF EXISTS statusNaamgeving  CASCADE;

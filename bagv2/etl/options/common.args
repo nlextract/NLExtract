@@ -9,6 +9,15 @@
 # 9999PND15022021.zip
 bag_obj_file_pat=[0-9][0-9][0-9][0-9][LSVNPOW][ITBUNPP][GAOMDRL][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]
 
+# See ETL config file.
+# [GDAL_3462]
+bag_obj_file_pat_no_wpl=[0-9][0-9][0-9][0-9][LSVNPO][ITBUNP][GAOMDR][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]
+bag_wpl_file_pat=[0-9][0-9][0-9][0-9]WPL[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]
+
+bag_file_wildcard=*
+
+temp_file_path_prepend=/vsizip/
+
 # OUTPUT: ogr2ogr PostGIS specifieke settings
 # Zie: https://gdal.org/drivers/vector/pg.html
 
