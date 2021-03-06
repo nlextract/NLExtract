@@ -18,7 +18,7 @@ De belangrijkste functies die via Stetl worden aangewend:
 * XSLT voor "niet-BAG-model" XML-bestanden zoals Woonplaats-Gemeenten en Leverings
 * CSV input naar Postgres output voor CBS Gemeenten en Provincies
 
-## No Docker
+## Geen Docker
 
 Kan wel maar is hoge versie GDAL nodig, minimaal 3.2.2.
 
@@ -29,11 +29,11 @@ Kan wel maar is hoge versie GDAL nodig, minimaal 3.2.2.
 
 # Will use options/default.args
 # Gemeente - Override input file and file extension - needs full zipfile unpack because of GDAL bug
-./etl.sh -a schema=doesburg -a bag_file_ext=xml -a temp_file_path_prepend= -a bag_input_file=~/project/nlextract/data/BAG-2.0/BAGGEM0221L-Doesburg-15092020.zip
-
+ ./etl.sh -a schema=doesburg -a bag_input_file=test/BAGGEM0221L-15022021.zip
+ 
 ```
 
-## Test with Docker
+## Met Docker
 
 ```
 # pre: setup a PostGIS DB on your localhost with name bagv2 and postgres postgres credentials
@@ -54,7 +54,7 @@ echo "\d+ test.verblijfsobject" | psql bagv2;
 
 # Single Municipality (Gemeente)
 # Override default schema and force XML processing for Gemeente Leveringen (needed, see GDAL bug):
-docker run --name nlextract --rm -v $(pwd)/test/BAGGEM0221L-15022021.zip:/nlx/bagv2/etl/test/data/lv/BAGNLDL-15092020-small.zip nlextract/nlextract:latest bagv2/etl/etl.sh -a schema=doesburg -a bag_file_ext=xml -a temp_file_path_prepend= 
+docker run --name nlextract --rm -v $(pwd)/test/BAGGEM0221L-15022021.zip:/nlx/bagv2/etl/test/data/lv/BAGNLDL-15092020-small.zip nlextract/nlextract:latest bagv2/etl/etl.sh -a schema=doesburg 
 
 # Entire Netherlands
 docker run --name nlextract --rm -v /Users/just/project/nlextract/data/BAG-2.0/BAGNLDL-08112020.zip:/nlx/bagv2/etl/test/data/lv/BAGNLDL-15092020-small.zip nlextract/nlextract:latest bagv2/etl/etl.sh

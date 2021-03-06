@@ -3,7 +3,7 @@
 # These values are substituted into the ETL conf in conf/etl-imbag-v2.1.0.cfg, see the {arg} strings there
 
 # INPUT: gml files, point to directory or file(s) pattern
-bag_input_file=test/data/lv/BAGNLDL*.zip
+bag_input_file=test/data/lv/BAGNLDL-15092020-small.zip
 bag_file_ext=zip
 
 # OUTPUT: PostGIS settings

@@ -37,6 +37,24 @@ Geometrie LIG, STA, WPL en PND
 
 * voorlopige oplossing zou een expliciete CAST kunnen zijn
 
+### Warnings on ETL
+ 
+* PND with LVBAG NL - version `08022021` to Postgres shows:
+
+```
+Warning 1: Invalid date : 2208-04-23, value set to null
+Warning 1: Self-intersection at or near point 193146.92846014825 421429.78180285986
+Warning 1: Self-intersection at or near point 193645.52147008112 420344.97782479267
+Warning 1: Invalid date : 2202-03-19, value set to null
+Warning 1: Invalid date : 2202-03-19, value set to null
+arning 1: Invalid date : 2214-11-24, value set to null
+Warning 1: Self-intersection at or near point 145323.79999999999 476309.34100000001
+Warning 1: Invalid date : 2104-01-21, value set to null
+Warning 1: Invalid date : 2104-01-21, value set to null
+Warning 1: Invalid date : 2201-08-12, value set to null
+
+```
+
 ### Solved
 
 See https://github.com/geopython/stetl/issues/112

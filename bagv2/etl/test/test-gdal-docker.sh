@@ -36,27 +36,27 @@ do
 #   echo "run: ${CMD}"
 #   docker run --rm -v $(pwd):/work -it ${DOCKER_IMAGE} sh -c "${CMD}"
 done
-
-# Doesburg Entire
-BAG_URL="https://extracten.bag.kadaster.nl/lvbag/extracten"
-DATE="15022021"
-GEM_CODE="0221"
-BAG_ZIP="BAGGEM${GEM_CODE}L-${DATE}.zip"
-BAG_ZIP_URL="${BAG_URL}/Gemeente%20LVC/${GEM_CODE}/${BAG_ZIP}"
-
-echo "Download ${BAG_ZIP}"
-curl --silent -o ${BAG_ZIP} ${BAG_ZIP_URL}
-
-OBJS="LIG NUM OPR PND STA VBO WPL"
-for OBJ in ${OBJS}
-do
-	# /vsizip/{/vsizip/{/vsizip/{BAGGEM0221L-15092020.zip}/0221GEM15092020.zip}/0221PND15092020.zip}
-	# ogrinfo /vsizip/{/vsizip/{/vsizip/${BAG_ZIP}/${GEM_CODE}GEM${DATE}.zip}/${GEM_CODE}${OBJ}${DATE}.zip}
-    DATA_FILE="/vsizip/{/vsizip/{/vsizip/work/${BAG_ZIP}/${GEM_CODE}GEM${DATE}.zip}/${GEM_CODE}${OBJ}${DATE}.zip}"
-    CMD="ogr2ogr ${OGR_OPTS} ${PG} ${DATA_FILE}"
-    echo "run: ${CMD}"
-    docker run --rm -v $(pwd):/work -it ${DOCKER_IMAGE} sh -c "${CMD}"
-
-done
-
-/bin/rm ${BAG_ZIP}
+#
+# # Doesburg Entire
+# BAG_URL="https://extracten.bag.kadaster.nl/lvbag/extracten"
+# DATE="15022021"
+# GEM_CODE="0221"
+# BAG_ZIP="BAGGEM${GEM_CODE}L-${DATE}.zip"
+# BAG_ZIP_URL="${BAG_URL}/Gemeente%20LVC/${GEM_CODE}/${BAG_ZIP}"
+#
+# echo "Download ${BAG_ZIP}"
+# curl --silent -o ${BAG_ZIP} ${BAG_ZIP_URL}
+#
+# OBJS="LIG NUM OPR PND STA VBO WPL"
+# for OBJ in ${OBJS}
+# do
+# 	# /vsizip/{/vsizip/{/vsizip/{BAGGEM0221L-15092020.zip}/0221GEM15092020.zip}/0221PND15092020.zip}
+# 	# ogrinfo /vsizip/{/vsizip/{/vsizip/${BAG_ZIP}/${GEM_CODE}GEM${DATE}.zip}/${GEM_CODE}${OBJ}${DATE}.zip}
+#     DATA_FILE="/vsizip/{/vsizip/{/vsizip/work/${BAG_ZIP}/${GEM_CODE}GEM${DATE}.zip}/${GEM_CODE}${OBJ}${DATE}.zip}"
+#     CMD="ogr2ogr ${OGR_OPTS} ${PG} ${DATA_FILE}"
+#     echo "run: ${CMD}"
+#     docker run --rm -v $(pwd):/work -it ${DOCKER_IMAGE} sh -c "${CMD}"
+#
+# done
+#
+# /bin/rm ${BAG_ZIP}
