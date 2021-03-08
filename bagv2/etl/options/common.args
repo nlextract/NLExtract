@@ -21,12 +21,16 @@ bag_file_wildcard=*
 # OUTPUT: ogr2ogr PostGIS specifieke settings
 # Zie: https://gdal.org/drivers/vector/pg.html
 
-# OPTION: attribuut waarden bijv gebruiksdoel of nevenadres die meerdere keren
+# OPTION: multi-valued fields
+# VBO gebruiksdoel, VBO/LIG/STA-nevenadres enVBO- pandref
 # in XML voorkomen, wat daarmee te doen
 # May use: these options
 # multival_opts=-splitlistfields -maxsubfields 1
 # multival_opts=-splitlistfields
-multival_opts=-fieldTypeToString StringList
+# multival_opts=-fieldTypeToString StringList
+
+# Map multi-valued fields to String array
+multival_opts=
 
 # projectie opties
 srs_opts=-a_srs EPSG:28992
@@ -42,7 +46,7 @@ config_opts=-append -skipfailures --config PG_USE_COPY YES
 
 # Features per transactions - default 100000
 # feat_per_tx=-gt 65535
-feat_per_tx=
+feat_per_tx=-gt 65535
 
 # Welk gebied (clip), zet leeg voor alles (nog niet voor BAG geprobeerd!)
 # spatial_extent=120000 450000 160000 500000

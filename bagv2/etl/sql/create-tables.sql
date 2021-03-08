@@ -20,7 +20,7 @@ CREATE TABLE ligplaats
     identificatie character varying(16),
 
     hoofdadresnummeraanduidingref character varying(16),
-    nevenadresnummeraanduidingref character varying,
+    nevenadresnummeraanduidingref character varying(16) ARRAY,
     status ligplaatsStatus,
 
     geconstateerd boolean,
@@ -176,7 +176,7 @@ CREATE TABLE standplaats
     identificatie character varying(16),
 
     hoofdadresnummeraanduidingref character varying(16),
-    nevenadresnummeraanduidingref character varying,
+    nevenadresnummeraanduidingref character varying(16) ARRAY,
     status standplaatsStatus,
 
     geconstateerd boolean,
@@ -226,11 +226,11 @@ CREATE TABLE verblijfsobject
     gid serial,
     identificatie character varying(16),
 
-    gebruiksdoel character varying,
+    gebruiksdoel character varying ARRAY,
     oppervlakte integer,
     hoofdadresnummeraanduidingref character varying(16),
-    nevenadresnummeraanduidingref character varying,
-    pandref character varying,
+    nevenadresnummeraanduidingref character varying(16) ARRAY,
+    pandref character varying(16) ARRAY,
     status verblijfsobjectStatus,
 
     geconstateerd boolean,

@@ -19,7 +19,7 @@ ORDER BY schema;
 
 -- Row counts per schema en per tabel
 SELECT
-  nspname AS schemaname,relname,reltuples
+  nspname AS schemaname,relname,reltuples::bigint
 FROM pg_class C
 LEFT JOIN pg_namespace N ON (N.oid = C.relnamespace)
 WHERE

@@ -17,7 +17,7 @@ BAG Bronbestanden downloaden
 ----------------------------
 
 De BAG Leveringsbestanden (totaal plm 1.5 GB .zip) worden iedere maand ververst en zijn te downloaden via deze
-PDOK link: http://geodata.nationaalgeoregister.nl/inspireadressen/atom/inspireadressen.xml (Atom feed).
+PDOK link: https://geodata.nationaalgeoregister.nl/inspireadressen/atom/inspireadressen.xml (Atom feed).
 Als je wilt testen met een kleiner bestand kun je via https://data.nlextract.nl/bag/bron/BAG_Amstelveen_2011feb01.zip
 ook de "BAG Amstelveen" (5.6 MB) downloaden. Let wel dat de bestandsstructuur van de Amstelveen-levering afwijkt van de tegenwoordige BAG-leveringen.
 
@@ -48,20 +48,20 @@ BAG-Extract downloaden
 ----------------------
 
 - download NLExtract, zie laatste versie op: https://github.com/nlextract/NLExtract/releases. De nieuwste versie staat bovenaan: kies de "real-release" nl  extract zip.
-- of snapshot (huidige repo versie) via git: git clone http://github.com/opengeogroep/NLExtract.git
+- of snapshot (huidige repo versie) via git: git clone https://github.com/opengeogroep/NLExtract.git
 - of snapshot als .zip: https://github.com/nlextract/NLExtract/zipball/master
 
 Afhankelijkheden
 ----------------
 
-- PostgreSQL: relationele database, minimaal versie 9.1, optimaal is versie 9.5, Aangemaakte DB moet **UTF8 encoding** hebben. zie http://www.postgresql.org
-- PostGIS: spatial extensie PostgreSQL, bijv. opslag geodata, minimaal versie 2.0, optimaal is versie 2.2, zie http://postgis.org
+- PostgreSQL: relationele database, minimaal versie 9.1, optimaal is versie 9.5, Aangemaakte DB moet **UTF8 encoding** hebben. zie https://www.postgresql.org
+- PostGIS: spatial extensie PostgreSQL, bijv. opslag geodata, minimaal versie 2.0, optimaal is versie 2.2, zie https://postgis.org
 - Python: versie 2, minimaal versie 2.4.3, beste is 2.7 voor lxml, geen Python 3
 - Python argparse package, voor argument parsing alleen indien Python < 2.7
-- psycopg2: Python PostgreSQL client bibliotheek. Zie http://initd.org/psycopg
-- lxml voor razendsnelle native XML parsing, Zie http://lxml.de
-- GDAL/OGR tools en bibliotheek voor geodata manipulatie. Minimaal 1.8.1. Zie http://gdal.org
-- GDAL/OGR Python bindings Zie www.gdal.org en http://pypi.python.org/pypi/GDAL voor Geometrie parsing/validatie en manipulatie
+- psycopg2: Python PostgreSQL client bibliotheek. Zie https://initd.org/psycopg
+- lxml voor razendsnelle native XML parsing, Zie https://lxml.de
+- GDAL/OGR tools en bibliotheek voor geodata manipulatie. Minimaal 1.8.1. Zie https://gdal.org
+- GDAL/OGR Python bindings Zie www.gdal.org en https://pypi.python.org/pypi/GDAL voor Geometrie parsing/validatie en manipulatie
 
 Installatie (Linux)
 -------------------
@@ -70,7 +70,7 @@ Instructies hieronder zijn voor Ubuntu 18.04. Bij andere distributies zal het en
 
 - Bronbestanden downloaden op de achtergrond (duurt wat langer) ::
     
-    $ wget http://geodata.nationaalgeoregister.nl/inspireadressen/extract/inspireadressen.zip &
+    $ wget https://geodata.nationaalgeoregister.nl/inspireadressen/extract/inspireadressen.zip &
     
 - Bag-extract downloaden (pas eventueel versie aan) en uitpakken ::
     
@@ -157,8 +157,8 @@ Benodigdheden:
 - PostgreSQL 9.x: https://www.postgresql.org/download/. 
 - PostGIS 2.x: wordt geïnstalleerd via de Stack Builder van PostgreSQL.
 - Python 2.7: https://www.python.org/downloads/windows/, momenteel is versie 2.7.11 de meest recente versie. Neem de 64-bits versie als je een 64-bits machine hebt. Let op, als je Python via de hoofdpagina downloadt, krijg je de 32-bits versie.
-- Recente GDAL-versie (1.11 of 2.x): te installeren via `QGIS <http://www.qgis.org/en/site/forusers/download.html>`_ of via de `OSGeo4W installer <http://trac.osgeo.org/osgeo4w/>`_ (niet getest).
-- Python bindings: http://www.lfd.uci.edu/~gohlke/pythonlibs/. Nodig zijn:
+- Recente GDAL-versie (1.11 of 2.x): te installeren via `QGIS <https://www.qgis.org/en/site/forusers/download.html>`_ of via de `OSGeo4W installer <https://trac.osgeo.org/osgeo4w/>`_ (niet getest).
+- Python bindings: https://www.lfd.uci.edu/~gohlke/pythonlibs/. Nodig zijn:
 
   - lxml (alleen getest met lxml-3.4.4)
   - psycopg (dit is Psycopg2)
@@ -194,7 +194,7 @@ Zie Instellingen_ voor de configuratie en het gebruik van BAG-Extract.
 Installatie (Mac OSX)
 ---------------------
 
-Voor Mac OSX zijn meerdere mogelijkheden. Hieronder wordt uitgegaan van MacPorts http://www.macports.org, een Unix package
+Voor Mac OSX zijn meerdere mogelijkheden. Hieronder wordt uitgegaan van MacPorts https://www.macports.org, een Unix package
 manager waarmee je gemakkelijk tools en bibliotheken en hun afhankelijkheden  kunt installeren.
 MacPorts is sowieso aan te bevelen als je meerdere Unix/Linux tools gaat gebruiken. Python is al aanwezig
 op de Mac en is bruikbaar, de versie van Python kan afhankelijk zijn van je OSX versie. Probeer te vermijden om Python
@@ -221,7 +221,7 @@ Onder de manier die  Just, een van de NLExtract ontwikkelaars gebruikt. (NLExtra
 
     sudo easy_install lxml
 
-- GDAL: KyngChaos (indien MacPorts GDAL-versie < 1.8.1 is) : http://www.kyngchaos.com/software/index Download en install `GDAL Complete`.
+- GDAL: KyngChaos (indien MacPorts GDAL-versie < 1.8.1 is) : https://www.kyngchaos.com/software/index Download en install `GDAL Complete`.
 
 - GDAL-Python bindings (zijn mogelijk al via GDAL beschikbaar?)
 
@@ -335,5 +335,5 @@ heeft je "bag" database niet de **UTF8 character encoding** (zie boven). Check b
 of je DB de character-encoding UTF8 heeft. Is later aan te passen.
 Zie ook `dit issue <https://github.com/nlextract/NLExtract/issues/217>`_.
 
-Zie http://docs.kademo.nl/project/bagextract.html voor een installatie voorbeeld.
+Zie https://docs.kademo.nl/project/bagextract.html voor een installatie voorbeeld.
 
