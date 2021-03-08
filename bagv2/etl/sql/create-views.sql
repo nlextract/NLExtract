@@ -11,8 +11,7 @@ CREATE VIEW ligplaatsactueel AS
     WHERE
       begingeldigheid <= now()
       AND (eindgeldigheid is NULL OR eindgeldigheid >= now())
-      AND tijdstipregistratie <= now()
-      AND (eindregistratie is NULL OR eindregistratie >= now());
+      AND (tijdstipinactief is NULL OR tijdstipinactief >= now());
 
 DROP VIEW IF EXISTS ligplaatsactueelbestaand;
 CREATE VIEW ligplaatsactueelbestaand AS
@@ -20,9 +19,8 @@ CREATE VIEW ligplaatsactueelbestaand AS
     WHERE
         begingeldigheid <= now()
         AND (eindgeldigheid is NULL OR eindgeldigheid >= now())
-        AND tijdstipregistratie <= now()
-        AND (eindregistratie is NULL OR eindregistratie >= now())
-        AND status <> 'Plaats ingetrokken';
+        AND (tijdstipinactief is NULL OR tijdstipinactief >= now())
+        AND status <> 'Plaats ingetrokken'::ligplaatsStatus;
 
 -- NUM
 DROP VIEW IF EXISTS nummeraanduidingactueel;
@@ -32,8 +30,7 @@ CREATE VIEW nummeraanduidingactueel AS
     WHERE
       begingeldigheid <= now()
       AND (eindgeldigheid is NULL OR eindgeldigheid >= now())
-      AND tijdstipregistratie <= now()
-      AND (eindregistratie is NULL OR eindregistratie >= now());
+      AND (tijdstipinactief is NULL OR tijdstipinactief >= now());
 
 DROP VIEW IF EXISTS nummeraanduidingactueelbestaand;
 CREATE VIEW nummeraanduidingactueelbestaand AS
@@ -41,9 +38,8 @@ CREATE VIEW nummeraanduidingactueelbestaand AS
   WHERE
     begingeldigheid <= now()
     AND (eindgeldigheid is NULL OR eindgeldigheid >= now())
-    AND tijdstipregistratie <= now()
-    AND (eindregistratie is NULL OR eindregistratie >= now())
-    AND status <> 'Naamgeving ingetrokken';
+    AND (tijdstipinactief is NULL OR tijdstipinactief >= now())
+    AND status <> 'Naamgeving ingetrokken'::statusNaamgeving;
 
 -- OPR
 DROP VIEW IF EXISTS openbareruimteactueel;
@@ -52,8 +48,7 @@ CREATE VIEW openbareruimteactueel AS
   WHERE
     begingeldigheid <= now()
     AND (eindgeldigheid is NULL OR eindgeldigheid >= now())
-    AND tijdstipregistratie <= now()
-    AND (eindregistratie is NULL OR eindregistratie >= now());
+    AND (tijdstipinactief is NULL OR tijdstipinactief >= now());
 
 DROP VIEW IF EXISTS openbareruimteactueelbestaand;
 CREATE VIEW openbareruimteactueelbestaand AS
@@ -61,9 +56,8 @@ CREATE VIEW openbareruimteactueelbestaand AS
   WHERE
     begingeldigheid <= now()
     AND (eindgeldigheid is NULL OR eindgeldigheid >= now())
-    AND tijdstipregistratie <= now()
-    AND (eindregistratie is NULL OR eindregistratie >= now())
-    AND status <> 'Naamgeving ingetrokken';
+    AND (tijdstipinactief is NULL OR tijdstipinactief >= now())
+    AND status <> 'Naamgeving ingetrokken'::statusNaamgeving;
 
 -- PND
 DROP VIEW IF EXISTS pandactueel;
@@ -72,8 +66,7 @@ CREATE VIEW pandactueel AS
     WHERE
       begingeldigheid <= now()
       AND (eindgeldigheid is NULL OR eindgeldigheid >= now())
-      AND tijdstipregistratie <= now()
-      AND (eindregistratie is NULL OR eindregistratie >= now());
+      AND (tijdstipinactief is NULL OR tijdstipinactief >= now());
 
 DROP VIEW IF EXISTS pandactueelbestaand;
 CREATE VIEW pandactueelbestaand AS
@@ -81,12 +74,11 @@ CREATE VIEW pandactueelbestaand AS
     WHERE
      begingeldigheid <= now()
      AND (eindgeldigheid is NULL OR eindgeldigheid >= now())
-     AND tijdstipregistratie <= now()
-     AND (eindregistratie is NULL OR eindregistratie >= now())
-     AND (status <> 'Niet gerealiseerd pand' 
-     AND status <> 'Pand gesloopt'
-     AND status <> 'Bouwvergunning verleend'
-     AND status <> 'Pand ten onrechte opgevoerd');
+     AND (tijdstipinactief is NULL OR tijdstipinactief >= now())
+     AND (status <> 'Niet gerealiseerd pand'::pandStatus
+     AND status <> 'Pand gesloopt'::pandStatus
+     AND status <> 'Bouwvergunning verleend'::pandStatus
+     AND status <> 'Pand ten onrechte opgevoerd'::pandStatus );
 
 -- STA
 DROP VIEW IF EXISTS standplaatsactueel;
@@ -95,8 +87,7 @@ CREATE VIEW standplaatsactueel AS
     WHERE
     begingeldigheid <= now()
     AND (eindgeldigheid is NULL OR eindgeldigheid >= now())
-    AND tijdstipregistratie <= now()
-    AND (eindregistratie is NULL OR eindregistratie >= now());
+    AND (tijdstipinactief is NULL OR tijdstipinactief >= now());
 
 DROP VIEW IF EXISTS standplaatsactueelbestaand;
 CREATE VIEW standplaatsactueelbestaand AS
@@ -104,9 +95,8 @@ CREATE VIEW standplaatsactueelbestaand AS
   WHERE
     begingeldigheid <= now()
     AND (eindgeldigheid is NULL OR eindgeldigheid >= now())
-    AND tijdstipregistratie <= now()
-    AND (eindregistratie is NULL OR eindregistratie >= now())
-    AND status <> 'Plaats ingetrokken';
+    AND (tijdstipinactief is NULL OR tijdstipinactief >= now())
+    AND status <> 'Plaats ingetrokken'::standplaatsStatus;
 
 -- VBO
 DROP VIEW IF EXISTS verblijfsobjectactueel;
@@ -115,8 +105,7 @@ CREATE VIEW verblijfsobjectactueel AS
   WHERE
     begingeldigheid <= now()
     AND (eindgeldigheid is NULL OR eindgeldigheid >= now())
-    AND tijdstipregistratie <= now()
-    AND (eindregistratie is NULL OR eindregistratie >= now());
+    AND (tijdstipinactief is NULL OR tijdstipinactief >= now());
 
 
 DROP VIEW IF EXISTS verblijfsobjectactueelbestaand;
@@ -125,11 +114,10 @@ CREATE VIEW verblijfsobjectactueelbestaand AS
     WHERE
       begingeldigheid <= now()
       AND (eindgeldigheid is NULL OR eindgeldigheid >= now())
-      AND tijdstipregistratie <= now()
-      AND (eindregistratie is NULL OR eindregistratie >= now())
-      AND (status <> 'Niet gerealiseerd verblijfsobject'
-      AND status  <> 'Verblijfsobject ingetrokken'
-      AND status  <> 'Verblijfsobject ten onrechte opgevoerd');
+      AND (tijdstipinactief is NULL OR tijdstipinactief >= now())
+      AND (status <> 'Niet gerealiseerd verblijfsobject'::verblijfsobjectStatus
+      AND status  <> 'Verblijfsobject ingetrokken'::verblijfsobjectStatus
+      AND status  <> 'Verblijfsobject ten onrechte opgevoerd'::verblijfsobjectStatus);
 
 -- JvdB removed AND status  <> 'Verblijfsobject gevormd', see issue #173
 -- https://github.com/nlextract/NLExtract/issues/173  23.3.16
@@ -142,8 +130,7 @@ CREATE VIEW woonplaatsactueel AS
   WHERE
     begingeldigheid <= now()
     AND (eindgeldigheid is NULL OR eindgeldigheid >= now())
-    AND tijdstipregistratie <= now()
-    AND (eindregistratie is NULL OR eindregistratie >= now());
+    AND (tijdstipinactief is NULL OR tijdstipinactief >= now());
 
 DROP VIEW IF EXISTS woonplaatsactueelbestaand;
 CREATE VIEW woonplaatsactueelbestaand AS
@@ -151,9 +138,8 @@ CREATE VIEW woonplaatsactueelbestaand AS
   WHERE
     begingeldigheid <= now()
     AND (eindgeldigheid is NULL OR eindgeldigheid >= now())
-    AND tijdstipregistratie <= now()
-    AND (eindregistratie is NULL OR eindregistratie >= now())
-    AND status  <> 'Woonplaats ingetrokken';
+    AND (tijdstipinactief is NULL OR tijdstipinactief >= now())
+    AND status  <> 'Woonplaats ingetrokken'::woonplaatsStatus;
 
 -- KOPPELTABELLEN
 

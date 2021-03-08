@@ -58,7 +58,8 @@ CREATE TABLE nummeraanduiding
     huisnummertoevoeging character varying(4),
     postcode character varying(6),
     typeadresseerbaarobject typeAdresseerbaarObject,
-    openbareruimteref character varying(16),
+    openbareruimteref character varying(16) not null,
+    woonplaatsref character varying(16),
     status statusNaamgeving,
 
     geconstateerd boolean,
@@ -264,7 +265,7 @@ CREATE TABLE woonplaats
     identificatie character varying(16),
 
     naam character varying,
-    status character varying,
+    status woonplaatsStatus,
 
     geconstateerd boolean,
     documentdatum date,

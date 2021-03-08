@@ -17,6 +17,12 @@ D.w.z. een tweede versie voor de structuur van de BAG, gevat in het IMBAG model 
 uiteindelijk in de XML Schema's (XSDs) en leveringen zoals LV BAG Extract, de BAG XML brondata.
 BAG v2 is al enige tijd verkrijgbaar.
 
+Voor NLExtract zijn de belangrijkste wijzigingen van BAG v1 naar v2:
+
+* uitbreiden van het aantal tekens voor het brondocumentnummer van 24 naar 40;
+* 2 nieuwe statussen van Panden en Verblijfsobjecten: `verbouwing` en `ten onrechte opgevoerd`
+* drie nieuwe typen tijdstippen: `tijdstipRegistratie`, `eindRegistratie` en `LV-registratiedatum`.
+
 In 2021 wordt versie 2 definitief uitgerold en wordt versie 1 uitgefaseerd.
 De details zijn op dit moment (maart 2021):
 
