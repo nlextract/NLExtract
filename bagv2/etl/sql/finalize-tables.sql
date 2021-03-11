@@ -1,15 +1,86 @@
 -- Author: Just van den Broecke
 -- SET search_path TO test,public;
 
+-- Maak tabellen zoveel mogelijk compatibel met BAG v1
+
+UPDATE ligplaats SET aanduidingrecordinactief=(tijdstipinactief is not NULL AND tijdstipinactief <=now());
+UPDATE nummeraanduiding SET aanduidingrecordinactief=(tijdstipinactief is not NULL AND tijdstipinactief <=now());
+UPDATE openbareruimte SET aanduidingrecordinactief=(tijdstipinactief is not NULL AND tijdstipinactief <=now());
+UPDATE pand SET aanduidingrecordinactief=(tijdstipinactief is not NULL AND tijdstipinactief <=now());
+UPDATE standplaats SET aanduidingrecordinactief=(tijdstipinactief is not NULL AND tijdstipinactief <=now());
+UPDATE verblijfsobject SET aanduidingrecordinactief=(tijdstipinactief is not NULL AND tijdstipinactief <=now());
+UPDATE woonplaats SET aanduidingrecordinactief=(tijdstipinactief is not NULL AND tijdstipinactief <=now());
+UPDATE adresseerbaarobjectnevenadres SET aanduidingrecordinactief=(tijdstipinactief is not NULL AND tijdstipinactief <=now());
+
+ALTER TABLE ligplaats RENAME COLUMN begingeldigheid TO begindatumTijdvakGeldigheid;
+ALTER TABLE nummeraanduiding RENAME COLUMN begingeldigheid TO begindatumTijdvakGeldigheid;
+ALTER TABLE openbareruimte RENAME COLUMN begingeldigheid TO begindatumTijdvakGeldigheid;
+ALTER TABLE pand RENAME COLUMN begingeldigheid TO begindatumTijdvakGeldigheid;
+ALTER TABLE standplaats RENAME COLUMN begingeldigheid TO begindatumTijdvakGeldigheid;
+ALTER TABLE verblijfsobject RENAME COLUMN begingeldigheid TO begindatumTijdvakGeldigheid;
+ALTER TABLE woonplaats RENAME COLUMN begingeldigheid TO begindatumTijdvakGeldigheid;
+ALTER TABLE adresseerbaarobjectnevenadres RENAME COLUMN begingeldigheid TO begindatumTijdvakGeldigheid;
+ALTER TABLE gemeente_woonplaats RENAME COLUMN begingeldigheid TO begindatumTijdvakGeldigheid;
+
+
+ALTER TABLE ligplaats RENAME COLUMN eindgeldigheid TO einddatumTijdvakGeldigheid;
+ALTER TABLE nummeraanduiding RENAME COLUMN eindgeldigheid TO einddatumTijdvakGeldigheid;
+ALTER TABLE openbareruimte RENAME COLUMN eindgeldigheid TO einddatumTijdvakGeldigheid;
+ALTER TABLE pand RENAME COLUMN eindgeldigheid TO einddatumTijdvakGeldigheid;
+ALTER TABLE standplaats RENAME COLUMN eindgeldigheid TO einddatumTijdvakGeldigheid;
+ALTER TABLE verblijfsobject RENAME COLUMN eindgeldigheid TO einddatumTijdvakGeldigheid;
+ALTER TABLE woonplaats RENAME COLUMN eindgeldigheid TO einddatumTijdvakGeldigheid;
+ALTER TABLE adresseerbaarobjectnevenadres RENAME COLUMN eindgeldigheid TO einddatumTijdvakGeldigheid;
+ALTER TABLE gemeente_woonplaats RENAME COLUMN eindgeldigheid TO einddatumTijdvakGeldigheid;
+
+-- LIG specifiek
+ALTER TABLE ligplaats RENAME COLUMN hoofdadresnummeraanduidingref TO hoofdadres;
+ALTER TABLE ligplaats RENAME COLUMN nevenadresnummeraanduidingref TO nevenadressen;
+ALTER TABLE ligplaats RENAME COLUMN status TO ligplaatsStatus;
+
+-- NUM specifiek
+ALTER TABLE nummeraanduiding RENAME COLUMN openbareruimteref TO gerelateerdeOpenbareRuimte;
+ALTER TABLE nummeraanduiding RENAME COLUMN woonplaatsref TO gerelateerdeWoonplaats;
+ALTER TABLE nummeraanduiding RENAME COLUMN status TO nummeraanduidingStatus;
+
+-- OPR specifiek
+ALTER TABLE openbareruimte RENAME COLUMN naam TO openbareRuimteNaam;
+ALTER TABLE openbareruimte RENAME COLUMN verkorteNaam TO verkorteOpenbareRuimteNaam;
+ALTER TABLE openbareruimte RENAME COLUMN type TO openbareRuimteType;
+ALTER TABLE openbareruimte RENAME COLUMN woonplaatsref TO gerelateerdeWoonplaats;
+ALTER TABLE openbareruimte RENAME COLUMN status TO openbareRuimteStatus;
+
+-- PND specifiek
+ALTER TABLE pand RENAME COLUMN oorspronkelijkbouwjaar TO bouwjaar;
+ALTER TABLE pand RENAME COLUMN status TO pandStatus;
+
+-- STA specifiek
+ALTER TABLE standplaats RENAME COLUMN hoofdadresnummeraanduidingref TO hoofdadres;
+ALTER TABLE standplaats RENAME COLUMN nevenadresnummeraanduidingref TO nevenadressen;
+ALTER TABLE standplaats RENAME COLUMN status TO standplaatsStatus;
+
+-- VBO specifiek
+ALTER TABLE verblijfsobject RENAME COLUMN hoofdadresnummeraanduidingref TO hoofdadres;
+ALTER TABLE verblijfsobject RENAME COLUMN nevenadresnummeraanduidingref TO nevenadressen;
+ALTER TABLE verblijfsobject RENAME COLUMN gebruiksdoel TO gebruiksdoelverblijfsobject;
+ALTER TABLE verblijfsobject RENAME COLUMN oppervlakte TO oppervlakteVerblijfsobject;
+ALTER TABLE verblijfsobject RENAME COLUMN pandref TO gerelateerdepanden;
+ALTER TABLE verblijfsobject RENAME COLUMN status TO verblijfsobjectStatus;
+
+-- WPL specifiek
+ALTER TABLE woonplaats RENAME COLUMN naam TO woonplaatsNaam;
+ALTER TABLE woonplaats RENAME COLUMN status TO woonplaatsStatus;
+
+-- GEM-WPL specifiek
 ALTER TABLE gemeente_woonplaats
-  ALTER COLUMN begingeldigheid
+  ALTER COLUMN begindatumTijdvakGeldigheid
    TYPE TIMESTAMP WITH TIME ZONE
-     USING begingeldigheid::timestamp with time zone;
+     USING begindatumTijdvakGeldigheid::timestamp with time zone;
 
 ALTER TABLE gemeente_woonplaats
-  ALTER COLUMN eindgeldigheid
+  ALTER COLUMN einddatumTijdvakGeldigheid
    TYPE TIMESTAMP WITH TIME ZONE
-     USING eindgeldigheid::timestamp with time zone;
+     USING einddatumTijdvakGeldigheid::timestamp with time zone;
 
 ALTER TABLE gemeente_woonplaats DROP COLUMN geometry;
 

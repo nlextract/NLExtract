@@ -103,8 +103,8 @@ Select
 	NAD.postcode,
 	NAD.nummeraanduidingstatus,
 	NAD.typeadresseerbaarobject,
-	NAD.openbareruimteref,
-	NAD.woonplaatsref,
+	NAD.gerelateerdeopenbareruimte,
+	NAD.gerelateerdewoonplaats,
 	NAD.begindatumtijdvakgeldigheid,
 	NAD.einddatumtijdvakgeldigheid
 from nummeraanduiding NAD
@@ -146,7 +146,7 @@ SELECT PRINT_NOTICE('start: 3 BAG_WPL_ACTBEST_gegevens: '||current_time);
 DROP TABLE  IF EXISTS BAG_WPL_ACTBEST_gegevens cascade;
 create table BAG_WPL_ACTBEST_gegevens as
 SELECT
-OBR.woonplaatsref as woonplaats_id, WPL.woonplaatsnaam , GEM_WPL.gemeentecode as gemeente_id, PRV.gemeentenaam ,   PRV.provinciecode as provincie_id,   prv.provincienaam
+OBR.gerelateerdewoonplaats as woonplaats_id, WPL.woonplaatsnaam , GEM_WPL.gemeentecode as gemeente_id, PRV.gemeentenaam ,   PRV.provinciecode as provincie_id,   prv.provincienaam
 --,
 --ROUND(cast(avg(ST_x (ST_Transform (geopunt, 4326)))as numeric),3) as lon,
 --ROUND(cast(avg(ST_y (ST_Transform (geopunt, 4326)))as numeric),3) as lat,
@@ -159,17 +159,17 @@ FROM
   provincie_gemeenteactueel  PRV,
   woonplaatsactueelbestaand WPL
 WHERE
-  NAD.openbareruimteref = OBR.identificatie AND
-  VBO.hoofdadresnummeraanduidingref = NAD.identificatie and   prv.gemeentecode = gem_wpl.gemeentecode AND
-  wpl.identificatie = gem_wpl.woonplaatscode and OBR.woonplaatsref = wpl.identificatie
-  group by     OBR.woonplaatsref, WPL.woonplaatsnaam , GEM_WPL.gemeentecode , PRV.gemeentenaam ,   PRV.provinciecode ,   prv.provincienaam ;
+  NAD.gerelateerdeopenbareruimte = OBR.identificatie AND
+  VBO.hoofdadres = NAD.identificatie and   prv.gemeentecode = gem_wpl.gemeentecode AND
+  wpl.identificatie = gem_wpl.woonplaatscode and OBR.gerelateerdewoonplaats = wpl.identificatie
+  group by     OBR.gerelateerdewoonplaats, WPL.woonplaatsnaam , GEM_WPL.gemeentecode , PRV.gemeentenaam ,   PRV.provinciecode ,   prv.provincienaam ;
 COMMIT;
 --20200530 Query returned successfully: 2500 rows affected, 02:27 minutes execution time.
 
 
 BEGIN;
 -- Hier maken we de initiele adrestabel. LAter worden records verwijderd om adressen uniek te krijgen
--- De actueelbestaand tabellen van NAD, OBR, WPL, LIG, STA en VBO joinen (= hoofdadresnummeraanduidingrefsen)
+-- De actueelbestaand tabellen van NAD, OBR, WPL, LIG, STA en VBO joinen (= hoofdadressen)
 -- en deze samenvoegen (union) met actueelbestaand tabellen van NEV, NAD,OBR, WPL, LIG, STA en VBO joinen (= nevenadressen)
 SELECT PRINT_NOTICE('start: 4 Adresselectie: '||current_time);
 DROP TABLE IF EXISTS  Adresselectie cascade;
@@ -177,7 +177,7 @@ create table Adresselectie as
 -- Peter van Wee 210128 toegevvoegd distinct
 SELECT distinct
 coalesce(NAD.postcode,'0') ||'-'||NAD.huisnummer::text||'-'|| coalesce(NAD.huisletter, '0')||'-'|| coalesce(NAD.huisnummertoevoeging, '0') as PCHNHLHT,
-coalesce(NAD.postcode,'0') ||'-'||NAD.huisnummer::text||'-'|| coalesce(NAD.huisletter, '0')||'-'|| coalesce(NAD.huisnummertoevoeging, '0')||'-'||  NAD.openbareruimteref as uniq_key,
+coalesce(NAD.postcode,'0') ||'-'||NAD.huisnummer::text||'-'|| coalesce(NAD.huisletter, '0')||'-'|| coalesce(NAD.huisnummertoevoeging, '0')||'-'||  NAD.gerelateerdeopenbareruimte as uniq_key,
 case when NAD.postcode is null then  null else 1 end pchn_UNIEK,
 case when NAD.postcode is null then null else 1 end pchnhlht_UNIEK,
 NAD.identificatie as NAD_ID,
@@ -218,16 +218,16 @@ ROUND(cast(coalesce ( ST_Y(ST_Transform(vbo.geopunt, 4326)),ST_Y(ST_Transform(ST
 FROM
 nummeraanduidingactueelbestaand_compleet NAD
 left outer join   verblijfsobjectactueelbestaand VBO
-on    NAD.identificatie  =VBO.hoofdadresnummeraanduidingref
+on    NAD.identificatie  =VBO.hoofdadres
 left outer join  standplaatsactueelbestaand STA
-on NAD.identificatie =  STA.hoofdadresnummeraanduidingref
+on NAD.identificatie =  STA.hoofdadres
 left outer join  ligplaatsactueelbestaand LIG
 -- 20200606 vervangen
-on NAD.identificatie = LIG.hoofdadresnummeraanduidingref ,  BAG_WPL_ACTBEST_gegevens WPL,
+on NAD.identificatie = LIG.hoofdadres ,  BAG_WPL_ACTBEST_gegevens WPL,
   openbareruimteactueelbestaand OBR
 WHERE
-(VBO.hoofdadresnummeraanduidingref is not null or   STA.hoofdadresnummeraanduidingref is not null or   LIG.hoofdadresnummeraanduidingref is not null)  and   coalesce(NAD.woonplaatsref, OBR.woonplaatsref) = WPL.woonplaats_id and
-  NAD.openbareruimteref = OBR.identificatie
+(VBO.hoofdadres is not null or   STA.hoofdadres is not null or   LIG.hoofdadres is not null)  and   coalesce(NAD.gerelateerdewoonplaats, OBR.gerelateerdewoonplaats) = WPL.woonplaats_id and
+  NAD.gerelateerdeopenbareruimte = OBR.identificatie
 
 union
 -- De actueelbestaand tabellen van NEV< NAD, LIG, STA en VBO joinen (= nevenadressen)
@@ -235,7 +235,7 @@ union
 -- Peter van Wee 210128 toegevvoegd distinct
 SELECT distinct
 coalesce(NAD.postcode,'0')||'-'||NAD.huisnummer::text||'-'|| coalesce(NAD.huisletter, '0')||'-'|| coalesce(NAD.huisnummertoevoeging, '0') as PCHNHLHT,
-coalesce(NAD.postcode,'0') ||'-'||NAD.huisnummer::text||'-'|| coalesce(NAD.huisletter, '0')||'-'|| coalesce(NAD.huisnummertoevoeging, '0')|| '-'|| NAD.openbareruimteref as uniq_key,
+coalesce(NAD.postcode,'0') ||'-'||NAD.huisnummer::text||'-'|| coalesce(NAD.huisletter, '0')||'-'|| coalesce(NAD.huisnummertoevoeging, '0')|| '-'|| NAD.gerelateerdeopenbareruimte as uniq_key,
 case when NAD.postcode is null then  null else 1 end pchn_UNIEK,
 case when NAD.postcode is null then null else 1 end pchnhlht_UNIEK,
 NAD.identificatie as NAD_ID,
@@ -286,8 +286,8 @@ left outer join  ligplaatsactueelbestaand LIG
 on NEV.identificatie = LIG.identificatie ,BAG_WPL_ACTBEST_gegevens WPL,
   openbareruimteactueelbestaand OBR
 WHERE
-(VBO.identificatie is not null or   STA.identificatie is not null or   LIG.identificatie is not null) and   coalesce(NAD.woonplaatsref, OBR.woonplaatsref) = WPL.woonplaats_id and
-  NAD.openbareruimteref = OBR.identificatie
+(VBO.identificatie is not null or   STA.identificatie is not null or   LIG.identificatie is not null) and   coalesce(NAD.gerelateerdewoonplaats, OBR.gerelateerdewoonplaats) = WPL.woonplaats_id and
+  NAD.gerelateerdeopenbareruimte = OBR.identificatie
 ;
 --20200530 Query returned successfully: 9354464 rows affected, 05:46 minutes execution time.
 
@@ -373,7 +373,7 @@ FROM
   inner join (select distinct adresseerbaarobject_id from adres_dubbel where typeadresseerbaarobjectkort = 'VBO') A on VBO_PND.identificatie  = A.adresseerbaarobject_id
   inner join verblijfsobjectactueelbestaand VBO on VBO_PND.identificatie = VBO.identificatie
   left outer join pandactueel PND on VBO_PND.gerelateerdpand = PND.identificatie
-  group by  VBO_PND.identificatie, vbo.hoofdadresnummeraanduidingref, VBO.verblijfsobjectstatus
+  group by  VBO_PND.identificatie, vbo.hoofdadres, VBO.verblijfsobjectstatus
   ;
 --20200530 Query returned successfully: 21590 rows affected, 28.0 secs execution time.
 
@@ -1281,13 +1281,13 @@ DROP TABLE   if exists VBO_Actueelbestaand_met_aantal_verbonden_PND cascade;
 Create table VBO_Actueelbestaand_met_aantal_verbonden_PND as
 SELECT
   VBO_PND.identificatie as VBO_ID,VBO.verblijfsobjectstatus, text 'VBO' as typeadresseerbaarobject  ,
-  count(VBO_PND.gerelateerdpand) as AantalPND_VBO, max(VBO_PND.gerelateerdpand) as max_PND_ID, max(vbo.hoofdadresnummeraanduidingref) as hoofdadresnummeraanduidingref, max(VBO.oppervlakteverblijfsobject) as opp_verblijfsobject_m2
+  count(VBO_PND.gerelateerdpand) as AantalPND_VBO, max(VBO_PND.gerelateerdpand) as max_PND_ID, max(vbo.hoofdadres) as hoofdadres, max(VBO.oppervlakteverblijfsobject) as opp_verblijfsobject_m2
 FROM
   verblijfsobjectpandactueelbestaand VBO_PND
   inner join verblijfsobjectactueelbestaand VBO on VBO_PND.identificatie = VBO.identificatie
    inner join (select distinct adresseerbaarobject_id from Adresselectie) ADR on VBO.identificatie = ADR.adresseerbaarobject_id
   left outer join pandactueelbestaand_plus_woningtype PND on VBO_PND.gerelateerdpand = PND.identificatie
-  group by  VBO_PND.identificatie, vbo.hoofdadresnummeraanduidingref, VBO.verblijfsobjectstatus;
+  group by  VBO_PND.identificatie, vbo.hoofdadres, VBO.verblijfsobjectstatus;
 --20200531: Query returned successfully: 9282292 rows affected, 04:59 minutes execution time.
 
 CREATE INDEX VBO_Actueelbestaand_met_aantal_verbonden_PND_ID ON  VBO_Actueelbestaand_met_aantal_verbonden_PND USING btree (VBO_ID);
@@ -1326,7 +1326,7 @@ SELECT
 	VBO.typeadresseerbaarobject,
 	VBO.verblijfsobjectstatus,
 	VBO.aantalpnd_vbo as Aantal_pand_relaties_dit_VBO,
-	vbo.hoofdadresnummeraanduidingref,
+	vbo.hoofdadres,
 	vbo.opp_verblijfsobject_m2,
 	VBO_WOON.woningtype as VBO_woningtype,
 	PND_act.woningtype,

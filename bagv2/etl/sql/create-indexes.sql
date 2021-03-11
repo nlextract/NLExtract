@@ -30,30 +30,35 @@ DROP INDEX IF EXISTS nummeraanduiding_key CASCADE;
 DROP INDEX IF EXISTS openbareruimte_key CASCADE;
 DROP INDEX IF EXISTS woonplaats_key CASCADE;
 
-CREATE INDEX ligplaats_key ON ligplaats USING btree (identificatie,voorkomenidentificatie,begingeldigheid);
-CREATE INDEX standplaats_key ON standplaats USING btree (identificatie,voorkomenidentificatie,begingeldigheid);
-CREATE INDEX verblijfsobject_key ON verblijfsobject USING btree (identificatie,voorkomenidentificatie,begingeldigheid);
-CREATE INDEX pand_key ON pand USING btree (identificatie,voorkomenidentificatie,begingeldigheid);
+CREATE INDEX ligplaats_key ON ligplaats USING btree (identificatie,voorkomenidentificatie,begindatumTijdvakGeldigheid);
+CREATE INDEX standplaats_key ON standplaats USING btree (identificatie,voorkomenidentificatie,begindatumTijdvakGeldigheid);
+CREATE INDEX verblijfsobject_key ON verblijfsobject USING btree (identificatie,voorkomenidentificatie,begindatumTijdvakGeldigheid);
+CREATE INDEX pand_key ON pand USING btree (identificatie,voorkomenidentificatie,begindatumTijdvakGeldigheid);
 -- met nummeraanduiding lijkt een probleem als unieke index  (in de gaten houden)
-CREATE INDEX nummeraanduiding_key ON nummeraanduiding USING btree (identificatie,voorkomenidentificatie,begingeldigheid);
-CREATE INDEX openbareruimte_key ON openbareruimte USING btree (identificatie,voorkomenidentificatie,begingeldigheid);
-CREATE INDEX woonplaats_key ON woonplaats USING btree (identificatie,voorkomenidentificatie,begingeldigheid);
+CREATE INDEX nummeraanduiding_key ON nummeraanduiding USING btree (identificatie,voorkomenidentificatie,begindatumTijdvakGeldigheid);
+CREATE INDEX openbareruimte_key ON openbareruimte USING btree (identificatie,voorkomenidentificatie,begindatumTijdvakGeldigheid);
+CREATE INDEX woonplaats_key ON woonplaats USING btree (identificatie,voorkomenidentificatie,begindatumTijdvakGeldigheid);
 
 -- Overige indexen
 DROP INDEX IF EXISTS nummeraanduiding_postcode CASCADE;
 DROP INDEX IF EXISTS openbareruimte_naam CASCADE;
 DROP INDEX IF EXISTS woonplaats_naam CASCADE;
-
 CREATE INDEX nummeraanduiding_postcode ON nummeraanduiding USING btree (postcode);
-CREATE INDEX openbareruimte_naam ON openbareruimte USING btree (naam);
-CREATE INDEX woonplaats_naam ON woonplaats USING btree (naam);
+CREATE INDEX openbareruimte_naam ON openbareruimte USING btree (openbareruimtenaam );
+CREATE INDEX woonplaats_naam ON woonplaats USING btree (woonplaatsNaam);
+
+DROP INDEX IF EXISTS gem_wpl_woonplaatscode_idx CASCADE;
+DROP INDEX IF EXISTS gem_wpl_gemeentecode_datum_idx CASCADE;
+CREATE INDEX gem_wpl_woonplaatscode_idx ON gemeente_woonplaats USING btree (woonplaatscode);
+CREATE INDEX gem_wpl_gemeentecode_datum_idx ON gemeente_woonplaats USING btree (gemeentecode);
 
 -- Indexen relatie tabellen
--- CREATE INDEX verblijfsobjectpandkey ON verblijfsobjectpand USING btree (identificatie,voorkomenidentificatie, begingeldigheid, gerelateerdpand);
+-- CREATE INDEX verblijfsobjectpandkey ON verblijfsobjectpand USING btree (identificatie,voorkomenidentificatie, begindatumTijdvakGeldigheid, gerelateerdpand);
 -- CREATE INDEX verblijfsobjectpand_pand ON verblijfsobjectpand USING btree (gerelateerdpand);
--- CREATE INDEX verblijfsobjectgebruiksdoelkey ON verblijfsobjectgebruiksdoel USING btree (identificatie,voorkomenidentificatie, begingeldigheid, gebruiksdoelverblijfsobject);
--- CREATE INDEX
---         adresseerbaarobjectnevenadreskey ON adresseerbaarobjectnevenadres USING btree (identificatie,voorkomenidentificatie, begingeldigheid, nevenadres);
+-- CREATE INDEX verblijfsobjectgebruiksdoelkey ON verblijfsobjectgebruiksdoel USING btree (identificatie,voorkomenidentificatie, begindatumTijdvakGeldigheid, gebruiksdoelverblijfsobject);
+DROP INDEX IF EXISTS adresseerbaarobjectnevenadreskey CASCADE;
+CREATE INDEX
+        adresseerbaarobjectnevenadreskey ON adresseerbaarobjectnevenadres USING btree (identificatie,voorkomenidentificatie, begindatumTijdvakGeldigheid, nevenadres);
 
 INSERT INTO nlx_bag_log (actie, bestand) VALUES ('end_indexing', 'create-indexes.sql');
 

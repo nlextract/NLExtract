@@ -18,6 +18,7 @@ CREATE TABLE ligplaats
 (
     gid serial,
     identificatie character varying(16),
+    aanduidingRecordInactief boolean default FALSE,
 
     hoofdadresnummeraanduidingref character varying(16),
     nevenadresnummeraanduidingref character varying(16) ARRAY,
@@ -52,6 +53,7 @@ CREATE TABLE nummeraanduiding
 (
     gid serial,
     identificatie character varying(16),
+    aanduidingRecordInactief boolean default FALSE,
 
     huisnummer integer,
     huisletter character varying(1),
@@ -96,6 +98,7 @@ CREATE TABLE openbareruimte
 (
     gid serial,
     identificatie character varying(16),
+    aanduidingRecordInactief boolean default FALSE,
 
     naam character varying(80),
     verkorteNaam character varying(24),
@@ -144,6 +147,8 @@ CREATE TABLE pand
 (
     gid serial,
     identificatie character varying(16),
+    aanduidingRecordInactief boolean default FALSE,
+
     oorspronkelijkbouwjaar integer,
     status pandStatus,
     
@@ -175,6 +180,7 @@ CREATE TABLE standplaats
 (
     gid serial,
     identificatie character varying(16),
+    aanduidingRecordInactief boolean default FALSE,
 
     hoofdadresnummeraanduidingref character varying(16),
     nevenadresnummeraanduidingref character varying(16) ARRAY,
@@ -226,6 +232,7 @@ CREATE TABLE verblijfsobject
 (
     gid serial,
     identificatie character varying(16),
+    aanduidingRecordInactief boolean default FALSE,
 
     gebruiksdoel character varying ARRAY,
     oppervlakte integer,
@@ -263,6 +270,7 @@ CREATE TABLE woonplaats
 (
     gid serial,
     identificatie character varying(16),
+    aanduidingRecordInactief boolean default FALSE,
 
     naam character varying,
     status woonplaatsStatus,
@@ -286,6 +294,95 @@ CREATE TABLE woonplaats
     PRIMARY KEY (gid)
 );
 
+
+--
+-- START - Relatie tabellen 
+--
+
+-- Tussentabel voor de VBO-PND N-M relatie.
+-- Voor compatibiliteit met BAG v1.
+DROP TABLE IF EXISTS verblijfsobjectpand CASCADE;
+CREATE TABLE verblijfsobjectpand (
+  gid SERIAL,
+  identificatie character varying(16),
+  aanduidingRecordInactief boolean,
+  tijdstipinactief timestamp with time zone,
+  -- aanduidingRecordCorrectie INTEGER,
+  begindatumtijdvakgeldigheid timestamp with time zone,
+  einddatumTijdvakGeldigheid timestamp with time zone,
+  verblijfsobjectStatus verblijfsobjectStatus,
+  gerelateerdpand character varying(16),
+  PRIMARY KEY (gid)
+);
+
+-- Een Verblijfsobject kan meerdere gebruiksdoelen hebben.
+-- Voor compatibiliteit met BAG v1.
+DROP TABLE IF EXISTS verblijfsobjectgebruiksdoel CASCADE;
+CREATE TABLE verblijfsobjectgebruiksdoel (
+  gid serial,
+  identificatie character varying(16),
+  aanduidingRecordInactief boolean,
+  tijdstipinactief timestamp with time zone,
+    -- aanduidingRecordCorrectie INTEGER,
+  begindatumtijdvakgeldigheid timestamp with time zone,
+  einddatumTijdvakGeldigheid timestamp with time zone,
+  verblijfsobjectStatus verblijfsobjectStatus,
+  gebruiksdoelverblijfsobject gebruiksdoelVerblijfsobject,
+  PRIMARY KEY (gid)
+);
+
+-- Uitsplitsing van Nevenadressen voor VBO, LIG en STA.
+-- Ook meegenomen voor compatibiliteit met NLExtract voor BAG v1.
+-- In feite tussentabel tussen een STA/LIG/VBO en een NUM
+-- Voor compatibiliteit met BAG v1.
+DROP TABLE IF EXISTS adresseerbaarobjectnevenadres CASCADE;
+CREATE TABLE adresseerbaarobjectnevenadres (
+  gid SERIAL,
+
+  -- identificatie Adresseerbaar Object
+  identificatie character varying(16),
+  aanduidingRecordInactief boolean default FALSE,
+
+  -- identificatie nummeraanduiding
+  nevenadres character varying(16),
+
+  -- Nieuw in v2
+  hoofdadres character varying(16),
+
+  -- Nieuw in v2
+  typeadresseerbaarobject character varying(3),
+
+  ligplaatsStatus ligplaatsStatus,
+  standplaatsStatus standplaatsStatus,
+  verblijfsobjectStatus verblijfsobjectStatus,
+
+  -- "voorkomen" van gerelateerd Adresseerbaar object
+  geconstateerd boolean,
+  documentdatum date,
+  documentnummer character varying(40),
+  voorkomenidentificatie integer,
+  begingeldigheid timestamp with time zone,
+  eindgeldigheid timestamp with time zone,
+  tijdstipregistratie timestamp with time zone,
+  eindregistratie timestamp with time zone,
+  tijdstipinactief timestamp with time zone,
+  tijdstipregistratielv timestamp with time zone,
+  tijdstipeindregistratielv timestamp with time zone,
+  tijdstipinactieflv timestamp with time zone,
+  tijdstipnietbaglv timestamp with time zone,
+
+  -- Nieuw in v2
+  -- MAAR: geopunt locatie is nog steeds die van Hoofdadres!
+  geopunt geometry(Point,28992),
+
+  PRIMARY KEY (gid)
+);
+
+-- TODO: verblijfsobjectpand tussentabel
+--
+-- EIND - Relatie tabellen
+--
+
 -- Moet in de pas lopen met CSV ../data/kadaster-gemeente-woonplaats-<datum>.csv
 -- Vesie van 6 maart heeft CSV header
 -- Woonplaats;Woonplaats code;Ingangsdatum WPL;Einddatum WPL;Gemeente;Gemeente code;
@@ -306,8 +403,6 @@ CREATE TABLE gemeente_woonplaats (
   PRIMARY KEY (gid)
 );
 
-CREATE INDEX gem_wpl_woonplaatscode_idx ON gemeente_woonplaats USING btree (woonplaatscode);
-CREATE INDEX gem_wpl_gemeentecode_datum_idx ON gemeente_woonplaats USING btree (gemeentecode);
 
 DROP TABLE IF EXISTS gemeente_provincie CASCADE;
 
