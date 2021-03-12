@@ -3,6 +3,12 @@
 -- Via Views kunnen actuele en bestaande objecten uitgefilterd worden.
 -- Author: Just van den Broecke
 
+-- Feitelijk is de "acteel" definitie:
+-- begingeldigheid <= now()
+--  AND (eindgeldigheid is NULL OR eindgeldigheid >= now())
+--  AND (tijdstipinactief is NULL)
+--  AND (tijdstipnietbaglv is NULL)
+
 -- SET search_path TO test,public;
 -- LIG
 DROP VIEW IF EXISTS ligplaatsactueel;

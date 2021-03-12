@@ -34,7 +34,7 @@ CREATE TABLE adres_full (
   pandbouwjaar numeric(4,0),
   nummeraanduiding varchar(16),
   nevenadres BOOLEAN DEFAULT FALSE,
-  geopunt geometry(PointZ, 28992),
+  geopunt geometry(Point, 28992),
   textsearchable_adres tsvector,
   verkorteopenbareruimtenaam character varying(24) DEFAULT NULL
 );
@@ -53,7 +53,7 @@ INSERT INTO adres_full (openbareruimtenaam, huisnummer, huisletter, huisnummerto
     COALESCE(wp2.woonplaatsnaam,w.woonplaatsnaam),
     COALESCE(p2.gemeentenaam,p.gemeentenaam),
     COALESCE(p2.provincienaam,p.provincienaam),
-    ARRAY_TO_STRING(ARRAY_AGG(d.gebruiksdoelverblijfsobject ORDER BY gebruiksdoelverblijfsobject), ', ') AS verblijfsobjectgebruiksdoel,
+    ARRAY_TO_STRING(ARRAY_AGG(d.gebruiksdoelverblijfsobject), ', ') AS verblijfsobjectgebruiksdoel,
     v.oppervlakteverblijfsobject,
     v.verblijfsobjectstatus,
     'VBO' as typeadresseerbaarobject,
@@ -133,7 +133,7 @@ INSERT INTO adres_full (openbareruimtenaam, huisnummer, huisletter, huisnummerto
     'Ligplaats',
     l.ligplaatsstatus,
     -- Vlak geometrie wordt punt
-    ST_Force3D(ST_Centroid(l.geovlak))  as geopunt,
+    ST_Centroid(l.geovlak)  as geopunt,
     o.verkorteopenbareruimtenaam
   FROM ligplaatsactueelbestaand l
     JOIN nummeraanduidingactueelbestaand n
@@ -178,7 +178,7 @@ INSERT INTO adres_full (openbareruimtenaam, huisnummer, huisletter, huisnummerto
     'Standplaats',
     s.standplaatsstatus,
       -- Vlak geometrie wordt punt
-    ST_Force3D(ST_Centroid(s.geovlak)) as geopunt,
+    ST_Centroid(s.geovlak) as geopunt,
     o.verkorteopenbareruimtenaam
   FROM standplaatsactueelbestaand s
     JOIN nummeraanduidingactueelbestaand n
@@ -212,14 +212,14 @@ INSERT INTO adres_full (openbareruimtenaam, huisnummer, huisletter, huisnummerto
     COALESCE(wp2.woonplaatsnaam,w.woonplaatsnaam),
     COALESCE(p2.gemeentenaam,p.gemeentenaam),
     COALESCE(p2.provincienaam,p.provincienaam),
-    'VBO' as typeadresseerbaarobject,
+    an.typeadresseerbaarobject,
     an.identificatie as adresseerbaarobject,
     pv.identificatie as pandid,
     pv.pandstatus,
     pv.bouwjaar as pandbouwjaar,
     n.identificatie as nummeraanduiding,
     TRUE,
-    ARRAY_TO_STRING(ARRAY_AGG(d.gebruiksdoelverblijfsobject ORDER BY gebruiksdoelverblijfsobject), ', ') AS verblijfsobjectgebruiksdoel,
+    ARRAY_TO_STRING(ARRAY_AGG(d.gebruiksdoelverblijfsobject), ', ') AS verblijfsobjectgebruiksdoel,
     v.oppervlakteverblijfsobject,
     v.verblijfsobjectstatus,
     v.geopunt,
@@ -260,7 +260,7 @@ INSERT INTO adres_full (openbareruimtenaam, huisnummer, huisletter, huisnummerto
     COALESCE(wp2.woonplaatsnaam,w.woonplaatsnaam),
     COALESCE(p2.gemeentenaam,p.gemeentenaam),
     COALESCE(p2.provincienaam,p.provincienaam),
-    typeadresseerbaarobject,
+    an.typeadresseerbaarobject,
     adresseerbaarobject,
     pandid,
     pv.pandstatus,
@@ -285,7 +285,7 @@ INSERT INTO adres_full (openbareruimtenaam, huisnummer, huisletter, huisnummerto
     COALESCE(wp2.woonplaatsnaam,w.woonplaatsnaam),
     COALESCE(p2.gemeentenaam,p.gemeentenaam),
     COALESCE(p2.provincienaam,p.provincienaam),
-    'LIG' as typeadresseerbaarobject,
+    an.typeadresseerbaarobject,
     an.identificatie as adresseerbaarobject,
     NULL, -- pandid
     '', -- pandstatus
@@ -294,7 +294,7 @@ INSERT INTO adres_full (openbareruimtenaam, huisnummer, huisletter, huisnummerto
     TRUE,
     'Ligplaats',
     l.ligplaatsstatus,
-    ST_Force3D(ST_Centroid(l.geovlak))  as geopunt,
+    ST_Centroid(l.geovlak)  as geopunt,
     o.verkorteopenbareruimtenaam
   FROM adresseerbaarobjectnevenadresactueel an
     JOIN nummeraanduidingactueelbestaand n
@@ -330,7 +330,7 @@ INSERT INTO adres_full (openbareruimtenaam, huisnummer, huisletter, huisnummerto
     COALESCE(wp2.woonplaatsnaam,w.woonplaatsnaam),
     COALESCE(p2.gemeentenaam,p.gemeentenaam),
     COALESCE(p2.provincienaam,p.provincienaam),
-    'STA' as typeadresseerbaarobject,
+    an.typeadresseerbaarobject,
     an.identificatie as adresseerbaarobject,
     NULL, -- pandid
     '', -- pandstatus
@@ -339,7 +339,7 @@ INSERT INTO adres_full (openbareruimtenaam, huisnummer, huisletter, huisnummerto
     TRUE,
     'Standplaats',
     s.standplaatsstatus,
-    ST_Force3D(ST_Centroid(s.geovlak)) as geopunt,
+    ST_Centroid(s.geovlak) as geopunt,
     o.verkorteopenbareruimtenaam
   FROM adresseerbaarobjectnevenadresactueel an
     JOIN nummeraanduidingactueelbestaand n

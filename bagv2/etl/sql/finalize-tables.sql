@@ -3,14 +3,14 @@
 
 -- Maak tabellen zoveel mogelijk compatibel met BAG v1
 
-UPDATE ligplaats SET aanduidingrecordinactief=(tijdstipinactief is not NULL AND tijdstipinactief <=now());
-UPDATE nummeraanduiding SET aanduidingrecordinactief=(tijdstipinactief is not NULL AND tijdstipinactief <=now());
-UPDATE openbareruimte SET aanduidingrecordinactief=(tijdstipinactief is not NULL AND tijdstipinactief <=now());
-UPDATE pand SET aanduidingrecordinactief=(tijdstipinactief is not NULL AND tijdstipinactief <=now());
-UPDATE standplaats SET aanduidingrecordinactief=(tijdstipinactief is not NULL AND tijdstipinactief <=now());
-UPDATE verblijfsobject SET aanduidingrecordinactief=(tijdstipinactief is not NULL AND tijdstipinactief <=now());
-UPDATE woonplaats SET aanduidingrecordinactief=(tijdstipinactief is not NULL AND tijdstipinactief <=now());
-UPDATE adresseerbaarobjectnevenadres SET aanduidingrecordinactief=(tijdstipinactief is not NULL AND tijdstipinactief <=now());
+UPDATE ligplaats SET aanduidingrecordinactief=(tijdstipinactief is not NULL OR tijdstipnietbaglv is not NULL);
+UPDATE nummeraanduiding SET aanduidingrecordinactief=(tijdstipinactief is not NULL OR tijdstipnietbaglv is not NULL);
+UPDATE openbareruimte SET aanduidingrecordinactief=(tijdstipinactief is not NULL OR tijdstipnietbaglv is not NULL);
+UPDATE pand SET aanduidingrecordinactief=(tijdstipinactief is not NULL OR tijdstipnietbaglv is not NULL);
+UPDATE standplaats SET aanduidingrecordinactief=(tijdstipinactief is not NULL OR tijdstipnietbaglv is not NULL);
+UPDATE verblijfsobject SET aanduidingrecordinactief=(tijdstipinactief is not NULL OR tijdstipnietbaglv is not NULL);
+UPDATE woonplaats SET aanduidingrecordinactief=(tijdstipinactief is not NULL OR tijdstipnietbaglv is not NULL);
+UPDATE adresseerbaarobjectnevenadres SET aanduidingrecordinactief=(tijdstipinactief is not NULL OR tijdstipnietbaglv is not NULL);
 
 ALTER TABLE ligplaats RENAME COLUMN begingeldigheid TO begindatumTijdvakGeldigheid;
 ALTER TABLE nummeraanduiding RENAME COLUMN begingeldigheid TO begindatumTijdvakGeldigheid;

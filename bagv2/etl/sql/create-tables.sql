@@ -349,7 +349,7 @@ CREATE TABLE adresseerbaarobjectnevenadres (
   -- Nieuw in v2
   hoofdadres character varying(16),
 
-  -- Nieuw in v2
+  -- Nieuw in v2 - waarden: VBO LIG of STA
   typeadresseerbaarobject character varying(3),
 
   ligplaatsStatus ligplaatsStatus,
