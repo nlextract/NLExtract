@@ -41,12 +41,13 @@ layer_creation_opts=-lco LAUNDER=YES -lco PRECISION=NO -lco FID=gid -lco SPATIAL
 # Specifiek voor GDAL LVBAG Driver
 open_opts=-oo AUTOCORRECT_INVALID_DATA=YES -oo LEGACY_ID=YES
 
-# GDAL config options
-config_opts=-append -skipfailures --config PG_USE_COPY YES
+# GDAL config options don't use -skipfailures! It results in transaction size=1!!
+# See https://lists.osgeo.org/pipermail/gdal-dev/2019-March/049889.html
+config_opts=-append --config PG_USE_COPY YES
 
 # Features per transactions - default 100000
 # feat_per_tx=-gt 65535
-feat_per_tx=-gt 65535
+feat_per_tx=-gt 200000
 
 # Welk gebied (clip), zet leeg voor alles (nog niet voor BAG geprobeerd!)
 # spatial_extent=120000 450000 160000 500000

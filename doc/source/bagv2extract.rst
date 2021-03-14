@@ -37,16 +37,17 @@ Dankzij een sponsoring van de OpenGeoGroep, kon vanaf dec 2020 begonnen worden m
 de ontwikkeling van NLExtract voor BAG v2. Op 6 maart 2021 is voor het eerst de gehele LV BAG
 verwerkt in PostGIS. Hoofdontwikkelaar was/is Just van den Broecke.
 
-Handleiding BAG-Extract
-=======================
+Handleiding NLExtract-BAGv2
+===========================
 
-NLExtract-BAGv2 is onderdeel van de NLExtract tools voor het inlezen en verrijken van Kadaster BAG
-(Basisregistratie Adressen en Gebouwen) GML leveringen in (voorlopig) een Postgres/Postgis database.
+`NLExtract-BAGv2` is onderdeel van de NLExtract tools voor het inlezen en verrijken van Kadaster BAG
+(Basisregistratie Adressen en Gebouwen) product "BAG Extract" (versie 2) leveringen
+in (voorlopig) een PostgreSQL/Postgis database.
 
 BAG Bronbestanden downloaden
 ----------------------------
 
-De BAG bronbestanden zoals geleverd door Kadaster heten het BAG Extract product.
+De BAG bronbestanden zoals geleverd door Kadaster heten het "BAG Extract" product.
 Er was ook bijv BAG Compact, maar deze wordt niet meer voor BAG v2 geleverd.
 
 * voorlopig via https://extracten.bag.kadaster.nl/lvbag/extracten/
@@ -66,21 +67,21 @@ Deze worden maandelijks ververst direct na uitkomen nieuwe BAG-levering.
 Er wordt leveringsbijdrage gevraagd. De baten komen ook weer ten goede aan de ontwikkeling
 van Stetl en NLExtract.
 
-Wat doet BAG-Extract?
----------------------
+Wat doet NLExtract-BAGv2?
+-------------------------
 
-BAG-Extract biedt de volgende functionaliteiten:
+NLExtract-BAGv2 biedt de volgende functionaliteiten:
 
-- Laden van een Kadaster BAG Extract vanuit Kadaster (.zip GML) levering
-- Toepassen van Kadaster BAG mutaties vanuit Kadaster (.zip GML) levering (v1.1.5 en hoger)
+- Laden van een Kadaster BAG Extract levering vanuit Kadaster (.zip GML)
 - Verrijken BAG met gemeenten en provincies
-- Database VIEWs om bagobjecten te selecteren die actueel, bestaand
+- Database VIEWs om bagobjecten te selecteren die actueel, of actueel en bestaand zijn
 
-Nog te doen (8 maart 2021):
+Nog te doen (12 maart 2021):
 
 - Verrijken: tabel met volledige "ACN-achtige" adressen genereren in 3 varianten: Basis, Uitgebreid en Plus
 - Checkpointing: bijhouden welke bestanden reeds verwerkt t.b.v. herstarts en mutatie-verwerking
 - Logging in database zodat gechecked kan worden waar evt fouten zijn en welke bestanden verwerkt
+- Toepassen van Kadaster BAG mutaties vanuit Kadaster (.zip GML) levering
 
 BAG-Extract downloaden
 ----------------------
@@ -93,13 +94,13 @@ BAG-Extract downloaden
 Afhankelijkheden
 ----------------
 
-- PostgreSQL: relationele database, minimaal versie 10, Aangemaakte DB moet **UTF8 encoding** hebben. zie http://www.postgresql.org
-- PostGIS: spatial extensie PostgreSQL, bijv. opslag geodata, minimaal versie 2.2 zie http://postgis.org
-- Python: versie 3
-- psycopg2: Python PostgreSQL client bibliotheek. Zie http://initd.org/psycopg
-- lxml voor razendsnelle native XML parsing, Zie http://lxml.de
+- `PostgreSQL`: relationele database, minimaal versie 10, Aangemaakte DB moet **UTF8 encoding** hebben. zie http://www.postgresql.org
+- `PostGIS`: spatial extensie PostgreSQL, bijv. opslag geodata, minimaal versie 2.2 zie http://postgis.org
+- `Python`: versie 3.7 of hoger
+- `psycopg2`: Python PostgreSQL client bibliotheek. Zie http://initd.org/psycopg
+- `lxml` voor razendsnelle native XML parsing, Zie http://lxml.de
 - GDAL/OGR tools en bibliotheek voor geodata manipulatie. Minimaal 3.2.2. Zie https://gdal.org
-- GDAL/OGR Python bindings Zie www.gdal.org en http://pypi.python.org/pypi/GDAL voor Geometrie parsing/validatie en manipulatie
+- GDAL/OGR Python bindings Zie www.gdal.org en https://pypi.python.org/pypi/GDAL voor Geometrie parsing/validatie en manipulatie
 
 Installatie (Linux)
 -------------------
@@ -153,7 +154,15 @@ GDAL LVBAG Driver
 -----------------
 
 Deze wordt gebruikt voor verwerking BAG object XML bestanden.
-In Stetl kan daardoor de `ogr2ogr` gebaseerde Output gebruikt worden.
+In Stetl kan daardoor de `ogr2ogr` gebaseerde Stetl-`Output` gebruikt worden.
+
+BAG v1 Compatibiliteit
+----------------------
+
+Omdat veel implementaties al jaren gestoeld zijn op BAG v1 en de daarbij behorende attribuut/kolom namen,
+is besloten om zoveel mogelijk de NLExtract-BAG versie 1 naamgeving aan te houden.
+Ook de tussentabellen (VBO-PND N-M relatie) en multivalue tabellen (VBO Gebruiksdoelen, Nevenadressen)
+zijn behouden. Hoewel met ARRAY typen (zie onder) veel handiger queries te doen zijn.
 
 Array Typen
 -----------
