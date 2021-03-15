@@ -39,7 +39,7 @@ srs_opts=-a_srs EPSG:28992
 layer_creation_opts=-lco LAUNDER=YES -lco PRECISION=NO -lco FID=gid -lco SPATIAL_INDEX=NONE
 
 # Specifiek voor GDAL LVBAG Driver
-open_opts=-oo AUTOCORRECT_INVALID_DATA=YES -oo LEGACY_ID=YES
+open_opts=-oo AUTOCORRECT_INVALID_DATA=NO -oo LEGACY_ID=YES
 
 # GDAL config options don't use -skipfailures! It results in transaction size=1!!
 # See https://lists.osgeo.org/pipermail/gdal-dev/2019-March/049889.html
