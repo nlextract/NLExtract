@@ -36,7 +36,7 @@ multival_opts=
 srs_opts=-a_srs EPSG:28992
 
 # Layer creation options
-layer_creation_opts=-lco LAUNDER=YES -lco PRECISION=NO -lco FID=gid -lco SPATIAL_INDEX=NO
+layer_creation_opts=-lco LAUNDER=YES -lco PRECISION=NO -lco FID=gid -lco SPATIAL_INDEX=NONE
 
 # Specifiek voor GDAL LVBAG Driver
 open_opts=-oo AUTOCORRECT_INVALID_DATA=YES -oo LEGACY_ID=YES

@@ -11,11 +11,11 @@ export PGOPTIONS="-c search_path=${PGSCHEMA},public"
 
 echo "DROP TABLE IF EXISTS pand CASCADE" | psql bagv2
 
-# Layer creation options -lco SPATIAL_INDEX=NO
-LCO="-lco LAUNDER=YES -lco PRECISION=NO -lco FID=gid"
+# Layer creation options
+LCO="-lco LAUNDER=YES -lco PRECISION=NO -lco FID=gid -lco SPATIAL_INDEX=NONE"
 
 # DO NOT USE -skipfailures with -gt ! See https://lists.osgeo.org/pipermail/gdal-dev/2019-March/049889.html
-OGR_OPTS="-append -gt 200000 --config PG_USE_COPY YES -oo AUTOCORRECT_INVALID_DATA=YES -oo LEGACY_ID=YES -a_srs EPSG:28992 ${LCO}"
+OGR_OPTS="-overwrite -gt 200000 --config PG_USE_COPY YES -oo AUTOCORRECT_INVALID_DATA=YES -oo LEGACY_ID=YES -a_srs EPSG:28992 ${LCO}"
 
 # NB we use host.docker.internal to connect from within Docker Container to localhost PostGIS!
 PG="'PG:dbname=bagv2 active_schema=test host=host.docker.internal user=postgres password=postgres'"
@@ -30,9 +30,9 @@ echo "START DOCKER $(date)"
 docker run --rm  -v ${LOCAL_DATA_DIR}:${DOCKER_DATA_DIR} -it ${DOCKER_IMAGE} sh -c "${CMD}"
 echo "END   DOCKER $(date)"
 
-echo "DROP TABLE IF EXISTS pand CASCADE" | psql bagv2
+# echo "DROP TABLE IF EXISTS pand CASCADE" | psql bagv2
 
-echo "START LOCAL $(date)"
-ogr2ogr ${OGR_OPTS} 'PG:dbname=bagv2 active_schema=test host=127.0.0.1 user=postgres password=postgres' ${LOCAL_DATA_DIR}
+# echo "START LOCAL $(date)"
+# ogr2ogr ${OGR_OPTS} 'PG:dbname=bagv2 active_schema=test host=127.0.0.1 user=postgres password=postgres' ${LOCAL_DATA_DIR}
 
-echo "END   LOCAL $(date)"
+# echo "END   LOCAL $(date)"

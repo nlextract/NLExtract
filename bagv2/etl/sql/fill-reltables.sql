@@ -7,12 +7,13 @@
 -- N-M relation VBO-PND
 INSERT INTO verblijfsobjectpand (
      identificatie, aanduidingRecordInactief, tijdstipinactief,
-     begindatumTijdvakGeldigheid, einddatumTijdvakGeldigheid,
+     voorkomenidentificatie, begindatumTijdvakGeldigheid, einddatumTijdvakGeldigheid,
      verblijfsobjectStatus,gerelateerdpand)
   SELECT
     vbo.identificatie,
     vbo.aanduidingRecordInactief,
     vbo.tijdstipinactief,
+    vbo.voorkomenidentificatie,
     vbo.begindatumTijdvakGeldigheid,
     vbo.einddatumTijdvakGeldigheid,
     vbo.verblijfsobjectStatus,
@@ -22,6 +23,7 @@ FROM
         identificatie,
         aanduidingRecordInactief,
         tijdstipinactief,
+        voorkomenidentificatie,
         begindatumTijdvakGeldigheid,
         einddatumTijdvakGeldigheid,
         verblijfsobjectStatus,
@@ -31,12 +33,13 @@ FROM
 -- Multiple VBO gebruiksdoelen.
 INSERT INTO verblijfsobjectgebruiksdoel (
      identificatie, aanduidingRecordInactief, tijdstipinactief,
-     begindatumTijdvakGeldigheid, einddatumTijdvakGeldigheid,
+     voorkomenidentificatie, begindatumTijdvakGeldigheid, einddatumTijdvakGeldigheid,
      verblijfsobjectStatus, gebruiksdoelverblijfsobject)
   SELECT
     vbo.identificatie,
     vbo.aanduidingRecordInactief,
     vbo.tijdstipinactief,
+    vbo.voorkomenidentificatie,
     vbo.begindatumTijdvakGeldigheid,
     vbo.einddatumTijdvakGeldigheid,
     vbo.verblijfsobjectStatus,
@@ -46,6 +49,7 @@ FROM
         identificatie,
         aanduidingRecordInactief,
         tijdstipinactief,
+        voorkomenidentificatie,
         begindatumTijdvakGeldigheid,
         einddatumTijdvakGeldigheid,
         verblijfsobjectStatus,

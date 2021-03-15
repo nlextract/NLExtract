@@ -53,9 +53,13 @@ CREATE INDEX gem_wpl_woonplaatscode_idx ON gemeente_woonplaats USING btree (woon
 CREATE INDEX gem_wpl_gemeentecode_datum_idx ON gemeente_woonplaats USING btree (gemeentecode);
 
 -- Indexen relatie tabellen
--- CREATE INDEX verblijfsobjectpandkey ON verblijfsobjectpand USING btree (identificatie,voorkomenidentificatie, begindatumTijdvakGeldigheid, gerelateerdpand);
--- CREATE INDEX verblijfsobjectpand_pand ON verblijfsobjectpand USING btree (gerelateerdpand);
--- CREATE INDEX verblijfsobjectgebruiksdoelkey ON verblijfsobjectgebruiksdoel USING btree (identificatie,voorkomenidentificatie, begindatumTijdvakGeldigheid, gebruiksdoelverblijfsobject);
+DROP INDEX IF EXISTS verblijfsobjectpandkey CASCADE;
+DROP INDEX IF EXISTS verblijfsobjectpand_pand CASCADE;
+DROP INDEX IF EXISTS verblijfsobjectgebruiksdoelkey CASCADE;
+CREATE INDEX verblijfsobjectpandkey ON verblijfsobjectpand USING btree (identificatie,voorkomenidentificatie, begindatumTijdvakGeldigheid, gerelateerdpand);
+CREATE INDEX verblijfsobjectpand_pand ON verblijfsobjectpand USING btree (gerelateerdpand);
+CREATE INDEX verblijfsobjectgebruiksdoelkey ON verblijfsobjectgebruiksdoel USING btree (identificatie,voorkomenidentificatie, begindatumTijdvakGeldigheid, gebruiksdoelverblijfsobject);
+
 DROP INDEX IF EXISTS adresseerbaarobjectnevenadreskey CASCADE;
 CREATE INDEX
         adresseerbaarobjectnevenadreskey ON adresseerbaarobjectnevenadres USING btree (identificatie,voorkomenidentificatie, begindatumTijdvakGeldigheid, nevenadres);
