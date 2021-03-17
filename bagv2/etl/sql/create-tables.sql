@@ -5,9 +5,9 @@
 -- Op alfabet.
 -- Author: Just van den Broecke
 
--- Common
-DROP TYPE IF EXISTS statusNaamgeving  CASCADE;
-CREATE TYPE statusNaamgeving AS ENUM ('Naamgeving uitgegeven', 'Naamgeving ingetrokken');
+-- Common - for v1 compat not used!
+-- DROP TYPE IF EXISTS statusNaamgeving  CASCADE;
+-- CREATE TYPE statusNaamgeving AS ENUM ('Naamgeving uitgegeven', 'Naamgeving ingetrokken');
 
 -- LIG
 DROP TABLE IF EXISTS ligplaats CASCADE;
@@ -28,8 +28,8 @@ CREATE TABLE ligplaats
     documentdatum date,
     documentnummer character varying(40),
     voorkomenidentificatie integer,
-    begingeldigheid date,
-    eindgeldigheid date,
+    begingeldigheid timestamp with time zone,
+    eindgeldigheid timestamp with time zone,
     tijdstipregistratie timestamp with time zone,
     eindregistratie timestamp with time zone,
     tijdstipinactief timestamp with time zone,
@@ -38,7 +38,7 @@ CREATE TABLE ligplaats
     tijdstipinactieflv timestamp with time zone,
     tijdstipnietbaglv timestamp with time zone,
 
-    geovlak geometry(Polygon, 28992),
+    geovlak geometry(PolygonZ, 28992),
 
     PRIMARY KEY (gid)
 )
@@ -46,6 +46,8 @@ CREATE TABLE ligplaats
 
 -- NUM
 DROP TABLE IF EXISTS nummeraanduiding CASCADE;
+DROP TYPE IF EXISTS nummeraanduidingStatus  CASCADE;
+CREATE TYPE nummeraanduidingStatus AS ENUM ('Naamgeving uitgegeven', 'Naamgeving ingetrokken');
 DROP TYPE IF EXISTS typeAdresseerbaarObject  CASCADE;
 CREATE TYPE typeAdresseerbaarObject AS ENUM ('Verblijfsobject', 'Standplaats', 'Ligplaats');
 
@@ -68,8 +70,8 @@ CREATE TYPE typeAdresseerbaarObject AS ENUM ('Verblijfsobject', 'Standplaats', '
 --     documentdatum date,
 --     documentnummer character varying(40),
 --     voorkomenidentificatie integer,
---     begingeldigheid date,
---     eindgeldigheid date,
+--     begingeldigheid timestamp with time zone,
+--     eindgeldigheid timestamp with time zone,
 --     tijdstipregistratie timestamp with time zone,
 --     eindregistratie timestamp with time zone,
 --     tijdstipinactief timestamp with time zone,
@@ -84,6 +86,8 @@ CREATE TYPE typeAdresseerbaarObject AS ENUM ('Verblijfsobject', 'Standplaats', '
 
 -- OPR
 DROP TABLE IF EXISTS openbareruimte CASCADE;
+DROP TYPE IF EXISTS openbareRuimteStatus;
+CREATE TYPE openbareRuimteStatus AS ENUM ('Naamgeving uitgegeven', 'Naamgeving ingetrokken');
 DROP TYPE IF EXISTS openbareRuimteType  CASCADE;
 CREATE TYPE openbareRuimteType AS ENUM (
     'Weg',
@@ -104,14 +108,14 @@ CREATE TABLE openbareruimte
     verkorteNaam character varying(24),
     type openbareRuimteType,
     woonplaatsref character varying(16),
-    status statusNaamgeving,
+    status openbareRuimteStatus,
 
     geconstateerd boolean,
     documentdatum date,
     documentnummer character varying(40),
     voorkomenidentificatie integer,
-    begingeldigheid date,
-    eindgeldigheid date,
+    begingeldigheid timestamp with time zone,
+    eindgeldigheid timestamp with time zone,
     tijdstipregistratie timestamp with time zone,
     eindregistratie timestamp with time zone,
     tijdstipinactief timestamp with time zone,
@@ -156,8 +160,8 @@ CREATE TYPE pandStatus AS ENUM (
 --     documentdatum date,
 --     documentnummer character varying(40),
 --     voorkomenidentificatie integer,
---     begingeldigheid date,
---     eindgeldigheid date,
+--     begingeldigheid timestamp with time zone,
+--     eindgeldigheid timestamp with time zone,
 --     tijdstipregistratie timestamp with time zone,
 --     eindregistratie timestamp with time zone,
 --     tijdstipinactief timestamp with time zone,
@@ -190,8 +194,8 @@ CREATE TABLE standplaats
     documentdatum date,
     documentnummer character varying(40),
     voorkomenidentificatie integer,
-    begingeldigheid date,
-    eindgeldigheid date,
+    begingeldigheid timestamp with time zone,
+    eindgeldigheid timestamp with time zone,
     tijdstipregistratie timestamp with time zone,
     eindregistratie timestamp with time zone,
     tijdstipinactief timestamp with time zone,
@@ -200,7 +204,7 @@ CREATE TABLE standplaats
     tijdstipinactieflv timestamp with time zone,
     tijdstipnietbaglv timestamp with time zone,
 
-    geovlak geometry(Polygon, 28992),
+    geovlak geometry(PolygonZ, 28992),
 
     PRIMARY KEY (gid)
 )
@@ -245,8 +249,8 @@ CREATE TYPE verblijfsobjectStatus AS ENUM (
 --     documentdatum date,
 --     documentnummer character varying(40),
 --     voorkomenidentificatie integer,
---     begingeldigheid date,
---     eindgeldigheid date,
+--     begingeldigheid timestamp with time zone,
+--     eindgeldigheid timestamp with time zone,
 --     tijdstipregistratie timestamp with time zone,
 --     eindregistratie timestamp with time zone,
 --     tijdstipinactief timestamp with time zone,
@@ -279,8 +283,8 @@ CREATE TABLE woonplaats
     documentdatum date,
     documentnummer character varying(40),
     voorkomenidentificatie integer,
-    begingeldigheid date,
-    eindgeldigheid date,
+    begingeldigheid timestamp with time zone,
+    eindgeldigheid timestamp with time zone,
     tijdstipregistratie timestamp with time zone,
     eindregistratie timestamp with time zone,
     tijdstipinactief timestamp with time zone,
@@ -363,8 +367,8 @@ CREATE TABLE adresseerbaarobjectnevenadres (
   documentdatum date,
   documentnummer character varying(40),
   voorkomenidentificatie integer,
-  begingeldigheid date,
-  eindgeldigheid date,
+  begingeldigheid timestamp with time zone,
+  eindgeldigheid timestamp with time zone,
   tijdstipregistratie timestamp with time zone,
   eindregistratie timestamp with time zone,
   tijdstipinactief timestamp with time zone,
@@ -375,7 +379,7 @@ CREATE TABLE adresseerbaarobjectnevenadres (
 
   -- Nieuw in v2
   -- MAAR: geopunt locatie is nog steeds die van Hoofdadres!
-  geopunt geometry(Point,28992),
+  geopunt geometry(PointZ, 28992),
 
   PRIMARY KEY (gid)
 );
@@ -396,8 +400,8 @@ CREATE TYPE gemeenteWoonplaatsStatus AS ENUM (
 );
 CREATE TABLE gemeente_woonplaats (
   gid serial,
-  begingeldigheid date,
-  eindgeldigheid date,
+  begingeldigheid timestamp with time zone,
+  eindgeldigheid timestamp with time zone,
   woonplaatscode varchar(4),
   gemeentecode varchar(4),
   status gemeenteWoonplaatsStatus,
@@ -419,12 +423,14 @@ CREATE TABLE provincie_gemeente (
 --   begindatum timestamp with time zone,
 --   einddatum timestamp with time zone,
 
+  provinciecode numeric(4),
+  provinciecodepv character varying(4),
+  provincienaam character varying(80),
   gemeentecode character varying(4),
   gemeentecodegm character varying(80),
   gemeentenaam character varying(80),
-  provinciecode numeric(2),
-  provinciecodepv character varying(4),
-  provincienaam character varying(80),
+  begindatum timestamp with time zone,
+  einddatum timestamp with time zone,
 
   PRIMARY KEY (gemeentecode)
 );

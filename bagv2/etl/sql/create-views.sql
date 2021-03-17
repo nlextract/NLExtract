@@ -45,7 +45,7 @@ CREATE VIEW nummeraanduidingactueelbestaand AS
     beginDatumTijdvakGeldigheid <= now()
     AND (eindDatumTijdvakGeldigheid is NULL OR eindDatumTijdvakGeldigheid >= now())
     AND aanduidingrecordinactief is FALSE
-    AND nummeraanduidingStatus <> 'Naamgeving ingetrokken'::statusNaamgeving;
+    AND nummeraanduidingStatus <> 'Naamgeving ingetrokken'::nummeraanduidingStatus;
 
 -- OPR
 DROP VIEW IF EXISTS openbareruimteactueel;
@@ -63,7 +63,7 @@ CREATE VIEW openbareruimteactueelbestaand AS
     beginDatumTijdvakGeldigheid <= now()
     AND (eindDatumTijdvakGeldigheid is NULL OR eindDatumTijdvakGeldigheid >= now())
     AND aanduidingrecordinactief is FALSE
-    AND openbareruimteStatus <> 'Naamgeving ingetrokken'::statusNaamgeving;
+    AND openbareruimteStatus <> 'Naamgeving ingetrokken'::openbareRuimteStatus;
 
 -- PND
 DROP VIEW IF EXISTS pandactueel;

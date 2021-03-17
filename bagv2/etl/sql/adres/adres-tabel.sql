@@ -27,7 +27,7 @@ CREATE TABLE adres (
     adresseerbaarobject varchar(16),
     nummeraanduiding varchar(16),
     nevenadres BOOLEAN DEFAULT FALSE,
-    geopunt geometry(Point, 28992),
+    geopunt geometry(PointZ, 28992),
     textsearchable_adres tsvector
 );
 
@@ -92,7 +92,7 @@ INSERT INTO adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeg
 	l.identificatie as adresseerbaarobject,
 	n.identificatie as nummeraanduiding,
     -- Vlak geometrie wordt punt
-	ST_Centroid(l.geovlak)  as geopunt
+	ST_Force3D(ST_Centroid(l.geovlak))  as geopunt
   FROM ligplaatsactueelbestaand l
    JOIN nummeraanduidingactueelbestaand n
    ON (n.identificatie = l.hoofdadres)
@@ -134,7 +134,7 @@ INSERT INTO adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeg
 	s.identificatie as adresseerbaarobject,
 	n.identificatie as nummeraanduiding,
     -- Vlak geometrie wordt punt
-	ST_Centroid(s.geovlak) as geopunt
+    ST_Force3D(ST_Centroid(s.geovlak)) as geopunt
   FROM standplaatsactueelbestaand s
    JOIN nummeraanduidingactueelbestaand n
    ON (n.identificatie = s.hoofdadres)
