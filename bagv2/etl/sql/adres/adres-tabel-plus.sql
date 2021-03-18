@@ -57,11 +57,17 @@
 -- Fouten in adres ontdubbel statements opgelost
 -- RANK functie vervangen door ROW_NUM
 --
+-- vanaf hier voor BAG versie 2
+--
 -- 20210205 Just van den Broecke
 -- File encoding van Windows naar UTF-8 en CRLF naar LF
 -- geopunt was Geometry, nu: cast(adres.geopunt AS geometry(PointZ, 28992)),
-
-
+--
+-- 20210318 Just van den Broecke
+-- alles 2D (geopunt Point ipv PointZ), verwijder ST_Force3D()
+-- inonderzoek kolom bestaat niet meer, commented out
+-- extra pand niet-bestaand status: 'Pand ten onrechte opgevoerd'
+-- extra pand bestaand status: 'Verbouwing pand'
 
 -- SET search_path TO bagactueel,public;
 set statement_timeout to 50000000;
@@ -94,7 +100,7 @@ Select
 	NAD.aanduidingrecordinactief,
 	NAD.voorkomenidentificatie,
 	NAD.geconstateerd,
-	NAD.inonderzoek,
+	-- NAD.inonderzoek,
 	NAD.documentnummer,
 	NAD.documentdatum,
 	NAD.huisnummer,
@@ -205,16 +211,16 @@ end typeadresseerbaarobjectkort,
 OBR.identificatie as OBR_ID,
 NAD.begindatumtijdvakgeldigheid as NAD_BEGIN,
 coalesce( VBO.begindatumtijdvakgeldigheid ,LIG.begindatumtijdvakgeldigheid, STA.begindatumtijdvakgeldigheid) as ADRESSEERBAAROBJECT_BEGIN,
-coalesce( VBO.inonderzoek ,LIG.inonderzoek, STA.inonderzoek) as ADRESSEERBAAROBJECT_inonderzoek,
+-- coalesce( VBO.inonderzoek ,LIG.inonderzoek, STA.inonderzoek) as ADRESSEERBAAROBJECT_inonderzoek,
 coalesce(VBO.identificatie ,   LIG.identificatie, STA.identificatie) as adresseerbaarobject_id,
 Coalesce (  VBO.verblijfsobjectstatus::text,  LIG.ligplaatsstatus::text,   STA.standplaatsstatus::text) as adresseerbaarobject_status,
 coalesce(round(cast(ST_Area(ST_Transform(sta.geovlak,28992) )as numeric),0),    round(cast(ST_Area(ST_Transform(lig.geovlak,28992) )as numeric),0),VBO.oppervlakteverblijfsobject) as opp_adresseerbaarobject_m2,
-coalesce (  vbo.geopunt, ST_Force3D(ST_Centroid(lig.geovlak)) ,ST_Force3D(ST_Centroid(sta.geovlak)) )   as geopunt,
+coalesce (  vbo.geopunt, ST_Centroid(lig.geovlak) ,ST_Centroid(sta.geovlak))   as geopunt,
 coalesce (  lig.geovlak,sta.geovlak )   as geovlak,
-coalesce ( ST_X(vbo.geopunt), ST_X(ST_Force3D(ST_Centroid(lig.geovlak))),ST_X(ST_Force3D(ST_Centroid(sta.geovlak)))) as X,
-coalesce ( ST_Y(vbo.geopunt), ST_Y(ST_Force3D(ST_Centroid(lig.geovlak))),ST_Y(ST_Force3D(ST_Centroid(sta.geovlak)))) as Y,
-ROUND(cast(coalesce ( ST_X(ST_Transform(vbo.geopunt, 4326)),ST_X(ST_Transform(ST_Force3D(ST_Centroid(lig.geovlak)), 4326)), ST_X(ST_Transform(ST_Force3D(ST_Centroid(sta.geovlak)), 4326))) as numeric),6) as lon,
-ROUND(cast(coalesce ( ST_Y(ST_Transform(vbo.geopunt, 4326)),ST_Y(ST_Transform(ST_Force3D(ST_Centroid(lig.geovlak)), 4326)), ST_Y(ST_Transform(ST_Force3D(ST_Centroid(sta.geovlak)), 4326))) as numeric),6) as lat
+coalesce ( ST_X(vbo.geopunt), ST_X(ST_Centroid(lig.geovlak)),ST_X(ST_Centroid(sta.geovlak))) as X,
+coalesce ( ST_Y(vbo.geopunt), ST_Y(ST_Centroid(lig.geovlak)),ST_Y(ST_Centroid(sta.geovlak))) as Y,
+ROUND(cast(coalesce ( ST_X(ST_Transform(vbo.geopunt, 4326)),ST_X(ST_Transform(ST_Centroid(lig.geovlak), 4326)), ST_X(ST_Transform(ST_Centroid(sta.geovlak), 4326))) as numeric),6) as lon,
+ROUND(cast(coalesce ( ST_Y(ST_Transform(vbo.geopunt, 4326)),ST_Y(ST_Transform(ST_Centroid(lig.geovlak), 4326)), ST_Y(ST_Transform(ST_Centroid(sta.geovlak), 4326))) as numeric),6) as lat
 FROM
 nummeraanduidingactueelbestaand_compleet NAD
 left outer join   verblijfsobjectactueelbestaand VBO
@@ -263,16 +269,16 @@ end typeadresseerbaarobjectkort,
 OBR.identificatie as OBR_ID,
 NAD.begindatumtijdvakgeldigheid as NAD_BEGIN,
 coalesce( VBO.begindatumtijdvakgeldigheid ,LIG.begindatumtijdvakgeldigheid, STA.begindatumtijdvakgeldigheid) as ADRESSEERBAAROBJECT_BEGIN,
-coalesce( VBO.inonderzoek ,LIG.inonderzoek, STA.inonderzoek) as ADRESSEERBAAROBJECT_inonderzoek,
+-- coalesce( VBO.inonderzoek ,LIG.inonderzoek, STA.inonderzoek) as ADRESSEERBAAROBJECT_inonderzoek,
 coalesce(VBO.identificatie ,   LIG.identificatie, STA.identificatie) as adresseerbaarobject_id,
 Coalesce (  VBO.verblijfsobjectstatus::text,  LIG.ligplaatsstatus::text,   STA.standplaatsstatus::text) as adresseerbaarobject_status,
 coalesce(round(cast(ST_Area(ST_Transform(sta.geovlak,28992) )as numeric),0),    round(cast(ST_Area(ST_Transform(lig.geovlak,28992) )as numeric),0),VBO.oppervlakteverblijfsobject) as opp_adresseerbaarobject_m2,
-coalesce (  vbo.geopunt, ST_Force3D(ST_Centroid(lig.geovlak)) ,ST_Force3D(ST_Centroid(sta.geovlak)) )   as geopunt,
+coalesce (  vbo.geopunt, ST_Centroid(lig.geovlak) , ST_Centroid(sta.geovlak))   as geopunt,
 coalesce (  lig.geovlak,sta.geovlak )   as geovlak,
-coalesce ( ST_X(vbo.geopunt), ST_X(ST_Force3D(ST_Centroid(lig.geovlak))),ST_X(ST_Force3D(ST_Centroid(sta.geovlak)))) as X,
-coalesce ( ST_Y(vbo.geopunt), ST_Y(ST_Force3D(ST_Centroid(lig.geovlak))),ST_Y(ST_Force3D(ST_Centroid(sta.geovlak)))) as Y,
-ROUND(cast(coalesce ( ST_X(ST_Transform(vbo.geopunt, 4326)),ST_X(ST_Transform(ST_Force3D(ST_Centroid(lig.geovlak)), 4326)), ST_X(ST_Transform(ST_Force3D(ST_Centroid(sta.geovlak)), 4326))) as numeric),6) as lon,
-ROUND(cast(coalesce ( ST_Y(ST_Transform(vbo.geopunt, 4326)),ST_Y(ST_Transform(ST_Force3D(ST_Centroid(lig.geovlak)), 4326)), ST_Y(ST_Transform(ST_Force3D(ST_Centroid(sta.geovlak)), 4326))) as numeric),6) as lat
+coalesce ( ST_X(vbo.geopunt), ST_X(ST_Centroid(lig.geovlak)),ST_X(ST_Centroid(sta.geovlak))) as X,
+coalesce ( ST_Y(vbo.geopunt), ST_Y(ST_Centroid(lig.geovlak)),ST_Y(ST_Centroid(sta.geovlak))) as Y,
+ROUND(cast(coalesce ( ST_X(ST_Transform(vbo.geopunt, 4326)),ST_X(ST_Transform(ST_Centroid(lig.geovlak), 4326)), ST_X(ST_Transform(ST_Centroid(sta.geovlak), 4326))) as numeric),6) as lon,
+ROUND(cast(coalesce ( ST_Y(ST_Transform(vbo.geopunt, 4326)),ST_Y(ST_Transform(ST_Centroid(lig.geovlak), 4326)), ST_Y(ST_Transform(ST_Centroid(sta.geovlak), 4326))) as numeric),6) as lat
 FROM
 adresseerbaarobjectnevenadresactueelbestaand NEV
 inner join
@@ -341,17 +347,18 @@ COMMIT;
 
 
 -- Als in  adres_dubbel  een record uniek is  behalve op de kolom ADRESSEERBAAROBJECT_inonderzoek  dan gaan we het record waar ADRESSEERBAAROBJECT_inonderzoek=f verwijderen.
-BEGIN;
-delete from adres_dubbel D
-where D.adresseerbaarobject_id in (
-
-	  select distinct adresseerbaarobject_id
-	  FROM adres_dubbel group by adresseerbaarobject_id
-	  having count (distinct adresseerbaarobject_inonderzoek) > 1)
-
-and  D.adresseerbaarobject_inonderzoek= 'f';
---20200530 Query returned successfully: 0 rows affected, 194 msec execution time.
-COMMIT;
+-- JvdB: kolom niet in BAG v2
+-- BEGIN;
+-- delete from adres_dubbel D
+-- where D.adresseerbaarobject_id in (
+--
+-- 	  select distinct adresseerbaarobject_id
+-- 	  FROM adres_dubbel group by adresseerbaarobject_id
+-- 	  having count (distinct adresseerbaarobject_inonderzoek) > 1)
+--
+-- and  D.adresseerbaarobject_inonderzoek= 'f';
+-- --20200530 Query returned successfully: 0 rows affected, 194 msec execution time.
+-- COMMIT;
 
 BEGIN;
 
@@ -365,8 +372,8 @@ SELECT
   max(pnd.bouwjaar) as max_bouwjaar,  min(pnd.bouwjaar) as min_bouwjaar, max(pnd.begindatumtijdvakgeldigheid) as max_begin, min(pnd.begindatumtijdvakgeldigheid) as min_begin,
 
 max(case
-when pnd.pandstatus in (  'Pand buiten gebruik','Sloopvergunning verleend','Pand in gebruik','Pand in gebruik (niet ingemeten)','Bouw gestart') then 1
-when pnd.pandstatus in (  'Niet gerealiseerd pand','Pand gesloopt','Bouwvergunning verleend') then 0
+when pnd.pandstatus in (  'Pand buiten gebruik','Sloopvergunning verleend','Pand in gebruik','Pand in gebruik (niet ingemeten)','Bouw gestart', 'Verbouwing pand') then 1
+when pnd.pandstatus in (  'Niet gerealiseerd pand','Pand gesloopt','Bouwvergunning verleend', 'Pand ten onrechte opgevoerd') then 0
 else  -1 end) as Pand_bestaand
 FROM
   verblijfsobjectpandactueelbestaand VBO_PND
@@ -434,7 +441,7 @@ SELECT distinct
   a.OBR_ID,
   a.woonplaats_id,
   a.adresseerbaarobject_id,
-  a.adresseerbaarobject_inonderzoek,
+  -- a.adresseerbaarobject_inonderzoek,
   a.x,
   a.y,
   a.lon,
@@ -493,8 +500,8 @@ CREATE or replace view adres_vergelijk AS
 case when a.nad_id > b.nad_id then 'a' else 'b' end NAD_ID_hoogst,
   a.adresseerbaarobject_id as 	  a_adresseerbaarobject_id,
   b.adresseerbaarobject_id as 	  b_adresseerbaarobject_id,
-  a.adresseerbaarobject_inonderzoek as 	  a_adresseerbaarobject_inonderzoek,
-  b.adresseerbaarobject_inonderzoek as 	  b_adresseerbaarobject_inonderzoek,
+--   a.adresseerbaarobject_inonderzoek as 	  a_adresseerbaarobject_inonderzoek,
+--   b.adresseerbaarobject_inonderzoek as 	  b_adresseerbaarobject_inonderzoek,
   case when   a.adresseerbaarobject_id >   b.adresseerbaarobject_id and a.typeadresseerbaarobjectkort = b.typeadresseerbaarobjectkort then 'a'
   when   a.adresseerbaarobject_id <   b.adresseerbaarobject_id and a.typeadresseerbaarobjectkort = b.typeadresseerbaarobjectkort then 'b'
   when   a.adresseerbaarobject_id =   b.adresseerbaarobject_id and a.typeadresseerbaarobjectkort = b.typeadresseerbaarobjectkort then 'zelfde'
@@ -661,7 +668,7 @@ in(
 select distinct a_nad_id from adres_vergelijk v inner join adres_nog_te_ontdubbelen nog on v.a_uniq_key  = nog.uniq_key
 where
   (
-   (v.a_typeadresseerbaarobjectkort in ('LIG','STA') and v.b_typeadresseerbaarobjectkort='VBO' and v.b_pandstatus in ('Pand in gebruik (niet ingemeten)','Pand in gebruik', 'Sloopvergunning verleend'))
+   (v.a_typeadresseerbaarobjectkort in ('LIG','STA') and v.b_typeadresseerbaarobjectkort='VBO' and v.b_pandstatus in ('Pand in gebruik (niet ingemeten)','Pand in gebruik', 'Sloopvergunning verleend', 'Verbouwing pand'))
   )
 ) ;
 -- 20200530 Query returned successfully: 124 rows affected, 54 msec execution time.
@@ -884,7 +891,7 @@ CREATE table pandactueelbestaand_plus AS
 	pand.aanduidingrecordinactief,
 	pand.voorkomenidentificatie,
 	pand.geconstateerd,
-	pand.inonderzoek,
+	-- pand.inonderzoek,
 	pand.documentnummer,
 	pand.documentdatum,
 	pand.pandstatus,
@@ -898,7 +905,7 @@ CREATE table pandactueelbestaand_plus AS
 	pand.geovlak
    FROM pand
   WHERE pand.begindatumtijdvakgeldigheid <= 'now'::text::timestamp without time zone AND (pand.einddatumtijdvakgeldigheid IS NULL OR pand.einddatumtijdvakgeldigheid >= 'now'::text::timestamp without time zone) AND pand.aanduidingrecordinactief = false AND pand.geom_valid = true AND
-  pand.pandstatus <> 'Niet gerealiseerd pand'::pandstatus AND pand.pandstatus <> 'Pand gesloopt'::pandstatus ;
+  pand.pandstatus <> 'Niet gerealiseerd pand'::pandstatus AND pand.pandstatus <> 'Pand gesloopt'::pandstatus AND pand.pandstatus <> 'Pand ten onrechte opgevoerd'::pandstatus;
   --20200603 Query returned successfully: 10331821 rows affected, 01:14 minutes execution time.
 COMMIT;
 
@@ -919,16 +926,17 @@ COMMIT;
 
 
 -- als een pand voorkomt met inonderzoek = f en ook t dan hier de F verwijderen
-BEGIN;
-delete from pandactueelbestaand_plus D
-where D.identificatie in (
-
-select distinct identificatie from pandactueelbestaand_plus  group by   identificatie
- having count(*) > 1  )
-
-and  D.inonderzoek= 'f';
-
-COMMIT;
+-- JvdB: kolom niet in BAG v2
+-- BEGIN;
+-- delete from pandactueelbestaand_plus D
+-- where D.identificatie in (
+--
+-- select distinct identificatie from pandactueelbestaand_plus  group by   identificatie
+--  having count(*) > 1  )
+--
+-- and  D.inonderzoek= 'f';
+--
+-- COMMIT;
 
 /*
 het komt voor dat een pand meer dan 1x voorkomt
@@ -1393,7 +1401,7 @@ SELECT
   adres.opp_adresseerbaarobject_m2,
   ADR_NAD.aantal as aantal_NAD_per_Adresobject,
   adres.adresseerbaarobject_id,
-  cast(adres.geopunt AS geometry(PointZ, 28992)),
+  cast(adres.geopunt AS geometry(Point, 28992)),
   adres.x,
   adres.y,
   adres.lon,

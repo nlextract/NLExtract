@@ -2,7 +2,7 @@
 -- SET search_path TO test,public;
 
 -- Maak tabellen zoveel mogelijk compatibel met BAG v1
-
+-- Alle geometrie nu 2D!
 
 -- LIG specifiek
 ALTER TABLE ligplaats RENAME COLUMN begingeldigheid TO begindatumTijdvakGeldigheid;
@@ -53,7 +53,8 @@ ALTER TABLE pand ALTER COLUMN eindgeldigheid TYPE timestamp with time zone;
 ALTER TABLE pand ALTER COLUMN status TYPE pandStatus USING status::text::pandStatus;
 ALTER TABLE pand ALTER COLUMN documentnummer TYPE character varying(40);
 ALTER TABLE pand ALTER COLUMN oorspronkelijkbouwjaar TYPE numeric(4);
-ALTER TABLE pand ALTER COLUMN wkb_geometry TYPE geometry(PolygonZ, 28992) USING ST_Force3D(wkb_geometry);
+-- Alles 2D !
+-- ALTER TABLE pand ALTER COLUMN wkb_geometry TYPE geometry(PolygonZ, 28992) USING ST_Force3D(wkb_geometry);
 
 ALTER TABLE pand RENAME COLUMN begingeldigheid TO begindatumTijdvakGeldigheid;
 ALTER TABLE pand RENAME COLUMN eindgeldigheid TO einddatumTijdvakGeldigheid;
@@ -61,7 +62,9 @@ ALTER TABLE pand RENAME COLUMN oorspronkelijkbouwjaar TO bouwjaar;
 ALTER TABLE pand RENAME COLUMN status TO pandStatus;
 ALTER TABLE pand RENAME COLUMN wkb_geometry TO geovlak;
 ALTER TABLE pand ADD COLUMN aanduidingRecordInactief boolean default false;
+ALTER TABLE pand ADD COLUMN geom_valid boolean default true;
 UPDATE pand SET aanduidingrecordinactief=(tijdstipinactief is not NULL OR tijdstipnietbaglv is not NULL OR tijdstipinactiefLV is not NULL);
+UPDATE pand SET geom_valid=ST_Isvalid(geovlak);
 
 -- STA specifiek
 ALTER TABLE standplaats RENAME COLUMN begingeldigheid TO begindatumTijdvakGeldigheid;
@@ -81,7 +84,8 @@ ALTER TABLE verblijfsobject ALTER COLUMN hoofdadresnummeraanduidingref TYPE char
 ALTER TABLE verblijfsobject ALTER COLUMN nevenadresnummeraanduidingref TYPE character varying(16) ARRAY;
 ALTER TABLE verblijfsobject ALTER COLUMN oppervlakte TYPE numeric(6);
 ALTER TABLE verblijfsobject ALTER COLUMN pandref TYPE character varying(16) ARRAY;
-ALTER TABLE verblijfsobject ALTER COLUMN wkb_geometry TYPE geometry(PointZ, 28992) USING ST_Force3D(wkb_geometry);
+-- Alles 2D!
+-- ALTER TABLE verblijfsobject ALTER COLUMN wkb_geometry TYPE geometry(PointZ, 28992) USING ST_Force3D(wkb_geometry);
 
 ALTER TABLE verblijfsobject RENAME COLUMN begingeldigheid TO begindatumTijdvakGeldigheid;
 ALTER TABLE verblijfsobject RENAME COLUMN eindgeldigheid TO einddatumTijdvakGeldigheid;

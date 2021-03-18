@@ -205,3 +205,60 @@ Daardoor kunnen gemakkelijker allerlei selecties gedaan worden (ipv tussentabell
 	select count(gid) from doesburg.verblijfsobject where array_length(gebruiksdoel,1) > 1
 
 
+Veranderingen Kadaster BAG Levering v2
+======================================
+
+Voorkomen en Historie
+---------------------
+
+Bronnen:
+
+* https://geoforum.nl/t/bag-extract-v2-migratie-van-v1-object-attributen/5588/2
+
+actueel
+~~~~~~~
+
+* https://www.kadaster.nl/-/specificatie-bag-historiemodel
+* https://geoforum.nl/t/bag-extract-v2-definitie-van-actueel/5579
+* https://imbag.github.io/praktijkhandleiding/artikelen/hoe-ontstaan-niet-bag-en-inactieve-voorkomens
+
+Formeel op grond bovenstaande is in BAG v2 de “actuele” conditie: ::
+
+	begingeldigheid <= now()
+	AND (eindgeldigheid is NULL OR eindgeldigheid > now())
+	AND (tijdstipinactief is NULL AND tijdstipinactiefLV is NULL AND tijdstipnietbaglv is NULL)
+
+De laatste 3 worden in NLExtract vervat in `aanduidingrecordinactief` kolom.
+
+bestaand
+~~~~~~~~
+
+Extra status enum waarden:
+
+* Pand: `'Verbouwing pand','Pand ten onrechte opgevoerd'`
+* VBO: `'Verbouwing verblijfsobject','Verblijfsobject ten onrechte opgevoerd'`
+
+aanduidingrecordcorrectie
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+P Dijkstra:
+"De `aanduidingrecordcorrectie` bestaat niet meer. De aanduiding correctie is groter dan 0 als een object in BAG 1.0 de indicatie inactief ‘J’ kreeg.
+Voorkomens met dezelfde sleutel kunnen meerdere keren inactief worden gemaakt, dat is dan te zien aan een oplopend getal bij de indicatie correctie.
+Een çorrectie is in BAG 2.0 te herkennen aan een gevuld tijdstip Niet BAG en/of een gevuld tijdstip Inactief(LV).
+Omdat het in BAG 2.0 een tijdstip is (in plaats van een indicatie) is het in BAG 2.0 niet meer nodig ook nog een correctie te leveren."
+
+geconstateerd
+~~~~~~~~~~~~~
+
+P Dijkstra:
+"De indicatie `geconstateerd` is ooit in het BAG 1.0 extract terecht gekomen als `officieel`.
+Dit is aangepast in het BAG 2.0 extract. Inhoudelijk gezien is hier niets aan gewijzigd.
+Als de indicatie `geconstateerd` ‘J’ is betekent dit dat het object niet op basis van een formeel brondocument
+in de registratie is opgenomen. Dit geeft aan dat er sprake is van een mogelijk illegaal object."
+
+inonderzoek
+~~~~~~~~~~~
+
+P Dijkstra:
+"`inonderzoek` is in BAG 2.0 geen attribuut van een voorkomen meer. Het is als het ware een apart object op basis
+van het ID van het object en het in onderzoek geplaatste gegeven met een eigen tijdlijn."

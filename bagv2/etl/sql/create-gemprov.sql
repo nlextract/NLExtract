@@ -2,7 +2,7 @@
 -- Let op
 -- 1. in gemeente_woonplaats staan gemeenten die beeindigd zijn; deze uitfilteren
 -- 2. dubbele woonplaatsen in woonplaats tabel ! Zie bijv
--- select id,identificatie, aanduidingrecordinactief, aanduidingrecordcorrectie, officieel, inonderzoek, documentnummer,
+-- select id,identificatie, aanduidingrecordinactief, officieel, inonderzoek, documentnummer,
 --    documentdatum, woonplaatsnaam,   woonplaatsstatus  ,begindatumtijdvakgeldigheid, einddatumtijdvakgeldigheid from woonplaats where identificatie = '1183'
 --    Dus ook inaktieve woonplaatsen uitfilteren !!
 -- SELECT identificatie, COUNT(identificatie) AS NumOccurrences FROM woonplaats GROUP BY identificatie HAVING ( COUNT(identificatie) > 1 );

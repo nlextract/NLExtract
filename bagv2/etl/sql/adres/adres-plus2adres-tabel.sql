@@ -29,7 +29,7 @@ CREATE TABLE adres AS SELECT
   cast(adresseerbaarobject_id AS character varying(16)) AS adresseerbaarobject,
   cast(nummeraanduiding_id AS character varying(16)) AS nummeraanduiding,
   cast (nevenadres as BOOLEAN),
-  cast(geopunt AS geometry(PointZ, 28992))
+  cast(geopunt AS geometry(Point, 28992))
 FROM adres_plus ORDER BY openbareruimtenaam,huisnummer,huisletter,huisnummertoevoeging,woonplaatsnaam;;
 
 -- Vul de text vector kolom voor full text search

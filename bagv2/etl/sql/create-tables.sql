@@ -1,8 +1,11 @@
 -- Tabellen voor BAG-Extract v2
 -- Min of meer 1-1 met BAG model dus niet geoptimaliseerd
 -- Te gebruiken als basis tabellen om specifieke tabellen
--- aan te maken via bijvoorbeeld VIEWs of SQL selecties.
--- Op alfabet.
+-- of VIEWs af te leiden.
+-- 
+-- Op alfabet. Zie finalize-tables-sql hoe de uiteindelijke
+-- tabellen eruit zien.
+--
 -- Author: Just van den Broecke
 
 -- Common - for v1 compat not used!
@@ -38,7 +41,7 @@ CREATE TABLE ligplaats
     tijdstipinactieflv timestamp with time zone,
     tijdstipnietbaglv timestamp with time zone,
 
-    geovlak geometry(PolygonZ, 28992),
+    geovlak geometry(Polygon, 28992),
 
     PRIMARY KEY (gid)
 )
@@ -51,6 +54,7 @@ CREATE TYPE nummeraanduidingStatus AS ENUM ('Naamgeving uitgegeven', 'Naamgeving
 DROP TYPE IF EXISTS typeAdresseerbaarObject  CASCADE;
 CREATE TYPE typeAdresseerbaarObject AS ENUM ('Verblijfsobject', 'Standplaats', 'Ligplaats');
 
+-- Laat GDAL OGR deze tabel aanmaken, anders teveel performance verlies
 -- CREATE TABLE nummeraanduiding
 -- (
 --     gid serial,
@@ -147,6 +151,7 @@ CREATE TYPE pandStatus AS ENUM (
     'Pand ten onrechte opgevoerd'
     );
 
+-- Laat GDAL OGR deze tabel aanmaken, anders teveel performance verlies
 -- CREATE TABLE pand
 -- (
 --     gid serial,
@@ -204,7 +209,7 @@ CREATE TABLE standplaats
     tijdstipinactieflv timestamp with time zone,
     tijdstipnietbaglv timestamp with time zone,
 
-    geovlak geometry(PolygonZ, 28992),
+    geovlak geometry(Polygon, 28992),
 
     PRIMARY KEY (gid)
 )
@@ -232,6 +237,7 @@ CREATE TYPE verblijfsobjectStatus AS ENUM (
     'Verblijfsobject ten onrechte opgevoerd'
     );
 
+-- Laat GDAL OGR deze tabel aanmaken, anders teveel performance verlies
 -- CREATE TABLE verblijfsobject
 -- (
 --     gid serial,
@@ -312,7 +318,6 @@ CREATE TABLE verblijfsobjectpand (
   aanduidingRecordInactief boolean,
   tijdstipinactief timestamp with time zone,
   voorkomenidentificatie integer,
-  -- aanduidingRecordCorrectie INTEGER,
   begindatumtijdvakgeldigheid timestamp with time zone,
   einddatumTijdvakGeldigheid timestamp with time zone,
   verblijfsobjectStatus verblijfsobjectStatus,
@@ -329,7 +334,6 @@ CREATE TABLE verblijfsobjectgebruiksdoel (
   aanduidingRecordInactief boolean,
   tijdstipinactief timestamp with time zone,
   voorkomenidentificatie integer,
-    -- aanduidingRecordCorrectie INTEGER,
   begindatumtijdvakgeldigheid timestamp with time zone,
   einddatumTijdvakGeldigheid timestamp with time zone,
   verblijfsobjectStatus verblijfsobjectStatus,
@@ -379,7 +383,7 @@ CREATE TABLE adresseerbaarobjectnevenadres (
 
   -- Nieuw in v2
   -- MAAR: geopunt locatie is nog steeds die van Hoofdadres!
-  geopunt geometry(PointZ, 28992),
+  geopunt geometry(Point, 28992),
 
   PRIMARY KEY (gid)
 );
@@ -389,10 +393,7 @@ CREATE TABLE adresseerbaarobjectnevenadres (
 -- EIND - Relatie tabellen
 --
 
--- Moet in de pas lopen met CSV ../data/kadaster-gemeente-woonplaats-<datum>.csv
--- Vesie van 6 maart heeft CSV header
--- Woonplaats;Woonplaats code;Ingangsdatum WPL;Einddatum WPL;Gemeente;Gemeente code;
---     Ingangsdatum nieuwe gemeente;Gemeente beeindigd per
+-- GEM-WOONPLAATS koppeling uit Kadaster BAG Extract Levering.
 DROP TABLE IF EXISTS gemeente_woonplaats CASCADE;
 DROP TYPE IF EXISTS gemeenteWoonplaatsStatus CASCADE;
 CREATE TYPE gemeenteWoonplaatsStatus AS ENUM (
@@ -409,20 +410,10 @@ CREATE TABLE gemeente_woonplaats (
   PRIMARY KEY (gid)
 );
 
-
-DROP TABLE IF EXISTS gemeente_provincie CASCADE;
-
+-- Gemeente-Provincie koppeling van CBS
 DROP TABLE IF EXISTS provincie_gemeente CASCADE;
 CREATE TABLE provincie_gemeente (
   -- follows CBS XLS/CSV column-naming,
-
---   provinciecode numeric(4),
---   provincienaam character varying(80),
---   gemeentecode varchar(4),
---   gemeentenaam character varying(80),
---   begindatum timestamp with time zone,
---   einddatum timestamp with time zone,
-
   provinciecode numeric(4),
   provinciecodepv character varying(4),
   provincienaam character varying(80),

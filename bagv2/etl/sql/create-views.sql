@@ -72,7 +72,8 @@ CREATE VIEW pandactueel AS
     WHERE
       beginDatumTijdvakGeldigheid <= now()
       AND (eindDatumTijdvakGeldigheid is NULL OR eindDatumTijdvakGeldigheid >= now())
-      AND aanduidingrecordinactief is FALSE;
+      AND aanduidingrecordinactief is FALSE 
+      AND pand.geom_valid = TRUE;
 
 DROP VIEW IF EXISTS pandactueelbestaand;
 CREATE VIEW pandactueelbestaand AS
@@ -84,7 +85,8 @@ CREATE VIEW pandactueelbestaand AS
      AND (pandStatus <> 'Niet gerealiseerd pand'::pandStatus
      AND pandStatus <> 'Pand gesloopt'::pandStatus
      AND pandStatus <> 'Bouwvergunning verleend'::pandStatus
-     AND pandStatus <> 'Pand ten onrechte opgevoerd'::pandStatus );
+     AND pandStatus <> 'Pand ten onrechte opgevoerd'::pandStatus )
+     AND pand.geom_valid = TRUE;
 
 -- STA
 DROP VIEW IF EXISTS standplaatsactueel;

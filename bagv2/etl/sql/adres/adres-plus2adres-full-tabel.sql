@@ -91,7 +91,7 @@ CREATE TABLE adres_full AS SELECT
    cast(bouwjaar AS numeric(4,0)) AS pandbouwjaar,
    cast(nummeraanduiding_id AS character varying(16)) AS nummeraanduiding,
    cast(nevenadres AS BOOLEAN),
-   cast(geopunt AS geometry(PointZ, 28992)),
+   cast(geopunt AS geometry(Point, 28992)),
    cast(verkorteopenbareruimtenaam AS character varying(24))
 FROM adres_plus ORDER BY openbareruimtenaam,huisnummer,huisletter,huisnummertoevoeging,woonplaatsnaam;
 
