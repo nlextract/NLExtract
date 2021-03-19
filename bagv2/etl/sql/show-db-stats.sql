@@ -44,6 +44,7 @@ WHERE
   relkind='r'
 ORDER BY schemaname,reltuples DESC;
 
+select name, setting from pg_settings where name like '%wal_size%' or name like '%checkpoint%' order by name;
 
 -- Schema overzicht
 -- SELECT nspname AS "schema"
@@ -72,3 +73,5 @@ ORDER BY schemaname,reltuples DESC;
 --   ORDER BY pg_relation_size(C.oid) DESC
 --   LIMIT 50;
 -- $$ LANGUAGE sql;
+
+
