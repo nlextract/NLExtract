@@ -64,7 +64,8 @@ ALTER TABLE pand RENAME COLUMN wkb_geometry TO geovlak;
 ALTER TABLE pand ADD COLUMN aanduidingRecordInactief boolean default false;
 ALTER TABLE pand ADD COLUMN geom_valid boolean default true;
 UPDATE pand SET aanduidingrecordinactief=(tijdstipinactief is not NULL OR tijdstipnietbaglv is not NULL OR tijdstipinactiefLV is not NULL);
-UPDATE pand SET geom_valid=ST_Isvalid(geovlak);
+-- turn off for now, too intensive 
+-- UPDATE pand SET geom_valid=ST_Isvalid(geovlak);
 
 -- STA specifiek
 ALTER TABLE standplaats RENAME COLUMN begingeldigheid TO begindatumTijdvakGeldigheid;
