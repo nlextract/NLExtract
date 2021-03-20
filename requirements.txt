@@ -8,7 +8,7 @@ docutils==0.16
 GDAL==2.3.1
 idna==2.10
 imagesize==1.2.0
-Jinja2==2.11.2
+Jinja2==2.11.3
 lxml==4.6.2
 MarkupSafe==1.1.1
 packaging==20.4
