@@ -10,6 +10,7 @@ ALTER TABLE ligplaats RENAME COLUMN eindgeldigheid TO einddatumTijdvakGeldigheid
 ALTER TABLE ligplaats RENAME COLUMN hoofdadresnummeraanduidingref TO hoofdadres;
 ALTER TABLE ligplaats RENAME COLUMN nevenadresnummeraanduidingref TO nevenadressen;
 ALTER TABLE ligplaats RENAME COLUMN status TO ligplaatsStatus;
+ALTER TABLE ligplaats ADD COLUMN aanduidingRecordInactief boolean default false;
 UPDATE ligplaats SET aanduidingrecordinactief=(tijdstipinactief is not NULL OR tijdstipnietbaglv is not NULL OR tijdstipinactiefLV is not NULL);
 
 -- NUM specifiek
@@ -44,6 +45,7 @@ ALTER TABLE openbareruimte RENAME COLUMN verkorteNaam TO verkorteOpenbareRuimteN
 ALTER TABLE openbareruimte RENAME COLUMN type TO openbareRuimteType;
 ALTER TABLE openbareruimte RENAME COLUMN woonplaatsref TO gerelateerdeWoonplaats;
 ALTER TABLE openbareruimte RENAME COLUMN status TO openbareRuimteStatus;
+ALTER TABLE openbareruimte ADD COLUMN aanduidingRecordInactief boolean default false;
 UPDATE openbareruimte SET aanduidingrecordinactief=(tijdstipinactief is not NULL OR tijdstipnietbaglv is not NULL OR tijdstipinactiefLV is not NULL);
 
 -- PND specifiek
@@ -73,6 +75,7 @@ ALTER TABLE standplaats RENAME COLUMN eindgeldigheid TO einddatumTijdvakGeldighe
 ALTER TABLE standplaats RENAME COLUMN hoofdadresnummeraanduidingref TO hoofdadres;
 ALTER TABLE standplaats RENAME COLUMN nevenadresnummeraanduidingref TO nevenadressen;
 ALTER TABLE standplaats RENAME COLUMN status TO standplaatsStatus;
+ALTER TABLE standplaats ADD COLUMN aanduidingRecordInactief boolean default false;
 UPDATE standplaats SET aanduidingrecordinactief=(tijdstipinactief is not NULL OR tijdstipnietbaglv is not NULL OR tijdstipinactiefLV is not NULL);
 
 -- VBO specifiek
@@ -106,6 +109,7 @@ ALTER TABLE woonplaats RENAME COLUMN begingeldigheid TO begindatumTijdvakGeldigh
 ALTER TABLE woonplaats RENAME COLUMN eindgeldigheid TO einddatumTijdvakGeldigheid;
 ALTER TABLE woonplaats RENAME COLUMN naam TO woonplaatsNaam;
 ALTER TABLE woonplaats RENAME COLUMN status TO woonplaatsStatus;
+ALTER TABLE woonplaats ADD COLUMN aanduidingRecordInactief boolean default false;
 UPDATE woonplaats SET aanduidingrecordinactief=(tijdstipinactief is not NULL OR tijdstipnietbaglv is not NULL OR tijdstipinactiefLV is not NULL);
 
 -- PROV-GEM specifiek
@@ -120,6 +124,7 @@ ALTER TABLE gemeente_woonplaats DROP COLUMN geometry;
 -- Adresseerbaarobjectnevenadres
 ALTER TABLE adresseerbaarobjectnevenadres RENAME COLUMN begingeldigheid TO begindatumTijdvakGeldigheid;
 ALTER TABLE adresseerbaarobjectnevenadres RENAME COLUMN eindgeldigheid TO einddatumTijdvakGeldigheid;
+ALTER TABLE adresseerbaarobjectnevenadres ADD COLUMN aanduidingRecordInactief boolean default false;
 UPDATE adresseerbaarobjectnevenadres SET aanduidingrecordinactief=(tijdstipinactief is not NULL OR tijdstipnietbaglv is not NULL OR tijdstipinactiefLV is not NULL);
 
 

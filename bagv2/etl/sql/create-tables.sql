@@ -21,7 +21,6 @@ CREATE TABLE ligplaats
 (
     gid serial,
     identificatie character varying(16),
-    aanduidingRecordInactief boolean default FALSE,
 
     hoofdadresnummeraanduidingref character varying(16),
     nevenadresnummeraanduidingref character varying(16) ARRAY,
@@ -59,7 +58,6 @@ CREATE TYPE typeAdresseerbaarObject AS ENUM ('Verblijfsobject', 'Standplaats', '
 -- (
 --     gid serial,
 --     identificatie character varying(16),
---     aanduidingRecordInactief boolean default FALSE,
 --
 --     huisnummer integer,
 --     huisletter character varying(1),
@@ -106,7 +104,6 @@ CREATE TABLE openbareruimte
 (
     gid serial,
     identificatie character varying(16),
-    aanduidingRecordInactief boolean default FALSE,
 
     naam character varying(80),
     verkorteNaam character varying(24),
@@ -156,7 +153,7 @@ CREATE TYPE pandStatus AS ENUM (
 -- (
 --     gid serial,
 --     identificatie character varying(16),
---     aanduidingRecordInactief boolean default FALSE,
+--     
 --
 --     oorspronkelijkbouwjaar integer,
 --     status pandStatus,
@@ -189,7 +186,6 @@ CREATE TABLE standplaats
 (
     gid serial,
     identificatie character varying(16),
-    aanduidingRecordInactief boolean default FALSE,
 
     hoofdadresnummeraanduidingref character varying(16),
     nevenadresnummeraanduidingref character varying(16) ARRAY,
@@ -242,7 +238,7 @@ CREATE TYPE verblijfsobjectStatus AS ENUM (
 -- (
 --     gid serial,
 --     identificatie character varying(16),
---     aanduidingRecordInactief boolean default FALSE,
+--     
 --
 --     gebruiksdoel character varying ARRAY,
 --     oppervlakte integer,
@@ -280,7 +276,6 @@ CREATE TABLE woonplaats
 (
     gid serial,
     identificatie character varying(16),
-    aanduidingRecordInactief boolean default FALSE,
 
     naam character varying,
     status woonplaatsStatus,
@@ -351,7 +346,6 @@ CREATE TABLE adresseerbaarobjectnevenadres (
 
   -- identificatie Adresseerbaar Object
   identificatie character varying(16),
-  aanduidingRecordInactief boolean default FALSE,
 
   -- identificatie nummeraanduiding
   nevenadres character varying(16),

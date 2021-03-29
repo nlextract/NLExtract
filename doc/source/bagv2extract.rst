@@ -150,6 +150,23 @@ NOG AAN TE VULLEN - samengevat: ::
 	# - input_sql_post: post-processing o.a. aanmaken indexen en VIEWs
 
 
+Database Schema
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+Het basis Postgres Database schema is hieronder weergegeven.
+
+.. image:: _static/images/bagv2-schema-1.png
+    :alt: basis DB schema
+
+VIEWs en adres-tabellen worden hiervan afegeleid, aangevuld met CBS data.
+De multipliciteit van de tabel-relaties reflecteert die van het (IM)BAG model:
+
+* een VBO hoort bij 1 of meer PND (bijna altijd 1)
+* een Adresseerbaarobject (NUM, STA, LIG) heeft 1 Hoofdadres (NUM) en 0 of meer Nevenadressen (NUM)
+* NUM verwijst naar 1 OPR
+* OPR verwijst naar 1 WPL
+* NUM kan ook direct naar WPL verwijzen (bijv. straat doorlopend in andere WPL)
+
 GDAL LVBAG Driver
 -----------------
 
@@ -160,9 +177,21 @@ BAG v1 Compatibiliteit
 ----------------------
 
 Omdat veel implementaties al jaren gestoeld zijn op BAG v1 en de daarbij behorende attribuut/kolom namen,
-is besloten om zoveel mogelijk de NLExtract-BAG versie 1 naamgeving aan te houden.
-Ook de tussentabellen (VBO-PND N-M relatie) en multivalue tabellen (VBO Gebruiksdoelen, Nevenadressen)
-zijn behouden. Hoewel met ARRAY typen (zie onder) veel handiger queries te doen zijn.
+is besloten om zoveel mogelijk de NLExtract-BAG versie 1 structuur en naamgeving aan te houden.
+
+* tussentabellen (VBO-PND N-M relatie) en multivalue tabellen (VBO Gebruiksdoelen, Nevenadressen) zijn behouden.
+* NB: wel met ook de nieuwe ARRAY typen (zie onder) zijn veel handiger queries te maken
+* hernoemen: `begin/eindgeldigheid` (v2) --> `begin/einddatumtijdvakgeldigheid`
+* afleiden: `aanduidingRecordInactief` (zie onder) t.b.v. "actueel" in o.a. VIEWs
+* alle `status`  namen en typen
+* idem voor `naam` (WPL en OPR)
+* alle geometrie-kolommen 2D (was gedeeltelijk 3D in v1), maar in feite is 3D overbodig (altijd 0.0)
+
+Nieuwe status-waarden VBO en PND:
+
+* Pand: `'Verbouwing pand','Pand ten onrechte opgevoerd'`
+* VBO: `'Verbouwing verblijfsobject','Verblijfsobject ten onrechte opgevoerd'`
+
 
 Array Typen
 -----------
