@@ -4,6 +4,15 @@ via de link: https://github.com/nlextract/NLExtract/releases.
 De nieuwste versie staat bovenaan: kies de "real-release" nlextract zip.
 De rest ligt nog open afhankelijk van wensen gebruikers en natuurlijk eventuele bugs.
 
+v1.6.0 - 31.mrt.2021
+
+Nieuwe/aparte BAG versie 2 ETL op basis Stetl.
+Tevens Dockerfile en build-push-on-commit naar DockerHub.
+Werkt voorlopig alleen/beste met Docker (hoge/laatste GDAL versie nodig).
+
+Verder kleine fixes voornamelijk voor BAG (v1), zie Milestone:
+https://github.com/nlextract/NLExtract/milestone/16?closed=1
+
 v1.5.1 - 2.jan.2021
 
 Voornamelijk BAG update gemeente-koppelingen voor gem. herindelingen 2021
