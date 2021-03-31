@@ -6,10 +6,12 @@
 NLExtract Documentatie
 ======================
 
-De laatste versie van deze documentatie vind je steeds op http://docs.nlextract.nl.
+De laatste versie van deze documentatie vind je steeds op https://docs.nlextract.nl.
 Je kunt dit document in verschillende formaten downloaden zoals
 in `PDF <https://media.readthedocs.org/pdf/nlextract/latest/nlextract.pdf>`_.
 Zie https://readthedocs.org/projects/nlextract/downloads.
+
+Dit document is voor versie |release| van NLExtract en aangemaakt op |today|.
 
 NLExtract wordt ontwikkeld via de `NLExtract GitHub <https://github.com/nlextract/NLExtract>`_ .
 
@@ -22,6 +24,7 @@ Inhoud:
    algemeen.rst
    services.rst
    bagextract.rst
+   bagv2extract.rst
    top10extract.rst
    bgtextract.rst
    brkextract.rst

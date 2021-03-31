@@ -1,0 +1,15 @@
+# Default options for the Stetl BAG v2 Stetl ETL Chains
+#
+# These values are substituted into the ETL conf in conf/etl-imbag-v2.1.0.cfg, see the {arg} strings there
+
+# INPUT: gml files, point to directory or file(s) pattern
+bag_input_file=test/data/lv/BAGNLDL-15092020-small.zip
+bag_file_ext=zip
+
+# OUTPUT: PostGIS settings
+pg_host=localhost
+pg_port=5432
+pg_user=postgres
+password=postgres
+pg_db=bagv2
+schema=test

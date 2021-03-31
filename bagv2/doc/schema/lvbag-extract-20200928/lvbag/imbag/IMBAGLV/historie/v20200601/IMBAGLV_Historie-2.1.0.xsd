@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:Historie="www.kadaster.nl/schemas/lvbag/imbag/historie/v20200601" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="www.kadaster.nl/schemas/lvbag/imbag/historie/v20200601" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.1.0">
+	<xs:element name="Voorkomen" type="Historie:Voorkomen" abstract="false"/>
+	<xs:complexType name="Voorkomen" abstract="false">
+		<xs:sequence>
+			<xs:element name="voorkomenidentificatie" type="xs:integer" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="beginGeldigheid" type="xs:date" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="eindGeldigheid" type="xs:date" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="tijdstipRegistratie" type="xs:dateTime" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="eindRegistratie" type="xs:dateTime" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="tijdstipInactief" type="xs:dateTime" minOccurs="0" maxOccurs="1"/>
+			<xs:choice minOccurs="1" maxOccurs="1">
+				<xs:element ref="Historie:BeschikbaarLV"/>
+			</xs:choice>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="HistorieInOnderzoek" type="Historie:HistorieInOnderzoek" abstract="false"/>
+	<xs:complexType name="HistorieInOnderzoek" abstract="false">
+		<xs:sequence>
+			<xs:element name="tijdstipRegistratie" type="xs:dateTime" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="eindRegistratie" type="xs:dateTime" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="beginGeldigheid" type="xs:date" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="eindGeldigheid" type="xs:date" minOccurs="0" maxOccurs="1"/>
+			<xs:choice minOccurs="1" maxOccurs="1">
+				<xs:element ref="Historie:BeschikbaarLVInOnderzoek"/>
+			</xs:choice>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="BeschikbaarLV" type="Historie:BeschikbaarLV" abstract="false"/>
+	<xs:complexType name="BeschikbaarLV" abstract="false">
+		<xs:sequence>
+			<xs:element name="tijdstipRegistratieLV" type="xs:dateTime" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="tijdstipEindRegistratieLV" type="xs:dateTime" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="tijdstipInactiefLV" type="xs:dateTime" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="tijdstipNietBagLV" type="xs:dateTime" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="BeschikbaarLVInOnderzoek" type="Historie:BeschikbaarLVInOnderzoek" abstract="false"/>
+	<xs:complexType name="BeschikbaarLVInOnderzoek" abstract="false">
+		<xs:sequence>
+			<xs:element name="tijdstipRegistratieLV" type="xs:dateTime" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="tijdstipEindRegistratieLV" type="xs:dateTime" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

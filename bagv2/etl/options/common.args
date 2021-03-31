@@ -1,0 +1,57 @@
+# Common/fixed options for the Stetl BAG v2 Stetl ETL Chains
+#
+# These values are substituted into the ETL conf in conf/etl-imbag-v2.1.0.cfg, see the {arg} strings there
+
+# Typical BAG Object File prefix pattern, .zip or XMLs
+# Hierdoor allerlei andere (meta) en niet-relevante XML bestanden uitfilteren
+# Voorbeelden:
+# 0221WPL15022021-000001.xml
+# 9999PND15022021.zip
+bag_obj_file_pat=[0-9][0-9][0-9][0-9][LSVNPOW][ITBUNPP][GAOMDRL][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]
+
+# See ETL config file.
+# [GDAL_3462]
+# bag_obj_file_pat_no_wpl=[0-9][0-9][0-9][0-9][LSVNPO][ITBUNP][GAOMDR][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]
+# bag_wpl_file_pat=[0-9][0-9][0-9][0-9]WPL[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]
+
+bag_file_wildcard=*
+
+# temp_file_path_prepend=/vsizip/
+
+# OUTPUT: ogr2ogr PostGIS specifieke settings
+# Zie: https://gdal.org/drivers/vector/pg.html
+
+# OPTION: multi-valued fields
+# VBO gebruiksdoel, VBO/LIG/STA-nevenadres enVBO- pandref
+# in XML voorkomen, wat daarmee te doen
+# May use: these options
+# multival_opts=-splitlistfields -maxsubfields 1
+# multival_opts=-splitlistfields
+# multival_opts=-fieldTypeToString StringList
+
+# Map multi-valued fields to String array
+multival_opts=
+
+# projectie opties
+srs_opts=-a_srs EPSG:28992
+
+# Layer creation options
+layer_creation_opts=-lco LAUNDER=YES -lco PRECISION=NO -lco FID=gid -lco SPATIAL_INDEX=NONE
+
+# Specifiek voor GDAL LVBAG Driver
+open_opts=-oo AUTOCORRECT_INVALID_DATA=NO -oo LEGACY_ID=YES
+
+# GDAL config options don't use -skipfailures! It results in transaction size=1!!
+# See https://lists.osgeo.org/pipermail/gdal-dev/2019-March/049889.html
+config_opts=-append --config PG_USE_COPY YES
+
+# Features per transactions - default 100000
+# feat_per_tx=-gt 65535
+feat_per_tx=-gt 200000
+
+# Welk gebied (clip), zet leeg voor alles (nog niet voor BAG geprobeerd!)
+# spatial_extent=120000 450000 160000 500000
+spatial_extent=
+
+# Welke jaargang voor Gemeentelijke indeling van CBS
+cbs_gemeenten_jaar=2021

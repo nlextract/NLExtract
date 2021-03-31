@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2018 sp1 (x64) (http://www.altova.com) by Kadaster (Kadaster) -->
+<xs:schema xmlns:DatatypenNEN3610="www.kadaster.nl/schemas/lvbag/imbag/datatypennen3610/v20200601" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="www.kadaster.nl/schemas/lvbag/imbag/datatypennen3610/v20200601" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.1.0">
+	<xs:simpleType name="NEN3610IDWpl">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{4}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="NEN3610IDOpr">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{4}30[0-9]{10}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="NEN3610IDNum">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{4}20[0-9]{10}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="NEN3610IDVbo">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{4}01[0-9]{10}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="NEN3610IDLig">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{4}02[0-9]{10}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="NEN3610IDSta">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{4}03[0-9]{10}"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="NEN3610IDPnd">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{4}10[0-9]{10}"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

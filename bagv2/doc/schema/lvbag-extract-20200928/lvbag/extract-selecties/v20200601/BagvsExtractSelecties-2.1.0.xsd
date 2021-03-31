@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2018 sp1 (x64) (http://www.altova.com) by Kadaster (Kadaster) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:selecties-extract="http://www.kadaster.nl/schemas/lvbag/extract-selecties/v20200601" targetNamespace="http://www.kadaster.nl/schemas/lvbag/extract-selecties/v20200601" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.1.0">
+	<xs:complexType name="APD-Extract">
+		<xs:sequence>
+			<xs:element ref="selecties-extract:StandTechnischeDatum"/>
+			<xs:element name="peildatum" type="xs:date"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="APD-Extract" type="selecties-extract:APD-Extract">
+		<xs:annotation>
+			<xs:documentation>Algemene kenmerken bij de aanvraag van producten van de dienst BAG-Extract voor de gegevensvarianten Actueel en Peildatum</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="LVC-Extract">
+		<xs:sequence>
+			<xs:element ref="selecties-extract:StandTechnischeDatum"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="LVC-Extract" type="selecties-extract:LVC-Extract">
+		<xs:annotation>
+			<xs:documentation>Algemene kenmerken bij de aanvraag van producten van de dienst BAG-Extract voor de gegevensvarianten Levenscyclus en LevenscyclusVanaf</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="MUT-Extract">
+		<xs:sequence>
+			<xs:element ref="selecties-extract:StandTechnischeDatum"/>
+			<xs:element ref="selecties-extract:Mutatieperiode"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="MUT-Extract" type="selecties-extract:MUT-Extract">
+		<xs:annotation>
+			<xs:documentation>Indien naast het extract ook mutaties geleverd moeten worden.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="Gebied-Registratief">
+		<xs:choice>
+			<xs:annotation>
+				<xs:documentation>Gekozen registratief gebied.</xs:documentation>
+			</xs:annotation>
+			<xs:element ref="selecties-extract:Gebied-NLD">
+				<xs:annotation>
+					<xs:documentation>Gebied: Heel Nederland.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element ref="selecties-extract:Gebied-GEM">
+				<xs:annotation>
+					<xs:documentation>Gebied: Gemeente(n)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:choice>
+	</xs:complexType>
+	<xs:element name="Gebied-Registratief" type="selecties-extract:Gebied-Registratief">
+		<xs:annotation>
+			<xs:documentation>Registratieve gebieden zoals bekend in het systeem. Deze gegevens worden gebruikt voor terugkoppeling behorende bij de vraag.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="Gebied-GEM">
+		<xs:sequence>
+			<xs:element ref="selecties-extract:GemeenteCollectie">
+				<xs:annotation>
+					<xs:documentation>Het gevraagde gebied is een gemeentecollectie.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="Gebied-GEM" type="selecties-extract:Gebied-GEM"/>
+	<xs:complexType name="Gebied-NLD"/>
+	<xs:element name="Gebied-NLD" type="selecties-extract:Gebied-NLD"/>
+	<xs:complexType name="GemeenteCollectie">
+		<xs:sequence>
+			<xs:element ref="selecties-extract:Gemeente" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="GemeenteCollectie" type="selecties-extract:GemeenteCollectie"/>
+	<xs:complexType name="Gemeente">
+		<xs:sequence>
+			<xs:element ref="selecties-extract:GemeenteIdentificatie"/>
+			<xs:element ref="selecties-extract:GemeenteNaam" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="Gemeente" type="selecties-extract:Gemeente"/>
+	<xs:element name="GemeenteIdentificatie">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:length value="4"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:element name="GemeenteNaam" type="xs:string"/>
+	<xs:element name="StandPeildatum" type="xs:date">
+		<xs:annotation>
+			<xs:documentation>Zie Peildatum in Glossary. Opmerking: het informatieproduct wordt gemaakt op basis van gegevens, zoals deze bekend zijn in de Landelijke Voorziening op het moment dat het product wordt samengesteld (zie standTechnischeDatum).</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="StandTechnischeDatum" type="xs:date">
+		<xs:annotation>
+			<xs:documentation>Producten worden samengesteld op basis van gegevens zoals deze in de Landelijke Voorziening bekend zijn (of waren) op deze datum. De LV kiest zelf een geschikte datum, maar optioneel kan deze datum expliciet aangegeven worden.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="Mutatieperiode" type="selecties-extract:Mutatieperiode"/>
+	<xs:complexType name="Mutatieperiode">
+		<xs:sequence>
+			<xs:element ref="selecties-extract:MutatiedatumVanaf"/>
+			<xs:element ref="selecties-extract:MutatiedatumTot"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="MutatiedatumVanaf" type="xs:date">
+		<xs:annotation>
+			<xs:documentation>Mutaties welke vanaf deze datum (inclusief) in de Landelijke Voorziening bekend zijn geworden. Sluit naadloos aan bij de MutatiedatumTot van de voorgaande levering.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="MutatiedatumTot" type="xs:date">
+		<xs:annotation>
+			<xs:documentation>Mutaties welke tot deze datum in de Landelijke Voorziening bekend zijn geworden.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+</xs:schema>

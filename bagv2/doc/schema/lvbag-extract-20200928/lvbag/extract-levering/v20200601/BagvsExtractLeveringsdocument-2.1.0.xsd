@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2006 sp2 U (http://www.altova.com) by Kadaster (Kadaster) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:selecties-extract="http://www.kadaster.nl/schemas/lvbag/extract-selecties/v20200601" xmlns:xb="http://www.kadaster.nl/schemas/lvbag/extract-levering/v20200601" targetNamespace="http://www.kadaster.nl/schemas/lvbag/extract-levering/v20200601" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.1.0">
+	<xs:import namespace="http://www.kadaster.nl/schemas/lvbag/extract-selecties/v20200601" schemaLocation="../../extract-selecties/v20200601/BagvsExtractSelecties-2.1.0.xsd"/>
+	<xs:element name="BAG-Extract-Levering">
+		<xs:annotation>
+			<xs:documentation>Terugkoppeling van gegevens omtrent de gekozen specifieke kenmerken en levering van het product.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="xb:SelectieGegevens"/>
+				<xs:element ref="xb:SchemaInfo"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="SelectieGegevens">
+		<xs:sequence>
+			<xs:choice>
+				<xs:annotation>
+					<xs:documentation>Geselecteerde gegevensvariant.</xs:documentation>
+				</xs:annotation>
+				<xs:element ref="selecties-extract:LVC-Extract"/>
+				<xs:element ref="selecties-extract:MUT-Extract"/>
+				<xs:element ref="selecties-extract:APD-Extract"/>
+			</xs:choice>
+			<xs:element ref="selecties-extract:Gebied-Registratief"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="SelectieGegevens" type="xb:SelectieGegevens"/>
+	<xs:complexType name="SchemaInfo">
+		<xs:annotation>
+			<xs:documentation>De term schema verwijst naar een XSD. Dit element bevat informatie om aan te geven in welke structuur het gevraagde informatieproduct geleverd moet worden. Het schema is terug te vinden in de koppelvlakdocumentatie.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="naam" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>T.b.v. het specifiek aanvragen van een (oudere) versie van het koppelvlak.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="versie" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>T.b.v. het specifiek aanvragen van een (oudere) versie van het koppelvlak.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="SchemaInfo" type="xb:SchemaInfo"/>
+</xs:schema>

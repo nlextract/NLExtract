@@ -1,0 +1,96 @@
+{
+  "type": "FeatureCollection",
+  "name": "Ligplaats",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "hoofdadresNummeraanduidingRef": "0221200000330151",
+        "identificatie": "0221020000330152",
+        "status": "Plaats aangewezen",
+        "geconstateerd": false,
+        "documentDatum": "2010-01-26",
+        "documentNummer": "BRA/LGP20100001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2010-01-26",
+        "tijdstipRegistratie": "2010-12-15T11:34:47",
+        "tijdstipRegistratieLV": "2010-12-15T12:00:51.879"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              6.150732909035412,
+              52.002296617929517
+            ],
+            [
+              6.150983345812238,
+              52.002211552153121
+            ],
+            [
+              6.151021087105788,
+              52.002253885610038
+            ],
+            [
+              6.150770650164905,
+              52.00233895146652
+            ],
+            [
+              6.150732909035412,
+              52.002296617929517
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "hoofdadresNummeraanduidingRef": "0221200000330153",
+        "identificatie": "0221020000330154",
+        "status": "Plaats aangewezen",
+        "geconstateerd": false,
+        "documentDatum": "2010-01-26",
+        "documentNummer": "BRA/LGP20100001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2010-01-26",
+        "tijdstipRegistratie": "2010-12-15T11:34:47",
+        "tijdstipRegistratieLV": "2010-12-15T12:00:51.875"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              6.153913854586142,
+              52.001312795294446
+            ],
+            [
+              6.153954104415384,
+              52.001366293165262
+            ],
+            [
+              6.153687597537654,
+              52.001442679274739
+            ],
+            [
+              6.153647347956928,
+              52.001389181312902
+            ],
+            [
+              6.153913854586142,
+              52.001312795294446
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

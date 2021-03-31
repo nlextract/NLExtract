@@ -1,0 +1,296 @@
+{
+  "type": "FeatureCollection",
+  "name": "Nummeraanduiding",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "huisnummer": 2,
+        "postcode": "6982CZ",
+        "typeAdresseerbaarObject": "Ligplaats",
+        "openbareruimteRef": "0221300000311239",
+        "identificatie": "0221200000330151",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BRA/FB20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T11:34:46",
+        "tijdstipRegistratieLV": "2010-12-15T12:00:51.797"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "huisnummer": 20,
+        "postcode": "6982CZ",
+        "typeAdresseerbaarObject": "Ligplaats",
+        "openbareruimteRef": "0221300000311239",
+        "identificatie": "0221200000330153",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BRA/FB20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T11:34:46",
+        "tijdstipRegistratieLV": "2010-12-15T12:00:51.793"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "huisnummer": 1,
+        "postcode": "6981ED",
+        "typeAdresseerbaarObject": "Standplaats",
+        "openbareruimteRef": "0221300000311236",
+        "identificatie": "0221200000330171",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BRA/FB20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T11:34:48",
+        "tijdstipRegistratieLV": "2010-12-15T12:00:51.932"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "huisnummer": 4,
+        "postcode": "6981ED",
+        "typeAdresseerbaarObject": "Standplaats",
+        "openbareruimteRef": "0221300000311236",
+        "identificatie": "0221200000330173",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BRA/FB20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T11:34:48",
+        "tijdstipRegistratieLV": "2010-12-15T12:00:51.930"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "huisnummer": 4,
+        "huisletter": "x",
+        "postcode": "6981ED",
+        "typeAdresseerbaarObject": "Standplaats",
+        "openbareruimteRef": "0221300000311236",
+        "identificatie": "0221200000330998",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BRA/FB20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T11:34:48",
+        "tijdstipRegistratieLV": "2010-12-15T12:00:51.930"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "huisnummer": 4,
+        "huisletter": "y",
+        "postcode": "6981ED",
+        "typeAdresseerbaarObject": "Standplaats",
+        "openbareruimteRef": "0221300000311236",
+        "identificatie": "0221200000330999",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2009-01-20",
+        "documentNummer": "BRA/FB20080001",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2009-01-20",
+        "tijdstipRegistratie": "2010-12-15T11:34:48",
+        "tijdstipRegistratieLV": "2010-12-15T12:00:51.930"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "huisnummer": 4,
+        "postcode": "6981CH",
+        "typeAdresseerbaarObject": "Verblijfsobject",
+        "openbareruimteRef": "0221300000311333",
+        "identificatie": "0221200000330227",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2011-03-08",
+        "documentNummer": "BAG/PVC2010UP0004",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2011-09-06",
+        "tijdstipRegistratie": "2011-09-06T15:49:08",
+        "tijdstipRegistratieLV": "2011-09-06T16:01:53.834"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "huisnummer": 9,
+        "huisletter": "b",
+        "postcode": "6981EA",
+        "typeAdresseerbaarObject": "Verblijfsobject",
+        "openbareruimteRef": "0221300000311195",
+        "identificatie": "0221200000330229",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2011-10-05",
+        "documentNummer": "BAG/PVC20111005",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2011-10-05",
+        "eindGeldigheid": "2013-06-10",
+        "tijdstipRegistratie": "2011-10-06T10:05:21",
+        "eindRegistratie": "2013-06-12T21:41:03",
+        "tijdstipRegistratieLV": "2011-10-06T10:31:49.814",
+        "tijdstipEindRegistratieLV": "2013-06-12T22:01:31.938"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "huisnummer": 9,
+        "huisletter": "x",
+        "postcode": "6981EA",
+        "typeAdresseerbaarObject": "Verblijfsobject",
+        "openbareruimteRef": "0221300000311195",
+        "identificatie": "0221200000330998",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2011-10-05",
+        "documentNummer": "BAG/PVC20111005",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2011-10-05",
+        "eindGeldigheid": "2013-06-10",
+        "tijdstipRegistratie": "2011-10-06T10:05:21",
+        "eindRegistratie": "2013-06-12T21:41:03",
+        "tijdstipRegistratieLV": "2011-10-06T10:31:49.814",
+        "tijdstipEindRegistratieLV": "2013-06-12T22:01:31.938"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "huisnummer": 9,
+        "huisletter": "y",
+        "postcode": "6981EA",
+        "typeAdresseerbaarObject": "Verblijfsobject",
+        "openbareruimteRef": "0221300000311195",
+        "identificatie": "0221200000330999",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2011-10-05",
+        "documentNummer": "BAG/PVC20111005",
+        "voorkomenIdentificatie": 1,
+        "beginGeldigheid": "2011-10-05",
+        "eindGeldigheid": "2013-06-10",
+        "tijdstipRegistratie": "2011-10-06T10:05:21",
+        "eindRegistratie": "2013-06-12T21:41:03",
+        "tijdstipRegistratieLV": "2011-10-06T10:31:49.814",
+        "tijdstipEindRegistratieLV": "2013-06-12T22:01:31.938"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "huisnummer": 9,
+        "huisletter": "l",
+        "postcode": "6981EA",
+        "typeAdresseerbaarObject": "Verblijfsobject",
+        "openbareruimteRef": "0221300000311195",
+        "identificatie": "0221200000330229",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2013-06-10",
+        "documentNummer": "BVN20130710",
+        "voorkomenIdentificatie": 2,
+        "beginGeldigheid": "2013-06-10",
+        "eindGeldigheid": "2019-03-05",
+        "tijdstipRegistratie": "2013-06-12T21:41:03",
+        "eindRegistratie": "2019-03-05T14:28:00",
+        "tijdstipRegistratieLV": "2013-06-12T22:01:31.938",
+        "tijdstipEindRegistratieLV": "2019-03-05T14:30:56.335"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "huisnummer": 9,
+        "huisletter": "l",
+        "typeAdresseerbaarObject": "Verblijfsobject",
+        "openbareruimteRef": "0221300000311195",
+        "identificatie": "0221200000330229",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2019-03-05",
+        "documentNummer": "20190305002",
+        "voorkomenIdentificatie": 3,
+        "beginGeldigheid": "2019-03-05",
+        "tijdstipRegistratie": "2019-03-05T14:28:00",
+        "tijdstipRegistratieLV": "2019-03-05T14:30:56.335"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "huisnummer": 9,
+        "huisletter": "x",
+        "typeAdresseerbaarObject": "Verblijfsobject",
+        "openbareruimteRef": "0221300000311195",
+        "identificatie": "0221200000330998",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2019-03-05",
+        "documentNummer": "20190305002",
+        "voorkomenIdentificatie": 3,
+        "beginGeldigheid": "2019-03-05",
+        "tijdstipRegistratie": "2019-03-05T14:28:00",
+        "tijdstipRegistratieLV": "2019-03-05T14:30:56.335"
+      },
+      "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "huisnummer": 9,
+        "huisletter": "y",
+        "typeAdresseerbaarObject": "Verblijfsobject",
+        "openbareruimteRef": "0221300000311195",
+        "identificatie": "0221200000330999",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2019-03-05",
+        "documentNummer": "20190305002",
+        "voorkomenIdentificatie": 3,
+        "beginGeldigheid": "2019-03-05",
+        "tijdstipRegistratie": "2019-03-05T14:28:00",
+        "tijdstipRegistratieLV": "2019-03-05T14:30:56.335"
+      },
+      "geometry": null
+    }
+  ]
+}

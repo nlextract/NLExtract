@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xb:BAG-Extract-Levering
+        xsi:schemaLocation="http://www.kadaster.nl/schemas/bag-verstrekkingen/extract-levering/v20200601 http://www.kadaster.nl/schemas/bag-verstrekkingen/extract-levering/v20200601/BagvsExtractLeveringsdocument-2.1.0.xsd"
+        xmlns:xb="http://www.kadaster.nl/schemas/lvbag/extract-levering/v20200601" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:selecties-extract="http://www.kadaster.nl/schemas/lvbag/extract-selecties/v20200601">
+    <xb:SelectieGegevens>
+        <selecties-extract:LVC-Extract>
+            <selecties-extract:StandTechnischeDatum>2020-09-15</selecties-extract:StandTechnischeDatum>
+        </selecties-extract:LVC-Extract>
+        <selecties-extract:Gebied-Registratief>
+            <selecties-extract:Gebied-GEM>
+                <selecties-extract:GemeenteCollectie>
+                    <selecties-extract:Gemeente>
+                        <selecties-extract:GemeenteIdentificatie>0221</selecties-extract:GemeenteIdentificatie>
+                        <selecties-extract:GemeenteNaam>Doesburg</selecties-extract:GemeenteNaam>
+                    </selecties-extract:Gemeente>
+                </selecties-extract:GemeenteCollectie>
+            </selecties-extract:Gebied-GEM>
+        </selecties-extract:Gebied-Registratief>
+    </xb:SelectieGegevens>
+    <xb:SchemaInfo>
+        <xb:naam>BagvsExtractDeelbestandExtractLvc-2.1.0.xsd</xb:naam>
+        <xb:versie>20200601</xb:versie>
+    </xb:SchemaInfo>
+</xb:BAG-Extract-Levering>
