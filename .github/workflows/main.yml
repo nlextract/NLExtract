@@ -31,5 +31,5 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
           repository: nlextract/nlextract
           tags: latest
-          tag_with_ref: true
+          # tag_with_ref: true
           # tag_with_sha: true
