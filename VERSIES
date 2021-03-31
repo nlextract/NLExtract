@@ -4,7 +4,11 @@ via de link: https://github.com/nlextract/NLExtract/releases.
 De nieuwste versie staat bovenaan: kies de "real-release" nlextract zip.
 De rest ligt nog open afhankelijk van wensen gebruikers en natuurlijk eventuele bugs.
 
-v1.6.0 - 31.mrt.2021
+v1.5.3 - gepland
+
+Vnl fixes op 1.5.2.
+
+v1.5.2 - 31.mrt.2021
 
 Nieuwe/aparte BAG versie 2 ETL op basis Stetl.
 Tevens Dockerfile en build-push-on-commit naar DockerHub.

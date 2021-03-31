@@ -29,7 +29,7 @@ popd
 pushd ${id}
 # Take only relevant dirs from checked out GH sources
 # Remove dirs not to be included
-excludes="*.sh .git externals/stetl/.git  3d ahn2 bag/build bag/dist bgt/data bgt/doc bgt/style bonnebladen brk/dkk opentopo tools top10nl/test top10nl/doc"
+excludes="*.sh .git externals/stetl/.git externals/stetl/examples 3d ahn2 bag/build bag/dist bgt/data bgt/doc bgt/style bonnebladen brk/dkk opentopo tools top10nl/test top10nl/doc"
 /bin/rm -rf ${excludes}
 
 # Make .sh files executable
