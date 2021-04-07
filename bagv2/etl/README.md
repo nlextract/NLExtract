@@ -35,29 +35,49 @@ Kan wel maar is hoge versie GDAL nodig, minimaal 3.2.2.
 
 ## Met Docker
 
+Zie in aktie op Asciinema: https://asciinema.org/a/405701.
+
 ```
 # pre: setup a PostGIS DB on your localhost with name bagv2 and postgres postgres credentials
  
-# Build Docker Image
+# Build Docker Image - Optional, better or get the Image from DockerHub
+# See https://hub.docker.com/repository/docker/nlextract/nlextract/
 cd ../..
 ./build-docker.sh
 cd -
 
-# With small testdata set, etl.sh can accept Stetl-based -a options
+# Get the Docker Image from Docker Hub
+docker pull nlextract/nlextract:latest
+
+# Case 1: Run without args: default small internal testdata set to test basic setup
+# etl.sh can accept Stetl-based -a options
 docker run --rm --name nlextract nlextract/nlextract:latest bagv2/etl/etl.sh 
 echo "SELECT * FROM test.verblijfsobject" | psql bagv2
 echo "\d+ test.verblijfsobject" | psql bagv2;   
 
+# Case 2: single Municipality
+
+# Create local work dir
+mkdir work 
+
 # Download a BAG XML file from https://extracten.bag.kadaster.nl/lvbag/extracten
-# We Docker Volume-map that file to the default testfile named
-# /nlx/bagv2/etl/test/data/lv/BAGNLDL-15092020-small.zip 
+# For example Doesburg (code 0221 march 2021): BAGGEM0221L-15032021.zip
+curl -o work/bag.zip  https://extracten.bag.kadaster.nl/lvbag/extracten/Gemeente%20LVC/0221/BAGGEM0221L-15032021.zip
 
 # Single Municipality (Gemeente)
-# Override default schema and force XML processing for Gemeente Leveringen (needed, see GDAL bug):
-docker run --name nlextract --rm -v $(pwd)/test/BAGGEM0221L-15022021.zip:/nlx/bagv2/etl/test/data/lv/BAGNLDL-15092020-small.zip nlextract/nlextract:latest bagv2/etl/etl.sh -a schema=doesburg 
+# Override default PG schema and default input file via Docker Volume mapping and Stetl -a options:
+docker run --name nlextract --rm -v $(pwd)/work:/work nlextract/nlextract:latest bagv2/etl/etl.sh -a schema=doesburg -a bag_input_file=/work/bag.zip
 
-# Entire Netherlands
-docker run --name nlextract --rm -v /Users/just/project/nlextract/data/BAG-2.0/BAGNLDL-08112020.zip:/nlx/bagv2/etl/test/data/lv/BAGNLDL-15092020-small.zip nlextract/nlextract:latest bagv2/etl/etl.sh
+# Test result
+echo "select count(gid) from doesburg.pand" | psql bagv2
+# count 
+# -------
+#  13390
+# (1 row)
+
+# Case 3: Entire Netherlands (march 2021)
+curl -o work/bag.zip  https://extracten.bag.kadaster.nl/lvbag/extracten/Nederland%20LVC/BAGNLDL-08032021.zip
+docker run --name nlextract --rm -v $(pwd)/work:/work nlextract/nlextract:latest bagv2/etl/etl.sh -a bag_input_file=/work/bag.zip
 
 # Stopping a process
 docker stop nlextract
