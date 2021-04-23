@@ -622,7 +622,7 @@ class BAGrelatieAttribuut(BAGattribuut):
                 if self._parent.heeftAttribuut(attr):
                     inhoud.append(self._parent.attribuut(attr).waardeSQL())
                 else:
-                    inhoud.append('')
+                    inhoud.append(None)
             inhoud.append(waarde)
             self.inhoud.append(tuple(inhoud))
 
