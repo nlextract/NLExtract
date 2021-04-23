@@ -1,0 +1,1 @@
+../../bag/bin/gemeentelijke-indeling.sh --convert-to-csv -i ../../bag/db/data/gemeentelijke-indeling.xml -o data/cbs/gemeentelijke-indeling.csv
