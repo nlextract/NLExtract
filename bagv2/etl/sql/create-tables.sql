@@ -407,17 +407,14 @@ CREATE TABLE gemeente_woonplaats (
 -- Gemeente-Provincie koppeling van CBS
 DROP TABLE IF EXISTS provincie_gemeente CASCADE;
 CREATE TABLE provincie_gemeente (
-  -- follows CBS XLS/CSV column-naming,
+  gid serial,
   provinciecode numeric(4),
-  provinciecodepv character varying(4),
   provincienaam character varying(80),
   gemeentecode character varying(4),
-  gemeentecodegm character varying(80),
   gemeentenaam character varying(80),
   begindatum timestamp with time zone,
   einddatum timestamp with time zone,
-
-  PRIMARY KEY (gemeentecode)
+  PRIMARY KEY (gid)
 );
 
 INSERT INTO nlx_bag_log (actie, bestand) VALUES ('tabellen aangemaakt', 'create-tables.sql');
