@@ -83,4 +83,7 @@ docker run --name nlextract --rm -v $(pwd)/work:/work nlextract/nlextract:latest
 docker stop nlextract
 
 ```
-   
+
+## Troubleshooting
+### Process killed for macOS users
+Als het process wordt gekilled tijdens het uitvoeren van `docker run --name nlextract --rm -v $(pwd)/work:/work nlextract/nlextract:latest bagv2/etl/etl.sh -a bag_input_file=/work/bag.zip`, kan het zijn dat Docker niet genoeg werkgeheugen tot zijn beschikking heeft. Als je Docker for Mac/Desktop gebruikt kan je meer gewerkgeheugen (RAM) toekennen in Preferences/Resources. Overweeg bijvoorbeeld 8GB. 
