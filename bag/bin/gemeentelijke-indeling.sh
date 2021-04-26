@@ -17,10 +17,22 @@ BASEDIR=`(cd "$BASEDIR"; pwd)`
 PY_SCRIPT=$BASEDIR/src/gemeentelijke-indeling.py
 
 # uitvoeren Python script met alle meegegeven args
-ret=`python -c 'import sys; print("%i" % (sys.hexversion<0x03000000))'`
-if [ $ret -eq 0 ]; then
-    #Python 3 is de standaard, roep python aan.
-    python $PY_SCRIPT "$@"
+PYTHON="$(command -v python)"
+if [ -z "${PYTHON}" ]; then
+  PYTHON="$(command -v python3)"
+  if [ -z "${PYTHON}" ]; then
+    echo "Error: No usuable python found in PATH"
+    exit 1
+  fi
 else
-    python3 $PY_SCRIPT "$@"
+  ret=`"${PYTHON}" -c 'import sys; print("%i" % (sys.hexversion<0x03000000))'`
+  if [ $ret -ne 0 ]; then
+    PYTHON="$(command -v python3)"
+    if [ -z "${PYTHON}" ]; then
+      echo "Error: No usuable python found in PATH"
+      exit 1
+    fi
+  fi
 fi
+
+"${PYTHON}" $PY_SCRIPT "$@"
