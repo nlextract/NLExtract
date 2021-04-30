@@ -217,10 +217,10 @@ Coalesce (  VBO.verblijfsobjectstatus::text,  LIG.ligplaatsstatus::text,   STA.s
 coalesce(round(cast(ST_Area(ST_Transform(sta.geovlak,28992) )as numeric),0),    round(cast(ST_Area(ST_Transform(lig.geovlak,28992) )as numeric),0),VBO.oppervlakteverblijfsobject) as opp_adresseerbaarobject_m2,
 coalesce (  vbo.geopunt, ST_Centroid(lig.geovlak) ,ST_Centroid(sta.geovlak))   as geopunt,
 coalesce (  lig.geovlak,sta.geovlak )   as geovlak,
-coalesce ( ST_X(vbo.geopunt), ST_X(ST_Centroid(lig.geovlak)),ST_X(ST_Centroid(sta.geovlak))) as X,
-coalesce ( ST_Y(vbo.geopunt), ST_Y(ST_Centroid(lig.geovlak)),ST_Y(ST_Centroid(sta.geovlak))) as Y,
-ROUND(cast(coalesce ( ST_X(ST_Transform(vbo.geopunt, 4326)),ST_X(ST_Transform(ST_Centroid(lig.geovlak), 4326)), ST_X(ST_Transform(ST_Centroid(sta.geovlak), 4326))) as numeric),6) as lon,
-ROUND(cast(coalesce ( ST_Y(ST_Transform(vbo.geopunt, 4326)),ST_Y(ST_Transform(ST_Centroid(lig.geovlak), 4326)), ST_Y(ST_Transform(ST_Centroid(sta.geovlak), 4326))) as numeric),6) as lat
+trim_scale(ROUND(cast(coalesce ( ST_X(vbo.geopunt), ST_X(ST_Centroid(lig.geovlak)),ST_X(ST_Centroid(sta.geovlak))) as numeric(9,3)), 3)) as X,
+trim_scale(ROUND(cast(coalesce ( ST_Y(vbo.geopunt), ST_Y(ST_Centroid(lig.geovlak)),ST_Y(ST_Centroid(sta.geovlak))) as numeric(9,3)), 3)) as Y,
+trim_scale(ROUND(cast(coalesce ( ST_X(ST_Transform(vbo.geopunt, 4326)),ST_X(ST_Transform(ST_Centroid(lig.geovlak), 4326)), ST_X(ST_Transform(ST_Centroid(sta.geovlak), 4326))) as numeric(9,8)), 8)) as lon,
+trim_scale(ROUND(cast(coalesce ( ST_Y(ST_Transform(vbo.geopunt, 4326)),ST_Y(ST_Transform(ST_Centroid(lig.geovlak), 4326)), ST_Y(ST_Transform(ST_Centroid(sta.geovlak), 4326))) as numeric(9,7)), 7)) as lat
 FROM
 nummeraanduidingactueelbestaand_compleet NAD
 left outer join   verblijfsobjectactueelbestaand VBO
@@ -275,10 +275,10 @@ Coalesce (  VBO.verblijfsobjectstatus::text,  LIG.ligplaatsstatus::text,   STA.s
 coalesce(round(cast(ST_Area(ST_Transform(sta.geovlak,28992) )as numeric),0),    round(cast(ST_Area(ST_Transform(lig.geovlak,28992) )as numeric),0),VBO.oppervlakteverblijfsobject) as opp_adresseerbaarobject_m2,
 coalesce (  vbo.geopunt, ST_Centroid(lig.geovlak) , ST_Centroid(sta.geovlak))   as geopunt,
 coalesce (  lig.geovlak,sta.geovlak )   as geovlak,
-coalesce ( ST_X(vbo.geopunt), ST_X(ST_Centroid(lig.geovlak)),ST_X(ST_Centroid(sta.geovlak))) as X,
-coalesce ( ST_Y(vbo.geopunt), ST_Y(ST_Centroid(lig.geovlak)),ST_Y(ST_Centroid(sta.geovlak))) as Y,
-ROUND(cast(coalesce ( ST_X(ST_Transform(vbo.geopunt, 4326)),ST_X(ST_Transform(ST_Centroid(lig.geovlak), 4326)), ST_X(ST_Transform(ST_Centroid(sta.geovlak), 4326))) as numeric),6) as lon,
-ROUND(cast(coalesce ( ST_Y(ST_Transform(vbo.geopunt, 4326)),ST_Y(ST_Transform(ST_Centroid(lig.geovlak), 4326)), ST_Y(ST_Transform(ST_Centroid(sta.geovlak), 4326))) as numeric),6) as lat
+trim_scale(ROUND(cast(coalesce ( ST_X(vbo.geopunt), ST_X(ST_Centroid(lig.geovlak)),ST_X(ST_Centroid(sta.geovlak))) as numeric(9,3)), 3)) as X,
+trim_scale(ROUND(cast(coalesce ( ST_Y(vbo.geopunt), ST_Y(ST_Centroid(lig.geovlak)),ST_Y(ST_Centroid(sta.geovlak))) as numeric(9,3)), 3)) as Y,
+trim_scale(ROUND(cast(coalesce ( ST_X(ST_Transform(vbo.geopunt, 4326)),ST_X(ST_Transform(ST_Centroid(lig.geovlak), 4326)), ST_X(ST_Transform(ST_Centroid(sta.geovlak), 4326))) as numeric(9,8)), 8)) as lon,
+trim_scale(ROUND(cast(coalesce ( ST_Y(ST_Transform(vbo.geopunt, 4326)),ST_Y(ST_Transform(ST_Centroid(lig.geovlak), 4326)), ST_Y(ST_Transform(ST_Centroid(sta.geovlak), 4326))) as numeric(9,7)), 7)) as lat
 FROM
 adresseerbaarobjectnevenadresactueelbestaand NEV
 inner join
