@@ -165,15 +165,19 @@ CREATE VIEW gemeente_woonplaatsactueelbestaand AS
     AND (gw.eindDatumTijdvakGeldigheid is NULL OR gw.eindDatumTijdvakGeldigheid >= now())
     AND gw.status = 'definitief';
 
--- Is nu altijd actueel
 DROP VIEW IF EXISTS provincie_gemeenteactueelbestaand;
 CREATE VIEW provincie_gemeenteactueelbestaand AS
-    SELECT  pg.provinciecode,
+    SELECT  pg.gid,
+            pg.provinciecode,
             pg.provincienaam,
             pg.gemeentecode,
-            pg.gemeentenaam
+            pg.gemeentenaam,
+            pg.begindatum,
+            pg.einddatum
     FROM provincie_gemeente AS pg
-;
+  WHERE
+    pg.begindatum <= now()
+    AND (pg.einddatum IS NULL OR pg.einddatum >= now());
 
 
 -- START RELATIE TABELLEN

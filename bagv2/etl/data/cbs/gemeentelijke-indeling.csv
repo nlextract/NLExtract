@@ -1,0 +1,786 @@
+provinciecode;provincienaam;gemeentecode;gemeentenaam;begindatum;einddatum
+20;Groningen;3;Appingedam;1970-01-01;2021-01-01
+20;Groningen;5;Bedum;1970-01-01;2019-01-01
+20;Groningen;6;Beerta;1970-01-01;1992-01-01
+20;Groningen;7;Bellingwedde;1968-01-01;2018-01-01
+20;Groningen;9;Ten Boer;1970-01-01;2019-01-01
+20;Groningen;10;Delfzijl;1970-01-01;2021-01-01
+20;Groningen;14;Groningen;1970-01-01;
+20;Groningen;15;Grootegast;1970-01-01;2019-01-01
+20;Groningen;17;Haren;1970-01-01;2019-01-01
+20;Groningen;18;Hoogezand-Sappemeer;1949-04-01;2018-01-01
+20;Groningen;19;Hefshuizen;1979-01-01;1992-01-01
+20;Groningen;22;Leek;1970-01-01;2019-01-01
+20;Groningen;24;Loppersum;1970-01-01;2021-01-01
+20;Groningen;25;Marum;1970-01-01;2019-01-01
+20;Groningen;33;Oosterbroek;1965-07-01;1992-01-01
+20;Groningen;37;Stadskanaal;1969-01-01;
+20;Groningen;39;Scheemda;1970-01-01;2010-01-01
+20;Groningen;40;Slochteren;1970-01-01;2018-01-01
+20;Groningen;45;Ulrum;1970-01-01;1992-01-01
+20;Groningen;47;Veendam;1970-01-01;
+20;Groningen;48;Vlagtwedde;1970-01-01;2018-01-01
+20;Groningen;52;Winschoten;1970-01-01;2010-01-01
+20;Groningen;53;Winsum;1970-01-01;2019-01-01
+20;Groningen;56;Zuidhorn;1970-01-01;2019-01-01
+20;Groningen;765;Pekela;1990-01-01;
+20;Groningen;1651;Eemsmond;1992-01-01;2019-01-01
+20;Groningen;1661;Reiderland;1992-01-01;2010-01-01
+20;Groningen;1663;De Marne;1992-01-01;2019-01-01
+20;Groningen;1987;Menterwolde;1992-01-01;2018-01-01
+20;Groningen;1895;Oldambt;2010-01-01;
+20;Groningen;1950;Westerwolde;2018-01-01;
+20;Groningen;1952;Midden-Groningen;2018-01-01;
+20;Groningen;1966;Het Hogeland;2019-01-01;
+20;Groningen;1969;Westerkwartier;2019-01-01;
+20;Groningen;1979;Eemsdelta;2021-01-01;
+21;Friesland;51;Skasterlân;1985-03-01;2014-01-01
+21;Friesland;55;Boarnsterhim;1985-01-03;2014-01-01
+21;Friesland;58;Dongeradeel;1984-01-01;2019-01-01
+21;Friesland;59;Achtkarspelen;1970-01-01;
+21;Friesland;60;Ameland;1970-01-01;
+21;Friesland;63;het Bildt;1970-01-01;2018-01-01
+21;Friesland;64;Bolsward;1970-01-01;2011-01-01
+21;Friesland;65;Dantumadeel;1970-01-01;2009-01-01
+21;Friesland;68;Ferwerderadeel;1970-01-01;1999-01-01
+21;Friesland;70;Franekeradeel;1970-01-01;2018-01-01
+21;Friesland;72;Harlingen;1970-01-01;
+21;Friesland;74;Heerenveen;1934-07-01;
+21;Friesland;79;Kollumerland en Nieuwkruisland;1970-01-01;2019-01-01
+21;Friesland;80;Leeuwarden;1970-01-01;
+21;Friesland;81;Leeuwarderadeel;1970-01-01;2018-01-01
+21;Friesland;82;Lemsterland;1970-01-01;2014-01-01
+21;Friesland;83;Menaldumadeel;1970-01-01;2011-01-01
+21;Friesland;85;Ooststellingwerf;1970-01-01;
+21;Friesland;86;Opsterland;1970-01-01;
+21;Friesland;88;Schiermonnikoog;1970-01-01;
+21;Friesland;90;Smallingerland;1970-01-01;
+21;Friesland;91;Sneek;1970-01-01;2011-01-01
+21;Friesland;93;Terschelling;1970-01-01;
+21;Friesland;96;Vlieland;1970-01-01;
+21;Friesland;98;Weststellingwerf;1970-01-01;
+21;Friesland;104;Nijefurd;1984-01-01;2011-01-01
+21;Friesland;140;Littenseradiel;1985-01-26;2018-01-01
+21;Friesland;653;Gaasterlân-Sleat;1985-06-05;2014-01-01
+21;Friesland;683;Wymbritseradiel;1986-01-01;2011-01-01
+21;Friesland;710;Wûnseradiel;1987-01-01;2011-01-01
+21;Friesland;737;Tytsjerksteradiel;1989-01-01;
+21;Friesland;1722;Ferwerderadiel;1999-01-01;2019-01-01
+21;Friesland;1891;Dantumadiel;2009-01-01;
+21;Friesland;1900;Súdwest-Fryslân;2011-01-01;
+21;Friesland;1908;Menameradiel;2011-01-01;2018-01-01
+21;Friesland;1921;De Friese Meren;2014-01-01;2015-07-01
+21;Friesland;1940;De Fryske Marren;2015-07-01;
+21;Friesland;1949;Waadhoeke;2018-01-01;
+21;Friesland;1970;Noardeast-Fryslân;2019-01-01;
+22;Drenthe;105;Anloo;1970-01-01;1998-01-01
+22;Drenthe;106;Assen;1970-01-01;
+22;Drenthe;107;Beilen;1970-01-01;1998-01-01
+22;Drenthe;108;Borger;1970-01-01;1998-01-01
+22;Drenthe;109;Coevorden;1970-01-01;
+22;Drenthe;110;Dalen;1970-01-01;1998-01-01
+22;Drenthe;111;Diever;1970-01-01;1998-01-01
+22;Drenthe;112;Dwingeloo;1970-01-01;1998-01-01
+22;Drenthe;113;Eelde;1970-01-01;1998-01-01
+22;Drenthe;114;Emmen;1970-01-01;
+22;Drenthe;115;Gasselte;1970-01-01;1998-01-01
+22;Drenthe;116;Gieten;1970-01-01;1998-01-01
+22;Drenthe;117;Havelte;1970-01-01;1998-01-01
+22;Drenthe;118;Hoogeveen;1970-01-01;
+22;Drenthe;119;Meppel;1970-01-01;
+22;Drenthe;120;Norg;1970-01-01;1998-01-01
+22;Drenthe;121;Nijeveen;1970-01-01;1998-01-01
+22;Drenthe;122;Odoorn;1970-01-01;1998-01-01
+22;Drenthe;123;Oosterhesselen;1970-01-01;1998-01-01
+22;Drenthe;124;Peize;1970-01-01;1998-01-01
+22;Drenthe;125;Roden;1970-01-01;1998-01-01
+22;Drenthe;126;Rolde;1970-01-01;1998-01-01
+22;Drenthe;127;Ruinen;1970-01-01;1998-01-01
+22;Drenthe;128;Ruinerwold;1970-01-01;1998-01-01
+22;Drenthe;129;Schoonebeek;1884-05-01;1998-01-01
+22;Drenthe;130;Sleen;1970-01-01;1998-01-01
+22;Drenthe;131;Smilde;1970-01-01;1998-01-01
+22;Drenthe;132;Vledder;1970-01-01;1998-01-01
+22;Drenthe;133;Vries;1970-01-01;1998-01-01
+22;Drenthe;134;Westerbork;1970-01-01;1998-01-01
+22;Drenthe;135;De Wijk;1970-01-01;1998-01-01
+22;Drenthe;136;Zuidlaren;1970-01-01;2000-01-01
+22;Drenthe;137;Zuidwolde;1970-01-01;1998-01-01
+22;Drenthe;138;Zweeloo;1970-01-01;1998-01-01
+22;Drenthe;1680;Aa en Hunze;1998-01-01;
+22;Drenthe;1681;Borger-Odoorn;1998-01-01;
+22;Drenthe;1690;De Wolden;1998-01-01;
+22;Drenthe;1697;Middenveld;1998-01-01;2000-01-01
+22;Drenthe;1699;Noordenveld;1998-01-01;
+22;Drenthe;1701;Westerveld;1998-01-01;
+22;Drenthe;1730;Tynaarlo;2000-01-01;
+22;Drenthe;1731;Midden-Drenthe;2000-01-01;
+23;Overijssel;141;Almelo;1913-01-01;
+23;Overijssel;142;Ambt Delden;1970-01-01;2001-01-01
+23;Overijssel;143;Avereest;1970-01-01;2001-01-01
+23;Overijssel;144;Bathmen;1970-01-01;2005-01-01
+23;Overijssel;147;Borne;1970-01-01;
+23;Overijssel;148;Dalfsen;1970-01-01;
+23;Overijssel;149;Denekamp;1970-01-01;2003-01-01
+23;Overijssel;150;Deventer;1970-01-01;
+23;Overijssel;151;Diepenheim;1970-01-01;2001-01-01
+23;Overijssel;152;Diepenveen;1970-01-01;1999-01-01
+23;Overijssel;153;Enschede;1970-01-01;
+23;Overijssel;154;Genemuiden;1970-01-01;2001-01-01
+23;Overijssel;156;Goor;1970-01-01;2001-01-01
+23;Overijssel;157;Gramsbergen;1970-01-01;2001-01-01
+23;Overijssel;158;Haaksbergen;1970-01-01;
+23;Overijssel;159;Den Ham;1970-01-01;2001-01-01
+23;Overijssel;160;Hardenberg;1941-05-01;
+23;Overijssel;161;Hasselt;1970-01-01;2001-01-01
+23;Overijssel;162;Heino;1970-01-01;2001-01-01
+23;Overijssel;163;Hellendoorn;1970-01-01;
+23;Overijssel;164;Hengelo;1970-01-01;
+23;Overijssel;165;Holten;1970-01-01;2001-01-01
+23;Overijssel;166;Kampen;1970-01-01;
+23;Overijssel;168;Losser;1970-01-01;
+23;Overijssel;169;Markelo;1970-01-01;2001-01-01
+23;Overijssel;170;Nieuwleusen;1970-01-01;2001-01-01
+23;Overijssel;173;Oldenzaal;1970-01-01;
+23;Overijssel;174;Olst;1970-01-01;2003-01-01
+23;Overijssel;175;Ommen;1923-05-01;
+23;Overijssel;176;Ootmarsum;1970-01-01;2001-01-01
+23;Overijssel;177;Raalte;1970-01-01;
+23;Overijssel;178;Rijssen;1970-01-01;2004-01-01
+23;Overijssel;179;Stad Delden;1970-01-01;2001-01-01
+23;Overijssel;180;Staphorst;1970-01-01;
+23;Overijssel;181;Steenwijk;1970-01-01;2003-01-01
+23;Overijssel;183;Tubbergen;1970-01-01;
+23;Overijssel;186;Vriezenveen;1970-01-01;2003-01-01
+23;Overijssel;188;Weerselo;1970-01-01;2001-01-01
+23;Overijssel;189;Wierden;1970-01-01;
+23;Overijssel;190;Wijhe;1970-01-01;2001-01-01
+23;Overijssel;191;IJsselmuiden;1970-01-01;2001-01-01
+23;Overijssel;192;Zwartsluis;1970-01-01;2001-01-01
+23;Overijssel;193;Zwolle;1970-01-01;
+23;Overijssel;194;Brederwiede;1973-01-01;2001-01-01
+23;Overijssel;195;IJsselham;1973-01-01;2001-01-01
+23;Overijssel;1735;Hof van Twente;2001-01-01;
+23;Overijssel;1896;Zwartewaterland;2001-01-01;
+23;Overijssel;1700;Twenterand;2003-01-01;
+23;Overijssel;1708;Steenwijkerland;2003-01-01;
+23;Overijssel;1773;Olst-Wijhe;2003-01-01;
+23;Overijssel;1774;Dinkelland;2003-01-01;
+23;Overijssel;1742;Rijssen-Holten;2004-01-01;
+24;Flevoland;34;Almere;1984-01-01;
+24;Flevoland;50;Zeewolde;1984-01-01;
+24;Flevoland;171;Noordoostpolder;1962-07-01;
+24;Flevoland;184;Urk;1970-01-01;
+24;Flevoland;303;Dronten;1972-01-01;
+24;Flevoland;995;Lelystad;1970-01-01;
+25;Gelderland;196;Rijnwaarden;1985-01-01;2018-01-01
+25;Gelderland;197;Aalten;1970-01-01;
+25;Gelderland;198;Ammerzoden;1970-01-01;1999-01-01
+25;Gelderland;199;Angerlo;1970-01-01;2005-01-01
+25;Gelderland;200;Apeldoorn;1970-01-01;
+25;Gelderland;202;Arnhem;1970-01-01;
+25;Gelderland;203;Barneveld;1970-01-01;
+25;Gelderland;206;Bemmel;1970-01-01;2003-01-01
+25;Gelderland;207;Bergh;1970-01-01;2005-01-01
+25;Gelderland;209;Beuningen;1970-01-01;
+25;Gelderland;211;Borculo;1970-01-01;2005-01-01
+25;Gelderland;212;Brakel;1970-01-01;1999-01-01
+25;Gelderland;213;Brummen;1970-01-01;
+25;Gelderland;214;Buren;1970-01-01;
+25;Gelderland;216;Culemborg;1970-01-01;
+25;Gelderland;218;Didam;1970-01-01;2005-01-01
+25;Gelderland;219;Dinxperlo;1970-01-01;2005-01-01
+25;Gelderland;220;Dodewaard;1970-01-01;2002-01-01
+25;Gelderland;221;Doesburg;1970-01-01;
+25;Gelderland;222;Doetinchem;1920-01-01;
+25;Gelderland;225;Druten;1970-01-01;
+25;Gelderland;226;Duiven;1970-01-01;
+25;Gelderland;227;Echteld;1970-01-01;2002-01-01
+25;Gelderland;228;Ede;1970-01-01;
+25;Gelderland;229;Eibergen;1970-01-01;2005-01-01
+25;Gelderland;230;Elburg;1970-01-01;
+25;Gelderland;231;Elst;1970-01-01;2001-01-01
+25;Gelderland;232;Epe;1970-01-01;
+25;Gelderland;233;Ermelo;1970-01-01;
+25;Gelderland;236;Geldermalsen;1970-01-01;2019-01-01
+25;Gelderland;237;Gendringen;1970-01-01;2005-01-01
+25;Gelderland;238;Gendt;1970-01-01;2001-01-01
+25;Gelderland;239;Gorssel;1970-01-01;2005-01-01
+25;Gelderland;240;Groenlo;1970-01-01;2007-01-01
+25;Gelderland;241;Groesbeek;1970-01-01;2016-01-01
+25;Gelderland;243;Harderwijk;1970-01-01;
+25;Gelderland;244;Hattem;1970-01-01;
+25;Gelderland;245;Hedel;1970-01-01;1999-01-01
+25;Gelderland;246;Heerde;1970-01-01;
+25;Gelderland;247;Heerewaarden;1970-01-01;1999-01-01
+25;Gelderland;248;Hengelo;1970-01-01;2005-01-01
+25;Gelderland;251;Heteren;1970-01-01;2001-01-01
+25;Gelderland;252;Heumen;1970-01-01;
+25;Gelderland;253;Hoevelaken;1970-01-01;2000-01-01
+25;Gelderland;255;Huissen;1970-01-01;2001-01-01
+25;Gelderland;256;Hummelo en Keppel;1970-01-01;2005-01-01
+25;Gelderland;257;Kerkwijk;1970-01-01;1999-01-01
+25;Gelderland;258;Kesteren;1970-01-01;2004-01-01
+25;Gelderland;260;Lichtenvoorde;1970-01-01;2005-01-01
+25;Gelderland;261;Lienden;1970-01-01;1999-01-01
+25;Gelderland;262;Lochem;1970-01-01;
+25;Gelderland;263;Maasdriel;1944-08-01;
+25;Gelderland;264;Maurik;1970-01-01;1999-01-01
+25;Gelderland;265;Millingen aan de Rijn;1955-01-01;2015-01-01
+25;Gelderland;266;Neede;1970-01-01;2005-01-01
+25;Gelderland;267;Nijkerk;1970-01-01;
+25;Gelderland;268;Nijmegen;1970-01-01;
+25;Gelderland;269;Oldebroek;1970-01-01;
+25;Gelderland;273;Putten;1970-01-01;
+25;Gelderland;274;Renkum;1970-01-01;
+25;Gelderland;275;Rheden;1970-01-01;
+25;Gelderland;276;Rossum;1970-01-01;1999-01-01
+25;Gelderland;277;Rozendaal;1970-01-01;
+25;Gelderland;278;Ruurlo;1970-01-01;2005-01-01
+25;Gelderland;279;Scherpenzeel;1970-01-01;
+25;Gelderland;280;Steenderen;1970-01-01;2005-01-01
+25;Gelderland;281;Tiel;1970-01-01;
+25;Gelderland;282;Ubbergen;1970-01-01;2015-01-01
+25;Gelderland;283;Valburg;1970-01-01;2001-01-01
+25;Gelderland;285;Voorst;1970-01-01;
+25;Gelderland;286;Vorden;1970-01-01;2005-01-01
+25;Gelderland;289;Wageningen;1970-01-01;
+25;Gelderland;291;Warnsveld;1970-01-01;2005-01-01
+25;Gelderland;292;Wehl;1970-01-01;2005-01-01
+25;Gelderland;293;Westervoort;1970-01-01;
+25;Gelderland;294;Winterswijk;1970-01-01;
+25;Gelderland;295;Wisch;1970-01-01;2005-01-01
+25;Gelderland;296;Wijchen;1970-01-01;
+25;Gelderland;297;Zaltbommel;1970-01-01;
+25;Gelderland;298;Zelhem;1970-01-01;2005-01-01
+25;Gelderland;299;Zevenaar;1970-01-01;
+25;Gelderland;301;Zutphen;1970-01-01;
+25;Gelderland;302;Nunspeet;1972-01-01;
+25;Gelderland;304;Neerijnen;1978-01-01;2019-01-01
+25;Gelderland;668;West Maas en Waal;1985-07-01;
+25;Gelderland;733;Lingewaal;1987-01-03;2019-01-01
+25;Gelderland;1734;Overbetuwe;2001-01-01;
+25;Gelderland;1705;Lingewaard;2003-01-01;
+25;Gelderland;1740;Neder-Betuwe;2004-01-01;
+25;Gelderland;1509;Oude IJsselstreek;2005-01-01;
+25;Gelderland;1859;Berkelland;2005-01-01;
+25;Gelderland;1876;Bronckhorst;2005-01-01;
+25;Gelderland;1955;Montferland;2005-01-01;
+25;Gelderland;1586;Oost Gelre;2007-01-01;
+25;Gelderland;1945;Berg en Dal;2016-01-01;
+25;Gelderland;1960;West Betuwe;2019-01-01;
+26;Utrecht;305;Abcoude;1941-05-01;2011-01-01
+26;Utrecht;306;Amerongen;1970-01-01;2006-01-01
+26;Utrecht;307;Amersfoort;1970-01-01;
+26;Utrecht;308;Baarn;1970-01-01;
+26;Utrecht;310;De Bilt;1970-01-01;
+26;Utrecht;311;Breukelen;1949-01-01;2011-01-01
+26;Utrecht;312;Bunnik;1970-01-01;
+26;Utrecht;313;Bunschoten;1970-01-01;
+26;Utrecht;314;Cothen;1970-01-01;1996-01-01
+26;Utrecht;315;Doorn;1970-01-01;2006-01-01
+26;Utrecht;316;Driebergen-Rijsenburg;1931-05-01;2006-01-01
+26;Utrecht;317;Eemnes;1970-01-01;
+26;Utrecht;318;Harmelen;1970-01-01;2001-01-01
+26;Utrecht;321;Houten;1970-01-01;
+26;Utrecht;325;Langbroek;1970-01-01;1996-01-01
+26;Utrecht;326;Leersum;1970-01-01;2006-01-01
+26;Utrecht;327;Leusden;1970-01-01;
+26;Utrecht;329;Loenen;1970-01-01;2011-01-01
+26;Utrecht;330;Loosdrecht;1970-01-01;2002-01-01
+26;Utrecht;331;Lopik;1970-01-01;
+26;Utrecht;332;Maarn;1970-01-01;2006-01-01
+26;Utrecht;333;Maarssen;1970-01-01;2011-01-01
+26;Utrecht;334;Maartensdijk;1970-01-01;2001-01-01
+26;Utrecht;335;Montfoort;1970-01-01;
+26;Utrecht;339;Renswoude;1970-01-01;
+26;Utrecht;340;Rhenen;1970-01-01;
+26;Utrecht;342;Soest;1970-01-01;
+26;Utrecht;344;Utrecht;1970-01-01;
+26;Utrecht;345;Veenendaal;1970-01-01;
+26;Utrecht;347;Vleuten De Meern;1954-01-01;2001-01-01
+26;Utrecht;351;Woudenberg;1970-01-01;
+26;Utrecht;352;Wijk bij Duurstede;1970-01-01;
+26;Utrecht;353;IJsselstein;1970-01-01;
+26;Utrecht;355;Zeist;1970-01-01;
+26;Utrecht;356;Nieuwegein;1971-07-01;
+26;Utrecht;589;Oudewater;1970-01-01;
+26;Utrecht;632;Woerden;1970-01-01;
+26;Utrecht;736;De Ronde Venen;1989-01-01;
+26;Utrecht;620;Vianen;1970-01-01;2019-01-01
+26;Utrecht;1581;Utrechtse Heuvelrug;2006-01-01;
+26;Utrecht;1904;Stichtse Vecht;2011-01-01;
+26;Utrecht;1961;Vijfheerenlanden;2019-01-01;
+27;Noord-Holland;357;Egmond;1978-07-01;2001-01-01
+27;Noord-Holland;358;Aalsmeer;1970-01-01;
+27;Noord-Holland;360;Akersloot;1970-01-01;2002-01-01
+27;Noord-Holland;361;Alkmaar;1970-01-01;
+27;Noord-Holland;362;Amstelveen;1964-01-01;
+27;Noord-Holland;363;Amsterdam;1970-01-01;
+27;Noord-Holland;364;Andijk;1970-01-01;2011-01-01
+27;Noord-Holland;365;Graft-De Rijp;1970-08-01;2015-01-01
+27;Noord-Holland;366;Anna Paulowna;1870-07-18;2012-01-01
+27;Noord-Holland;370;Beemster;1970-01-01;
+27;Noord-Holland;372;Bennebroek;1970-01-01;2009-01-01
+27;Noord-Holland;373;Bergen (NH.);1970-01-01;
+27;Noord-Holland;375;Beverwijk;1970-01-01;
+27;Noord-Holland;376;Blaricum;1970-01-01;
+27;Noord-Holland;377;Bloemendaal;1970-01-01;
+27;Noord-Holland;380;Broek in Waterland;1970-01-01;1991-01-01
+27;Noord-Holland;381;Bussum;1970-01-01;2016-01-01
+27;Noord-Holland;383;Castricum;1970-01-01;
+27;Noord-Holland;384;Diemen;1970-01-01;
+27;Noord-Holland;385;Edam-Volendam;1975-01-01;
+27;Noord-Holland;388;Enkhuizen;1970-01-01;
+27;Noord-Holland;390;'s-Graveland;1970-01-01;2002-01-01
+27;Noord-Holland;392;Haarlem;1970-01-01;
+27;Noord-Holland;393;Haarlemmerliede en Spaarnwoude;1857-01-01;2019-01-01
+27;Noord-Holland;394;Haarlemmermeer;1855-01-01;
+27;Noord-Holland;395;Harenkarspel;1970-01-01;2013-01-01
+27;Noord-Holland;396;Heemskerk;1970-01-01;
+27;Noord-Holland;397;Heemstede;1970-01-01;
+27;Noord-Holland;398;Heerhugowaard;1970-01-01;
+27;Noord-Holland;399;Heiloo;1970-01-01;
+27;Noord-Holland;400;Den Helder;1970-01-01;
+27;Noord-Holland;402;Hilversum;1970-01-01;
+27;Noord-Holland;405;Hoorn;1970-01-01;
+27;Noord-Holland;406;Huizen;1970-01-01;
+27;Noord-Holland;407;Ilpendam;1970-01-01;1991-01-01
+27;Noord-Holland;408;Jisp;1970-01-01;1991-01-01
+27;Noord-Holland;409;Katwoude;1970-01-01;1991-01-01
+27;Noord-Holland;412;Niedorp;1970-08-01;2012-01-01
+27;Noord-Holland;415;Landsmeer;1970-01-01;
+27;Noord-Holland;416;Langedijk;1941-08-01;
+27;Noord-Holland;417;Laren;1970-01-01;
+27;Noord-Holland;418;Limmen;1970-01-01;2002-01-01
+27;Noord-Holland;419;Marken;1970-01-01;1991-01-01
+27;Noord-Holland;420;Medemblik;1970-01-01;
+27;Noord-Holland;423;Monnickendam;1970-01-01;1991-01-01
+27;Noord-Holland;424;Muiden;1970-01-01;2016-01-01
+27;Noord-Holland;425;Naarden;1970-01-01;2016-01-01
+27;Noord-Holland;426;Nederhorst den Berg;1970-01-01;2002-01-01
+27;Noord-Holland;429;Obdam;1970-01-01;2007-01-01
+27;Noord-Holland;431;Oostzaan;1970-01-01;
+27;Noord-Holland;432;Opmeer;1970-01-01;
+27;Noord-Holland;437;Ouder-Amstel;1970-01-01;
+27;Noord-Holland;439;Purmerend;1970-01-01;
+27;Noord-Holland;441;Schagen;1970-01-01;
+27;Noord-Holland;444;Schoorl;1970-01-01;2001-01-01
+27;Noord-Holland;448;Texel;1970-01-01;
+27;Noord-Holland;450;Uitgeest;1970-01-01;
+27;Noord-Holland;451;Uithoorn;1970-01-01;
+27;Noord-Holland;453;Velsen;1970-01-01;
+27;Noord-Holland;454;Venhuizen;1970-01-01;2006-01-01
+27;Noord-Holland;457;Weesp;1970-01-01;
+27;Noord-Holland;458;Schermer;1970-08-01;2015-01-01
+27;Noord-Holland;459;Wervershoof;1970-01-01;2011-01-01
+27;Noord-Holland;462;Wieringen;1970-01-01;2012-01-01
+27;Noord-Holland;463;Wieringermeer;1938-01-01;2012-01-01
+27;Noord-Holland;466;Wognum;1970-01-01;2007-01-01
+27;Noord-Holland;467;Wormer;1970-01-01;1991-01-01
+27;Noord-Holland;470;Wijdewormer;1970-01-01;1991-01-01
+27;Noord-Holland;473;Zandvoort;1970-01-01;
+27;Noord-Holland;476;Zijpe;1970-01-01;2013-01-01
+27;Noord-Holland;478;Zeevang;1970-08-01;2016-01-01
+27;Noord-Holland;479;Zaanstad;1974-01-01;
+27;Noord-Holland;498;Drechterland;1980-01-01;
+27;Noord-Holland;529;Noorder-Koggenland;1979-01-01;2007-01-01
+27;Noord-Holland;532;Stede Broec;1979-01-01;
+27;Noord-Holland;558;Wester-Koggenland;1979-01-01;2007-01-01
+27;Noord-Holland;852;Waterland;1991-01-01;
+27;Noord-Holland;880;Wormerland;1991-01-01;
+27;Noord-Holland;1696;Wijdemeren;2002-01-01;
+27;Noord-Holland;1598;Koggenland;2007-01-01;
+27;Noord-Holland;1911;Hollands Kroon;2012-01-01;
+27;Noord-Holland;1942;Gooise Meren;2016-01-01;
+28;Zuid-Holland;480;Ter Aar;1970-01-01;2007-01-01
+28;Zuid-Holland;482;Alblasserdam;1970-01-01;
+28;Zuid-Holland;483;Alkemade;1970-01-01;2009-01-01
+28;Zuid-Holland;484;Alphen aan den Rijn;1918-01-01;
+28;Zuid-Holland;489;Barendrecht;1886-01-01;
+28;Zuid-Holland;490;Benthuizen;1970-01-01;1991-01-01
+28;Zuid-Holland;491;Bergambacht;1970-01-01;2015-01-01
+28;Zuid-Holland;492;Bergschenhoek;1970-01-01;2007-01-01
+28;Zuid-Holland;493;Berkel en Rodenrijs;1970-01-01;2007-01-01
+28;Zuid-Holland;495;Bleiswijk;1970-01-01;2007-01-01
+28;Zuid-Holland;497;Bodegraven;1970-01-01;2011-01-01
+28;Zuid-Holland;499;Boskoop;1970-01-01;2014-01-01
+28;Zuid-Holland;501;Brielle;1970-01-01;
+28;Zuid-Holland;502;Capelle aan den IJssel;1970-01-01;
+28;Zuid-Holland;503;Delft;1970-01-01;
+28;Zuid-Holland;504;Dirksland;1970-01-01;2013-01-01
+28;Zuid-Holland;505;Dordrecht;1970-01-01;
+28;Zuid-Holland;511;Goedereede;1970-01-01;2013-01-01
+28;Zuid-Holland;512;Gorinchem;1970-01-01;
+28;Zuid-Holland;513;Gouda;1970-01-01;
+28;Zuid-Holland;517;'s-Gravendeel;1970-01-01;2007-01-01
+28;Zuid-Holland;518;'s-Gravenhage;1970-01-01;
+28;Zuid-Holland;519;'s-Gravenzande;1970-01-01;2004-01-01
+28;Zuid-Holland;523;Hardinxveld-Giessendam;1957-01-01;
+28;Zuid-Holland;524;Hazerswoude;1970-01-01;1991-01-01
+28;Zuid-Holland;526;Heerjansdam;1970-01-01;2003-01-01
+28;Zuid-Holland;530;Hellevoetsluis;1970-01-01;
+28;Zuid-Holland;531;Hendrik-Ido-Ambacht;1970-01-01;
+28;Zuid-Holland;534;Hillegom;1970-01-01;
+28;Zuid-Holland;537;Katwijk;1970-01-01;
+28;Zuid-Holland;540;Kouderkerk a/d Rijn;1970-01-01;1991-01-01
+28;Zuid-Holland;542;Krimpen aan den IJssel;1970-01-01;
+28;Zuid-Holland;545;Leerdam;1970-01-01;2019-01-01
+28;Zuid-Holland;546;Leiden;1970-01-01;
+28;Zuid-Holland;547;Leiderdorp;1970-01-01;
+28;Zuid-Holland;548;Leidschendam;1938-01-01;2002-01-01
+28;Zuid-Holland;549;Leimuiden;1970-01-01;1991-01-01
+28;Zuid-Holland;552;De Lier;1970-01-01;2004-01-01
+28;Zuid-Holland;553;Lisse;1970-01-01;
+28;Zuid-Holland;555;Maasland;1970-01-01;2004-01-01
+28;Zuid-Holland;556;Maassluis;1970-01-01;
+28;Zuid-Holland;559;Middelharnis;1970-01-01;2013-01-01
+28;Zuid-Holland;560;Moerkapelle;1970-01-01;1991-01-01
+28;Zuid-Holland;562;Monster;1970-01-01;2004-01-01
+28;Zuid-Holland;563;Moordrecht;1970-01-01;2010-01-01
+28;Zuid-Holland;565;Naaldwijk;1970-01-01;2004-01-01
+28;Zuid-Holland;567;Nieuwerkerk aan den IJssel;1970-01-01;2010-01-01
+28;Zuid-Holland;568;Bernisse;1980-01-01;2015-01-01
+28;Zuid-Holland;569;Nieuwkoop;1970-01-01;
+28;Zuid-Holland;571;Nieuw-Lekkerland;1970-01-01;2013-01-01
+28;Zuid-Holland;573;Nieuwveen;1970-01-01;1994-01-01
+28;Zuid-Holland;575;Noordwijk;1970-01-01;
+28;Zuid-Holland;576;Noordwijkerhout;1970-01-01;2019-01-01
+28;Zuid-Holland;577;Nootdorp;1970-01-01;2002-01-01
+28;Zuid-Holland;579;Oegstgeest;1970-01-01;
+28;Zuid-Holland;580;Oostflakkee;1966-01-01;2013-01-01
+28;Zuid-Holland;584;Oud-Beijerland;1970-01-01;2019-01-01
+28;Zuid-Holland;585;Binnenmaas;1984-01-01;2019-01-01
+28;Zuid-Holland;588;Korendijk;1984-01-01;2019-01-01
+28;Zuid-Holland;590;Papendrecht;1970-01-01;
+28;Zuid-Holland;594;Pijnacker;1970-01-01;2002-01-01
+28;Zuid-Holland;595;Reeuwijk;1970-01-01;2011-01-01
+28;Zuid-Holland;597;Ridderkerk;1970-01-01;
+28;Zuid-Holland;599;Rotterdam;1970-01-01;
+28;Zuid-Holland;600;Rozenburg;1970-01-01;2010-03-18
+28;Zuid-Holland;601;Rijnsaterwoude;1970-01-01;1991-01-01
+28;Zuid-Holland;602;Rijnsburg;1970-01-01;2006-01-01
+28;Zuid-Holland;603;Rijswijk;1970-01-01;
+28;Zuid-Holland;604;Sassenheim;1970-01-01;2006-01-01
+28;Zuid-Holland;606;Schiedam;1970-01-01;
+28;Zuid-Holland;607;Schipluiden;1970-01-01;2004-01-01
+28;Zuid-Holland;608;Schoonhoven;1970-01-01;2015-01-01
+28;Zuid-Holland;610;Sliedrecht;1970-01-01;
+28;Zuid-Holland;611;Cromstrijen;1984-01-01;2019-01-01
+28;Zuid-Holland;612;Spijkenisse;1970-01-01;2015-01-01
+28;Zuid-Holland;613;Albrandswaard;1985-01-01;
+28;Zuid-Holland;614;Westvoorne;1980-01-01;
+28;Zuid-Holland;617;Strijen;1970-01-01;2019-01-01
+28;Zuid-Holland;619;Valkenburg;1970-01-01;2006-01-01
+28;Zuid-Holland;620;Vianen;1970-01-01;2002-01-01
+28;Zuid-Holland;622;Vlaardingen;1970-01-01;
+28;Zuid-Holland;623;Vlist;1970-01-01;2015-01-01
+28;Zuid-Holland;624;Voorburg;1970-01-01;2002-01-01
+28;Zuid-Holland;625;Voorhout;1970-01-01;2006-01-01
+28;Zuid-Holland;626;Voorschoten;1970-01-01;
+28;Zuid-Holland;627;Waddinxveen;1870-07-01;
+28;Zuid-Holland;628;Warmond;1970-01-01;2006-01-01
+28;Zuid-Holland;629;Wassenaar;1970-01-01;
+28;Zuid-Holland;630;Wateringen;1970-01-01;2004-01-01
+28;Zuid-Holland;633;Woubrugge;1970-01-01;1991-01-01
+28;Zuid-Holland;635;Zevenhoven;1970-01-01;1991-01-01
+28;Zuid-Holland;636;Zevenhuizen;1970-01-01;1991-01-01
+28;Zuid-Holland;637;Zoetermeer;1970-01-01;
+28;Zuid-Holland;638;Zoeterwoude;1970-01-01;
+28;Zuid-Holland;642;Zwijndrecht;1970-01-01;
+28;Zuid-Holland;643;Nederlek;1985-01-01;2015-01-01
+28;Zuid-Holland;644;Ouderkerk;1985-01-01;2015-01-01
+28;Zuid-Holland;689;Giessenlanden;1986-01-01;2019-01-01
+28;Zuid-Holland;693;Graafstroom;1986-01-01;2013-01-01
+28;Zuid-Holland;694;Liesveld;1986-01-01;2013-01-01
+28;Zuid-Holland;707;Zederik;1986-01-01;2019-01-01
+28;Zuid-Holland;645;Jacobswoude;1991-01-01;2009-01-01
+28;Zuid-Holland;646;Rijneveld;1991-01-01;1993-01-01
+28;Zuid-Holland;647;Moerhuizen;1991-01-01;1993-01-01
+28;Zuid-Holland;1666;Zevenhuizen-Moerkapelle;1993-01-01;2010-01-01
+28;Zuid-Holland;1672;Rijnwoude;1993-01-01;2014-01-01
+28;Zuid-Holland;1673;Liemeer;1994-01-01;2007-01-01
+28;Zuid-Holland;1916;Leidschendam-Voorburg;2002-01-01;
+28;Zuid-Holland;1926;Pijnacker-Nootdorp;2002-01-01;
+28;Zuid-Holland;1783;Westland;2004-01-01;
+28;Zuid-Holland;1842;Midden-Delfland;2004-01-01;
+28;Zuid-Holland;1525;Teylingen;2006-01-01;
+28;Zuid-Holland;1621;Lansingerland;2007-01-01;
+28;Zuid-Holland;1884;Kaag en Braassem;2009-01-01;
+28;Zuid-Holland;1892;Zuidplas;2010-01-01;
+28;Zuid-Holland;1901;Bodegraven-Reeuwijk;2011-01-01;
+28;Zuid-Holland;1924;Goeree-Overflakkee;2013-01-01;
+28;Zuid-Holland;1927;Molenwaard;2013-01-01;2019-01-01
+28;Zuid-Holland;1930;Nissewaard;2015-01-01;
+28;Zuid-Holland;1931;Krimpenerwaard;2015-01-01;
+28;Zuid-Holland;1963;Hoeksche Waard;2019-01-01;
+28;Zuid-Holland;1978;Molenlanden;2019-01-01;
+29;Zeeland;648;Aardenburg;1970-01-01;1995-01-01
+29;Zeeland;649;Arnemuiden;1970-01-01;1997-01-01
+29;Zeeland;650;Axel;1970-01-01;2003-01-01
+29;Zeeland;654;Borsele;1970-01-01;
+29;Zeeland;656;Brouwershaven;1970-01-01;1997-01-01
+29;Zeeland;657;Bruinisse;1970-01-01;1997-01-01
+29;Zeeland;660;Domburg;1970-01-01;1997-01-01
+29;Zeeland;662;Duiveland;1961-01-01;1997-01-01
+29;Zeeland;664;Goes;1970-01-01;
+29;Zeeland;675;Hontenisse;1970-01-01;2003-01-01
+29;Zeeland;677;Hulst;1970-01-01;
+29;Zeeland;678;Kapelle;1970-01-01;
+29;Zeeland;682;Kortgene;1970-01-01;1995-01-01
+29;Zeeland;686;Mariekerke;1966-07-01;1997-01-01
+29;Zeeland;687;Middelburg;1970-01-01;
+29;Zeeland;688;Middenschouwen;1961-01-01;1997-01-01
+29;Zeeland;692;Oostburg;1970-01-01;2003-01-01
+29;Zeeland;703;Reimerswaal;1970-01-01;
+29;Zeeland;704;Sas van Gent;1970-01-01;2003-01-01
+29;Zeeland;712;Sint Philipsland;1970-01-01;1995-01-01
+29;Zeeland;713;Sluis;1970-01-01;1995-01-01
+29;Zeeland;715;Terneuzen;1970-01-01;
+29;Zeeland;716;Tholen;1970-01-01;
+29;Zeeland;717;Veere;1970-01-01;
+29;Zeeland;718;Vlissingen;1970-01-01;
+29;Zeeland;720;Valkenisse;1966-07-01;1997-01-01
+29;Zeeland;725;Westerschouwen;1961-01-01;1997-01-01
+29;Zeeland;726;Westkapelle;1970-01-01;1997-01-01
+29;Zeeland;727;Wissenkerke;1970-01-01;1995-01-01
+29;Zeeland;732;Zierikzee;1970-01-01;1997-01-01
+29;Zeeland;1695;Noord-Beveland;1995-01-01;
+29;Zeeland;1698;Sluis-Aardenburg;1995-01-01;2003-01-01
+29;Zeeland;1676;Schouwen-Duiveland;1997-01-01;
+29;Zeeland;1714;Sluis;2003-01-01;
+30;Noord-Brabant;738;Aalburg;1970-01-01;2019-01-01
+30;Noord-Brabant;739;Aarle-Rixtel;1970-01-01;1997-01-01
+30;Noord-Brabant;741;Alphen en Riel;1970-01-01;1997-01-01
+30;Noord-Brabant;743;Asten;1970-01-01;
+30;Noord-Brabant;744;Baarle-Nassau;1970-01-01;
+30;Noord-Brabant;745;Bakel en Milheeze;1970-01-01;1997-01-01
+30;Noord-Brabant;746;Beek en Donk;1970-01-01;1997-01-01
+30;Noord-Brabant;747;Beers;1970-01-01;1994-01-01
+30;Noord-Brabant;748;Bergen op Zoom;1970-01-01;
+30;Noord-Brabant;749;Bergeyk;1970-01-01;1999-01-01
+30;Noord-Brabant;750;Berghem;1970-01-01;1994-01-01
+30;Noord-Brabant;751;Berkel-Enschot;1970-01-01;1997-01-01
+30;Noord-Brabant;752;Berlicum;1970-01-01;1996-01-01
+30;Noord-Brabant;753;Best;1970-01-01;
+30;Noord-Brabant;754;Bladel en Netersel;1970-01-01;1997-01-01
+30;Noord-Brabant;755;Boekel;1970-01-01;
+30;Noord-Brabant;756;Boxmeer;1970-01-01;
+30;Noord-Brabant;757;Boxtel;1970-01-01;
+30;Noord-Brabant;758;Breda;1970-01-01;
+30;Noord-Brabant;759;Budel;1970-01-01;1999-01-01
+30;Noord-Brabant;760;Chaam;1970-01-01;1997-01-01
+30;Noord-Brabant;761;Cuijk c.a.;1970-01-01;1994-01-01
+30;Noord-Brabant;762;Deurne;1926-01-01;
+30;Noord-Brabant;763;Diessen;1970-01-01;1997-01-01
+30;Noord-Brabant;764;Dinteloord en Prinsenland;1970-01-01;1997-01-01
+30;Noord-Brabant;766;Dongen;1970-01-01;
+30;Noord-Brabant;767;Drunen;1970-01-01;1997-01-01
+30;Noord-Brabant;768;Den Dungen;1970-01-01;1996-01-01
+30;Noord-Brabant;769;Dussen;1970-01-01;1997-01-01
+30;Noord-Brabant;770;Eersel;1970-01-01;
+30;Noord-Brabant;772;Eindhoven;1970-01-01;
+30;Noord-Brabant;775;Erp;1970-01-01;1994-01-01
+30;Noord-Brabant;776;Esch;1970-01-01;1996-01-01
+30;Noord-Brabant;777;Etten-Leur;1968-01-01;
+30;Noord-Brabant;778;Fijnaart en Heijningen;1970-01-01;1997-01-01
+30;Noord-Brabant;779;Geertruidenberg;1970-01-01;
+30;Noord-Brabant;780;Geffen;1970-01-01;1993-01-01
+30;Noord-Brabant;781;Geldrop;1970-01-01;2004-01-01
+30;Noord-Brabant;782;Gemert;1970-01-01;1997-01-01
+30;Noord-Brabant;784;Gilze en Rijen;1970-01-01;
+30;Noord-Brabant;785;Goirle;1970-01-01;
+30;Noord-Brabant;786;Grave;1970-01-01;
+30;Noord-Brabant;787;'s-Gravenmoer;1970-01-01;1997-01-01
+30;Noord-Brabant;788;Haaren;1970-01-01;2021-01-01
+30;Noord-Brabant;789;Halsteren;1970-01-01;1997-01-01
+30;Noord-Brabant;790;Haps;1970-01-01;1994-01-01
+30;Noord-Brabant;791;Heesch;1970-01-01;1996-01-01
+30;Noord-Brabant;792;Heeswijk-Dinther;1969-01-01;1994-01-01
+30;Noord-Brabant;793;Heeze;1970-01-01;1997-01-01
+30;Noord-Brabant;794;Helmond;1970-01-01;
+30;Noord-Brabant;795;Helvoirt;1970-01-01;1996-01-01
+30;Noord-Brabant;796;'s-Hertogenbosch;1970-01-01;
+30;Noord-Brabant;797;Heusden;1970-01-01;
+30;Noord-Brabant;798;Hilvarenbeek;1970-01-01;
+30;Noord-Brabant;799;Hoeven;1970-01-01;1997-01-01
+30;Noord-Brabant;800;Casteren;1970-01-01;1997-01-01
+30;Noord-Brabant;801;Hooge en Lage Mierde;1970-01-01;1997-01-01
+30;Noord-Brabant;802;Hooge en Lage Zwaluwe;1970-01-01;1997-01-01
+30;Noord-Brabant;803;Huijbergen;1970-01-01;1997-01-01
+30;Noord-Brabant;804;Klundert;1970-01-01;1997-01-01
+30;Noord-Brabant;805;Leende;1970-01-01;1997-01-01
+30;Noord-Brabant;806;Liempde;1970-01-01;1996-01-01
+30;Noord-Brabant;807;Lieshout;1970-01-01;1997-01-01
+30;Noord-Brabant;808;Lith;1970-01-01;2011-01-01
+30;Noord-Brabant;809;Loon op Zand;1970-01-01;
+30;Noord-Brabant;810;Luyksgestel;1970-01-01;1997-01-01
+30;Noord-Brabant;811;Maarheeze;1970-01-01;1997-01-01
+30;Noord-Brabant;812;Made en Drimmelen;1970-01-01;1997-01-01
+30;Noord-Brabant;813;Megen c.a.;1970-01-01;1994-01-01
+30;Noord-Brabant;814;Mierlo;1970-01-01;2004-01-01
+30;Noord-Brabant;815;Mill en Sint Hubert;1970-01-01;
+30;Noord-Brabant;816;Moergestel;1970-01-01;1997-01-01
+30;Noord-Brabant;817;Nieuw-Ginneken;1970-01-01;1997-01-01
+30;Noord-Brabant;818;Nieuw-Vossemeer;1970-01-01;1997-01-01
+30;Noord-Brabant;819;Nistelrode;1970-01-01;1994-01-01
+30;Noord-Brabant;820;Nuenen, Gerwen en Nederwetten;1970-01-01;
+30;Noord-Brabant;821;Nuland;1970-01-01;1993-01-01
+30;Noord-Brabant;822;Oeffelt;1970-01-01;1994-01-01
+30;Noord-Brabant;823;Oirschot;1970-01-01;
+30;Noord-Brabant;824;Oisterwijk;1970-01-01;
+30;Noord-Brabant;825;Middelbeers;1970-01-01;1997-01-01
+30;Noord-Brabant;826;Oosterhout;1970-01-01;
+30;Noord-Brabant;827;Oploo c.a.;1970-01-01;1994-01-01
+30;Noord-Brabant;828;Oss;1970-01-01;
+30;Noord-Brabant;829;Ossendrecht;1970-01-01;1997-01-01
+30;Noord-Brabant;830;Oudenbosch;1970-01-01;1997-01-01
+30;Noord-Brabant;831;Oud en Nieuw Gastel;1970-01-01;1997-01-01
+30;Noord-Brabant;832;Prinsenbeek;1970-01-01;1997-01-01
+30;Noord-Brabant;833;Putte;1970-01-01;1997-01-01
+30;Noord-Brabant;834;Raamsdonk;1970-01-01;1997-01-01
+30;Noord-Brabant;835;Ravenstein;1970-01-01;2003-01-01
+30;Noord-Brabant;836;Reusel;1970-01-01;1997-01-01
+30;Noord-Brabant;837;Riethoven;1970-01-01;1997-01-01
+30;Noord-Brabant;838;Roosendaal en Nispen;1970-01-01;1997-01-01
+30;Noord-Brabant;839;Rosmalen;1970-01-01;1996-01-01
+30;Noord-Brabant;840;Rucphen;1970-01-01;
+30;Noord-Brabant;841;Rijsbergen;1970-01-01;1997-01-01
+30;Noord-Brabant;843;Schaijk;1970-01-01;1994-01-01
+30;Noord-Brabant;844;Schijndel;1970-01-01;2017-01-01
+30;Noord-Brabant;845;Sint-Michielsgestel;1970-01-01;
+30;Noord-Brabant;846;Sint-Oedenrode;1970-01-01;2017-01-01
+30;Noord-Brabant;847;Someren;1970-01-01;
+30;Noord-Brabant;848;Son en Breugel;1970-01-01;
+30;Noord-Brabant;849;Sprang-Capelle;1970-01-01;1997-01-01
+30;Noord-Brabant;850;Standdaarbuiten;1970-01-01;1997-01-01
+30;Noord-Brabant;851;Steenbergen;1970-01-01;
+30;Noord-Brabant;853;Terheijden;1970-01-01;1997-01-01
+30;Noord-Brabant;854;Teteringen;1970-01-01;1997-01-01
+30;Noord-Brabant;855;Tilburg;1970-01-01;
+30;Noord-Brabant;856;Uden;1970-01-01;
+30;Noord-Brabant;857;Udenhout;1970-01-01;1997-01-01
+30;Noord-Brabant;858;Valkenswaard;1970-01-01;
+30;Noord-Brabant;860;Veghel;1970-01-01;2017-01-01
+30;Noord-Brabant;861;Veldhoven;1970-01-01;
+30;Noord-Brabant;862;Vessem, Wintelre en Knegse;1970-01-01;1997-01-01
+30;Noord-Brabant;863;Vierlingsbeek;1970-01-01;1998-01-01
+30;Noord-Brabant;864;Vlijmen;1970-01-01;1997-01-01
+30;Noord-Brabant;865;Vught;1970-01-01;
+30;Noord-Brabant;866;Waalre;1970-01-01;
+30;Noord-Brabant;867;Waalwijk;1970-01-01;
+30;Noord-Brabant;868;Wanroij;1970-01-01;1994-01-01
+30;Noord-Brabant;869;Waspik;1970-01-01;1997-01-01
+30;Noord-Brabant;870;Werkendam;1970-01-01;2019-01-01
+30;Noord-Brabant;871;Westerhoven;1970-01-01;1997-01-01
+30;Noord-Brabant;872;Willemstad;1970-01-01;1997-01-01
+30;Noord-Brabant;873;Woensdrecht;1970-01-01;
+30;Noord-Brabant;874;Woudrichem;1970-01-01;2019-01-01
+30;Noord-Brabant;875;Wouw;1970-01-01;1997-01-01
+30;Noord-Brabant;877;Zeeland;1970-01-01;1994-01-01
+30;Noord-Brabant;878;Zevenbergen;1970-01-01;1999-01-01
+30;Noord-Brabant;879;Zundert;1970-01-01;
+30;Noord-Brabant;1671;Maasdonk;1993-01-01;2015-01-01
+30;Noord-Brabant;1684;Cuijk;1994-01-01;
+30;Noord-Brabant;1685;Landerd;1994-01-01;
+30;Noord-Brabant;1691;St. Anthonis;1994-01-01;1996-01-01
+30;Noord-Brabant;1702;Sint Anthonis;1996-01-01;
+30;Noord-Brabant;1721;Bernheze;1996-01-01;
+30;Noord-Brabant;1652;Gemert-Bakel;1997-01-01;
+30;Noord-Brabant;1655;Halderberge;1997-01-01;
+30;Noord-Brabant;1658;Heeze-Leende;1997-01-01;
+30;Noord-Brabant;1659;Laarbeek;1997-01-01;
+30;Noord-Brabant;1665;Made;1997-01-01;1999-01-01
+30;Noord-Brabant;1667;Reusel-De Mierden;1997-01-01;
+30;Noord-Brabant;1674;Roosendaal;1997-01-01;
+30;Noord-Brabant;1723;Alphen-Chaam;1997-01-01;
+30;Noord-Brabant;1728;Bladel;1997-01-01;
+30;Noord-Brabant;1706;Cranendonck;1999-01-01;
+30;Noord-Brabant;1709;Moerdijk;1999-01-01;
+30;Noord-Brabant;1719;Drimmelen;1999-01-01;
+30;Noord-Brabant;1724;Bergeijk;1999-01-01;
+30;Noord-Brabant;1771;Geldrop-Mierlo;2004-01-01;
+30;Noord-Brabant;1948;Meierijstad;2017-01-01;
+30;Noord-Brabant;1959;Altena;2019-01-01;
+31;Limburg;881;Onderbanken;1970-01-01;2019-01-01
+31;Limburg;882;Landgraaf;1970-01-01;
+31;Limburg;885;Arcen en Velden;1970-01-01;2010-01-01
+31;Limburg;886;Baexem;1970-01-01;1991-01-01
+31;Limburg;887;Beegden;1970-01-01;1991-01-01
+31;Limburg;888;Beek;1970-01-01;
+31;Limburg;889;Beesel;1970-01-01;
+31;Limburg;890;Belfeld;1970-01-01;2001-01-01
+31;Limburg;893;Bergen (L.);1970-01-01;
+31;Limburg;897;Born;1970-01-01;2001-01-01
+31;Limburg;898;Broekhuizen;1970-01-01;2001-01-01
+31;Limburg;899;Brunssum;1970-01-01;
+31;Limburg;902;Echt;1970-01-01;2003-01-01
+31;Limburg;905;Eijsden;1970-01-01;2011-01-01
+31;Limburg;906;Geleen;1970-01-01;2001-01-01
+31;Limburg;907;Gennep;1970-01-01;
+31;Limburg;909;Grathem;1970-01-01;1991-01-01
+31;Limburg;912;Grubbenvorst;1970-01-01;2001-01-01
+31;Limburg;913;Gulpen;1970-01-01;1999-01-01
+31;Limburg;914;Haelen;1970-01-01;2007-01-01
+31;Limburg;915;Heel en Panheel;1970-01-01;1991-01-01
+31;Limburg;917;Heerlen;1970-01-01;
+31;Limburg;918;Helden;1970-01-01;2010-01-01
+31;Limburg;919;Herten;1970-01-01;1991-01-01
+31;Limburg;920;Heythuysen;1970-01-01;2007-01-01
+31;Limburg;922;Horn;1970-01-01;1991-01-01
+31;Limburg;923;Horst;1970-01-01;2001-01-01
+31;Limburg;925;Hunsel;1970-01-01;2007-01-01
+31;Limburg;928;Kerkrade;1970-01-01;
+31;Limburg;929;Kessel;1970-01-01;2010-01-01
+31;Limburg;932;Linne;1970-01-01;1991-01-01
+31;Limburg;933;Maasbracht;1970-01-01;2007-01-01
+31;Limburg;934;Maasbree;1970-01-01;2010-01-01
+31;Limburg;935;Maastricht;1970-01-01;
+31;Limburg;936;Margraten;1970-01-01;2011-01-01
+31;Limburg;938;Meerssen;1970-01-01;
+31;Limburg;939;Melick en Herkenbosch;1970-01-01;1993-01-01
+31;Limburg;941;Meijel;1970-01-01;2010-01-01
+31;Limburg;943;Montfort;1970-01-01;1991-01-01
+31;Limburg;944;Mook en Middelaar;1970-01-01;
+31;Limburg;946;Nederweert;1970-01-01;
+31;Limburg;947;Neer;1970-01-01;1991-01-01
+31;Limburg;951;Nuth;1970-01-01;2019-01-01
+31;Limburg;953;Oh‚ en Laak;1970-01-01;1991-01-01
+31;Limburg;956;Posterholt;1970-01-01;1995-01-01
+31;Limburg;957;Roermond;1970-01-01;
+31;Limburg;958;Roggel;1970-01-01;1993-01-01
+31;Limburg;962;Schinnen;1970-01-01;2019-01-01
+31;Limburg;964;Sevenum;1970-01-01;2010-01-01
+31;Limburg;965;Simpelveld;1970-01-01;
+31;Limburg;967;Sint Odilienberg;1970-01-01;1991-01-01
+31;Limburg;968;Sittard;1970-01-01;2001-01-01
+31;Limburg;971;Stein;1970-01-01;
+31;Limburg;972;Stevensweert;1970-01-01;1991-01-01
+31;Limburg;973;Stramproy;1970-01-01;1998-01-01
+31;Limburg;974;Susteren;1970-01-01;2003-01-01
+31;Limburg;975;Swalmen;1970-01-01;2007-01-01
+31;Limburg;976;Tegelen;1970-01-01;2001-01-01
+31;Limburg;977;Thorn;1970-01-01;2007-01-01
+31;Limburg;981;Vaals;1970-01-01;
+31;Limburg;983;Venlo;1970-01-01;
+31;Limburg;984;Venray;1970-01-01;
+31;Limburg;985;Vlodrop;1970-01-01;1991-01-01
+31;Limburg;986;Voerendaal;1970-01-01;
+31;Limburg;988;Weert;1970-01-01;
+31;Limburg;989;Wessem;1970-01-01;1991-01-01
+31;Limburg;990;Wittem;1970-01-01;1999-01-01
+31;Limburg;993;Meerlo-Wanssum;1970-01-01;2010-01-01
+31;Limburg;994;Valkenburg aan de Geul;1970-01-01;
+31;Limburg;1937;Heel;1991-01-01;2007-01-01
+31;Limburg;1669;Roerdalen;1993-01-01;
+31;Limburg;1670;Roggel en Neer;1993-01-01;2007-01-01
+31;Limburg;1679;Ambt Montfort;1995-01-01;2007-01-01
+31;Limburg;1729;Gulpen-Wittem;1999-01-01;
+31;Limburg;1507;Horst aan de Maas;2001-01-01;
+31;Limburg;1883;Sittard-Geleen;2001-01-01;
+31;Limburg;1711;Echt-Susteren;2003-01-01;
+31;Limburg;1640;Leudal;2007-01-01;
+31;Limburg;1641;Maasgouw;2007-01-01;
+31;Limburg;1894;Peel en Maas;2010-01-01;
+31;Limburg;1903;Eijsden-Margraten;2011-01-01;
+31;Limburg;1954;Beekdaelen;2019-01-01;
