@@ -431,6 +431,37 @@
                 </Objecten:Nummeraanduiding>
             </sl-bag-extract:bagObject>
         </sl:stand>
+        <sl:stand>
+            <!-- JvdB toegevoegd tbv gerelateerdeWoonplaats tests -->
+            <sl-bag-extract:bagObject>
+                <Objecten:Nummeraanduiding>
+                    <Objecten:identificatie domein="NL.IMBAG.Nummeraanduiding">0362200001221879</Objecten:identificatie>
+                    <Objecten:huisnummer>9</Objecten:huisnummer>
+                    <Objecten:huisletter>y</Objecten:huisletter>
+                    <Objecten:typeAdresseerbaarObject>Verblijfsobject</Objecten:typeAdresseerbaarObject>
+                    <Objecten:status>Naamgeving uitgegeven</Objecten:status>
+                    <Objecten:geconstateerd>N</Objecten:geconstateerd>
+                    <Objecten:documentdatum>2019-03-05</Objecten:documentdatum>
+                    <Objecten:documentnummer>20190305002</Objecten:documentnummer>
+                    <Objecten:ligtIn>
+                         <Objecten-ref:WoonplaatsRef domein="NL.IMBAG.Woonplaats">1050</Objecten-ref:WoonplaatsRef>
+                     </Objecten:ligtIn>
+                    <Objecten:voorkomen>
+                        <Historie:Voorkomen>
+                            <Historie:voorkomenidentificatie>3</Historie:voorkomenidentificatie>
+                            <Historie:beginGeldigheid>2019-03-05</Historie:beginGeldigheid>
+                            <Historie:tijdstipRegistratie>2019-03-05T14:28:00.000</Historie:tijdstipRegistratie>
+                            <Historie:BeschikbaarLV>
+                                <Historie:tijdstipRegistratieLV>2019-03-05T14:30:56.335</Historie:tijdstipRegistratieLV>
+                            </Historie:BeschikbaarLV>
+                        </Historie:Voorkomen>
+                    </Objecten:voorkomen>
+                    <Objecten:ligtAan>
+                        <Objecten-ref:OpenbareRuimteRef domein="NL.IMBAG.Openbareruimte">0363300000003944</Objecten-ref:OpenbareRuimteRef>
+                    </Objecten:ligtAan>
+                </Objecten:Nummeraanduiding>
+            </sl-bag-extract:bagObject>
+        </sl:stand>
 
     </sl:standBestand>
 </sl-bag-extract:bagStand>

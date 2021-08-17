@@ -291,6 +291,26 @@
         "tijdstipRegistratieLV": "2019-03-05T14:30:56.335"
       },
       "geometry": null
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "huisnummer": 9,
+        "huisletter": "y",
+        "typeAdresseerbaarObject": "Verblijfsobject",
+        "openbareruimteRef": "0363300000003944",
+        "woonplaatsRef": "1050",
+        "identificatie": "0362200001221879",
+        "status": "Naamgeving uitgegeven",
+        "geconstateerd": false,
+        "documentDatum": "2019-03-05",
+        "documentNummer": "20190305002",
+        "voorkomenIdentificatie": 3,
+        "beginGeldigheid": "2019-03-05",
+        "tijdstipRegistratie": "2019-03-05T14:28:00",
+        "tijdstipRegistratieLV": "2019-03-05T14:30:56.335"
+      },
+      "geometry": null
     }
   ]
 }
