@@ -808,7 +808,7 @@ coalesce(winkelfunctie,0) as winkelfunctie ,
 coalesce(overige_gebruiksfunctie,0) as overige_gebruiksfunctie
 from crosstab (
   'SELECT
-  VBOGBD.identificatie as VBO_ID,   VBOGBD.gebruiksdoelverblijfsobject, count(  VBOGBD.*) as Aantal
+  VBOGBD.identificatie as VBO_ID,   VBOGBD.gebruiksdoelverblijfsobject, 1 as Aantal
 FROM
   verblijfsobjectgebruiksdoelactueelbestaand VBOGBD
   group by   VBOGBD.identificatie ,   VBOGBD.gebruiksdoelverblijfsobject
