@@ -31,6 +31,7 @@ Author:  Just van den Broecke, Just Objects B.V.
             </gml:boundedBy>
 
             <xsl:apply-templates select="//xb:SelectieGegevens"/>
+            <xsl:apply-templates select="//xb:SchemaInfo"/>
         </ogr:FeatureCollection>
     </xsl:template>
 
@@ -41,7 +42,35 @@ Author:  Just van den Broecke, Just Objects B.V.
                 <ogr:sleutel>extract_datum</ogr:sleutel>
                 <ogr:waarde>
                      <xsl:value-of select="selecties-extract:StandTechnischeDatum/text()"/>
-                 </ogr:waarde>
+                </ogr:waarde>
+                <ogr:geometry>
+                    <gml:Point srsName="urn:ogc:def:crs:EPSG:28992">
+                        <gml:coordinates>20000,450000</gml:coordinates>
+                     </gml:Point>
+                </ogr:geometry>
+            </ogr:nlx_bag_info>
+        </gml:featureMember>
+    </xsl:template>
+    <xsl:template match="xb:SchemaInfo">
+        <gml:featureMember>
+            <ogr:nlx_bag_info>
+                <ogr:sleutel>bag_xsd_naam</ogr:sleutel>
+                <ogr:waarde>
+                     <xsl:value-of select="xb:naam/text()"/>
+                </ogr:waarde>
+                <ogr:geometry>
+                    <gml:Point srsName="urn:ogc:def:crs:EPSG:28992">
+                        <gml:coordinates>20000,450000</gml:coordinates>
+                     </gml:Point>
+                </ogr:geometry>
+            </ogr:nlx_bag_info>
+        </gml:featureMember>
+        <gml:featureMember>
+            <ogr:nlx_bag_info>
+                <ogr:sleutel>bag_xsd_versie</ogr:sleutel>
+                <ogr:waarde>
+                     <xsl:value-of select="xb:versie/text()"/>
+                </ogr:waarde>
                 <ogr:geometry>
                     <gml:Point srsName="urn:ogc:def:crs:EPSG:28992">
                         <gml:coordinates>20000,450000</gml:coordinates>
