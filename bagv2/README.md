@@ -6,6 +6,7 @@ For now assumed this can be used in the Stetl Chain.
 ## Download van Kadaster
 
 * via https://extracten.bag.kadaster.nl/lvbag/extracten/
+  of https://service.pdok.nl/kadaster/adressen/atom/v1_0/adressen.xml
 * BAG v1: tot april 2021, met handmatige controle, voor enkele problemen
 * april-sept 2021 ook maar zonder controle, verwacht 99.9% correct
 * tarieven: https://www.kadaster.nl/-/tarieven-2021 
