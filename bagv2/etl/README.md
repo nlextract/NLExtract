@@ -13,14 +13,14 @@ De voornaamste kenmerken daarvan zijn:
 Toch was er geen custom Python nodig: de BAG v2 wordt geheel verwerkt met Stetl.
 De belangrijkste functies die via Stetl worden aangewend:
 
-* [GDAL LVBAG Driver](https://gdal.org/drivers/vector/lvbag.html) (GDAL v3.2.2 of hoger nodig)
+* [GDAL LVBAG Driver](https://gdal.org/drivers/vector/lvbag.html) (GDAL v3.4.0 of hoger nodig)
 * [GDAL VSI](https://gdal.org/user/virtual_file_systems.html) Zip handlers voor geneste .zip files
 * XSLT voor "niet-BAG-model" XML-bestanden zoals Woonplaats-Gemeenten en Leverings
 * CSV input naar Postgres output voor CBS Gemeenten en Provincies
 
 ## Geen Docker
 
-Kan wel maar is hoge versie GDAL nodig, minimaal 3.2.2.
+Kan wel maar is hoge versie GDAL nodig, minimaal 3.4.0.
 
 ```
 # Will use options/default.args
