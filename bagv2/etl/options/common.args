@@ -52,6 +52,3 @@ feat_per_tx=-gt 200000
 # Welk gebied (clip), zet leeg voor alles (nog niet voor BAG geprobeerd!)
 # spatial_extent=120000 450000 160000 500000
 spatial_extent=
-
-# Welke jaargang voor Gemeentelijke indeling van CBS
-cbs_gemeenten_jaar=2021

@@ -52,6 +52,9 @@ DROP INDEX IF EXISTS gem_wpl_gemeentecode_datum_idx CASCADE;
 CREATE INDEX gem_wpl_woonplaatscode_idx ON gemeente_woonplaats USING btree (woonplaatscode);
 CREATE INDEX gem_wpl_gemeentecode_datum_idx ON gemeente_woonplaats USING btree (gemeentecode);
 
+DROP INDEX IF EXISTS prov_gem_gemeentecode_idx CASCADE;
+CREATE INDEX prov_gem_gemeentecode_idx ON provincie_gemeente USING btree (gemeentecode);
+
 -- Indexen relatie tabellen
 DROP INDEX IF EXISTS verblijfsobjectpandkey CASCADE;
 DROP INDEX IF EXISTS verblijfsobjectpand_pand CASCADE;

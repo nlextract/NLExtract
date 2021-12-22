@@ -34,11 +34,13 @@
 """
 
 import argparse
+import csv
 import sys
 import os
 import re
 import copy
 import datetime
+import pprint
 from collections import defaultdict
 from etree import etree, stripschema
 
@@ -179,6 +181,64 @@ def write_gemeentelijke_indeling(args, gemeentelijke_indeling):
             print("Saving file: %s" % args.output)
 
         doc.write(args.output, pretty_print=True, xml_declaration=True, encoding='UTF-8')
+
+
+def convert_to_csv(args, gemeentelijke_indeling):
+    provincie_gemeente = {}
+
+    for jaar in sorted(gemeentelijke_indeling['indeling'], key=int):
+        for provinciecode in sorted(gemeentelijke_indeling['indeling'][jaar]['provincie'], key=int):
+            provincienaam = gemeentelijke_indeling['indeling'][jaar]['provincie'][provinciecode]['attributes']['naam']
+
+            if provinciecode not in provincie_gemeente:
+                provincie_gemeente[provinciecode] = {}
+
+            for gemeentecode in sorted(gemeentelijke_indeling['indeling'][jaar]['provincie'][provinciecode]['gemeente'], key=int):
+                gemeentenaam = gemeentelijke_indeling['indeling'][jaar]['provincie'][provinciecode]['gemeente'][gemeentecode]['attributes']['naam']
+
+                begindatum = gemeentelijke_indeling['indeling'][jaar]['provincie'][provinciecode]['gemeente'][gemeentecode]['attributes']['begindatum']
+
+                if 'einddatum' in gemeentelijke_indeling['indeling'][jaar]['provincie'][provinciecode]['gemeente'][gemeentecode]['attributes']:
+                    einddatum = gemeentelijke_indeling['indeling'][jaar]['provincie'][provinciecode]['gemeente'][gemeentecode]['attributes']['einddatum']
+                else:
+                    einddatum = None
+
+                provincie_gemeente[provinciecode][gemeentecode] = {
+                    'provinciecode': provinciecode,
+                    'provincienaam': provincienaam,
+                    'gemeentecode':  str(gemeentecode).zfill(4),
+                    'gemeentenaam':  gemeentenaam,
+                    'begindatum':    begindatum,
+                    'einddatum':     einddatum,
+                }
+
+    if args.debug:
+        print("provincie_gemeente:\n%s" % pprint.pformat(provincie_gemeente))
+
+    if args.verbose:
+        print("Writing CSV file: %s" % args.output)
+
+    with open(args.output, 'w', newline='') as f:
+        fields = [
+                   'provinciecode',
+                   'provincienaam',
+                   'gemeentecode',
+                   'gemeentenaam',
+                   'begindatum',
+                   'einddatum',
+                 ]
+
+        writer = csv.DictWriter(
+                     f,
+                     fieldnames=fields,
+                     delimiter=';',
+                     lineterminator='\n',
+                 )
+        writer.writeheader()
+
+        for provinciecode in provincie_gemeente:
+            for gemeentecode in provincie_gemeente[provinciecode]:
+                writer.writerow(provincie_gemeente[provinciecode][gemeentecode])
 
 
 def end_gemeente(args, gemeentelijke_indeling, provincie_map):
@@ -750,10 +810,12 @@ def show_help():
     print("--add-gemeente          Create new gemeente element")
     print("                        Requires option: --code, --name, --date, --prov")
     print("--provincie-map         Display provicie map (code & name)")
+    print("--convert-to-csv        Convert gemeentelijke-indeling XML to CSV")
+    print("                        Requires option: --output")
     print("")
     print("Options:")
     print("-i, --input <PATH>      Path to gemeentelijke-indeling XML file to read")
-    print("-o, --output <PATH>     Path to gemeentelijke-indeling XML file to write")
+    print("-o, --output <PATH>     Path to gemeentelijke-indeling XML/CSV file to write")
     print("-f, --file <PATH>       Path to CBS Excel spreadsheet to process")
     print("")
     print("-C, --code <NUMBER>     Numerical gemeentecode")
@@ -801,9 +863,10 @@ def main():
     group.add_argument('--end-gemeente', action='store_true', help='Set einddatum attribute for gemeente (Requires option: --code, --date, --prov)')
     group.add_argument('--add-gemeente', action='store_true', help='Create new gemeente element (Requires option: --code, --name, --date, --prov)')
     group.add_argument('--provincie-map', action='store_true', help='Display provicie map (code & name)')
+    group.add_argument('--convert-to-csv', action='store_true', help='Convert gemeentelijke-indeling XML to CSV (Requires option: --output)')
 
     parser.add_argument('-i', '--input', metavar='<PATH>', help='Path to gemeentelijke-indeling XML file to read', required=True)
-    parser.add_argument('-o', '--output', metavar='<PATH>', help='Path to gemeentelijke-indeling XML file to write')
+    parser.add_argument('-o', '--output', metavar='<PATH>', help='Path to gemeentelijke-indeling XML/CSV file to write')
     parser.add_argument('-f', '--file', metavar='<PATH>', help='Path to CBS Excel spreadsheet to process')
 
     parser.add_argument('-C', '--code', metavar='<NUMBER>', help='Numerical gemeentecode')
@@ -842,6 +905,9 @@ def main():
     elif args.add_gemeente and not args.date:
         parser.error('Missing required option: --date')
 
+    if args.convert_to_csv and not args.output:
+        parser.error('Missing required option: --output')
+
     # Sanity checks
     if args.date and not re.search("^\d{4}-\d{2}-\d{2}$", args.date):
         parser.error('Invalid date format, use YYYY-MM-DD')
@@ -865,6 +931,9 @@ def main():
         cbs_data = parse_cbs_data(args)
 
         gemeentelijke_indeling = add_cbs_data(args, gemeentelijke_indeling, cbs_data)
+    elif args.convert_to_csv:
+        convert_to_csv(args, gemeentelijke_indeling)
+        sys.exit(0)
     else:
         parser.error("Unsupported option")
 
