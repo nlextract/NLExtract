@@ -67,6 +67,9 @@ DROP INDEX IF EXISTS adresseerbaarobjectnevenadreskey CASCADE;
 CREATE INDEX
         adresseerbaarobjectnevenadreskey ON adresseerbaarobjectnevenadres USING btree (identificatie,voorkomenidentificatie, begindatumTijdvakGeldigheid, nevenadres);
 
+DROP INDEX IF EXISTS nlx_bag_info_key CASCADE;
+CREATE INDEX nlx_bag_info_key ON nlx_bag_info USING btree (sleutel);
+
 INSERT INTO nlx_bag_log (actie, bestand) VALUES ('end_indexing', 'create-indexes.sql');
 
 INSERT INTO nlx_bag_info (sleutel,waarde)
