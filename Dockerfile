@@ -9,7 +9,7 @@ ARG POSTGRES_VERSION="11"
 # ENV settings
 ENV TZ=${TIMEZONE} \
    DEBIAN_FRONTEND="noninteractive" \
-   DEB_PACKAGES="wget unzip zip postgresql-client-${POSTGRES_VERSION} openssh-client python3-lxml python3-psycopg2 python3-deprecated python3-openpyxl" \
+   DEB_PACKAGES="wget unzip zip postgresql-client-${POSTGRES_VERSION} openssh-client python3-lxml python3-psycopg2 python3-deprecated python3-openpyxl python3-xlrd" \
    APT_KEY_DONT_WARN_ON_DANGEROUS_USAGE="DontWarn"
 
 # https://www.ubuntuupdates.org/ppa/postgresql?dist=focal-pgdg need PG client version 10
