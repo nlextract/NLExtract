@@ -320,7 +320,7 @@ provinciecode;provincienaam;gemeentecode;gemeentenaam;begindatum;einddatum
 27;Noord-Holland;0364;Andijk;1970-01-01;2011-01-01
 27;Noord-Holland;0365;Graft-De Rijp;1970-08-01;2015-01-01
 27;Noord-Holland;0366;Anna Paulowna;1870-07-18;2012-01-01
-27;Noord-Holland;0370;Beemster;1970-01-01;
+27;Noord-Holland;0370;Beemster;1970-01-01;2022-01-01
 27;Noord-Holland;0372;Bennebroek;1970-01-01;2009-01-01
 27;Noord-Holland;0373;Bergen (NH.);1970-01-01;
 27;Noord-Holland;0375;Beverwijk;1970-01-01;
@@ -339,7 +339,7 @@ provinciecode;provincienaam;gemeentecode;gemeentenaam;begindatum;einddatum
 27;Noord-Holland;0395;Harenkarspel;1970-01-01;2013-01-01
 27;Noord-Holland;0396;Heemskerk;1970-01-01;
 27;Noord-Holland;0397;Heemstede;1970-01-01;
-27;Noord-Holland;0398;Heerhugowaard;1970-01-01;
+27;Noord-Holland;0398;Heerhugowaard;1970-01-01;2022-01-01
 27;Noord-Holland;0399;Heiloo;1970-01-01;
 27;Noord-Holland;0400;Den Helder;1970-01-01;
 27;Noord-Holland;0402;Hilversum;1970-01-01;
@@ -350,7 +350,7 @@ provinciecode;provincienaam;gemeentecode;gemeentenaam;begindatum;einddatum
 27;Noord-Holland;0409;Katwoude;1970-01-01;1991-01-01
 27;Noord-Holland;0412;Niedorp;1970-08-01;2012-01-01
 27;Noord-Holland;0415;Landsmeer;1970-01-01;
-27;Noord-Holland;0416;Langedijk;1941-08-01;
+27;Noord-Holland;0416;Langedijk;1941-08-01;2022-01-01
 27;Noord-Holland;0417;Laren;1970-01-01;
 27;Noord-Holland;0418;Limmen;1970-01-01;2002-01-01
 27;Noord-Holland;0419;Marken;1970-01-01;1991-01-01
@@ -371,7 +371,7 @@ provinciecode;provincienaam;gemeentecode;gemeentenaam;begindatum;einddatum
 27;Noord-Holland;0451;Uithoorn;1970-01-01;
 27;Noord-Holland;0453;Velsen;1970-01-01;
 27;Noord-Holland;0454;Venhuizen;1970-01-01;2006-01-01
-27;Noord-Holland;0457;Weesp;1970-01-01;
+27;Noord-Holland;0457;Weesp;1970-01-01;2022-03-24
 27;Noord-Holland;0458;Schermer;1970-08-01;2015-01-01
 27;Noord-Holland;0459;Wervershoof;1970-01-01;2011-01-01
 27;Noord-Holland;0462;Wieringen;1970-01-01;2012-01-01
@@ -393,6 +393,7 @@ provinciecode;provincienaam;gemeentecode;gemeentenaam;begindatum;einddatum
 27;Noord-Holland;1598;Koggenland;2007-01-01;
 27;Noord-Holland;1911;Hollands Kroon;2012-01-01;
 27;Noord-Holland;1942;Gooise Meren;2016-01-01;
+27;Noord-Holland;1980;Dijk en Waard;2022-01-01;
 28;Zuid-Holland;0480;Ter Aar;1970-01-01;2007-01-01
 28;Zuid-Holland;0482;Alblasserdam;1970-01-01;
 28;Zuid-Holland;0483;Alkemade;1970-01-01;2009-01-01
@@ -565,7 +566,7 @@ provinciecode;provincienaam;gemeentecode;gemeentenaam;begindatum;einddatum
 30;Noord-Brabant;0753;Best;1970-01-01;
 30;Noord-Brabant;0754;Bladel en Netersel;1970-01-01;1997-01-01
 30;Noord-Brabant;0755;Boekel;1970-01-01;
-30;Noord-Brabant;0756;Boxmeer;1970-01-01;
+30;Noord-Brabant;0756;Boxmeer;1970-01-01;2022-01-01
 30;Noord-Brabant;0757;Boxtel;1970-01-01;
 30;Noord-Brabant;0758;Breda;1970-01-01;
 30;Noord-Brabant;0759;Budel;1970-01-01;1999-01-01
@@ -590,7 +591,7 @@ provinciecode;provincienaam;gemeentecode;gemeentenaam;begindatum;einddatum
 30;Noord-Brabant;0782;Gemert;1970-01-01;1997-01-01
 30;Noord-Brabant;0784;Gilze en Rijen;1970-01-01;
 30;Noord-Brabant;0785;Goirle;1970-01-01;
-30;Noord-Brabant;0786;Grave;1970-01-01;
+30;Noord-Brabant;0786;Grave;1970-01-01;2022-01-01
 30;Noord-Brabant;0787;'s-Gravenmoer;1970-01-01;1997-01-01
 30;Noord-Brabant;0788;Haaren;1970-01-01;2021-01-01
 30;Noord-Brabant;0789;Halsteren;1970-01-01;1997-01-01
@@ -619,7 +620,7 @@ provinciecode;provincienaam;gemeentecode;gemeentenaam;begindatum;einddatum
 30;Noord-Brabant;0812;Made en Drimmelen;1970-01-01;1997-01-01
 30;Noord-Brabant;0813;Megen c.a.;1970-01-01;1994-01-01
 30;Noord-Brabant;0814;Mierlo;1970-01-01;2004-01-01
-30;Noord-Brabant;0815;Mill en Sint Hubert;1970-01-01;
+30;Noord-Brabant;0815;Mill en Sint Hubert;1970-01-01;2022-01-01
 30;Noord-Brabant;0816;Moergestel;1970-01-01;1997-01-01
 30;Noord-Brabant;0817;Nieuw-Ginneken;1970-01-01;1997-01-01
 30;Noord-Brabant;0818;Nieuw-Vossemeer;1970-01-01;1997-01-01
@@ -658,7 +659,7 @@ provinciecode;provincienaam;gemeentecode;gemeentenaam;begindatum;einddatum
 30;Noord-Brabant;0853;Terheijden;1970-01-01;1997-01-01
 30;Noord-Brabant;0854;Teteringen;1970-01-01;1997-01-01
 30;Noord-Brabant;0855;Tilburg;1970-01-01;
-30;Noord-Brabant;0856;Uden;1970-01-01;
+30;Noord-Brabant;0856;Uden;1970-01-01;2022-01-01
 30;Noord-Brabant;0857;Udenhout;1970-01-01;1997-01-01
 30;Noord-Brabant;0858;Valkenswaard;1970-01-01;
 30;Noord-Brabant;0860;Veghel;1970-01-01;2017-01-01
@@ -681,10 +682,10 @@ provinciecode;provincienaam;gemeentecode;gemeentenaam;begindatum;einddatum
 30;Noord-Brabant;0878;Zevenbergen;1970-01-01;1999-01-01
 30;Noord-Brabant;0879;Zundert;1970-01-01;
 30;Noord-Brabant;1671;Maasdonk;1993-01-01;2015-01-01
-30;Noord-Brabant;1684;Cuijk;1994-01-01;
-30;Noord-Brabant;1685;Landerd;1994-01-01;
+30;Noord-Brabant;1684;Cuijk;1994-01-01;2022-01-01
+30;Noord-Brabant;1685;Landerd;1994-01-01;2022-01-01
 30;Noord-Brabant;1691;St. Anthonis;1994-01-01;1996-01-01
-30;Noord-Brabant;1702;Sint Anthonis;1996-01-01;
+30;Noord-Brabant;1702;Sint Anthonis;1996-01-01;2022-01-01
 30;Noord-Brabant;1721;Bernheze;1996-01-01;
 30;Noord-Brabant;1652;Gemert-Bakel;1997-01-01;
 30;Noord-Brabant;1655;Halderberge;1997-01-01;
@@ -702,6 +703,8 @@ provinciecode;provincienaam;gemeentecode;gemeentenaam;begindatum;einddatum
 30;Noord-Brabant;1771;Geldrop-Mierlo;2004-01-01;
 30;Noord-Brabant;1948;Meierijstad;2017-01-01;
 30;Noord-Brabant;1959;Altena;2019-01-01;
+30;Noord-Brabant;1982;Land van Cuijk;2022-01-01;
+30;Noord-Brabant;1991;Maashorst;2022-01-01;
 31;Limburg;0881;Onderbanken;1970-01-01;2019-01-01
 31;Limburg;0882;Landgraaf;1970-01-01;
 31;Limburg;0885;Arcen en Velden;1970-01-01;2010-01-01
