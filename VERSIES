@@ -4,9 +4,11 @@ via de link: https://github.com/nlextract/NLExtract/releases.
 De nieuwste versie staat bovenaan: kies de "real-release" nlextract zip.
 De rest ligt nog open afhankelijk van wensen gebruikers en natuurlijk eventuele bugs.
 
-v1.5.3 - gepland
+v1.5.3 - 22.dec.2021
 
-Vnl fixes op 1.5.2.
+Vnl fixes op 1.5.2 en daarvan meeste voor BAG versie 2 ETL.
+Zie de closed issues voor deze versie:
+https://github.com/nlextract/NLExtract/milestone/17?closed=1
 
 v1.5.2 - 31.mrt.2021
 
