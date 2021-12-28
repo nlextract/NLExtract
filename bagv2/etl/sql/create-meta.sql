@@ -18,8 +18,6 @@ INSERT INTO nlx_bag_info (sleutel,waarde)
 INSERT INTO nlx_bag_info (sleutel,waarde)
         VALUES ('schema_creatie', to_char(current_timestamp, 'DD-Mon-IYYY HH24:MI:SS'));
 INSERT INTO nlx_bag_info (sleutel,waarde)
-        VALUES ('bag_xsd_versie', '20200601');
-INSERT INTO nlx_bag_info (sleutel,waarde)
         VALUES ('start_base_etl', to_char(current_timestamp, 'DD-Mon-IYYY HH24:MI:SS'));
 
 
