@@ -187,7 +187,7 @@ CREATE VIEW provincie_gemeenteactueelbestaand AS
     FROM provincie_gemeente AS pg
   WHERE
     pg.begindatum <= extract_datum()
-    AND (pg.einddatum IS NULL OR pg.einddatum >= extract_datum());
+    AND (pg.einddatum IS NULL OR pg.einddatum > extract_datum());
 
 
 -- START RELATIE TABELLEN
