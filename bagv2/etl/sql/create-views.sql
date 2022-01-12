@@ -15,7 +15,7 @@ CREATE FUNCTION extract_datum()
 
 -- Feitelijk is de "acteel" definitie:
 -- begingeldigheid <= extract_datum()
---  AND (eindgeldigheid is NULL OR eindgeldigheid >= extract_datum())
+--  AND (eindgeldigheid is NULL OR eindgeldigheid > extract_datum())
 --  AND (tijdstipinactief is NULL)
 --  AND (tijdstipnietbaglv is NULL)
 
@@ -199,7 +199,7 @@ CREATE VIEW adresseerbaarobjectnevenadresactueel AS
   WHERE
     aon.beginDatumTijdvakGeldigheid <= extract_datum()
     AND (aon.eindDatumTijdvakGeldigheid is NULL OR aon.eindDatumTijdvakGeldigheid > extract_datum())
-    AND (aon.tijdstipinactief is NULL OR aon.tijdstipinactief >= extract_datum());
+    AND (aon.tijdstipinactief is NULL OR aon.tijdstipinactief > extract_datum());
 
 DROP VIEW IF EXISTS adresseerbaarobjectnevenadresactueelbestaand;
 CREATE VIEW adresseerbaarobjectnevenadresactueelbestaand AS
@@ -208,7 +208,7 @@ CREATE VIEW adresseerbaarobjectnevenadresactueelbestaand AS
   WHERE
     aon.beginDatumTijdvakGeldigheid <= extract_datum()
     AND (aon.eindDatumTijdvakGeldigheid is NULL OR aon.eindDatumTijdvakGeldigheid > extract_datum())
-    AND (aon.tijdstipinactief is NULL OR aon.tijdstipinactief >= extract_datum())
+    AND (aon.tijdstipinactief is NULL OR aon.tijdstipinactief > extract_datum())
     AND ((aon.ligplaatsstatus <> 'Plaats ingetrokken' OR aon.ligplaatsstatus is NULL) AND
          (aon.standplaatsstatus <> 'Plaats ingetrokken' OR aon.standplaatsstatus is NULL) AND
          ((aon.verblijfsobjectStatus <> 'Niet gerealiseerd verblijfsobject' AND
@@ -226,7 +226,7 @@ CREATE VIEW verblijfsobjectpandactueel AS
   WHERE
     vbop.beginDatumTijdvakGeldigheid <= extract_datum()
     AND (vbop.eindDatumTijdvakGeldigheid is NULL OR vbop.eindDatumTijdvakGeldigheid > extract_datum())
-    AND (vbop.tijdstipinactief is NULL OR vbop.tijdstipinactief >= extract_datum());
+    AND (vbop.tijdstipinactief is NULL OR vbop.tijdstipinactief > extract_datum());
 
 DROP VIEW IF EXISTS verblijfsobjectpandactueelbestaand;
 CREATE VIEW verblijfsobjectpandactueelbestaand AS
@@ -235,7 +235,7 @@ CREATE VIEW verblijfsobjectpandactueelbestaand AS
   WHERE
     vbop.beginDatumTijdvakGeldigheid <= extract_datum()
     AND (vbop.eindDatumTijdvakGeldigheid is NULL OR vbop.eindDatumTijdvakGeldigheid > extract_datum())
-    AND (vbop.tijdstipinactief is NULL OR vbop.tijdstipinactief >= extract_datum())
+    AND (vbop.tijdstipinactief is NULL OR vbop.tijdstipinactief > extract_datum())
     AND ((vbop.verblijfsobjectStatus <> 'Niet gerealiseerd verblijfsobject' AND
           vbop.verblijfsobjectStatus <> 'Verblijfsobject ingetrokken' AND
          vbop.verblijfsobjectStatus <> 'Verblijfsobject ten onrechte opgevoerd') OR
@@ -249,7 +249,7 @@ CREATE VIEW verblijfsobjectgebruiksdoelactueel AS
   WHERE
     vog.beginDatumTijdvakGeldigheid <= extract_datum()
     AND (vog.eindDatumTijdvakGeldigheid is NULL OR vog.eindDatumTijdvakGeldigheid > extract_datum())
-    AND (vog.tijdstipinactief is NULL OR vog.tijdstipinactief >= extract_datum());
+    AND (vog.tijdstipinactief is NULL OR vog.tijdstipinactief > extract_datum());
 
 DROP VIEW IF EXISTS verblijfsobjectgebruiksdoelactueelbestaand;
 CREATE VIEW verblijfsobjectgebruiksdoelactueelbestaand AS
@@ -258,7 +258,7 @@ CREATE VIEW verblijfsobjectgebruiksdoelactueelbestaand AS
   WHERE
     vog.beginDatumTijdvakGeldigheid <= extract_datum()
     AND (vog.eindDatumTijdvakGeldigheid is NULL OR vog.eindDatumTijdvakGeldigheid > extract_datum())
-    AND (vog.tijdstipinactief is NULL OR vog.tijdstipinactief >= extract_datum())
+    AND (vog.tijdstipinactief is NULL OR vog.tijdstipinactief > extract_datum())
     AND ((vog.verblijfsobjectStatus <> 'Niet gerealiseerd verblijfsobject' AND
           vog.verblijfsobjectStatus <> 'Verblijfsobject ingetrokken' AND
           vog.verblijfsobjectStatus <> 'Verblijfsobject ten onrechte opgevoerd') OR
