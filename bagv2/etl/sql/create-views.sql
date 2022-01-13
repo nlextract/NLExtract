@@ -241,7 +241,7 @@ CREATE VIEW verblijfsobjectpandactueel AS
   WHERE
     vbop.beginDatumTijdvakGeldigheid <= extract_datum.waarde
     AND (vbop.eindDatumTijdvakGeldigheid is NULL OR vbop.eindDatumTijdvakGeldigheid > extract_datum.waarde)
-    AND (vbop.tijdstipinactief is NULL OR vbop.tijdstipinactief >= extract_datum.waarde);
+    AND (vbop.tijdstipinactief is NULL OR vbop.tijdstipinactief > extract_datum.waarde);
 
 DROP VIEW IF EXISTS verblijfsobjectpandactueelbestaand;
 CREATE VIEW verblijfsobjectpandactueelbestaand AS
@@ -251,7 +251,7 @@ CREATE VIEW verblijfsobjectpandactueelbestaand AS
   WHERE
     vbop.beginDatumTijdvakGeldigheid <= extract_datum.waarde
     AND (vbop.eindDatumTijdvakGeldigheid is NULL OR vbop.eindDatumTijdvakGeldigheid > extract_datum.waarde)
-    AND (vbop.tijdstipinactief is NULL OR vbop.tijdstipinactief >= extract_datum.waarde)
+    AND (vbop.tijdstipinactief is NULL OR vbop.tijdstipinactief > extract_datum.waarde)
     AND ((vbop.verblijfsobjectStatus <> 'Niet gerealiseerd verblijfsobject' AND
           vbop.verblijfsobjectStatus <> 'Verblijfsobject ingetrokken' AND
          vbop.verblijfsobjectStatus <> 'Verblijfsobject ten onrechte opgevoerd') OR
@@ -266,7 +266,7 @@ CREATE VIEW verblijfsobjectgebruiksdoelactueel AS
   WHERE
     vog.beginDatumTijdvakGeldigheid <= extract_datum.waarde
     AND (vog.eindDatumTijdvakGeldigheid is NULL OR vog.eindDatumTijdvakGeldigheid > extract_datum.waarde)
-    AND (vog.tijdstipinactief is NULL OR vog.tijdstipinactief >= extract_datum.waarde);
+    AND (vog.tijdstipinactief is NULL OR vog.tijdstipinactief > extract_datum.waarde);
 
 DROP VIEW IF EXISTS verblijfsobjectgebruiksdoelactueelbestaand;
 CREATE VIEW verblijfsobjectgebruiksdoelactueelbestaand AS
@@ -276,7 +276,7 @@ CREATE VIEW verblijfsobjectgebruiksdoelactueelbestaand AS
   WHERE
     vog.beginDatumTijdvakGeldigheid <= extract_datum.waarde
     AND (vog.eindDatumTijdvakGeldigheid is NULL OR vog.eindDatumTijdvakGeldigheid > extract_datum.waarde)
-    AND (vog.tijdstipinactief is NULL OR vog.tijdstipinactief >= extract_datum.waarde)
+    AND (vog.tijdstipinactief is NULL OR vog.tijdstipinactief > extract_datum.waarde)
     AND ((vog.verblijfsobjectStatus <> 'Niet gerealiseerd verblijfsobject' AND
           vog.verblijfsobjectStatus <> 'Verblijfsobject ingetrokken' AND
           vog.verblijfsobjectStatus <> 'Verblijfsobject ten onrechte opgevoerd') OR
