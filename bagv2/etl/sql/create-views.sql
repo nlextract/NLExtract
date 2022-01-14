@@ -4,16 +4,12 @@
 -- Author: Just van den Broecke
 
 -- Gebruik BAG stand datum in plaats van NOW/LOCALTIMESTAMP
-CREATE FUNCTION extract_datum()
-        RETURNS timestamp
-             AS $$
-                   SELECT waarde::timestamp
-                     FROM nlx_bag_info
-                    WHERE sleutel = 'extract_datum'
-                $$
-       LANGUAGE SQL;
+CREATE VIEW extract_datum AS
+  SELECT waarde::timestamp
+  FROM nlx_bag_info
+  WHERE sleutel = 'extract_datum';
 
--- Feitelijk is de "acteel" definitie:
+-- Feitelijk is de "actueel" definitie:
 -- begingeldigheid <= extract_datum()
 --  AND (eindgeldigheid is NULL OR eindgeldigheid > extract_datum())
 --  AND (tijdstipinactief is NULL)
@@ -23,119 +19,131 @@ CREATE FUNCTION extract_datum()
 -- LIG
 DROP VIEW IF EXISTS ligplaatsactueel;
 CREATE VIEW ligplaatsactueel AS
-    SELECT * FROM ligplaats
-    WHERE
-      beginDatumTijdvakGeldigheid <= extract_datum()
-      AND (eindDatumTijdvakGeldigheid is NULL OR eindDatumTijdvakGeldigheid > extract_datum())
-      AND aanduidingrecordinactief is FALSE;
+  SELECT lig.* FROM ligplaats lig
+  JOIN extract_datum ON 1=1
+  WHERE
+    beginDatumTijdvakGeldigheid <= extract_datum.waarde
+    AND (eindDatumTijdvakGeldigheid is NULL OR eindDatumTijdvakGeldigheid > extract_datum.waarde)
+    AND aanduidingrecordinactief is FALSE;
 
 DROP VIEW IF EXISTS ligplaatsactueelbestaand;
 CREATE VIEW ligplaatsactueelbestaand AS
-    SELECT * FROM ligplaats
-    WHERE
-        beginDatumTijdvakGeldigheid <= extract_datum()
-        AND (eindDatumTijdvakGeldigheid is NULL OR eindDatumTijdvakGeldigheid > extract_datum())
-        AND aanduidingrecordinactief is FALSE
-        AND ligplaatsStatus <> 'Plaats ingetrokken'::ligplaatsStatus;
+  SELECT lig.* FROM ligplaats lig
+  JOIN extract_datum ON 1=1
+  WHERE
+    beginDatumTijdvakGeldigheid <= extract_datum.waarde
+    AND (eindDatumTijdvakGeldigheid is NULL OR eindDatumTijdvakGeldigheid > extract_datum.waarde)
+    AND aanduidingrecordinactief is FALSE
+    AND ligplaatsStatus <> 'Plaats ingetrokken'::ligplaatsStatus;
 
 -- NUM
 DROP VIEW IF EXISTS nummeraanduidingactueel;
 CREATE VIEW nummeraanduidingactueel AS
-    SELECT *
-    FROM nummeraanduiding
-    WHERE
-      beginDatumTijdvakGeldigheid <= extract_datum()
-      AND (eindDatumTijdvakGeldigheid is NULL OR eindDatumTijdvakGeldigheid > extract_datum())
-      AND aanduidingrecordinactief is FALSE;
+  SELECT num.*
+  FROM nummeraanduiding num
+  JOIN extract_datum ON 1=1
+  WHERE
+    beginDatumTijdvakGeldigheid <= extract_datum.waarde
+    AND (eindDatumTijdvakGeldigheid is NULL OR eindDatumTijdvakGeldigheid > extract_datum.waarde)
+    AND aanduidingrecordinactief is FALSE;
 
 DROP VIEW IF EXISTS nummeraanduidingactueelbestaand;
 CREATE VIEW nummeraanduidingactueelbestaand AS
-    SELECT * FROM nummeraanduiding
+  SELECT num.* FROM nummeraanduiding num
+  JOIN extract_datum ON 1=1
   WHERE
-    beginDatumTijdvakGeldigheid <= extract_datum()
-    AND (eindDatumTijdvakGeldigheid is NULL OR eindDatumTijdvakGeldigheid > extract_datum())
+    beginDatumTijdvakGeldigheid <= extract_datum.waarde
+    AND (eindDatumTijdvakGeldigheid is NULL OR eindDatumTijdvakGeldigheid > extract_datum.waarde)
     AND aanduidingrecordinactief is FALSE
     AND nummeraanduidingStatus <> 'Naamgeving ingetrokken'::nummeraanduidingStatus;
 
 -- OPR
 DROP VIEW IF EXISTS openbareruimteactueel;
 CREATE VIEW openbareruimteactueel AS
-    SELECT * FROM openbareruimte
+  SELECT opr.* FROM openbareruimte opr
+  JOIN extract_datum ON 1=1
   WHERE
-    beginDatumTijdvakGeldigheid <= extract_datum()
-    AND (eindDatumTijdvakGeldigheid is NULL OR eindDatumTijdvakGeldigheid > extract_datum())
+    beginDatumTijdvakGeldigheid <= extract_datum.waarde
+    AND (eindDatumTijdvakGeldigheid is NULL OR eindDatumTijdvakGeldigheid > extract_datum.waarde)
     AND aanduidingrecordinactief is FALSE;
 
 DROP VIEW IF EXISTS openbareruimteactueelbestaand;
 CREATE VIEW openbareruimteactueelbestaand AS
-    SELECT * FROM openbareruimte
+  SELECT opr.* FROM openbareruimte opr
+  JOIN extract_datum ON 1=1
   WHERE
-    beginDatumTijdvakGeldigheid <= extract_datum()
-    AND (eindDatumTijdvakGeldigheid is NULL OR eindDatumTijdvakGeldigheid > extract_datum())
+    beginDatumTijdvakGeldigheid <= extract_datum.waarde
+    AND (eindDatumTijdvakGeldigheid is NULL OR eindDatumTijdvakGeldigheid > extract_datum.waarde)
     AND aanduidingrecordinactief is FALSE
     AND openbareruimteStatus <> 'Naamgeving ingetrokken'::openbareRuimteStatus;
 
 -- PND
 DROP VIEW IF EXISTS pandactueel;
 CREATE VIEW pandactueel AS
-    SELECT * FROM pand
-    WHERE
-      beginDatumTijdvakGeldigheid <= extract_datum()
-      AND (eindDatumTijdvakGeldigheid is NULL OR eindDatumTijdvakGeldigheid > extract_datum())
-      AND aanduidingrecordinactief is FALSE 
-      AND pand.geom_valid = TRUE;
+  SELECT pnd.* FROM pand pnd
+  JOIN extract_datum ON 1=1
+  WHERE
+    beginDatumTijdvakGeldigheid <= extract_datum.waarde
+    AND (eindDatumTijdvakGeldigheid is NULL OR eindDatumTijdvakGeldigheid > extract_datum.waarde)
+    AND aanduidingrecordinactief is FALSE
+    AND pnd.geom_valid = TRUE;
 
 DROP VIEW IF EXISTS pandactueelbestaand;
 CREATE VIEW pandactueelbestaand AS
-    SELECT * FROM pand
-    WHERE
-     beginDatumTijdvakGeldigheid <= extract_datum()
-     AND (eindDatumTijdvakGeldigheid is NULL OR eindDatumTijdvakGeldigheid > extract_datum())
-     AND aanduidingrecordinactief is FALSE
-     AND (pandStatus <> 'Niet gerealiseerd pand'::pandStatus
-     AND pandStatus <> 'Pand gesloopt'::pandStatus
-     AND pandStatus <> 'Bouwvergunning verleend'::pandStatus
-     AND pandStatus <> 'Pand ten onrechte opgevoerd'::pandStatus )
-     AND pand.geom_valid = TRUE;
+  SELECT pnd.* FROM pand pnd
+  JOIN extract_datum ON 1=1
+  WHERE
+    beginDatumTijdvakGeldigheid <= extract_datum.waarde
+    AND (eindDatumTijdvakGeldigheid is NULL OR eindDatumTijdvakGeldigheid > extract_datum.waarde)
+    AND aanduidingrecordinactief is FALSE
+    AND (pandStatus <> 'Niet gerealiseerd pand'::pandStatus
+    AND pandStatus <> 'Pand gesloopt'::pandStatus
+    AND pandStatus <> 'Bouwvergunning verleend'::pandStatus
+    AND pandStatus <> 'Pand ten onrechte opgevoerd'::pandStatus )
+    AND pnd.geom_valid = TRUE;
 
 -- STA
 DROP VIEW IF EXISTS standplaatsactueel;
 CREATE VIEW standplaatsactueel AS
-    SELECT * FROM standplaats
-    WHERE
-    beginDatumTijdvakGeldigheid <= extract_datum()
-    AND (eindDatumTijdvakGeldigheid is NULL OR eindDatumTijdvakGeldigheid > extract_datum())
+  SELECT sta.* FROM standplaats sta
+  JOIN extract_datum ON 1=1
+  WHERE
+    beginDatumTijdvakGeldigheid <= extract_datum.waarde
+    AND (eindDatumTijdvakGeldigheid is NULL OR eindDatumTijdvakGeldigheid > extract_datum.waarde)
     AND aanduidingrecordinactief is FALSE;
 
 DROP VIEW IF EXISTS standplaatsactueelbestaand;
 CREATE VIEW standplaatsactueelbestaand AS
-    SELECT * FROM standplaats
+  SELECT sta.* FROM standplaats sta
+  JOIN extract_datum ON 1=1
   WHERE
-    beginDatumTijdvakGeldigheid <= extract_datum()
-    AND (eindDatumTijdvakGeldigheid is NULL OR eindDatumTijdvakGeldigheid > extract_datum())
+    beginDatumTijdvakGeldigheid <= extract_datum.waarde
+    AND (eindDatumTijdvakGeldigheid is NULL OR eindDatumTijdvakGeldigheid > extract_datum.waarde)
     AND aanduidingrecordinactief is FALSE
     AND standplaatsStatus <> 'Plaats ingetrokken'::standplaatsStatus;
 
 -- VBO
 DROP VIEW IF EXISTS verblijfsobjectactueel;
 CREATE VIEW verblijfsobjectactueel AS
-    SELECT * FROM verblijfsobject
+  SELECT vbo.* FROM verblijfsobject vbo
+  JOIN extract_datum ON 1=1
   WHERE
-    beginDatumTijdvakGeldigheid <= extract_datum()
-    AND (eindDatumTijdvakGeldigheid is NULL OR eindDatumTijdvakGeldigheid > extract_datum())
+    beginDatumTijdvakGeldigheid <= extract_datum.waarde
+    AND (eindDatumTijdvakGeldigheid is NULL OR eindDatumTijdvakGeldigheid > extract_datum.waarde)
     AND aanduidingrecordinactief is FALSE;
 
 
 DROP VIEW IF EXISTS verblijfsobjectactueelbestaand;
 CREATE VIEW verblijfsobjectactueelbestaand AS
-    SELECT * FROM verblijfsobject
-    WHERE
-      beginDatumTijdvakGeldigheid <= extract_datum()
-      AND (eindDatumTijdvakGeldigheid is NULL OR eindDatumTijdvakGeldigheid > extract_datum())
-      AND aanduidingrecordinactief is FALSE
-      AND (verblijfsobjectStatus <> 'Niet gerealiseerd verblijfsobject'::verblijfsobjectStatus
-      AND verblijfsobjectStatus  <> 'Verblijfsobject ingetrokken'::verblijfsobjectStatus
-      AND verblijfsobjectStatus  <> 'Verblijfsobject ten onrechte opgevoerd'::verblijfsobjectStatus);
+  SELECT vbo.* FROM verblijfsobject vbo
+  JOIN extract_datum ON 1=1
+  WHERE
+    beginDatumTijdvakGeldigheid <= extract_datum.waarde
+    AND (eindDatumTijdvakGeldigheid is NULL OR eindDatumTijdvakGeldigheid > extract_datum.waarde)
+    AND aanduidingrecordinactief is FALSE
+    AND (verblijfsobjectStatus <> 'Niet gerealiseerd verblijfsobject'::verblijfsobjectStatus
+    AND verblijfsobjectStatus  <> 'Verblijfsobject ingetrokken'::verblijfsobjectStatus
+    AND verblijfsobjectStatus  <> 'Verblijfsobject ten onrechte opgevoerd'::verblijfsobjectStatus);
 
 -- JvdB removed AND status  <> 'Verblijfsobject gevormd', see issue #173
 -- https://github.com/nlextract/NLExtract/issues/173  23.3.16
@@ -144,18 +152,20 @@ CREATE VIEW verblijfsobjectactueelbestaand AS
 -- WPL
 DROP VIEW IF EXISTS woonplaatsactueel;
 CREATE VIEW woonplaatsactueel AS
-  SELECT * FROM woonplaats
+  SELECT wpl.* FROM woonplaats wpl
+  JOIN extract_datum ON 1=1
   WHERE
-    beginDatumTijdvakGeldigheid <= extract_datum()
-    AND (eindDatumTijdvakGeldigheid is NULL OR eindDatumTijdvakGeldigheid > extract_datum())
+    beginDatumTijdvakGeldigheid <= extract_datum.waarde
+    AND (eindDatumTijdvakGeldigheid is NULL OR eindDatumTijdvakGeldigheid > extract_datum.waarde)
     AND aanduidingrecordinactief is FALSE;
 
 DROP VIEW IF EXISTS woonplaatsactueelbestaand;
 CREATE VIEW woonplaatsactueelbestaand AS
-  SELECT * FROM woonplaats
+  SELECT wpl.* FROM woonplaats wpl
+  JOIN extract_datum ON 1=1
   WHERE
-    beginDatumTijdvakGeldigheid <= extract_datum()
-    AND (eindDatumTijdvakGeldigheid is NULL OR eindDatumTijdvakGeldigheid > extract_datum())
+    beginDatumTijdvakGeldigheid <= extract_datum.waarde
+    AND (eindDatumTijdvakGeldigheid is NULL OR eindDatumTijdvakGeldigheid > extract_datum.waarde)
     AND aanduidingrecordinactief is FALSE
     AND woonplaatsStatus  <> 'Woonplaats ingetrokken'::woonplaatsStatus;
 
@@ -163,52 +173,56 @@ CREATE VIEW woonplaatsactueelbestaand AS
 
 DROP VIEW IF EXISTS gemeente_woonplaatsactueelbestaand;
 CREATE VIEW gemeente_woonplaatsactueelbestaand AS
-    SELECT  gw.gid,
-            gw.beginDatumTijdvakGeldigheid,
-            gw.eindDatumTijdvakGeldigheid,
-            gw.woonplaatscode,
-            gw.gemeentecode,
-            gw.status
-    FROM gemeente_woonplaats as gw
+  SELECT  gw.gid,
+          gw.beginDatumTijdvakGeldigheid,
+          gw.eindDatumTijdvakGeldigheid,
+          gw.woonplaatscode,
+          gw.gemeentecode,
+          gw.status
+  FROM gemeente_woonplaats as gw
+  JOIN extract_datum ON 1=1
   WHERE
-    gw.beginDatumTijdvakGeldigheid <= extract_datum()
-    AND (gw.eindDatumTijdvakGeldigheid is NULL OR gw.eindDatumTijdvakGeldigheid > extract_datum())
+    gw.beginDatumTijdvakGeldigheid <= extract_datum.waarde
+    AND (gw.eindDatumTijdvakGeldigheid is NULL OR gw.eindDatumTijdvakGeldigheid > extract_datum.waarde)
     AND gw.status = 'definitief';
 
 DROP VIEW IF EXISTS provincie_gemeenteactueelbestaand;
 CREATE VIEW provincie_gemeenteactueelbestaand AS
-    SELECT  pg.gid,
-            pg.provinciecode,
-            pg.provincienaam,
-            pg.gemeentecode,
-            pg.gemeentenaam,
-            pg.begindatum,
-            pg.einddatum
-    FROM provincie_gemeente AS pg
+  SELECT  pg.gid,
+          pg.provinciecode,
+          pg.provincienaam,
+          pg.gemeentecode,
+          pg.gemeentenaam,
+          pg.begindatum,
+          pg.einddatum
+  FROM provincie_gemeente AS pg
+  JOIN extract_datum ON 1=1
   WHERE
-    pg.begindatum <= extract_datum()
-    AND (pg.einddatum IS NULL OR pg.einddatum > extract_datum());
+    pg.begindatum <= extract_datum.waarde
+    AND (pg.einddatum IS NULL OR pg.einddatum > extract_datum.waarde);
 
 
 -- START RELATIE TABELLEN
 
 DROP VIEW IF EXISTS adresseerbaarobjectnevenadresactueel;
 CREATE VIEW adresseerbaarobjectnevenadresactueel AS
-    SELECT *
-    FROM adresseerbaarobjectnevenadres as aon
+  SELECT aon.*
+  FROM adresseerbaarobjectnevenadres as aon
+  JOIN extract_datum ON 1=1
   WHERE
-    aon.beginDatumTijdvakGeldigheid <= extract_datum()
-    AND (aon.eindDatumTijdvakGeldigheid is NULL OR aon.eindDatumTijdvakGeldigheid > extract_datum())
-    AND (aon.tijdstipinactief is NULL OR aon.tijdstipinactief > extract_datum());
+    aon.beginDatumTijdvakGeldigheid <= extract_datum.waarde
+    AND (aon.eindDatumTijdvakGeldigheid is NULL OR aon.eindDatumTijdvakGeldigheid > extract_datum.waarde)
+    AND (aon.tijdstipinactief is NULL OR aon.tijdstipinactief > extract_datum.waarde);
 
 DROP VIEW IF EXISTS adresseerbaarobjectnevenadresactueelbestaand;
 CREATE VIEW adresseerbaarobjectnevenadresactueelbestaand AS
-    SELECT *
-    FROM adresseerbaarobjectnevenadres as aon
+  SELECT aon.*
+  FROM adresseerbaarobjectnevenadres as aon
+  JOIN extract_datum ON 1=1
   WHERE
-    aon.beginDatumTijdvakGeldigheid <= extract_datum()
-    AND (aon.eindDatumTijdvakGeldigheid is NULL OR aon.eindDatumTijdvakGeldigheid > extract_datum())
-    AND (aon.tijdstipinactief is NULL OR aon.tijdstipinactief > extract_datum())
+    aon.beginDatumTijdvakGeldigheid <= extract_datum.waarde
+    AND (aon.eindDatumTijdvakGeldigheid is NULL OR aon.eindDatumTijdvakGeldigheid > extract_datum.waarde)
+    AND (aon.tijdstipinactief is NULL OR aon.tijdstipinactief > extract_datum.waarde)
     AND ((aon.ligplaatsstatus <> 'Plaats ingetrokken' OR aon.ligplaatsstatus is NULL) AND
          (aon.standplaatsstatus <> 'Plaats ingetrokken' OR aon.standplaatsstatus is NULL) AND
          ((aon.verblijfsobjectStatus <> 'Niet gerealiseerd verblijfsobject' AND
@@ -221,21 +235,23 @@ CREATE VIEW adresseerbaarobjectnevenadresactueelbestaand AS
 
 DROP VIEW IF EXISTS verblijfsobjectpandactueel;
 CREATE VIEW verblijfsobjectpandactueel AS
-    SELECT *
-    FROM verblijfsobjectpand as vbop
+  SELECT vbop.*
+  FROM verblijfsobjectpand as vbop
+  JOIN extract_datum ON 1=1
   WHERE
-    vbop.beginDatumTijdvakGeldigheid <= extract_datum()
-    AND (vbop.eindDatumTijdvakGeldigheid is NULL OR vbop.eindDatumTijdvakGeldigheid > extract_datum())
-    AND (vbop.tijdstipinactief is NULL OR vbop.tijdstipinactief > extract_datum());
+    vbop.beginDatumTijdvakGeldigheid <= extract_datum.waarde
+    AND (vbop.eindDatumTijdvakGeldigheid is NULL OR vbop.eindDatumTijdvakGeldigheid > extract_datum.waarde)
+    AND (vbop.tijdstipinactief is NULL OR vbop.tijdstipinactief > extract_datum.waarde);
 
 DROP VIEW IF EXISTS verblijfsobjectpandactueelbestaand;
 CREATE VIEW verblijfsobjectpandactueelbestaand AS
-    SELECT *
-    FROM verblijfsobjectpand as vbop
+  SELECT vbop.*
+  FROM verblijfsobjectpand as vbop
+  JOIN extract_datum ON 1=1
   WHERE
-    vbop.beginDatumTijdvakGeldigheid <= extract_datum()
-    AND (vbop.eindDatumTijdvakGeldigheid is NULL OR vbop.eindDatumTijdvakGeldigheid > extract_datum())
-    AND (vbop.tijdstipinactief is NULL OR vbop.tijdstipinactief > extract_datum())
+    vbop.beginDatumTijdvakGeldigheid <= extract_datum.waarde
+    AND (vbop.eindDatumTijdvakGeldigheid is NULL OR vbop.eindDatumTijdvakGeldigheid > extract_datum.waarde)
+    AND (vbop.tijdstipinactief is NULL OR vbop.tijdstipinactief > extract_datum.waarde)
     AND ((vbop.verblijfsobjectStatus <> 'Niet gerealiseerd verblijfsobject' AND
           vbop.verblijfsobjectStatus <> 'Verblijfsobject ingetrokken' AND
          vbop.verblijfsobjectStatus <> 'Verblijfsobject ten onrechte opgevoerd') OR
@@ -244,21 +260,23 @@ CREATE VIEW verblijfsobjectpandactueelbestaand AS
 
 DROP VIEW IF EXISTS verblijfsobjectgebruiksdoelactueel;
 CREATE VIEW verblijfsobjectgebruiksdoelactueel AS
-    SELECT *
-    FROM verblijfsobjectgebruiksdoel as vog
+  SELECT vog.*
+  FROM verblijfsobjectgebruiksdoel as vog
+  JOIN extract_datum ON 1=1
   WHERE
-    vog.beginDatumTijdvakGeldigheid <= extract_datum()
-    AND (vog.eindDatumTijdvakGeldigheid is NULL OR vog.eindDatumTijdvakGeldigheid > extract_datum())
-    AND (vog.tijdstipinactief is NULL OR vog.tijdstipinactief > extract_datum());
+    vog.beginDatumTijdvakGeldigheid <= extract_datum.waarde
+    AND (vog.eindDatumTijdvakGeldigheid is NULL OR vog.eindDatumTijdvakGeldigheid > extract_datum.waarde)
+    AND (vog.tijdstipinactief is NULL OR vog.tijdstipinactief > extract_datum.waarde);
 
 DROP VIEW IF EXISTS verblijfsobjectgebruiksdoelactueelbestaand;
 CREATE VIEW verblijfsobjectgebruiksdoelactueelbestaand AS
-    SELECT *
-    FROM verblijfsobjectgebruiksdoel as vog
+  SELECT vog.*
+  FROM verblijfsobjectgebruiksdoel as vog
+  JOIN extract_datum ON 1=1
   WHERE
-    vog.beginDatumTijdvakGeldigheid <= extract_datum()
-    AND (vog.eindDatumTijdvakGeldigheid is NULL OR vog.eindDatumTijdvakGeldigheid > extract_datum())
-    AND (vog.tijdstipinactief is NULL OR vog.tijdstipinactief > extract_datum())
+    vog.beginDatumTijdvakGeldigheid <= extract_datum.waarde
+    AND (vog.eindDatumTijdvakGeldigheid is NULL OR vog.eindDatumTijdvakGeldigheid > extract_datum.waarde)
+    AND (vog.tijdstipinactief is NULL OR vog.tijdstipinactief > extract_datum.waarde)
     AND ((vog.verblijfsobjectStatus <> 'Niet gerealiseerd verblijfsobject' AND
           vog.verblijfsobjectStatus <> 'Verblijfsobject ingetrokken' AND
           vog.verblijfsobjectStatus <> 'Verblijfsobject ten onrechte opgevoerd') OR
