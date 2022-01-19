@@ -29,7 +29,7 @@ Er zijn vier typen BRK-objecten (featureklassen). Iedere featureklasse heeft een
 BRK downloaden
 --------------
 
-De brondata van de BRK in GML kun je via `PDOK Downloads Kadastrale Kaart <https://www.pdok.nl/nl/producten/pdok-downloads/basis-registratie-kadaster/kadastrale-kaart>`_ downloaden. Voor NLExtract zijn reeds downloadscripts gemaakt, voor zowel Linux als Windows.
+De brondata van de BRK in GML kun je via `PDOK Downloads Kadastrale Kaart <https://service.pdok.nl/kadaster/cp/atom/v1_0/downloads/cadastralparcels.zip>`_ downloaden. Voor NLExtract zijn reeds downloadscripts gemaakt, voor zowel Linux als Windows.
 
 De BRK wordt via PDOK geleverd in ZIP-bestanden. Deze worden per provincie beschikbaar gesteld. De bestanden bevatten geen overlappende gegevens. Ieder ZIP-bestand bevat vier GML-bestanden: één bestand per featureklasse. Het is mogelijk om de kadastrale kaart via PDOK-services te downloaden, bijv. via WFS. Het inlezen van deze gegevens via NLExtract wordt niet ondersteund. De ZIP-bestanden zijn samen ca. 4 GB groot.
 
