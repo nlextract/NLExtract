@@ -17,34 +17,34 @@ DROP TABLE IF EXISTS ligplaats CASCADE;
 DROP TYPE IF EXISTS ligplaatsStatus  CASCADE;
 CREATE TYPE ligplaatsStatus AS ENUM ('Plaats aangewezen', 'Plaats ingetrokken');
 
-CREATE TABLE ligplaats
-(
-    gid serial,
-    identificatie character varying(16),
-
-    hoofdadresnummeraanduidingref character varying(16),
-    nevenadresnummeraanduidingref character varying(16) ARRAY,
-    status ligplaatsStatus,
-
-    geconstateerd boolean,
-    documentdatum date,
-    documentnummer character varying(40),
-    voorkomenidentificatie integer,
-    begingeldigheid timestamp without time zone,
-    eindgeldigheid timestamp without time zone,
-    tijdstipregistratie timestamp without time zone,
-    eindregistratie timestamp without time zone,
-    tijdstipinactief timestamp without time zone,
-    tijdstipregistratielv timestamp without time zone,
-    tijdstipeindregistratielv timestamp without time zone,
-    tijdstipinactieflv timestamp without time zone,
-    tijdstipnietbaglv timestamp without time zone,
-
-    geovlak geometry(Polygon, 28992),
-
-    PRIMARY KEY (gid)
-)
-;
+-- CREATE TABLE ligplaats
+-- (
+--     gid serial,
+--     identificatie character varying(16),
+--
+--     hoofdadresnummeraanduidingref character varying(16),
+--     nevenadresnummeraanduidingref character varying(16) ARRAY,
+--     status ligplaatsStatus,
+--
+--     geconstateerd boolean,
+--     documentdatum date,
+--     documentnummer character varying(40),
+--     voorkomenidentificatie integer,
+--     begingeldigheid timestamp without time zone,
+--     eindgeldigheid timestamp without time zone,
+--     tijdstipregistratie timestamp without time zone,
+--     eindregistratie timestamp without time zone,
+--     tijdstipinactief timestamp without time zone,
+--     tijdstipregistratielv timestamp without time zone,
+--     tijdstipeindregistratielv timestamp without time zone,
+--     tijdstipinactieflv timestamp without time zone,
+--     tijdstipnietbaglv timestamp without time zone,
+--
+--     geovlak geometry(Polygon, 28992),
+--
+--     PRIMARY KEY (gid)
+-- )
+-- ;
 
 -- NUM
 DROP TABLE IF EXISTS nummeraanduiding CASCADE;
@@ -100,34 +100,34 @@ CREATE TYPE openbareRuimteType AS ENUM (
     'Landschappelijk gebied',
     'Administratief gebied');
 
-CREATE TABLE openbareruimte
-(
-    gid serial,
-    identificatie character varying(16),
-
-    naam character varying(80),
-    verkorteNaam character varying(24),
-    type openbareRuimteType,
-    woonplaatsref character varying(16),
-    status openbareRuimteStatus,
-
-    geconstateerd boolean,
-    documentdatum date,
-    documentnummer character varying(40),
-    voorkomenidentificatie integer,
-    begingeldigheid timestamp without time zone,
-    eindgeldigheid timestamp without time zone,
-    tijdstipregistratie timestamp without time zone,
-    eindregistratie timestamp without time zone,
-    tijdstipinactief timestamp without time zone,
-    tijdstipregistratielv timestamp without time zone,
-    tijdstipeindregistratielv timestamp without time zone,
-    tijdstipinactieflv timestamp without time zone,
-    tijdstipnietbaglv timestamp without time zone,
-
-    PRIMARY KEY (gid)
-)
-;
+-- CREATE TABLE openbareruimte
+-- (
+--     gid serial,
+--     identificatie character varying(16),
+--
+--     naam character varying(80),
+--     verkorteNaam character varying(24),
+--     type openbareRuimteType,
+--     woonplaatsref character varying(16),
+--     status openbareRuimteStatus,
+--
+--     geconstateerd boolean,
+--     documentdatum date,
+--     documentnummer character varying(40),
+--     voorkomenidentificatie integer,
+--     begingeldigheid timestamp without time zone,
+--     eindgeldigheid timestamp without time zone,
+--     tijdstipregistratie timestamp without time zone,
+--     eindregistratie timestamp without time zone,
+--     tijdstipinactief timestamp without time zone,
+--     tijdstipregistratielv timestamp without time zone,
+--     tijdstipeindregistratielv timestamp without time zone,
+--     tijdstipinactieflv timestamp without time zone,
+--     tijdstipnietbaglv timestamp without time zone,
+--
+--     PRIMARY KEY (gid)
+-- )
+-- ;
 
 -- PND
 DROP TABLE IF EXISTS pand CASCADE;
@@ -182,34 +182,34 @@ CREATE TYPE pandStatus AS ENUM (
 DROP TABLE IF EXISTS standplaats CASCADE;
 DROP TYPE IF EXISTS standplaatsStatus CASCADE;
 CREATE TYPE standplaatsStatus AS ENUM ('Plaats aangewezen', 'Plaats ingetrokken');
-CREATE TABLE standplaats
-(
-    gid serial,
-    identificatie character varying(16),
-
-    hoofdadresnummeraanduidingref character varying(16),
-    nevenadresnummeraanduidingref character varying(16) ARRAY,
-    status standplaatsStatus,
-
-    geconstateerd boolean,
-    documentdatum date,
-    documentnummer character varying(40),
-    voorkomenidentificatie integer,
-    begingeldigheid timestamp without time zone,
-    eindgeldigheid timestamp without time zone,
-    tijdstipregistratie timestamp without time zone,
-    eindregistratie timestamp without time zone,
-    tijdstipinactief timestamp without time zone,
-    tijdstipregistratielv timestamp without time zone,
-    tijdstipeindregistratielv timestamp without time zone,
-    tijdstipinactieflv timestamp without time zone,
-    tijdstipnietbaglv timestamp without time zone,
-
-    geovlak geometry(Polygon, 28992),
-
-    PRIMARY KEY (gid)
-)
-;
+-- CREATE TABLE standplaats
+-- (
+--     gid serial,
+--     identificatie character varying(16),
+--
+--     hoofdadresnummeraanduidingref character varying(16),
+--     nevenadresnummeraanduidingref character varying(16) ARRAY,
+--     status standplaatsStatus,
+--
+--     geconstateerd boolean,
+--     documentdatum date,
+--     documentnummer character varying(40),
+--     voorkomenidentificatie integer,
+--     begingeldigheid timestamp without time zone,
+--     eindgeldigheid timestamp without time zone,
+--     tijdstipregistratie timestamp without time zone,
+--     eindregistratie timestamp without time zone,
+--     tijdstipinactief timestamp without time zone,
+--     tijdstipregistratielv timestamp without time zone,
+--     tijdstipeindregistratielv timestamp without time zone,
+--     tijdstipinactieflv timestamp without time zone,
+--     tijdstipnietbaglv timestamp without time zone,
+--
+--     geovlak geometry(Polygon, 28992),
+--
+--     PRIMARY KEY (gid)
+-- )
+-- ;
 
 -- VBO
 DROP TABLE IF EXISTS verblijfsobject CASCADE;
@@ -272,32 +272,32 @@ DROP TABLE IF EXISTS woonplaats CASCADE;
 DROP TYPE IF EXISTS woonplaatsStatus  CASCADE;
 CREATE TYPE woonplaatsStatus AS ENUM ('Woonplaats aangewezen', 'Woonplaats ingetrokken');
 
-CREATE TABLE woonplaats
-(
-    gid serial,
-    identificatie character varying(16),
-
-    naam character varying,
-    status woonplaatsStatus,
-
-    geconstateerd boolean,
-    documentdatum date,
-    documentnummer character varying(40),
-    voorkomenidentificatie integer,
-    begingeldigheid timestamp without time zone,
-    eindgeldigheid timestamp without time zone,
-    tijdstipregistratie timestamp without time zone,
-    eindregistratie timestamp without time zone,
-    tijdstipinactief timestamp without time zone,
-    tijdstipregistratielv timestamp without time zone,
-    tijdstipeindregistratielv timestamp without time zone,
-    tijdstipinactieflv timestamp without time zone,
-    tijdstipnietbaglv timestamp without time zone,
-
-    geovlak geometry(MultiPolygon, 28992),
-
-    PRIMARY KEY (gid)
-);
+-- CREATE TABLE woonplaats
+-- (
+--     gid serial,
+--     identificatie character varying(16),
+--
+--     naam character varying,
+--     status woonplaatsStatus,
+--
+--     geconstateerd boolean,
+--     documentdatum date,
+--     documentnummer character varying(40),
+--     voorkomenidentificatie integer,
+--     begingeldigheid timestamp without time zone,
+--     eindgeldigheid timestamp without time zone,
+--     tijdstipregistratie timestamp without time zone,
+--     eindregistratie timestamp without time zone,
+--     tijdstipinactief timestamp without time zone,
+--     tijdstipregistratielv timestamp without time zone,
+--     tijdstipeindregistratielv timestamp without time zone,
+--     tijdstipinactieflv timestamp without time zone,
+--     tijdstipnietbaglv timestamp without time zone,
+--
+--     geovlak geometry(MultiPolygon, 28992),
+--
+--     PRIMARY KEY (gid)
+-- );
 
 
 --

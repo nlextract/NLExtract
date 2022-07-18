@@ -92,7 +92,7 @@ INSERT INTO adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeg
 	l.identificatie as adresseerbaarobject,
 	n.identificatie as nummeraanduiding,
     -- Vlak geometrie wordt punt
-	ST_Centroid(l.geovlak)  as geopunt
+	ST_Centroid(l.wkb_geometry)  as geopunt
   FROM ligplaatsactueelbestaand l
    JOIN nummeraanduidingactueelbestaand n
    ON (n.identificatie = l.hoofdadresnummeraanduidingref)
@@ -134,7 +134,7 @@ INSERT INTO adres (openbareruimtenaam, huisnummer, huisletter, huisnummertoevoeg
 	s.identificatie as adresseerbaarobject,
 	n.identificatie as nummeraanduiding,
     -- Vlak geometrie wordt punt
-    ST_Centroid(s.geovlak) as geopunt
+    ST_Centroid(s.wkb_geometry) as geopunt
   FROM standplaatsactueelbestaand s
    JOIN nummeraanduidingactueelbestaand n
    ON (n.identificatie = s.hoofdadresnummeraanduidingref)

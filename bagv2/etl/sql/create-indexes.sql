@@ -15,11 +15,11 @@ DROP INDEX IF EXISTS standplaats_geom_idx CASCADE;
 DROP INDEX IF EXISTS verblijfsobject_punt_idx CASCADE;
 DROP INDEX IF EXISTS woonplaats_vlak_idx CASCADE;
 
-CREATE INDEX ligplaats_geom_idx ON ligplaats USING gist (geovlak);
+CREATE INDEX ligplaats_geom_idx ON ligplaats USING gist (wkb_geometry);
 CREATE INDEX pand_geom_idx ON pand USING gist (wkb_geometry);
-CREATE INDEX standplaats_geom_idx ON standplaats USING gist (geovlak);
+CREATE INDEX standplaats_geom_idx ON standplaats USING gist (wkb_geometry);
 CREATE INDEX verblijfsobject_punt_idx ON verblijfsobject USING gist (wkb_geometry);
-CREATE INDEX woonplaats_vlak_idx ON woonplaats USING gist (geovlak);
+CREATE INDEX woonplaats_vlak_idx ON woonplaats USING gist (wkb_geometry);
 
 -- Unieke key indexen
 DROP INDEX IF EXISTS ligplaats_key CASCADE;

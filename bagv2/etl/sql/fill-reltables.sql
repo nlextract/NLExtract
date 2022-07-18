@@ -130,7 +130,7 @@ INSERT INTO adresseerbaarobjectnevenadres (
         status::ligplaatsStatus AS ligplaatsStatus,
         geconstateerd, documentdatum, documentnummer, voorkomenidentificatie, begingeldigheid, eindgeldigheid,
         tijdstipregistratie, eindregistratie, tijdstipinactief, tijdstipregistratielv, tijdstipeindregistratielv,
-        tijdstipinactieflv, tijdstipnietbaglv, geovlak
+        tijdstipinactieflv, tijdstipnietbaglv, wkb_geometry AS geovlak
     FROM  ligplaats) lig
 WHERE nevenadres IS NOT NULL;
 
@@ -172,7 +172,7 @@ INSERT INTO adresseerbaarobjectnevenadres (
         status::standplaatsStatus AS standplaatsStatus,
         geconstateerd, documentdatum, documentnummer, voorkomenidentificatie, begingeldigheid, eindgeldigheid,
         tijdstipregistratie, eindregistratie, tijdstipinactief, tijdstipregistratielv, tijdstipeindregistratielv,
-        tijdstipinactieflv, tijdstipnietbaglv, geovlak
+        tijdstipinactieflv, tijdstipnietbaglv, wkb_geometry AS geovlak
     FROM  standplaats) sta
 WHERE nevenadres IS NOT NULL;
 
