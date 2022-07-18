@@ -15,8 +15,8 @@ UPDATE ligplaats SET aanduidingrecordinactief=(tijdstipinactief is not NULL OR t
 
 -- NUM specifiek
 ALTER TABLE nummeraanduiding ALTER COLUMN identificatie TYPE character varying(16);
-ALTER TABLE nummeraanduiding ALTER COLUMN begingeldigheid TYPE timestamp with time zone;
-ALTER TABLE nummeraanduiding ALTER COLUMN eindgeldigheid TYPE timestamp with time zone;
+ALTER TABLE nummeraanduiding ALTER COLUMN begingeldigheid TYPE timestamp without time zone;
+ALTER TABLE nummeraanduiding ALTER COLUMN eindgeldigheid TYPE timestamp without time zone;
 ALTER TABLE nummeraanduiding ALTER COLUMN documentnummer TYPE character varying(40);
 ALTER TABLE nummeraanduiding ALTER COLUMN huisnummer TYPE numeric(5);
 ALTER TABLE nummeraanduiding ALTER COLUMN huisletter TYPE character varying(1);
@@ -50,8 +50,8 @@ UPDATE openbareruimte SET aanduidingrecordinactief=(tijdstipinactief is not NULL
 
 -- PND specifiek
 ALTER TABLE pand ALTER COLUMN identificatie TYPE character varying(16);
-ALTER TABLE pand ALTER COLUMN begingeldigheid TYPE timestamp with time zone;
-ALTER TABLE pand ALTER COLUMN eindgeldigheid TYPE timestamp with time zone;
+ALTER TABLE pand ALTER COLUMN begingeldigheid TYPE timestamp without time zone;
+ALTER TABLE pand ALTER COLUMN eindgeldigheid TYPE timestamp without time zone;
 ALTER TABLE pand ALTER COLUMN status TYPE pandStatus USING status::text::pandStatus;
 ALTER TABLE pand ALTER COLUMN documentnummer TYPE character varying(40);
 ALTER TABLE pand ALTER COLUMN oorspronkelijkbouwjaar TYPE numeric(4);
@@ -80,8 +80,8 @@ UPDATE standplaats SET aanduidingrecordinactief=(tijdstipinactief is not NULL OR
 
 -- VBO specifiek
 ALTER TABLE verblijfsobject ALTER COLUMN identificatie TYPE character varying(16);
-ALTER TABLE verblijfsobject ALTER COLUMN begingeldigheid TYPE timestamp with time zone;
-ALTER TABLE verblijfsobject ALTER COLUMN eindgeldigheid TYPE timestamp with time zone;
+ALTER TABLE verblijfsobject ALTER COLUMN begingeldigheid TYPE timestamp without time zone;
+ALTER TABLE verblijfsobject ALTER COLUMN eindgeldigheid TYPE timestamp without time zone;
 ALTER TABLE verblijfsobject ALTER COLUMN status TYPE verblijfsobjectStatus USING status::text::verblijfsobjectStatus;
 ALTER TABLE verblijfsobject ALTER COLUMN documentnummer TYPE character varying(40);
 ALTER TABLE verblijfsobject ALTER COLUMN hoofdadresnummeraanduidingref TYPE character varying(16);
