@@ -310,11 +310,10 @@ DROP TABLE IF EXISTS verblijfsobjectpand CASCADE;
 CREATE TABLE verblijfsobjectpand (
   gid SERIAL,
   identificatie character varying(16),
-  aanduidingRecordInactief boolean,
   tijdstipinactief timestamp without time zone,
   voorkomenidentificatie integer,
-  begindatumtijdvakgeldigheid timestamp without time zone,
-  einddatumTijdvakGeldigheid timestamp without time zone,
+  begingeldigheid timestamp without time zone,
+  eindgeldigheid timestamp without time zone,
   verblijfsobjectStatus verblijfsobjectStatus,
   gerelateerdpand character varying(16),
   PRIMARY KEY (gid)
@@ -326,11 +325,10 @@ DROP TABLE IF EXISTS verblijfsobjectgebruiksdoel CASCADE;
 CREATE TABLE verblijfsobjectgebruiksdoel (
   gid serial,
   identificatie character varying(16),
-  aanduidingRecordInactief boolean,
   tijdstipinactief timestamp without time zone,
   voorkomenidentificatie integer,
-  begindatumtijdvakgeldigheid timestamp without time zone,
-  einddatumTijdvakGeldigheid timestamp without time zone,
+  begingeldigheid timestamp without time zone,
+  eindgeldigheid timestamp without time zone,
   verblijfsobjectStatus verblijfsobjectStatus,
   gebruiksdoelverblijfsobject gebruiksdoelVerblijfsobject,
   PRIMARY KEY (gid)
