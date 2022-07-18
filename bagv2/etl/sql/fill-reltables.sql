@@ -24,7 +24,7 @@ FROM
         voorkomenidentificatie,
         begingeldigheid,
         eindgeldigheid,
-        status::verblijfsobjectStatus AS verblijfsobjectStatus,
+        status AS verblijfsobjectStatus,
         UNNEST(pandref) as gerelateerdpand
     FROM verblijfsobject) vbo;
 
@@ -48,8 +48,8 @@ FROM
         voorkomenidentificatie,
         begingeldigheid,
         eindgeldigheid,
-        status::verblijfsobjectStatus AS verblijfsobjectStatus,
-        UNNEST(gebruiksdoel)::gebruiksdoelverblijfsobject as gebruiksdoelverblijfsobject
+        status AS verblijfsobjectStatus,
+        UNNEST(gebruiksdoel)::GebruiksdoelType as gebruiksdoelverblijfsobject
     FROM verblijfsobject) vbo;
 
 -- Vul adresseerbaarobjectnevenadres uit VBO
@@ -86,7 +86,7 @@ FROM
         identificatie,
         hoofdadresnummeraanduidingref AS hoofdadres,
         UNNEST(nevenadresnummeraanduidingref) as nevenadres,
-        status::verblijfsobjectStatus AS verblijfsobjectStatus,
+        status AS verblijfsobjectStatus,
         geconstateerd, documentdatum, documentnummer, voorkomenidentificatie, begingeldigheid, eindgeldigheid,
         tijdstipregistratie, eindregistratie, tijdstipinactief, tijdstipregistratielv, tijdstipeindregistratielv,
         tijdstipinactieflv, tijdstipnietbaglv, wkb_geometry AS geopunt
@@ -127,7 +127,7 @@ INSERT INTO adresseerbaarobjectnevenadres (
         identificatie,
         hoofdadresnummeraanduidingref AS hoofdadres,
         UNNEST(nevenadresnummeraanduidingref) as nevenadres,
-        status::ligplaatsStatus AS ligplaatsStatus,
+        status AS ligplaatsStatus,
         geconstateerd, documentdatum, documentnummer, voorkomenidentificatie, begingeldigheid, eindgeldigheid,
         tijdstipregistratie, eindregistratie, tijdstipinactief, tijdstipregistratielv, tijdstipeindregistratielv,
         tijdstipinactieflv, tijdstipnietbaglv, wkb_geometry AS geovlak
@@ -169,7 +169,7 @@ INSERT INTO adresseerbaarobjectnevenadres (
         identificatie,
         hoofdadresnummeraanduidingref AS hoofdadres,
         UNNEST(nevenadresnummeraanduidingref) as nevenadres,
-        status::standplaatsStatus AS standplaatsStatus,
+        status AS standplaatsStatus,
         geconstateerd, documentdatum, documentnummer, voorkomenidentificatie, begingeldigheid, eindgeldigheid,
         tijdstipregistratie, eindregistratie, tijdstipinactief, tijdstipregistratielv, tijdstipeindregistratielv,
         tijdstipinactieflv, tijdstipnietbaglv, wkb_geometry AS geovlak
