@@ -9,6 +9,12 @@
 # 9999PND15022021.zip
 bag_obj_file_pat=[0-9][0-9][0-9][0-9][LSVNPOW][ITBUNPP][GAOMDRL][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]
 
+# Typical BAG mutation file prefix pattern, .zip or XMLs
+# Examples:
+# 9999IOMUT20042022-21042022.zip
+# 9999MUT20042022-21042022.zip
+bag_mut_file_pat=9999[IO]*?MUT[0-9]{8}\-[0-9]{8}
+
 # See ETL config file.
 # [GDAL_3462]
 # bag_obj_file_pat_no_wpl=[0-9][0-9][0-9][0-9][LSVNPO][ITBUNP][GAOMDR][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]
