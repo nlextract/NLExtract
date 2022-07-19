@@ -4,63 +4,76 @@
 -- Just van den Broecke 2021
 --
 
+BEGIN;
+TRUNCATE TABLE verblijfsobjectpand;
 -- N-M relation VBO-PND
 INSERT INTO verblijfsobjectpand (
-     identificatie, tijdstipinactief,
-     voorkomenidentificatie, begingeldigheid, eindgeldigheid,
+     identificatie, aanduidingRecordInactief, tijdstipinactief,
+     voorkomenidentificatie, begindatumTijdvakGeldigheid, einddatumTijdvakGeldigheid,
      verblijfsobjectStatus,gerelateerdpand)
   SELECT
     vbo.identificatie,
+    vbo.aanduidingRecordInactief,
     vbo.tijdstipinactief,
     vbo.voorkomenidentificatie,
-    vbo.begingeldigheid,
-    vbo.eindgeldigheid,
+    vbo.begindatumTijdvakGeldigheid,
+    vbo.einddatumTijdvakGeldigheid,
     vbo.verblijfsobjectStatus,
     vbo.gerelateerdpand
 FROM
     (SELECT
         identificatie,
+        aanduidingRecordInactief,
         tijdstipinactief,
         voorkomenidentificatie,
-        begingeldigheid,
-        eindgeldigheid,
-        status AS verblijfsobjectStatus,
-        UNNEST(pandref) as gerelateerdpand
+        begindatumTijdvakGeldigheid,
+        einddatumTijdvakGeldigheid,
+        verblijfsobjectStatus,
+        UNNEST(gerelateerdepanden) as gerelateerdpand
     FROM verblijfsobject) vbo;
+COMMIT;
 
+BEGIN;
+TRUNCATE TABLE verblijfsobjectgebruiksdoel;
 -- Multiple VBO gebruiksdoelen.
 INSERT INTO verblijfsobjectgebruiksdoel (
-     identificatie, tijdstipinactief,
-     voorkomenidentificatie, begingeldigheid, eindgeldigheid,
+     identificatie, aanduidingRecordInactief, tijdstipinactief,
+     voorkomenidentificatie, begindatumTijdvakGeldigheid, einddatumTijdvakGeldigheid,
      verblijfsobjectStatus, gebruiksdoelverblijfsobject)
   SELECT
     vbo.identificatie,
+    vbo.aanduidingRecordInactief,
     vbo.tijdstipinactief,
     vbo.voorkomenidentificatie,
-    vbo.begingeldigheid,
-    vbo.eindgeldigheid,
+    vbo.begindatumTijdvakGeldigheid,
+    vbo.einddatumTijdvakGeldigheid,
     vbo.verblijfsobjectStatus,
     vbo.gebruiksdoelverblijfsobject
 FROM
     (SELECT
         identificatie,
+        aanduidingRecordInactief,
         tijdstipinactief,
         voorkomenidentificatie,
-        begingeldigheid,
-        eindgeldigheid,
-        status AS verblijfsobjectStatus,
-        UNNEST(gebruiksdoel)::GebruiksdoelType as gebruiksdoelverblijfsobject
+        begindatumTijdvakGeldigheid,
+        einddatumTijdvakGeldigheid,
+        verblijfsobjectStatus,
+        UNNEST(gebruiksdoelverblijfsobject)::gebruiksdoelverblijfsobject as gebruiksdoelverblijfsobject
     FROM verblijfsobject) vbo;
+COMMIT;
 
+BEGIN;
+TRUNCATE TABLE adresseerbaarobjectnevenadres;
 -- Vul adresseerbaarobjectnevenadres uit VBO
 -- Let op de ARRAY UNNEST om nevenadressen uit te splitsen naar rows.
 INSERT INTO adresseerbaarobjectnevenadres (
-     identificatie, nevenadres, hoofdadres, typeadresseerbaarobject, verblijfsobjectStatus,
-     geconstateerd, documentdatum, documentnummer, voorkomenidentificatie, begingeldigheid, eindgeldigheid,
+     identificatie, aanduidingRecordInactief, nevenadres, hoofdadres, typeadresseerbaarobject, verblijfsobjectStatus,
+     geconstateerd, documentdatum, documentnummer, voorkomenidentificatie, begindatumTijdvakGeldigheid, einddatumTijdvakGeldigheid,
      tijdstipregistratie, eindregistratie, tijdstipinactief, tijdstipregistratielv, tijdstipeindregistratielv,
      tijdstipinactieflv, tijdstipnietbaglv, geopunt)
   SELECT
     vbo.identificatie,
+    vbo.aanduidingRecordInactief,
     vbo.nevenadres,
     vbo.hoofdadres as hoofdadres,
     'VBO' as typeadresseerbaarobject,
@@ -70,8 +83,8 @@ INSERT INTO adresseerbaarobjectnevenadres (
     vbo.documentdatum,
     vbo.documentnummer,
     vbo.voorkomenidentificatie,
-    vbo.begingeldigheid,
-    vbo.eindgeldigheid,
+    vbo.begindatumTijdvakGeldigheid,
+    vbo.einddatumTijdvakGeldigheid,
     vbo.tijdstipregistratie,
     vbo.eindregistratie,
     vbo.tijdstipinactief,
@@ -79,29 +92,31 @@ INSERT INTO adresseerbaarobjectnevenadres (
     vbo.tijdstipeindregistratielv,
     vbo.tijdstipinactieflv,
     vbo.tijdstipnietbaglv,
-         
+
     vbo.geopunt
 FROM
     (SELECT
         identificatie,
-        hoofdadresnummeraanduidingref AS hoofdadres,
-        UNNEST(nevenadresnummeraanduidingref) as nevenadres,
-        status AS verblijfsobjectStatus,
-        geconstateerd, documentdatum, documentnummer, voorkomenidentificatie, begingeldigheid, eindgeldigheid,
+        aanduidingRecordInactief,
+        hoofdadres,
+        UNNEST(nevenadressen) as nevenadres,
+        verblijfsobjectStatus,
+        geconstateerd, documentdatum, documentnummer, voorkomenidentificatie, begindatumTijdvakGeldigheid, einddatumTijdvakGeldigheid,
         tijdstipregistratie, eindregistratie, tijdstipinactief, tijdstipregistratielv, tijdstipeindregistratielv,
-        tijdstipinactieflv, tijdstipnietbaglv, wkb_geometry AS geopunt
+        tijdstipinactieflv, tijdstipnietbaglv, geopunt
     FROM  verblijfsobject) vbo
 WHERE nevenadres IS NOT NULL;
 
 -- Vul adresseerbaarobjectnevenadres uit LIG
 -- Let op de ARRAY UNNEST om nevenadressen uit te splitsen naar rows.
 INSERT INTO adresseerbaarobjectnevenadres (
-     identificatie, nevenadres, hoofdadres, typeadresseerbaarobject, ligplaatsStatus,
-     geconstateerd, documentdatum, documentnummer, voorkomenidentificatie, begingeldigheid, eindgeldigheid,
+     identificatie, aanduidingRecordInactief, nevenadres, hoofdadres, typeadresseerbaarobject, ligplaatsStatus,
+     geconstateerd, documentdatum, documentnummer, voorkomenidentificatie, begindatumTijdvakGeldigheid, einddatumTijdvakGeldigheid,
      tijdstipregistratie, eindregistratie, tijdstipinactief, tijdstipregistratielv, tijdstipeindregistratielv,
      tijdstipinactieflv, tijdstipnietbaglv, geopunt)
   SELECT
     lig.identificatie,
+    lig.aanduidingRecordInactief,
     lig.nevenadres,
     lig.hoofdadres as hoofdadres,
     'LIG' as typeadresseerbaarobject,
@@ -111,8 +126,8 @@ INSERT INTO adresseerbaarobjectnevenadres (
     lig.documentdatum,
     lig.documentnummer,
     lig.voorkomenidentificatie,
-    lig.begingeldigheid,
-    lig.eindgeldigheid,
+    lig.begindatumTijdvakGeldigheid,
+    lig.einddatumTijdvakGeldigheid,
     lig.tijdstipregistratie,
     lig.eindregistratie,
     lig.tijdstipinactief,
@@ -125,25 +140,26 @@ INSERT INTO adresseerbaarobjectnevenadres (
   FROM
     (SELECT
         identificatie,
-        hoofdadresnummeraanduidingref AS hoofdadres,
-        UNNEST(nevenadresnummeraanduidingref) as nevenadres,
-        status AS ligplaatsStatus,
-        geconstateerd, documentdatum, documentnummer, voorkomenidentificatie, begingeldigheid, eindgeldigheid,
+        aanduidingRecordInactief,
+        hoofdadres,
+        UNNEST(nevenadressen) as nevenadres,
+        ligplaatsStatus,
+        geconstateerd, documentdatum, documentnummer, voorkomenidentificatie, begindatumTijdvakGeldigheid, einddatumTijdvakGeldigheid,
         tijdstipregistratie, eindregistratie, tijdstipinactief, tijdstipregistratielv, tijdstipeindregistratielv,
-        tijdstipinactieflv, tijdstipnietbaglv, wkb_geometry AS geovlak
+        tijdstipinactieflv, tijdstipnietbaglv, geovlak
     FROM  ligplaats) lig
 WHERE nevenadres IS NOT NULL;
-
 
 -- Vul adresseerbaarobjectnevenadres uit STA
 -- Let op de ARRAY UNNEST om nevenadressen uit te splitsen naar rows.
 INSERT INTO adresseerbaarobjectnevenadres (
-     identificatie, nevenadres, hoofdadres, typeadresseerbaarobject, standplaatsStatus,
-     geconstateerd, documentdatum, documentnummer, voorkomenidentificatie, begingeldigheid, eindgeldigheid,
+     identificatie, aanduidingRecordInactief, nevenadres, hoofdadres, typeadresseerbaarobject, standplaatsStatus,
+     geconstateerd, documentdatum, documentnummer, voorkomenidentificatie, begindatumTijdvakGeldigheid, einddatumTijdvakGeldigheid,
      tijdstipregistratie, eindregistratie, tijdstipinactief, tijdstipregistratielv, tijdstipeindregistratielv,
      tijdstipinactieflv, tijdstipnietbaglv, geopunt)
   SELECT
     sta.identificatie,
+    sta.aanduidingRecordInactief,
     sta.nevenadres,
     sta.hoofdadres as hoofdadres,
     'STA' as typeadresseerbaarobject,
@@ -153,8 +169,8 @@ INSERT INTO adresseerbaarobjectnevenadres (
     sta.documentdatum,
     sta.documentnummer,
     sta.voorkomenidentificatie,
-    sta.begingeldigheid,
-    sta.eindgeldigheid,
+    sta.begindatumTijdvakGeldigheid,
+    sta.einddatumTijdvakGeldigheid,
     sta.tijdstipregistratie,
     sta.eindregistratie,
     sta.tijdstipinactief,
@@ -167,14 +183,13 @@ INSERT INTO adresseerbaarobjectnevenadres (
   FROM
     (SELECT
         identificatie,
-        hoofdadresnummeraanduidingref AS hoofdadres,
-        UNNEST(nevenadresnummeraanduidingref) as nevenadres,
-        status AS standplaatsStatus,
-        geconstateerd, documentdatum, documentnummer, voorkomenidentificatie, begingeldigheid, eindgeldigheid,
+        aanduidingRecordInactief,
+        hoofdadres,
+        UNNEST(nevenadressen) as nevenadres,
+        standplaatsStatus,
+        geconstateerd, documentdatum, documentnummer, voorkomenidentificatie, begindatumTijdvakGeldigheid, einddatumTijdvakGeldigheid,
         tijdstipregistratie, eindregistratie, tijdstipinactief, tijdstipregistratielv, tijdstipeindregistratielv,
-        tijdstipinactieflv, tijdstipnietbaglv, wkb_geometry AS geovlak
+        tijdstipinactieflv, tijdstipnietbaglv, geovlak
     FROM  standplaats) sta
 WHERE nevenadres IS NOT NULL;
-
--- select identificatie, nevenadres, hoofdadres,typeadresseerbaarobject, begingeldigheid, eindgeldigheid from adresseerbaarobjectnevenadres;
-
+COMMIT;
