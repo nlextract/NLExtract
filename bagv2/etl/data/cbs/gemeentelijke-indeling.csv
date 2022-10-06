@@ -406,7 +406,7 @@ provinciecode;provincienaam;gemeentecode;gemeentenaam;begindatum;einddatum
 28;Zuid-Holland;0495;Bleiswijk;1970-01-01;2007-01-01
 28;Zuid-Holland;0497;Bodegraven;1970-01-01;2011-01-01
 28;Zuid-Holland;0499;Boskoop;1970-01-01;2014-01-01
-28;Zuid-Holland;0501;Brielle;1970-01-01;
+28;Zuid-Holland;0501;Brielle;1970-01-01;2023-01-01
 28;Zuid-Holland;0502;Capelle aan den IJssel;1970-01-01;
 28;Zuid-Holland;0503;Delft;1970-01-01;
 28;Zuid-Holland;0504;Dirksland;1970-01-01;2013-01-01
@@ -420,7 +420,7 @@ provinciecode;provincienaam;gemeentecode;gemeentenaam;begindatum;einddatum
 28;Zuid-Holland;0523;Hardinxveld-Giessendam;1957-01-01;
 28;Zuid-Holland;0524;Hazerswoude;1970-01-01;1991-01-01
 28;Zuid-Holland;0526;Heerjansdam;1970-01-01;2003-01-01
-28;Zuid-Holland;0530;Hellevoetsluis;1970-01-01;
+28;Zuid-Holland;0530;Hellevoetsluis;1970-01-01;2023-01-01
 28;Zuid-Holland;0531;Hendrik-Ido-Ambacht;1970-01-01;
 28;Zuid-Holland;0534;Hillegom;1970-01-01;
 28;Zuid-Holland;0537;Katwijk;1970-01-01;
@@ -470,7 +470,7 @@ provinciecode;provincienaam;gemeentecode;gemeentenaam;begindatum;einddatum
 28;Zuid-Holland;0611;Cromstrijen;1984-01-01;2019-01-01
 28;Zuid-Holland;0612;Spijkenisse;1970-01-01;2015-01-01
 28;Zuid-Holland;0613;Albrandswaard;1985-01-01;
-28;Zuid-Holland;0614;Westvoorne;1980-01-01;
+28;Zuid-Holland;0614;Westvoorne;1980-01-01;2023-01-01
 28;Zuid-Holland;0617;Strijen;1970-01-01;2019-01-01
 28;Zuid-Holland;0619;Valkenburg;1970-01-01;2006-01-01
 28;Zuid-Holland;0620;Vianen;1970-01-01;2002-01-01
@@ -516,6 +516,7 @@ provinciecode;provincienaam;gemeentecode;gemeentenaam;begindatum;einddatum
 28;Zuid-Holland;1931;Krimpenerwaard;2015-01-01;
 28;Zuid-Holland;1963;Hoeksche Waard;2019-01-01;
 28;Zuid-Holland;1978;Molenlanden;2019-01-01;
+28;Zuid-Holland;1992;Voorne aan Zee;2023-01-01;
 29;Zeeland;0648;Aardenburg;1970-01-01;1995-01-01
 29;Zeeland;0649;Arnemuiden;1970-01-01;1997-01-01
 29;Zeeland;0650;Axel;1970-01-01;2003-01-01
