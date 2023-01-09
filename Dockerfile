@@ -15,7 +15,7 @@ ENV TZ=${TIMEZONE} \
 # https://www.ubuntuupdates.org/ppa/postgresql?dist=focal-pgdg need PG client version 10
 # or use ARGS for other versions
 RUN \
-	apt-get --no-install-recommends install -y gnupg \
+	apt-get update && apt-get --no-install-recommends install -y gnupg \
 	&& curl -fsSL https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add - \
 	&& sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ focal-pgdg main" >> /etc/apt/sources.list.d/postgresql.list' \
 	&& apt-get update \
