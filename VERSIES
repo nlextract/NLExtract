@@ -4,7 +4,14 @@ via de link: https://github.com/nlextract/NLExtract/releases.
 De nieuwste versie staat bovenaan: kies de "real-release" nlextract zip.
 De rest ligt nog open afhankelijk van wensen gebruikers en natuurlijk eventuele bugs.
 
-v1.5.4 - te bepalen
+v1.6.0 - geplend
+
+Leftovers van vorige versies. Versie nummer nog te bepalen.
+
+Zie de Milestone voor deze versie:
+https://github.com/nlextract/NLExtract/milestone/15
+
+v1.5.4 - 9 jan 2023
 
 Vnl fixes op 1.5.3 en daarvan meeste voor BAG versie 2 ETL.
 Bijvoorbeeld om (onderhoud van) gemeente-provincie koppelingen gelijk als in BAGv1 te doen.
