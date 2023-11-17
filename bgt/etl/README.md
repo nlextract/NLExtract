@@ -1,4 +1,5 @@
-BGT / IMGeo inlezen met Stetl (www.stetl.org) ETL framework.
+# BGT / IMGeo inlezen met Stetl (www.stetl.org) ETL framework.
+
 door: Just van den Broecke en Frank Steggink
 
 Deze map bevat de ETL configuratie en commando om via Stetl
@@ -10,19 +11,18 @@ Om gebruik te maken van Stetl moet de externe GitHub submodule externals/stetl
 aanwezig zijn.
 
 Bij het klonen van de GitHub komt Stetl als volgt mee:
-git clone --recursive https://github.com/nlextract/NLExtract.git
+`git clone --recursive https://github.com/nlextract/NLExtract.git`
 Stetl komt dan mee, hoeft niet apart geinstalleerd, alleen de Stetl-dependencies.
 
 Dependencies Stetl installeren:
-http://www.stetl.org/en/latest/install.html
+https://www.stetl.org/en/latest/install.html
 
-Meer over Stetl: http://stetl.org
+Meer over Stetl: https://stetl.org
 
-Downloaden GML
---------------
+## Downloaden GML
 
-Met het hulpscript download-bgt.sh <doelmap> kan de BGT eerst gedownload worden naar een doelmap.
-Windows: download-bgt.cmd <doelmap>
+Met het hulpscript `download-bgt.sh <doelbestand>` kan de hele BGT eerst gedownload worden naar een doelbestand.
+Windows: `download-bgt.cmd <doelmap>` TODO
 NB, soms zijn de gedownloade files 0 bytes. Oorzaak is vreemd HTTPS probleem PDOK vermoedelijk. Dit is
 ondervangen door het downloaden met wget in een loop uit te voeren en vervolgens met unzip de inhoud
 te controleren.
@@ -32,36 +32,33 @@ PATH environment variabele staan.
 wget: https://eternallybored.org/misc/wget/
 unzip: http://gnuwin32.sourceforge.net/packages/unzip.htm
 
-Commando
---------
+## Commando
 
-./etl-imgeo.sh
-Windows: etl-imgeo.cmd
+`./etl.sh`
+Windows: `etl.cmd `
 
 Gebruikt default opties (database params etc) uit options/default.args.
 
 Stetl configuratie, hoeft niet gewijzigd, alleen indien bijv andere output gewenst:
-conf/etl-imgeo.cfg
+`conf/etl-imgeo-v2.1.1.cfg`
 
-Opties/argumenten
------------------
+## Opties/argumenten
 
 Een aantal opties kunnen op 2 manieren vervangen worden:
 
-1- Impliciet: Overrule default opties (database params etc) met een eigen lokale file gebaseerd op
-lokale hostnaam: options/<jouw host naam>.args
-
-2- Expliciet op command line via  ./etl-imgeo.sh <mijn opties file>.args
-                                  etl-imgeo.cmd <mijn opties file>.args
+* Impliciet: Overrule [default opties](options/default.args) (database params etc) met een eigen lokale file gebaseerd op  lokale hostnaam: `options/<jouw host naam>.args`
+* Expliciet op command line via  `./etl.sh <mijn opties file>.args` of (Win) `etl.cmd <mijn opties file>.args`
 
 Indien methode 2 gebruikt wordt, prevaleert deze boven 1 en de default opties!
 
-Database mapping
-----------------
-gfs/imgeo-v2.1.1.gfs is de GDAL/OGR "GFS Template" en bepaalt de mapping van GML elementen/attributen
-naar PostGIS kolom(namen). Maak eventueel een  eigen GFS file en specificeer deze in je
-options/<jouw host naam>.args: bijv gfs_template=gfs/mijnbgk.gfs
+## Database mapping
 
-TODO
-----
-* GUI
+[gfs/imgeo-v2.1.1.gfs](gfs/imgeo-v2.1.1.gfs) is de GDAL/OGR "GFS Template" en bepaalt de mapping van GML elementen/attributen
+naar PostGIS kolom(namen). Maak eventueel een  eigen GFS file en specificeer deze in je
+`options/<jouw host naam>.args`: bijv `gfs_template=gfs/mijnbgk.gfs`
+
+## BGT Lean
+
+Om een compactere BGT te krijgen kan na bovenstaande handmatig 
+het script [bgt-lean.sql](sql/bgt-lean.sql) gedraaid worden met bijv `psql`.
+Deze zal de complete BGT in schema `latest` omzetten naar een 'lean' versie in eigen schema `bgt_lean`.

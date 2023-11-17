@@ -9,7 +9,8 @@
 #
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-pushd $DIR >/dev/null
+
+pushd $DIR || exit 1
 
 NLX_HOME=../..
 
@@ -41,4 +42,4 @@ host_options_file=options/`hostname`.args
 # python $STETL_HOME/stetl/main.py -c conf/etl-imgeo-v2.1.1.cfg -a "$pg_options temp_dir=temp max_features=$max_features gml_files=$gml_files $multi $spatial_extent"
 python $STETL_HOME/stetl/main.py -c conf/etl-imgeo-v2.1.1.cfg -a $options_file
 
-popd >/dev/null
+popd || exit 1
