@@ -14,7 +14,7 @@ MarkupSafe==1.1.1
 openpyxl==3.0.9
 packaging==20.4
 psycopg2==2.8.6
-Pygments==2.7.4
+Pygments==2.15.0
 pyparsing==2.4.7
 pytz==2020.4
 requests==2.31.0
