@@ -1,7 +1,7 @@
 # Working requirements with Python 3.7.1 and Wheel
 alabaster==0.7.12
 Babel==2.9.1
-certifi==2020.11.8
+certifi==2023.7.22
 chardet==3.0.4
 Deprecated==1.2.10
 docutils==0.16
@@ -14,10 +14,10 @@ MarkupSafe==1.1.1
 openpyxl==3.0.9
 packaging==20.4
 psycopg2==2.8.6
-Pygments==2.7.4
+Pygments==2.15.0
 pyparsing==2.4.7
 pytz==2020.4
-requests==2.25.0
+requests==2.31.0
 six==1.15.0
 snowballstemmer==2.0.0
 Sphinx==3.3.1
@@ -27,6 +27,6 @@ sphinxcontrib-htmlhelp==1.0.3
 sphinxcontrib-jsmath==1.0.1
 sphinxcontrib-qthelp==1.0.3
 sphinxcontrib-serializinghtml==1.1.4
-urllib3==1.26.5
+urllib3==1.26.18
 wrapt==1.12.1
 xlrd==2.0.1
