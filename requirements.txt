@@ -17,7 +17,7 @@ psycopg2==2.8.6
 Pygments==2.7.4
 pyparsing==2.4.7
 pytz==2020.4
-requests==2.25.0
+requests==2.31.0
 six==1.15.0
 snowballstemmer==2.0.0
 Sphinx==3.3.1
