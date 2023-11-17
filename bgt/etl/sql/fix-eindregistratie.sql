@@ -1,3 +1,5 @@
+-- set search_path = "latest", "public";
+
 -- -- Ontdubbelen voorkomens panden
 -- create table pand_dubbelevoorkomens as select max(ogc_fid) max_fid, lokaalid, tijdstipregistratie, lv_publicatiedatum, count(*) aantal from pand group by lokaalid, tijdstipregistratie, lv_publicatiedatum having count(*) > 1 order by lokaalid, tijdstipregistratie, lv_publicatiedatum;
 --
@@ -16,6 +18,7 @@
 -- -- drop table wegdeel_dubbelevoorkomens;
 -- -- drop table wegdeel_todelete;
 --
+BEGIN;
 -- bak
 create index bak_lokaalid on bak(lokaalid);
 
@@ -41,6 +44,9 @@ drop table bak_tmp;
 drop index bak_lokaalid;
 drop index bak_tijdstipregistratie;
 
+COMMIT;
+
+BEGIN;
 -- begroeidterreindeel
 create index begroeidterreindeel_lokaalid on begroeidterreindeel(lokaalid);
 
@@ -66,6 +72,9 @@ drop table begroeidterreindeel_tmp;
 drop index begroeidterreindeel_lokaalid;
 drop index begroeidterreindeel_tijdstipregistratie;
 
+COMMIT;
+
+BEGIN;
 -- bord
 create index bord_lokaalid on bord(lokaalid);
 
@@ -91,6 +100,9 @@ drop table bord_tmp;
 drop index bord_lokaalid;
 drop index bord_tijdstipregistratie;
 
+COMMIT;
+
+BEGIN;
 -- buurt
 create index buurt_lokaalid on buurt(lokaalid);
 
@@ -116,6 +128,9 @@ drop table buurt_tmp;
 drop index buurt_lokaalid;
 drop index buurt_tijdstipregistratie;
 
+COMMIT;
+
+BEGIN;
 -- functioneelgebied
 create index functioneelgebied_lokaalid on functioneelgebied(lokaalid);
 
@@ -141,6 +156,9 @@ drop table functioneelgebied_tmp;
 drop index functioneelgebied_lokaalid;
 drop index functioneelgebied_tijdstipregistratie;
 
+COMMIT;
+
+BEGIN;
 -- gebouwinstallatie
 create index gebouwinstallatie_lokaalid on gebouwinstallatie(lokaalid);
 
@@ -166,6 +184,9 @@ drop table gebouwinstallatie_tmp;
 drop index gebouwinstallatie_lokaalid;
 drop index gebouwinstallatie_tijdstipregistratie;
 
+COMMIT;
+
+BEGIN;
 -- installatie
 create index installatie_lokaalid on installatie(lokaalid);
 
@@ -191,6 +212,9 @@ drop table installatie_tmp;
 drop index installatie_lokaalid;
 drop index installatie_tijdstipregistratie;
 
+COMMIT;
+
+BEGIN;
 -- kast
 create index kast_lokaalid on kast(lokaalid);
 
@@ -216,6 +240,9 @@ drop table kast_tmp;
 drop index kast_lokaalid;
 drop index kast_tijdstipregistratie;
 
+COMMIT;
+
+BEGIN;
 -- kunstwerkdeel
 create index kunstwerkdeel_lokaalid on kunstwerkdeel(lokaalid);
 
@@ -241,6 +268,9 @@ drop table kunstwerkdeel_tmp;
 drop index kunstwerkdeel_lokaalid;
 drop index kunstwerkdeel_tijdstipregistratie;
 
+COMMIT;
+
+BEGIN;
 -- mast
 create index mast_lokaalid on mast(lokaalid);
 
@@ -266,6 +296,9 @@ drop table mast_tmp;
 drop index mast_lokaalid;
 drop index mast_tijdstipregistratie;
 
+COMMIT;
+
+BEGIN;
 -- onbegroeidterreindeel
 create index onbegroeidterreindeel_lokaalid on onbegroeidterreindeel(lokaalid);
 
@@ -291,6 +324,9 @@ drop table onbegroeidterreindeel_tmp;
 drop index onbegroeidterreindeel_lokaalid;
 drop index onbegroeidterreindeel_tijdstipregistratie;
 
+COMMIT;
+
+BEGIN;
 -- ondersteunendwaterdeel
 create index ondersteunendwaterdeel_lokaalid on ondersteunendwaterdeel(lokaalid);
 
@@ -316,6 +352,9 @@ drop table ondersteunendwaterdeel_tmp;
 drop index ondersteunendwaterdeel_lokaalid;
 drop index ondersteunendwaterdeel_tijdstipregistratie;
 
+COMMIT;
+
+BEGIN;
 -- ondersteunendwegdeel
 create index ondersteunendwegdeel_lokaalid on ondersteunendwegdeel(lokaalid);
 
@@ -341,6 +380,9 @@ drop table ondersteunendwegdeel_tmp;
 drop index ondersteunendwegdeel_lokaalid;
 drop index ondersteunendwegdeel_tijdstipregistratie;
 
+COMMIT;
+
+BEGIN;
 -- ongeclassificeerdobject
 create index ongeclassificeerdobject_lokaalid on ongeclassificeerdobject(lokaalid);
 
@@ -366,6 +408,9 @@ drop table ongeclassificeerdobject_tmp;
 drop index ongeclassificeerdobject_lokaalid;
 drop index ongeclassificeerdobject_tijdstipregistratie;
 
+COMMIT;
+
+BEGIN;
 -- openbareruimte
 create index openbareruimte_lokaalid on openbareruimte(lokaalid);
 
@@ -391,6 +436,9 @@ drop table openbareruimte_tmp;
 drop index openbareruimte_lokaalid;
 drop index openbareruimte_tijdstipregistratie;
 
+COMMIT;
+
+BEGIN;
 -- openbareruimtelabel
 create index openbareruimtelabel_lokaalid on openbareruimtelabel(lokaalid);
 create index openbareruimtelabel_tijdstipregistratie on openbareruimtelabel(tijdstipregistratie);
@@ -420,6 +468,9 @@ drop table openbareruimtelabel_unique;
 drop index openbareruimtelabel_lokaalid;
 drop index openbareruimtelabel_tijdstipregistratie;
 
+COMMIT;
+
+BEGIN;
 -- overbruggingsdeel
 create index overbruggingsdeel_lokaalid on overbruggingsdeel(lokaalid);
 
@@ -445,6 +496,9 @@ drop table overbruggingsdeel_tmp;
 drop index overbruggingsdeel_lokaalid;
 drop index overbruggingsdeel_tijdstipregistratie;
 
+COMMIT;
+
+BEGIN;
 -- overigbouwwerk
 create index overigbouwwerk_lokaalid on overigbouwwerk(lokaalid);
 
@@ -470,6 +524,9 @@ drop table overigbouwwerk_tmp;
 drop index overigbouwwerk_lokaalid;
 drop index overigbouwwerk_tijdstipregistratie;
 
+COMMIT;
+
+BEGIN;
 -- overigescheiding
 create index overigescheiding_lokaalid on overigescheiding(lokaalid);
 
@@ -495,6 +552,9 @@ drop table overigescheiding_tmp;
 drop index overigescheiding_lokaalid;
 drop index overigescheiding_tijdstipregistratie;
 
+COMMIT;
+
+BEGIN;
 -- paal
 create index paal_lokaalid on paal(lokaalid);
 
@@ -520,6 +580,9 @@ drop table paal_tmp;
 drop index paal_lokaalid;
 drop index paal_tijdstipregistratie;
 
+COMMIT;
+
+BEGIN;
 -- pand
 create index pand_lokaalid on pand(lokaalid);
 
@@ -545,6 +608,9 @@ drop table pand_tmp;
 drop index pand_lokaalid;
 drop index pand_tijdstipregistratie;
 
+COMMIT;
+
+BEGIN;
 -- put
 create index put_lokaalid on put(lokaalid);
 
@@ -570,6 +636,9 @@ drop table put_tmp;
 drop index put_lokaalid;
 drop index put_tijdstipregistratie;
 
+COMMIT;
+
+BEGIN;
 -- scheiding
 create index scheiding_lokaalid on scheiding(lokaalid);
 
@@ -595,6 +664,9 @@ drop table scheiding_tmp;
 drop index scheiding_lokaalid;
 drop index scheiding_tijdstipregistratie;
 
+COMMIT;
+
+BEGIN;
 -- sensor
 create index sensor_lokaalid on sensor(lokaalid);
 
@@ -620,6 +692,9 @@ drop table sensor_tmp;
 drop index sensor_lokaalid;
 drop index sensor_tijdstipregistratie;
 
+COMMIT;
+
+BEGIN;
 -- spoor
 create index spoor_lokaalid on spoor(lokaalid);
 
@@ -645,6 +720,9 @@ drop table spoor_tmp;
 drop index spoor_lokaalid;
 drop index spoor_tijdstipregistratie;
 
+COMMIT;
+
+BEGIN;
 -- stadsdeel
 create index stadsdeel_lokaalid on stadsdeel(lokaalid);
 
@@ -670,6 +748,9 @@ drop table stadsdeel_tmp;
 drop index stadsdeel_lokaalid;
 drop index stadsdeel_tijdstipregistratie;
 
+COMMIT;
+
+BEGIN;
 -- straatmeubilair
 create index straatmeubilair_lokaalid on straatmeubilair(lokaalid);
 
@@ -695,6 +776,9 @@ drop table straatmeubilair_tmp;
 drop index straatmeubilair_lokaalid;
 drop index straatmeubilair_tijdstipregistratie;
 
+COMMIT;
+
+BEGIN;
 -- tunneldeel
 create index tunneldeel_lokaalid on tunneldeel(lokaalid);
 
@@ -720,6 +804,9 @@ drop table tunneldeel_tmp;
 drop index tunneldeel_lokaalid;
 drop index tunneldeel_tijdstipregistratie;
 
+COMMIT;
+
+BEGIN;
 -- vegetatieobject
 create index vegetatieobject_lokaalid on vegetatieobject(lokaalid);
 
@@ -745,6 +832,9 @@ drop table vegetatieobject_tmp;
 drop index vegetatieobject_lokaalid;
 drop index vegetatieobject_tijdstipregistratie;
 
+COMMIT;
+
+BEGIN;
 -- waterdeel
 create index waterdeel_lokaalid on waterdeel(lokaalid);
 
@@ -770,6 +860,9 @@ drop table waterdeel_tmp;
 drop index waterdeel_lokaalid;
 drop index waterdeel_tijdstipregistratie;
 
+COMMIT;
+
+BEGIN;
 -- waterinrichtingselement
 create index waterinrichtingselement_lokaalid on waterinrichtingselement(lokaalid);
 
@@ -795,6 +888,9 @@ drop table waterinrichtingselement_tmp;
 drop index waterinrichtingselement_lokaalid;
 drop index waterinrichtingselement_tijdstipregistratie;
 
+COMMIT;
+
+BEGIN;
 -- waterschap
 create index waterschap_lokaalid on waterschap(lokaalid);
 
@@ -820,6 +916,9 @@ drop table waterschap_tmp;
 drop index waterschap_lokaalid;
 drop index waterschap_tijdstipregistratie;
 
+COMMIT;
+
+BEGIN;
 -- wegdeel
 create index wegdeel_lokaalid on wegdeel(lokaalid);
 
@@ -845,6 +944,9 @@ drop table wegdeel_tmp;
 drop index wegdeel_lokaalid;
 drop index wegdeel_tijdstipregistratie;
 
+COMMIT;
+
+BEGIN;
 -- weginrichtingselement
 create index weginrichtingselement_lokaalid on weginrichtingselement(lokaalid);
 
@@ -870,6 +972,9 @@ drop table weginrichtingselement_tmp;
 drop index weginrichtingselement_lokaalid;
 drop index weginrichtingselement_tijdstipregistratie;
 
+COMMIT;
+
+BEGIN;
 -- wijk
 create index wijk_lokaalid on wijk(lokaalid);
 
@@ -894,3 +999,4 @@ where a.lokaalid=b.lokaalid and a.eindregistratie is null;
 drop table wijk_tmp;
 drop index wijk_lokaalid;
 drop index wijk_tijdstipregistratie;
+COMMIT;
