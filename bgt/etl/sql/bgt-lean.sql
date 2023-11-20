@@ -1150,13 +1150,15 @@ SELECT
     wegdeeloptalud
 FROM latest.wegdeelactueelbestaand;
 
+-- NB No validation and ST_MakeValid(); see issue
+-- https://github.com/nlextract/NLExtract/issues/363
 DROP TABLE IF EXISTS bgt_lean.wegdeel_vlak CASCADE;
 CREATE TABLE bgt_lean.wegdeel_vlak AS
 SELECT
     a.*,
-    ST_MakeValid(ST_CurveToLine(b.geometrie_vlak))::geometry(Polygon, 28992) as geometrie_vlak
+    ST_CurveToLine(b.geometrie_vlak)::geometry(Polygon, 28992) as geometrie_vlak
 FROM bgt_lean.wegdeel_cols a, latest.wegdeelactueelbestaand b
-WHERE a.ogc_fid = b.ogc_fid AND b.geometrie_vlak is not null AND ST_IsValid(b.geometrie_vlak);
+WHERE a.ogc_fid = b.ogc_fid AND b.geometrie_vlak is not null;
 CREATE INDEX wegdeel_vlak_geometrie_vlak_geom_idx ON bgt_lean.wegdeel_vlak USING gist(geometrie_vlak);
 -- CREATE INDEX wegdeel_vlak_lokaalid_idx ON bgt_lean.wegdeel_vlak USING btree (lokaalid);
 ALTER TABLE ONLY bgt_lean.wegdeel_vlak ADD CONSTRAINT wegdeel_vlak_pkey PRIMARY KEY (ogc_fid);
@@ -1166,9 +1168,9 @@ DROP TABLE IF EXISTS bgt_lean.wegdeel_kruinlijn CASCADE;
 CREATE TABLE bgt_lean.wegdeel_kruinlijn AS
 SELECT
     a.*,
-    ST_MakeValid(ST_CurveToLine(geometrie_kruinlijn))::geometry(LineString, 28992) as geometrie_kruinlijn
+    ST_CurveToLine(geometrie_kruinlijn)::geometry(LineString, 28992) as geometrie_kruinlijn
 FROM bgt_lean.wegdeel_cols a, latest.wegdeelactueelbestaand b
-WHERE a.ogc_fid = b.ogc_fid AND b.geometrie_kruinlijn is not null AND ST_IsValid(b.geometrie_kruinlijn);
+WHERE a.ogc_fid = b.ogc_fid AND b.geometrie_kruinlijn is not null;
 CREATE INDEX wegdeel_kruinlijn_geometrie_kruinlijn_geom_idx ON bgt_lean.wegdeel_kruinlijn USING gist(geometrie_kruinlijn);
 -- CREATE INDEX wegdeel_kruinlijn_lokaalid_idx ON bgt_lean.wegdeel_kruinlijn USING btree (lokaalid);
 ALTER TABLE ONLY bgt_lean.wegdeel_kruinlijn ADD CONSTRAINT wegdeel_kruinlijn_pkey PRIMARY KEY (ogc_fid);
