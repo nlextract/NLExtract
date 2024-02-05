@@ -1,4 +1,4 @@
-FROM osgeo/gdal:ubuntu-small-latest
+FROM osgeo/gdal:ubuntu-small
 
 LABEL maintainer="Just van den Broecke <justb4@gmail.com>"
 
