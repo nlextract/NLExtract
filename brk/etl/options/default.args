@@ -5,7 +5,7 @@
 
 # INPUT: gml files, point to directory or file(s) pattern
 # gml_files=/Users/just/geodata/top10nl/TOP10NL_GML_50D_Blokken_september_2012/GML_50D_Blokken/Top10NL_05Oost.gml
-input_dir=test/input
+input_dir=test/input-v5
 
 # Files pattern: files filter volgens Python glob.glob patronen: https://docs.python.org/2/library/glob.html
 # NB moeten op dit moment .zip files zijn!

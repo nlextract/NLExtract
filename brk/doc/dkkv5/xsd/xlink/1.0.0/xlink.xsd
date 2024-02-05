@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://www.w3.org/1999/xlink"><!--
+This schema is provided by Kadaster as a local copy, as a convenience to the user. This schema may itself reference a local copy of the schema originally referenced by URI. The local reference takes the form of a relative path, and is introduced by Kadaster.
+-->
+   <xs:annotation>
+      <xs:documentation>
+			This is the Xlinks Kadaster profile. It constrains the xlinks schema by 
+			1/ reducing attributes of simple types to @href only, and 
+			2/ allowing only @href to appear on elements.
+			3/ removing reference to xml.xsd
+			Kadaster also uses GML, and GML uses Xlinks; this profile covers the GML case as well.
+		</xs:documentation>
+   </xs:annotation>
+   <!-- bridge added by Geonovum BRO team -->
+   <xs:attributeGroup name="simpleLink">
+      <xs:attributeGroup ref="xlink:simpleAttrs">
+         <xs:annotation>
+            <xs:documentation>see https://www.geonovum.nl/nieuws/belangrijke-informatie-over-wijziging-ogc-standaarden</xs:documentation>
+         </xs:annotation>
+      </xs:attributeGroup>
+   </xs:attributeGroup>
+   <xs:attribute name="href" type="xlink:hrefType"/>
+   <xs:simpleType name="hrefType">
+      <xs:restriction base="xs:anyURI"/>
+   </xs:simpleType>
+   <xs:attributeGroup name="simpleAttrs">
+      <xs:attribute ref="xlink:href"/>
+   </xs:attributeGroup>
+</xs:schema>

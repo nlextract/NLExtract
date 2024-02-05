@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:mld="http://www.kadaster.nl/schemas/brkkadastralekaart/v5/mutatielevering/v20220601" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ml="http://www.kadaster.nl/schemas/mutatielevering-generiek/2.0" xmlns:oz="http://www.kadaster.nl/schemas/brkkadastralekaart/v5/imkad-onroerendezaak/v20220601" xmlns:k="http://www.kadaster.nl/schemas/brkkadastralekaart/v5/imkad-kwaliteit/v20220601" targetNamespace="http://www.kadaster.nl/schemas/brkkadastralekaart/v5/mutatielevering/v20220601" elementFormDefault="qualified">
+	<xs:import namespace="http://www.kadaster.nl/schemas/mutatielevering-generiek/2.0" schemaLocation="mutatielevering-generiek-2.0.xsd"/>
+	<xs:import namespace="http://www.kadaster.nl/schemas/brkkadastralekaart/v5/imkad-onroerendezaak/v20220601" schemaLocation="../../imkad-onroerendezaak/v20220601/DKK-Product_OnroerendeZaak_v5_0_0.xsd"/>
+	<xs:import namespace="http://www.kadaster.nl/schemas/brkkadastralekaart/v5/imkad-kwaliteit/v20220601" schemaLocation="../../imkad-kwaliteit/v20220601/DKK-Product_Kwaliteit_v5_0_0.xsd"/>
+	<xs:element name="brkkadastralekaartMutaties">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="ml:mutatieBericht"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="brkkadastralekaartObject" type="mld:brkkadastralekaartObject" substitutionGroup="ml:modelObject"/>
+	<xs:complexType name="brkkadastralekaartObject">
+		<xs:complexContent>
+			<xs:extension base="ml:modelObject">
+				<xs:choice>
+					<xs:element ref="oz:KadastraleGrens"/>
+					<xs:element ref="oz:Perceel"/>
+					<xs:element ref="k:Kwaliteit"/>
+				</xs:choice>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+</xs:schema>

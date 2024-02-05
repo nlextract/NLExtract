@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:gmlsf="http://www.opengis.net/gmlsf/2.0" xmlns:h="http://www.kadaster.nl/schemas/brkkadastralekaart/v5/imkad-historie/v20220601" xmlns:imf="http://www.imvertor.org/xsl/functions" xmlns:imvert="http://www.imvertor.org/schema/system" xmlns:k="http://www.kadaster.nl/schemas/brkkadastralekaart/v5/imkad-kwaliteit/v20220601" xmlns:math="http://www.w3.org/2005/xpath-functions/math" xmlns:t="http://www.kadaster.nl/schemas/brkkadastralekaart/v5/imkad-typen/v20220601" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.kadaster.nl/schemas/brkkadastralekaart/v5/imkad-kwaliteit/v20220601" elementFormDefault="qualified" attributeFormDefault="unqualified" version="5.0.0-2">
+	<xs:annotation>
+		<xs:appinfo source="http://www.imvertor.org/model-info/project">imkad</xs:appinfo>
+		<xs:appinfo source="http://www.imvertor.org/model-info/application">DKK-Product</xs:appinfo>
+		<xs:appinfo source="http://www.imvertor.org/model-info/release">20220601</xs:appinfo>
+		<xs:appinfo source="http://www.imvertor.org/model-info/version">5.0.0</xs:appinfo>
+		<xs:appinfo source="http://www.imvertor.org/model-info/phase">2</xs:appinfo>
+		<xs:appinfo source="http://www.imvertor.org/model-info/uri">http://www.kadaster.nl/schemas/brkkadastralekaart/v5/imkad-kwaliteit</xs:appinfo>
+		<xs:appinfo source="http://www.imvertor.org/model-info/generated">2023-04-05T13:19:27Z</xs:appinfo>
+		<xs:appinfo source="http://www.imvertor.org/xml-schema-info/file-location">dkk/imkad-kwaliteit/v20220601/DKK-Product_Kwaliteit_v5_0_0.xsd</xs:appinfo>
+		<xs:appinfo source="http://www.imvertor.org/xml-schema-info/generated">April 5, 2023 at 13:19:27</xs:appinfo>
+		<xs:appinfo source="http://www.imvertor.org/xml-schema-info/generator">1.67.1</xs:appinfo>
+		<xs:documentation source="http://www.imvertor.org/schema-info/file-location">dkk/imkad-kwaliteit/v20220601/DKK-Product_Kwaliteit_v5_0_0.xsd</xs:documentation>
+		<xs:documentation source="http://www.imvertor.org/schema-info/conversion">
+        This schema is based on an UML specification, which is transformed by the Imvertor software. Imvertor modules are in the public domain, see http://www.imvertor.org.
+    </xs:documentation>
+		<xs:documentation source="http://www.imvertor.org/model-info/technical-documentation">Definition: *</xs:documentation>
+	</xs:annotation>
+	<xs:annotation>
+		<xs:appinfo source="http://schemas.opengis.net/gmlsfProfile/2.0/gmlsfLevels.xsd">
+			<gmlsf:ComplianceLevel>0</gmlsf:ComplianceLevel>
+		</xs:appinfo>
+	</xs:annotation>
+	<xs:import namespace="http://www.kadaster.nl/schemas/brkkadastralekaart/v5/imkad-typen/v20220601" schemaLocation="../../../dkk/imkad-typen/v20220601/DKK-Product_Typen_v5_0_0.xsd"/>
+	<xs:import namespace="http://www.kadaster.nl/schemas/brkkadastralekaart/v5/imkad-historie/v20220601" schemaLocation="../../../dkk/imkad-historie/v20220601/DKK-Product_Historie_v5_0_0.xsd"/>
+	<xs:import namespace="http://www.opengis.net/gml/3.2" schemaLocation="../../../gml/3.2.2/gml.xsd"/>
+	<xs:element name="Kwaliteit" type="k:KwaliteitType" substitutionGroup="h:_VoorkomenNEN3610">
+		<xs:annotation>
+			<xs:documentation source="http://www.imvertor.org/model-info/technical-documentation">Definition: Kwaliteit beschrijft de mate waarin een kenmerk van een gerelateerd object goed is of aan een bepaalde normen voldoet.
+Explanation: Het objecttype kwaliteit is een generiek objecttype dat voor de beschrijving van een of meer kwaliteitsaspecten van elementen uit een informatiemodel gebruikt kan worden.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="KwaliteitType">
+		<xs:complexContent>
+			<xs:extension base="h:_VoorkomenNEN3610Type">
+				<xs:sequence>
+					<xs:element name="identificatie">
+						<xs:annotation>
+							<xs:documentation source="http://www.imvertor.org/model-info/technical-documentation">Definition: De Kadaster identificatie is een door het Kadaster toegekend landelijk uniek nummer aan dit object binnen de kadastrale registratie.</xs:documentation>
+						</xs:annotation>
+						<xs:complexType>
+							<xs:simpleContent>
+								<xs:extension base="t:BRKIdType">
+									<xs:attribute name="domein" type="xs:string" fixed="NL.IMKAD.Kwaliteit"/>
+								</xs:extension>
+							</xs:simpleContent>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="classificatie" type="k:ElementEnKwaliteitPropertyType">
+						<xs:annotation>
+							<xs:documentation source="http://www.imvertor.org/model-info/technical-documentation">Definition: Classificatie is een indeling in klassen van kwaliteit voor een element van een gerelateerd object.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="vanKadastraleGrens">
+						<xs:annotation>
+							<xs:documentation source="http://www.imvertor.org/model-info/technical-documentation">Definition: VanKadastraleGrens is een referentie naar de KadastraleGrens waar de Kwaiteit betrekking op heeft.</xs:documentation>
+						</xs:annotation>
+						<xs:complexType>
+							<xs:simpleContent>
+								<xs:extension base="t:BRKIdType">
+									<xs:attribute name="domein" type="xs:string" fixed="NL.IMKAD.KadastraleGrens"/>
+								</xs:extension>
+							</xs:simpleContent>
+						</xs:complexType>
+
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="KwaliteitPropertyType">
+		<xs:sequence minOccurs="0">
+			<xs:element ref="k:Kwaliteit"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<xs:attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</xs:complexType>
+	<xs:element name="ElementEnKwaliteit" type="k:ElementEnKwaliteitType">
+		<xs:annotation>
+			<xs:documentation source="http://www.imvertor.org/model-info/technical-documentation">Definition: Element en Kwaliteit is een gestructureerd datatype waarmee de kwaliteitsclassificatie van een specifiek element van een gerelateerd object kan worden aangeduid.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="ElementEnKwaliteitType">
+		<xs:sequence>
+			<xs:element name="element" type="k:ElementAanduidingPropertyType">
+				<xs:annotation>
+					<xs:documentation source="http://www.imvertor.org/model-info/technical-documentation">Definition: Element is een aanduiding van het element waarvan de kwaliteit is beschreven. De waarden zijn opgenomen in een waardelijst.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="kwaliteit" type="k:KwaliteitsklassePropertyType">
+				<xs:annotation>
+					<xs:documentation source="http://www.imvertor.org/model-info/technical-documentation">Definition: Kwaliteit is een aanduiding van de kwaliteitsklasse met een lettercodering van A t/m F.
+Explanation: Analoog aan het energielabel heeft deze classificatie een indeling met letters van A t/m G waarbij A de hoogste kwaliteit is en F de laagste. In de praktijk zal de kwaliteit A niet voor komen.</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ElementEnKwaliteitPropertyType">
+		<xs:sequence minOccurs="0">
+			<xs:element ref="k:ElementEnKwaliteit"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="ElementAanduiding" type="k:ElementAanduidingType" substitutionGroup="t:Waardelijst">
+		<xs:annotation>
+			<xs:appinfo source="http://www.imvertor.org/data-info/uri">https://developer.kadaster.nl/schemas/waardelijsten/ElementAanduiding</xs:appinfo>
+			<xs:documentation source="http://www.imvertor.org/model-info/technical-documentation">Definition: De waardelijst ElementAanduiding bevat de opsomming van de attribuutsoorten van het objecttype waarvoor kwaliteit kan worden vastgelegd.
+Explanation: Op dit moment betreft dat alleen het attribuut grenslijn van het objecttype KadastraleGrens.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="ElementAanduidingType">
+		<xs:complexContent>
+			<xs:extension base="t:WaardelijstType"/>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="ElementAanduidingPropertyType">
+		<xs:sequence minOccurs="0">
+			<xs:element ref="k:ElementAanduiding"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="Kwaliteitsklasse" type="k:KwaliteitsklasseType" substitutionGroup="t:Waardelijst">
+		<xs:annotation>
+			<xs:appinfo source="http://www.imvertor.org/data-info/uri">https://developer.kadaster.nl/schemas/waardelijsten/Kwaliteitsklasse</xs:appinfo>
+			<xs:documentation source="http://www.imvertor.org/model-info/technical-documentation">Definition: De waardelijst Kwaliteitklasse bevat de waarden van de classificatie die voor kwaliteit worden gebruikt.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="KwaliteitsklasseType">
+		<xs:complexContent>
+			<xs:extension base="t:WaardelijstType"/>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="KwaliteitsklassePropertyType">
+		<xs:sequence minOccurs="0">
+			<xs:element ref="k:Kwaliteitsklasse"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

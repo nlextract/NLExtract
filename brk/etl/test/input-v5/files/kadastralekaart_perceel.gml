@@ -1,0 +1,606 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kk:DKK
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:gml="http://www.opengis.net/gml/3.2"
+        xmlns:oz="http://www.kadaster.nl/schemas/brkkadastralekaart/v5/imkad-onroerendezaak/v20220601"
+        xmlns:h="http://www.kadaster.nl/schemas/brkkadastralekaart/v5/imkad-historie/v20220601"
+        xmlns:t="http://www.kadaster.nl/schemas/brkkadastralekaart/v5/imkad-typen/v20220601"
+        xmlns:ko="http://www.kadaster.nl/schemas/brkkadastralekaart/v5/imkad-kadastraalobject/v20220601"
+        xmlns:q="http://www.kadaster.nl/schemas/brkkadastralekaart/v5/imkad-kwaliteit/v20220601"
+        xmlns:kk="http://www.kadaster.nl/schemas/brkkadastralekaart/v5/stand/v20220601"
+        xsi:schemaLocation="http://www.kadaster.nl/schemas/brkkadastralekaart/v5/stand/v20220601 http://www.kadaster.nl/schemas/brkkadastralekaart/v5/xsd/dkk/stand/v20220601/DKK-Product_Stand_v5_0_0.xsd">
+<kk:perceelMember>
+    <oz:Perceel gml:id="NL.IMKAD.KadastraalObject.84920229870000">
+        <ko:identificatie domein="NL.IMKAD.KadastraalObject">84920229870000</ko:identificatie>
+        <oz:historie>
+            <h:beginGeldigheid>2000-11-20T14:29:09+01:00</h:beginGeldigheid>
+            <h:tijdstipRegistratie>2000-11-20T14:29:09+01:00</h:tijdstipRegistratie>
+            <h:volgnummer>0</h:volgnummer>
+            <h:statusHistorie>
+                <h:StatusHistorie>
+                    <t:code>G</t:code>
+                    <t:waarde>Geldig</t:waarde>
+                </h:StatusHistorie>
+            </h:statusHistorie>
+        </oz:historie>
+        <oz:kadastraleAanduiding>
+            <oz:TypeKadastraleAanduiding>
+                <oz:kadastraleGemeente>
+                    <oz:KadastraleGemeente>
+                        <t:code>761</t:code>
+                        <t:waarde>Otterlo</t:waarde>
+                    </oz:KadastraleGemeente>
+                </oz:kadastraleGemeente>
+                <oz:sectie>B</oz:sectie>
+                <oz:perceelnummer>2298</oz:perceelnummer>
+                <oz:aKRKadastraleGemeenteCode>
+                    <oz:AKRKadastraleGemeenteCode>
+                        <t:code>812</t:code>
+                        <t:waarde>OTL02</t:waarde>
+                    </oz:AKRKadastraleGemeenteCode>
+                </oz:aKRKadastraleGemeenteCode>
+            </oz:TypeKadastraleAanduiding>
+        </oz:kadastraleAanduiding>
+        <oz:begrenzingPerceel><gml:Polygon xmlns:gml="http://www.opengis.net/gml/3.2" gml:id="GEOMETRY_d68dfb9b-728b-411f-88be-f3c90cb54237" srsName="urn:ogc:def:crs:EPSG::28992"><gml:exterior><gml:LinearRing><gml:posList>181182.346 456712.174 181196.546 456703.704 181203.710 456699.711 181208.183 456707.260 181186.952 456719.878 181182.346 456712.174</gml:posList></gml:LinearRing></gml:exterior></gml:Polygon></oz:begrenzingPerceel>
+        <oz:kadastraleGrootte>
+            <oz:TypeOppervlak>
+                <oz:waarde>222</oz:waarde>
+                <oz:soortGrootte>
+                    <oz:SoortGrootte>
+                        <t:code>1</t:code>
+                        <t:waarde>Vastgesteld</t:waarde>
+                    </oz:SoortGrootte>
+                </oz:soortGrootte>
+            </oz:TypeOppervlak>
+        </oz:kadastraleGrootte>
+        <oz:perceelnummerRotatie>0.0</oz:perceelnummerRotatie>
+        <oz:perceelnummerVerschuiving>
+            <oz:TypePerceelnummerVerschuiving>
+                <oz:deltaX>0.0</oz:deltaX>
+                <oz:deltaY>0.0</oz:deltaY>
+            </oz:TypePerceelnummerVerschuiving>
+        </oz:perceelnummerVerschuiving>
+        <oz:plaatscoordinaten><gml:Point xmlns:gml="http://www.opengis.net/gml/3.2" gml:id="GEOMETRY_061c9c35-c29f-45df-8e5f-9c7fabcf3f82" srsName="urn:ogc:def:crs:EPSG::28992"><gml:pos>181202.040 456706.351</gml:pos></gml:Point></oz:plaatscoordinaten>
+    </oz:Perceel>
+</kk:perceelMember>
+<kk:perceelMember>
+    <oz:Perceel gml:id="NL.IMKAD.KadastraalObject.84920229970000">
+        <ko:identificatie domein="NL.IMKAD.KadastraalObject">84920229970000</ko:identificatie>
+        <oz:historie>
+            <h:beginGeldigheid>2000-11-20T14:29:09+01:00</h:beginGeldigheid>
+            <h:tijdstipRegistratie>2000-11-20T14:29:09+01:00</h:tijdstipRegistratie>
+            <h:volgnummer>0</h:volgnummer>
+            <h:statusHistorie>
+                <h:StatusHistorie>
+                    <t:code>G</t:code>
+                    <t:waarde>Geldig</t:waarde>
+                </h:StatusHistorie>
+            </h:statusHistorie>
+        </oz:historie>
+        <oz:kadastraleAanduiding>
+            <oz:TypeKadastraleAanduiding>
+                <oz:kadastraleGemeente>
+                    <oz:KadastraleGemeente>
+                        <t:code>761</t:code>
+                        <t:waarde>Otterlo</t:waarde>
+                    </oz:KadastraleGemeente>
+                </oz:kadastraleGemeente>
+                <oz:sectie>B</oz:sectie>
+                <oz:perceelnummer>2299</oz:perceelnummer>
+                <oz:aKRKadastraleGemeenteCode>
+                    <oz:AKRKadastraleGemeenteCode>
+                        <t:code>812</t:code>
+                        <t:waarde>OTL02</t:waarde>
+                    </oz:AKRKadastraleGemeenteCode>
+                </oz:aKRKadastraleGemeenteCode>
+            </oz:TypeKadastraleAanduiding>
+        </oz:kadastraleAanduiding>
+        <oz:begrenzingPerceel><gml:Polygon xmlns:gml="http://www.opengis.net/gml/3.2" gml:id="GEOMETRY_3666fe86-e494-4aa1-a486-6a7051a4333c" srsName="urn:ogc:def:crs:EPSG::28992"><gml:exterior><gml:LinearRing><gml:posList>181186.952 456719.878 181208.183 456707.260 181212.843 456715.124 181205.714 456719.198 181191.548 456727.563 181186.952 456719.878</gml:posList></gml:LinearRing></gml:exterior></gml:Polygon></oz:begrenzingPerceel>
+        <oz:kadastraleGrootte>
+            <oz:TypeOppervlak>
+                <oz:waarde>222</oz:waarde>
+                <oz:soortGrootte>
+                    <oz:SoortGrootte>
+                        <t:code>1</t:code>
+                        <t:waarde>Vastgesteld</t:waarde>
+                    </oz:SoortGrootte>
+                </oz:soortGrootte>
+            </oz:TypeOppervlak>
+        </oz:kadastraleGrootte>
+        <oz:perceelnummerRotatie>0.0</oz:perceelnummerRotatie>
+        <oz:perceelnummerVerschuiving>
+            <oz:TypePerceelnummerVerschuiving>
+                <oz:deltaX>0.0</oz:deltaX>
+                <oz:deltaY>0.0</oz:deltaY>
+            </oz:TypePerceelnummerVerschuiving>
+        </oz:perceelnummerVerschuiving>
+        <oz:plaatscoordinaten><gml:Point xmlns:gml="http://www.opengis.net/gml/3.2" gml:id="GEOMETRY_ecf822a7-9b56-4300-9f20-24353e16368a" srsName="urn:ogc:def:crs:EPSG::28992"><gml:pos>181206.448 456713.550</gml:pos></gml:Point></oz:plaatscoordinaten>
+    </oz:Perceel>
+</kk:perceelMember>
+<kk:perceelMember>
+    <oz:Perceel gml:id="NL.IMKAD.KadastraalObject.84920230070000">
+        <ko:identificatie domein="NL.IMKAD.KadastraalObject">84920230070000</ko:identificatie>
+        <oz:historie>
+            <h:beginGeldigheid>2000-11-20T14:29:09+01:00</h:beginGeldigheid>
+            <h:tijdstipRegistratie>2000-11-20T14:29:09+01:00</h:tijdstipRegistratie>
+            <h:volgnummer>0</h:volgnummer>
+            <h:statusHistorie>
+                <h:StatusHistorie>
+                    <t:code>G</t:code>
+                    <t:waarde>Geldig</t:waarde>
+                </h:StatusHistorie>
+            </h:statusHistorie>
+        </oz:historie>
+        <oz:kadastraleAanduiding>
+            <oz:TypeKadastraleAanduiding>
+                <oz:kadastraleGemeente>
+                    <oz:KadastraleGemeente>
+                        <t:code>761</t:code>
+                        <t:waarde>Otterlo</t:waarde>
+                    </oz:KadastraleGemeente>
+                </oz:kadastraleGemeente>
+                <oz:sectie>B</oz:sectie>
+                <oz:perceelnummer>2300</oz:perceelnummer>
+                <oz:aKRKadastraleGemeenteCode>
+                    <oz:AKRKadastraleGemeenteCode>
+                        <t:code>812</t:code>
+                        <t:waarde>OTL02</t:waarde>
+                    </oz:AKRKadastraleGemeenteCode>
+                </oz:aKRKadastraleGemeenteCode>
+            </oz:TypeKadastraleAanduiding>
+        </oz:kadastraleAanduiding>
+        <oz:begrenzingPerceel><gml:Polygon xmlns:gml="http://www.opengis.net/gml/3.2" gml:id="GEOMETRY_af055327-48b3-4805-9aa1-c7f29b06adb3" srsName="urn:ogc:def:crs:EPSG::28992"><gml:exterior><gml:LinearRing><gml:posList>181203.926 456748.262 181193.533 456730.882 181191.548 456727.563 181205.714 456719.198 181212.843 456715.124 181214.620 456715.408 181216.368 456728.236 181218.792 456746.866 181217.952 456747.096 181216.172 456747.605 181208.948 456749.777 181208.309 456749.993 181207.060 456750.202 181205.768 456749.973 181204.685 456749.289 181203.926 456748.262</gml:posList></gml:LinearRing></gml:exterior></gml:Polygon></oz:begrenzingPerceel>
+        <oz:kadastraleGrootte>
+            <oz:TypeOppervlak>
+                <oz:waarde>585</oz:waarde>
+                <oz:soortGrootte>
+                    <oz:SoortGrootte>
+                        <t:code>1</t:code>
+                        <t:waarde>Vastgesteld</t:waarde>
+                    </oz:SoortGrootte>
+                </oz:soortGrootte>
+            </oz:TypeOppervlak>
+        </oz:kadastraleGrootte>
+        <oz:perceelnummerRotatie>0.0</oz:perceelnummerRotatie>
+        <oz:perceelnummerVerschuiving>
+            <oz:TypePerceelnummerVerschuiving>
+                <oz:deltaX>0.0</oz:deltaX>
+                <oz:deltaY>0.0</oz:deltaY>
+            </oz:TypePerceelnummerVerschuiving>
+        </oz:perceelnummerVerschuiving>
+        <oz:plaatscoordinaten><gml:Point xmlns:gml="http://www.opengis.net/gml/3.2" gml:id="GEOMETRY_6d13ee64-6fa8-43f2-a688-15629b052b0d" srsName="urn:ogc:def:crs:EPSG::28992"><gml:pos>181205.419 456728.094</gml:pos></gml:Point></oz:plaatscoordinaten>
+    </oz:Perceel>
+</kk:perceelMember>
+<kk:perceelMember>
+    <oz:Perceel gml:id="NL.IMKAD.KadastraalObject.84920231870000">
+        <ko:identificatie domein="NL.IMKAD.KadastraalObject">84920231870000</ko:identificatie>
+        <oz:historie>
+            <h:beginGeldigheid>2006-08-14T15:52:45+02:00</h:beginGeldigheid>
+            <h:tijdstipRegistratie>2006-08-14T15:52:45+02:00</h:tijdstipRegistratie>
+            <h:volgnummer>0</h:volgnummer>
+            <h:statusHistorie>
+                <h:StatusHistorie>
+                    <t:code>G</t:code>
+                    <t:waarde>Geldig</t:waarde>
+                </h:StatusHistorie>
+            </h:statusHistorie>
+        </oz:historie>
+        <oz:kadastraleAanduiding>
+            <oz:TypeKadastraleAanduiding>
+                <oz:kadastraleGemeente>
+                    <oz:KadastraleGemeente>
+                        <t:code>761</t:code>
+                        <t:waarde>Otterlo</t:waarde>
+                    </oz:KadastraleGemeente>
+                </oz:kadastraleGemeente>
+                <oz:sectie>B</oz:sectie>
+                <oz:perceelnummer>2318</oz:perceelnummer>
+                <oz:aKRKadastraleGemeenteCode>
+                    <oz:AKRKadastraleGemeenteCode>
+                        <t:code>812</t:code>
+                        <t:waarde>OTL02</t:waarde>
+                    </oz:AKRKadastraleGemeenteCode>
+                </oz:aKRKadastraleGemeenteCode>
+            </oz:TypeKadastraleAanduiding>
+        </oz:kadastraleAanduiding>
+        <oz:begrenzingPerceel><gml:Polygon xmlns:gml="http://www.opengis.net/gml/3.2" gml:id="GEOMETRY_b393ed90-02f8-4d4e-82df-81998ca6e0cb" srsName="urn:ogc:def:crs:EPSG::28992"><gml:exterior><gml:LinearRing><gml:posList>181196.546 456703.704 181182.346 456712.174 181177.190 456702.640 181175.992 456700.456 181169.784 456692.327 181168.619 456690.448 181165.676 456684.722 181164.523 456682.441 181162.687 456678.587 181160.017 456669.452 181159.675 456667.735 181157.376 456656.123 181156.228 456645.610 181154.433 456610.477 181152.327 456567.093 181194.987 456554.731 181202.305 456552.752 181215.914 456548.660 181227.430 456545.351 181229.485 456545.115 181231.519 456545.513 181242.818 456557.051 181250.696 456564.407 181249.042 456567.212 181243.308 456572.650 181235.182 456565.265 181230.519 456561.017 181222.959 456554.134 181215.449 456561.620 181215.425 456561.643 181208.836 456570.757 181207.228 456569.640 181201.164 456579.595 181196.268 456590.342 181192.768 456601.638 181190.673 456613.215 181190.056 456625.054 181190.871 456636.896 181190.875 456636.914 181193.221 456648.566 181196.500 456659.882 181197.242 456662.332 181195.474 456662.853 181206.960 456697.645 181203.710 456699.711 181196.546 456703.704</gml:posList></gml:LinearRing></gml:exterior></gml:Polygon></oz:begrenzingPerceel>
+        <oz:kadastraleGrootte>
+            <oz:TypeOppervlak>
+                <oz:waarde>6345</oz:waarde>
+                <oz:soortGrootte>
+                    <oz:SoortGrootte>
+                        <t:code>1</t:code>
+                        <t:waarde>Vastgesteld</t:waarde>
+                    </oz:SoortGrootte>
+                </oz:soortGrootte>
+            </oz:TypeOppervlak>
+        </oz:kadastraleGrootte>
+        <oz:perceelnummerRotatie>0.0</oz:perceelnummerRotatie>
+        <oz:perceelnummerVerschuiving>
+            <oz:TypePerceelnummerVerschuiving>
+                <oz:deltaX>0.0</oz:deltaX>
+                <oz:deltaY>0.0</oz:deltaY>
+            </oz:TypePerceelnummerVerschuiving>
+        </oz:perceelnummerVerschuiving>
+        <oz:plaatscoordinaten><gml:Point xmlns:gml="http://www.opengis.net/gml/3.2" gml:id="GEOMETRY_449968e7-16ba-421d-b7f0-713c33016d84" srsName="urn:ogc:def:crs:EPSG::28992"><gml:pos>181175.483 456644.416</gml:pos></gml:Point></oz:plaatscoordinaten>
+    </oz:Perceel>
+</kk:perceelMember>
+<kk:perceelMember>
+    <oz:Perceel gml:id="NL.IMKAD.KadastraalObject.84920232070000">
+        <ko:identificatie domein="NL.IMKAD.KadastraalObject">84920232070000</ko:identificatie>
+        <oz:historie>
+            <h:beginGeldigheid>2000-11-20T14:29:09+01:00</h:beginGeldigheid>
+            <h:tijdstipRegistratie>2000-11-20T14:29:09+01:00</h:tijdstipRegistratie>
+            <h:volgnummer>0</h:volgnummer>
+            <h:statusHistorie>
+                <h:StatusHistorie>
+                    <t:code>G</t:code>
+                    <t:waarde>Geldig</t:waarde>
+                </h:StatusHistorie>
+            </h:statusHistorie>
+        </oz:historie>
+        <oz:kadastraleAanduiding>
+            <oz:TypeKadastraleAanduiding>
+                <oz:kadastraleGemeente>
+                    <oz:KadastraleGemeente>
+                        <t:code>761</t:code>
+                        <t:waarde>Otterlo</t:waarde>
+                    </oz:KadastraleGemeente>
+                </oz:kadastraleGemeente>
+                <oz:sectie>B</oz:sectie>
+                <oz:perceelnummer>2320</oz:perceelnummer>
+                <oz:aKRKadastraleGemeenteCode>
+                    <oz:AKRKadastraleGemeenteCode>
+                        <t:code>812</t:code>
+                        <t:waarde>OTL02</t:waarde>
+                    </oz:AKRKadastraleGemeenteCode>
+                </oz:aKRKadastraleGemeenteCode>
+            </oz:TypeKadastraleAanduiding>
+        </oz:kadastraleAanduiding>
+        <oz:begrenzingPerceel><gml:Polygon xmlns:gml="http://www.opengis.net/gml/3.2" gml:id="GEOMETRY_f4e61f60-5dab-4ca7-b32f-59d3bfa01fcd" srsName="urn:ogc:def:crs:EPSG::28992"><gml:exterior><gml:LinearRing><gml:posList>181186.952 456719.878 181191.548 456727.563 181193.533 456730.882 181192.649 456730.533 181182.346 456712.174 181186.952 456719.878</gml:posList></gml:LinearRing></gml:exterior></gml:Polygon></oz:begrenzingPerceel>
+        <oz:kadastraleGrootte>
+            <oz:TypeOppervlak>
+                <oz:waarde>6</oz:waarde>
+                <oz:soortGrootte>
+                    <oz:SoortGrootte>
+                        <t:code>1</t:code>
+                        <t:waarde>Vastgesteld</t:waarde>
+                    </oz:SoortGrootte>
+                </oz:soortGrootte>
+            </oz:TypeOppervlak>
+        </oz:kadastraleGrootte>
+        <oz:perceelnummerRotatie>0.0</oz:perceelnummerRotatie>
+        <oz:perceelnummerVerschuiving>
+            <oz:TypePerceelnummerVerschuiving>
+                <oz:deltaX>-5.799</oz:deltaX>
+                <oz:deltaY>-0.439</oz:deltaY>
+            </oz:TypePerceelnummerVerschuiving>
+        </oz:perceelnummerVerschuiving>
+        <oz:plaatscoordinaten><gml:Point xmlns:gml="http://www.opengis.net/gml/3.2" gml:id="GEOMETRY_758b4a97-08c2-48e5-9b28-9f0cb41f6920" srsName="urn:ogc:def:crs:EPSG::28992"><gml:pos>181191.185 456727.405</gml:pos></gml:Point></oz:plaatscoordinaten>
+    </oz:Perceel>
+</kk:perceelMember>
+<kk:perceelMember>
+    <oz:Perceel gml:id="NL.IMKAD.KadastraalObject.84920235170000">
+        <ko:identificatie domein="NL.IMKAD.KadastraalObject">84920235170000</ko:identificatie>
+        <oz:historie>
+            <h:beginGeldigheid>2006-08-14T15:52:45+02:00</h:beginGeldigheid>
+            <h:tijdstipRegistratie>2006-08-14T15:52:45+02:00</h:tijdstipRegistratie>
+            <h:volgnummer>0</h:volgnummer>
+            <h:statusHistorie>
+                <h:StatusHistorie>
+                    <t:code>G</t:code>
+                    <t:waarde>Geldig</t:waarde>
+                </h:StatusHistorie>
+            </h:statusHistorie>
+        </oz:historie>
+        <oz:kadastraleAanduiding>
+            <oz:TypeKadastraleAanduiding>
+                <oz:kadastraleGemeente>
+                    <oz:KadastraleGemeente>
+                        <t:code>761</t:code>
+                        <t:waarde>Otterlo</t:waarde>
+                    </oz:KadastraleGemeente>
+                </oz:kadastraleGemeente>
+                <oz:sectie>B</oz:sectie>
+                <oz:perceelnummer>2351</oz:perceelnummer>
+                <oz:aKRKadastraleGemeenteCode>
+                    <oz:AKRKadastraleGemeenteCode>
+                        <t:code>812</t:code>
+                        <t:waarde>OTL02</t:waarde>
+                    </oz:AKRKadastraleGemeenteCode>
+                </oz:aKRKadastraleGemeenteCode>
+            </oz:TypeKadastraleAanduiding>
+        </oz:kadastraleAanduiding>
+        <oz:begrenzingPerceel><gml:Polygon xmlns:gml="http://www.opengis.net/gml/3.2" gml:id="GEOMETRY_edd0f3c5-d7e2-4850-b737-ce696b7e217a" srsName="urn:ogc:def:crs:EPSG::28992"><gml:exterior><gml:LinearRing><gml:posList>181216.543 456616.139 181190.673 456613.215 181192.768 456601.638 181218.149 456607.680 181217.473 456610.447 181216.961 456613.327 181216.552 456616.041 181216.543 456616.139</gml:posList></gml:LinearRing></gml:exterior></gml:Polygon></oz:begrenzingPerceel>
+        <oz:kadastraleGrootte>
+            <oz:TypeOppervlak>
+                <oz:waarde>264</oz:waarde>
+                <oz:soortGrootte>
+                    <oz:SoortGrootte>
+                        <t:code>1</t:code>
+                        <t:waarde>Vastgesteld</t:waarde>
+                    </oz:SoortGrootte>
+                </oz:soortGrootte>
+            </oz:TypeOppervlak>
+        </oz:kadastraleGrootte>
+        <oz:perceelnummerRotatie>-13.2</oz:perceelnummerRotatie>
+        <oz:perceelnummerVerschuiving>
+            <oz:TypePerceelnummerVerschuiving>
+                <oz:deltaX>0.0</oz:deltaX>
+                <oz:deltaY>0.0</oz:deltaY>
+            </oz:TypePerceelnummerVerschuiving>
+        </oz:perceelnummerVerschuiving>
+        <oz:plaatscoordinaten><gml:Point xmlns:gml="http://www.opengis.net/gml/3.2" gml:id="GEOMETRY_e0f7ecf9-060a-4656-8507-0cd4babc798a" srsName="urn:ogc:def:crs:EPSG::28992"><gml:pos>181210.289 456613.503</gml:pos></gml:Point></oz:plaatscoordinaten>
+    </oz:Perceel>
+</kk:perceelMember>
+<kk:perceelMember>
+    <oz:Perceel gml:id="NL.IMKAD.KadastraalObject.84920235270000">
+        <ko:identificatie domein="NL.IMKAD.KadastraalObject">84920235270000</ko:identificatie>
+        <oz:historie>
+            <h:beginGeldigheid>2006-08-14T15:52:45+02:00</h:beginGeldigheid>
+            <h:tijdstipRegistratie>2006-08-14T15:52:45+02:00</h:tijdstipRegistratie>
+            <h:volgnummer>0</h:volgnummer>
+            <h:statusHistorie>
+                <h:StatusHistorie>
+                    <t:code>G</t:code>
+                    <t:waarde>Geldig</t:waarde>
+                </h:StatusHistorie>
+            </h:statusHistorie>
+        </oz:historie>
+        <oz:kadastraleAanduiding>
+            <oz:TypeKadastraleAanduiding>
+                <oz:kadastraleGemeente>
+                    <oz:KadastraleGemeente>
+                        <t:code>761</t:code>
+                        <t:waarde>Otterlo</t:waarde>
+                    </oz:KadastraleGemeente>
+                </oz:kadastraleGemeente>
+                <oz:sectie>B</oz:sectie>
+                <oz:perceelnummer>2352</oz:perceelnummer>
+                <oz:aKRKadastraleGemeenteCode>
+                    <oz:AKRKadastraleGemeenteCode>
+                        <t:code>812</t:code>
+                        <t:waarde>OTL02</t:waarde>
+                    </oz:AKRKadastraleGemeenteCode>
+                </oz:aKRKadastraleGemeenteCode>
+            </oz:TypeKadastraleAanduiding>
+        </oz:kadastraleAanduiding>
+        <oz:begrenzingPerceel><gml:Polygon xmlns:gml="http://www.opengis.net/gml/3.2" gml:id="GEOMETRY_5c07f1cf-b7ae-416d-a165-eef3329d3908" srsName="urn:ogc:def:crs:EPSG::28992"><gml:exterior><gml:LinearRing><gml:posList>181216.139 456624.629 181190.056 456625.054 181190.673 456613.215 181216.543 456616.139 181216.315 456618.748 181216.181 456621.767 181216.139 456624.629</gml:posList></gml:LinearRing></gml:exterior></gml:Polygon></oz:begrenzingPerceel>
+        <oz:kadastraleGrootte>
+            <oz:TypeOppervlak>
+                <oz:waarde>264</oz:waarde>
+                <oz:soortGrootte>
+                    <oz:SoortGrootte>
+                        <t:code>1</t:code>
+                        <t:waarde>Vastgesteld</t:waarde>
+                    </oz:SoortGrootte>
+                </oz:soortGrootte>
+            </oz:TypeOppervlak>
+        </oz:kadastraleGrootte>
+        <oz:perceelnummerRotatie>1.1</oz:perceelnummerRotatie>
+        <oz:perceelnummerVerschuiving>
+            <oz:TypePerceelnummerVerschuiving>
+                <oz:deltaX>0.0</oz:deltaX>
+                <oz:deltaY>0.0</oz:deltaY>
+            </oz:TypePerceelnummerVerschuiving>
+        </oz:perceelnummerVerschuiving>
+        <oz:plaatscoordinaten><gml:Point xmlns:gml="http://www.opengis.net/gml/3.2" gml:id="GEOMETRY_8981e6c8-e6e9-4a89-a7fa-7f48ccacef4e" srsName="urn:ogc:def:crs:EPSG::28992"><gml:pos>181197.013 456622.729</gml:pos></gml:Point></oz:plaatscoordinaten>
+    </oz:Perceel>
+</kk:perceelMember>
+<kk:perceelMember>
+    <oz:Perceel gml:id="NL.IMKAD.KadastraalObject.84920235370000">
+        <ko:identificatie domein="NL.IMKAD.KadastraalObject">84920235370000</ko:identificatie>
+        <oz:historie>
+            <h:beginGeldigheid>2006-08-14T15:52:45+02:00</h:beginGeldigheid>
+            <h:tijdstipRegistratie>2006-08-14T15:52:45+02:00</h:tijdstipRegistratie>
+            <h:volgnummer>0</h:volgnummer>
+            <h:statusHistorie>
+                <h:StatusHistorie>
+                    <t:code>G</t:code>
+                    <t:waarde>Geldig</t:waarde>
+                </h:StatusHistorie>
+            </h:statusHistorie>
+        </oz:historie>
+        <oz:kadastraleAanduiding>
+            <oz:TypeKadastraleAanduiding>
+                <oz:kadastraleGemeente>
+                    <oz:KadastraleGemeente>
+                        <t:code>761</t:code>
+                        <t:waarde>Otterlo</t:waarde>
+                    </oz:KadastraleGemeente>
+                </oz:kadastraleGemeente>
+                <oz:sectie>B</oz:sectie>
+                <oz:perceelnummer>2353</oz:perceelnummer>
+                <oz:aKRKadastraleGemeenteCode>
+                    <oz:AKRKadastraleGemeenteCode>
+                        <t:code>812</t:code>
+                        <t:waarde>OTL02</t:waarde>
+                    </oz:AKRKadastraleGemeenteCode>
+                </oz:aKRKadastraleGemeenteCode>
+            </oz:TypeKadastraleAanduiding>
+        </oz:kadastraleAanduiding>
+        <oz:begrenzingPerceel><gml:Polygon xmlns:gml="http://www.opengis.net/gml/3.2" gml:id="GEOMETRY_3e0671a2-177d-4639-8c34-2d2e40ce0291" srsName="urn:ogc:def:crs:EPSG::28992"><gml:exterior><gml:LinearRing><gml:posList>181216.139 456624.629 181216.189 456626.764 181216.368 456630.353 181216.610 456632.974 181216.642 456633.154 181190.875 456636.914 181190.871 456636.896 181190.056 456625.054 181216.139 456624.629</gml:posList></gml:LinearRing></gml:exterior></gml:Polygon></oz:begrenzingPerceel>
+        <oz:kadastraleGrootte>
+            <oz:TypeOppervlak>
+                <oz:waarde>265</oz:waarde>
+                <oz:soortGrootte>
+                    <oz:SoortGrootte>
+                        <t:code>1</t:code>
+                        <t:waarde>Vastgesteld</t:waarde>
+                    </oz:SoortGrootte>
+                </oz:soortGrootte>
+            </oz:TypeOppervlak>
+        </oz:kadastraleGrootte>
+        <oz:perceelnummerRotatie>1.1</oz:perceelnummerRotatie>
+        <oz:perceelnummerVerschuiving>
+            <oz:TypePerceelnummerVerschuiving>
+                <oz:deltaX>0.0</oz:deltaX>
+                <oz:deltaY>0.0</oz:deltaY>
+            </oz:TypePerceelnummerVerschuiving>
+        </oz:perceelnummerVerschuiving>
+        <oz:plaatscoordinaten><gml:Point xmlns:gml="http://www.opengis.net/gml/3.2" gml:id="GEOMETRY_81444bae-6b21-4ef0-bd03-5f23a64d69e6" srsName="urn:ogc:def:crs:EPSG::28992"><gml:pos>181197.013 456628.129</gml:pos></gml:Point></oz:plaatscoordinaten>
+    </oz:Perceel>
+</kk:perceelMember>
+<kk:perceelMember>
+    <oz:Perceel gml:id="NL.IMKAD.KadastraalObject.84920235470000">
+        <ko:identificatie domein="NL.IMKAD.KadastraalObject">84920235470000</ko:identificatie>
+        <oz:historie>
+            <h:beginGeldigheid>2006-08-14T15:52:45+02:00</h:beginGeldigheid>
+            <h:tijdstipRegistratie>2006-08-14T15:52:45+02:00</h:tijdstipRegistratie>
+            <h:volgnummer>0</h:volgnummer>
+            <h:statusHistorie>
+                <h:StatusHistorie>
+                    <t:code>G</t:code>
+                    <t:waarde>Geldig</t:waarde>
+                </h:StatusHistorie>
+            </h:statusHistorie>
+        </oz:historie>
+        <oz:kadastraleAanduiding>
+            <oz:TypeKadastraleAanduiding>
+                <oz:kadastraleGemeente>
+                    <oz:KadastraleGemeente>
+                        <t:code>761</t:code>
+                        <t:waarde>Otterlo</t:waarde>
+                    </oz:KadastraleGemeente>
+                </oz:kadastraleGemeente>
+                <oz:sectie>B</oz:sectie>
+                <oz:perceelnummer>2354</oz:perceelnummer>
+                <oz:aKRKadastraleGemeenteCode>
+                    <oz:AKRKadastraleGemeenteCode>
+                        <t:code>812</t:code>
+                        <t:waarde>OTL02</t:waarde>
+                    </oz:AKRKadastraleGemeenteCode>
+                </oz:aKRKadastraleGemeenteCode>
+            </oz:TypeKadastraleAanduiding>
+        </oz:kadastraleAanduiding>
+        <oz:begrenzingPerceel><gml:Polygon xmlns:gml="http://www.opengis.net/gml/3.2" gml:id="GEOMETRY_7cebd166-90b5-4d7f-8605-652913da36b5" srsName="urn:ogc:def:crs:EPSG::28992"><gml:exterior><gml:LinearRing><gml:posList>181218.460 456641.562 181193.221 456648.566 181190.875 456636.914 181216.642 456633.154 181216.914 456634.705 181217.468 456637.609 181218.174 456640.540 181218.460 456641.562</gml:posList></gml:LinearRing></gml:exterior></gml:Polygon></oz:begrenzingPerceel>
+        <oz:kadastraleGrootte>
+            <oz:TypeOppervlak>
+                <oz:waarde>266</oz:waarde>
+                <oz:soortGrootte>
+                    <oz:SoortGrootte>
+                        <t:code>1</t:code>
+                        <t:waarde>Vastgesteld</t:waarde>
+                    </oz:SoortGrootte>
+                </oz:soortGrootte>
+            </oz:TypeOppervlak>
+        </oz:kadastraleGrootte>
+        <oz:perceelnummerRotatie>16.9</oz:perceelnummerRotatie>
+        <oz:perceelnummerVerschuiving>
+            <oz:TypePerceelnummerVerschuiving>
+                <oz:deltaX>0.0</oz:deltaX>
+                <oz:deltaY>0.0</oz:deltaY>
+            </oz:TypePerceelnummerVerschuiving>
+        </oz:perceelnummerVerschuiving>
+        <oz:plaatscoordinaten><gml:Point xmlns:gml="http://www.opengis.net/gml/3.2" gml:id="GEOMETRY_744dbe3c-de91-43d3-8aa2-cdf1cd319e1f" srsName="urn:ogc:def:crs:EPSG::28992"><gml:pos>181198.813 456644.330</gml:pos></gml:Point></oz:plaatscoordinaten>
+    </oz:Perceel>
+</kk:perceelMember>
+<kk:perceelMember>
+    <oz:Perceel gml:id="NL.IMKAD.KadastraalObject.84920262570000">
+        <ko:identificatie domein="NL.IMKAD.KadastraalObject">84920262570000</ko:identificatie>
+        <oz:historie>
+            <h:beginGeldigheid>2013-01-14T09:41:45+01:00</h:beginGeldigheid>
+            <h:tijdstipRegistratie>2013-01-14T09:41:45+01:00</h:tijdstipRegistratie>
+            <h:volgnummer>0</h:volgnummer>
+            <h:statusHistorie>
+                <h:StatusHistorie>
+                    <t:code>G</t:code>
+                    <t:waarde>Geldig</t:waarde>
+                </h:StatusHistorie>
+            </h:statusHistorie>
+        </oz:historie>
+        <oz:kadastraleAanduiding>
+            <oz:TypeKadastraleAanduiding>
+                <oz:kadastraleGemeente>
+                    <oz:KadastraleGemeente>
+                        <t:code>761</t:code>
+                        <t:waarde>Otterlo</t:waarde>
+                    </oz:KadastraleGemeente>
+                </oz:kadastraleGemeente>
+                <oz:sectie>B</oz:sectie>
+                <oz:perceelnummer>2625</oz:perceelnummer>
+                <oz:aKRKadastraleGemeenteCode>
+                    <oz:AKRKadastraleGemeenteCode>
+                        <t:code>812</t:code>
+                        <t:waarde>OTL02</t:waarde>
+                    </oz:AKRKadastraleGemeenteCode>
+                </oz:aKRKadastraleGemeenteCode>
+            </oz:TypeKadastraleAanduiding>
+        </oz:kadastraleAanduiding>
+        <oz:begrenzingPerceel><gml:Polygon xmlns:gml="http://www.opengis.net/gml/3.2" gml:id="GEOMETRY_22b1ffa6-eb3a-412a-9174-df0d0ae7b105" srsName="urn:ogc:def:crs:EPSG::28992"><gml:exterior><gml:LinearRing><gml:posList>181150.120 456469.837 181170.945 456469.543 181185.368 456470.140 181185.379 456475.639 181150.351 456475.696 181150.120 456469.837</gml:posList></gml:LinearRing></gml:exterior></gml:Polygon></oz:begrenzingPerceel>
+        <oz:kadastraleGrootte>
+            <oz:TypeOppervlak>
+                <oz:waarde>210</oz:waarde>
+                <oz:soortGrootte>
+                    <oz:SoortGrootte>
+                        <t:code>1</t:code>
+                        <t:waarde>Vastgesteld</t:waarde>
+                    </oz:SoortGrootte>
+                </oz:soortGrootte>
+            </oz:TypeOppervlak>
+        </oz:kadastraleGrootte>
+        <oz:perceelnummerRotatie>0.0</oz:perceelnummerRotatie>
+        <oz:perceelnummerVerschuiving>
+            <oz:TypePerceelnummerVerschuiving>
+                <oz:deltaX>0.0</oz:deltaX>
+                <oz:deltaY>0.0</oz:deltaY>
+            </oz:TypePerceelnummerVerschuiving>
+        </oz:perceelnummerVerschuiving>
+        <oz:plaatscoordinaten><gml:Point xmlns:gml="http://www.opengis.net/gml/3.2" gml:id="GEOMETRY_c0acc8ab-305c-48b7-a46b-b7a97846f348" srsName="urn:ogc:def:crs:EPSG::28992"><gml:pos>181168.773 456472.541</gml:pos></gml:Point></oz:plaatscoordinaten>
+    </oz:Perceel>
+</kk:perceelMember>
+<kk:perceelMember>
+    <oz:Perceel gml:id="NL.IMKAD.KadastraalObject.84920262670000">
+        <ko:identificatie domein="NL.IMKAD.KadastraalObject">84920262670000</ko:identificatie>
+        <oz:historie>
+            <h:beginGeldigheid>2013-01-14T09:41:45+01:00</h:beginGeldigheid>
+            <h:tijdstipRegistratie>2013-01-14T09:41:45+01:00</h:tijdstipRegistratie>
+            <h:volgnummer>0</h:volgnummer>
+            <h:statusHistorie>
+                <h:StatusHistorie>
+                    <t:code>G</t:code>
+                    <t:waarde>Geldig</t:waarde>
+                </h:StatusHistorie>
+            </h:statusHistorie>
+        </oz:historie>
+        <oz:kadastraleAanduiding>
+            <oz:TypeKadastraleAanduiding>
+                <oz:kadastraleGemeente>
+                    <oz:KadastraleGemeente>
+                        <t:code>761</t:code>
+                        <t:waarde>Otterlo</t:waarde>
+                    </oz:KadastraleGemeente>
+                </oz:kadastraleGemeente>
+                <oz:sectie>B</oz:sectie>
+                <oz:perceelnummer>2626</oz:perceelnummer>
+                <oz:aKRKadastraleGemeenteCode>
+                    <oz:AKRKadastraleGemeenteCode>
+                        <t:code>812</t:code>
+                        <t:waarde>OTL02</t:waarde>
+                    </oz:AKRKadastraleGemeenteCode>
+                </oz:aKRKadastraleGemeenteCode>
+            </oz:TypeKadastraleAanduiding>
+        </oz:kadastraleAanduiding>
+        <oz:begrenzingPerceel><gml:Polygon xmlns:gml="http://www.opengis.net/gml/3.2" gml:id="GEOMETRY_6d01913a-d7e7-493a-92b1-d9fedcad0d8e" srsName="urn:ogc:def:crs:EPSG::28992"><gml:exterior><gml:LinearRing><gml:posList>181149.583 456442.632 181161.463 456442.607 181174.373 456442.616 181185.310 456442.609 181185.368 456470.140 181170.945 456469.543 181150.120 456469.837 181150.009 456467.021 181149.693 456452.883 181149.583 456442.632</gml:posList></gml:LinearRing></gml:exterior></gml:Polygon></oz:begrenzingPerceel>
+        <oz:kadastraleGrootte>
+            <oz:TypeOppervlak>
+                <oz:waarde>967</oz:waarde>
+                <oz:soortGrootte>
+                    <oz:SoortGrootte>
+                        <t:code>1</t:code>
+                        <t:waarde>Vastgesteld</t:waarde>
+                    </oz:SoortGrootte>
+                </oz:soortGrootte>
+            </oz:TypeOppervlak>
+        </oz:kadastraleGrootte>
+        <oz:perceelnummerRotatie>0.0</oz:perceelnummerRotatie>
+        <oz:perceelnummerVerschuiving>
+            <oz:TypePerceelnummerVerschuiving>
+                <oz:deltaX>0.0</oz:deltaX>
+                <oz:deltaY>0.0</oz:deltaY>
+            </oz:TypePerceelnummerVerschuiving>
+        </oz:perceelnummerVerschuiving>
+        <oz:plaatscoordinaten><gml:Point xmlns:gml="http://www.opengis.net/gml/3.2" gml:id="GEOMETRY_1a6f26c1-c059-45b1-9ccf-35149c781e12" srsName="urn:ogc:def:crs:EPSG::28992"><gml:pos>181159.082 456453.946</gml:pos></gml:Point></oz:plaatscoordinaten>
+    </oz:Perceel>
+</kk:perceelMember>
+</kk:DKK>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:gmlsf="http://www.opengis.net/gmlsf/2.0"
+           xmlns:imf="http://www.imvertor.org/xsl/functions"
+           xmlns:imvert="http://www.imvertor.org/schema/system"
+           xmlns:math="http://www.w3.org/2005/xpath-functions/math"
+           xmlns:t="http://www.kadaster.nl/schemas/brkkadastralekaart/v5/imkad-typen/v20220601"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://www.kadaster.nl/schemas/brkkadastralekaart/v5/imkad-typen/v20220601"
+           elementFormDefault="qualified"
+           attributeFormDefault="unqualified"
+           version="5.0.0-2">
+   <xs:annotation>
+      <xs:appinfo source="http://www.imvertor.org/model-info/project">imkad</xs:appinfo>
+      <xs:appinfo source="http://www.imvertor.org/model-info/application">DKK-Product</xs:appinfo>
+      <xs:appinfo source="http://www.imvertor.org/model-info/release">20220601</xs:appinfo>
+      <xs:appinfo source="http://www.imvertor.org/model-info/version">5.0.0</xs:appinfo>
+      <xs:appinfo source="http://www.imvertor.org/model-info/phase">2</xs:appinfo>
+      <xs:appinfo source="http://www.imvertor.org/model-info/uri">http://www.kadaster.nl/schemas/brkkadastralekaart/v5/imkad-typen</xs:appinfo>
+      <xs:appinfo source="http://www.imvertor.org/model-info/generated">2023-04-05T13:19:27Z</xs:appinfo>
+      <xs:appinfo source="http://www.imvertor.org/xml-schema-info/file-location">dkk/imkad-typen/v20220601/DKK-Product_Typen_v5_0_0.xsd</xs:appinfo>
+      <xs:appinfo source="http://www.imvertor.org/xml-schema-info/generated">April 5, 2023 at 13:19:27</xs:appinfo>
+      <xs:appinfo source="http://www.imvertor.org/xml-schema-info/generator">1.67.1</xs:appinfo>
+      <xs:documentation source="http://www.imvertor.org/schema-info/file-location">dkk/imkad-typen/v20220601/DKK-Product_Typen_v5_0_0.xsd</xs:documentation>
+      <xs:documentation source="http://www.imvertor.org/schema-info/conversion">
+        This schema is based on an UML specification, which is transformed by the Imvertor software. Imvertor modules are in the public domain, see http://www.imvertor.org.
+    </xs:documentation>
+      <xs:documentation source="http://www.imvertor.org/model-info/technical-documentation">Definition: Dit package bevat alle typen die gemeenschappelijk zijn binnen verschillende packages.</xs:documentation>
+   </xs:annotation>
+   <xs:annotation>
+      <xs:appinfo source="http://schemas.opengis.net/gmlsfProfile/2.0/gmlsfLevels.xsd">
+         <gmlsf:ComplianceLevel>0</gmlsf:ComplianceLevel>
+      </xs:appinfo>
+   </xs:annotation>
+   <xs:simpleType name="BRKIdType">
+      <xs:annotation>
+         <xs:documentation source="http://www.imvertor.org/model-info/technical-documentation">Definition: BRK-ID is een datatype dat gebruikt wordt de universeel unieke identificatie van een object binnen een registratie.
+Explanation: De unieke identificatie wordt uitgedrukt als 1 string met als metadata het domein waarbinnen de identificatie uniek is. De unieke identificatie door het Kadaster toegekend. NL.IMKAD.KadastraalObject NL.IMKAD.Aantekening NL.IMKAD.AdresLocatie NL.IMKAD.KadastraleGrens NL.IMKAD.ZakelijkRecht NL.IMKAD.Mandeligheid NL.IMKAD.AppartementsrechtSplitsing NL.IMKAD.Tenaamstelling NL.IMKAD.GezamenlijkAandeel NL.IMKAD.Zekerheidsstelling NL.IMKAD.TIAStuk NL.IMKAD.Kadasterstuk NL.IMKAD.KadasterVerzoek NL.IMKAD.Stukdeel NL.IMKAD.Herverkaveling NL.IMKAD.Persoon NL.IMKAD.Erfpachtcanon NL.IMKAD.Nummerreservering NL.IMKAD.PubliekrechtelijkeBeperking NL.IMKAD.Kwaliteit Ten behoeve van speciale situaties, zoals het terug converteren naar een oudere modelversie, is er het mogelijk om tijdelijk een afwijkend patroon te gebruiken waarmee een aanvullende reeks identificaties kan worden gemaakt. Deze aanvulling wordt opgenomen tussen het domein en identificatienummer.</xs:documentation>
+      </xs:annotation>
+      <xs:restriction base="xs:string">
+         <xs:pattern value="[1-9][0-9]{0,14}|([A-Z0-9]{3,4})?\.[1-9][0-9]{0,14}"/>
+      </xs:restriction>
+   </xs:simpleType>
+   <xs:element name="Waardelijst" type="t:WaardelijstType">
+      <xs:annotation>
+         <xs:documentation source="http://www.imvertor.org/model-info/technical-documentation">Definition: Waardelijst is een samengesteld datatype voor het weergeven van een gegeven binnen een extern beheerde referentielijst.
+Explanation: Het datatype bestaat uit een code en een waarde. Bij attributen die van type Waardelijst zijn, wordt aangegeven welke referentielijst bedoeld is met de tagged value "data locatie". De waardelijsten worden gepubliceerd op: [https://developer.kadaster.nl/schemas/waardelijsten].</xs:documentation>
+      </xs:annotation>
+   </xs:element>
+   <xs:complexType name="WaardelijstType">
+      <xs:sequence>
+         <xs:element name="code" type="xs:string">
+            <xs:annotation>
+               <xs:documentation source="http://www.imvertor.org/model-info/technical-documentation">Definition: De code van deze waarde. De code is uniek binnen de Waardelijst en taalonafhankelijk.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element name="waarde" minOccurs="0" type="xs:string">
+            <xs:annotation>
+               <xs:documentation source="http://www.imvertor.org/model-info/technical-documentation">Definition: De waarde zoals aangetroffen in de Waardelijst. het moment waarop de waarde geassocieerd is met de meegeleverde code is onbepaald.
+Explanation: Het moment waarop de waarde geassocieerd is met de meegeleverde code is onbepaald.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="WaardelijstPropertyType">
+      <xs:sequence minOccurs="0">
+         <xs:element ref="t:Waardelijst"/>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema>

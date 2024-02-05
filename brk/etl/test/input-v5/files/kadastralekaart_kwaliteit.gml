@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kk:DKK
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:gml="http://www.opengis.net/gml/3.2"
+        xmlns:oz="http://www.kadaster.nl/schemas/brkkadastralekaart/v5/imkad-onroerendezaak/v20220601"
+        xmlns:h="http://www.kadaster.nl/schemas/brkkadastralekaart/v5/imkad-historie/v20220601"
+        xmlns:t="http://www.kadaster.nl/schemas/brkkadastralekaart/v5/imkad-typen/v20220601"
+        xmlns:ko="http://www.kadaster.nl/schemas/brkkadastralekaart/v5/imkad-kadastraalobject/v20220601"
+        xmlns:q="http://www.kadaster.nl/schemas/brkkadastralekaart/v5/imkad-kwaliteit/v20220601"
+        xmlns:kk="http://www.kadaster.nl/schemas/brkkadastralekaart/v5/stand/v20220601"
+        xsi:schemaLocation="http://www.kadaster.nl/schemas/brkkadastralekaart/v5/stand/v20220601 http://www.kadaster.nl/schemas/brkkadastralekaart/v5/xsd/dkk/stand/v20220601/DKK-Product_Stand_v5_0_0.xsd">
+<kk:kwaliteitMember>
+    <q:Kwaliteit gml:id="NL.IMKAD.Kwaliteit.140061677">
+        <h:historie>
+            <h:beginGeldigheid>2000-11-20T14:29:09+01:00</h:beginGeldigheid>
+            <h:tijdstipRegistratie>2000-11-20T14:29:09+01:00</h:tijdstipRegistratie>
+            <h:volgnummer>0</h:volgnummer>
+            <h:statusHistorie>
+                <h:StatusHistorie>
+                    <t:code>G</t:code>
+                    <t:waarde>Geldig</t:waarde>
+                </h:StatusHistorie>
+            </h:statusHistorie>
+        </h:historie>
+        <q:identificatie domein="NL.IMKAD.Kwaliteit">140061677</q:identificatie>
+        <q:classificatie>
+            <q:ElementEnKwaliteit>
+                <q:element>
+                    <q:ElementAanduiding>
+                        <t:code>1</t:code>
+                        <t:waarde>Grenslijn</t:waarde>
+                    </q:ElementAanduiding>
+                </q:element>
+                <q:kwaliteit>
+                    <q:Kwaliteitsklasse>
+                        <t:code>5</t:code>
+                        <t:waarde>E</t:waarde>
+                    </q:Kwaliteitsklasse>
+                </q:kwaliteit>
+            </q:ElementEnKwaliteit>
+        </q:classificatie>
+        <q:vanKadastraleGrens domein="NL.IMKAD.KadastraleGrens">140061677</q:vanKadastraleGrens>
+    </q:Kwaliteit>
+</kk:kwaliteitMember>
+<kk:kwaliteitMember>
+    <q:Kwaliteit gml:id="NL.IMKAD.Kwaliteit.140324572">
+        <h:historie>
+            <h:beginGeldigheid>2009-03-06T13:08:58+01:00</h:beginGeldigheid>
+            <h:tijdstipRegistratie>2009-03-06T13:08:58+01:00</h:tijdstipRegistratie>
+            <h:volgnummer>0</h:volgnummer>
+            <h:statusHistorie>
+                <h:StatusHistorie>
+                    <t:code>G</t:code>
+                    <t:waarde>Geldig</t:waarde>
+                </h:StatusHistorie>
+            </h:statusHistorie>
+        </h:historie>
+        <q:identificatie domein="NL.IMKAD.Kwaliteit">140324572</q:identificatie>
+        <q:classificatie>
+            <q:ElementEnKwaliteit>
+                <q:element>
+                    <q:ElementAanduiding>
+                        <t:code>1</t:code>
+                        <t:waarde>Grenslijn</t:waarde>
+                    </q:ElementAanduiding>
+                </q:element>
+                <q:kwaliteit>
+                    <q:Kwaliteitsklasse>
+                        <t:code>4</t:code>
+                        <t:waarde>D</t:waarde>
+                    </q:Kwaliteitsklasse>
+                </q:kwaliteit>
+            </q:ElementEnKwaliteit>
+        </q:classificatie>
+        <q:vanKadastraleGrens domein="NL.IMKAD.KadastraleGrens">140324572</q:vanKadastraleGrens>
+    </q:Kwaliteit>
+</kk:kwaliteitMember>
+<kk:kwaliteitMember>
+    <q:Kwaliteit gml:id="NL.IMKAD.Kwaliteit.140522649">
+        <h:historie>
+            <h:beginGeldigheid>2000-11-20T14:29:09+01:00</h:beginGeldigheid>
+            <h:tijdstipRegistratie>2000-11-20T14:29:09+01:00</h:tijdstipRegistratie>
+            <h:volgnummer>0</h:volgnummer>
+            <h:statusHistorie>
+                <h:StatusHistorie>
+                    <t:code>G</t:code>
+                    <t:waarde>Geldig</t:waarde>
+                </h:StatusHistorie>
+            </h:statusHistorie>
+        </h:historie>
+        <q:identificatie domein="NL.IMKAD.Kwaliteit">140522649</q:identificatie>
+        <q:classificatie>
+            <q:ElementEnKwaliteit>
+                <q:element>
+                    <q:ElementAanduiding>
+                        <t:code>1</t:code>
+                        <t:waarde>Grenslijn</t:waarde>
+                    </q:ElementAanduiding>
+                </q:element>
+                <q:kwaliteit>
+                    <q:Kwaliteitsklasse>
+                        <t:code>4</t:code>
+                        <t:waarde>D</t:waarde>
+                    </q:Kwaliteitsklasse>
+                </q:kwaliteit>
+            </q:ElementEnKwaliteit>
+        </q:classificatie>
+        <q:vanKadastraleGrens domein="NL.IMKAD.KadastraleGrens">140522649</q:vanKadastraleGrens>
+    </q:Kwaliteit>
+</kk:kwaliteitMember>
+<kk:kwaliteitMember>
+    <q:Kwaliteit gml:id="NL.IMKAD.Kwaliteit.140522653">
+        <h:historie>
+            <h:beginGeldigheid>2013-06-22T00:24:14+02:00</h:beginGeldigheid>
+            <h:tijdstipRegistratie>2013-06-22T00:24:14+02:00</h:tijdstipRegistratie>
+            <h:volgnummer>0</h:volgnummer>
+            <h:statusHistorie>
+                <h:StatusHistorie>
+                    <t:code>G</t:code>
+                    <t:waarde>Geldig</t:waarde>
+                </h:StatusHistorie>
+            </h:statusHistorie>
+        </h:historie>
+        <q:identificatie domein="NL.IMKAD.Kwaliteit">140522653</q:identificatie>
+        <q:classificatie>
+            <q:ElementEnKwaliteit>
+                <q:element>
+                    <q:ElementAanduiding>
+                        <t:code>1</t:code>
+                        <t:waarde>Grenslijn</t:waarde>
+                    </q:ElementAanduiding>
+                </q:element>
+                <q:kwaliteit>
+                    <q:Kwaliteitsklasse>
+                        <t:code>4</t:code>
+                        <t:waarde>D</t:waarde>
+                    </q:Kwaliteitsklasse>
+                </q:kwaliteit>
+            </q:ElementEnKwaliteit>
+        </q:classificatie>
+        <q:vanKadastraleGrens domein="NL.IMKAD.KadastraleGrens">140522653</q:vanKadastraleGrens>
+    </q:Kwaliteit>
+</kk:kwaliteitMember>
+<kk:kwaliteitMember>
+    <q:Kwaliteit gml:id="NL.IMKAD.Kwaliteit.140522654">
+        <h:historie>
+            <h:beginGeldigheid>2013-06-22T00:24:14+02:00</h:beginGeldigheid>
+            <h:tijdstipRegistratie>2013-06-22T00:24:14+02:00</h:tijdstipRegistratie>
+            <h:volgnummer>0</h:volgnummer>
+            <h:statusHistorie>
+                <h:StatusHistorie>
+                    <t:code>G</t:code>
+                    <t:waarde>Geldig</t:waarde>
+                </h:StatusHistorie>
+            </h:statusHistorie>
+        </h:historie>
+        <q:identificatie domein="NL.IMKAD.Kwaliteit">140522654</q:identificatie>
+        <q:classificatie>
+            <q:ElementEnKwaliteit>
+                <q:element>
+                    <q:ElementAanduiding>
+                        <t:code>1</t:code>
+                        <t:waarde>Grenslijn</t:waarde>
+                    </q:ElementAanduiding>
+                </q:element>
+                <q:kwaliteit>
+                    <q:Kwaliteitsklasse>
+                        <t:code>4</t:code>
+                        <t:waarde>D</t:waarde>
+                    </q:Kwaliteitsklasse>
+                </q:kwaliteit>
+            </q:ElementEnKwaliteit>
+        </q:classificatie>
+        <q:vanKadastraleGrens domein="NL.IMKAD.KadastraleGrens">140522654</q:vanKadastraleGrens>
+    </q:Kwaliteit>
+</kk:kwaliteitMember>
+<kk:kwaliteitMember>
+    <q:Kwaliteit gml:id="NL.IMKAD.Kwaliteit.140532640">
+        <h:historie>
+            <h:beginGeldigheid>2009-02-05T13:33:55+01:00</h:beginGeldigheid>
+            <h:tijdstipRegistratie>2009-02-05T13:33:55+01:00</h:tijdstipRegistratie>
+            <h:volgnummer>0</h:volgnummer>
+            <h:statusHistorie>
+                <h:StatusHistorie>
+                    <t:code>G</t:code>
+                    <t:waarde>Geldig</t:waarde>
+                </h:StatusHistorie>
+            </h:statusHistorie>
+        </h:historie>
+        <q:identificatie domein="NL.IMKAD.Kwaliteit">140532640</q:identificatie>
+        <q:classificatie>
+            <q:ElementEnKwaliteit>
+                <q:element>
+                    <q:ElementAanduiding>
+                        <t:code>1</t:code>
+                        <t:waarde>Grenslijn</t:waarde>
+                    </q:ElementAanduiding>
+                </q:element>
+                <q:kwaliteit>
+                    <q:Kwaliteitsklasse>
+                        <t:code>4</t:code>
+                        <t:waarde>D</t:waarde>
+                    </q:Kwaliteitsklasse>
+                </q:kwaliteit>
+            </q:ElementEnKwaliteit>
+        </q:classificatie>
+        <q:vanKadastraleGrens domein="NL.IMKAD.KadastraleGrens">140532640</q:vanKadastraleGrens>
+    </q:Kwaliteit>
+</kk:kwaliteitMember>
+<kk:kwaliteitMember>
+    <q:Kwaliteit gml:id="NL.IMKAD.Kwaliteit.140532643">
+        <h:historie>
+            <h:beginGeldigheid>2000-11-20T14:29:09+01:00</h:beginGeldigheid>
+            <h:tijdstipRegistratie>2000-11-20T14:29:09+01:00</h:tijdstipRegistratie>
+            <h:volgnummer>0</h:volgnummer>
+            <h:statusHistorie>
+                <h:StatusHistorie>
+                    <t:code>G</t:code>
+                    <t:waarde>Geldig</t:waarde>
+                </h:StatusHistorie>
+            </h:statusHistorie>
+        </h:historie>
+        <q:identificatie domein="NL.IMKAD.Kwaliteit">140532643</q:identificatie>
+        <q:classificatie>
+            <q:ElementEnKwaliteit>
+                <q:element>
+                    <q:ElementAanduiding>
+                        <t:code>1</t:code>
+                        <t:waarde>Grenslijn</t:waarde>
+                    </q:ElementAanduiding>
+                </q:element>
+                <q:kwaliteit>
+                    <q:Kwaliteitsklasse>
+                        <t:code>4</t:code>
+                        <t:waarde>D</t:waarde>
+                    </q:Kwaliteitsklasse>
+                </q:kwaliteit>
+            </q:ElementEnKwaliteit>
+        </q:classificatie>
+        <q:vanKadastraleGrens domein="NL.IMKAD.KadastraleGrens">140532643</q:vanKadastraleGrens>
+    </q:Kwaliteit>
+</kk:kwaliteitMember>
+<kk:kwaliteitMember>
+    <q:Kwaliteit gml:id="NL.IMKAD.Kwaliteit.140532685">
+        <h:historie>
+            <h:beginGeldigheid>2000-11-20T14:29:09+01:00</h:beginGeldigheid>
+            <h:tijdstipRegistratie>2000-11-20T14:29:09+01:00</h:tijdstipRegistratie>
+            <h:volgnummer>0</h:volgnummer>
+            <h:statusHistorie>
+                <h:StatusHistorie>
+                    <t:code>G</t:code>
+                    <t:waarde>Geldig</t:waarde>
+                </h:StatusHistorie>
+            </h:statusHistorie>
+        </h:historie>
+        <q:identificatie domein="NL.IMKAD.Kwaliteit">140532685</q:identificatie>
+        <q:classificatie>
+            <q:ElementEnKwaliteit>
+                <q:element>
+                    <q:ElementAanduiding>
+                        <t:code>1</t:code>
+                        <t:waarde>Grenslijn</t:waarde>
+                    </q:ElementAanduiding>
+                </q:element>
+                <q:kwaliteit>
+                    <q:Kwaliteitsklasse>
+                        <t:code>4</t:code>
+                        <t:waarde>D</t:waarde>
+                    </q:Kwaliteitsklasse>
+                </q:kwaliteit>
+            </q:ElementEnKwaliteit>
+        </q:classificatie>
+        <q:vanKadastraleGrens domein="NL.IMKAD.KadastraleGrens">140532685</q:vanKadastraleGrens>
+    </q:Kwaliteit>
+</kk:kwaliteitMember>
+</kk:DKK>

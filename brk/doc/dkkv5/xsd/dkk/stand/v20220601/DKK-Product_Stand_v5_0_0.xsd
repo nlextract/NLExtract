@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:gmlsf="http://www.opengis.net/gmlsf/2.0"
+           xmlns:imf="http://www.imvertor.org/xsl/functions"
+           xmlns:imvert="http://www.imvertor.org/schema/system"
+           xmlns:k="http://www.kadaster.nl/schemas/brkkadastralekaart/v5/imkad-kwaliteit/v20220601"
+           xmlns:math="http://www.w3.org/2005/xpath-functions/math"
+           xmlns:oz="http://www.kadaster.nl/schemas/brkkadastralekaart/v5/imkad-onroerendezaak/v20220601"
+           xmlns:s="http://www.kadaster.nl/schemas/brkkadastralekaart/v5/stand/v20220601"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://www.kadaster.nl/schemas/brkkadastralekaart/v5/stand/v20220601"
+           elementFormDefault="qualified"
+           attributeFormDefault="unqualified"
+           version="5.0.0-2">
+   <xs:annotation>
+      <xs:appinfo source="http://www.imvertor.org/model-info/project">imkad</xs:appinfo>
+      <xs:appinfo source="http://www.imvertor.org/model-info/application">DKK-Product</xs:appinfo>
+      <xs:appinfo source="http://www.imvertor.org/model-info/release">20220601</xs:appinfo>
+      <xs:appinfo source="http://www.imvertor.org/model-info/version">5.0.0</xs:appinfo>
+      <xs:appinfo source="http://www.imvertor.org/model-info/phase">2</xs:appinfo>
+      <xs:appinfo source="http://www.imvertor.org/model-info/uri">http://www.kadaster.nl/schemas/brkkadastralekaart/v5/stand</xs:appinfo>
+      <xs:appinfo source="http://www.imvertor.org/model-info/generated">2023-04-05T13:19:27Z</xs:appinfo>
+      <xs:appinfo source="http://www.imvertor.org/xml-schema-info/file-location">dkk/stand/v20220601/DKK-Product_Stand_v5_0_0.xsd</xs:appinfo>
+      <xs:appinfo source="http://www.imvertor.org/xml-schema-info/generated">April 5, 2023 at 13:19:27</xs:appinfo>
+      <xs:appinfo source="http://www.imvertor.org/xml-schema-info/generator">1.67.1</xs:appinfo>
+      <xs:documentation source="http://www.imvertor.org/schema-info/file-location">dkk/stand/v20220601/DKK-Product_Stand_v5_0_0.xsd</xs:documentation>
+      <xs:documentation source="http://www.imvertor.org/schema-info/conversion">
+        This schema is based on an UML specification, which is transformed by the Imvertor software. Imvertor modules are in the public domain, see http://www.imvertor.org.
+    </xs:documentation>
+      <xs:documentation source="http://www.imvertor.org/model-info/technical-documentation">Definition: De Stand representeert het DKK-deel van het Kadastrale kaart product, en bevat alle informatie over een bepaald kaartgebied qua Percelen, KadastraleGrenzen en de Kwaliteit van die KadastraleGrenzen.</xs:documentation>
+   </xs:annotation>
+   <xs:annotation>
+      <xs:appinfo source="http://schemas.opengis.net/gmlsfProfile/2.0/gmlsfLevels.xsd">
+         <gmlsf:ComplianceLevel>0</gmlsf:ComplianceLevel>
+      </xs:appinfo>
+   </xs:annotation>
+   <xs:import namespace="http://www.kadaster.nl/schemas/brkkadastralekaart/v5/imkad-onroerendezaak/v20220601"
+              schemaLocation="../../../dkk/imkad-onroerendezaak/v20220601/DKK-Product_OnroerendeZaak_v5_0_0.xsd"/>
+   <xs:import namespace="http://www.kadaster.nl/schemas/brkkadastralekaart/v5/imkad-kwaliteit/v20220601"
+              schemaLocation="../../../dkk/imkad-kwaliteit/v20220601/DKK-Product_Kwaliteit_v5_0_0.xsd"/>
+   <xs:element name="DKK" type="s:DKKType"/>
+   <xs:complexType name="DKKType">
+      <xs:sequence>
+         <xs:element minOccurs="0"
+                     maxOccurs="unbounded"
+                     name="perceelMember"
+                     nillable="false"
+                     type="oz:PerceelPropertyType">
+            <xs:annotation>
+               <xs:documentation source="http://www.imvertor.org/model-info/technical-documentation">Explanation: Een inhoudelijke toelichting op de toepassing van het informatie-element.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0"
+                     maxOccurs="unbounded"
+                     name="grensMember"
+                     nillable="false"
+                     type="oz:KadastraleGrensPropertyType">
+            <xs:annotation>
+               <xs:documentation source="http://www.imvertor.org/model-info/technical-documentation">Explanation: Een inhoudelijke toelichting op de toepassing van het informatie-element.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+         <xs:element minOccurs="0"
+                     maxOccurs="unbounded"
+                     name="kwaliteitMember"
+                     nillable="false"
+                     type="k:KwaliteitPropertyType">
+            <xs:annotation>
+               <xs:documentation source="http://www.imvertor.org/model-info/technical-documentation">Explanation: Een inhoudelijke toelichting op de toepassing van het informatie-element.</xs:documentation>
+            </xs:annotation>
+         </xs:element>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="DKKPropertyType">
+      <xs:sequence minOccurs="0">
+         <xs:element ref="s:DKK"/>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema>
