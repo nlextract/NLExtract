@@ -1,5 +1,5 @@
 # NLExtract - BRK - DKK
-BRK inlezen met [Stetl ETL framework](http://stetl.org).
+BRK inlezen met [Stetl ETL framework](https://stetl.org).
 
 door: Just van den Broecke en Frank Steggink
 
@@ -17,15 +17,15 @@ aanwezig zijn. Bij het klonen van de GitHub komt Stetl als volgt mee:
 Stetl hoeft niet apart geinstalleerd, alleen de Stetl-dependencies.
 
 Dependencies van Stetl installeren, zie
-http://www.stetl.org/en/latest/install.html
+https://stetl.org/en/latest/install.html
 
-Meer over Stetl: http://stetl.org
+Meer over Stetl: https://stetl.org
 
 ## Downloaden GML
 
-Met het hulpscript [download-brk.sh <doelmap>](download-brk.sh) kan de BRK-DKK eerst gedownload worden naar een doelmap.
+Met het hulpscript [download-brk.sh <doelmap>](download-brk.sh) kan de BRK-DKK eerst gedownload worden naar het doelbestand `dkk-gml-nl-nohist.zip`.
 
-Onder Windows: [download-brk.cmd <doelmap>](download-brk.cmd)
+Onder Windows: [download-brk.cmd <doelmap>](download-brk.cmd)   NEEDS FIXING!!!
 
 NB, soms zijn de gedownloade files 0 bytes. Oorzaak is vreemd HTTPS probleem bij PDOK vermoedelijk. Dit is
 ondervangen door het downloaden met wget in een loop uit te voeren en vervolgens met unzip de inhoud
@@ -51,11 +51,8 @@ Stetl configuratie, hoeft niet gewijzigd, alleen indien bijv andere output gewen
 
 Een aantal opties kunnen op 2 manieren vervangen worden:
 
-1- Impliciet: Overrule default opties (database params etc) met een eigen lokale file gebaseerd op
-je lokale hostnaam: ``options/<jouw host naam>.args``
-
-2- Expliciet op command line via  ``./etl.sh <mijn opties file>.args``
-                                  Windows: ``etl-brk.cmd <mijn opties file>.args``
+* Impliciet: Overrule default opties (database params etc) met een eigen lokale file gebaseerd op je lokale hostnaam: ``options/<jouw host naam>.args``
+* Expliciet: op command line via  ``./etl.sh <mijn opties file>.args`` Windows: ``etl-brk.cmd <mijn opties file>.args``
 
 Indien methode 2 gebruikt wordt, prevaleren de expliciete opties-file boven 1 en de default opties!
 
