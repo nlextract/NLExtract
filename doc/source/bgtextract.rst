@@ -57,7 +57,7 @@ Vind altijd de laatste versie op: https://github.com/nlextract/NLExtract/release
 Omdat NLExtract voortdurend in ontwikkeling is, kun je ook de actuele broncode, een `snapshot`, downloaden
 en op dezelfde manier gebruiken als een versie:
 
-- snapshot via git: git clone https://github.com/opengeogroep/NLExtract.git
+- snapshot via git: git clone https://github.com/nlextract/NLExtract.git
 - snapshot als .zip: https://github.com/nlextract/NLExtract/archive/master.zip
 
 Ontwerp

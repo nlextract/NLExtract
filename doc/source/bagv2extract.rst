@@ -87,7 +87,7 @@ BAG-Extract downloaden
 ----------------------
 
 - download NLExtract, zie laatste versie op: https://github.com/nlextract/NLExtract/releases. De nieuwste versie staat bovenaan: kies de "real-release" nl  extract zip.
-- of snapshot (huidige repo versie) via git: git clone http://github.com/opengeogroep/NLExtract.git
+- of snapshot (huidige repo versie) via git: git clone http://github.com/nlextract/NLExtract.git
 - of snapshot als .zip: https://github.com/nlextract/NLExtract/zipball/master
 - of via Docker: https://hub.docker.com/repository/docker/nlextract/nlextract/
 

@@ -34,11 +34,11 @@ om te zetten naar hanteerbare formaten, zoals PostGIS. Tevens bevat BRT-Extract 
 
 TOP-NL (v1.2) wordt via PDOK geleverd d.m.v. `OGC Download APIs <https://www.pdok.nl/ogc-apis/-/article/basisregistratie-topografie-brt-topnl>`_.
 
-Zie `Bestandswijzer_GML_TOP10NL_2012.pdf <https://github.com/nlextract/NLExtract/raw/master/TOP10nl/doc/Bestandswijzer_GML_TOP10NL_2012.pdf>`_
+Zie `Bestandswijzer_GML_TOP10NL_2012.pdf <https://github.com/nlextract/NLExtract/blob/master/brt/top10nl/doc/Bestandswijzer_GML_TOP10NL_2012.pdf>`_
 voor de kaartbladindeling.
 
 Er zijn 13 typen TOP10NL objecten. Zie voor de beschrijving van de structuur en verdere bijzonderheden voor de GML bestandsindeling in
-`BRT_Catalogus_Productspecificaties.pdf <https://github.com/nlextract/NLExtract/raw/master/TOP10nl/doc/1.2/BRT_Catalogus_Productspecificaties.pdf>`_ (nog gebaseerd op versie 1.1.1).
+`BRT_Catalogus_Productspecificaties.pdf <https://github.com/nlextract/NLExtract/blob/master/brt/top10nl/doc/1.2/BRT_Catalogus_Productspecificaties.pdf>`_ (nog gebaseerd op versie 1.1.1).
 
 TOP-NL downloaden
 -----------------
@@ -61,7 +61,7 @@ https://github.com/nlextract/NLExtract/releases. De nieuwste versie staat bovena
 Omdat NLExtract voortdurend in ontwikkeling is, kun je ook de actuele broncode, een `snapshot`, downloaden
 en op dezelfde manier gebruiken als een versie:
 
-- snapshot via git: git clone http://github.com/opengeogroep/NLExtract.git
+- snapshot via git: git clone https://github.com/nlextract/NLExtract.git
 - snapshot als .zip: https://github.com/nlextract/NLExtract/archive/master.zip
 
 BRT-Extract draaien

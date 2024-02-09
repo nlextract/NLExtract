@@ -103,7 +103,7 @@ else:
         author_email='justb4@gmail.com',
         maintainer='Just van den Broecke',
         maintainer_email='justb4@gmail.com',
-        url='http://github.com/opengeogroep/nlextract/bag',
+        url='http://github.com/nlextract/NLExtract/bag',
         # long_description=readme + "\n" + changes + "\n" + credits,
         long_description=readme,
         packages=find_packages(exclude=['test', 'build', 'dist', 'doc', 'style']),
