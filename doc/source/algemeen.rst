@@ -18,9 +18,10 @@ Waarom NLExtract ?
 Nederlandse overheidsinstellingen zoals Het Kadaster en Rijkswaterstaat stellen
 hun (geo) data meer en meer beschikbaar als Open Data. Bijvoorbeeld de BAG
 (Basisregistratie Adressen en Gebouwen, www.kadaster.nl/BAG) levert je alle
-adressen en gebouwen in Nederland met hun coordinaten. De Top10NL
-(www.kadaster.nl/top10nl) bevat gegevens voor de gehele topografie van
-Nederland, veel gedetailleerder dan Google Maps dat biedt.
+adressen en gebouwen in Nederland met hun coordinaten.
+De `BRT, bijv Top10NL <https://www.pdok.nl/introductie/-/article/basisregistratie-topografie-brt-topnl>`_
+bevat gegevens voor de gehele topografie van
+Nederland, op meerdere schalen, veel gedetailleerder dan Google Maps dat biedt.
 
 Dat is dus prachtig, want nu kan iedereen deze data zelf downloaden en naar eigen
 believen gebruiken...Ok, downloaden, maar dan ? Wat je op dit moment geleverd

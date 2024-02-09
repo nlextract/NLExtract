@@ -5,13 +5,14 @@
 Stetl-framework
 ***************
 
-NLExtract gaat steeds meer gebruik maken van de ETL framework Stetl, zie http://stetl.org.
+NLExtract maakt voor alle datasets gebruik van het ETL framework Stetl, zie https://stetl.org.
 Hierdoor hoeft niet meer per dataset een apart programma worden gemaakt.
 De volgende extract-tools maken gebruik van het Stetl-framework:
 
-* :doc:`top10extract`
+* :doc:`bagv2extract`
 * :doc:`bgtextract`
 * :doc:`brkextract`
+* :doc:`brtextract`
 
 Stetl maakt i.h.a. gebruik van Python voor alle scripts. De Python-scripts voor de extract-tools die gebruik maken van het Stetl-framework roepen `native` tools aan:
 

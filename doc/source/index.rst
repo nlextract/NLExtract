@@ -25,9 +25,9 @@ Inhoud:
    services.rst
    bagextract.rst
    bagv2extract.rst
-   top10extract.rst
    bgtextract.rst
    brkextract.rst
+   brtextract.rst
    stetl-framework.rst
    instructie.rst
    links.rst
