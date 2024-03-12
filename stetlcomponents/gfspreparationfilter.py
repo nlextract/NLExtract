@@ -116,6 +116,16 @@ $featurecounts
 
         # TODO: consider using a Stetl chain for these steps
 
+        # Generate name of GFS file and remove an eventual old version
+        if self.output_gfs is not None:
+            gfs_path = self.output_gfs
+        else:
+            file_ext = os.path.splitext(input_gml)
+            gfs_path = file_ext[0] + '.gfs'
+
+        if os.path.exists(gfs_path):
+            os.remove(gfs_path)
+
         # Steps:
         # 1. Call ogrinfo and capture its output.
         log.info('calling ogrinfo')
@@ -136,12 +146,6 @@ $featurecounts
 
         # 5. Save the output_gfs.
         log.info('writing output GFS')
-
-        if self.output_gfs is not None:
-            gfs_path = self.output_gfs
-        else:
-            file_ext = os.path.splitext(input_gml)
-            gfs_path = file_ext[0] + '.gfs'
 
         with open(gfs_path, 'w') as f:
             f.write(result)
