@@ -306,10 +306,11 @@ class Processor:
             #            </v202:LVC-Extract>
             node = stripNS(node)
             # Probeer BAG extract datum uit XML te vinden
-            extract_datum = node.xpath("//LVC-Extract/StandTechnischeDatum/text()")
-            if len(extract_datum) > 0:
-                # Gevonden !
-                extract_datum = str(extract_datum[0])
+            if len(node.xpath("//LVC-Extract/StandTechnischeDatum/text()")) > 0:
+                extract_datum = str(node.xpath("//LVC-Extract/StandTechnischeDatum/text()")[0])
+            elif len(node.xpath("//MUT-Extract/Mutatieperiode/MutatiedatumTot/text()")) > 0:
+                datumstring = str(node.xpath("//MUT-Extract/Mutatieperiode/MutatiedatumTot/text()")[0])
+                extract_datum = datumstring[0:4] + datumstring[5:7] + datumstring[8:10]
             else:
                 extract_datum = "onbekend"
 
