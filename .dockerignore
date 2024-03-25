@@ -1,8 +1,5 @@
 .git
-externals/stetl/.git
-externals/stetl/examples/**/*
-externals/stetl/docs/**/*
-externals/stetl/tests/**/*
-**/*.zip
-doc/*/**
-*/doc/**
+externals/stetl/examples
+externals/stetl/docs
+externals/stetl/tests
+doc/**/*
