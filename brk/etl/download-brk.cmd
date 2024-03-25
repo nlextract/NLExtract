@@ -7,36 +7,23 @@ if "%1"=="" (
     goto :eof
 )
 
-:: ID's van 32x32 km gebieden om de BRK te downloaden. Let op, de ID's mogen geen voorloopnullen bevatten.
-set blocks=39,44,45,47,48,50,51,54,55,56,57,58,59,60,61,62,63,74,75,96,97,98,99,104,105,106,107,110,111,144,145,147,148,149,150,151,153,155,156,157,158,159,180,181,183,192,193,194,195,196,197,198,199,200,201,202,203,204,205,206,207,224,225,226,227,228,229,230
-
-:: Basis URL
-set base_url="https://www.pdok.nl/download/service/extract.zip?extractname=kadastralekaartv3^&extractset=gml^&excludedtypes=undefined^&history=false^&tiles=%%7B%%22layers%%22%%3A%%5B%%7B%%22aggregateLevel%%22%%3A4%%2C%%22codes%%22%%3A%%5B{block}%%5D%%7D%%5D%%7D"
 
 :: Download
 set doel_dir=%1
 
-:: Ga door alle blokken
-:download
-for /f "tokens=1,* delims=," %%i in ("%blocks%") do set "block=%%i" &set "blocks=%%j"
-
-set target_file="%doel_dir%\brk_%block%.zip"
-set target_url=%base_url:{block}=!block!%
+:: Download URL
+set download_url="https://api.pdok.nl/kadaster/kadastralekaart/download/v5_0/full/predefined/kadastralekaart-gml-nl-nohist.zip"
+set target_file="%doel_dir%\dkk-gml-nl-nohist.zip"
 
 :download_inner
 :: Haal bestand op
-echo Downloading blok %block% ...
+echo Downloading BRK-DKK van %download_url% naar %target_file% ...
 del /f "%target_file%" >nul 2>&1
-wget -O "%target_file%" --no-check-certificate %target_url%
+wget -O "%target_file%" --no-check-certificate %download_url%
 
 :: Controleer of het ZIP-bestand geopend kan worden
 unzip -l %target_file%
 if errorlevel 1 goto download_inner
-
-:: Bestand is gedownload, ga door met het volgende bestand
-echo Download blok %block% OK!
-echo.
-if not "%blocks%"=="" goto download
 
 :: Het downloaden is gereed
 echo Klaar, bestanden in %doel_dir%!

@@ -14,11 +14,14 @@ if "%STETL_HOME%"=="" (
     set STETL_HOME=../../externals/stetl
 )
 
+set NLX_HOME=../..
+set BGT_HOME=../../bgt/etl
+
 :: Nodig voor imports
 if "%PYTHONPATH%"=="" (
-    set PYTHONPATH=%STETL_HOME%
+    set PYTHONPATH=%BGT_HOME%;%NLX_HOME%;%STETL_HOME%
 ) else (
-    set PYTHONPATH=%STETL_HOME%;%PYTHONPATH%
+    set PYTHONPATH==%BGT_HOME%;%NLX_HOME%;%STETL_HOME%;%PYTHONPATH%
 )
 
 :: Default argumenten/opties

@@ -12,19 +12,18 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 pushd $DIR >/dev/null
 
 NLX_HOME=../..
+BGT_HOME=../../bgt/etl
 
 # Gebruik Stetl meegeleverd met NLExtract (kan in theorie ook Stetl via pip install stetl zijn)
 if [ -z "$STETL_HOME" ]; then
   STETL_HOME=../../externals/stetl
 fi
 
-BGT_HOME=../../bgt/etl
-
 # Nodig voor imports
 if [ -z "$PYTHONPATH" ]; then
-  export PYTHONPATH=$STETL_HOME:${BGT_HOME}
+  export PYTHONPATH=$STETL_HOME:$BGT_HOME:$NLX_HOME:.
 else
-  export PYTHONPATH=$STETL_HOME:${BGT_HOME}:$PYTHONPATH
+  export PYTHONPATH=$STETL_HOME:$BGT_HOME:$NLX_HOME:.:$PYTHONPATH
 fi
 
 # Default arguments/options
