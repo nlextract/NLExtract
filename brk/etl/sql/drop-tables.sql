@@ -3,10 +3,11 @@
 
 SET search_path={schema},public;
 
-DROP TABLE IF EXISTS    pand;
-DROP TABLE IF EXISTS    pand_nummeraanduiding;
-DROP TABLE IF EXISTS    openbareruimtelabel;
-DROP TABLE IF EXISTS    kadastralegrens;
-DROP TABLE IF EXISTS    perceel;
+DROP TABLE IF EXISTS    kwaliteit CASCADE;
+DROP TABLE IF EXISTS    pand CASCADE;
+DROP TABLE IF EXISTS    pand_nummeraanduiding CASCADE;
+DROP TABLE IF EXISTS    openbareruimtelabel CASCADE;
+DROP TABLE IF EXISTS    kadastralegrens CASCADE;
+DROP TABLE IF EXISTS    perceel CASCADE;
 
 SET search_path="$user",public;
