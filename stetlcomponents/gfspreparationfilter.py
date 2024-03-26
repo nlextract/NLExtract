@@ -156,7 +156,7 @@ $featurecounts
         return packet
 
     def execute_ogrinfo(self, gml_file):
-        ogrinfo_cmd = 'ogrinfo -ro -al -so %s' % gml_file
+        ogrinfo_cmd = 'ogrinfo --config GML_SRS_DIMENSION_IF_MISSING 2 -ro -al -so %s' % gml_file
 
         use_shell = True
         if os.name == 'nt':
