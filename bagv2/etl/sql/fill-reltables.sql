@@ -4,6 +4,8 @@
 -- Just van den Broecke 2021
 --
 
+BEGIN;
+TRUNCATE TABLE verblijfsobjectpand;
 -- N-M relation VBO-PND
 INSERT INTO verblijfsobjectpand (
      identificatie, aanduidingRecordInactief, tijdstipinactief,
@@ -29,7 +31,10 @@ FROM
         verblijfsobjectStatus,
         UNNEST(gerelateerdepanden) as gerelateerdpand
     FROM verblijfsobject) vbo;
+COMMIT;
 
+BEGIN;
+TRUNCATE TABLE verblijfsobjectgebruiksdoel;
 -- Multiple VBO gebruiksdoelen.
 INSERT INTO verblijfsobjectgebruiksdoel (
      identificatie, aanduidingRecordInactief, tijdstipinactief,
@@ -55,7 +60,10 @@ FROM
         verblijfsobjectStatus,
         UNNEST(gebruiksdoelverblijfsobject)::gebruiksdoelverblijfsobject as gebruiksdoelverblijfsobject
     FROM verblijfsobject) vbo;
+COMMIT;
 
+BEGIN;
+TRUNCATE TABLE adresseerbaarobjectnevenadres;
 -- Vul adresseerbaarobjectnevenadres uit VBO
 -- Let op de ARRAY UNNEST om nevenadressen uit te splitsen naar rows.
 INSERT INTO adresseerbaarobjectnevenadres (
@@ -84,7 +92,7 @@ INSERT INTO adresseerbaarobjectnevenadres (
     vbo.tijdstipeindregistratielv,
     vbo.tijdstipinactieflv,
     vbo.tijdstipnietbaglv,
-         
+
     vbo.geopunt
 FROM
     (SELECT
@@ -142,7 +150,6 @@ INSERT INTO adresseerbaarobjectnevenadres (
     FROM  ligplaats) lig
 WHERE nevenadres IS NOT NULL;
 
-
 -- Vul adresseerbaarobjectnevenadres uit STA
 -- Let op de ARRAY UNNEST om nevenadressen uit te splitsen naar rows.
 INSERT INTO adresseerbaarobjectnevenadres (
@@ -185,6 +192,4 @@ INSERT INTO adresseerbaarobjectnevenadres (
         tijdstipinactieflv, tijdstipnietbaglv, geovlak
     FROM  standplaats) sta
 WHERE nevenadres IS NOT NULL;
-
--- select identificatie, nevenadres, hoofdadres,typeadresseerbaarobject, begindatumTijdvakGeldigheid, einddatumTijdvakGeldigheid from adresseerbaarobjectnevenadres;
-
+COMMIT;
