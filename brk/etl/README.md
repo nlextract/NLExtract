@@ -1,7 +1,7 @@
 # NLExtract - BRK - DKK
 BRK inlezen met [Stetl ETL framework](https://stetl.org).
 
-door: Just van den Broecke en Frank Steggink
+door: Just van den Broecke en Frank Steggink - update 2024
 
 Deze map bevat de ETL configuratie en commando om via [Stetl](http://stetl.org)
 de BRK (Digitale Kadastrale Kaart, BRK-DKK) vanuit de gezipte
@@ -23,9 +23,10 @@ Meer over Stetl: https://stetl.org
 
 ## Downloaden GML
 
-Met het hulpscript [download-brk.sh <doelmap>](download-brk.sh) kan de BRK-DKK eerst gedownload worden naar het doelbestand `dkk-gml-nl-nohist.zip`.
+Met het hulpscript [download-brk.sh](download-brk.sh) kan de BRK-DKK 
+eerst gedownload worden naar het doelbestand `dkk-gml-nl-nohist.zip`.
 
-Onder Windows: [download-brk.cmd <doelmap>](download-brk.cmd)   NEEDS FIXING!!!
+Onder Windows: [download-brk.cmd <doelmap>](download-brk.cmd)   naar `doelmap/dkk-gml-nl-nohist.zip`
 
 NB, soms zijn de gedownloade files 0 bytes. Oorzaak is vreemd HTTPS probleem bij PDOK vermoedelijk. Dit is
 ondervangen door het downloaden met wget in een loop uit te voeren en vervolgens met unzip de inhoud
