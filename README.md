@@ -72,9 +72,8 @@ converteren en te visualiseren.
 
 De GitHub hier bevat puur de NLExtract-broncode dus is in de eerste plaats
 gericht op ontwikkelaars. Wil je als ontwikkelaar meedoen ? Graag !
-Laat ons weten, bijv. via info@opengeogroep.nl. Vooral zoeken we nog
+Laat ons weten. Vooral zoeken we nog
 Windows-experts zodat het op dat platform ook goed gaat werken. Wil je
-nieuwe zaken zien of vind je fouten ? Gebruik de "issues" link hierboven.
+nieuwe zaken zien of vind je fouten ? Gebruik de "issues" link hierboven of doe mee in 
+de NLExtract Discussies: https://github.com/nlextract/NLExtract/discussions/.
 
-
-Join the chat at https://gitter.im/nlextract/NLExtract

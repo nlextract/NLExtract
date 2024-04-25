@@ -8,8 +8,19 @@ v1.6.0 - geplend
 
 Leftovers van vorige versies. Versie nummer nog te bepalen.
 
-Zie de Milestone voor deze versie:
-https://github.com/nlextract/NLExtract/milestone/15
+Zie de Milestone voor deeze versie:
+https://github.com/nlextract/NLExtract/milestone/19
+
+v1.5.5 - 25 apr 2024
+
+* Fixes op 1.5.4
+* BRK-DKK: ETL upgrade v4 naar v5 en GfsPreparationFilter tbv optimalisatie.
+* Verbeterde/moderne Dockerfile gebaseerd op osgeo/gdal:ubuntu-small-3.8.4 image (Ubuntu 22.04 LTS)
+* BGT: BGT Lean SQL script voor slankere BGT oa geen "bogen", 1 geometrie per tabel, geen overhead kolommen
+* BAG: CBS Gemeente provincie koppeling 2024
+
+Zie de closed issues voor deze versie:
+https://github.com/nlextract/NLExtract/milestone/15?closed=1
 
 v1.5.4 - 9 jan 2023
 
