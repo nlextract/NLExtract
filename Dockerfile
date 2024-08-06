@@ -1,4 +1,4 @@
-FROM ghcr.io/osgeo/gdal:ubuntu-small-3.8.4
+FROM ghcr.io/osgeo/gdal:ubuntu-small-3.8.5
 
 LABEL maintainer="Just van den Broecke <justb4@gmail.com>"
 
