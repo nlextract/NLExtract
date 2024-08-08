@@ -4,12 +4,16 @@ via de link: https://github.com/nlextract/NLExtract/releases.
 De nieuwste versie staat bovenaan: kies de "real-release" nlextract zip.
 De rest ligt nog open afhankelijk van wensen gebruikers en natuurlijk eventuele bugs.
 
-v1.6.0 - geplend
+v1.5.6 - 8 aug 2024
 
-Leftovers van vorige versies. Versie nummer nog te bepalen.
+Leftovers van vorige versies.
 
-Zie de Milestone voor deeze versie:
+Zie de Milestone voor deze versie:
 https://github.com/nlextract/NLExtract/milestone/19
+
+vnl upgrades:
+- Stetl submodule,
+- Dockerfile: Ubuntu 24.04, Python 3.12, GDAL 3.9.1
 
 v1.5.5 - 25 apr 2024
 

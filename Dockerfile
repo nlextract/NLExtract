@@ -1,4 +1,4 @@
-FROM ghcr.io/osgeo/gdal:ubuntu-small-3.8.5
+FROM ghcr.io/osgeo/gdal:ubuntu-small-3.9.1
 
 LABEL maintainer="Just van den Broecke <justb4@gmail.com>"
 
@@ -19,7 +19,7 @@ ENV TZ=${TIMEZONE} \
 RUN \
 	apt-get update && apt-get --no-install-recommends install -y gnupg ca-certificates \
     && curl https://www.postgresql.org/media/keys/ACCC4CF8.asc | gpg --dearmor | tee /etc/apt/trusted.gpg.d/apt.postgresql.org.gpg >/dev/null \
-	&& sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ jammy-pgdg main" >> /etc/apt/sources.list.d/postgresql.list' \
+	&& sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ noble-pgdg main" >> /etc/apt/sources.list.d/postgresql.list' \
 	&& apt-get -y update \
 	&& apt-get --no-install-recommends install -y ${DEB_PACKAGES} \
 	&& cp /usr/share/zoneinfo/${TZ} /etc/localtime \
