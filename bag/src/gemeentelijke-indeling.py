@@ -250,7 +250,7 @@ def end_gemeente(args, gemeentelijke_indeling, provincie_map):
     provinciecode = strip_leading_zeros(args.prov)
     provincienaam = args.prov
 
-    if not re.search("^\d+$", args.prov) and args.prov in provincie_map['name2code']:
+    if not re.search(r'^\d+$', args.prov) and args.prov in provincie_map['name2code']:
         provinciecode = provincie_map['name2code'][args.prov]
         provincienaam = provincie_map['code2name'][provinciecode]
 
@@ -279,7 +279,7 @@ def add_gemeente(args, gemeentelijke_indeling, provincie_map):
     provinciecode = strip_leading_zeros(args.prov)
     provincienaam = args.prov
 
-    if not re.search("^\d+$", args.prov) and args.prov in provincie_map['name2code']:
+    if not re.search(r'^\d+$', args.prov) and args.prov in provincie_map['name2code']:
         provinciecode = provincie_map['name2code'][args.prov]
         provincienaam = provincie_map['code2name'][provinciecode]
 
@@ -628,7 +628,7 @@ def add_cbs_data(args, gemeentelijke_indeling, cbs_data):
 
 
 def compare_datum_and_year(args, datum, year):
-    match = re.match("^(\d{4})-(\d{2})-(\d{2})$", datum)
+    match = re.match(r'^(\d{4})-(\d{2})-(\d{2})$', datum)
     if match:
         datum_year = match.group(1)
         datum_month = match.group(2)
@@ -909,7 +909,7 @@ def main():
         parser.error('Missing required option: --output')
 
     # Sanity checks
-    if args.date and not re.search("^\d{4}-\d{2}-\d{2}$", args.date):
+    if args.date and not re.search(r'^\d{4}-\d{2}-\d{2}$', args.date):
         parser.error('Invalid date format, use YYYY-MM-DD')
 
     # Use the same file for input and output by default
