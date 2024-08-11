@@ -166,7 +166,7 @@ $featurecounts
         return result
 
     def parse_ogrinfo_output(self, output_ogrinfo):
-        pattern = re.compile(r'Layer name: (\w+:)?(?P<elemtype>\w+).*?Feature Count: (?P<featurecount>[0-9]+)', re.S)
+        pattern = re.compile(rb'Layer name: (\w+:)?(?P<elemtype>\w+).*?Feature Count: (?P<featurecount>[0-9]+)', re.S)
         matches = pattern.findall(output_ogrinfo)
         feature_counts = dict([(m[1], int(m[2])) for m in matches])
 
