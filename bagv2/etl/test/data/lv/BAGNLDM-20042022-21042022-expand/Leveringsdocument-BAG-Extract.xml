@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xb:BAG-Extract-Levering xmlns:xb="http://www.kadaster.nl/schemas/lvbag/extract-levering/v20200601" xmlns:selecties-extract="http://www.kadaster.nl/schemas/lvbag/extract-selecties/v20200601">
+    <xb:SelectieGegevens>
+        <selecties-extract:MUT-Extract>
+            <selecties-extract:StandTechnischeDatum>2022-04-21</selecties-extract:StandTechnischeDatum>
+            <selecties-extract:Mutatieperiode>
+                <selecties-extract:MutatiedatumVanaf>2022-04-20</selecties-extract:MutatiedatumVanaf>
+                <selecties-extract:MutatiedatumTot>2022-04-21</selecties-extract:MutatiedatumTot>
+            </selecties-extract:Mutatieperiode>
+        </selecties-extract:MUT-Extract>
+        <selecties-extract:Gebied-Registratief>
+            <selecties-extract:Gebied-NLD/>
+        </selecties-extract:Gebied-Registratief>
+    </xb:SelectieGegevens>
+    <xb:SchemaInfo>
+        <xb:naam>BagvsExtractDeelbestandMutatieLvc-2.1.0.xsd</xb:naam>
+        <xb:versie>20200601</xb:versie>
+    </xb:SchemaInfo>
+</xb:BAG-Extract-Levering>
