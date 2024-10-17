@@ -409,6 +409,9 @@ def parse_xslx(args):
     cbs_data = hash()
 
     for sheet in workbook:
+        if sheet.title == 'Toelichting':
+            continue
+
         value = sheet.cell(row=1, column=1).value
 
         if not value:
@@ -603,6 +606,14 @@ def add_cbs_data(args, gemeentelijke_indeling, cbs_data):
 
                 indeling['provincie'][provinciecode]['gemeente'][gemeentecode]['attributes']['einddatum'] = einddatum
 
+            # Update naam if not the same as last year
+            elif gemeentenaam != cbs_data[provinciecode][gemeentecode]['gemeentenaam']:
+                gemeentenaam = cbs_data[provinciecode][gemeentecode]['gemeentenaam']
+
+                if args.verbose:
+                    print("Updating naam for gemeente %s (%s) [%s|%s] in provincie %s (%s)" % (gemeentenaam, gemeentecode, begindatum, einddatum, provincienaam, provinciecode))
+
+                indeling['provincie'][provinciecode]['gemeente'][gemeentecode]['attributes']['naam'] = gemeentenaam
         for gemeentecode in sorted(cbs_data[provinciecode], key=int):
             # Add municipalities created this year
             if gemeentecode not in indeling['provincie'][provinciecode]['gemeente']:

@@ -135,7 +135,7 @@ provinciecode;provincienaam;gemeentecode;gemeentenaam;begindatum;einddatum
 23;Overijssel;0161;Hasselt;1970-01-01;2001-01-01
 23;Overijssel;0162;Heino;1970-01-01;2001-01-01
 23;Overijssel;0163;Hellendoorn;1970-01-01;
-23;Overijssel;0164;Hengelo;1970-01-01;
+23;Overijssel;0164;Hengelo (O.);1970-01-01;
 23;Overijssel;0165;Holten;1970-01-01;2001-01-01
 23;Overijssel;0166;Kampen;1970-01-01;
 23;Overijssel;0168;Losser;1970-01-01;
@@ -351,7 +351,7 @@ provinciecode;provincienaam;gemeentecode;gemeentenaam;begindatum;einddatum
 27;Noord-Holland;0412;Niedorp;1970-08-01;2012-01-01
 27;Noord-Holland;0415;Landsmeer;1970-01-01;
 27;Noord-Holland;0416;Langedijk;1941-08-01;2022-01-01
-27;Noord-Holland;0417;Laren;1970-01-01;
+27;Noord-Holland;0417;Laren (NH.);1970-01-01;
 27;Noord-Holland;0418;Limmen;1970-01-01;2002-01-01
 27;Noord-Holland;0419;Marken;1970-01-01;1991-01-01
 27;Noord-Holland;0420;Medemblik;1970-01-01;
@@ -461,7 +461,7 @@ provinciecode;provincienaam;gemeentecode;gemeentenaam;begindatum;einddatum
 28;Zuid-Holland;0600;Rozenburg;1970-01-01;2010-03-18
 28;Zuid-Holland;0601;Rijnsaterwoude;1970-01-01;1991-01-01
 28;Zuid-Holland;0602;Rijnsburg;1970-01-01;2006-01-01
-28;Zuid-Holland;0603;Rijswijk;1970-01-01;
+28;Zuid-Holland;0603;Rijswijk (ZH.);1970-01-01;
 28;Zuid-Holland;0604;Sassenheim;1970-01-01;2006-01-01
 28;Zuid-Holland;0606;Schiedam;1970-01-01;
 28;Zuid-Holland;0607;Schipluiden;1970-01-01;2004-01-01
@@ -531,7 +531,7 @@ provinciecode;provincienaam;gemeentecode;gemeentenaam;begindatum;einddatum
 29;Zeeland;0678;Kapelle;1970-01-01;
 29;Zeeland;0682;Kortgene;1970-01-01;1995-01-01
 29;Zeeland;0686;Mariekerke;1966-07-01;1997-01-01
-29;Zeeland;0687;Middelburg;1970-01-01;
+29;Zeeland;0687;Middelburg (Z.);1970-01-01;
 29;Zeeland;0688;Middenschouwen;1961-01-01;1997-01-01
 29;Zeeland;0692;Oostburg;1970-01-01;2003-01-01
 29;Zeeland;0703;Reimerswaal;1970-01-01;
@@ -711,7 +711,7 @@ provinciecode;provincienaam;gemeentecode;gemeentenaam;begindatum;einddatum
 31;Limburg;0885;Arcen en Velden;1970-01-01;2010-01-01
 31;Limburg;0886;Baexem;1970-01-01;1991-01-01
 31;Limburg;0887;Beegden;1970-01-01;1991-01-01
-31;Limburg;0888;Beek;1970-01-01;
+31;Limburg;0888;Beek (L.);1970-01-01;
 31;Limburg;0889;Beesel;1970-01-01;
 31;Limburg;0890;Belfeld;1970-01-01;2001-01-01
 31;Limburg;0893;Bergen (L.);1970-01-01;
@@ -758,7 +758,7 @@ provinciecode;provincienaam;gemeentecode;gemeentenaam;begindatum;einddatum
 31;Limburg;0965;Simpelveld;1970-01-01;
 31;Limburg;0967;Sint Odilienberg;1970-01-01;1991-01-01
 31;Limburg;0968;Sittard;1970-01-01;2001-01-01
-31;Limburg;0971;Stein;1970-01-01;
+31;Limburg;0971;Stein (L.);1970-01-01;
 31;Limburg;0972;Stevensweert;1970-01-01;1991-01-01
 31;Limburg;0973;Stramproy;1970-01-01;1998-01-01
 31;Limburg;0974;Susteren;1970-01-01;2003-01-01
