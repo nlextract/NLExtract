@@ -4,6 +4,7 @@
 
 # INPUT: gml files, point to directory or file(s) pattern
 bag_input_file=test/data/lv/BAGNLDL-15092020-small.zip
+bag_mutations_input_file=test/data/lv/BAGNLDM-08042022-09042022.zip
 bag_file_ext=zip
 
 # OUTPUT: PostGIS settings

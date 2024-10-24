@@ -6,7 +6,7 @@
 DROP TABLE IF EXISTS nlx_bag_info CASCADE;
 CREATE TABLE nlx_bag_info (
   gid serial,
-  tijdstempel timestamptz default current_timestamp,
+  tijdstempel timestamp default current_timestamp,
   sleutel character varying (25),
   waarde text
 );

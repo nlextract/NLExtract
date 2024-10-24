@@ -9,49 +9,52 @@
 -- Author: Just van den Broecke
 
 -- Common - for v1 compat not used!
--- DROP TYPE IF EXISTS statusNaamgeving  CASCADE;
--- CREATE TYPE statusNaamgeving AS ENUM ('Naamgeving uitgegeven', 'Naamgeving ingetrokken');
+DROP TYPE IF EXISTS StatusNaamgeving  CASCADE;
+CREATE TYPE StatusNaamgeving AS ENUM ('Naamgeving uitgegeven', 'Naamgeving ingetrokken');
+
+DROP TYPE IF EXISTS StatusPlaats  CASCADE;
+CREATE TYPE StatusPlaats AS ENUM ('Plaats aangewezen', 'Plaats ingetrokken');
 
 -- LIG
 DROP TABLE IF EXISTS ligplaats CASCADE;
-DROP TYPE IF EXISTS ligplaatsStatus  CASCADE;
-CREATE TYPE ligplaatsStatus AS ENUM ('Plaats aangewezen', 'Plaats ingetrokken');
+-- DROP TYPE IF EXISTS ligplaatsStatus  CASCADE;
+-- CREATE TYPE ligplaatsStatus AS ENUM ('Plaats aangewezen', 'Plaats ingetrokken');
 
-CREATE TABLE ligplaats
-(
-    gid serial,
-    identificatie character varying(16),
-
-    hoofdadresnummeraanduidingref character varying(16),
-    nevenadresnummeraanduidingref character varying(16) ARRAY,
-    status ligplaatsStatus,
-
-    geconstateerd boolean,
-    documentdatum date,
-    documentnummer character varying(40),
-    voorkomenidentificatie integer,
-    begingeldigheid timestamp with time zone,
-    eindgeldigheid timestamp with time zone,
-    tijdstipregistratie timestamp with time zone,
-    eindregistratie timestamp with time zone,
-    tijdstipinactief timestamp with time zone,
-    tijdstipregistratielv timestamp with time zone,
-    tijdstipeindregistratielv timestamp with time zone,
-    tijdstipinactieflv timestamp with time zone,
-    tijdstipnietbaglv timestamp with time zone,
-
-    geovlak geometry(Polygon, 28992),
-
-    PRIMARY KEY (gid)
-)
-;
+-- CREATE TABLE ligplaats
+-- (
+--     gid serial,
+--     identificatie character varying(16),
+--
+--     hoofdadresnummeraanduidingref character varying(16),
+--     nevenadresnummeraanduidingref character varying(16) ARRAY,
+--     status StatusPlaats,
+--
+--     geconstateerd boolean,
+--     documentdatum date,
+--     documentnummer character varying(40),
+--     voorkomenidentificatie integer,
+--     begingeldigheid timestamp without time zone,
+--     eindgeldigheid timestamp without time zone,
+--     tijdstipregistratie timestamp without time zone,
+--     eindregistratie timestamp without time zone,
+--     tijdstipinactief timestamp without time zone,
+--     tijdstipregistratielv timestamp without time zone,
+--     tijdstipeindregistratielv timestamp without time zone,
+--     tijdstipinactieflv timestamp without time zone,
+--     tijdstipnietbaglv timestamp without time zone,
+--
+--     geovlak geometry(Polygon, 28992),
+--
+--     PRIMARY KEY (gid)
+-- )
+-- ;
 
 -- NUM
 DROP TABLE IF EXISTS nummeraanduiding CASCADE;
-DROP TYPE IF EXISTS nummeraanduidingStatus  CASCADE;
-CREATE TYPE nummeraanduidingStatus AS ENUM ('Naamgeving uitgegeven', 'Naamgeving ingetrokken');
-DROP TYPE IF EXISTS typeAdresseerbaarObject  CASCADE;
-CREATE TYPE typeAdresseerbaarObject AS ENUM ('Verblijfsobject', 'Standplaats', 'Ligplaats');
+-- DROP TYPE IF EXISTS nummeraanduidingStatus  CASCADE;
+-- CREATE TYPE nummeraanduidingStatus AS ENUM ('Naamgeving uitgegeven', 'Naamgeving ingetrokken');
+DROP TYPE IF EXISTS TypeAdresseerbaarObject  CASCADE;
+CREATE TYPE TypeAdresseerbaarObject AS ENUM ('Verblijfsobject', 'Standplaats', 'Ligplaats');
 
 -- Laat GDAL OGR deze tabel aanmaken, anders teveel performance verlies
 -- CREATE TABLE nummeraanduiding
@@ -63,24 +66,24 @@ CREATE TYPE typeAdresseerbaarObject AS ENUM ('Verblijfsobject', 'Standplaats', '
 --     huisletter character varying(1),
 --     huisnummertoevoeging character varying(4),
 --     postcode character varying(6),
---     typeadresseerbaarobject typeAdresseerbaarObject,
+--     typeadresseerbaarobject TypeAdresseerbaarObject,
 --     openbareruimteref character varying(16) not null,
 --     woonplaatsref character varying(16),
---     status statusNaamgeving,
+--     status StatusNaamgeving,
 --
 --     geconstateerd boolean,
 --     documentdatum date,
 --     documentnummer character varying(40),
 --     voorkomenidentificatie integer,
---     begingeldigheid timestamp with time zone,
---     eindgeldigheid timestamp with time zone,
---     tijdstipregistratie timestamp with time zone,
---     eindregistratie timestamp with time zone,
---     tijdstipinactief timestamp with time zone,
---     tijdstipregistratielv timestamp with time zone,
---     tijdstipeindregistratielv timestamp with time zone,
---     tijdstipinactieflv timestamp with time zone,
---     tijdstipnietbaglv timestamp with time zone,
+--     begingeldigheid timestamp without time zone,
+--     eindgeldigheid timestamp without time zone,
+--     tijdstipregistratie timestamp without time zone,
+--     eindregistratie timestamp without time zone,
+--     tijdstipinactief timestamp without time zone,
+--     tijdstipregistratielv timestamp without time zone,
+--     tijdstipeindregistratielv timestamp without time zone,
+--     tijdstipinactieflv timestamp without time zone,
+--     tijdstipnietbaglv timestamp without time zone,
 --
 --     PRIMARY KEY (gid)
 -- )
@@ -88,10 +91,10 @@ CREATE TYPE typeAdresseerbaarObject AS ENUM ('Verblijfsobject', 'Standplaats', '
 
 -- OPR
 DROP TABLE IF EXISTS openbareruimte CASCADE;
-DROP TYPE IF EXISTS openbareRuimteStatus;
-CREATE TYPE openbareRuimteStatus AS ENUM ('Naamgeving uitgegeven', 'Naamgeving ingetrokken');
-DROP TYPE IF EXISTS openbareRuimteType  CASCADE;
-CREATE TYPE openbareRuimteType AS ENUM (
+-- DROP TYPE IF EXISTS openbareRuimteStatus;
+-- CREATE TYPE openbareRuimteStatus AS ENUM ('Naamgeving uitgegeven', 'Naamgeving ingetrokken');
+DROP TYPE IF EXISTS TypeOpenbareRuimte  CASCADE;
+CREATE TYPE TypeOpenbareRuimte AS ENUM (
     'Weg',
     'Water',
     'Spoorbaan',
@@ -100,42 +103,42 @@ CREATE TYPE openbareRuimteType AS ENUM (
     'Landschappelijk gebied',
     'Administratief gebied');
 
-CREATE TABLE openbareruimte
-(
-    gid serial,
-    identificatie character varying(16),
-
-    naam character varying(80),
-    verkorteNaam character varying(24),
-    type openbareRuimteType,
-    woonplaatsref character varying(16),
-    status openbareRuimteStatus,
-
-    geconstateerd boolean,
-    documentdatum date,
-    documentnummer character varying(40),
-    voorkomenidentificatie integer,
-    begingeldigheid timestamp with time zone,
-    eindgeldigheid timestamp with time zone,
-    tijdstipregistratie timestamp with time zone,
-    eindregistratie timestamp with time zone,
-    tijdstipinactief timestamp with time zone,
-    tijdstipregistratielv timestamp with time zone,
-    tijdstipeindregistratielv timestamp with time zone,
-    tijdstipinactieflv timestamp with time zone,
-    tijdstipnietbaglv timestamp with time zone,
-
-    PRIMARY KEY (gid)
-)
-;
+-- CREATE TABLE openbareruimte
+-- (
+--     gid serial,
+--     identificatie character varying(16),
+--
+--     naam character varying(80),
+--     verkorteNaam character varying(24),
+--     type TypeOpenbareRuimte,
+--     woonplaatsref character varying(16),
+--     status StatusNaamgeving,
+--
+--     geconstateerd boolean,
+--     documentdatum date,
+--     documentnummer character varying(40),
+--     voorkomenidentificatie integer,
+--     begingeldigheid timestamp without time zone,
+--     eindgeldigheid timestamp without time zone,
+--     tijdstipregistratie timestamp without time zone,
+--     eindregistratie timestamp without time zone,
+--     tijdstipinactief timestamp without time zone,
+--     tijdstipregistratielv timestamp without time zone,
+--     tijdstipeindregistratielv timestamp without time zone,
+--     tijdstipinactieflv timestamp without time zone,
+--     tijdstipnietbaglv timestamp without time zone,
+--
+--     PRIMARY KEY (gid)
+-- )
+-- ;
 
 -- PND
 DROP TABLE IF EXISTS pand CASCADE;
-DROP TYPE IF EXISTS pandStatus  CASCADE;
+DROP TYPE IF EXISTS StatusPand  CASCADE;
 
 -- 2 nieuwe statussen t.o.v. BAG v1:
 -- 'Verbouwing pand','Pand ten onrechte opgevoerd'
-CREATE TYPE pandStatus AS ENUM (
+CREATE TYPE StatusPand AS ENUM (
     'Bouwvergunning verleend',
     'Niet gerealiseerd pand',
     'Bouw gestart',
@@ -156,21 +159,21 @@ CREATE TYPE pandStatus AS ENUM (
 --     
 --
 --     oorspronkelijkbouwjaar integer,
---     status pandStatus,
+--     status StatusPand,
 --
 --     geconstateerd boolean,
 --     documentdatum date,
 --     documentnummer character varying(40),
 --     voorkomenidentificatie integer,
---     begingeldigheid timestamp with time zone,
---     eindgeldigheid timestamp with time zone,
---     tijdstipregistratie timestamp with time zone,
---     eindregistratie timestamp with time zone,
---     tijdstipinactief timestamp with time zone,
---     tijdstipregistratielv timestamp with time zone,
---     tijdstipeindregistratielv timestamp with time zone,
---     tijdstipinactieflv timestamp with time zone,
---     tijdstipnietbaglv timestamp with time zone,
+--     begingeldigheid timestamp without time zone,
+--     eindgeldigheid timestamp without time zone,
+--     tijdstipregistratie timestamp without time zone,
+--     eindregistratie timestamp without time zone,
+--     tijdstipinactief timestamp without time zone,
+--     tijdstipregistratielv timestamp without time zone,
+--     tijdstipeindregistratielv timestamp without time zone,
+--     tijdstipinactieflv timestamp without time zone,
+--     tijdstipnietbaglv timestamp without time zone,
 --
 --     geovlak geometry(MultiPolygon, 28992),
 --
@@ -180,49 +183,49 @@ CREATE TYPE pandStatus AS ENUM (
 
 -- STA
 DROP TABLE IF EXISTS standplaats CASCADE;
-DROP TYPE IF EXISTS standplaatsStatus CASCADE;
-CREATE TYPE standplaatsStatus AS ENUM ('Plaats aangewezen', 'Plaats ingetrokken');
-CREATE TABLE standplaats
-(
-    gid serial,
-    identificatie character varying(16),
-
-    hoofdadresnummeraanduidingref character varying(16),
-    nevenadresnummeraanduidingref character varying(16) ARRAY,
-    status standplaatsStatus,
-
-    geconstateerd boolean,
-    documentdatum date,
-    documentnummer character varying(40),
-    voorkomenidentificatie integer,
-    begingeldigheid timestamp with time zone,
-    eindgeldigheid timestamp with time zone,
-    tijdstipregistratie timestamp with time zone,
-    eindregistratie timestamp with time zone,
-    tijdstipinactief timestamp with time zone,
-    tijdstipregistratielv timestamp with time zone,
-    tijdstipeindregistratielv timestamp with time zone,
-    tijdstipinactieflv timestamp with time zone,
-    tijdstipnietbaglv timestamp with time zone,
-
-    geovlak geometry(Polygon, 28992),
-
-    PRIMARY KEY (gid)
-)
-;
+-- DROP TYPE IF EXISTS standplaatsStatus CASCADE;
+-- CREATE TYPE standplaatsStatus AS ENUM ('Plaats aangewezen', 'Plaats ingetrokken');
+-- CREATE TABLE standplaats
+-- (
+--     gid serial,
+--     identificatie character varying(16),
+--
+--     hoofdadresnummeraanduidingref character varying(16),
+--     nevenadresnummeraanduidingref character varying(16) ARRAY,
+--     status StatusPlaats,
+--
+--     geconstateerd boolean,
+--     documentdatum date,
+--     documentnummer character varying(40),
+--     voorkomenidentificatie integer,
+--     begingeldigheid timestamp without time zone,
+--     eindgeldigheid timestamp without time zone,
+--     tijdstipregistratie timestamp without time zone,
+--     eindregistratie timestamp without time zone,
+--     tijdstipinactief timestamp without time zone,
+--     tijdstipregistratielv timestamp without time zone,
+--     tijdstipeindregistratielv timestamp without time zone,
+--     tijdstipinactieflv timestamp without time zone,
+--     tijdstipnietbaglv timestamp without time zone,
+--
+--     geovlak geometry(Polygon, 28992),
+--
+--     PRIMARY KEY (gid)
+-- )
+-- ;
 
 -- VBO
 DROP TABLE IF EXISTS verblijfsobject CASCADE;
-DROP TYPE IF EXISTS gebruiksdoelVerblijfsobject CASCADE;
-DROP TYPE IF EXISTS verblijfsobjectStatus CASCADE;
+DROP TYPE IF EXISTS GebruiksdoelType CASCADE;
+DROP TYPE IF EXISTS StatusVerblijfsobject CASCADE;
 
-CREATE TYPE gebruiksdoelVerblijfsobject AS ENUM (
+CREATE TYPE GebruiksdoelType AS ENUM (
 'woonfunctie','bijeenkomstfunctie','celfunctie','gezondheidszorgfunctie','industriefunctie','kantoorfunctie',
 'logiesfunctie','onderwijsfunctie','sportfunctie','winkelfunctie','overige gebruiksfunctie'
 );
 
 -- Nieuw in v2: 'Verbouwing verblijfsobject','Verblijfsobject ten onrechte opgevoerd'
-CREATE TYPE verblijfsobjectStatus AS ENUM (
+CREATE TYPE StatusVerblijfsobject AS ENUM (
     'Verblijfsobject gevormd',
     'Niet gerealiseerd verblijfsobject',
     'Verblijfsobject in gebruik (niet ingemeten)',
@@ -245,21 +248,21 @@ CREATE TYPE verblijfsobjectStatus AS ENUM (
 --     hoofdadresnummeraanduidingref character varying(16),
 --     nevenadresnummeraanduidingref character varying(16) ARRAY,
 --     pandref character varying(16) ARRAY,
---     status verblijfsobjectStatus,
+--     status StatusVerblijfsobject,
 --
 --     geconstateerd boolean,
 --     documentdatum date,
 --     documentnummer character varying(40),
 --     voorkomenidentificatie integer,
---     begingeldigheid timestamp with time zone,
---     eindgeldigheid timestamp with time zone,
---     tijdstipregistratie timestamp with time zone,
---     eindregistratie timestamp with time zone,
---     tijdstipinactief timestamp with time zone,
---     tijdstipregistratielv timestamp with time zone,
---     tijdstipeindregistratielv timestamp with time zone,
---     tijdstipinactieflv timestamp with time zone,
---     tijdstipnietbaglv timestamp with time zone,
+--     begingeldigheid timestamp without time zone,
+--     eindgeldigheid timestamp without time zone,
+--     tijdstipregistratie timestamp without time zone,
+--     eindregistratie timestamp without time zone,
+--     tijdstipinactief timestamp without time zone,
+--     tijdstipregistratielv timestamp without time zone,
+--     tijdstipeindregistratielv timestamp without time zone,
+--     tijdstipinactieflv timestamp without time zone,
+--     tijdstipnietbaglv timestamp without time zone,
 --
 --     geopunt geometry(Point,28992),
 --
@@ -269,35 +272,35 @@ CREATE TYPE verblijfsobjectStatus AS ENUM (
 
 -- WPL
 DROP TABLE IF EXISTS woonplaats CASCADE;
-DROP TYPE IF EXISTS woonplaatsStatus  CASCADE;
-CREATE TYPE woonplaatsStatus AS ENUM ('Woonplaats aangewezen', 'Woonplaats ingetrokken');
+DROP TYPE IF EXISTS StatusWoonplaats  CASCADE;
+CREATE TYPE StatusWoonplaats AS ENUM ('Woonplaats aangewezen', 'Woonplaats ingetrokken');
 
-CREATE TABLE woonplaats
-(
-    gid serial,
-    identificatie character varying(16),
-
-    naam character varying,
-    status woonplaatsStatus,
-
-    geconstateerd boolean,
-    documentdatum date,
-    documentnummer character varying(40),
-    voorkomenidentificatie integer,
-    begingeldigheid timestamp with time zone,
-    eindgeldigheid timestamp with time zone,
-    tijdstipregistratie timestamp with time zone,
-    eindregistratie timestamp with time zone,
-    tijdstipinactief timestamp with time zone,
-    tijdstipregistratielv timestamp with time zone,
-    tijdstipeindregistratielv timestamp with time zone,
-    tijdstipinactieflv timestamp with time zone,
-    tijdstipnietbaglv timestamp with time zone,
-
-    geovlak geometry(MultiPolygon, 28992),
-
-    PRIMARY KEY (gid)
-);
+-- CREATE TABLE woonplaats
+-- (
+--     gid serial,
+--     identificatie character varying(16),
+--
+--     naam character varying,
+--     status StatusWoonplaats,
+--
+--     geconstateerd boolean,
+--     documentdatum date,
+--     documentnummer character varying(40),
+--     voorkomenidentificatie integer,
+--     begingeldigheid timestamp without time zone,
+--     eindgeldigheid timestamp without time zone,
+--     tijdstipregistratie timestamp without time zone,
+--     eindregistratie timestamp without time zone,
+--     tijdstipinactief timestamp without time zone,
+--     tijdstipregistratielv timestamp without time zone,
+--     tijdstipeindregistratielv timestamp without time zone,
+--     tijdstipinactieflv timestamp without time zone,
+--     tijdstipnietbaglv timestamp without time zone,
+--
+--     geovlak geometry(MultiPolygon, 28992),
+--
+--     PRIMARY KEY (gid)
+-- );
 
 
 --
@@ -310,12 +313,11 @@ DROP TABLE IF EXISTS verblijfsobjectpand CASCADE;
 CREATE TABLE verblijfsobjectpand (
   gid SERIAL,
   identificatie character varying(16),
-  aanduidingRecordInactief boolean,
-  tijdstipinactief timestamp with time zone,
+  tijdstipinactief timestamp without time zone,
   voorkomenidentificatie integer,
-  begindatumtijdvakgeldigheid timestamp with time zone,
-  einddatumTijdvakGeldigheid timestamp with time zone,
-  verblijfsobjectStatus verblijfsobjectStatus,
+  begingeldigheid timestamp without time zone,
+  eindgeldigheid timestamp without time zone,
+  verblijfsobjectStatus StatusVerblijfsobject,
   gerelateerdpand character varying(16),
   PRIMARY KEY (gid)
 );
@@ -326,13 +328,12 @@ DROP TABLE IF EXISTS verblijfsobjectgebruiksdoel CASCADE;
 CREATE TABLE verblijfsobjectgebruiksdoel (
   gid serial,
   identificatie character varying(16),
-  aanduidingRecordInactief boolean,
-  tijdstipinactief timestamp with time zone,
+  tijdstipinactief timestamp without time zone,
   voorkomenidentificatie integer,
-  begindatumtijdvakgeldigheid timestamp with time zone,
-  einddatumTijdvakGeldigheid timestamp with time zone,
-  verblijfsobjectStatus verblijfsobjectStatus,
-  gebruiksdoelverblijfsobject gebruiksdoelVerblijfsobject,
+  begingeldigheid timestamp without time zone,
+  eindgeldigheid timestamp without time zone,
+  verblijfsobjectStatus StatusVerblijfsobject,
+  gebruiksdoelverblijfsobject GebruiksdoelType,
   PRIMARY KEY (gid)
 );
 
@@ -356,24 +357,24 @@ CREATE TABLE adresseerbaarobjectnevenadres (
   -- Nieuw in v2 - waarden: VBO LIG of STA
   typeadresseerbaarobject character varying(3),
 
-  ligplaatsStatus ligplaatsStatus,
-  standplaatsStatus standplaatsStatus,
-  verblijfsobjectStatus verblijfsobjectStatus,
+  ligplaatsStatus StatusPlaats,
+  standplaatsStatus StatusPlaats,
+  verblijfsobjectStatus StatusVerblijfsobject,
 
   -- "voorkomen" van gerelateerd Adresseerbaar object
   geconstateerd boolean,
   documentdatum date,
   documentnummer character varying(40),
   voorkomenidentificatie integer,
-  begingeldigheid timestamp with time zone,
-  eindgeldigheid timestamp with time zone,
-  tijdstipregistratie timestamp with time zone,
-  eindregistratie timestamp with time zone,
-  tijdstipinactief timestamp with time zone,
-  tijdstipregistratielv timestamp with time zone,
-  tijdstipeindregistratielv timestamp with time zone,
-  tijdstipinactieflv timestamp with time zone,
-  tijdstipnietbaglv timestamp with time zone,
+  begingeldigheid timestamp without time zone,
+  eindgeldigheid timestamp without time zone,
+  tijdstipregistratie timestamp without time zone,
+  eindregistratie timestamp without time zone,
+  tijdstipinactief timestamp without time zone,
+  tijdstipregistratielv timestamp without time zone,
+  tijdstipeindregistratielv timestamp without time zone,
+  tijdstipinactieflv timestamp without time zone,
+  tijdstipnietbaglv timestamp without time zone,
 
   -- Nieuw in v2
   -- MAAR: geopunt locatie is nog steeds die van Hoofdadres!
@@ -395,8 +396,8 @@ CREATE TYPE gemeenteWoonplaatsStatus AS ENUM (
 );
 CREATE TABLE gemeente_woonplaats (
   gid serial,
-  begingeldigheid timestamp with time zone,
-  eindgeldigheid timestamp with time zone,
+  begingeldigheid timestamp without time zone,
+  eindgeldigheid timestamp without time zone,
   woonplaatscode varchar(4),
   gemeentecode varchar(4),
   status gemeenteWoonplaatsStatus,
@@ -412,8 +413,8 @@ CREATE TABLE provincie_gemeente (
   provincienaam character varying(80),
   gemeentecode character varying(4),
   gemeentenaam character varying(80),
-  begindatum timestamp with time zone,
-  einddatum timestamp with time zone,
+  begindatum timestamp without time zone,
+  einddatum timestamp without time zone,
   PRIMARY KEY (gid)
 );
 
