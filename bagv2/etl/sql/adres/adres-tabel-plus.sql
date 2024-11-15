@@ -808,10 +808,16 @@ coalesce(winkelfunctie,0) as winkelfunctie ,
 coalesce(overige_gebruiksfunctie,0) as overige_gebruiksfunctie
 from crosstab (
   'SELECT
-  VBOGBD.identificatie as VBO_ID,   VBOGBD.gebruiksdoelverblijfsobject, count(  VBOGBD.*) as Aantal
+  VBOGBD.identificatie as VBO_ID,
+  VBOGBD.gebruiksdoelverblijfsobject,
+  (
+    SELECT count(identificatie)
+    FROM verblijfsobjectgebruiksdoelactueelbestaand AS b
+    WHERE b.identificatie = VBOGBD.identificatie
+      AND b.gebruiksdoelverblijfsobject = VBOGBD.gebruiksdoelverblijfsobject
+  ) as Aantal
 FROM
   verblijfsobjectgebruiksdoelactueelbestaand VBOGBD
-  group by   VBOGBD.identificatie ,   VBOGBD.gebruiksdoelverblijfsobject
  ',
 
   'select distinct gebruiksdoelverblijfsobject from   verblijfsobjectgebruiksdoelactueelbestaand order by 1'
