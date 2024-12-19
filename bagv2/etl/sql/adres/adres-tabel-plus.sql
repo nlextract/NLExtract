@@ -812,6 +812,7 @@ from crosstab (
 FROM
   verblijfsobjectgebruiksdoelactueelbestaand VBOGBD
   group by   VBOGBD.identificatie ,   VBOGBD.gebruiksdoelverblijfsobject
+order by 1,2
  ',
 
   'select distinct gebruiksdoelverblijfsobject from   verblijfsobjectgebruiksdoelactueelbestaand order by 1'
