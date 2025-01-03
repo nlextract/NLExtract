@@ -69,6 +69,10 @@
 -- extra pand niet-bestaand status: 'Pand ten onrechte opgevoerd'
 -- extra pand bestaand status: 'Verbouwing pand'
 
+--20241224 Peter van Wee
+-- nieuwe kolom toegevoegd (gerelateerde_panden_dit_VBO) met de panden die verbonden zijn bij het VBO_ID (comma gescheiden)
+-- momenteel is er 1 VBO (0758010000007915) met maar liefst 23 panden gekoppeld
+
 -- SET search_path TO bagactueel,public;
 set statement_timeout to 50000000;
 
@@ -1290,7 +1294,10 @@ DROP TABLE   if exists VBO_Actueelbestaand_met_aantal_verbonden_PND cascade;
 Create table VBO_Actueelbestaand_met_aantal_verbonden_PND as
 SELECT
   VBO_PND.identificatie as VBO_ID,VBO.verblijfsobjectstatus, text 'VBO' as typeadresseerbaarobject  ,
-  count(VBO_PND.gerelateerdpand) as AantalPND_VBO, max(VBO_PND.gerelateerdpand) as max_PND_ID, max(vbo.hoofdadres) as hoofdadres, max(VBO.oppervlakteverblijfsobject) as opp_verblijfsobject_m2
+  count(VBO_PND.gerelateerdpand) as AantalPND_VBO,
+  STRING_AGG(VBO_PND.gerelateerdpand, ',') as gerelateerde_panden,
+  
+  max(VBO_PND.gerelateerdpand) as max_PND_ID, max(vbo.hoofdadres) as hoofdadres, max(VBO.oppervlakteverblijfsobject) as opp_verblijfsobject_m2
 FROM
   verblijfsobjectpandactueelbestaand VBO_PND
   inner join verblijfsobjectactueelbestaand VBO on VBO_PND.identificatie = VBO.identificatie
@@ -1335,6 +1342,7 @@ SELECT
 	VBO.typeadresseerbaarobject,
 	VBO.verblijfsobjectstatus,
 	VBO.aantalpnd_vbo as Aantal_pand_relaties_dit_VBO,
+	vbo.gerelateerde_panden as gerelateerde_panden_dit_VBO,
 	vbo.hoofdadres,
 	vbo.opp_verblijfsobject_m2,
 	VBO_WOON.woningtype as VBO_woningtype,
@@ -1419,6 +1427,7 @@ SELECT
   VBO_GBD.winkelfunctie,
   VBO_GBD.overige_gebruiksfunctie,
   VBO_PND.aantal_pand_relaties_dit_vbo,
+  VBO_PND.gerelateerde_panden_dit_VBO,
   VBO_PND.pnd_id_uniek as pand_id ,
   VBO_PND.aantal_vbo_relaties_dit_pnd,
   VBO_PND.vbo_pnd_1_op_1,
