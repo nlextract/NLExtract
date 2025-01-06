@@ -4,7 +4,7 @@ NLExtract BAG is onderdeel van de NLExtract tools voor het inlezen en verrijken 
 (Basisregistratie Adressen en Gebouwen) GML leveringen (via o.a. PDOK) in (voorlopig) een Postgres/Postgis database.
 
 De BAG Leveringsbestanden (totaal plm 1.2 GB .zip) worden iedere maand ververst en zijn te downloaden via deze  
-link: http://geodata.nationaalgeoregister.nl/inspireadressen/atom/inspireadressen.xml (Atom feed).
+link: https://service.pdok.nl/kadaster/adressen/atom/v1_0/adressen.xml (Atom feed).
 
 NLExtract BAG biedt de volgende functionaliteiten:
 
