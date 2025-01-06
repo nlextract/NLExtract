@@ -97,7 +97,7 @@ class BAGDownloadPanel(scrolled.ScrolledPanel):
         scrolled.ScrolledPanel.__init__(self, parent)
 
         self.parent = parent
-        self.atom_url = 'http://geodata.nationaalgeoregister.nl/inspireadressen/atom/inspireadressen.xml'
+        self.atom_url = 'https://service.pdok.nl/kadaster/adressen/atom/v1_0/adressen.xml'
         self.extract_datum = 'ophalen...'
         self.extract_fsize = 'ophalen...'
         self.extract_url = 'ophalen...'

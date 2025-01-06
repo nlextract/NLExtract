@@ -17,7 +17,7 @@ BAG Bronbestanden downloaden
 ----------------------------
 
 De BAG Leveringsbestanden (totaal plm 1.5 GB .zip) worden iedere maand ververst en zijn te downloaden via deze
-PDOK link: https://geodata.nationaalgeoregister.nl/inspireadressen/atom/inspireadressen.xml (Atom feed).
+PDOK link: https://service.pdok.nl/kadaster/adressen/atom/v1_0/adressen.xml (Atom feed).
 Als je wilt testen met een kleiner bestand kun je via https://data.nlextract.nl/bag/bron/BAG_Amstelveen_2011feb01.zip
 ook de "BAG Amstelveen" (5.6 MB) downloaden. Let wel dat de bestandsstructuur van de Amstelveen-levering afwijkt van de tegenwoordige BAG-leveringen.
 
@@ -70,7 +70,7 @@ Instructies hieronder zijn voor Ubuntu 18.04. Bij andere distributies zal het en
 
 - Bronbestanden downloaden op de achtergrond (duurt wat langer) ::
     
-    $ wget https://geodata.nationaalgeoregister.nl/inspireadressen/extract/inspireadressen.zip &
+    $ wget https://service.pdok.nl/kadaster/adressen/atom/v1_0/downloads/lvbag-extract-nl.zip &
     
 - Bag-extract downloaden (pas eventueel versie aan) en uitpakken ::
     
@@ -334,6 +334,4 @@ Bij foutmeldingen als *COPY failed for table "nummeraanduiding": ERROR: value to
 heeft je "bag" database niet de **UTF8 character encoding** (zie boven). Check bij aanmaken, vooral op Windows,
 of je DB de character-encoding UTF8 heeft. Is later aan te passen.
 Zie ook `dit issue <https://github.com/nlextract/NLExtract/issues/217>`_.
-
-Zie https://docs.kademo.nl/project/bagextract.html voor een installatie voorbeeld.
 
