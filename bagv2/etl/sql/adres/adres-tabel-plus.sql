@@ -69,9 +69,13 @@
 -- extra pand niet-bestaand status: 'Pand ten onrechte opgevoerd'
 -- extra pand bestaand status: 'Verbouwing pand'
 
---20241224 Peter van Wee
+-- 20241224 Peter van Wee
 -- nieuwe kolom toegevoegd (gerelateerde_panden_dit_VBO) met de panden die verbonden zijn bij het VBO_ID (comma gescheiden)
 -- momenteel is er 1 VBO (0758010000007915) met maar liefst 23 panden gekoppeld
+
+-- 20250311 Just van den Broecke
+-- nieuwe text kolom toegevoegd 'openbareruimtetype',
+-- waarden: 'Weg','Water','Spoorbaan','Terrein','Kunstwerk','Landschappelijk gebied','Administratief gebied'
 
 -- SET search_path TO bagactueel,public;
 set statement_timeout to 50000000;
@@ -193,7 +197,7 @@ case when NAD.postcode is null then null else 1 end pchnhlht_UNIEK,
 NAD.identificatie as NAD_ID,
 OBR.openbareruimtenaam,
 OBR.verkorteopenbareruimtenaam,
-OBR.openbareruimtetype,
+OBR.openbareruimtetype::text as openbareruimtetype,
 NAD.huisnummer,
 NAD.huisletter,
 NAD.huisnummertoevoeging,
@@ -251,7 +255,7 @@ case when NAD.postcode is null then null else 1 end pchnhlht_UNIEK,
 NAD.identificatie as NAD_ID,
 OBR.openbareruimtenaam,
 OBR.verkorteopenbareruimtenaam,
-OBR.openbareruimtetype,
+OBR.openbareruimtetype::text as openbareruimtetype,
 NAD.huisnummer,
 NAD.huisletter,
 NAD.huisnummertoevoeging,
@@ -1391,7 +1395,9 @@ BEGIN;
 DROP TABLE IF EXISTS   adres_plus cascade;
 create table adres_plus as
 SELECT
-  adres.openbareruimtenaam, adres.verkorteopenbareruimtenaam ,
+  adres.openbareruimtenaam,
+  adres.verkorteopenbareruimtenaam,
+  adres.openbareruimtetype,
   adres.obr_id as openbareruimte_id,
   adres.huisnummer,
   adres.huisletter,
