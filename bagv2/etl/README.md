@@ -61,7 +61,7 @@ echo "\d+ test.verblijfsobject" | psql bagv2;
 mkdir work 
 
 # Download a BAG XML file from https://extracten.bag.kadaster.nl/lvbag/extracten
-# For example Doesburg (code 0221 march 2021): BAGGEM0221L-15032021.zip
+# For example Doesburg (code 0221 march 2021): BAGGEM0221L-15032021.zip (NIET MEER BESCHIKBAAR)
 curl -o work/bag.zip  https://extracten.bag.kadaster.nl/lvbag/extracten/Gemeente%20LVC/0221/BAGGEM0221L-15032021.zip
 
 # Single Municipality (Gemeente)
@@ -75,15 +75,25 @@ echo "select count(gid) from doesburg.pand" | psql bagv2
 #  13390
 # (1 row)
 
-# Case 3: Entire Netherlands (march 2021)
-curl -o work/bag.zip  https://extracten.bag.kadaster.nl/lvbag/extracten/Nederland%20LVC/BAGNLDL-08032021.zip
+# Case 3: Entire Netherlands (Oct 2025)
+curl -o work/bag.zip  https://service.pdok.nl/kadaster/adressen/atom/v1_0/downloads/lvbag-extract-nl.zip
 docker run --name nlextract --rm -v $(pwd)/work:/work nlextract/nlextract:latest bagv2/etl/etl.sh -a bag_input_file=/work/bag.zip
 
 # Stopping a process
 docker stop nlextract
 
+# Eigen options file (savu.args) en data BAGGEM0363L-15102021.zip (A'dam) en PostGIS op localhost draaiend. 
+# We mounten options met onze options file op /options en data bestand op /data in container.
+docker run --rm --name nlx_bag --network host -v $(pwd)/git/bagv2/etl/options:/work -v $(pwd)/data/BAGv2:/data nlextract/nlextract:latest bagv2/etl/etl.sh -a /work/savu.args -a bag_input_file=/data/BAGGEM0363L-15102021.zip
+
 ```
 
 ## Troubleshooting
-### Process killed for macOS users
-Als het process wordt gekilled tijdens het uitvoeren van `docker run --name nlextract --rm -v $(pwd)/work:/work nlextract/nlextract:latest bagv2/etl/etl.sh -a bag_input_file=/work/bag.zip`, kan het zijn dat Docker niet genoeg werkgeheugen tot zijn beschikking heeft. Als je Docker for Mac/Desktop gebruikt kan je meer gewerkgeheugen (RAM) toekennen in Preferences/Resources. Overweeg bijvoorbeeld 8GB. 
+
+### Process killed for MacOS users
+Als het process wordt gekilled tijdens het uitvoeren van 
+
+`docker run --name nlextract --rm -v $(pwd)/work:/work nlextract/nlextract:latest bagv2/etl/etl.sh -a bag_input_file=/work/bag.zip`, 
+
+kan het zijn dat Docker niet genoeg werkgeheugen tot zijn beschikking heeft. Als je Docker for Mac/Desktop gebruikt kan je meer werkgeheugen (RAM) toekennen in Preferences/Resources. 
+Overweeg bijvoorbeeld minimaal 16GB. Ook kun je de PostGIS Docker Container meer Shared Mem geven: met `--shm-size=2g` of `shm_size: 2gb` in een docker-compose.yml.
