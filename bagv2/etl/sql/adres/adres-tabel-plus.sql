@@ -77,9 +77,9 @@
 -- nieuwe text kolom toegevoegd 'openbareruimtetype',
 -- waarden: 'Weg','Water','Spoorbaan','Terrein','Kunstwerk','Landschappelijk gebied','Administratief gebied'
 
--- 20251005 Peter van Wee
+-- 20251007 Peter van Wee en Just van den Broecke
 -- Issue: https://github.com/nlextract/NLExtract/issues/409
--- Bij ontdubbelen de VBO status met 'Verblijfsobject in gebruik' voorrang gegeven op andere VBO statussen.
+-- Bij ontdubbelen de VBO status 'bestaand' voorrang gegeven op VBO status 'niet-bestaand'.
 
 -- SET search_path TO bagactueel,public;
 set statement_timeout to 50000000;
@@ -601,24 +601,23 @@ Select uniq_key,  count(*) as aantal from adres_te_ontdubbelen where verwijderen
 
 COMMIT;
 
--- 20251004  Alle b_adressen verwijderen met een VBO status <> 'Verblijfsobject in gebruik' waarvan de a_adressen
--- een vbo status = 'Verblijfsobject in gebruik' hebben ongeacht de status van het pand
+-- 20251004  Alle b_adressen verwijderen met een VBO status niet: 'Verblijfsobject in gebruik (niet ingemeten)', 'Verblijfsobject in gebruik',' Verbouwing verblijfsobject'
+-- waarvan de a_adressen een van deze deze statussen wel hebben ongeacht de status van het pand
 -- Zie https://github.com/nlextract/NLExtract/issues/409
 BEGIN;
 -- update adres_te_ontdubbelen
 
-SELECT PRINT_NOTICE('start: 10 Update_0'||current_time);
+SELECT PRINT_NOTICE('start: 10 Update_0 ontdubbel op VBO Status '||current_time);
 update adres_te_ontdubbelen
 set Verwijderen = 1
 where nad_id
 in(
 select distinct b_nad_id from adres_vergelijk
 where
-  (
-  ( a_adresseerbaarobject_status = 'Verblijfsobject in gebruik'
-  and b_adresseerbaarobject_status <> 'Verblijfsobject in gebruik' )
-  )
-) ;
+     a_adresseerbaarobject_status in ( 'Verblijfsobject in gebruik (niet ingemeten)', 'Verblijfsobject in gebruik',' Verbouwing verblijfsobject')
+  and
+    b_adresseerbaarobject_status  not in ( 'Verblijfsobject in gebruik (niet ingemeten)', 'Verblijfsobject in gebruik',' Verbouwing verblijfsobject')
+);
 COMMIT;
 
 
