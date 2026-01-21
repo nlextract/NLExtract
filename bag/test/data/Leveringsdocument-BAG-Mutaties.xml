@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<v20:BAG-Extract-Levering xsi:schemaLocation="http://www.kadaster.nl/schemas/bag-verstrekkingen/extract-levering/v20090901 http://www.kadaster.nl/schemas/bag-verstrekkingen/extract-levering/v20090901/BagvsExtractLeveringsdocument-1.3.xsd" xmlns:v20="http://www.kadaster.nl/schemas/bag-verstrekkingen/extract-levering/v20090901" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:v201="http://www.kadaster.nl/schemas/bag-verstrekkingen/extract-meta/v20090901" xmlns:v202="http://www.kadaster.nl/schemas/bag-verstrekkingen/extract-selecties/v20090901">
+    <v20:metadata>
+        <v201:Klantgegevens>
+            <v201:Klantnummer>648756</v201:Klantnummer>
+            <v201:Klantnaam>Kadaster Intern</v201:Klantnaam>
+        </v201:Klantgegevens>
+        <v201:Ordergegevens>
+            <v201:Ordernummer>5054816</v201:Ordernummer>
+            <v201:Leveringnummer>1000058020</v201:Leveringnummer>
+        </v201:Ordergegevens>
+        <v201:Bestelgegevens>
+            <v201:Besteldatum>2014-03-12</v201:Besteldatum>
+            <v201:Label>5-6 november</v201:Label>
+        </v201:Bestelgegevens>
+        <v201:Productgegevens>
+            <v201:Productcode>DNLDLXAM02</v201:Productcode>
+            <v201:Kanaal>DOWNLOAD</v201:Kanaal>
+            <v201:GebiedType>NLD</v201:GebiedType>
+            <v201:Gegevensvariant>MUTATIES</v201:Gegevensvariant>
+            <v201:Formaat>XML</v201:Formaat>
+            <v201:Producttype>EXTRACT</v201:Producttype>
+            <v201:Productversie>02</v201:Productversie>
+        </v201:Productgegevens>
+        <v201:BestandInfo>
+            <v201:Bestandsnaam>DNLDLXAM02-648756-5054816-05112018-06112018.zip</v201:Bestandsnaam>
+            <v201:Draaimoment>2018-11-09T03:02:22.282+01:00</v201:Draaimoment>
+        </v201:BestandInfo>
+    </v20:metadata>
+    <v20:antwoord>
+        <v20:vraag>
+            <v202:LVC-Extract>
+                <v202:gegVarLevenscyclus>false</v202:gegVarLevenscyclus>
+            </v202:LVC-Extract>
+            <v202:MUT-Extract>
+                <v202:mutaties>true</v202:mutaties>
+                <v202:Mutatievorm>
+                    <v202:mutatiebestand>true</v202:mutatiebestand>
+                </v202:Mutatievorm>
+                <v202:Mutatieperiode>
+                    <v202:MutatiedatumVanaf>2018-11-05+01:00</v202:MutatiedatumVanaf>
+                    <v202:MutatiedatumTot>2018-11-06+01:00</v202:MutatiedatumTot>
+                </v202:Mutatieperiode>
+                <v202:productcode>DNLDLXAM02</v202:productcode>
+            </v202:MUT-Extract>
+            <v202:Leverfrequentie>
+                <v202:periode>
+                    <v202:dag>true</v202:dag>
+                </v202:periode>
+            </v202:Leverfrequentie>
+            <v202:Gebied-Registratief>
+                <v202:Gebied-NLD>
+                    <v202:GebiedIdentificatie>4395</v202:GebiedIdentificatie>
+                    <v202:GebiedNaam>NLD-0096000647</v202:GebiedNaam>
+                    <v202:gebiedTypeNederland>true</v202:gebiedTypeNederland>
+                </v202:Gebied-NLD>
+            </v202:Gebied-Registratief>
+            <v202:SchemaInfo>
+                <v202:Schemanaam>BagvsExtractDeelbestandMutatieLvc-1.4.xsd</v202:Schemanaam>
+                <v202:Schemaversie>20090901</v202:Schemaversie>
+                <v202:XML>true</v202:XML>
+            </v202:SchemaInfo>
+        </v20:vraag>
+        <v20:producten/>
+    </v20:antwoord>
+</v20:BAG-Extract-Levering>
