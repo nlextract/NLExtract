@@ -16,7 +16,7 @@ openpyxl==3.1.5
 packaging==24.1
 psycopg2-binary==2.9.9
 Pygments==2.18.0
-requests==2.32.3
+requests==2.32.4
 setuptools==72.1.0
 snowballstemmer==2.2.0
 Sphinx==8.0.2
