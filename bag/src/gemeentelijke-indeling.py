@@ -409,7 +409,7 @@ def parse_xslx(args):
     cbs_data = hash()
 
     for sheet in workbook:
-        if sheet.title == 'Toelichting':
+        if sheet.title in ['Toelichting', 'Toellichting']:
             continue
 
         value = sheet.cell(row=1, column=1).value
